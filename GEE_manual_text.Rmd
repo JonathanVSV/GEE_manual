@@ -92,5 +92,5 @@ var qaImage = image.select(‘pixel_qa’);
       	return image.updateMask(clearData);
 };
 ```
-
+#aca estoy haciendo un cambio desde colombia
 Esto es lo nuevo, algo.
