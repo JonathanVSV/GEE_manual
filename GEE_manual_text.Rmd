@@ -1,0 +1,95 @@
+---
+title: "GEE_manual"
+author: "JVS"
+date: "7/5/2021"
+output: pdf_document
+---
+
+# ¿Qué es Google Earth Engine?
+
+Google Earth Engine es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica, por ejemplo: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras.
+
+# Ventajas
+
+Entre las principales ventajas de utilizar esta API radica en: 
+
+1. los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario).
+2. el procesamiento se hace en la nube utilizando el poder de cómputo asignado para la API, el cual supera el potencial de cualquier computadora de uso personal (lo cual permite realizar operaciones que de otra manera son imposibles).
+3. muchos datos se encuentran en distintos niveles de procesamiento, por lo cual, se pueden utilizar sin tener que realizar el pre procesamiento, lo cual facilita su uso (p.ej., Landsat datos crudos (raw data), o reflectancia en la superficie de la atmósfera (top of atmosphere) o reflectancia en la superficie terrestre (Surface reflectance))
+4. se pueden realizar consultas basadas en los metadatos lo cual permite limitar las imágenes a utilizar por área de interés, fecha de registro, características de nubosidad, geometría del registro (azimut, ángulo de elevación, entre otros), u otras propiedades de los productos.
+Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. En estos códigos se pueden realizar distintos tipos de procesamientos como aplicar filtros, realizar operaciones entre capas, cálculo de capas, métricas de textura, segmentación de objetos, reproyecciones, cálculo de estadísticas por regiones o de imágenes enteras, clasificaciones, entre otras.
+
+# Javascript o Python
+
+La API permite trabajar mediante la programación en lenguaje Javascript o Python. La primera tiene una interfaz gráfica que resulta más amigable con el usuario. Además, únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Por el contrario, la API de Python requiere de la instalación de diversos componentes en la computadora que se va a utilizar y una conexión a internet. En esta API no se cuenta con una interfaz gráfica y todo se realiza mediante la programación de comandos. Adicionalmente, la API de Javascript es la que cuenta con mayor documentación y ayuda, por lo cual, los autores consideramos que resulta la más sencilla de utilizar. Sin embargo, para algún usuario que utilice Python, la API de este lenguaje puede resultar más sencilla de utilizar ya que no requiere de aprender un nuevo lenguaje de programación.
+Javascript
+La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se puede considerar los siguientes puntos:
+
+1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que a puede ser un objeto y A, otro.
+2. Siempre se debe cerrar cualquier comando con un `;`.
+3. Comúnmente en Javascript se utiliza el lower Camel Case para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask` .
+4. Todas las variables, funciones, objetos deben ser definidos mediante la función var.
+5. Para definir variables se utiliza el operador `=`.
+6. Los operadores matemáticos son: `+ - * /`.
+7. Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
+8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
+9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
+10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado
+
+# Tipo de objetos
+
+Básicos (de parte del usuario)
+
+## Strings (cadenas de texto)
+
+Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un string. Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ‘’. Por ejemplo:
+
+```{js, echo = T}
+var cadena = “Esto es una cadena de caracteres”; //cadena de solo texto	
+var telefono= ‘1234567890’; //cadena de números 
+var direccion = ‘calle cuarta casa 16’; //cadena con números y texto
+```
+
+importante notar que los números en una String no serán interpretados como valores numéricos sino como un texto.
+
+## Number (números)
+
+Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un Number. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
+
+```{js, echo = T}
+var numero = 1; //número entero
+var numero2 = 2.5; //número decimal
+```
+
+importante notar que al declarar un objeto como Number no se hace uso de comillas.
+
+## Lists (listas)
+
+Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (Number) o cadenas de texto (String). Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo:
+
+```{js, echo = T}
+var lista = [1, 2, 3, 4, 5, 6, 7, 8]; //lista numérica
+var listaA = [“primero”, “segundo”, “tercero”]; //lista de texto
+var listaB = [“primero”, “segundo”, “tercero”, 4]; //lista con texto y número
+```
+
+Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella.
+
+```{js, echo = T}
+print( lista[0] ) //este elemento será: 1
+print( listaA[1] ) //este elemento será: “segundo”
+print( listaB[2] ) // este elemento será: “tercero”
+```
+
+## Functions
+
+Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función function seguida por el objeto al que se le aplicará la función y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función return. Por ejemplo:
+
+```{js, echo = T}
+var maskIm = function(image){
+var qaImage = image.select(‘pixel_qa’);
+      	var clearData = qaImage.eq(322);
+      	return image.updateMask(clearData);
+};
+```
+
