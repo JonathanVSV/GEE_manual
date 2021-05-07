@@ -94,3 +94,5 @@ var qaImage = image.select(‘pixel_qa’);
 ```
 
 Esto es lo nuevo, algo.
+
+Va, esto es otro nuevo
