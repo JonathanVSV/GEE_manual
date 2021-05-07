@@ -93,3 +93,4 @@ var qaImage = image.select(‘pixel_qa’);
 };
 ```
 
+Esto es lo nuevo, algo.
