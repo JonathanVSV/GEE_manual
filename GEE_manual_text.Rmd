@@ -12,7 +12,7 @@ output:
 \newpage
 # ¿Qué es Google Earth Engine?
 
-Google Earth Engine es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica, por ejemplo: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras.
+Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa. Por ello, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. 
 
 # Ventajas
 
@@ -24,10 +24,10 @@ Entre las principales ventajas de utilizar esta API radica en:
 4. se pueden realizar consultas basadas en los metadatos lo cual permite limitar las imágenes a utilizar por área de interés, fecha de registro, características de nubosidad, geometría del registro (azimut, ángulo de elevación, entre otros), u otras propiedades de los productos.
 Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. En estos códigos se pueden realizar distintos tipos de procesamientos como aplicar filtros, realizar operaciones entre capas, cálculo de capas, métricas de textura, segmentación de objetos, reproyecciones, cálculo de estadísticas por regiones o de imágenes enteras, clasificaciones, entre otras.
 
-# Javascript o Python
+# Lenguaje Javascript
 
-La API permite trabajar mediante la programación en lenguaje Javascript o Python. La primera tiene una interfaz gráfica que resulta más amigable con el usuario. Además, únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Por el contrario, la API de Python requiere de la instalación de diversos componentes en la computadora que se va a utilizar y una conexión a internet. En esta API no se cuenta con una interfaz gráfica y todo se realiza mediante la programación de comandos. Adicionalmente, la API de Javascript es la que cuenta con mayor documentación y ayuda, por lo cual, los autores consideramos que resulta la más sencilla de utilizar. Sin embargo, para algún usuario que utilice Python, la API de este lenguaje puede resultar más sencilla de utilizar ya que no requiere de aprender un nuevo lenguaje de programación.
-Javascript
+La API permite trabajar mediante la programación en lenguaje Javascript, en una interfaz gráfica que resulta más amigable con el usuario. Además, únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Adicionalmente, la API de Javascript es la que cuenta con mayor documentación y ayuda, por lo cual, los autores consideramos que resulta la más sencilla de utilizar. 
+
 La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se puede considerar los siguientes puntos:
 
 1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que a puede ser un objeto y A, otro.
@@ -41,7 +41,74 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado
 
-# Tipo de objetos
+
+# GEE Javascript API
+
+Lo primero que hay que hacer para poder utlizar la API Javascript de Google Earth Engine es ingresar a su sitio para registrarse como usuario. Para ello, hay que acceder a la siguient liga:
+
+**https://earthengine.google.com/**
+
+Después le damos click en la esquina superior derecha donde dice **Sign Up**. Ingresamos todos los datos que nos piden. Recordar que para utilizar GEE requerimos de una cuenta de Google para poder utilizar la API.
+
+Una vez realizado el registro, esperaremos unos minutos hasta que nos llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
+
+Una vez que tengamos dicha confirmación, podemos acceder a la API accediendo a la siguiente liga: 
+
+**https://code.earthengine.google.com/**
+
+e indicando la cuenta de Google con la que nos registramos.
+
+Una vez abierto la Javascript API, se observa la siguiente pantalla
+
+```{r out.width = "500px", echo = F}
+knitr::include_graphics("Img/GEE_inicio_API.png")
+```
+
+Los elementos de la API se enlistan a continuación:
+
+**Consola**
+
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función print.
+
+**Pantalla de Repositorios**
+
+Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios, folders y scripts para organizar éstos últimos. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Estos se pueden utilizar para determinar distintos niveles de acceso para distintos usuarios. Dentro de cada repositorio se puede asignar el control de acceso para otros usuarios.
+
+**Docs**
+
+Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran cargadas en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función.
+
+**Assets**
+
+En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster o vector únicamente.
+
+**Search**
+
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios.
+
+**Map**
+
+El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función Map.addLayer.
+
+**Layer manager**
+
+Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, permite modificar las características necesarias para su display.
+
+**Inspector**
+
+Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
+
+**Tasks**
+
+Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado.
+
+# Server vs Client side
+
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: “cadena”, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
+Existen casos excepcionales en lo cuales se prefiere utilizar el lado del servidor. Algunos de estos ejemplos incluyen los ciclos, condicionales. Para el caso del cliente se puede utilizar la función for; sin embargo, se recomienda utilizar la función map para realizar este tipo de ciclos del lado del servidor. Para el caso de los condiciones se sugiere utilizar en lugar de if y else, `ee.Algorithms.If`. Por otro lado, las funciones de exportar la información a algún archivo (ya sea un raster, un vector o una tabla) para utilizarlo fuera de GEE sólo corren del lado del cliente.
+
+
+# Tipos de objetos del lado del cliente
 
 Básicos (de parte del usuario)
 
@@ -92,61 +159,11 @@ Se refieren a objetos que contienen algún proceso que se realizará a alguna va
 
 ```{js, echo = T}
 var maskIm = function(image){
-var qaImage = image.select(‘pixel_qa’);
-      	var clearData = qaImage.eq(322);
-      	return image.updateMask(clearData);
+  var qaImage = image.select(‘pixel_qa’);
+  var clearData = qaImage.eq(322);
+  return image.updateMask(clearData);
 };
 ```
-
-# Javascript API
-
-Una vez abierto la Javascript API, se observa la siguiente pantalla
-
-```{r out.width = "500px", echo = F}
-knitr::include_graphics("Img/GEE_inicio.png")
-```
-
-
-**Consola**
-
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función print.
-
-**Pantalla de scripts**
-
-Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios, folders y scripts para organizar éstos últimos. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Estos se pueden utilizar para determinar distintos niveles de acceso para distintos usuarios. Dentro de cada repositorio se puede asignar el control de acceso para otros usuarios.
-
-**Docs**
-
-Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran cargadas en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función.
-
-**Assets**
-
-En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster o vector únicamente.
-
-**Search**
-
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios.
-
-**Map**
-
-El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función Map.addLayer.
-
-**Layer manager**
-
-Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, permite modificar las características necesarias para su display.
-
-**Inspector**
-
-Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
-
-**Tasks**
-
-Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado.
-
-**Server vs Client side**
-
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: “cadena”, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
-Existen casos excepcionales en lo cuales se prefiere utilizar el lado del servidor. Algunos de estos ejemplos incluyen los ciclos, condicionales. Para el caso del cliente se puede utilizar la función for; sin embargo, se recomienda utilizar la función map para realizar este tipo de ciclos del lado del servidor. Para el caso de los condiciones se sugiere utilizar en lugar de if y else, `ee.Algorithms.If`. Por otro lado, las funciones de exportar la información a algún archivo (ya sea un raster, un vector o una tabla) para utilizarlo fuera de GEE sólo corren del lado del cliente.
 
 # Tipo de objetos del lado del servidor
 
@@ -182,7 +199,7 @@ permite enviar un objeto como colección de atributos al servidor.
 
 Estas funciones permiten definir objetos como objetos en el lado del servidor o convertir objetos en el lado del cliente a del servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo objeto, por lo cual, se recomienda “castear” el objeto al tipo de objeto deseado antes de proseguir con su uso.
 
-# Trabajando con objetos de servidor
+# Trabajando con objetos del servidor
 
 La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar ImageCollection.filterBounds(area), mientras que para delimitar por fecha ImageCollection.filterDate(periodStart,periodEnd). Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
 
@@ -209,7 +226,8 @@ Map.addLayer(image, {bands: [‘B1’, ’B2’, ’B3’], min: 0, max: 2000}, 
 Para el caso de los features se puede realizar una operación similar como
 
 ```{js, echo = T}
-Map.addLayer(feature, {palette: [‘FF0000’, ‘FFFF00’,’ 008000’], min: 0, max: 10}, ‘featuresColored’);
+Map.addLayer(feature, {palette: [‘FF0000’, ‘FFFF00’,’ 008000’], min: 0, max: 10},
+‘featuresColored’);
 ```
 
 ## Chart
@@ -240,6 +258,118 @@ El límite de memoria destinado a objetos que se desean ver en consola, mediante
 
 Si un proceso muestra un error de computation timed out se puede elegir alterar los valores de scale o de bestEffort o Tiles para lograr que este corra.
 
+# Colecciones de imágenes
+
+## Características
+
+Las colecciones de imágenes son objetos de GEE que contienen un conjunto de imágenes. En GEE este tipo de objetos va a ser el que va a contener los acervos de imágenes disponibles. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos.
+
+## Información y metadatos
+
+Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que contienen. De tal manera, se puede utilizar esta información para filtrar y utilizar únicamente las imágenes que cumplen con ciertos criterios. Una forma sencilla de 
+
+## Filtros
+
+Los filtros permiten filtrar las colecciones de imágenes a partir de sus metadatos. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, características de las escenas (path, row, porcentaje de nubosidad), entre otras. 
+
+Para filtrar una colección de imágenes se van a utilizar los objetos `ee.Filter`. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se pueden utilizar:
+
+```{js, echo = T}
+ee.ImageCollection.filterDate(‘2015-01-01’,’2016-01-01’);
+```
+
+Por otro lado para filtrar espacialmente se puede realizar mediante:
+
+```{js, echo = T}
+ee.ImageCollection.filterBounds(polygon1); 
+```
+
+Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante:
+
+```{js, echo = T}
+ee.ImageCollection.filter(ee.Filter.lte(‘CLOUD_COVER’, 20));
+```
+
+### Ejemplo
+
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrata esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección.
+
+```{r out.width = "500px", echo = F}
+knitr::include_graphics("Img/Ruta_coleccion.png")
+```
+
+Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filta por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes: 'CLOUD_COVER_LAND', 'WRS_PATH', 'WRS_ROW'. En este caso se debe escribir exactamente igual el campo de los metadatos (CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (eq), distintos (neq), mayores (gt), menores (lt), mayores o igual (gte) o menores o iguales(lte).
+
+```{js, echo = T}
+var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+  .filterDate('2015-01-01','2016-01-01')
+  .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
+  .filter(ee.Filter.eq('WRS_PATH',28))
+  .filter(ee.Filter.eq('WRS_ROW',46));
+```
+
+Para ver los metadatos de la colección de imágenes se puede utilizar el siguiente comando.
+
+```{js, echo = T}
+print(L8imgCol);
+```
+
+Despues se navega en la consola a **Features**, después a cualquier imagen (**Image**) y por último a **properties**. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes.
+
+
+De igual manera se pueden seleccionar únicamente algunas bandas de las imágenes mediante:
+
+```{js, echo = T}
+L8imgCol.select([‘B1’,’B2’]);
+```
+
+## Mapeo
+
+Para realizar alguna operación sobre todas las imágenes de una ImageCollection se utilizar la función map(). Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
+
+```{js, echo = T}
+ee.ImageCollection.map(function(image){
+	return image.addBands(image.normalizedDifference(‘NIR’,’R’));
+});
+```
+
+Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo.
+
+## Reducción
+
+Las colecciones de imágenes también se pueden reducir para obtener mosaicos multitemporales. Para ello se utilizará la función reduce e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`. De tal manero, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, min  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()` Esto se puede realizar mediante el siguiente procedimiento:
+
+```{js, echo = T}
+ee.ImageCollection.reduce(ee.Reducer.mean());
+```
+
+## Compuestos y mosaicos
+
+Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: ee.ImageCollection.mosaic() y ee.ImageCollection.qualityMosaic(). La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de qualityMosaic() permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI.
+
+## Iteraciones
+
+Hay ocasiones donde se desea realizar una operación cíclica; sin embargo, esta operación requiere algún objeto de una iteración anteriore. Por ejemplo, podríamos querer calcular la diferencia de valores de NDVI de una imagen en un tiempo dado contra la imagen de un periodo de tiempo anterior. En este caso, la función que permite realizar este tipo de operaciones es .iterate();
+Debido a que el objeto que regresa iterate es indeterminado, se debe castear como lista y después se puede castear como ee.ImageCollection.
+**Esto hay que desarrollarlo porque está más complejo**
+
+## Creación de tus propias colecciones de imágenes
+
+Las colecciones de imágenes también se pueden crear mediante la asignación de un conjunto de imágenes en particular mediante la función: 
+
+```{js, echo = T}
+ee.ImageCollection.fromImages([ee.Image1, ee.Image2]);
+```
+
+También se pueden unir dos colecciones de imágenes mediante la función: 
+
+```{js, echo = T}
+ee.ImageCollection.merge(ee.ImageCollection);
+```
+
+Estás funciones van a ser de mucha utilidad para juntar resultados de varias imágenes en una sola colección o unir dos colecciones (p.ej., Landsat 7 y 8).
+
+
 # Manejo de imágenes
 
 ## Características de imágenes
@@ -248,7 +378,7 @@ Las imágenes que se encuentran disponibles en GEE corresponde a información en
 
 ## Visualización de imágenes
 
-Las imágenes se pueden visualizar en el área del mapa de la API mediante la función Map.addLayer(). Esta función tiene varias opciones que permiten visualizar las imágenes. Algunos de los argumentos que se pueden indicar son: bands, min max. Estos se deben pasar dentro de un {} como un diccionario a la función: Map.addLayer({bands: [‘B1’, ’B2, ’B3’], max: 10, min: 0}). Esta función también permite asignar colores mediante el argumento de palette y utilizar el código de colores hexadecimal. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
+Las imágenes se pueden visualizar en el área del mapa de la API mediante la función Map.addLayer(). Esta función tiene varias opciones que permiten visualizar las imágenes. Algunos de los argumentos que se pueden indicar son: bands, min max. Estos se deben pasar dentro de un {} como un diccionario a la función: `Map.addLayer({bands: [‘B1’, ’B2, ’B3’], max: 10, min: 0})`. Esta función también permite asignar colores mediante el argumento de palette y utilizar el código de colores hexadecimal. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
 
 ## Información y metadatos
 
@@ -361,95 +491,7 @@ source: image,
 maxDistance: 20 * 1000 // 20 km
 });
 ```
-# Colecciones de imágenes
 
-## Características
-
-Las colecciones de imágenes son objetos de GEE que contienen un conjunto de imágenes. Estas colecciones de imágenes se pueden crear mediante la asignación de un conjunto de imágenes en particular mediante la función: 
-
-```{js, echo = T}
-ee.ImageCollection.fromImages(). 
-```
-
-También se pueden unir dos colecciones de imágenes mediante la función: 
-
-```{js, echo = T}
-ee.ImageCollection.merge(ee.ImageCollection);
-```
-
-En GEE este tipo de objetos va a ser el que va a contener los acervos de imágenes disponibles. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos.
-
-## Información y metadatos
-
-Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que contienen. De tal manera, se puede utilizar esta información para filtrar y utilizar únicamente las imágenes que cumplen con ciertos criterios.
-
-## Filtros
-
-Los filtros permiten filtrar las colecciones de imágenes a partir de sus metadatos. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, características de las escenas (path, row, porcentaje de nubosidad), entre otras. 
-
-Para filtrar una colección de imágenes se van a utilizar los objetos ee.Filter. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se pueden utilizar:
-
-```{js, echo = T}
-ee.ImageCollection.filterDate(‘2015-01-01’,’2016-01-01’);
-```
-
-Por otro lado para filtrar espacialmente se puede realizar mediante:
-
-```{js, echo = T}
-ee.ImageCollection.filterBounds(polygon1); 
-```
-
-Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante:
-
-```{js, echo = T}
-ee.ImageCollection.filter(ee.Filter.lte(‘CLOUD_COVER’, 20));
-```
-
-En este caso se debe escribir exactamente igual el campo de los metadatos (CLOUD_COVER) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (eq), distintos (neq), mayores (gt), menores (lt), mayores o igual (gte) o menores o iguales(lte).
-De igual manera se pueden seleccionar únicamente algunas bandas de las imágenes mediante:
-
-```{js, echo = T}
-ee.ImageCollection.select([‘B1’,’B2’]);
-```
-
-Por último, se puede filtrar por todos los criterios anteriores mediante: 
-
-```{js, echo = T}
-ee.ImageCollection.filterDate(‘2015-01-01’,’2016-01-01’)
-  .filterBounds(polygon1)
-  .filter(ee.Filter.lte(‘CLOUD_COVER’, 20))
-  .select([‘B1’,’B2’]);
-```
-
-## Mapeo
-
-Para realizar alguna operación sobre todas las imágenes de una ImageCollection se utilizar la función map(). Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
-
-```{js, echo = T}
-ee.ImageCollection.map(function(image){
-	return image.addBands(image.normalizedDifference(‘NIR’,’R’));
-});
-```
-
-Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo.
-
-## Reducción
-
-Las colecciones de imágenes también se pueden reducir para obtener mosaicos multitemporales. Para ello se utilizará la función reduce e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`. De tal manero, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, min  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()` Esto se puede realizar mediante el siguiente procedimiento:
-
-```{js, echo = T}
-ee.ImageCollection.reduce(ee.Reducer.mean());
-```
-
-## Compuestos y mosaicos
-
-Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: ee.ImageCollection.mosaic() y ee.ImageCollection.qualityMosaic(). La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de qualityMosaic() permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI.
-
-## Iteraciones
-
-Hay ocasiones donde se desea realizar una operación cíclica; sin embargo, esta operación requiere algún objeto de una iteración anteriore. Por ejemplo, podríamos querer calcular la diferencia de valores de NDVI de una imagen en un tiempo dado contra la imagen de un periodo de tiempo anterior. En este caso, la función que permite realizar este tipo de operaciones es .iterate();
-Debido a que el objeto que regresa iterate es indeterminado, se debe castear como lista y después se puede castear como ee.ImageCollection.
-Esto hay que desarrollarlo porque está más complejo
 
 ## Google Earth Engine Apps (experimental)
 
