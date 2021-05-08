@@ -1,2 +1,3 @@
 # GEE_manual
-Manual para Google Earth Engine
+
+Este repositorio contiene los archivos para generar el manual de Google Earth Engine.
