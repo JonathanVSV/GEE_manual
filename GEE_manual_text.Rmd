@@ -20,7 +20,7 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 
 ## ¿Qué es Google Earth Engine?
 
-Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa. Por ello, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
+Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa, por lo cual, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
 
 ## Ventajas
 
@@ -35,9 +35,9 @@ Entre las principales ventajas de utilizar esta API radica en:
 
 ## Lenguaje Javascript
 
-La API permite trabajar mediante la programación en lenguaje Javascript, en una interfaz gráfica que resulta más amigable con el usuario. Además, únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Adicionalmente, la API de Javascript es la que cuenta con mayor documentación y ayuda, por lo cual, los autores consideramos que resulta la más sencilla de utilizar. 
+La API permite trabajar mediante la programación en lenguaje Javascript, en una interfaz gráfica que resulta más amigable con el usuario. Además, para utilizarla únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Existen otras opciones para trabajar con GEE, como la API de Python, sin embargo, los autores consideramos que la API de Javascript resulta la más sencilla de utilizar y se encuentra mejor documentada. 
 
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se puede considerar los siguientes puntos:
+La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos:
 
 1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que `a` puede ser un objeto y `A`, otro.
 2. Siempre se debe cerrar cualquier comando con un `;`.
@@ -66,7 +66,7 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API accediendo a 
 
 **https://code.earthengine.google.com/**
 
-y accediendo con la cuenta de Google con la que nos registramos.
+y se accede con la cuenta de Google con la que nos registramos.
 
 ## Elementos básicos de la interfaz gráfica
 
@@ -80,7 +80,7 @@ Los elementos de la API se enlistan a continuación:
 
 **Consola**
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función print.
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función `print`.
 
 **Pantalla de Repositorios**
 
@@ -92,7 +92,7 @@ Es un área donde se puede consultar todas las funciones y algoritmos que se enc
 
 **Assets**
 
-En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster o vector únicamente.
+En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector o separado por comas, únicamente.
 
 **Search**
 
@@ -100,7 +100,7 @@ Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios.
 
 **Map**
 
-El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función Map.addLayer.
+El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función `Map.addLayer`.
 
 **Layer manager**
 
@@ -118,8 +118,8 @@ Muestra los trabajos que se hayan exportado mediante la función Export.image o 
 
 ## Server vs Client side
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: “cadena”, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
-Existen casos excepcionales en lo cuales se prefiere utilizar el lado del servidor. Algunos de estos ejemplos incluyen los ciclos, condicionales. Para el caso del cliente se puede utilizar la función for; sin embargo, se recomienda utilizar la función map para realizar este tipo de ciclos del lado del servidor. Para el caso de los condiciones se sugiere utilizar en lugar de if y else, `ee.Algorithms.If`. Por otro lado, las funciones de exportar la información a algún archivo (ya sea un raster, un vector o una tabla) para utilizarlo fuera de GEE sólo corren del lado del cliente.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) sólo corren del lado del cliente.
 
 
 ## Tipos de objetos del lado del cliente
@@ -293,19 +293,19 @@ Permite enviar un objeto como colección de atributos  al servidor. Además, al 
 
 ### Otros objetos
 
-Dentro de GEE existen otros objetos del servidor que permiten realizar diferentes funciones como por ejemplo: ee.Algorithms, ee.Array, ee.Classifier, ee.ConfusionMatrix, ee.Geometry, ee.Model, entre otros. Cada uno de estos objetos se utiliza para una función distinta en GEE. Más adelante se revisarán algunos de los más comunmente utilizados.
+Dentro de GEE existen otros objetos del servidor que permiten realizar diferentes funciones como por ejemplo: `ee.Algorithms`, `ee.Array`, `ee.Classifier`, `ee.ConfusionMatrix`, `ee.Geometry`, `ee.Model`, entre otros. Cada uno de estos objetos se utiliza para una función distinta en GEE. Más adelante se revisarán algunos de los más comunmente utilizados.
  
 # Display de datos y exportación
 
-## Map
+## Map.addLayer
 
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma del display de los objetos y el nombre de la capa. Por ejemplo, se puede utilizar los siguientes parámetros para mostrar una imagen
+La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma del display de los objetos y el nombre de la capa. Por ejemplo, se puede utilizar los siguientes parámetros para mostrar una imagen. Como argumentos de la función se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
 ```
 
-Para el caso de los features se puede realizar una operación similar como
+Para el caso de los atributos (`features`) se puede realizar una operación similar como
 
 ```{js, echo = T}
 Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10},
@@ -314,15 +314,34 @@ Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10}
 
 ## Chart
 
-La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, por ejemplo, para los objetos Feature, Image o Array.
+La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`).
 
+Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar la serie de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
+
+```{js, echo = T}
+chart1 = ui.Chart.image.seriesByRegion({
+  imageCollection: coleccionImagenes, 
+  regions: areas.filter(ee.Filter.eq('Tipo','Deforestacion')),
+  reducer: ee.Reducer.mean(), 
+  band: 'NDVI', 
+  scale: 30, 
+  seriesProperty: 'Tipo'
+})
+  .setOptions({
+    title: 'Deforestacion',
+    colors: ['#EE3A19']
+  });
+```
+                                              
 ## Export
 
-Todo el procesamiento se puede realizar en la nube y únicamente el usuario puede exportar los resultados de interés. Sin embargo, sólo existen dos formatos válidos para exportar desde GEE: raster o vector.
+Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen dos formatos válidos para exportar desde GEE: raster o vector.
 
 Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
 
-Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (feature). Para el caso de tablas sin información geográfica asociada se debe definir el objeto como un objeto atributo sin geometría (es decir, null) y en la tabla de atributos anexar la información deseada.
+Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada.
+
+Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
 ```{js echo = T}
 Export.image.toDrive({
@@ -340,9 +359,9 @@ Export.image.toDrive({
 2. La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Por ello, todas las capas se trabajan en esa proyección. Si se requiere cambiar de proyección se puede utilizar la función `reproject`.
 3. Cuando se corre un script en la consola con el botón de Run, éste no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
 4. No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de éstas para que se pueda sobreescribir la característica de interés.
-5. Las funciones, al igual que las funciones para exportar, sólo funcionan si regresan un objeto de tipo Feature o Image, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
-6. El límite de memoria destinado a objetos que se desean ver en consola, mediante un print, tienen un tamaño mucho menor que el que se permite al únicamente correr un objeto con export. Por lo tanto, resulta una mejor práctica exportar los resultados, en lugar de mostrarlos en consola.
-7. Si un proceso muestra un error de "computation timed out" se puede elegir alterar los valores de scale o de bestEffort o Tiles para lograr que este corra.
+5. Las funciones, al igual que las funciones para exportar, sólo funcionan si regresan un objeto de tipo `Feature`, `FeatureCollection`, `Image` o `ImageCollections`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
+6. El límite de memoria destinado a objetos que se desean ver en consola, mediante un `print` o `Map.addLayer`, tienen un tamaño mucho menor que el que se permite al únicamente correr un objeto con `export`. Por lo tanto, resulta una mejor práctica exportar los resultados, en lugar de mostrarlos en consola.
+7. Si un proceso muestra un error de "computation timed out" se puede elegir alterar los valores de `scale` o de `bestEffort` o `Tiles` para lograr que este corra.
 
 # Features
 
@@ -616,14 +635,7 @@ Estás funciones van a ser de mucha utilidad para juntar resultados de varias im
 El último paso será cortar la imagen a una extensión de interés. En este caso primero se define un área de interés mediante coordenadas: 
 
 ```{js  echo = T}
-var geometry = 
-    /* color: #d63000 */
-    /* displayProperties: [
-      {
-        "type": "rectangle"
-      }
-    ] */
-    ee.Geometry.Polygon(
+var geometry = ee.Geometry.Polygon(
         [[[-101.82737418916153, 19.836437094032178],
           [-101.82737418916153, 19.368119068204525],
           [-101.15171500947403, 19.368119068204525],
