@@ -20,18 +20,48 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 
 ## ¿Qué es Google Earth Engine?
 
+
 Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa, por lo cual, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
 
-## Ventajas
+Google Earth Engine (GEE) es una plataforma que permite procesamiento geoespacial a gran escala, desarrollado por Google. Cuyo proposito consiste en poveer una herramienta interactiva para el desarrollo de analisis geoespacial a multiples escalas, permitiendo logar un avances cientificos de alto impacto a traves procesamiento de inmensas bases de datos.
+
+
+## ¿Cómo Funciona Google Earth Engine (GEE)?
+### background
+
+Desde hace varios años hay misisones espaciales tomando datos de la tierra a traves de distintos satelites. Y  toda esa informacion se ha ido almacenando en acervos de imagenes. Aunque esa informacion ha sido muy util en el desarrollo ciencitifco, siempre habia habido el problema de la "Big-Data" (bases de datos enormes). Es decir, dichos acervos de imagenes son de gran dimension (millones de imagenes disponibles), lo cual resultaba imposible de procesar y analisar toda la informacion disponible. evitando asi poder aprovechar el potencial total de esta información.
+
+Gee nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
+
+para logar este objetivo, se creó una infraestructura con 3 elementos claves que son quienes permiten el funcionameinto de GEE: catalogo de informacion, capacidad computacional, APIs
+
+#### Catálogo de información
+
+GEE, recopiló informacion geoespacial de diferentes fuentes al rededor del mundo, creó copias de esos datos en su propio datacenter logrando asi almacenar mas de 20 petabytes (20'000.000 de gigabytes) de informacion, en un solo lugar.
+
+GEE ofrece un amplio repositorio de información geográfica global, cuya informacion ya se encuentra cargada su catalogo, facilitando un sencillo acceso a diferentes Datasets. entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras.
+
+#### Capacidad computacional
+
+paralelamente GEE puso a dispocicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad mas o menos equivalente a 10.000 computadores personales), para poder realizar rapida y eficazmente calculos y computaciones sobre esos datos
+
+#### Api
+
+GEE es una API (Application Program Interface), lo que basicamente significa, es una interfaz que permite la comunicación entre nosotros (ususarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros analisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea.
+
+GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conocida, mas actualizada, mas amigable con los usuarios, con mas docuemntacion disponible, y sobre la cual estaremos hablando; y una API en Python, la cual se puede trabajar desde la consola de Pyhton y permite entonces -hasta cierto punto- usar complementariamente librerias de Python, permitiendo asi procesamientos mas complejos, o funcionalidades que la API de Java no permite. la APi de Pyhton tiene las desventajas que tiene menos documentacion, y tiene algunas diferencias (que pueden resutlar poco intuitivas) a la hora de programar.
+
+########Grafico########
+
+## Ventajas de la API de Java
 
 Entre las principales ventajas de utilizar esta API radica en: 
 
-1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario).
-2. El procesamiento se hace en la nube utilizando el poder de cómputo asignado para la API, el cual supera el potencial de cualquier computadora de uso personal. Esto permite realizar operaciones que de otra manera serían imposibles.
-3. Muchos datos se encuentran en distintos niveles de procesamiento, por lo cual, se pueden utilizar sin tener que realizar el pre procesamiento. Esto  facilita su uso (p.ej., Landsat datos crudos (raw data), o reflectancia en la superficie de la atmósfera (top of atmosphere) o reflectancia en la superficie terrestre (Surface reflectance))
-4. Se pueden realizar consultas basadas en los metadatos, lo cual permite limitar las imágenes a utilizar por área de interés, fecha de registro, características de nubosidad, geometría del registro (azimut, ángulo de elevación, entre otros), u otras propiedades de los productos.
+1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna libreria de pPython será necesaria la descarga de la informacion
+2. El procesamiento se hace en la nube, a traves de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexciaon estable y el consumo de ram depende del comsuno del navegador). en la API de Python hay mayor consumo de memporia RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
+3. su interfas es mucho mas amigable con los ususarios, ofreciendo una plataforma mas interactiva para programar, y mas sencilla para enseñar
+4. Se pueden realizar facilmente consultas de las colecciones de imagenes, y sus metadatos, antes de ecidir importarlos. la API de Pyhton no permite realizar ese tipo de consutas facilmente, de modo que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. 
-6. En GEE se pueden realizar distintos tipos de procesamientos como aplicar filtros, realizar operaciones entre capas, cálculo de capas, cálculo métricas de textura, segmentación de objetos, reproyecciones, cálculo de estadísticas por regiones o de imágenes enteras, clasificaciones, entre otras.
 
 ## Lenguaje Javascript
 
@@ -40,7 +70,7 @@ La API permite trabajar mediante la programación en lenguaje Javascript, en una
 La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos:
 
 1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que `a` puede ser un objeto y `A`, otro.
-2. Siempre se debe cerrar cualquier comando con un `;`.
+2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el codigo funcionara igualmente)
 3. Comúnmente en Javascript se utiliza el _lower Camel Case_ para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask` .
 4. Todas las variables, funciones, objetos deben ser definidos mediante la función `var`.
 5. Para definir variables se utiliza el operador `=`.
@@ -49,10 +79,13 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
 9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
+11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma linea
 
 
 # Primeros pasos
 ## Registro para el uso de GEE Javascript API
+
+######################graficos
 
 Lo primero que hay que hacer para poder utlizar la API Javascript de Google Earth Engine es ingresar a su sitio para registrarse como usuario. Para ello, hay que acceder a la siguient liga:
 
