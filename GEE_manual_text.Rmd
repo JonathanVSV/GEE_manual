@@ -20,7 +20,6 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 
 ## ¿Qué es Google Earth Engine?
 
-
 Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa, por lo cual, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
 
 Google Earth Engine (GEE) es una plataforma que permite procesamiento geoespacial a gran escala, desarrollado por Google. Cuyo proposito consiste en poveer una herramienta interactiva para el desarrollo de analisis geoespacial a multiples escalas, permitiendo logar un avances cientificos de alto impacto a traves procesamiento de inmensas bases de datos.
@@ -327,10 +326,30 @@ Permite enviar un objeto como colección de atributos  al servidor. Además, al 
 ### Otros objetos
 
 Dentro de GEE existen otros objetos del servidor que permiten realizar diferentes funciones como por ejemplo: `ee.Algorithms`, `ee.Array`, `ee.Classifier`, `ee.ConfusionMatrix`, `ee.Geometry`, `ee.Model`, entre otros. Cada uno de estos objetos se utiliza para una función distinta en GEE. Más adelante se revisarán algunos de los más comunmente utilizados.
- 
-# Display de datos y exportación
 
-## Map.addLayer
+### ee.Algorithms
+
+### ee.Array
+
+### ee. Clusterer
+
+### ee.Filter
+
+### ee.Geometry
+
+### ee.Join
+
+### ee.PixelType
+
+### ee.Terrain
+ 
+# Interfaz de usuario: Display de datos, gráficos y exportación
+
+## Map
+
+Permite agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla.
+
+### Map.addLayer
 
 La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma del display de los objetos y el nombre de la capa. Por ejemplo, se puede utilizar los siguientes parámetros para mostrar una imagen. Como argumentos de la función se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
 
@@ -345,9 +364,19 @@ Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10}
 'featuresColored');
 ```
 
+### Map.centerObject
+
+### Map.add
+
 ## Chart
 
 La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`).
+
+### Chart.array
+
+### Chart.feature
+
+### Chart.image
 
 Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar la serie de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
 
@@ -368,11 +397,11 @@ chart1 = ui.Chart.image.seriesByRegion({
                                               
 ## Export
 
-Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen dos formatos válidos para exportar desde GEE: raster o vector.
+Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
+
+### Export.image
 
 Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
-
-Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada.
 
 Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
@@ -385,6 +414,14 @@ Export.image.toDrive({
   folder: 'DiferenciaNDVIL8'
 }); 
 ```
+
+### Export.table
+
+Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada.
+
+### Export.map
+
+### Export.video
 
 ## Puntos para recordar
 
@@ -922,104 +959,3 @@ var exportTable = function(feature, name){
 exportTable(ee.FeatureCollection(expConfMatrix), 'confMatrix');
 exportTable(ee.FeatureCollection(expAccuracy), 'validAcc');
 ```
-
-# Análisis de series de tiempo
-
-### Ejercicio 5: Análisis de series de tiempo
-
-# Avanzado (Opcional)
-
-## Creación de tus propias colecciones de imágenes
-
-Las colecciones de imágenes también se pueden crear mediante la asignación de un conjunto de imágenes en particular mediante la función: 
-
-```{js, echo = T}
-ee.ImageCollection.fromImages([ee.Image1, ee.Image2]);
-```
-
-También se pueden unir dos colecciones de imágenes mediante la función: 
-
-```{js, echo = T}
-ee.ImageCollection.merge(ee.ImageCollection);
-```
-
-Ver where y expression
-
-** Esto quizás no tiene mucho caso de desarrollar, ya es como algo más avanzado**
-
-## Iteraciones
-
-Hay ocasiones donde se desea realizar una operación cíclica; sin embargo, esta operación requiere algún objeto de una iteración anteriore. Por ejemplo, podríamos querer calcular la diferencia de valores de NDVI de una imagen en un tiempo dado contra la imagen de un periodo de tiempo anterior. En este caso, la función que permite realizar este tipo de operaciones es .iterate();
-Debido a que el objeto que regresa iterate es indeterminado, se debe castear como lista y después se puede castear como ee.ImageCollection.
-**Esto hay que desarrollarlo porque está más complejo**
-
-## Transformaciones espectrales
-
-Algunas de las transformaciones espectrales que se pueden realizar en GEE incluyen: 1) el cálculo del índice de vegetación de diferencia normalizada (normalizedDifference()), el “spectral unmixing” (unmix()), y dos métodos para realizar “pansharpening” (rgbToHsv(y hsvToRgb())).
-
-En el caso del spectral unmixing se pueden definir los “spectral endmembers” por clase y por banda y luego utilizarlos para realizar el “unmixing”. En este caso se definen las clases como listas de valores por banda y posteriormente se realiza el unmix. Por ejemplo: 
-
-```{js, echo = T}
-var veg = [50, 80, 90, 42]
-var urban = [1, 20, 60, 70]
-var fractions = image.unmix([veg, urban]);
-```
-
-## Convoluciones
-
-Dentro de GEE se pueden realizar convoluciones como puede ser el aplicar algún tipo de filtro para suavisar o resaltar ciertos atributos. Esto se logra mediante la función .convolve(). Dentro de esta función se tiene que indicar un objeto de Kernel con las dimensiones y función que se desea aplicar. Por ejemplo, para aplicar un filtro Gaussiano se puede realizar mediante los siguientes comandos: 
-
-```{js, echo = T}
-ee.image.convolve(ee.Kernel.gaussian({radius: 7, sigma: 2, units: “pixels”}));
-```
-
-Dentro del kernel se puede indicar el radio a utilizar para aplicar el filtro, las unidades a utilizar (pixeles o metros) y la desviación estándar de la función gaussiana. Otro tipo de kernels se pueden utilizar en GEE entre los que se incluyen: `ee.Kernel.circle()`, `ee.Kernel.diamond()`, `ee.Kernel.euclidean()`, `ee.Kernel.rectangle()`, `ee.Kernel.cross()`, entre otros.
-
-Dentro de los kernels la opción de normalizar viene por default, en el cual la suma de todos los valores dentro del kernel (ya sean pixeles completos o no) suman 1. También se puede utilizar el argumento de magnitud para multiplicar cada valor dentro del kernel por este valor. 
-Para definir kernels propios se puede realizar mediante la función `ee.Kernel.fixed()`.
-
-## Operaciones morfológicas
-
-Se pueden realizar algunas operaciones morfológicas como calcular la media, moda, mínimo y máximo focales. Dentro de estas funciones también se debe definir el kernel que se va a utilizar para calcular estos valores. Por ejemplo, 
-
-```{js, echo = T}
-ee.image.focal_mode({kernel: ee.Kernel.circle({radius: 3), iterations: 1})
-```
-
-## Gradientes
-
-Esto no le entendí muy bien qué es
-
-## Detección de bordes
-
-Dentro de GEE existen algunos algoritmos pre construidos diseñados para la detección de bordes como: Canny edge detector, hough transform
-
-## Textura
-
-Dentro de GEE también existen funciones para calcular la textura GLCM de las imágenes. Estas variables incluyen 8 posibles texturas a calcular: contraste, disimilitud, homogeneidad, entropia, segundo momento angular, media, varianza y correlación. Estas variables se pueden calcular mediante el siguiente comando en el cual se indica el tamaño de ventana en pixeles a utilizar:
-
-```{js, echo = T}
-ee.image.glcmTexture({size: 4});
-```
-
-Por otro lado también se pueden calcular medidas de asociaciones espaciales entre los valores de los pixeles de una imagen utilizando Geary's C. 
-
-# Métodos basados en objetos
-
-## Mapeo de costos acumulativos
-
-El calculo de mapas de costo se puede realizar en GEE mediante la función: 
-
-```{js, echo = T}
-cost.cumulativeCost({
-source: image,
-maxDistance: 20 * 1000 // 20 km
-});
-```
-
-
-# Google Earth Engine Apps (experimental)
-
-# Google Earth Engine cuenta con un módulo para facilitar la implementación de Apps a partir de códigos realizados por el usuario.
-
-# TensorFlow
