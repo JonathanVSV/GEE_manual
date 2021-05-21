@@ -5,6 +5,7 @@ header-includes:
 author: "JVS GP JFM"
 output: 
   pdf_document:
+    extra_dependencies: awesomebox
     toc: true
     toc_depth: 3
 ---
@@ -14,23 +15,28 @@ output:
 knitr::opts_chunk$set(out.width = "500px", dpi=150)
 ```
 
-\newpage
+```{=latex}
+% Para cambiar los parámetros por default de las cajas de tips o notas
+\setlength{\aweboxleftmargin}{0.1\linewidth}.
+\setlength{\aweboxcontentwidth}{0.85\linewidth}
+\setlength{\aweboxvskip}{8mm}
+\setlength{\aweboxrulewidth}{5pt}
+\definecolor{abvrulecolor}{RGB}{48,90,255}
+```
 
+\newpage
 # Introducción
 
 ## ¿Qué es Google Earth Engine?
 
-Google Earth Engine (GEE) es una API (Application Program Interface) que permite tener acceso y hacer uso de los servidores de Google, así como de un amplio repositorio de información geográfica. Esta API tiene el objetivo de facilitar la creación de un programa, por lo cual, cuenta con una serie de funciones, métodos y algoritmos que se pueden llamar con una simpe línea. Por otro lado, entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras. Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
-
-Google Earth Engine (GEE) es una plataforma que permite procesamiento geoespacial a gran escala, desarrollado por Google. Cuyo proposito consiste en poveer una herramienta interactiva para el desarrollo de analisis geoespacial a multiples escalas, permitiendo logar un avances cientificos de alto impacto a traves procesamiento de inmensas bases de datos.
-
+Google Earth Engine (GEE) es una plataforma, desarrollada por Google, que permite realizar procesamientos geoespaciales a gran escala y utilizando bases de datos inmensas.
 
 ## ¿Cómo Funciona Google Earth Engine (GEE)?
 ### background
 
 Desde hace varios años hay misisones espaciales tomando datos de la tierra a traves de distintos satelites. Y  toda esa informacion se ha ido almacenando en acervos de imagenes. Aunque esa informacion ha sido muy util en el desarrollo ciencitifco, siempre habia habido el problema de la "Big-Data" (bases de datos enormes). Es decir, dichos acervos de imagenes son de gran dimension (millones de imagenes disponibles), lo cual resultaba imposible de procesar y analisar toda la informacion disponible. evitando asi poder aprovechar el potencial total de esta información.
 
-Gee nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
+GEE nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
 
 para logar este objetivo, se creó una infraestructura con 3 elementos claves que son quienes permiten el funcionameinto de GEE: catalogo de informacion, capacidad computacional, APIs
 
@@ -40,13 +46,17 @@ GEE, recopiló informacion geoespacial de diferentes fuentes al rededor del mund
 
 GEE ofrece un amplio repositorio de información geográfica global, cuya informacion ya se encuentra cargada su catalogo, facilitando un sencillo acceso a diferentes Datasets. entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, capas como el WorldClim, límites políticos, densidad poblacional, cuencas, WWF watersheds (cuencas), entre otras.
 
+::: {.tipblock data-latex=""}
+Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
+:::
+
 #### Capacidad computacional
 
-paralelamente GEE puso a dispocicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad mas o menos equivalente a 10.000 computadores personales), para poder realizar rapida y eficazmente calculos y computaciones sobre esos datos
+Paralelamente GEE puso a dispocicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad mas o menos equivalente a 10.000 computadores personales), para poder realizar rapida y eficazmente calculos y computaciones sobre esos datos
 
-#### Api
+#### API
 
-GEE es una API (Application Program Interface), lo que basicamente significa, es una interfaz que permite la comunicación entre nosotros (ususarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros analisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea.
+GEE es una API (Application Program Interface), lo que basicamente significa, es una interfaz que permite la comunicación entre nosotros (ususarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros analisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea. 
 
 GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conocida, mas actualizada, mas amigable con los usuarios, con mas docuemntacion disponible, y sobre la cual estaremos hablando; y una API en Python, la cual se puede trabajar desde la consola de Pyhton y permite entonces -hasta cierto punto- usar complementariamente librerias de Python, permitiendo asi procesamientos mas complejos, o funcionalidades que la API de Java no permite. la APi de Pyhton tiene las desventajas que tiene menos documentacion, y tiene algunas diferencias (que pueden resutlar poco intuitivas) a la hora de programar.
 
@@ -57,8 +67,8 @@ GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conoci
 Entre las principales ventajas de utilizar esta API radica en: 
 
 1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna libreria de pPython será necesaria la descarga de la informacion
-2. El procesamiento se hace en la nube, a traves de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexciaon estable y el consumo de ram depende del comsuno del navegador). en la API de Python hay mayor consumo de memporia RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
-3. su interfas es mucho mas amigable con los ususarios, ofreciendo una plataforma mas interactiva para programar, y mas sencilla para enseñar
+2. El procesamiento se hace en la nube, a traves de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexciaon estable y el consumo de ram depende del comsuno del navegador). en la API de Python hay mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
+3. Su interfaz es mucho mas amigable con los ususarios, ofreciendo una plataforma mas interactiva para programar, y mas sencilla para enseñar
 4. Se pueden realizar facilmente consultas de las colecciones de imagenes, y sus metadatos, antes de ecidir importarlos. la API de Pyhton no permite realizar ese tipo de consutas facilmente, de modo que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. 
 
@@ -80,7 +90,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
 11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma linea
 
-
+\newpage
 # Primeros pasos
 ## Registro para el uso de GEE Javascript API
 
@@ -90,9 +100,13 @@ Lo primero que hay que hacer para poder utlizar la API Javascript de Google Eart
 
 **https://earthengine.google.com/**
 
-Después le damos click en la esquina superior derecha donde dice **Sign Up**. Ingresamos todos los datos que nos piden. Recordar que para utilizar GEE requerimos de una cuenta de Google para poder utilizar la API.
+Después le damos click en la esquina superior derecha donde dice **Sign Up**. Se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE requerimos de una cuenta de Google para poder utilizar la API.
 
-Una vez realizado el registro, esperaremos unos minutos hasta que nos llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
+::: {.tipblock data-latex=""}
+Se recomienda dar de alta una cuenta de Google que tenga suficiente espacio disponible en Google Drive, ya que será la forma más fácil de exportar los resultados generados en GEE.
+:::
+
+Una vez realizado el registro, hay que esperar unos minutos hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
 
 Una vez que tengamos dicha confirmación, podemos acceder a la API accediendo a la siguiente liga: 
 
@@ -117,6 +131,10 @@ La consola consiste en la pantalla de comunicación con el servidor. En ella se 
 **Pantalla de Repositorios**
 
 Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios, folders y scripts para organizar éstos últimos. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Estos se pueden utilizar para determinar distintos niveles de acceso para distintos usuarios. Dentro de cada repositorio se puede asignar el control de acceso para otros usuarios.
+
+::: {.tipblock data-latex=""}
+El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio).
+:::
 
 **Docs**
 
@@ -146,6 +164,7 @@ Permite consultar los valores de las capas que se muestran en el mapa, al dar cl
 
 Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado.
 
+\newpage
 # Tipos de objetos
 
 ## Server vs Client side
@@ -153,19 +172,16 @@ Muestra los trabajos que se hayan exportado mediante la función Export.image o 
 Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
 En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) sólo corren del lado del cliente.
 
-
 ## Tipos de objetos del lado del cliente
-
-Básicos (de parte del usuario)
 
 ### Strings (cadenas de texto)
 
 Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un string. Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo:
 
 ```{js, echo = T}
-var cadena = “Esto es una cadena de caracteres”; //cadena de solo texto	
-var telefono= '1234567890'; //cadena de números 
-var direccion = 'calle cuarta casa 16'; //cadena con números y texto
+var cadena = “Esto es una cadena de caracteres”;
+var telefono= '1234567890'; 
+var direccion = 'calle cuarta casa 16';
 ```
 
 Resulta importante notar que los números en un String no serán interpretados como valores numéricos sino como texto.
@@ -175,8 +191,8 @@ Resulta importante notar que los números en un String no serán interpretados c
 Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un Number. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
 
 ```{js, echo = T}
-var numero = 1; //número entero
-var numero2 = 2.5; //número decimal
+var numero = 1; 
+var numero2 = 2.5; 
 ```
 
 Resulta importante notar que al declarar un objeto como Number no se hace uso de comillas.
@@ -186,17 +202,17 @@ Resulta importante notar que al declarar un objeto como Number no se hace uso de
 Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (Number) o cadenas de texto (String). Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo:
 
 ```{js, echo = T}
-var lista = [1, 2, 3, 4, 5, 6, 7, 8]; //lista numérica
-var listaA = [“primero”, “segundo”, “tercero”]; //lista de texto
-var listaB = [“primero”, “segundo”, “tercero”, 4]; //lista con texto y número
+var lista = [1, 2, 3, 4, 5, 6, 7, 8]; 
+var listaA = [“primero”, “segundo”, “tercero”]; 
+var listaB = [“primero”, “segundo”, “tercero”, 4]; 
 ```
 
 Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella.
 
 ```{js, echo = T}
-print(lista[0]); //este elemento será: 1
-print(listaA[1]); //este elemento será: “segundo”
-print(listaB[2]); // este elemento será: “tercero”
+print(lista[0]); 
+print(listaA[1]); 
+print(listaB[2]); 
 ```
 
 ### Diccionarios (Dictionaries)
@@ -213,8 +229,8 @@ var dicc = {
 Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada.
 
 ```{js, echo = T}
-print(dicc["clave1"]); // Esto devuelve 1
-print(dicc["clave2"]); // Esto devuelve "A"
+print(dicc["clave1"]); 
+print(dicc["clave2"]); 
 ```
 
 ### Funciones (Functions)
@@ -235,7 +251,11 @@ Estas funciones permiten definir objetos como objetos en el lado del servidor o 
 
 Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se puede consultar en la sección de **Client libraries**: https://developers.google.com/earth-engine/apidocs
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. Todos los objetos del servidor comienzan con `ee`.
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. 
+
+::: {.tipblock data-latex=""}
+Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo  `ee`, seguido del nombre del tipo de objeto con mayúsculas.
+:::
 
 ### ee.String
 
@@ -304,7 +324,6 @@ var fecha2 = ee.Date.fromYMD(2015,01,01);
 
 print("Fecha como ee.Date",fecha);
 print("Fecha como ee.Date también",fecha2);
-
 ```
 
 ### ee.Image
@@ -323,26 +342,39 @@ Permite enviar un objeto como atributo al servidor. Además, al definir un objet
 
 Permite enviar un objeto como colección de atributos  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection** al revisar las librerías disponibles en la API (ver liga anterior). Las colecciones de atributos están formadas por atributos. Más adelante se explican con mayor detalle.
 
-### Otros objetos
-
-Dentro de GEE existen otros objetos del servidor que permiten realizar diferentes funciones como por ejemplo: `ee.Algorithms`, `ee.Array`, `ee.Classifier`, `ee.ConfusionMatrix`, `ee.Geometry`, `ee.Model`, entre otros. Cada uno de estos objetos se utiliza para una función distinta en GEE. Más adelante se revisarán algunos de los más comunmente utilizados.
-
 ### ee.Algorithms
+
+Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes `ee.Algorithms.TemporalSegmentation.Ccdc`.
 
 ### ee.Array
 
-### ee. Clusterer
+Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (p.ej., filas y columnas). Su uso más común se da en análisis de series de tiempo con imágenes. Este tipo de objetos cuentan con una serie de funciones, las cuales se pueden consultar bajo la librería de **ee.Array** (ver liga anterior).
+
+### ee.Clusterer
+
+Este tipo de objetos corresponden a algoritmos de agrupamiento de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _k-means_, disponible mediante la función `ee.Clusterer.wekaKMeans` o _Cobweb_, disponible mediante la función `ee.Clusterer.wekaCobweb`.
 
 ### ee.Filter
 
+Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de atributos o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o atributis. Por otro lado, también contienen funciones para combinar filtros. 
+
 ### ee.Geometry
+
+Este tipo de objetos corresponden a distintos tipos de geometrías, desde líneas, polígono y puntos. En GEE se encuentran varias funciones que se pueden aplicar sobre este tipo de objetos, p.ej., `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o calcular el área `ee.Geometry.Polygon.area`.
 
 ### ee.Join
 
-### ee.PixelType
+Este conjunto de funciones permite realizar uniones entre colecciones de atributos, utilizando los campos de éstos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de atributos mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`
 
 ### ee.Terrain
- 
+
+Este conjunto de funciones permite calcular algunas operaciones topográficas básicas como calcular el aspecto a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran las funciones `ee.Terrain.Aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente,
+
+::: {.tipblock data-latex=""}
+Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o `get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
+:::
+
+\newpage 
 # Interfaz de usuario: Display de datos, gráficos y exportación
 
 ## Map
@@ -351,7 +383,9 @@ Permite agregar objetos del lado del servidor a la pantalla de mapas, así como 
 
 ### Map.addLayer
 
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma del display de los objetos y el nombre de la capa. Por ejemplo, se puede utilizar los siguientes parámetros para mostrar una imagen. Como argumentos de la función se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
+La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Como argumentos de la función `Map.addLayer` se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
+
+Al utilizar `Map.addLayer` sobre una imagen se se pueden indicar los siguientes argumentos: `bands`, `min` o `max`. Estos se deben pasar dentro de un `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
@@ -364,9 +398,17 @@ Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10}
 'featuresColored');
 ```
 
+::: {.tipblock data-latex=""}
+El código de los colores pasados al argumento de _palette_ corresponden a códigos hexadecimales de color.
+:::
+
 ### Map.centerObject
 
 ### Map.add
+
+::: {.tipblock data-latex=""}
+En algunas ocasiones, al intentar cargar objetos, que sean producto de procesamientos demandantes, en la pantalla de mapas, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas. 
+:::
 
 ## Chart
 
@@ -394,6 +436,10 @@ chart1 = ui.Chart.image.seriesByRegion({
     colors: ['#EE3A19']
   });
 ```
+
+::: {.tipblock data-latex=""}
+El nombre de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
+:::
                                               
 ## Export
 
@@ -415,6 +461,10 @@ Export.image.toDrive({
 }); 
 ```
 
+::: {.tipblock data-latex=""}
+En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de pixeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de pixeles. En este caso, se debe aumentar el número de pixeles máximo permitido para la exportación. Esto se logra indicando el argumento `maxPixels` dentro del diccionario que se pasa a Export.image.toDrive. Por ejemplo, `maxPixels: 1e10`, lo cual permite exportar una imagen con hasta 1 x 10^10 pixeles.
+:::
+
 ### Export.table
 
 Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada.
@@ -433,12 +483,15 @@ Por su parte, el formato vector permite exportar información vector y tablas si
 6. El límite de memoria destinado a objetos que se desean ver en consola, mediante un `print` o `Map.addLayer`, tienen un tamaño mucho menor que el que se permite al únicamente correr un objeto con `export`. Por lo tanto, resulta una mejor práctica exportar los resultados, en lugar de mostrarlos en consola.
 7. Si un proceso muestra un error de "computation timed out" se puede elegir alterar los valores de `scale` o de `bestEffort` o `Tiles` para lograr que este corra.
 
+\newpage
 # Features
 
 ## Trazado de polígonos, líneas, puntos
 
+\newpage
 # Feature Collections
 
+\newpage
 # Imagen
 
 ## Características
@@ -471,6 +524,10 @@ función:
 ee.Image.clip();
 ```
 
+::: {.tipblock data-latex=""}
+Se sugiere evitar el uso de la función `clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
+:::
+
 ## Operaciones matemáticas
 
 Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `ee.Image.subtract(), .add(), .divide(), .multiply()`. Además, GEE cuenta con una función de `.normalizedDifference()` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `ee.Image.normalizedDifference(['B4' , 'B3'])`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression()`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
@@ -492,9 +549,10 @@ Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las i
 ee.Image.lte(0.2).and(ee.Image.gte(0));
 ```
 
+\newpage
 # Colecciones de imágenes
 
-La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar ImageCollection.filterBounds(area), mientras que para delimitar por fecha ImageCollection.filterDate(periodStart,periodEnd). Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
+La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds(area)`, mientras que para delimitar por fecha `ImageCollection.filterDate(periodStart,periodEnd)`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
 
 Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función map.
 
@@ -527,10 +585,6 @@ Si se desea filtrar por alguna característica de los metadatos se puede hacer m
 ```{js, echo = T}
 ee.ImageCollection.filter(ee.Filter.lte('CLOUD_COVER', 20));
 ```
-
-## Visualización de imágenes
-
-Las imágenes se pueden visualizar en el área del mapa de la API mediante la función `Map.addLayer()`. Esta función tiene varias opciones que permiten visualizar las imágenes. Algunos de los argumentos que se pueden indicar son: `bands`, `min` o `max`. Estos se deben pasar dentro de un `{}` como un diccionario a la función: `Map.addLayer({bands: ['B1', 'B2, 'B3'], max: 10, min: 0})`. Esta función también permite asignar colores mediante el argumento de `palette` y utilizar el código de colores hexadecimal. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
 
 ### Ejercicio 1: Filtro de colección de imágenes y visualización
 
@@ -592,7 +646,15 @@ ee.ImageCollection.map(function(image){
 });
 ```
 
-Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`)
+::: {.tipblock data-latex=""}
+Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas.
+:::
+
+Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
+
+::: {.tipblock data-latex=""}
+La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del servidor como `print`, `Map`, `Export`, `Chart`.
+:::
 
 ## Reducción
 
@@ -604,7 +666,9 @@ Para reducir una colección de imágenes se utilizará la función `reduce` e in
 ee.ImageCollection.reduce(ee.Reducer.mean());
 ```
 
+::: {.tipblock data-latex=""}
 Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imágen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean()` sobre una colección de imágenes cuyas bandas se llaman `B1` y `B2`, las bandas de la imagen producto de la reducción se llamarán `B1_mean` y `B2_mean`.
+:::
 
 ## Compuestos y mosaicos
 
@@ -629,6 +693,10 @@ function maskL8sr(image) {
 }
 ```
 
+::: {.tipblock data-latex=""}
+Aunque en GEE existe la función `mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `updateMask`. La función `mask` simplemente substituye la máscara original de la imagen, mientras que `updateMask` combina la máscara anterior con la nueva. Por ello, el usar `updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
+:::
+
 Posteriormente se define la función para calcular el NDVI de todas las imágenes.
 
 ```{js, echo = T}
@@ -638,6 +706,10 @@ var ndviCalc = function(image){
 	return image.addBands(ndvi);
 };
 ```
+
+::: {.tipblock data-latex=""}
+Si no se cambia el nombre de la banda producida por `normalizedDifference`, por default, ésta va a recibir el nombre de `nd`.
+:::
 
 Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa.
 
@@ -660,7 +732,7 @@ L8imgCol = L8imgCol
 print(L8imgCol);
 ```
 
-Después se muestra la imagen sin nubes.
+Después se muestra la primera imagen sin nubes.
 
 ```{js, echo = T}
 Map.addLayer(L8imgCol.first(), 
@@ -744,6 +816,10 @@ L8imgColT2 = L8imgColT2
   .map(ndviCalc);
 ```
 
+::: {.tipblock data-latex=""}
+Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (`filter`), así como la selección de las bandas a utilizar (`select`), antes de realizar operaciones sobre todas las imágenes de la colección (`map`).
+:::
+
 Después se selecciona únicamente las bandas de NDVI y se reduce la colección para generar una imágen del valor promedio de NDVI. Posteriormente, se recorta la imagen a la extensión del polígono del área de interés. Finalmente, a esta imagen se le restarán los valores de la imagen del 2015-01-01 al 2016-01-01. De esta manera, los valores más negativos representarán valores más bajos de NDVI en el año 2 respecto al año 1.
 
 ```{js, echo = T}
@@ -781,6 +857,7 @@ Export.image.toDrive({
 ```
 
 
+\newpage
 # Importación de información a GEE (Assets)
 
 Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de **Assets** en al panel izquierdo y después dar click en NEW e indicar el archivo que se quiere importar a GEE.
@@ -801,6 +878,11 @@ Una vez que se haya dado click en UPLOAD, el progreso en la subida del archivo a
 knitr::include_graphics("Img/Asset3.png")
 ```
 
+::: {.tipblock data-latex=""}
+Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de **Assets** se puede organizar la información en folders.
+:::
+
+\newpage
 # Clasificación supervisada
 
 Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees), Random Forests, Naive Bayes, Gradient Tree Boost, Support Vector Machine, MaxEnt (Maximum Entropy) y Decistion Trees. Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos contenedor.
@@ -858,9 +940,9 @@ El siguiente paso consta de reducir la colección para generar una sola imagen c
 
 ```{js echo = T}
 var L8imgMean = L8imgCol.reduce(ee.Reducer.mean())
-  .clip(geometry)
   .select(['B1_mean','B2_mean','B3_mean','B4_mean','B5_mean','B6_mean','B7_mean'])
-  .rename(['CB','B','G','R','NIR','SWIR1','SWIR2']);
+  .rename(['CB','B','G','R','NIR','SWIR1','SWIR2'])
+  .clip(geometry);
 
 print(L8imgMean);
 ```
