@@ -2,6 +2,7 @@
 title: "GEE manual"
 header-includes:
   \renewcommand{\contentsname}{Índice}
+  \usepackage{tcolorbox}
 author: "JVS GP JFM"
 output: 
   pdf_document:
@@ -19,7 +20,7 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 % Para cambiar los parámetros por default de las cajas de tips o notas
 \setlength{\aweboxleftmargin}{0.1\linewidth}.
 \setlength{\aweboxcontentwidth}{0.85\linewidth}
-\setlength{\aweboxvskip}{8mm}
+\setlength{\aweboxvskip}{6mm}
 \setlength{\aweboxrulewidth}{5pt}
 \definecolor{abvrulecolor}{RGB}{48,90,255}
 ```
@@ -92,6 +93,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 
 \newpage
 # Primeros pasos
+
 ## Registro para el uso de GEE Javascript API
 
 ######################graficos
@@ -144,6 +146,14 @@ Es un área donde se puede consultar todas las funciones y algoritmos que se enc
 
 En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector o separado por comas, únicamente.
 
+**Pantalla de rutinas**
+
+Esta ventana es donde se van a escribir el código en Javascript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue se puede hacer un manejo de las ligas que se tengan activas, así como borras ligas que ya no se utilicen. A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. A continuación está el botón de `Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click en este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado. A su derecha se encuentra el botón de `Reset` el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas. Después se encuentra el botón de Apps que sirve para crear Apps a partir del código que se encuentr en la pantalla. Por último, en el botón del engranaje se encuentran opciones para prender y apagar funciones como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como ', ", ( y \{.
+
+::: {.tipblock data-latex=""}
+Para activar el recuadro de búsqueda se debe dar click en la pantalla de rutinas y presionar ctrl+F. Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, si se vuelve a presionar ctrl+F se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra.
+:::
+
 **Search**
 
 Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios.
@@ -162,7 +172,7 @@ Permite consultar los valores de las capas que se muestran en el mapa, al dar cl
 
 **Tasks**
 
-Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado.
+Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado. Por último, cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
 \newpage
 # Tipos de objetos
@@ -249,7 +259,11 @@ var maskIm = function(image){
 
 Estas funciones permiten definir objetos como objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo objeto, por lo cual, se recomienda “castear” el objeto al tipo de objeto deseado antes de proseguir con su uso.
 
-Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se puede consultar en la sección de **Client libraries**: https://developers.google.com/earth-engine/apidocs
+Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. 
+
+::: {.tipblock data-latex=""}
+Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor visitar la sección de **Client libraries** en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
+:::
 
 Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. 
 
@@ -375,11 +389,15 @@ Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o 
 :::
 
 \newpage 
-# Interfaz de usuario: Display de datos, gráficos y exportación
+# Interfaz de usuario: Visualización de datos, gráficos y exportación
 
 ## Map
 
 Permite agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla.
+
+::: {.tipblock data-latex=""}
+Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor ** en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
+:::
 
 ### Map.addLayer
 
@@ -391,6 +409,10 @@ Al utilizar `Map.addLayer` sobre una imagen se se pueden indicar los siguientes 
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
 ```
 
+::: {.tipblock data-latex=""}
+En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (p.ej., QGIS)
+:::
+
 Para el caso de los atributos (`features`) se puede realizar una operación similar como
 
 ```{js, echo = T}
@@ -399,31 +421,36 @@ Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10}
 ```
 
 ::: {.tipblock data-latex=""}
-El código de los colores pasados al argumento de _palette_ corresponden a códigos hexadecimales de color.
+El código de los colores pasados al argumento de _palette_ corresponden a códigos hexadecimales.
 :::
 
 ### Map.centerObject
 
-### Map.add
-
-::: {.tipblock data-latex=""}
-En algunas ocasiones, al intentar cargar objetos, que sean producto de procesamientos demandantes, en la pantalla de mapas, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas. 
-:::
+Esta función permite centrar la pantalla de mapas en algún objeto. Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
 
 ## Chart
 
-La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`).
-
-### Chart.array
+La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
 
 ### Chart.feature
 
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un atributo o una colección de atributos. Algunas de las funciones disponibles incluyen: `ui.Chart.feature.byFeature`, `ui.Chart.feature.byProperty`, `ui.Chart.feature.groups` y `ui.Chart.feature.histogram`.
+
+```{js, echo = T}
+ui.Chart.feature.byProperty({
+  feature: coleccionAtributos, 
+  xProperties: 'Clase',
+})
+```
+
 ### Chart.image
+
+Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles incluyen: `ui.Chart.image.byClass`, `ui.Chart.image.byRegion`, `ui.Chart.image.doySeries`, `ui.Chart.image.histogram`, `ui.Chart.image.seriesByRegion`, entre otras. 
 
 Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar la serie de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
 
 ```{js, echo = T}
-chart1 = ui.Chart.image.seriesByRegion({
+ui.Chart.image.seriesByRegion({
   imageCollection: coleccionImagenes, 
   regions: areas.filter(ee.Filter.eq('Tipo','Deforestacion')),
   reducer: ee.Reducer.mean(), 
@@ -549,10 +576,50 @@ Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las i
 ee.Image.lte(0.2).and(ee.Image.gte(0));
 ```
 
+## Ejercicio 0: Consulta y procesamiento de imagen
+
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así:
+
+```{r, echo = F}
+knitr::include_graphics("Img/SRTM.png")
+```
+
+Posteriormente se da click sobre el primer resultado y debería abrirse la siguiente ventana.
+
+```{r, echo = F}
+knitr::include_graphics("Img/SRTM_prop.png")
+```
+
+En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
+
+```{js, echo = T}
+var dem = ee.Image("CGIAR/SRTM90_V4");
+```
+
+Posteriormente, se puede cortar el dem a la extensión que nos interesa. En este caso se utilizará la colección con los límites políticos del mundo que se encuentra cargada en GEE. Ésta se puede buscar de igual manera que la capa de SRTM en la barra de búsqueda. Posteriormente, se puede consultar la información que contiene la capa en la pestaña de 'TABLE SCHEMA'. Por último, se aplica un filtro para seleccionar el país que nos interesa, en este caso México.
+
+```{js  echo = T}
+var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+  .filter(ee.Filter.eq('country_co','MX'));
+```
+
+Y por último, se corta la imagen a la extensión del polígono de interés.
+
+```{js, echo = T}
+var demCortado = dem.clip(geometry);
+```
+
+Por último, para comparar el dem antes y después de cortar la imagen a la extensión del polígono de interés, se pueden cargar los dos objetos: `dem` y `demCortado`
+
+```{js, echo = T}
+Map.addLayer(dem, {min: 0, max:4000}, 'dem');
+Map.addLayer(demCortado, {min: 0, max:4000}, 'demMX');
+```
+
 \newpage
 # Colecciones de imágenes
 
-La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds(area)`, mientras que para delimitar por fecha `ImageCollection.filterDate(periodStart,periodEnd)`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
+La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds(area)`, mientras que para delimitar por fecha `ImageCollection.filterDate()`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
 
 Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función map.
 
@@ -653,7 +720,7 @@ Notar que la función `map` es distinta de la función `Map` que permite agregar
 Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
 
 ::: {.tipblock data-latex=""}
-La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del servidor como `print`, `Map`, `Export`, `Chart`.
+La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print`, `Map`, `Export`, `Chart`.
 :::
 
 ## Reducción
@@ -784,8 +851,6 @@ var geometry = ee.Geometry.Polygon(
           [-101.15171500947403, 19.836437094032178]]], null, false);
 ```
 
-En este caso se puede definir un polígono, indicando que es un objeto del lado del servidor `ee.Geometry` de tipo polígono, es decir, `ee.Geometry.Polygon`. Otra forma de trazar el polígono es utilizando las funciones de trazado ubicadas en la esquina superior izquierda de la pantalla de mapas. Una última forma de cargar un archivo de un objeto en GEE es importarlo desde un archivo externo. Esto se verá más adelante en la sección **XXX**.
-
 Para cortar las dos imágenes que se crearon y mostrarlas en la pantalla de mapas.
 
 ```{js  echo = T}
@@ -866,7 +931,11 @@ Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: im
 knitr::include_graphics("Img/Asset1.png")
 ```
 
-Posteriormente se da click en SELECT y se seleccionan los arhivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en UPLOAD (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml. Si se agrega algún otro archivo que tenga una extensión distinta a las anteriores va a arrojar un error. 
+Posteriormente se da click en SELECT y se seleccionan los arhivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en UPLOAD (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml. 
+
+::: {.tipblock data-latex=""}
+Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (p.ej., sbx).
+:::
 
 ```{r, echo = F}
 knitr::include_graphics("Img/Asset2.png")
@@ -881,6 +950,49 @@ knitr::include_graphics("Img/Asset3.png")
 ::: {.tipblock data-latex=""}
 Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de **Assets** se puede organizar la información en folders.
 :::
+
+\newpage
+# Uso conjunto de atributos e imágenes
+
+Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, atributos o colecciones de atributos, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestro de una imagen por atributos o la reducción de una imagen por atributos.
+
+## Muestreo por atributo(s)
+
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el atributo utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
+
+```{js echo = T}
+var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
+  -101.51906,19.72362);
+```
+
+```{js echo = T}
+var muestreo = L8imgMean
+  .sample({
+    region: bosque1,
+    scale:30
+  });
+
+print(muestreo, 'muestreo');
+```
+
+::: {.tipblock data-latex=""}
+Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento `geometries: true`. Esto dará como resultado la misma información, pero con las coordenadas espaciales de los centros de los pixeles de la imagen muestreada.
+:::
+
+## Reducción de una imagen por región(es)
+
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `ee.Image.reduceRegion` o para varias regiones `ee.Image.reduceRegions`. Por ejemplo, la función `ee.Image.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el atributo.
+
+```{js echo = T}
+var reduccion = ee.Image(L8imgMean)
+  .reduceRegion({
+    reducer: ee.Reducer.mean(),
+    geometry: bosque1,
+    scale: 30
+  });
+  
+print(reduccion, 'reduccion');
+```
 
 \newpage
 # Clasificación supervisada
@@ -930,9 +1042,9 @@ A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcen
 
 ```{js echo = T}
 var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+  .filterBounds(poligonos)
   .filterDate('2015-01-01','2016-01-01')
   .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
-  .filterBounds(poligonos)
   .map(maskL8sr);
 ```
 
@@ -1019,6 +1131,10 @@ print('Validation error matrix: ', validErrMat);
 print('Validation overall accuracy: ', validAcc);
 ```
 
+::: {.tipblock data-latex=""}
+Por default la imagen que se obtiene de una función `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `sampleRegions` y con la que se hace la matriz de error `errorMatrix` se llama 'classification'.
+:::
+
 Para exportar estos resultados primero hay que pasar los datos a tipo atributo. Para ello, se van a crear atributos sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar. En el caso de la matriz de error, primero se debe convertir a un arreglo mediante la función `.array()`. 
 
 ```{js echo = T}
@@ -1041,3 +1157,6 @@ var exportTable = function(feature, name){
 exportTable(ee.FeatureCollection(expConfMatrix), 'confMatrix');
 exportTable(ee.FeatureCollection(expAccuracy), 'validAcc');
 ```
+
+\newpage
+# Detección de cambios
