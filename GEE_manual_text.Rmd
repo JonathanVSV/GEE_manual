@@ -374,6 +374,10 @@ Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos t
 
 Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (p.ej., filas y columnas). Su uso más común se da en análisis de series de tiempo con imágenes. Este tipo de objetos cuentan con una serie de funciones, las cuales se pueden consultar bajo la librería de **ee.Array** (ver liga anterior).
 
+**ee.Classifier**
+
+Este tipo de objetos corresponden a algoritmos de clasificación de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _random forests_, disponible mediante la función `ee.Classifier.smileRandomForest` o _MaxEnt_, disponible mediante la función `ee.Classifier.amnhMaxent`.
+
 **ee.Clusterer**
 
 Este tipo de objetos corresponden a algoritmos de agrupamiento de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _k-means_, disponible mediante la función `ee.Clusterer.wekaKMeans` o _Cobweb_, disponible mediante la función `ee.Clusterer.wekaCobweb`.
@@ -389,6 +393,10 @@ Este tipo de objetos corresponden a distintos tipos de geometrías, desde línea
 **ee.Join**
 
 Este conjunto de funciones permite realizar uniones entre colecciones de atributos, utilizando los campos de éstos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de atributos mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`
+
+**ee.Reducer**
+
+Este conjunto de funciones permite reducir una colección de imágenes para crear una única imagen. Por ejemplo, se puede reeducir una colección de imágenes mediante el cáclulo de su media `ee.Reducer.mean` o el cálculo de su desviación estándar `ee.Reducer.stdDev`.
 
 **ee.Terrain**
 
@@ -566,7 +574,7 @@ ee.Image.select('B1');
 ee.Image.select(['B1','B2','B3']);
 ```
 
-## Cambio de nombres
+## Cambio de nombres de bandas
 
 Por default, el nombre de las bandas de las imagenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `rename` para cambiar los nombres de las bandas. Por ejemplo:
 
@@ -639,7 +647,7 @@ imagen = imagen.addBands(ndvi);
 
 ```
 
-### Ejercicio 0: Consulta y procesamiento de imagen
+### Ejercicio: Consulta y procesamiento de imagen
 
 En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así:
 
@@ -728,13 +736,61 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 ee.ImageCollection.filterBounds(polygon1); 
 ```
 
-Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante `filter` y después definiendo el filtro del metadaro con `ee.Filter`:
+Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante `filter` y después definiendo el filtro del metadaro con `ee.Filter`. Otra forma de realizar este proceso es mediante `filterMetadata`. Las siguientes dos líneas obtienen el mismo resultado.
 
 ```{js, echo = T}
-ee.ImageCollection.filter(ee.Filter.lte('CLOUD_COVER', 20));
+ee.ImageCollection.filter(ee.Filter.lt('CLOUD_COVER', 20));
+ee.ImageCollection.filterMetadata('CLOUD_COVER','less_than', 20);
 ```
 
-### Ejercicio 1: Filtro de colección de imágenes y visualización
+## Selección de bandas
+
+Al igual que con las imágenes, se puede utilizar la función `select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandasPor ejemplo: 
+
+```{js, echo = T}
+ee.ImageCollection.select('B1');
+ee.ImageCollection.select(['B1','B2','B3']);
+```
+
+## Tamaño de colección
+
+Para conocer el número de elementos (imágenes) que conforman cierta colección de imágenes se utiliza la función `size`. 
+
+```{js, echo = T}
+ee.ImageCollection.size();
+```
+
+## Número de valores sin enmascarar por pixel
+
+Para conocer el número de valores sin enmascarar por pixel en la colección de imágenes se utiliza la función `count`. 
+
+```{js, echo = T}
+ee.ImageCollection.count();
+```
+
+## Unión de colecciones
+
+Para unir una colección de imágenes con otra se utiliza la función `merge`. Un caso típico de tal operación sería el unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.
+
+::: {.tipblock data-latex=""}
+Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul (blue), mientras que en Landsat 8, la banda 1 corresponde al azul de costa (coastal blue). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse que el nombre las bandas a unir en una colección corresponda con las de la otra. 
+:::
+
+La unión de una colección de landsat 7 y con una landsat 8 se podría hacer de la siguiente manera:
+
+```{js, echo = T}
+var l7 = ee.ImageCollection("LANDSAT/LE07/C01/T1_SR");
+var l8 = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR");
+
+l7 = l7.select('B4')
+  .rename('NIR');
+l8 = l8.select('B5')
+  .rename('NIR');
+
+var l7y8 = l7.merge(l8);
+```
+
+### Ejercicio: Filtro de colección de imágenes y visualización
 
 Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrata esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de 'BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de 'IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección. 
 
@@ -762,7 +818,7 @@ Una vez corrido el comando anterior, en la consola se puede consultar cuántas i
 Despues se pueden consultar las características de las imágenes incluidas en la colección. Para ello, en la consola se le da un click a la flecha ubicada a la isquierda de la colección en la consola a **Features**, después a cualquier imagen (**Image**) y por último a **Properties**. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de **Search**.
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio1_1.png")
+knitr::include_graphics("Img/CamposImgCol.png")
 ```
 
 A continuación podemos ordenar la colección en orden ascendente de acuerdo al metadato de 'CLOUD_COVER_LAND'. Posteriormente, se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto ee.Image. La función `first()` devuelve la primera imagen de una colección y es útil para visualizar el tipo de información que está en la colección de imágenes.
@@ -781,7 +837,7 @@ Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288}, 'RGB meno
 ```
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio1_2.png")
+knitr::include_graphics("Img/RGBIm.png")
 ```
 
 ## Mapeo
@@ -806,12 +862,14 @@ La función `map` sólo funciona con funciones del lado del servidor, así que s
 
 ## Reducción
 
-Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año).
+Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año).Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
 
-Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`. De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()` Esto se puede realizar mediante el siguiente procedimiento:
+## Reducers
+ De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `min`, `max`, `mean`, `mode`, `median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
 
 ```{js, echo = T}
 ee.ImageCollection.reduce(ee.Reducer.mean());
+ee.ImageCollection.mean();
 ```
 
 ::: {.tipblock data-latex=""}
@@ -831,7 +889,7 @@ var mosaicQualImg = ee.ImageCollection.qualityMosaic({qualityBand: 'ndvi'})
 El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles más recientes ya que la colección por default se encuentra ordenada por fechas de adquisición de la imagen.
 :::
 
-### Ejercicio 2: Enmascaramiento de nubes, cálculo de índices y reducción
+### Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
@@ -873,7 +931,7 @@ Map.addLayer(L8imgCol.first(),
 ```
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio2_nubes.png")
+knitr::include_graphics("Img/imNubes.png")
 ```
 
 A continuación se aplican las dos funciones utilizando `map` y sobreescribir el objeto L8imgCol.
@@ -894,13 +952,13 @@ Map.addLayer(L8imgCol.first(),
 ```
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio2_sinnubes.png")
+knitr::include_graphics("Img/imSinNubes.png")
 ```
 
 En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada ndvi.
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio2_1.png")
+knitr::include_graphics("Img/imConNDVI.png")
 ```
 
 Posteriormente, se puede reducir la colección de imágenes para formar una sola imagen que represente el valor promedio de ndvi en el periodo de la colección (2015 - 2016). Para ello se utiliza la función `reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -920,7 +978,7 @@ Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 El resultado se ve así:
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio2_2.png")
+knitr::include_graphics("Img/imNDVI.png")
 ```
 
 Se pueden prender y apagar las capas de la pantalla de mapas utilizando el menú que se despliega al posicionar el puntero sobre el letrero de layers y prendiendo y apagando las capas con las palomitas a la izquierda de cada capa.
@@ -947,9 +1005,9 @@ Map.addLayer(L8imgMean, {min:0.2, max:0.8}, 'NDVI mean 2015 - 2016 clip');
 Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 ```
 
-### Ejercicio 3: Cáculo de diferencia de dos imágenes y exportación de resultado.
+### Ejercicio: Cáculo de diferencia de dos imágenes y exportación de resultado.
 
-Se reutilizarán las funciones previamente definidas para generar un mosaico igual al ya generado, pero ahora con fechas de 2016-01-01 al 2017-01-01. Primero se filtra la colección de imágenes y se mapean las funciones para enmascarara las nubes y agregar el NDVI a las imágenes.
+Se reutilizarán las funciones previamente definidas para generar un mosaico igual al ya generado, pero ahora con fechas de 2016-01-01 al 2017-01-01. Primero se filtra la colección de imágenes y se mapean las funciones para enmascarar las nubes y agregar el NDVI a las imágenes.
 
 ```{js, echo = T}
 var L8imgColT2 = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
@@ -988,7 +1046,7 @@ Map.addLayer(imgDiff,{min:-0.3, max: 0.1,
 
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ejercicio3_1.png")
+knitr::include_graphics("Img/imDifNDVI.png")
 ```
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de pixel en metros), formato a utilizar y si se desea guardar dentro de un folder del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasa dentro de un diccionario.
@@ -1124,7 +1182,7 @@ var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
 var validAcc = validacion.accuracy();
 ```
 
-### Ejercicio 4: Clasificación
+### Ejercicio: Clasificación
 
 En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán 7 polígonos como sitios de entrenamiento, pertenecientes a 4 clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectangulo. Posteriormente, cada polígono se transforma en un objeto de tipo atributo (`Feature`) y se le asigna la propiedad de "clase" como número a través de un diccionario. Por último, se hace una colección de atributos.
 
@@ -1277,5 +1335,3 @@ exportTable(ee.FeatureCollection(expConfMatrix), 'confMatrix');
 exportTable(ee.FeatureCollection(expAccuracy), 'validAcc');
 ```
 
-\newpage
-# Detección de cambios
