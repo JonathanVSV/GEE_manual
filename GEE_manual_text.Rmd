@@ -126,13 +126,9 @@ knitr::include_graphics("Img/GEE_inicio_API.png")
 
 Los elementos de la API se enlistan a continuación:
 
-**Consola**
-
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función `print`.
-
 **Pantalla de Repositorios**
 
-Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios, folders y scripts para organizar éstos últimos. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Estos se pueden utilizar para determinar distintos niveles de acceso para distintos usuarios. Dentro de cada repositorio se puede asignar el control de acceso para otros usuarios.
+Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios y folders para organizar los archivos de código. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Los primeros tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios. Por su parte, en las pestañas de ejemplo se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando distintas colecciones de imágenes (i.e., Landsat 4-7, Landsat 8, Sentinel-2, MODIS). En archivo se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
 ::: {.tipblock data-latex=""}
 El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio).
@@ -140,7 +136,7 @@ El usuario puede compartir repositorios con otros usuarios de GEE como lector o 
 
 **Docs**
 
-Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran cargadas en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función.
+Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran cargados en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función. Estas funciones se encuentran agrupados por objetos del servidor.
 
 **Assets**
 
@@ -160,15 +156,19 @@ Para activar el recuadro de búsqueda se debe dar click en la pantalla de rutina
 
 **Search**
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios.
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de alguna colección en particular, así como para consultar sus metadatos, bandas y características. 
 
 **Map**
 
-El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función `Map.addLayer`.
+El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función `Map.addLayer`. 
 
 **Layer manager**
 
-Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, permite modificar las características necesarias para su display.
+Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, permite modificar las características necesarias para su visualización (p.ej., transparencia, color, distribución del histograma, compuesto de color, etc). Este  menú aparece una vez que se cargan capas a la pantalla de mapas.
+
+**Consola**
+
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función `print`.
 
 **Inspector**
 
@@ -181,10 +181,15 @@ Muestra los trabajos que se hayan exportado mediante la función Export.image o 
 \newpage
 # Tipos de objetos
 
-## Server vs Client side
+## Objetos del cliente y del servidor
 
 Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) sólo corren del lado del cliente.
+
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla), agregar una capa a la pantalla del mapa o crear gráficos, así como imprimir información en la consola, sólo corren del lado del cliente. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+
+```{r, echo = F}
+knitr::include_graphics("Img/daigFunc.png")
+```
 
 ## Tipos de objetos del lado del cliente
 
@@ -209,7 +214,7 @@ var numero = 1;
 var numero2 = 2.5; 
 ```
 
-Resulta importante notar que al declarar un objeto como Number no se hace uso de comillas.
+Nótese que al declarar un objeto como Number no se hace uso de comillas.
 
 **Lists (listas)**
 
@@ -352,19 +357,19 @@ print("Fecha como ee.Date también",fecha2);
 
 **ee.Image**
 
-Permite enviar un objeto como imagen al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Image** al revisar las librerías disponibles en la API (ver liga anterior). Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo raster en GEE. Más adelante se explican con mayor detalle.
+Permite enviar un objeto como imagen al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Image**. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo raster en GEE. Más adelante se explican con mayor detalle.
 
 **ee.ImageCollection**
 
-Permite enviar un objeto como una colección de imágenes al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.ImageCollection** al revisar las librerías disponibles en la API (ver liga anterior). Las colecciones de imágenes están formadas por imágenes. Más adelante se explican con mayor detalle.
+Al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.ImageCollection**. Las colecciones de imágenes están formadas por imágenes. Más adelante se explican con mayor detalle.
 
 **ee.Feature**
 
-Permite enviar un objeto como atributo al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Feature** al revisar las librerías disponibles en la API (ver liga anterior). Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explican con mayor detalle.
+Permite enviar un objeto como atributo al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Feature**. Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explican con mayor detalle.
 
 **ee.FeatureCollection**
 
-Permite enviar un objeto como colección de atributos  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection** al revisar las librerías disponibles en la API (ver liga anterior). Las colecciones de atributos están formadas por atributos. Más adelante se explican con mayor detalle.
+Permite enviar un objeto como colección de atributos  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection**. Las colecciones de atributos están formadas por atributos. Más adelante se explican con mayor detalle.
 
 **ee.Algorithms**
 
@@ -384,7 +389,7 @@ Este tipo de objetos corresponden a algoritmos de agrupamiento de datos que se e
 
 **ee.Filter**
 
-Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de atributos o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o atributis. Por otro lado, también contienen funciones para combinar filtros. 
+Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de atributos o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o atributos. Por otro lado, también contienen funciones para combinar filtros. 
 
 **ee.Geometry**
 
@@ -406,8 +411,20 @@ Este conjunto de funciones permite calcular algunas operaciones topográficas b�
 Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o `get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
 :::
 
+::: {.tipblock data-latex=""}
+Resulta útil recordar que normalmente los argumentos de cualquier función del servidor se pasan como un diccionario.
+:::
+
 \newpage 
 # Interfaz de usuario: Visualización de datos, gráficos y exportación
+
+## Imprimir en consola
+
+La interfaz más sencilla de la API es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función sobre algún objeto, éste se evalua y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación (_bugs_) en los códigos.
+
+```{js, echo = T}
+print(Objeto);
+```
 
 ## Map
 
@@ -562,10 +579,12 @@ Las imágenes que se encuentran disponibles en colecciones de imágenes de GEE c
 Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `ee.Image.propertyNames();` Así se pueden consultar todas las propiedades de una imagen. Sin embargo, algunos comandos que facilitan la consulta de algunos elementos son: `.bandNames()`, `.projection()`, `.projection().nominalScale()`, para conocer el nombre de las bandas de la imagenes, su proyección y el tamaño de pixel en m que presenta, respectivamente.
 
 ::: {.tipblock data-latex=""}
-La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Por ello, todas las capas se trabajan en esa proyección. Si se requiere cambiar de proyección se puede utilizar la función `reproject`.
+La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar la función `reproject`, aunque no se recomienda utilizarla a menos que sea estrictamente necesario.
 :::
 
-## Selección de bandas
+## Funciones comunes
+
+### Selección de bandas
 
 Una vez, revisado los nombres de las bandas de una imagen, se pueden  seleccionar ciertas bandas mediante la función `select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo: 
 
@@ -574,7 +593,7 @@ ee.Image.select('B1');
 ee.Image.select(['B1','B2','B3']);
 ```
 
-## Cambio de nombres de bandas
+### Cambio de nombres de bandas
 
 Por default, el nombre de las bandas de las imagenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `rename` para cambiar los nombres de las bandas. Por ejemplo:
 
@@ -583,7 +602,7 @@ var seleccionBandas = ee.Image.select(['B2','B3','B4']);
 seleccionBandas = seleccionBands.rename(['B','G','R']);
 ```
 
-## Cortes
+### Cortes
 
 Se pueden realizar cortes de una imagen para quedarse con un área específica utilizando la 
 función: 
@@ -596,7 +615,7 @@ ee.Image.clip();
 Se sugiere evitar el uso de la función `clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
 :::
 
-## Operaciones matemáticas
+### Operaciones matemáticas
 
 Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `ee.Image.subtract(), .add(), .divide(), .multiply()`. Además, GEE cuenta con una función de `.normalizedDifference()` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `ee.Image.normalizedDifference()`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression()`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
 
@@ -609,7 +628,7 @@ var NDVI = ee.Image.expression( '(NIR - R) / (NIR + R)', {
 
 Dentro de las fórmulas utilizadas dentro de expression se puede utilizar la notación estándar matemática (`+, -, /, *`), modulo (`%`), exponente (`**`), relacionales(`>, <, >=, <=, !=, ==`), lógicos (`&&, ||, !, ^`), o if then else (`?:`).
 
-## Operaciones relacionales, condicionales y booleanas
+### Operaciones relacionales, condicionales y booleanas
 
 Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt()`, `.lte()`, `.gt()`, `.gte()`, `.eq()`, `.neq()`. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and()` u `.or()`. Por ejemplo, la siguiente linea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0: 
 
@@ -625,7 +644,7 @@ var qa = image.select('pixel_qa');
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 ```
 
-## Enmascaramiento
+### Enmascaramiento
 
 La función `updateMask` permite enmascarar los pixeles de una imagen, utilizando otra imagen como máscara que indique cuáles pixeles se deben conservar (valores de 1) y cuáles enmscarar (valores de 0).
 
@@ -637,7 +656,7 @@ ee.Image.updateMask(mascara);
 Aunque en GEE existe la función `mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `updateMask`. La función `mask` simplemente substituye la máscara original de la imagen, mientras que `updateMask` combina la máscara anterior con la nueva. Por ello, el usar `updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
 :::
 
-## Agregar bandas
+### Agregar bandas
 
 El usuario puede estar interesado en agregar una banda al conjunto de bandas que contiene por default una imagen. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Esto se puede lograr utilizando la función `addBands`. Por ejemplo:
 
@@ -647,7 +666,7 @@ imagen = imagen.addBands(ndvi);
 
 ```
 
-### Ejercicio: Consulta y procesamiento de imagen
+#### Ejercicio: Consulta y procesamiento de imagen
 
 En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así:
 
@@ -720,7 +739,9 @@ Las colecciones de imágenes contienen los metadatos e información de todas las
 No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de éstas para que se pueda sobreescribir la característica de interés.
 :::
 
-## Filtros sobre Colecciones de imágenes
+## Funciones comunes
+
+### Filtros sobre Colecciones de imágenes
 
 Los filtros permiten filtrar las colecciones de imágenes a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, características de las escenas (path, row, porcentaje de nubosidad), entre otras. 
 
@@ -743,7 +764,7 @@ ee.ImageCollection.filter(ee.Filter.lt('CLOUD_COVER', 20));
 ee.ImageCollection.filterMetadata('CLOUD_COVER','less_than', 20);
 ```
 
-## Selección de bandas
+### Selección de bandas
 
 Al igual que con las imágenes, se puede utilizar la función `select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandasPor ejemplo: 
 
@@ -752,15 +773,24 @@ ee.ImageCollection.select('B1');
 ee.ImageCollection.select(['B1','B2','B3']);
 ```
 
-## Tamaño de colección
+### Ordenar colección
 
-Para conocer el número de elementos (imágenes) que conforman cierta colección de imágenes se utiliza la función `size`. 
+La función `sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por default, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, la función `sort` ordena la colección de imágenes en orden ascendente de acuerdo al valor de la característica de las imágenes indicadas. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
 
 ```{js, echo = T}
-ee.ImageCollection.size();
+ee.ImageCollection.sort('PropiedadImagenes');
+ee.ImageCollection.sort('PropiedadImagenes', false);
 ```
 
-## Número de valores sin enmascarar por pixel
+### Obtener primera imagen
+
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza la función `first` que devuelve la primera imagen que se encuentra en la colección y permite agregarla en la pantalla de mapas para analizarla más a detalle. 
+
+```{js, echo = T}
+ee.ImageCollection.first()
+```
+
+### Número de valores sin enmascarar por pixel
 
 Para conocer el número de valores sin enmascarar por pixel en la colección de imágenes se utiliza la función `count`. 
 
@@ -768,7 +798,7 @@ Para conocer el número de valores sin enmascarar por pixel en la colección de 
 ee.ImageCollection.count();
 ```
 
-## Unión de colecciones
+### Unión de colecciones
 
 Para unir una colección de imágenes con otra se utiliza la función `merge`. Un caso típico de tal operación sería el unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.
 
@@ -790,7 +820,56 @@ l8 = l8.select('B5')
 var l7y8 = l7.merge(l8);
 ```
 
-### Ejercicio: Filtro de colección de imágenes y visualización
+### Mapeo
+
+Para realizar alguna operación sobre todas las imágenes de una ImageCollection se utilizar la función `map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
+
+```{js, echo = T}
+ee.ImageCollection.map(function(image){
+	return image.normalizedDifference('NIR','R');
+});
+```
+
+::: {.tipblock data-latex=""}
+Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas.
+:::
+
+Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
+
+::: {.tipblock data-latex=""}
+La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print`, `Map`, `Export`, `Chart`.
+:::
+
+### Reducción
+
+Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año).Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
+
+### Reducers
+ De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `min`, `max`, `mean`, `mode`, `median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
+
+```{js, echo = T}
+ee.ImageCollection.reduce(ee.Reducer.mean());
+ee.ImageCollection.mean();
+```
+
+::: {.tipblock data-latex=""}
+Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imágen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean()` sobre una colección de imágenes cuyas bandas se llaman `B1` y `B2`, las bandas de la imagen producto de la reducción se llamarán `B1_mean` y `B2_mean`.
+:::
+
+### Compuestos y mosaicos
+
+Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: `ee.ImageCollection.mosaic()` y `ee.ImageCollection.qualityMosaic()`. La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de `qualityMosaic()` permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI. En el caso de `qualityMosaic()` hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
+
+```{js, echo = T}
+var mosaicImg = ee.ImageCollection.mosaic();
+var mosaicQualImg = ee.ImageCollection.qualityMosaic({qualityBand: 'ndvi'})
+```
+
+::: {.tipblock data-latex=""}
+El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles más recientes ya que la colección por default se encuentra ordenada por fechas de adquisición de la imagen.
+:::
+
+#### Ejercicio: Filtro de colección de imágenes y visualización
 
 Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrata esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de 'BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de 'IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección. 
 
@@ -840,56 +919,7 @@ Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288}, 'RGB meno
 knitr::include_graphics("Img/RGBIm.png")
 ```
 
-## Mapeo
-
-Para realizar alguna operación sobre todas las imágenes de una ImageCollection se utilizar la función `map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
-
-```{js, echo = T}
-ee.ImageCollection.map(function(image){
-	return image.normalizedDifference('NIR','R');
-});
-```
-
-::: {.tipblock data-latex=""}
-Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas.
-:::
-
-Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
-
-::: {.tipblock data-latex=""}
-La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print`, `Map`, `Export`, `Chart`.
-:::
-
-## Reducción
-
-Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año).Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
-
-## Reducers
- De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `min`, `max`, `mean`, `mode`, `median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
-
-```{js, echo = T}
-ee.ImageCollection.reduce(ee.Reducer.mean());
-ee.ImageCollection.mean();
-```
-
-::: {.tipblock data-latex=""}
-Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imágen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean()` sobre una colección de imágenes cuyas bandas se llaman `B1` y `B2`, las bandas de la imagen producto de la reducción se llamarán `B1_mean` y `B2_mean`.
-:::
-
-## Compuestos y mosaicos
-
-Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: `ee.ImageCollection.mosaic()` y `ee.ImageCollection.qualityMosaic()`. La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de `qualityMosaic()` permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI. En el caso de `qualityMosaic()` hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
-
-```{js, echo = T}
-var mosaicImg = ee.ImageCollection.mosaic();
-var mosaicQualImg = ee.ImageCollection.qualityMosaic({qualityBand: 'ndvi'})
-```
-
-::: {.tipblock data-latex=""}
-El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles más recientes ya que la colección por default se encuentra ordenada por fechas de adquisición de la imagen.
-:::
-
-### Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción
+#### Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
@@ -1005,7 +1035,7 @@ Map.addLayer(L8imgMean, {min:0.2, max:0.8}, 'NDVI mean 2015 - 2016 clip');
 Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 ```
 
-### Ejercicio: Cáculo de diferencia de dos imágenes y exportación de resultado.
+#### Ejercicio: Cáculo de diferencia de dos imágenes y exportación de resultado.
 
 Se reutilizarán las funciones previamente definidas para generar un mosaico igual al ya generado, pero ahora con fechas de 2016-01-01 al 2017-01-01. Primero se filtra la colección de imágenes y se mapean las funciones para enmascarar las nubes y agregar el NDVI a las imágenes.
 
@@ -1096,7 +1126,9 @@ Al igual que en la pestaña donde se organizan los repositorios y los códigos, 
 
 Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, atributos o colecciones de atributos, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestro de una imagen por atributos o la reducción de una imagen por atributos.
 
-## Muestreo por atributo(s)
+## Funciones comunes
+
+### Muestreo por atributo(s)
 
 Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el atributo utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
@@ -1119,7 +1151,7 @@ print(muestreo, 'muestreo');
 Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento `geometries: true`. Esto dará como resultado la misma información, pero con las coordenadas espaciales de los centros de los pixeles de la imagen muestreada.
 :::
 
-## Reducción de una imagen por región(es)
+### Reducción de una imagen por región(es)
 
 Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `ee.Image.reduceRegion` o para varias regiones `ee.Image.reduceRegions`. Por ejemplo, la función `ee.Image.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el atributo.
 
@@ -1212,7 +1244,7 @@ var poligonos = ee.FeatureCollection([
   ee.Feature(urbano, {'clase': 3}),
 ]);
 
-Map.addLayer(poligonos);
+Map.addLayer(poligonos, {}, 'poligonosEntrenamiento');
 ```
 
 A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre, y un filtro espacial. En este caso, se usó la función `filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `map`.
@@ -1265,6 +1297,10 @@ var classifiedImg = L8imgMean.classify(trainedClassifier);
 Map.addLayer(classifiedImg,{min:0, max:3, 
   palette:['#fcff21','#20da25','#05a9da','#dadada']},
   'Clasificación RF L8');
+```
+
+```{r, echo = F}
+knitr::include_graphics("Img/RFClass.png")
 ```
 
 Una vez que se tiene la clasificación del área de interés se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.
