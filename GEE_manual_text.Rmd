@@ -3,7 +3,7 @@ title: "GEE manual"
 header-includes:
   \renewcommand{\contentsname}{Índice}
   \usepackage{tcolorbox}
-author: "JVS GP JFM"
+author: "JVS GAP JFM"
 output: 
   pdf_document:
     extra_dependencies: awesomebox
@@ -37,11 +37,12 @@ Google Earth Engine (GEE) es una plataforma, desarrollada por Google, que permit
 
 Desde hace varios años hay misisones espaciales tomando datos de la tierra a traves de distintos satelites. Y  toda esa informacion se ha ido almacenando en acervos de imagenes. Aunque esa informacion ha sido muy util en el desarrollo ciencitifco, siempre habia habido el problema de la "Big-Data" (bases de datos enormes). Es decir, dichos acervos de imagenes son de gran dimension (millones de imagenes disponibles), lo cual resultaba imposible de procesar y analisar toda la informacion disponible. evitando asi poder aprovechar el potencial total de esta información.
 
-GEE nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
+GEE nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidiar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
 
 Para logar este objetivo, se creó una infraestructura con 3 elementos claves que son quienes permiten el funcionameinto de GEE: catalogo de informacion, capacidad computacional, APIs
 
 #### Catálogo de información
+
 
 GEE, recopiló informacion geoespacial de diferentes fuentes al rededor del mundo, creó copias de esos datos en su propio datacenter logrando asi almacenar mas de 20 petabytes (20'000.000 de gigabytes) de informacion, en un solo lugar.
 
@@ -53,9 +54,17 @@ Para consultar toda la información que esta disponible en GEE se puede consulta
 
 #### Capacidad computacional
 
+
+
 Paralelamente GEE puso a dispocicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad mas o menos equivalente a 10.000 computadores personales), para poder realizar rapida y eficazmente calculos y computaciones sobre esos datos
 
+::: {.tipblock data-latex=""}
+Se estima que GEE era capaz (en 2010) de en cuestion de dias, ejecutar funciones que en un computador personal habria tomado 15 años  
+:::
+
 #### API
+
+
 
 GEE es una API (Application Program Interface), lo que basicamente significa, es una interfaz que permite la comunicación entre nosotros (ususarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros analisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea. 
 
@@ -67,7 +76,7 @@ GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conoci
 
 Entre las principales ventajas de utilizar esta API radica en: 
 
-1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna libreria de pPython será necesaria la descarga de la informacion
+1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna libreria de Python será necesaria la descarga de la informacion
 2. El procesamiento se hace en la nube, a traves de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexciaon estable y el consumo de ram depende del comsuno del navegador). en la API de Python hay mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
 3. Su interfaz es mucho mas amigable con los ususarios, ofreciendo una plataforma mas interactiva para programar, y mas sencilla para enseñar
 4. Se pueden realizar facilmente consultas de las colecciones de imagenes, y sus metadatos, antes de ecidir importarlos. la API de Pyhton no permite realizar ese tipo de consutas facilmente, de modo que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
@@ -77,11 +86,11 @@ Entre las principales ventajas de utilizar esta API radica en:
 
 La API permite trabajar mediante la programación en lenguaje Javascript, en una interfaz gráfica que resulta más amigable con el usuario. Además, para utilizarla únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Existen otras opciones para trabajar con GEE, como la API de Python, sin embargo, los autores consideramos que la API de Javascript resulta la más sencilla de utilizar y se encuentra mejor documentada. 
 
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos:
+La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos _(de igual forma iremos tocando la gramatica del codigo a lo largo de los ejemplos)_:
 
-1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que `a` puede ser un objeto y `A`, otro.
+1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes uno llamado `a` y otro diferente llamado `A`.
 2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el codigo funcionara igualmente)
-3. Comúnmente en Javascript se utiliza el _lower Camel Case_ para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask` .
+3. Comúnmente en Javascript se utiliza el _lower Camel Case_ (unir palabras pero cada una comenzando con su respectiva mayuscula) para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask` .
 4. Todas las variables, funciones, objetos deben ser definidos mediante la función `var`.
 5. Para definir variables se utiliza el operador `=`.
 6. Los operadores matemáticos son: `+ - * /`.
@@ -108,7 +117,7 @@ Después le damos click en la esquina superior derecha donde dice **Sign Up**. S
 Se recomienda dar de alta una cuenta de Google que tenga suficiente espacio disponible en Google Drive, ya que será la forma más fácil de exportar los resultados generados en GEE.
 :::
 
-Una vez realizado el registro, hay que esperar unos minutos hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
+Una vez realizado el registro, hay que esperar un tiempo (puede ser minutos o dias) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
 
 Una vez que tengamos dicha confirmación, podemos acceder a la API accediendo a la siguiente liga: 
 
@@ -128,64 +137,170 @@ Los elementos de la API se enlistan a continuación:
 
 **Pantalla de Repositorios**
 
-Es el espacio donde se guardan los scripts del usuario. En ella se pueden crear repositorios y folders para organizar los archivos de código. Dentro de este espacio existen varias categorías: propietario (owner), editor (writer), lector (reader), ejemplos y archivo. Los primeros tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios. Por su parte, en las pestañas de ejemplo se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando distintas colecciones de imágenes (i.e., Landsat 4-7, Landsat 8, Sentinel-2, MODIS). En archivo se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
+```{r, echo = F}
+knitr::include_graphics("Img/left_panel.png")
+```
+
+Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y folders para organizar los archivos de código, como se muestra a continuacion. 
+
+```{r, echo = F}
+knitr::include_graphics("Img/repositorio.png")
+```
+
+Dentro de este espacio existen varias categorías (Los primeros tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios): 
+1. propietario (**Owner**): aca se guardan los codigos creados por el mismo usuario
+2. editor (**Writer**): aca se guardan codigos que pueden ser creados por otros usuarios, pero para los cuaels tenemos autorizacion de modificarlos    
+3. lector (**Reader**): aca aparecen codigos que otros usuarios nos han compartido acceso, pero no tenemos autizacion de mosificarlos   
+4. ejemplos: se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando distintas colecciones de imágenes (i.e., Landsat 4-7, Landsat 8, Sentinel-2, MODIS)
+5.  archivo: se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
 ::: {.tipblock data-latex=""}
 El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio).
+
+```{r, echo = F}
+knitr::include_graphics("Img/engranaje.png")
+```
 :::
 
 **Docs**
 
-Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran cargados en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función. Estas funciones se encuentran agrupados por objetos del servidor.
+```{r, echo = F}
+knitr::include_graphics("Img/docs.png")
+```
+
+Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función. Estas funciones se encuentran agrupados por objetos del servidor (los objetos se explican mas adelante).
+adicionalmente tiene un buscador, donde se pueden consultar tambien las funciones.
+
+```{r, echo = F}
+knitr::include_graphics("Img/doc_ejemplo.png")
+```
+
 
 **Assets**
 
-En este apartado el usuario puede subir su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector o separado por comas, únicamente.
+```{r, echo = F}
+knitr::include_graphics("Img/assets.png")
+```
+
+En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente.
+
+```{r, echo = F}
+knitr::include_graphics("Img/newAssets.png")
+```
+
+para subir un nuevo archivo, dar click en el boton **NEW**, seleccionar el tipo de archivo, y seguir las instrucciones, 
+1. para los archivos raster, solo hace falta seleccionar el archivo correspondiente y dar click en upload
+2. para los archivos tipo _.shp_ es necesario subir **los archivos auxiliares** ( _dbf_, _prj_, _shx_, _cpg_, _fix_, _qix_, _sbn_, y/o _shp.xml_) con el mismo nombre. para los archivos _.zip_ es necesario que contenga **los archivos auxiliares**
+3. para los archivos _.csv_ es nescesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84).El nombre de esas columnas se debe indicar en _Advanced options_ / _x column_ - _Y column_. Ademas se debe tener **absoluta claridad** del tipo de delimitador (ejemplo: coma: _,_ punto y coma: _;_ u otro diferente) y este debe ser especificado en _Advanced options_ / _CSV delimiter_
+
+::: {.tipblock data-latex=""}
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo)
+
+```{r, echo = F}
+knitr::include_graphics("Img/shareAssets.png")
+```
+
+:::
 
 **Pantalla de rutinas**
 
-Esta ventana es donde se van a escribir el código en Javascript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue se puede hacer un manejo de las ligas que se tengan activas, así como borras ligas que ya no se utilicen. A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. A continuación está el botón de `Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click en este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado. A su derecha se encuentra el botón de `Reset` el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas. Después se encuentra el botón de Apps que sirve para crear Apps a partir del código que se encuentr en la pantalla. Por último, en el botón del engranaje se encuentran opciones para prender y apagar funciones como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como ', ", ( y \{.
+```{r, echo = F}
+knitr::include_graphics("Img/editor.png")
+```
+
+Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion _Manage Links_ ) se puede hacer un manejo de las ligas que se tengan activas, así como borras ligas que ya no se utilicen.
+
+```{r, echo = F}
+knitr::include_graphics("Img/links.png")
+```
+
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opcion _Save as_ para crear una copia del codigo con otro nombre.
+
+```{r, echo = F}
+knitr::include_graphics("Img/save.png")
+```
+
+A continuación está el botón de `Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click en este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+
+```{r, echo = F}
+knitr::include_graphics("Img/run.png")
+```
+
+A su derecha se encuentra el botón de `Reset` el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas. 
+
+Después se encuentra el botón de Apps que sirve para crear Apps a partir del código que se encuentra en la pantalla. 
+
+Por último, en el botón del engranaje se encuentran opciones para prender y apagar funciones como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como ', ", ( y \{.
+
 
 ::: {.tipblock data-latex=""}
-Cuando se corre un script en la consola con el botón de Run, éste no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
+Cuando se corre un codigo en la consola con el botón de Run, éste no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
 :::
 
 ::: {.tipblock data-latex=""}
-Para activar el recuadro de búsqueda se debe dar click en la pantalla de rutinas y presionar ctrl+F. Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, si se vuelve a presionar ctrl+F se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra.
+Para buscar un texto especifico dentro del codigo, se debe dar click en la pantalla de rutinas y presionar ctrl+H, (algunos atajos pueden variar segun la configuracion del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, tambien se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra.
 :::
 
 **Search**
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de alguna colección en particular, así como para consultar sus metadatos, bandas y características. 
+```{r, echo = F}
+knitr::include_graphics("Img/search.png")
+```
+
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de algun Dataset o colección en particular, así como para consultar sus metadatos, bandas y características. 
 
 **Map**
-
-El mapa donde se pueden dibujar puntos, polígonos, líneas o rectángulos y muestra la información que se haya indicado mediante la función `Map.addLayer`. 
+```{r, echo = F}
+knitr::include_graphics("Img/drawing.png")
+```
+1. El mapa donde se pueden dibujar y visualizar puntos, polígonos, líneas o rectángulos
+2. mostrar la información que se haya indicado mediante la función `Map.addLayer`.
+3. añadir un mapa base (google maps , o google earth)
 
 **Layer manager**
+
+```{r, echo = F}
+knitr::include_graphics("Img/layer.png")
+```
 
 Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, permite modificar las características necesarias para su visualización (p.ej., transparencia, color, distribución del histograma, compuesto de color, etc). Este  menú aparece una vez que se cargan capas a la pantalla de mapas.
 
 **Consola**
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un script o se pueden mostrar la información indicada por la función `print`.
+```{r, echo = F}
+knitr::include_graphics("Img/rigthPanel.png")
+```
+
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un codigo o se pueden mostrar la información indicada por la función `print()`.
 
 **Inspector**
+
+```{r, echo = F}
+knitr::include_graphics("Img/inspector.png")
+```
 
 Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
 
 **Tasks**
 
-Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). También muestra el tiempo demorado en el trabajo, así como cuando el trabajo se ha finalizado. Por último, cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
+```{r, echo = F}
+knitr::include_graphics("Img/task.png")
+```
+Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). 
+1. muestra las tareas para ejecutar (con el boton de run, el cual permite especificar detalles de la exportacion)
+2. muestra las tareas en ejecucion (gris)
+3. muestra el tiempo demorado en el trabajo
+2. así como cuando el trabajo se ha finalizado (azul).
+3. cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
 \newpage
 # Tipos de objetos
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `obj1 + obj2`, mientras que del lado del servidor se utilizaría `obj1.add(obj2)`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizaría `ee.Number(1).add(ee.Number(2))`.
 
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla), agregar una capa a la pantalla del mapa o crear gráficos, así como imprimir información en la consola, sólo corren del lado del cliente. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) `ee.Export...`., agregar una capa a la pantalla del mapa `Map.addLayer()`o crear gráficos, así como imprimir información en la consola `print()`, sólo corren del lado del cliente. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/daigFunc.png")
@@ -193,86 +308,93 @@ knitr::include_graphics("Img/daigFunc.png")
 
 ## Tipos de objetos del lado del cliente
 
-**Strings (cadenas de texto)**
+::: {.tipblock data-latex=""}
+Vamos a utilizar mucho la funcion `print()` esta funcion, permite visualizar en la **consola** diversos objetos. por ejemplo, si se quiere ver en la consola la palabra _"Hola"_  se usa el comando `print('Hola')`
+:::
 
-Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un string. Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo:
+**Cadenas de texto**
+
+Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un texto Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo:
 
 ```{js, echo = T}
-var cadena = “Esto es una cadena de caracteres”;
-var telefono= '1234567890'; 
-var direccion = 'calle cuarta casa 16';
+var cadena = “Esto es una cadena de caracteres”;  //cadena de texto de solo letras
+var telefono= '1234567890';                       //cadena de texto de solo numeros
+var direccion = 'calle cuarta casa # 16';         //cadena de texto de letras, numeros y simbolos
 ```
 
-Resulta importante notar que los números en un String no serán interpretados como valores numéricos sino como texto.
+Resulta importante notar que los números en una cadena de texto no serán interpretados como valores numéricos sino como texto.
 
-**Number (números)**
+**Números**
 
-Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un Number. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
+Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un numero. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
 
 ```{js, echo = T}
-var numero = 1; 
-var numero2 = 2.5; 
+var numero = 1;     //numero entero
+var numero2 = 2.5;  //numero decimal
 ```
 
-Nótese que al declarar un objeto como Number no se hace uso de comillas.
+Nótese que al declarar un objeto como numero no se hace uso de comillas.
 
-**Lists (listas)**
+**Listas**
 
-Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (Number) o cadenas de texto (String). Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo:
+Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (numeros), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo:
 
 ```{js, echo = T}
-var lista = [1, 2, 3, 4, 5, 6, 7, 8]; 
-var listaA = [“primero”, “segundo”, “tercero”]; 
-var listaB = [“primero”, “segundo”, “tercero”, 4]; 
+var lista = [1, 2, 3, 4, 5, 6, 7, 8];                 //lista numerica 
+var listaA = [“primero”, “segundo”, “tercero”];       //lista de texto
+var listaB = [“primero”, “segundo”, “tercero”, 4];    //lista de texo y numeros
+var listaC = [lista, listaA, listaB];                 //lista de listas
 ```
 
-Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella.
+Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, **siempre empezando desde 0**. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella.
 
 ```{js, echo = T}
-print(lista[0]); 
-print(listaA[1]); 
-print(listaB[2]); 
+print(lista[0]);  //primer objeto de la lista llamada "lista"
+print(listaA[1]); //segundo objeto de la lista llamada "listaA"
+print(listaB[2]); //tercer objeto de la lista llamada "listaB"
+print(listaC);    //lista completa con todos sus elementos
 ```
 
 **Diccionarios (Dictionaries)**
 
-Los diccionarios son objetos que contienen claves y valores asociados a estas claves. Los diccionarios se definen mediante el uso de {} donde se define cada clave seguida de dos puntos y el valor o cadena de caracteres asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
+Los diccionarios son objetos que contienen claves (objetos) y valores asociados a estas claves (definicion del objeto). Los diccionarios se definen mediante el uso de llaves {} donde se define cada clave seguida de dos puntos ":" y el valor o cadena de caracteres asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
 
 ```{js, echo = T}
-var dicc = {
-  clave1: 1,
-  clave2: "A"
-}; 
+var dicc = {    //se declara un nuevo diccionario
+  clave1: 1,    //la primera entrada es el texto "clave1" que esta definido con el valor de 1  
+  clave2: "A"   //la segunda entrada es el texto "clave2", y su definicion es la letra "A"
+};            
 ```
 
 Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada.
 
 ```{js, echo = T}
-print(dicc["clave1"]); 
-print(dicc["clave2"]); 
+print(dicc["clave1"]);  //se mostrara en la consola la definicion de "clave1", es decir el valor 1 
+print(dicc["clave2"]);  //se mostrara en la consola la definicion de "clave2", es decir la letra "A"
 ```
 
 **Funciones (Functions)**
 
-Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función function seguida por el objeto al que se le aplicará la función y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función return. Por ejemplo:
+Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función, este objeto entre parentesis, y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
-var maskIm = function(image){
-  var qaImage = image.select('pixel_qa');
-  var clearData = qaImage.eq(322);
-  return image.updateMask(clearData);
+var maskIm = function(objeto){              //maskIm es una nueva funcion, y su argumento de entrada es "objeto"
+  var image = ee.Image(objeto)              //se define que "objeto" es una imagen raster, y se guarda en la variable image
+  var qaImage = image.select('pixel_qa');   //se selecciona solamente la banda de nombre "pixel_qa" de la imagen image
+  var clearData = qaImage.eq(322);          //se crea una nueva imagen binaria donde sera 1 los pixeles con valor igual a 322, y 0 los demas
+  return image.updateMask(clearData);       //se crea una mascara con la imagen binaria, y se entreda la imagen original enmascarada
 };
 ```
 
 Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite definir cualquier serie de procesos como una función y que GEE la interprete de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
 ::: {.tipblock data-latex=""}
-Las funciones sólo funcionan si regresan un objeto de tipo `Feature`, `FeatureCollection`, `Image` o `ImageCollections`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
+Las funciones que se ejecuten sobre una coleccion de iamgenes o vectores, sólo funcionan si regresan un objeto de tipo `Feature`, `FeatureCollection`, `Image` o `ImageCollections`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
 :::
 
 ## Tipo de objetos del lado del servidor
 
-Estas funciones permiten definir objetos como objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo objeto, por lo cual, se recomienda “castear” el objeto al tipo de objeto deseado antes de proseguir con su uso.
+Estas funciones permiten definir objetos como objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo objeto, por lo cual, se recomienda “llamar” dicho objeto como el servidor antes de proseguir con su uso.
 
 Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. 
 
@@ -283,34 +405,45 @@ Para revisar todos los métodos disponibles en GEE clasificados por tipo de obje
 Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. 
 
 ::: {.tipblock data-latex=""}
-Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo  `ee`, seguido del nombre del tipo de objeto con mayúsculas.
+Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo  `ee` (del servidor de **E**arth**E**ngine), seguido del nombre del tipo de objeto con inicial mayúscula.
 :::
 
-**ee.String**
+**ee.String()**
 
+es equivalente a la cadena de texto pero del lado del servidor.
 Permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.String** al revisar las librerías disponibles en la API (ver liga anterior).
 
 ```{js, echo = T}
-print(cadena);
-var cadenaServ = ee.String(cadena);
-print("Esto está evaluado en el servidor", cadenaServ);
+var cadena2 = "Esto es una cadena de caracteres";           //esta es una cadena de texto del lado del cliente
+var cadenaServ = ee.String(cadena2);                        //aca se convierte el texto del lado del cliente a un ee.String del lado dle servidor
+print("Esto está evaluado en el servidor", cadenaServ);     //se muestra primero un texto de cliente, y segundo un ee.String del servidor  
 ```
 
-**ee.List**
+**ee.Number()**
+
+Permite enviar un numero como objeto al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Number()** al revisar las librerías disponibles en la API (ver liga anterior).
+
+```{js, echo = T}
+print("numero del lado del cliente", 2021);                       //se muestra primero un texto de cliente y segundo un numero de cliente
+var numServ = ee.Number(1900);                                    //se define un numero como ee.Number del servidor
+print("numero como un objeto ee.Number del servidor", numServ);   //se muestra primero un texto de cliente, y segundo el ee.Number del servidor
+```
+
+**ee.List()**
 
 Permite enviar un objeto como lista al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.List** al revisar las librerías disponibles en la API (ver liga anterior).
 
 ```{js, echo = T}
-print("Esto está del lado del cliente", lista);
-var listaServ = ee.List(lista);
-print("Esto está evaluado en el servidor", listaServ);
+print("Esto está del lado del cliente", lista);           //se muestra primero un texto del cliente, y segundo una lista del cliente
+var listaServ = ee.List(lista);                           //se define una lista como ee.List del servidor
+print("Esto está evaluado en el servidor", listaServ);    //se muestra primero un texto del cliente, y segundo el ee.List del servidor
 ```
 
 Para acceder a un elemento de tipo ee.List se utiliza la función `get`.
 
 ```{js, echo = T}
-print(listaServe.get(0));
-print(listaServe.get(1));
+print(listaServe.get(0));   //se llama solamente al primero objeto de la ee.List del servidor
+print(listaServe.get(1));   //se llama solamente al segundo objeto de la ee.List del servidor
 ```
 
 **ee.Dictionary**
@@ -318,25 +451,27 @@ print(listaServe.get(1));
 Permite enviar un objeto como diccionario al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Dictionary** al revisar las librerías disponibles en la API (ver liga anterior). 
 
 ```{js, echo = T}
-print("Esto está del lado del cliente", dicc);
-var diccServ = ee.Dictionary(dicc);
-print("Esto está evaluado en el servidor", diccServ);
+print("Esto está del lado del cliente", dicc);        //se muestra primero un texto del cliente, y segundo un diccionario del cliente
+var diccServ = ee.Dictionary(dicc);                   //el diccionaio del usuario pasa a ser un ee.Dictionary del servidor
+print("Esto está evaluado en el servidor", diccServ); //se muestra primero un texto del cliente, y segundo el ee.Dictionary del servidor
 ```
 
 Para acceder a un elemento de tipo ee.Dictionary se utiliza la notación de `.` seguido del nombre de la clave. Adicionalmente, se puede consultar utilizando también la función `get` y el nombre de la clave, aunque se recomienda más el uso de la primera.
 
 ```{js, echo = T}
-print(diccServe.clave1);
-print(diccServe.clave2);
+print(diccServe.clave1);        //se muestra el valor que contiene el elemento "clave1"
+print(diccServe.clave2);        //se muestra el valor que contiene el elemento "clave2"
 
-print(diccServe.get("clave1"));
-print(diccServe.get("clave2"));
+print(diccServe.get("clave1")); //se muestra el valor que contiene el elemento "clave1"
+print(diccServe.get("clave2")); //se muestra el valor que contiene el elemento "clave2"
 ```
 
-Por último, si se desea obtener las claves disponibles en un diccionario se utiliza la función `keys`.
+Por último, si se desea obtener las claves disponibles en un ee.Dictionary se utiliza la función `.keys`. esta funcion devuelve una lista
+de igual forma si se desea obtener los valores disponibles en un ee.Dictionary se utiliza la función `.values`. esta funcion devuelve una lista
 
 ```{js, echo = T}
-print(diccServe.keys());
+print(diccServe.keys());    //muesta una lista con todas las claves del ee.Dictionary
+print(diccServe.values());  //muestra una lista con todos los valores del ee.Dictionary
 ```
 
 **ee.Date**
@@ -344,15 +479,14 @@ print(diccServe.keys());
 Este es la forma en la que GEE permite trabajar con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Date** al revisar las librerías disponibles en la API (ver liga anterior). 
 
 ```{js, echo = T}
-var fechaString = '2015-01-01';
+var fechaString = '2015-01-01';               //fecha como un texto de cliente
 
-print("Fecha String",fechaString);
+print("Fecha String",fechaString);            //se muestra la fecha como texto de cliente
 
-var fecha = ee.Date(fechaString);
-var fecha2 = ee.Date.fromYMD(2015,01,01);
-
-print("Fecha como ee.Date",fecha);
-print("Fecha como ee.Date también",fecha2);
+var fecha = ee.Date(fechaString);             //convierte la fecha de texto de cliente a ee.Date del servidor
+var fecha2 = ee.Date.fromYMD(2015,01,01);     //crea una ee.Date a partir de definir año, mes y dia con numeros del cliente
+print("Fecha como ee.Date",fecha);            //muestra la ee.Date creada con texto del cliente
+print("Fecha como ee.Date también",fecha2);   //muestra la ee.Date creada con numeros que definen año, mes y dia del cliente
 ```
 
 **ee.Image**
