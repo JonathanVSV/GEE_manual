@@ -314,7 +314,7 @@ Vamos a utilizar mucho la funcion `print()` esta funcion, permite visualizar en 
 
 **Cadenas de texto**
 
-Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un texto Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo:
+Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un texto Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo; ejercicio 0:
 
 ```{js, echo = T}
 var cadena = “Esto es una cadena de caracteres”;  //cadena de texto de solo letras
@@ -326,18 +326,18 @@ Resulta importante notar que los números en una cadena de texto no serán inter
 
 **Números**
 
-Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un numero. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
+Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un numero. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo; ejercicio 1:
 
 ```{js, echo = T}
 var numero = 1;     //numero entero
-var numero2 = 2.5;  //numero decimal
+var numero2 = 2.5;  //numero decimal con punto decimal
 ```
 
 Nótese que al declarar un objeto como numero no se hace uso de comillas.
 
 **Listas**
 
-Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (numeros), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo:
+Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (numeros), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo; ejercicio 2:
 
 ```{js, echo = T}
 var lista = [1, 2, 3, 4, 5, 6, 7, 8];                 //lista numerica 
@@ -346,7 +346,7 @@ var listaB = [“primero”, “segundo”, “tercero”, 4];    //lista de tex
 var listaC = [lista, listaA, listaB];                 //lista de listas
 ```
 
-Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, **siempre empezando desde 0**. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella.
+Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, **siempre empezando desde 0**. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella. Ejercicio 2.1
 
 ```{js, echo = T}
 print(lista[0]);  //primer objeto de la lista llamada "lista"
@@ -357,23 +357,31 @@ print(listaC);    //lista completa con todos sus elementos
 
 **Diccionarios (Dictionaries)**
 
-Los diccionarios son objetos que contienen claves (objetos) y valores asociados a estas claves (definicion del objeto). Los diccionarios se definen mediante el uso de llaves {} donde se define cada clave seguida de dos puntos ":" y el valor o cadena de caracteres asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
+Los diccionarios son objetos que contienen claves (objetos o entradas) y valores asociados a estas claves (definicion del objeto). Los diccionarios se definen mediante el uso de llaves {} donde se define cada clave seguida de dos puntos ":" y (la definicion) el valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
+Las claves o entradas siempre seran leidas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, si es nescesario es mejor usar guon bajo `_`. Al hacer `print()` se ordenaran alfabeticamente
 
 ```{js, echo = T}
 var dicc = {    //se declara un nuevo diccionario
-  clave1: 1,    //la primera entrada es el texto "clave1" que esta definido con el valor de 1  
-  clave2: "A"   //la segunda entrada es el texto "clave2", y su definicion es la letra "A"
+  clave1: 1,    //la primera entrada es el texto "clave1" que esta definido con el valor de 1 (tipo numero)  
+  clave2: "A"   //la segunda entrada es el texto "clave2", y su definicion es la letra "A" (tipo cadena de texto)
 };            
 ```
 
-Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada.
+Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada dentro de corchetes. Adicionalmente para los diccionarios se recomienda utilizar la notación de `.` seguido del nombre de la clave. la notacion con punto, es recomendada.
+Por ejemplo; ejercicio 3.1:
 
 ```{js, echo = T}
-print(dicc["clave1"]);  //se mostrara en la consola la definicion de "clave1", es decir el valor 1 
-print(dicc["clave2"]);  //se mostrara en la consola la definicion de "clave2", es decir la letra "A"
+print(dicc["clave1"]);  //notacion de lista, se mostrara en la consola la definicion de "clave1", es decir el valor 1 
+print(dicc["clave2"]);  //notacion de lista, se mostrara en la consola la definicion de "clave2", es decir la letra "A"
+
+print(dicc.clave1);  //notacion con punto, se mostrara en la consola la definicion de "clave1", es decir el valor 1 
+print(dicc.clave2);  //notacion con punto, se mostrara en la consola la definicion de "clave2", es decir la letra "A"
+
 ```
 
 **Funciones (Functions)**
+
+las funciones seran revisadas a mayor profundidad despues.
 
 Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función, este objeto entre parentesis, y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función `return`. Por ejemplo:
 
@@ -413,6 +421,8 @@ Para recordar cuáles objetos son del servidor, resulta útil recordar que todos
 es equivalente a la cadena de texto pero del lado del servidor.
 Permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.String** al revisar las librerías disponibles en la API (ver liga anterior).
 
+Ejercicio 4:
+
 ```{js, echo = T}
 var cadena2 = "Esto es una cadena de caracteres";           //esta es una cadena de texto del lado del cliente
 var cadenaServ = ee.String(cadena2);                        //aca se convierte el texto del lado del cliente a un ee.String del lado dle servidor
@@ -423,8 +433,9 @@ print("Esto está evaluado en el servidor", cadenaServ);     //se muestra primer
 
 Permite enviar un numero como objeto al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Number()** al revisar las librerías disponibles en la API (ver liga anterior).
 
+Ejercicio 5:
+
 ```{js, echo = T}
-print("numero del lado del cliente", 2021);                       //se muestra primero un texto de cliente y segundo un numero de cliente
 var numServ = ee.Number(1900);                                    //se define un numero como ee.Number del servidor
 print("numero como un objeto ee.Number del servidor", numServ);   //se muestra primero un texto de cliente, y segundo el ee.Number del servidor
 ```
@@ -433,37 +444,50 @@ print("numero como un objeto ee.Number del servidor", numServ);   //se muestra p
 
 Permite enviar un objeto como lista al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.List** al revisar las librerías disponibles en la API (ver liga anterior).
 
+Ejercicio 6:
+
 ```{js, echo = T}
-print("Esto está del lado del cliente", lista);           //se muestra primero un texto del cliente, y segundo una lista del cliente
-var listaServ = ee.List(lista);                           //se define una lista como ee.List del servidor
-print("Esto está evaluado en el servidor", listaServ);    //se muestra primero un texto del cliente, y segundo el ee.List del servidor
+var lista = ['hola','12','5%', ee.String('servidor'), ee.Number(64), 8.32]; //se construye una nueva lista con diferentes tipos de objetos del lado del usuario y servidor
+var listaServ = ee.List(lista);                                       //se define una lista como ee.List del servidor 
+
+print("Esto está evaluado como una lista del servidor", listaServ);    //se muestra primero un texto del cliente, y segundo el ee.List del servidor
 ```
 
-Para acceder a un elemento de tipo ee.List se utiliza la función `get`.
+Para acceder a un elemento de tipo ee.List se utiliza la función `get`. Ejercicio 6.1:
 
 ```{js, echo = T}
-print(listaServe.get(0));   //se llama solamente al primero objeto de la ee.List del servidor
-print(listaServe.get(1));   //se llama solamente al segundo objeto de la ee.List del servidor
+print(listaServ.get(0));   //se llama solamente al primero objeto de la ee.List del servidor
+print(listaServ.get(1));   //se llama solamente al segundo objeto de la ee.List del servidor
 ```
 
 **ee.Dictionary**
 
-Permite enviar un objeto como diccionario al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Dictionary** al revisar las librerías disponibles en la API (ver liga anterior). 
+Permite enviar un objeto como diccionario al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Dictionary** al revisar las librerías disponibles en la API (ver liga anterior).
+
+ejercicio 7
 
 ```{js, echo = T}
-print("Esto está del lado del cliente", dicc);        //se muestra primero un texto del cliente, y segundo un diccionario del cliente
-var diccServ = ee.Dictionary(dicc);                   //el diccionaio del usuario pasa a ser un ee.Dictionary del servidor
-print("Esto está evaluado en el servidor", diccServ); //se muestra primero un texto del cliente, y segundo el ee.Dictionary del servidor
+
+var dicc = {                                                  //se construye un diccionario de usuario con diferentes tipos de objetos del lado del usuario y servidor
+  'texto de usuario':'usuario',
+  'string del servidor': ee.String('texto de servidor # 2'),
+  'numero de usuario': 4,
+  'numero de servidor': ee.Number(3.1416),
+  'lista de usuario': [1, 'ejemplo'],
+  'lista de servidor': ee.List([ee.String('texto de servidor # 3'), ee.Number(1.44)])
+}; 
+
+var diccServ = ee.Dictionary(dicc);                           //se define el diccionario de usuario anterior como ee.Dictionary del servidor 
+
+print("Esto está evaluado como una lista del servidor", diccServ);    //se muestra primero un texto del cliente, y segundo el ee.Dictionary del servidor, notese que se ordenaron las claves alfabeticamente
+
 ```
 
-Para acceder a un elemento de tipo ee.Dictionary se utiliza la notación de `.` seguido del nombre de la clave. Adicionalmente, se puede consultar utilizando también la función `get` y el nombre de la clave, aunque se recomienda más el uso de la primera.
+Se puede consultar utilizando también la función `get` y el nombre de la clave. ejercicio 7.1
 
 ```{js, echo = T}
-print(diccServe.clave1);        //se muestra el valor que contiene el elemento "clave1"
-print(diccServe.clave2);        //se muestra el valor que contiene el elemento "clave2"
-
-print(diccServe.get("clave1")); //se muestra el valor que contiene el elemento "clave1"
-print(diccServe.get("clave2")); //se muestra el valor que contiene el elemento "clave2"
+print(diccServ.get('lista_de_servidor'));        //se muestra el valor que contiene la clave "lista_de_servidor"
+print(diccServ.get('numero_de_usuario'));        //se muestra el valor que contiene el elemento "numero_de_usuario"
 ```
 
 Por último, si se desea obtener las claves disponibles en un ee.Dictionary se utiliza la función `.keys`. esta funcion devuelve una lista
@@ -478,15 +502,37 @@ print(diccServe.values());  //muestra una lista con todos los valores del ee.Dic
 
 Este es la forma en la que GEE permite trabajar con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Date** al revisar las librerías disponibles en la API (ver liga anterior). 
 
+hay varias formas de construir una fecha especifica:
+1.  se puede usar un texto de usuario indicando la fecha en el **siguiente formato:** "YYYY-MM-DD", esta fecha **obligatoriamente** debe:
+  -  usar la funcion `ee.Date()`
+  -  estar en orden Año Mes Dia (AAAA-MM-DD)
+  -  tener separadores guiones `-`
+  -  tener meses numericos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12)
+  -  tener dias de dos digitos (01, 02, 03 ... 09, 10, 11, ... 30)
+  -  estar entre comillas
+2.  se puede usar numeros de usuario, en este caso se debe:
+  -  usar la funcion `ee.DatefromYMD()`
+  -  ingresar dentro del parentesis el año, el mes y el dia (en ese orden), separados por comas
+3.  usando un texto de usuario especificando el formato, para esto se debe:
+  -  especificar el formato de la fecha con la siguiente clave (YYYY=año, MM=mes, D=dia)
+  -  especificar el tipo de separador
+  -  especificar el orden en el que se ingresara el texto
+  -  especificar la cantidad de digitos esperada para cada item (año, mes y dia)
+  -  el formato debe estar entre comillas
+  -  luego de especificar el formato, se ingresa **dentro de comillas** el texto a convertir a  `ee.Date` (entre el formato y el texto debe ir una coma)
+
+ejercicio 8
 ```{js, echo = T}
-var fechaString = '2015-01-01';               //fecha como un texto de cliente
-
-print("Fecha String",fechaString);            //se muestra la fecha como texto de cliente
-
+var fechaString = '2001-10';                 //fecha como un texto de cliente
 var fecha = ee.Date(fechaString);             //convierte la fecha de texto de cliente a ee.Date del servidor
-var fecha2 = ee.Date.fromYMD(2015,01,01);     //crea una ee.Date a partir de definir año, mes y dia con numeros del cliente
-print("Fecha como ee.Date",fecha);            //muestra la ee.Date creada con texto del cliente
-print("Fecha como ee.Date también",fecha2);   //muestra la ee.Date creada con numeros que definen año, mes y dia del cliente
+
+var fecha2 = ee.Date.fromYMD(2015,03,28);     //crea una ee.Date a partir de definir año, mes y dia con numeros del cliente
+
+var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); //crea una fecha a partir de un formato especificado y un texto que cumple con dicho formato, notese que se especifica el orden del dia año y mes, se especifica cada separados, y si se usan años como texto deben ser las 3 primeras iniciales del mes en ingles 
+
+print("Fecha como ee.Date a partir de texto", fecha);            //se muestra la fecha como texto de cliente, notese que la fecha se completa automaticamente al primer dia del mes con hora 00:00:00 
+print("Fecha como ee.Date a partir de numeros indicando el año mes y dia",fecha2);            //muestra la ee.Date creada con texto del cliente
+print("Fecha como ee.Date a partir de un formato especificado y texto que lo cumple",fecha3);   //muestra la ee.Date creada con numeros que definen año, mes y dia del cliente
 ```
 
 **ee.Image**
