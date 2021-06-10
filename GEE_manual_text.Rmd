@@ -537,19 +537,20 @@ print("Fecha como ee.Date a partir de un formato especificado y texto que lo cum
 
 **ee.Image**
 
-Permite enviar un objeto como imagen al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Image**. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo raster en GEE. Más adelante se explican con mayor detalle.
+Permite leer un objeto **individual** tipo Raster en el servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Image**. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo raster en GEE. Más adelante se explican con mayor detalle.
 
 **ee.ImageCollection**
 
 Al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.ImageCollection**. Las colecciones de imágenes están formadas por imágenes. Más adelante se explican con mayor detalle.
 
+
 **ee.Feature**
 
-Permite enviar un objeto como atributo al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Feature**. Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explican con mayor detalle.
+Permite leer un objeto como vector en el servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Feature**. Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explican con mayor detalle.
 
 **ee.FeatureCollection**
 
-Permite enviar un objeto como colección de atributos  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection**. Las colecciones de atributos están formadas por atributos. Más adelante se explican con mayor detalle.
+Permite enviar un objeto como colección de features  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection**. Las colecciones de features están formadas por varios vectores. Más adelante se explican con mayor detalle.
 
 **ee.Algorithms**
 
@@ -561,15 +562,15 @@ Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se
 
 **ee.Classifier**
 
-Este tipo de objetos corresponden a algoritmos de clasificación de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _random forests_, disponible mediante la función `ee.Classifier.smileRandomForest` o _MaxEnt_, disponible mediante la función `ee.Classifier.amnhMaxent`.
+Este tipo de objetos corresponden a algoritmos de clasificación de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _random forests_, disponible mediante la función `ee.Classifier.smileRandomForest` o _MaxEnt_, disponible mediante la función `ee.Classifier.amnhMaxent`. entre otros.
 
 **ee.Clusterer**
 
-Este tipo de objetos corresponden a algoritmos de agrupamiento de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _k-means_, disponible mediante la función `ee.Clusterer.wekaKMeans` o _Cobweb_, disponible mediante la función `ee.Clusterer.wekaCobweb`.
+Este tipo de objetos corresponden a algoritmos de clasificaicon no supervisada de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _k-means_, disponible mediante la función `ee.Clusterer.wekaKMeans` o _Cobweb_, disponible mediante la función `ee.Clusterer.wekaCobweb`.
 
 **ee.Filter**
 
-Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de atributos o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o atributos. Por otro lado, también contienen funciones para combinar filtros. 
+Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de vectores o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores Por otro lado, también contienen funciones para combinar filtros. 
 
 **ee.Geometry**
 
@@ -581,7 +582,7 @@ Este conjunto de funciones permite realizar uniones entre colecciones de atribut
 
 **ee.Reducer**
 
-Este conjunto de funciones permite reducir una colección de imágenes para crear una única imagen. Por ejemplo, se puede reeducir una colección de imágenes mediante el cáclulo de su media `ee.Reducer.mean` o el cálculo de su desviación estándar `ee.Reducer.stdDev`.
+son la forma para agregar datos basados en una regla. el tipo de reductor define el tipo de agregacion que se aplique, Por ejemplo, se puede reducir con una sencilla estadistica (minimo, maximo, moda, media, mediana, etc.).O reductores mas complejos (histogramas, enlistar, regresion lineal). tambien pueden reducirse datos con dimension temporal (coleccion de imagenes de diferentes fechas), dimension espacial, segun las bandas de las imagenes, o incluso segun los atributos de los vectores. 
 
 **ee.Terrain**
 
@@ -742,7 +743,21 @@ Export.video.toDrive({
 \newpage
 # Features
 
-## Trazado de polígonos, líneas, puntos
+las Features en GEE son los objetos predeterminados para leer informacion vectorial.
+una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario)
+
+## Creando features
+
+para crear una feature desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asosicados a esa geometria. por ejemplo, Ejercicio XX:
+
+```{js echo = T}
+Export.video.toDrive({
+    collection: coleccionImgs,
+    description: 'videoTimelapse',
+    folder: 'mifolder',
+    framesPerSecond: 24
+ });  
+
 
 \newpage
 # Feature Collections
