@@ -293,6 +293,150 @@ Muestra los trabajos que se hayan exportado mediante la función Export.image o 
 2. así como cuando el trabajo se ha finalizado (azul).
 3. cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
+\newpage 
+# Interfaz de usuario: Visualización de datos, gráficos y exportación
+
+## Imprimir en consola
+
+La interfaz más sencilla de la API es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función sobre algún objeto, éste se evalua y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación (_bugs_) en los códigos.
+
+```{js, echo = T}
+print(Objeto);
+```
+
+## Map
+
+Permite agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla.
+
+::: {.tipblock data-latex=""}
+Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor ** en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
+:::
+
+**Map.addLayer**
+
+La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Como argumentos de la función `Map.addLayer` se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
+
+Al utilizar `Map.addLayer` sobre una imagen se se pueden indicar los siguientes argumentos: `bands`, `min` o `max`. Estos se deben pasar dentro de un `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
+
+```{js, echo = T}
+Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
+```
+
+::: {.tipblock data-latex=""}
+En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (p.ej., QGIS)
+:::
+
+Para el caso de los atributos (`features`) se puede realizar una operación similar como
+
+```{js, echo = T}
+Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10},
+'featuresColored');
+```
+
+::: {.tipblock data-latex=""}
+El código de los colores pasados al argumento de _palette_ corresponden a códigos hexadecimales.
+:::
+
+**Map.centerObject**
+
+Esta función permite centrar la pantalla de mapas en algún objeto. Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
+
+## Chart
+
+La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
+
+**Chart.feature**
+
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un atributo o una colección de atributos. Algunas de las funciones disponibles incluyen: `ui.Chart.feature.byFeature`, `ui.Chart.feature.byProperty`, `ui.Chart.feature.groups` y `ui.Chart.feature.histogram`.
+
+```{js, echo = T}
+ui.Chart.feature.byProperty({
+  feature: coleccionAtributos, 
+  xProperties: 'Clase',
+})
+```
+
+**Chart.image**
+
+Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles incluyen: `ui.Chart.image.byClass`, `ui.Chart.image.byRegion`, `ui.Chart.image.doySeries`, `ui.Chart.image.histogram`, `ui.Chart.image.seriesByRegion`, entre otras. 
+
+Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar la serie de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
+
+```{js, echo = T}
+ui.Chart.image.seriesByRegion({
+  imageCollection: coleccionImagenes, 
+  regions: areas.filter(ee.Filter.eq('Tipo','Deforestacion')),
+  reducer: ee.Reducer.mean(), 
+  band: 'NDVI', 
+  scale: 30, 
+  seriesProperty: 'Tipo'
+})
+  .setOptions({
+    title: 'Deforestacion',
+    colors: ['#EE3A19']
+  });
+```
+
+::: {.tipblock data-latex=""}
+El nombre de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
+:::
+                                              
+## Export
+
+Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
+
+**Export.image**
+
+En el caso de las imágenes, la función para exportar es` Export.image`. Dentro de GEE hay 3 opciones para exportar los resultados de una imagen: `Export.image.toAsset`, `Export.image.toDrive` o `Export.image.toCloudStorage`. El primero permite exportar la imagen como una imagen a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes en algún entorno local como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. 
+
+Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
+
+Un ejemplo de cómo exportar una imagen se presenta a continuación.
+
+```{js echo = T}
+Export.image.toDrive({
+  image: imgDiff,
+  description: 'DiferenciaNDVI_2016-2017',
+  scale: 30,
+  fileFormat: 'GeoTIFF',
+  folder: 'DiferenciaNDVIL8'
+}); 
+```
+
+::: {.tipblock data-latex=""}
+En GEE muchas operaciones utilizan el término de scale, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (p.ej., 1:50 000), sino que se refiere al tamaño de pixel expresado en m.
+:::
+
+::: {.tipblock data-latex=""}
+En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de pixeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de pixeles. En este caso, se debe aumentar el número de pixeles máximo permitido para la exportación. Esto se logra indicando el argumento `maxPixels` dentro del diccionario que se pasa a Export.image.toDrive. Por ejemplo, `maxPixels: 1e10`, lo cual permite exportar una imagen con hasta 1 x 10^10 pixeles.
+:::
+
+**Export.table**
+
+Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo atributo: `Export.table.toAsset`, `Export.table.toDrive` o `Export.table.toCloudStorage`. Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:
+
+```{js echo = T}
+Export.table.toDrive({
+    collection: feature,
+    description: 'nombreArchivo',
+    folder: 'mifolder',
+    fileFormat: 'CSV'
+ });
+```
+
+**Export.video**
+
+Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google `Export.video.toCloudStorage` o al Drive `Export.video.toDrive`. Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. Para exportar una colección de imágenes a video se puede realizar de la siguiente manera:
+
+```{js echo = T}
+Export.video.toDrive({
+    collection: coleccionImgs,
+    description: 'videoTimelapse',
+    folder: 'mifolder',
+    framesPerSecond: 24
+ });
+```
+
 \newpage
 # Tipos de objetos
 
@@ -596,297 +740,20 @@ Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o 
 Resulta útil recordar que normalmente los argumentos de cualquier función del servidor se pasan como un diccionario.
 :::
 
-\newpage 
-# Interfaz de usuario: Visualización de datos, gráficos y exportación
-
-## Imprimir en consola
-
-La interfaz más sencilla de la API es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función sobre algún objeto, éste se evalua y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación (_bugs_) en los códigos.
-
-```{js, echo = T}
-print(Objeto);
-```
-
-## Map
-
-Permite agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla.
-
-::: {.tipblock data-latex=""}
-Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor ** en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
-:::
-
-**Map.addLayer**
-
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Como argumentos de la función `Map.addLayer` se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
-
-Al utilizar `Map.addLayer` sobre una imagen se se pueden indicar los siguientes argumentos: `bands`, `min` o `max`. Estos se deben pasar dentro de un `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
-
-```{js, echo = T}
-Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
-```
-
-::: {.tipblock data-latex=""}
-En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (p.ej., QGIS)
-:::
-
-Para el caso de los atributos (`features`) se puede realizar una operación similar como
-
-```{js, echo = T}
-Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10},
-'featuresColored');
-```
-
-::: {.tipblock data-latex=""}
-El código de los colores pasados al argumento de _palette_ corresponden a códigos hexadecimales.
-:::
-
-**Map.centerObject**
-
-Esta función permite centrar la pantalla de mapas en algún objeto. Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
-
-## Chart
-
-La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
-
-***Chart.feature***
-
-Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un atributo o una colección de atributos. Algunas de las funciones disponibles incluyen: `ui.Chart.feature.byFeature`, `ui.Chart.feature.byProperty`, `ui.Chart.feature.groups` y `ui.Chart.feature.histogram`.
-
-```{js, echo = T}
-ui.Chart.feature.byProperty({
-  feature: coleccionAtributos, 
-  xProperties: 'Clase',
-})
-```
-
-**Chart.image**
-
-Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles incluyen: `ui.Chart.image.byClass`, `ui.Chart.image.byRegion`, `ui.Chart.image.doySeries`, `ui.Chart.image.histogram`, `ui.Chart.image.seriesByRegion`, entre otras. 
-
-Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar la serie de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
-
-```{js, echo = T}
-ui.Chart.image.seriesByRegion({
-  imageCollection: coleccionImagenes, 
-  regions: areas.filter(ee.Filter.eq('Tipo','Deforestacion')),
-  reducer: ee.Reducer.mean(), 
-  band: 'NDVI', 
-  scale: 30, 
-  seriesProperty: 'Tipo'
-})
-  .setOptions({
-    title: 'Deforestacion',
-    colors: ['#EE3A19']
-  });
-```
-
-::: {.tipblock data-latex=""}
-El nombre de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
-:::
-                                              
-## Export
-
-Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
-
-**Export.image**
-
-En el caso de las imágenes, la función para exportar es` Export.image`. Dentro de GEE hay 3 opciones para exportar los resultados de una imagen: `Export.image.toAsset`, `Export.image.toDrive` o `Export.image.toCloudStorage`. El primero permite exportar la imagen como una imagen a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes en algún entorno local como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. 
-
-Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
-
-Un ejemplo de cómo exportar una imagen se presenta a continuación.
-
-```{js echo = T}
-Export.image.toDrive({
-  image: imgDiff,
-  description: 'DiferenciaNDVI_2016-2017',
-  scale: 30,
-  fileFormat: 'GeoTIFF',
-  folder: 'DiferenciaNDVIL8'
-}); 
-```
-
-::: {.tipblock data-latex=""}
-En GEE muchas operaciones utilizan el término de scale, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (p.ej., 1:50 000), sino que se refiere al tamaño de pixel expresado en m.
-:::
-
-::: {.tipblock data-latex=""}
-En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de pixeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de pixeles. En este caso, se debe aumentar el número de pixeles máximo permitido para la exportación. Esto se logra indicando el argumento `maxPixels` dentro del diccionario que se pasa a Export.image.toDrive. Por ejemplo, `maxPixels: 1e10`, lo cual permite exportar una imagen con hasta 1 x 10^10 pixeles.
-:::
-
-**Export.table**
-
-Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo atributo: `Export.table.toAsset`, `Export.table.toDrive` o `Export.table.toCloudStorage`. Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:
-
-```{js echo = T}
-Export.table.toDrive({
-    collection: feature,
-    description: 'nombreArchivo',
-    folder: 'mifolder',
-    fileFormat: 'CSV'
- });
-```
-
-**Export.video**
-
-Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google `Export.video.toCloudStorage` o al Drive `Export.video.toDrive`. Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. Para exportar una colección de imágenes a video se puede realizar de la siguiente manera:
-
-```{js echo = T}
-Export.video.toDrive({
-    collection: coleccionImgs,
-    description: 'videoTimelapse',
-    folder: 'mifolder',
-    framesPerSecond: 24
- });
-```
-
 \newpage
-# Geometrias
-
-GEE utiliza el objeto ee.Geometry para leer y manejar formas geometricas, estos incluyen geometrias sin area, como son: 
-    **Punto** (`ee.Geometry.Point`): una coordenada en X & Y.
-    **Multi punto** (`ee.Geometry.MultiPoint`): una lista de puntos
-    **Linea** (`ee.Geometry.LineString`): una linea
-    **Multi Linea** (`ee.Geometry.MultiLineString`): una lista de lineas
-    **Perimetro** (`ee.Geometry.LinearRing`): un perimetro (una linea cerrada)
-
-Ejercicio X
-
-```{js echo = T}
-var punto = ee.Geometry.Point(-99.14, 19.47); //un punto definido con su coordenada  
-
-var MultiPunto = ee.Geometry.MultiPoint([     //un Multi Punto 
-  -74.072, 4.754,                               //definidio a partir de una LISTA
-  -75.545, 6.285,                              //de coordenadas de puntos
-  -76.533, 3.461,
-  -74.819, 10.997,
-  -75.501, 10.393]);
-
-var linea = ee.Geometry.LineString([  //una linea definida a partir
-  -117.08, 32.04,                     //de una LISTA de
-  -104.25, 31.74,                     //las cordenadas de sus vertices
-  -96.69, 25.58,
-  -95.99, 19.74,
-  -87.2, 21.39,
-  -87.2, 16.91,
-  -82.28, 14.88,
-  -83.15, 10.07,
-  -77.35, 8.86,
-  -71.55, 12.66]); 
-
-var MultiLinea = ee.Geometry.MultiLineString([  //una Multi Linea definida a
-   ee.Geometry.LineString(                      //a partir de una LISTA de
-     [-76.017, 26.173, -76.017, 16.173]),       //Lineas ee.LineString, que a
-  ee.Geometry.LineString(                       //su ves estan definidas por una
-    [-73.017, 26.173, -73.017, 16.173]),        //lista de las coordenadas de
-  ee.Geometry.LineString(                       //sus vertices
-    [-78.434, 20.926, -70.04, 24.401]),
-  ee.Geometry.LineString(
-    [-78.434, 18.926, -70.04, 22.401])]);
-
-var perimetro = ee.Geometry.LinearRing([  //un perimetro definido a partir de
-  -105.732, 20.627,                       //una LISTA  de las coordenadas de
-  -109.336, 26.544,                       //los vertices
-  -113.291, 31.274,
-  -114.829, 31.274,
-  -109.468, 23.317])
-```
-
-tambien hay geometrias que incluyen el area, como son: 
-    **Rectangulo** (`ee.Geometry.Rectangle`): un rectangulo.
-    **Poligono** (`ee.Geometry.Polygon`): un poligono
-    **Multi Poligono** (`ee.Geometry.MultiPolygon`): un lista de poligonos
-
-Ejercicio X.1
-```{js echo = T}
-var rectangulo = ee.Geometry.Rectangle(  //un rectangulo definido por las coordenadas de los vertices opuestos
-  -104.12, 5.73,
-  -88.21, -0.15); 
-
-var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas de sus vertices
-  -80.348, -3.36,
-  -80.348, -3.36,
-  -78.985, -5.113,
-  -78.019, -3.228,
-  -75.997, -2.394,
-  -75.25, -0.901,
-  -75.865, 0.11,
-  -78.941, 1.428,
-  -80.26, 0.725,
-  -80.919, -1.911,
-  -79.776, -2.614
-  );
-
-var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por una LISTA de poligonos
-  [
-    ee.Geometry.Polygon(                                                        //el primer poligono esta definido a partir de dos permietros 
-      [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el primer perimitro define el poligono 
-      ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el segundo perimetro define los huecos dentro del poligono
-    [-95.77, 17.2,          //el segundo poligono es una LISTA de coordenadas que forman un triangulo
-      -108.7, 17.8,
-      -110.0, 8.32],
-    [-105.6, 15.5,          //el tercer poligono es una LISTA de coordenadas que forman un triangulo
-      -105.9, 14.2,
-      -103.7, 13.2],
-    [-94.98, 14.6,          //el cuarto poligono es una LISTA de coordenadas que forman un triangulo
-      -95.50, 13.8,
-      -93.13, 11.8],
-    [-84.52, 7.62,          //el quinto poligono es una LISTA de coordenadas que forman un triangulo
-      -85.84, 0.17,
-      -78.10, 4.74],
-    [-67.03, 11.0,          //el sexto poligono es una LISTA de coordenadas que forman un triangulo
-      -67.64, 6.49,
-      -62.11, 2.63]
-      ]);
-```
-
-# Vectores Features
+# Features
 
 las Features en GEE son los objetos predeterminados para leer informacion vectorial.
-una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario).
+una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario)
 
+## Creando features
 
-## Creando Vectores (features)
-
-para crear un Vector desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometria. por ejemplo, 
-
-Ejercicio XX:
-
-```{js echo = T}
-var poligono = ee.Geometry.Polygon([ ////crear un poligono
-  -119.24, 32.73,
-  -115.02, -3.29,
-  -66.5, -3.29,
-  -68.43, 32.14
-]);
-
-  // Crear un vector a partir del poligono y un diccionario de atributos.
-var vector = ee.Feature(
-  poligono,                       //poligono del vector
-  {año: 1500,                     //diccionario de atributos con 3 atributos
-  tamaño: '865 kilometros',
-  nombres:['hugo','paco','luis']
-  });
-```
-ademas usando la funcion `.set` se pueden modificar los atributos, o escribir nuevos atributos sobre el vector
-
-ejercicio xx.1
-```{js echo = T}
-var vector1 = vector.set('tamaño','neotropico');
-```
-\newpage
-# coleccion de vectores (Feature Collections)
-
-una coleccion de vectores es un grupo de vectores individuales combinados en un solo conjunto. esto permite ejecutar operaciones sobre todo el conjunto de vectores.
- 
-::: {.tipblock data-latex=""}
-una coleccion de vectores, puede contener como elementos: vectores, geometrias, otras colecciones de vectores
-:::
-
-ejercicio xxx
+para crear una feature desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asosicados a esa geometria. por ejemplo, Ejercicio XX:
 
 \newpage
+# Feature Collections
 
+\newpage
 # Imagen
 
 ## Características
@@ -1032,11 +899,27 @@ var mascara = demCortado.lte(2500).and(demCortado.gte(1000));
 var imgEnmascarada = demCortado.updateMask(mascara);
 ```
 
-Por último, se puede renombrar la banda de la imagen de 'elevation' a 'elevación' y se agrega la imagen a la pantalla de mapas.
+A continuación, se puede renombrar la banda de la imagen de 'elevation' a 'elevación' y se agrega la imagen a la pantalla de mapas.
 
 ```{js, echo = T}
 imgEnmascarada = imgEnmascarada.rename('elevacion');
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
+```
+
+Por último, se puede generar un gráfico para obtener un histograma de los valores de elevación del dem. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en m a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print`.
+
+```{js, echo = T}
+var graficoHistorgrama = ui.Chart.image.histogram({
+  image: imgEnmascarada,
+  scale: 9000,
+  maxBuckets: 10
+  });
+
+print(graficoHistorgrama,'graficoHistorgrama');
+```
+
+```{r, echo = F}
+knitr::include_graphics("Img/histElevacion.png")
 ```
 
 \newpage
@@ -1620,6 +1503,30 @@ Map.addLayer(classifiedImg,{min:0, max:3,
 
 ```{r, echo = F}
 knitr::include_graphics("Img/RFClass.png")
+```
+
+Posteriormente se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`'classification'`), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean()`), las regiones de las cuáles se va a obtener esta información (`poligonos`), las etiquetas de las clases `['NoBosque','Bosque','Agua','Urbano']`, la escala en m de trabajo para aplicar el reductor (`240`) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
+
+```{js echo = T}
+var imgConClass = L8imgMean.addBands(classifiedImg);
+  
+var chartClassSpec = ui.Chart.image.byClass({
+  image: imgConClass,
+  classBand: 'classification',
+  reducer: ee.Reducer.mean(),
+  region: poligonos,
+  classLabels: ['NoBosque','Bosque','Agua','Urbano'],
+  scale: 240
+}).setOptions({
+  title: 'Perfil espectral por clase',
+  colors: ['#fcff21','#20da25','#05a9da','#dadada']
+});
+
+print(chartClassSpec);
+```
+
+```{r, echo = F}
+knitr::include_graphics("Img/SpectralSignClass.png")
 ```
 
 Una vez que se tiene la clasificación del área de interés se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.
