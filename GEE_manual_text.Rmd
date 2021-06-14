@@ -741,28 +741,152 @@ Export.video.toDrive({
 ```
 
 \newpage
-# Features
+# Geometrias
 
-las Features en GEE son los objetos predeterminados para leer informacion vectorial.
-una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario)
+GEE utiliza el objeto ee.Geometry para leer y manejar formas geometricas, estos incluyen geometrias sin area, como son: 
+    **Punto** (`ee.Geometry.Point`): una coordenada en X & Y.
+    **Multi punto** (`ee.Geometry.MultiPoint`): una lista de puntos
+    **Linea** (`ee.Geometry.LineString`): una linea
+    **Multi Linea** (`ee.Geometry.MultiLineString`): una lista de lineas
+    **Perimetro** (`ee.Geometry.LinearRing`): un perimetro (una linea cerrada)
 
-## Creando features
-
-para crear una feature desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asosicados a esa geometria. por ejemplo, Ejercicio XX:
+Ejercicio X
 
 ```{js echo = T}
-Export.video.toDrive({
-    collection: coleccionImgs,
-    description: 'videoTimelapse',
-    folder: 'mifolder',
-    framesPerSecond: 24
- });  
+var punto = ee.Geometry.Point(-99.14, 19.47); //un punto definido con su coordenada  
 
+var MultiPunto = ee.Geometry.MultiPoint([     //un Multi Punto 
+  -74.072, 4.754,                               //definidio a partir de una LISTA
+  -75.545, 6.285,                              //de coordenadas de puntos
+  -76.533, 3.461,
+  -74.819, 10.997,
+  -75.501, 10.393]);
+
+var linea = ee.Geometry.LineString([  //una linea definida a partir
+  -117.08, 32.04,                     //de una LISTA de
+  -104.25, 31.74,                     //las cordenadas de sus vertices
+  -96.69, 25.58,
+  -95.99, 19.74,
+  -87.2, 21.39,
+  -87.2, 16.91,
+  -82.28, 14.88,
+  -83.15, 10.07,
+  -77.35, 8.86,
+  -71.55, 12.66]); 
+
+var MultiLinea = ee.Geometry.MultiLineString([  //una Multi Linea definida a
+   ee.Geometry.LineString(                      //a partir de una LISTA de
+     [-76.017, 26.173, -76.017, 16.173]),       //Lineas ee.LineString, que a
+  ee.Geometry.LineString(                       //su ves estan definidas por una
+    [-73.017, 26.173, -73.017, 16.173]),        //lista de las coordenadas de
+  ee.Geometry.LineString(                       //sus vertices
+    [-78.434, 20.926, -70.04, 24.401]),
+  ee.Geometry.LineString(
+    [-78.434, 18.926, -70.04, 22.401])]);
+
+var perimetro = ee.Geometry.LinearRing([  //un perimetro definido a partir de
+  -105.732, 20.627,                       //una LISTA  de las coordenadas de
+  -109.336, 26.544,                       //los vertices
+  -113.291, 31.274,
+  -114.829, 31.274,
+  -109.468, 23.317])
+```
+
+tambien hay geometrias que incluyen el area, como son: 
+    **Rectangulo** (`ee.Geometry.Rectangle`): un rectangulo.
+    **Poligono** (`ee.Geometry.Polygon`): un poligono
+    **Multi Poligono** (`ee.Geometry.MultiPolygon`): un lista de poligonos
+
+Ejercicio X.1
+```{js echo = T}
+var rectangulo = ee.Geometry.Rectangle(  //un rectangulo definido por las coordenadas de los vertices opuestos
+  -104.12, 5.73,
+  -88.21, -0.15); 
+
+var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas de sus vertices
+  -80.348, -3.36,
+  -80.348, -3.36,
+  -78.985, -5.113,
+  -78.019, -3.228,
+  -75.997, -2.394,
+  -75.25, -0.901,
+  -75.865, 0.11,
+  -78.941, 1.428,
+  -80.26, 0.725,
+  -80.919, -1.911,
+  -79.776, -2.614
+  );
+
+var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por una LISTA de poligonos
+  [
+    ee.Geometry.Polygon(                                                        //el primer poligono esta definido a partir de dos permietros 
+      [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el primer perimitro define el poligono 
+      ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el segundo perimetro define los huecos dentro del poligono
+    [-95.77, 17.2,          //el segundo poligono es una LISTA de coordenadas que forman un triangulo
+      -108.7, 17.8,
+      -110.0, 8.32],
+    [-105.6, 15.5,          //el tercer poligono es una LISTA de coordenadas que forman un triangulo
+      -105.9, 14.2,
+      -103.7, 13.2],
+    [-94.98, 14.6,          //el cuarto poligono es una LISTA de coordenadas que forman un triangulo
+      -95.50, 13.8,
+      -93.13, 11.8],
+    [-84.52, 7.62,          //el quinto poligono es una LISTA de coordenadas que forman un triangulo
+      -85.84, 0.17,
+      -78.10, 4.74],
+    [-67.03, 11.0,          //el sexto poligono es una LISTA de coordenadas que forman un triangulo
+      -67.64, 6.49,
+      -62.11, 2.63]
+      ]);
+```
+
+# Vectores Features
+
+las Features en GEE son los objetos predeterminados para leer informacion vectorial.
+una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario).
+
+
+## Creando Vectores (features)
+
+para crear un Vector desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometria. por ejemplo, 
+
+Ejercicio XX:
+
+```{js echo = T}
+var poligono = ee.Geometry.Polygon([ ////crear un poligono
+  -119.24, 32.73,
+  -115.02, -3.29,
+  -66.5, -3.29,
+  -68.43, 32.14
+]);
+
+  // Crear un vector a partir del poligono y un diccionario de atributos.
+var vector = ee.Feature(
+  poligono,                       //poligono del vector
+  {año: 1500,                     //diccionario de atributos con 3 atributos
+  tamaño: '865 kilometros',
+  nombres:['hugo','paco','luis']
+  });
+```
+ademas usando la funcion `.set` se pueden modificar los atributos, o escribir nuevos atributos sobre el vector
+
+ejercicio xx.1
+```{js echo = T}
+var vector1 = vector.set('tamaño','neotropico');
+```
+\newpage
+# coleccion de vectores (Feature Collections)
+
+una coleccion de vectores es un grupo de vectores individuales combinados en un solo conjunto. esto permite ejecutar operaciones sobre todo el conjunto de vectores.
+ 
+::: {.tipblock data-latex=""}
+una coleccion de vectores, puede contener como elementos: vectores, geometrias, otras colecciones de vectores
+:::
+
+ejercicio xxx
 
 \newpage
-# Feature Collections
 
-\newpage
 # Imagen
 
 ## Características
