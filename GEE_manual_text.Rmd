@@ -885,7 +885,148 @@ una coleccion de vectores es un grupo de vectores individuales combinados en un 
 una coleccion de vectores, puede contener como elementos: vectores, geometrias, otras colecciones de vectores
 :::
 
+::: {.tipblock data-latex=""}
+una coleccion de vectores, puede contener un solo vector o una sola geometria
+ejercicio xxXx
+```{js echo = T}
+var coleccion = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
+```
+:::
+
 ejercicio xxx
+```{js echo = T}
+var Punto = ee.Feature(ee.Geometry.Point(-99.1362, 19.4352),
+    {pais:'Mexico',capital:'cdmx'});
+
+var Multipunto = ee.Feature(ee.Geometry.MultiPoint([     
+    -90.496, 14.605,                               
+    -88.717, 17.245,                              
+    -87.157, 14.094,
+    -89.2275, 13.6937,
+    -86.273, 12.115
+    -84.097, 9.958
+    -79.527, 8.983]),
+    { pais: 
+      ['Guatemala', 
+      'Belice', 
+      'Honduras', 
+      'El Salvador', 
+      'Nicaragua', 
+      'Costa Rica', 
+      'Panama'],
+      capital: 
+      ['cdad. de Guatemala', 
+      'Belmopan', 
+      'Tegucigalpa', 
+      'San Salvador', 
+      'Managua', 
+      'San Jose', 
+      'cdad. de Panama']});
+
+var Linea = ee.Feature(ee.Geometry.LineString([  //una linea definida a partir
+  -66.865, 10.479,                     //de una LISTA de
+  -74.072, 4.732]),
+    {pais: 'Venezuela - Colombia', capital: 'Caracas - Bogota'}); 
+
+var MultiLinea = ee.Feature(ee.Geometry.MultiLineString([  
+   ee.Geometry.LineString(                      
+     [-76.803, 18.021, -82.362, 23.121]),      
+  ee.Geometry.LineString(                       
+    [-72.311, 18.619, -69.938, 18.494]),        
+  ee.Geometry.LineString(                       
+    [-66.103, 18.4597, -61.8558, 17.1315]),
+  ee.Geometry.LineString(
+    [-55.165, 5.861, -58.149, 6.822])]),
+    {pais:['Jamacia - Cuba',
+    'Haiti - republica Doinicana',
+    'Puerto Rico - Antigua y Barbuda',
+    'Surinam - Guyana'],
+    capital:['Kingston - La Habana',
+    'Puerto Principe - Santo Domingo',
+    'San Juan - saint John',
+    'Paramaribo - Georgetown']
+    });
+
+var perimetro = ee.Feature(ee.Geometry.LinearRing([  
+  -79.354, 27.32,
+  -79.332, 23.661,
+  -74.19, 21.161,
+  -72.235, 23.165,
+  -78.039, 27.859]),
+    {pais:'Bahamas', capital: 'Nasau'});
+
+var rectangulo = ee.Feature(ee.Geometry.Rectangle(
+  -127.97, 50.25,
+  -68.2, 27.63),
+    {pais:'eeuu', capital:'Washington'}); 
+
+var Poligono = ee.Feature(ee.Geometry.Polygon(  
+  -80.348, -3.36,
+  -80.348, -3.36,
+  -78.985, -5.113,
+  -78.019, -3.228,
+  -75.997, -2.394,
+  -75.25, -0.901,
+  -75.865, 0.11,
+  -78.941, 1.428,
+  -80.26, 0.725,
+  -80.919, -1.911,
+  -79.776, -2.614
+  ),{pais:'Ecuador', capital:'Quito'});
+
+var MultiPoligono = ee.Feature(ee.Geometry.MultiPolygon(   
+  [ee.Geometry.Polygon([-61.955, 10.146,         
+      -61.713, 10.967,
+      -60.593, 10.881,
+    -60.68, 10.081]),
+    ee.Geometry.Polygon([-61.779, 12.269,     
+      -61.504, 12.205,
+      -61.57, 11.968,
+      -61.845, 12.044]),
+    ee.Geometry.Polygon([-59.703, 13.042,         
+      -59.417, 13.032,
+      -59.45, 13.32,
+      -59.736, 13.342]),
+    ee.Geometry.Polygon([-61.526, 15.671,          
+      -61.087, 15.512,
+      -61.274, 15.194,
+      -61.438, 15.279])]),
+    {pais:['Trinidad y Tobago',
+    'Granada',
+    'Barbados',
+    'Dominica'],
+    capital:['Puerto España',
+    'Chantimelle',
+    'Bridgetown',
+    'Roseau']
+    });
+
+
+var coleccionVectores = ee.FeatureCollection([ //crear una LISTA que incluya todos los vectores
+  MultiPoligono,
+  Poligono,
+  rectangulo,
+  perimetro,
+  MultiLinea,
+  Linea,
+  Multipunto,
+  Punto]);
+``` 
+## vectores de GEE 
+
+GEE ofrece un catalogo de coleccion de vectores, se pueden buscar en la barra de busqueda.
+estas colecciones de vectores de GEE se llaman `tables`. 
+
+ejercicio Y
+```{js echo = T}
+var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017') //en el buscador se busca una tabla de paises 'countries', y se escribe el ID de la tabla, en este caso es una coleccion de vectores del departamento de estado de Estados unidos, que contiene las divisiones politicas de los paises del mundo  
+
+```
+## Puntos Aleatorios
+
+GEE ofrece la herramienta para tgfpoov +
+
+
 \newpage
 # Imagen
 
