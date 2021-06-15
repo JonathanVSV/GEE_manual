@@ -1024,9 +1024,54 @@ var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017') //en el buscador se 
 ```
 ## Puntos Aleatorios
 
-GEE ofrece la herramienta para tgfpoov +
+GEE ofrece la herramienta para generar una coleccion de vectores, compuesta por puntos aleatorios en un aregion especificada.
 
+ejercico yy
 
+```{js echo = T}
+//determiniar una region especifica donde se quiere lanzar puntos aleatorios
+var region = ee.Geometry.Rectangle(-61.36, 31.2, -16.54, 1.93);
+
+// crear 1000 puntos aleatorios en la region especificada
+var puntos = ee.FeatureCollection.randomPoints(region,1000);
+
+```
+## Vizualizacion de vectores y colecciones de vectores
+
+las geometrias, vectores y coleccion de vectores pueden ser vizualizados en el mapa de GEE. la configuracion predeterminada para estos elementos es verlos con lineas solidas negras y un relleno semi-opaco gris.
+sin embargo se puede especificar el parametro `color`, dentro de un diccionario en la funcion `ee.MapaddLayer`. el color debe ingresarse como codigo hexadecimal
+
+::: {.tipblock data-latex=""}
+los cambios de los parametros de vizualizacion de los vectores no pueden hacerse en las herramientas de capa del mapa _layers_, solo puede hacerse desde el editor de codigo
+para consultar el codigo hexadecimal del color deseado se puede acceder a la siguiente liga:
+https://htmlcolorcodes.com/es/
+:::
+
+ejercico xy
+```{js echo = T}
+var ecoregiones = ee.FeatureCollection("RESOLVE/ECOREGIONS/2017");
+
+// especificar el color de la capa 
+Map.addLayer(ecoregiones, {}, 'capa p}por default');
+Map.addLayer(ecoregiones, {color: '2AF116'}, 'capa color verde');
+
+```
+Adicionalmente y **SOLO PARA** colecciones de vectores se pueden especificar parametros adicionales como tañamo del punto `pointRadius` y grosor `strokeWidth` de la linea.
+esto se logra con la funcion `ee.FeatureCollection.draw()`
+
+ejercicio xy.1
+
+```{js echo = T}
+Map.addLayer(ecoregiones.draw({color: '2AF116', strokeWidth:5 }), {}, 'capa color verde');
+```
+
+::: {.tipblock data-latex=""}
+La funcion `draw` convierte la coleccion de vectores en una imagen y por eso permite especificar grosor de la linea y de los puntos (este grosor esta medido en pixeles)
+:::
+
+si uno quiere visualizar solo los contornos de los vectorespuede usar la siguiente funcion:
+ejercicio xy.2
+ 
 \newpage
 # Imagen
 
