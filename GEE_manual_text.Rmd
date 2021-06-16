@@ -35,7 +35,7 @@ Google Earth Engine (GEE) es una plataforma, desarrollada por Google, que permit
 ## ¿Cómo Funciona Google Earth Engine (GEE)?
 ### Background
 
-Desde hace varios años existen varias misiones espaciales que registran datos de la Tierra a traves de distintos satelites, las cuales se han almacenado en acervos de imágenes. Aunque esta información ha sido muy útil para el desarrollo científico, siempre había existido el problema de la "Big-Data" (bases de datos enormes). Es decir, que dichos acervos de imágenes cuentan con millones de imagenes disponibles, lo cual resultaba imposible de procesar y analizar en su totalidad. Esta situación evitaba la posibilidad de aprovechar el potencial total de esta información.
+Desde hace varios años existen varias misiones espaciales que registran datos de la Tierra a traves de distintos satelites, las cuales se han almacenado en acervos de imágenes. Aunque esta información ha sido muy útil para el desarrollo científico, siempre había existido el problema de la "Big-Data" (bases de datos enormes). Es decir, que dichos acervos de imágenes cuentan con millones de imágenes disponibles, lo cual resultaba imposible de procesar y analizar en su totalidad. Esta situación evitaba la posibilidad de aprovechar el potencial total de esta información.
 
 GEE nace entonces de la necesidad de aprovechar esa "Big-Data", ofreciendo una herramienta que pueda lidiar tecnológicamente con la parte más complicada y engorrosa del manejo de información, permitiendo entonces que los usuarios se concentren en la generación de resultados, y nuevos desarrollos científicos. 
 
@@ -74,15 +74,15 @@ Entre las principales ventajas de utilizar esta API radica en:
 1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna librería de Python será necesaria la descarga de la informacion.
 2. El procesamiento se hace en la nube, a través de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexión estable y el consumo de RAM depende del comsuno del navegador). En la API de Python hay mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
 3. Su interfaz es mucho más amigable con los ususarios, ofreciendo una plataforma más interactiva para programar, y más sencilla para enseñar.
-4. Se pueden realizar fácilmente consultas de las colecciones de imágenes, y sus metadatos, antes de decidir importarlos. La API de Python no permite realizar ese tipo de consutas fácilmente, de modo que hay que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
+4. Se pueden realizar fácilmente consultas de las colecciones de imágenes, y sus metadatos, antes de decidir importarlos. La API de Python no permite realizar ese tipo de consutas fácilmente, de modo que hay que tener previamente absoluta claridad sobre la colección de imágenes que se va a utilizar. 
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. 
 
 ## Lenguaje Javascript
 
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos _(de igual forma iremos tocando la gramatica del codigo a lo largo de los ejemplos)_:
+La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos _(de igual forma iremos tocando la gramatica del código a lo largo de los ejemplos)_:
 
 1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes uno llamado `a` y otro diferente llamado `A`.
-2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el codigo funcionara igualmente).
+2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el código funcionara igualmente).
 3. Comúnmente en Javascript se utiliza el _lower Camel Case_ (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask`.
 4. Todas las variables, funciones, objetos deben ser definidos mediante la función `var`.
 5. Para definir variables se utiliza el operador `=`.
@@ -91,7 +91,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
 9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
-11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma linea.
+11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
 \newpage
 # Primeros pasos
@@ -203,7 +203,7 @@ Esta ventana es donde se va a escribir el código en JavaScript. En la parte sup
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opcion _Save as_ para crear una copia del codigo con otro nombre.
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opcion _Save as_ para crear una copia del código con otro nombre.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/save.png")
@@ -223,7 +223,7 @@ Por último, en el botón del engranaje se encuentran opciones para prender y ap
 
 
 ::: {.tipblock data-latex=""}
-Cuando se corre un codigo en la consola con el botón de Run, éste no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
+Cuando se corre un código en la consola con el botón de Run, éste no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
 :::
 
 ::: {.tipblock data-latex=""}
@@ -263,7 +263,7 @@ Permite prender y apagar las capas que se estén mostrando en el área del mapa.
 knitr::include_graphics("Img/rigthPanel.png")
 ```
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un codigo o se pueden mostrar la información indicada por la función `print()`.
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un código o se pueden mostrar la información indicada por la función `print()`.
 
 **Inspector**
 
@@ -321,7 +321,7 @@ Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
 En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (p.ej., QGIS)
 :::
 
-Para el caso de los atributos (`features`) se puede realizar una operación similar como:
+Para el caso de los vectores (`features`) se puede realizar una operación similar como:
 
 ```{js, echo = T}
 Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10},
@@ -346,7 +346,7 @@ Este conjunto de funciones permite obtener distintos tipos de gráficos a partir
 
 ```{js, echo = T}
 ui.Chart.feature.byProperty({
-  feature: coleccionAtributos, 
+  feature: colecciónAtributos, 
   xProperties: 'Clase',
 })
 ```
@@ -359,7 +359,7 @@ Por ejemplo, para graficar una serie de tiempo a partir de una colección de im�
 
 ```{js, echo = T}
 ui.Chart.image.seriesByRegion({
-  imageCollection: coleccionImagenes, 
+  imageCollection: colecciónImagenes, 
   regions: areas.filter(ee.Filter.eq('Tipo','Bosque')),
   reducer: ee.Reducer.mean(), 
   band: 'NDVI', 
@@ -425,7 +425,7 @@ Esta opción permite exportar una colección de imágenes como video ya sea al a
 
 ```{js echo = T}
 Export.video.toDrive({
-    collection: coleccionImgs,
+    collection: colecciónImgs,
     description: 'videoTimelapse',
     folder: 'mifolder',
     framesPerSecond: 24
@@ -448,7 +448,7 @@ knitr::include_graphics("Img/daigFunc.png")
 ## Tipos de objetos del lado del cliente
 
 ::: {.tipblock data-latex=""}
-Vamos a utilizar mucho la funcion `print()` esta funcion, permite visualizar en la **consola** diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra _"Hola"_  se usa el comando `print('Hola')`
+Vamos a utilizar mucho la función `print()` esta función, permite visualizar en la **consola** diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra _"Hola"_  se usa el comando `print('Hola')`
 :::
 
 **Cadenas de texto**
@@ -533,7 +533,7 @@ las funciones seran revisadas a mayor profundidad después.
 Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función, este objeto entre paréntesis, y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
-var maskIm = function(objeto){              //maskIm es una nueva funcion, y su 
+var maskIm = function(objeto){              //maskIm es una nueva función, y su 
 //argumento de entrada es "objeto"
   var image = ee.Image(objeto)              //se define que "objeto" es una imagen 
 //raster, y se guarda en la variable image
@@ -549,12 +549,16 @@ var maskIm = function(objeto){              //maskIm es una nueva funcion, y su
 Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite definir cualquier serie de procesos como una función y que GEE la interprete de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
 ::: {.tipblock data-latex=""}
-Las funciones que se ejecuten sobre una coleccion de iamgenes o vectores, sólo funcionan si regresan un objeto de tipo `Feature`, `FeatureCollection`, `Image` o `ImageCollections`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
+Las funciones que se ejecuten sobre una colección de iamgenes o vectores, sólo funcionan si regresan un objeto de tipo `Feature`, `FeatureCollection`, `Image` o `ImageCollections`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
 :::
 
 ## Tipo de objetos del lado del servidor
 
-Estas funciones permiten definir objetosen el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`), por lo cual, se recomienda convertir dicho objeto al lado del servidor antes de proseguir con su uso.
+Estas funciones permiten definir objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`), por lo cual, se recomienda convertir dicho objeto al lado del servidor antes de proseguir con su uso.
+
+::: {.tipblock data-latex=""}
+Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o `get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
+:::
 
 Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. 
 
@@ -570,7 +574,7 @@ Para recordar cuáles objetos son del servidor, resulta útil recordar que todos
 
 **ee.String()**
 
-Es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.String** al revisar las librerías disponibles en la API (ver liga anterior).
+Es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier función indicada bajo la librería de **ee.String** en la API (ver liga anterior).
 
 Ejercicio 4:
 
@@ -585,7 +589,7 @@ print("Esto está evaluado en el servidor", cadenaServ);     //se muestra primer
 
 **ee.Number()**
 
-Permite enviar un numero como objeto al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Number()** al revisar las librerías disponibles en la API (ver liga anterior).
+Permite enviar un numero como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier función indicada bajo la librería de **ee.Number()** en la API (ver liga anterior).
 
 Ejercicio 5:
 
@@ -598,7 +602,7 @@ print("numero como un objeto ee.Number del servidor", numServ);   //se muestra p
 
 **ee.List()**
 
-Permite enviar un objeto como lista al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.List** al revisar las librerías disponibles en la API (ver liga anterior).
+Permite enviar un objeto como lista al servidor. Al definir un objeto de este tipo, se puede utilizar cualquier función indicada bajo la librería de **ee.List** (ver liga anterior).
 
 Ejercicio 6:
 
@@ -613,7 +617,7 @@ print("Esto está evaluado como una lista del servidor", listaServ);    //se mue
 //primero un texto del cliente, y segundo el ee.List del servidor
 ```
 
-Para acceder a un elemento de tipo ee.List se utiliza la función `get`. Ejercicio 6.1:
+Para acceder a un elemento de tipo `ee.List` se utiliza la función `get`. Ejercicio 6.1:
 
 ```{js, echo = T}
 print(listaServ.get(0));   //se llama solamente al primero objeto de la ee.List del 
@@ -658,8 +662,8 @@ print(diccServ.get('numero_de_usuario'));        //se muestra el valor que conti
 //elemento "numero_de_usuario"
 ```
 
-Por último, si se desea obtener las claves disponibles en un ee.Dictionary se utiliza la función `.keys`. esta funcion devuelve una lista
-de igual forma si se desea obtener los valores disponibles en un ee.Dictionary se utiliza la función `.values`. esta funcion devuelve una lista
+Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza la función `.keys`. esta función devuelve una lista.
+De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza la función `.values`. esta función devuelve una lista
 
 ```{js, echo = T}
 print(diccServe.keys());    //muesta una lista con todas las claves del ee.Dictionary
@@ -668,26 +672,27 @@ print(diccServe.values());  //muestra una lista con todos los valores del ee.Dic
 
 **ee.Date**
 
-Este es la forma en la que GEE permite trabajar con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.Date** al revisar las librerías disponibles en la API (ver liga anterior). 
+Este es la forma en la que GEE permite trabajar con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier función indicada bajo la librería de **ee.Date** (ver liga anterior). 
 
-hay varias formas de construir una fecha especifica:
-1.  se puede usar un texto de usuario indicando la fecha en el **siguiente formato:** "YYYY-MM-DD", esta fecha **obligatoriamente** debe:
-  -  usar la funcion `ee.Date()`
-  -  estar en orden Año Mes Dia (AAAA-MM-DD)
-  -  tener separadores guiones `-`
-  -  tener meses numericos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12)
-  -  tener dias de dos digitos (01, 02, 03 ... 09, 10, 11, ... 30)
-  -  estar entre comillas
-2.  se puede usar numeros de usuario, en este caso se debe:
-  -  usar la funcion `ee.DatefromYMD()`
-  -  ingresar dentro del parentesis el año, el mes y el dia (en ese orden), separados por comas
-3.  usando un texto de usuario especificando el formato, para esto se debe:
-  -  especificar el formato de la fecha con la siguiente clave (YYYY=año, MM=mes, D=dia)
-  -  especificar el tipo de separador
-  -  especificar el orden en el que se ingresara el texto
-  -  especificar la cantidad de digitos esperada para cada item (año, mes y dia)
-  -  el formato debe estar entre comillas
-  -  luego de especificar el formato, se ingresa **dentro de comillas** el texto a convertir a  `ee.Date` (entre el formato y el texto debe ir una coma)
+Hay varias formas de construir una fecha especifica:
+
+1.  Se puede usar un texto de usuario indicando la fecha en el **siguiente formato:** "YYYY-MM-DD", esta fecha **obligatoriamente** debe:
+  -  Usar la función `ee.Date()`.
+  -  Estar en orden Año Mes Dia (AAAA-MM-DD).
+  -  Usar guiones como separadores `-`.
+  -  Tener meses numéricos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).
+  -  Tener días de dos digitos (01, 02, 03 ... 09, 10, 11, ... 30).
+  -  Estar entre comillas.
+2.  Se pueden usar números de usuario, en este caso se debe:
+  -  Usar la función `ee.DatefromYMD()`.
+  -  Ingresar dentro del parentesis el año, el mes y el dia (en ese orden), separados por comas.
+3.  Se puede usar un texto de usuario especificando el formato, para esto se debe:
+  -  Especificar el formato de la fecha con la siguiente clave (YYYY=año, MM=mes, D=dia).
+  -  Especificar el tipo de separador.
+  -  Especificar el orden en el que se ingresará el texto.
+  -  Especificar la cantidad de digitos esperada para cada item (año, mes y dia).
+  -  El formato debe estar entre comillas.
+  -  Luego de especificar el formato, se ingresa **dentro de comillas** el texto a convertir a  `ee.Date` (entre el formato y el texto debe ir una coma).
 
 ejercicio 8
 ```{js, echo = T}
@@ -727,19 +732,19 @@ Permite leer un objeto como vector en el servidor. Además, al definir un objeto
 
 **ee.FeatureCollection**
 
-Permite enviar un objeto como colección de features  al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection**. Las colecciones de features están formadas por varios vectores. Más adelante se explican con mayor detalle.
+Permite enviar un objeto como colección de vectores al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.FeatureCollection**. Las colecciones de features están formadas por varios vectores. Más adelante se explican con mayor detalle.
 
 **ee.Algorithms**
 
-Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes `ee.Algorithms.TemporalSegmentation.Ccdc`.
+Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, p.ej., `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes, p.ej.,  `ee.Algorithms.TemporalSegmentation.Ccdc`.
 
 **ee.Array**
 
-Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (p.ej., filas y columnas). Su uso más común se da en análisis de series de tiempo con imágenes. Este tipo de objetos cuentan con una serie de funciones, las cuales se pueden consultar bajo la librería de **ee.Array** (ver liga anterior).
+Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (p.ej., filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de funciones, las cuales se pueden consultar bajo la librería de **ee.Array** (ver liga anterior).
 
 **ee.Classifier**
 
-Este tipo de objetos corresponden a algoritmos de clasificación de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _random forests_, disponible mediante la función `ee.Classifier.smileRandomForest` o _MaxEnt_, disponible mediante la función `ee.Classifier.amnhMaxent`. entre otros.
+Este tipo de objetos corresponden a algoritmos de clasificación de datos que se encuentran pre cargados en GEE. Por ejemplo, se encuentra el algoritmo de _random forest_, disponible mediante la función `ee.Classifier.smileRandomForest` o _MaxEnt_, disponible mediante la función `ee.Classifier.amnhMaxent`. entre otros.
 
 **ee.Clusterer**
 
@@ -747,27 +752,23 @@ Este tipo de objetos corresponden a algoritmos de clasificaicon no supervisada d
 
 **ee.Filter**
 
-Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de vectores o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores Por otro lado, también contienen funciones para combinar filtros. 
+Este tipo de objetos que normalmente se utilizan para filtrar colecciones ya sean de vectores o de imágenes. Este tipo de objetos permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (p.ej., metadatos). Por otro lado, también contienen funciones para combinar filtros. 
 
 **ee.Geometry**
 
-Este tipo de objetos corresponden a distintos tipos de geometrías, desde líneas, polígono y puntos. En GEE se encuentran varias funciones que se pueden aplicar sobre este tipo de objetos, p.ej., `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o calcular el área `ee.Geometry.Polygon.area`.
+Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varias funciones pre cargadas que se pueden aplicar a este tipo de objetos, p.ej., `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o calcular el área `ee.Geometry.Polygon.area`.
 
 **ee.Join**
 
-Este conjunto de funciones permite realizar uniones entre colecciones de atributos, utilizando los campos de éstos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de atributos mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`
+Este conjunto de funciones permite realizar uniones entre colecciones de vectores, utilizando los campos de éstos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`
 
 **ee.Reducer**
 
-son la forma para agregar datos basados en una regla. el tipo de reductor define el tipo de agregacion que se aplique, Por ejemplo, se puede reducir con una sencilla estadistica (minimo, maximo, moda, media, mediana, etc.).O reductores mas complejos (histogramas, enlistar, regresion lineal). tambien pueden reducirse datos con dimension temporal (coleccion de imagenes de diferentes fechas), dimension espacial, segun las bandas de las imagenes, o incluso segun los atributos de los vectores. 
+Los reductores permite agregar datos basados en una regla o utilizando una función determinada. Este tipo funciones son las utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregacion que se aplique, Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, moda, media, mediana, etc.), o reductores áas complejos (histogramas, enlistar, regresion líneal). Tambien pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes, o incluso segun los atributos de los vectores. 
 
 **ee.Terrain**
 
-Este conjunto de funciones permite calcular algunas operaciones topográficas básicas como calcular el aspecto a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran las funciones `ee.Terrain.Aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente,
-
-::: {.tipblock data-latex=""}
-Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o `get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
-:::
+Este conjunto de funciones permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran las funciones `ee.Terrain.Aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente,
 
 ::: {.tipblock data-latex=""}
 Resulta útil recordar que normalmente los argumentos de cualquier función del servidor se pasan como un diccionario.
@@ -775,14 +776,14 @@ Resulta útil recordar que normalmente los argumentos de cualquier función del 
 
 \newpage
 
-# Geometrias
+# Geometrías
 
-GEE utiliza el objeto ee.Geometry para leer y manejar formas geometricas, estos incluyen geometrias sin area, como son: 
+GEE utiliza el objeto ee.Geometry para leer y manejar formas geométricas, estos incluyen geometrías sin area, como son: 
     **Punto** (`ee.Geometry.Point`): una coordenada en X & Y.
-    **Multi punto** (`ee.Geometry.MultiPoint`): una lista de puntos
-    **Linea** (`ee.Geometry.LineString`): una linea
-    **Multi Linea** (`ee.Geometry.MultiLineString`): una lista de lineas
-    **Perimetro** (`ee.Geometry.LinearRing`): un perimetro (una linea cerrada)
+    **Multi punto** (`ee.Geometry.MultiPoint`): una lista de puntos.
+    **línea** (`ee.Geometry.LineString`): una línea.
+    **Multi línea** (`ee.Geometry.MultiLineString`): una lista de líneas.
+    **perímetro** (`ee.Geometry.línearRing`): un perímetro (una línea cerrada).
 
 Ejercicio X
 
@@ -796,7 +797,7 @@ var MultiPunto = ee.Geometry.MultiPoint([     //un Multi Punto
   -74.819, 10.997,
   -75.501, 10.393]);
 
-var linea = ee.Geometry.LineString([  //una linea definida a partir
+var línea = ee.Geometry.LineString([  //una línea definida a partir
   -117.08, 32.04,                     //de una LISTA de
   -104.25, 31.74,                     //las cordenadas de sus vertices
   -96.69, 25.58,
@@ -808,9 +809,9 @@ var linea = ee.Geometry.LineString([  //una linea definida a partir
   -77.35, 8.86,
   -71.55, 12.66]); 
 
-var MultiLinea = ee.Geometry.MultiLineString([  //una Multi Linea definida a
+var Multilínea = ee.Geometry.MultiLineString([  //una Multi línea definida a
    ee.Geometry.LineString(                      //a partir de una LISTA de
-     [-76.017, 26.173, -76.017, 16.173]),       //Lineas ee.LineString, que a
+     [-76.017, 26.173, -76.017, 16.173]),       //líneas ee.LineString, que a
   ee.Geometry.LineString(                       //su ves estan definidas por una
     [-73.017, 26.173, -73.017, 16.173]),        //lista de las coordenadas de
   ee.Geometry.LineString(                       //sus vertices
@@ -818,7 +819,7 @@ var MultiLinea = ee.Geometry.MultiLineString([  //una Multi Linea definida a
   ee.Geometry.LineString(
     [-78.434, 18.926, -70.04, 22.401])]);
 
-var perimetro = ee.Geometry.LinearRing([  //un perimetro definido a partir de
+var perímetro = ee.Geometry.línearRing([  //un perímetro definido a partir de
   -105.732, 20.627,                       //una LISTA  de las coordenadas de
   -109.336, 26.544,                       //los vertices
   -113.291, 31.274,
@@ -826,19 +827,20 @@ var perimetro = ee.Geometry.LinearRing([  //un perimetro definido a partir de
   -109.468, 23.317])
 ```
 
-tambien hay geometrias que incluyen el area, como son: 
-    **Rectangulo** (`ee.Geometry.Rectangle`): un rectangulo.
-    **Poligono** (`ee.Geometry.Polygon`): un poligono
-    **Multi Poligono** (`ee.Geometry.MultiPolygon`): un lista de poligonos
+tambien hay geometrías que tienen el componente de area, como son: 
+    **Rectangulo** (`ee.Geometry.Rectangle`): un rectángulo.
+    **polígono** (`ee.Geometry.Polygon`): un polígono
+    **Multi polígono** (`ee.Geometry.MultiPolygon`): un lista de polígonos.
 
 Ejercicio X.1
 ```{js echo = T}
-var rectangulo = ee.Geometry.Rectangle(  //un rectangulo definido por las coordenadas //de los vertices opuestos
+var rectangulo = ee.Geometry.Rectangle(  //un rectángulo definido por las coordenadas 
+//de los vértices opuestos
   -104.12, 5.73,
   -88.21, -0.15); 
 
-var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas de 
-//sus vertices
+var polígono = ee.Geometry.Polygon(  //un polígono definido por las coordenadas de 
+//sus vértices
   -80.348, -3.36,
   -80.348, -3.36,
   -78.985, -5.113,
@@ -852,33 +854,33 @@ var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas 
   -79.776, -2.614
   );
 
-var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por una 
-//LISTA de poligonos
+var Multipolígono = ee.Geometry.MultiPolygon(  //un multipolígono definido por una 
+//LISTA de polígonos
   [
     ee.Geometry.Polygon(                                                        //el 
-//primer poligono esta definido a partir de dos permietros 
-      [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el 
-//primer perimitro define el poligono 
-      ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el 
-//segundo perimetro define los huecos dentro del poligono
-    [-95.77, 17.2,          //el segundo poligono es una LISTA de coordenadas que forman 
-//un triangulo
+//primer polígono esta definido a partir de dos permietros 
+      [ee.Geometry.línearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el 
+//primer perimitro define el polígono 
+      ee.Geometry.línearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el 
+//segundo perímetro define los huecos dentro del polígono
+    [-95.77, 17.2,          //el segundo polígono es una LISTA de coordenadas que forman 
+//un triángulo
       -108.7, 17.8,
       -110.0, 8.32],
-    [-105.6, 15.5,          //el tercer poligono es una LISTA de coordenadas que forman 
-//un triangulo
+    [-105.6, 15.5,          //el tercer polígono es una LISTA de coordenadas que forman 
+//un triángulo
       -105.9, 14.2,
       -103.7, 13.2],
-    [-94.98, 14.6,          //el cuarto poligono es una LISTA de coordenadas que forman 
-//un triangulo
+    [-94.98, 14.6,          //el cuarto polígono es una LISTA de coordenadas que forman 
+//un triángulo
       -95.50, 13.8,
       -93.13, 11.8],
-    [-84.52, 7.62,          //el quinto poligono es una LISTA de coordenadas que forman 
-//un triangulo
+    [-84.52, 7.62,          //el quinto polígono es una LISTA de coordenadas que forman 
+//un triángulo
       -85.84, 0.17,
       -78.10, 4.74],
-    [-67.03, 11.0,          //el sexto poligono es una LISTA de coordenadas que forman 
-//un triangulo
+    [-67.03, 11.0,          //el sexto polígono es una LISTA de coordenadas que forman 
+//un triángulo
       -67.64, 6.49,
       -62.11, 2.63]
       ]);
@@ -888,53 +890,56 @@ var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por u
 
 # Vectores (ee.Features)
 
-las Features en GEE son los objetos predeterminados para leer informacion vectorial.
-una feature estara compuesta por una geometria (punto, linea, poligono, multipoligono), y unos atributos asociados a esa geometria (estos atributos son llamados propiedades y estan almacenados en un diccionario).
+Los vectores en GEE son los objetos predeterminados para leer informacion vectorial o de tablas. Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono), y los atributos asociados a esa geometría (estos atributos son llamados propiedades y estan almacenados en un diccionario).
 
 ## Creando Vectores (ee.Features)
 
-para crear un Vector desde 0 es necesario definir una geometria y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometria. por ejemplo, 
+Para crear un Vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo, 
 
 Ejercicio XX:
 
 ```{js echo = T}
-var poligono = ee.Geometry.Polygon([ //crear un poligono
+var polígono = ee.Geometry.Polygon([ //crear un polígono
   -119.24, 32.73,
   -115.02, -3.29,
   -66.5, -3.29,
   -68.43, 32.14
 ]);
 
-// Crear un vector a partir del poligono y un diccionario de atributos.
+// Crear un vector a partir del polígono y un diccionario de atributos.
 var vector = ee.Feature(
-  poligono,                       //poligono del vector
+  polígono,                       //polígono del vector
   {año: 1500,                     //diccionario de atributos con 3 atributos
   tamaño: '865 kilometros',
   nombres:['hugo','paco','luis']
   });
 ```
-ademas usando la funcion `.set` se pueden modificar los atributos, o escribir nuevos atributos sobre el vector
+
+Además, usando la función `.set` se pueden modificar los atributos, o escribir nuevos atributos sobre el vector.
 
 ejercicio xx.1
 ```{js echo = T}
 var vector1 = vector.set('tamaño','neotropico');
 ```
+
 \newpage
 # Feature Collections
 
-una coleccion de vectores es un grupo de vectores individuales combinados en un solo conjunto. esto permite ejecutar operaciones sobre todo el conjunto de vectores.
+Úna colección de vectores es un grupo de vectores individuales combinados en un solo conjunto. esto permite ejecutar operaciones sobre todo el conjunto de vectores.
  
 ::: {.tipblock data-latex=""}
-una coleccion de vectores, puede contener como elementos: vectores, geometrias, otras colecciones de vectores
+Una colección de vectores, puede contener como elementos: vectores, geometrías, otras colecciones de vectores.
 :::
 
 ::: {.tipblock data-latex=""}
-una coleccion de vectores, puede contener un solo vector o una sola geometria
+Una colección de vectores, puede contener un solo vector o una sola geometría.
+:::
+
 ejercicio xxXx
 ```{js echo = T}
-var coleccion = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
+var colección = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
 ```
-:::
+
 
 ejercicio xxx
 ```{js echo = T}
@@ -966,12 +971,12 @@ var Multipunto = ee.Feature(ee.Geometry.MultiPoint([
       'San Jose', 
       'cdad. de Panama']});
 
-var Linea = ee.Feature(ee.Geometry.LineString([  //una linea definida a partir
+var línea = ee.Feature(ee.Geometry.LineString([  //una línea definida a partir
   -66.865, 10.479,                     //de una LISTA de
   -74.072, 4.732]),
     {pais: 'Venezuela - Colombia', capital: 'Caracas - Bogota'}); 
 
-var MultiLinea = ee.Feature(ee.Geometry.MultiLineString([  
+var Multilínea = ee.Feature(ee.Geometry.MultiLineString([  
    ee.Geometry.LineString(                      
      [-76.803, 18.021, -82.362, 23.121]),      
   ee.Geometry.LineString(                       
@@ -990,7 +995,7 @@ var MultiLinea = ee.Feature(ee.Geometry.MultiLineString([
     'Paramaribo - Georgetown']
     });
 
-var perimetro = ee.Feature(ee.Geometry.LinearRing([  
+var perímetro = ee.Feature(ee.Geometry.línearRing([  
   -79.354, 27.32,
   -79.332, 23.661,
   -74.19, 21.161,
@@ -1003,7 +1008,7 @@ var rectangulo = ee.Feature(ee.Geometry.Rectangle(
   -68.2, 27.63),
     {pais:'eeuu', capital:'Washington'}); 
 
-var Poligono = ee.Feature(ee.Geometry.Polygon(  
+var polígono = ee.Feature(ee.Geometry.Polygon(  
   -80.348, -3.36,
   -80.348, -3.36,
   -78.985, -5.113,
@@ -1017,7 +1022,7 @@ var Poligono = ee.Feature(ee.Geometry.Polygon(
   -79.776, -2.614
   ),{pais:'Ecuador', capital:'Quito'});
 
-var MultiPoligono = ee.Feature(ee.Geometry.MultiPolygon(   
+var Multipolígono = ee.Feature(ee.Geometry.MultiPolygon(   
   [ee.Geometry.Polygon([-61.955, 10.146,         
       -61.713, 10.967,
       -60.593, 10.881,
@@ -1045,33 +1050,35 @@ var MultiPoligono = ee.Feature(ee.Geometry.MultiPolygon(
     });
 
 
-var coleccionVectores = ee.FeatureCollection([ //crear una LISTA que incluya todos los 
+var colecciónVectores = ee.FeatureCollection([ //crear una LISTA que incluya todos los 
 //vectores
-  MultiPoligono,
-  Poligono,
+  Multipolígono,
+  polígono,
   rectangulo,
-  perimetro,
-  MultiLinea,
-  Linea,
+  perímetro,
+  Multilínea,
+  línea,
   Multipunto,
   Punto]);
 ``` 
-## vectores de GEE 
 
-GEE ofrece un catalogo de coleccion de vectores, se pueden buscar en la barra de busqueda.
+## Vectores de GEE 
+
+GEE ofrece un catálogo de colecciones de vectores, se pueden buscar en la barra de búsqueda.
 estas colecciones de vectores de GEE se llaman `tables`. 
 
 ejercicio Y
 ```{js echo = T}
 var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017') //en el buscador se busca 
 //una tabla de paises 'countries', y se escribe el ID de la tabla, en este caso es una 
-//coleccion de vectores del departamento de estado de Estados unidos, que contiene las 
+//colección de vectores del departamento de estado de Estados unidos, que contiene las 
 //divisiones politicas de los paises del mundo  
 
 ```
+
 ## Puntos Aleatorios
 
-GEE ofrece la herramienta para generar una coleccion de vectores, compuesta por puntos aleatorios en un aregion especificada.
+GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada.
 
 ejercico yy
 
@@ -1083,14 +1090,13 @@ var region = ee.Geometry.Rectangle(-61.36, 31.2, -16.54, 1.93);
 var puntos = ee.FeatureCollection.randomPoints(region,1000);
 
 ```
-## Vizualizacion de vectores y colecciones de vectores
+## Visualización de vectores y colecciones de vectores
 
-las geometrias, vectores y coleccion de vectores pueden ser vizualizados en el mapa de GEE. la configuracion predeterminada para estos elementos es verlos con lineas solidas negras y un relleno semi-opaco gris.
-sin embargo se puede especificar el parametro `color`, dentro de un diccionario en la funcion `ee.MapaddLayer`. el color debe ingresarse como codigo hexadecimal
+Las geometrías, vectores y colección de vectores pueden ser visualizados en el mapa de GEE. la configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semi-opaco gris.
+Sin embargo se puede especificar el parametro `color`, dentro de un diccionario en la función `Map.addLayer`, sólo que el color debe ingresarse como código hexadecimal.
 
 ::: {.tipblock data-latex=""}
-los cambios de los parametros de vizualizacion de los vectores no pueden hacerse en las herramientas de capa del mapa _layers_, solo puede hacerse desde el editor de codigo
-para consultar el codigo hexadecimal del color deseado se puede acceder a la siguiente liga:
+los cambios de los parametros de vizualizacion de los vectores no pueden hacerse en las herramientas de capa del mapa _layers_, solo puede hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder a la siguiente liga:
 https://htmlcolorcodes.com/es/
 :::
 
@@ -1103,8 +1109,9 @@ Map.addLayer(ecoregiones, {}, 'capa p}por default');
 Map.addLayer(ecoregiones, {color: '2AF116'}, 'capa color verde');
 
 ```
-Adicionalmente y **SOLO PARA** colecciones de vectores se pueden especificar parametros adicionales como tañamo del punto `pointRadius` y grosor `strokeWidth` de la linea.
-esto se logra con la funcion `ee.FeatureCollection.draw()`
+
+Adicionalmente y **SOLO PARA** colecciones de vectores se pueden especificar parametros adicionales como tañamo del punto `pointRadius` y grosor `strokeWidth` de la línea.
+esto se logra con la función `ee.FeatureCollection.draw()`
 
 ejercicio xy.1
 
@@ -1113,10 +1120,10 @@ Map.addLayer(ecoregiones.draw({color: '2AF116', strokeWidth:5 }), {}, 'capa colo
 ```
 
 ::: {.tipblock data-latex=""}
-La funcion `draw` convierte la coleccion de vectores en una imagen y por eso permite especificar grosor de la linea y de los puntos (este grosor esta medido en pixeles)
+La función `draw` convierte la colección de vectores en una imagen y por eso permite especificar grosor de la línea y de los puntos (este grosor esta medido en pixeles)
 :::
 
-si uno quiere visualizar solo los contornos de los vectorespuede usar la siguiente funcion:
+Si uno quiere visualizar solo los contornos de los vectorespuede usar la siguiente función:
 ejercicio xy.2
  
 \newpage
@@ -1124,14 +1131,14 @@ ejercicio xy.2
 
 ## Características
 
-Las imágenes que se encuentran disponibles en colecciones de imágenes de GEE corresponden a información en formato raster que cuenta con una resolución espacial, espectral, radiométrica particular. Los metadatos de cada imagen se encuentran como propiedades de ésta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de pixel o tipo de datos (Integer, Float, 16 bits, etc) distinta. Esto no afecta el uso de estas imágenes pero puede ser importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (p.ej., Sentinel-2).
+Las imágenes que se encuentran disponibles en colecciones de imágenes en GEE, corresponden a información en formato raster que cuenta con una resolución espacial, espectral, radiométrica particular. Los metadatos de cada imagen se encuentran como propiedades de ésta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de pixel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes pero puede ser importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (p.ej., Sentinel-2).
 
 ## Información y metadatos
 
-Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `ee.Image.propertyNames();` Así se pueden consultar todas las propiedades de una imagen. Sin embargo, algunos comandos que facilitan la consulta de algunos elementos son: `.bandNames()`, `.projection()`, `.projection().nominalScale()`, para conocer el nombre de las bandas de la imagenes, su proyección y el tamaño de pixel en m que presenta, respectivamente.
+Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `ee.Image.propertyNames()`. Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames()`, `.projection()`, `.projection().nominalScale()`, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de pixel en m que presenta, respectivamente.
 
 ::: {.tipblock data-latex=""}
-La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar la función `reproject`, aunque no se recomienda utilizarla a menos que sea estrictamente necesario.
+La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar la función `reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
 :::
 
 ## Funciones comunes
@@ -1147,7 +1154,7 @@ ee.Image.select(['B1','B2','B3']);
 
 ### Cambio de nombres de bandas
 
-Por default, el nombre de las bandas de las imagenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `rename` para cambiar los nombres de las bandas. Por ejemplo:
+Por default, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `rename` para cambiar los nombres de las bandas. Por ejemplo:
 
 ```{js, echo = T}
 var seleccionBandas = ee.Image.select(['B2','B3','B4']);
@@ -1160,8 +1167,10 @@ Se pueden realizar cortes de una imagen para quedarse con un área específica u
 función: 
 
 ```{js, echo = T}
-ee.Image.clip();
+ee.Image.clip(roi);
 ```
+
+Esto permite trabajar únicamente con la región de interés (en el ejemplo anterior, específicada en el objeto *roi*).
 
 ::: {.tipblock data-latex=""}
 Se sugiere evitar el uso de la función `clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
@@ -1169,7 +1178,7 @@ Se sugiere evitar el uso de la función `clip` a menos que sea estrictamente nec
 
 ### Operaciones matemáticas
 
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `ee.Image.subtract(), .add(), .divide(), .multiply()`. Además, GEE cuenta con una función de `.normalizedDifference()` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `ee.Image.normalizedDifference()`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression()`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract(), .add(), .divide(), .multiply()`. Además, GEE cuenta con una función de `.normalizedDifference()` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `.normalizedDifference()`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression()`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
 
 ```{js, echo = T}
 var NDVI = ee.Image.expression( '(NIR - R) / (NIR + R)', {
@@ -1182,7 +1191,7 @@ Dentro de las fórmulas utilizadas dentro de expression se puede utilizar la not
 
 ### Operaciones relacionales, condicionales y booleanas
 
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt()`, `.lte()`, `.gt()`, `.gte()`, `.eq()`, `.neq()`. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and()` u `.or()`. Por ejemplo, la siguiente linea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0: 
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt()`, `.lte()`, `.gt()`, `.gte()`, `.eq()`, `.neq()`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and()` u `.or()`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0: 
 
 ```{js, echo = T}
 ee.Image.lte(0.2).and(ee.Image.gte(0));
@@ -1220,7 +1229,7 @@ imagen = imagen.addBands(ndvi);
 
 #### Ejercicio: Consulta y procesamiento de imagen
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así:
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así:
 
 ```{r, echo = F}
 knitr::include_graphics("Img/SRTM.png")
@@ -1272,7 +1281,7 @@ imgEnmascarada = imgEnmascarada.rename('elevacion');
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 ```
 
-Por último, se puede generar un gráfico para obtener un histograma de los valores de elevación del dem. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en m a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print`.
+Por último, se puede generar un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en m a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print`.
 
 ```{js, echo = T}
 var graficoHistorgrama = ui.Chart.image.histogram({
@@ -1289,15 +1298,15 @@ knitr::include_graphics("Img/histElevacion.png")
 ```
 
 \newpage
-# Colecciones de imágenes
+# colecciones de imágenes
 
-La mayoría de los objetos que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones: `FeatureCollection` o `ImageCollection`. Estas se pueden definir como colecciones de objetos Feature o Image. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds()`, mientras que para delimitar por fecha `ImageCollection.filterDate()`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o en ciertos parámetros de la geometría del registro.
+Las imágenes que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones, es decir, dentro de una `ImageCollection`. Estas se pueden definir como colecciones de objetos  `ee.Image`. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds()`, mientras que para delimitar por fecha `ImageCollection.filterDate()`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o ciertos parámetros de la geometría del registro.
 
-Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función map.
+Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función `map`.
 
 ## Características
 
-Las colecciones de imágenes son objetos de GEE que contienen un conjunto de imágenes. En GEE este tipo de objetos va a ser el que va a contener los acervos de imágenes disponibles. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos.
+Las colecciones de imágenes son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como colecciones de imágenes. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos.
 
 ## Información y metadatos
 
@@ -1309,9 +1318,9 @@ No se puede escribir o cambiar los objetos que se encuentran directamente hosped
 
 ## Funciones comunes
 
-### Filtros sobre Colecciones de imágenes
+### Filtros sobre colecciones de imágenes
 
-Los filtros permiten filtrar las colecciones de imágenes a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, características de las escenas (path, row, porcentaje de nubosidad), entre otras. 
+Los filtros permiten filtrar las colecciones de imágenes a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. 
 
 Para filtrar una colección de imágenes se van a utilizar los objetos `ee.Filter`. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar `.filterDate`:
 
@@ -1334,7 +1343,7 @@ ee.ImageCollection.filterMetadata('CLOUD_COVER','less_than', 20);
 
 ### Selección de bandas
 
-Al igual que con las imágenes, se puede utilizar la función `select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandasPor ejemplo: 
+Al igual que con las imágenes, se puede utilizar la función `select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandas. Por ejemplo: 
 
 ```{js, echo = T}
 ee.ImageCollection.select('B1');
@@ -1343,7 +1352,7 @@ ee.ImageCollection.select(['B1','B2','B3']);
 
 ### Ordenar colección
 
-La función `sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por default, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, la función `sort` ordena la colección de imágenes en orden ascendente de acuerdo al valor de la característica de las imágenes indicadas. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
+La función `sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por default, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, la función `sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica de las imágenes indicadas. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
 
 ```{js, echo = T}
 ee.ImageCollection.sort('PropiedadImagenes');
@@ -1390,7 +1399,7 @@ var l7y8 = l7.merge(l8);
 
 ### Mapeo
 
-Para realizar alguna operación sobre todas las imágenes de una ImageCollection se utilizar la función `map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
+Para realizar alguna operación sobre todas las imágenes de una `ee.ImageCollection` se utilizar la función `map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
 
 ```{js, echo = T}
 ee.ImageCollection.map(function(image){
@@ -1399,7 +1408,7 @@ ee.ImageCollection.map(function(image){
 ```
 
 ::: {.tipblock data-latex=""}
-Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas.
+Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas. Recordar que Javascript es un lenguaje sensible a mayúsculas y minúsculas.
 :::
 
 Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
@@ -1410,9 +1419,8 @@ La función `map` sólo funciona con funciones del lado del servidor, así que s
 
 ### Reducción
 
-Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año).Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
+Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año). Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
 
-### Reducers
  De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `min`, `max`, `mean`, `mode`, `median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
 
 ```{js, echo = T}
@@ -1421,7 +1429,7 @@ ee.ImageCollection.mean();
 ```
 
 ::: {.tipblock data-latex=""}
-Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imágen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean()` sobre una colección de imágenes cuyas bandas se llaman `B1` y `B2`, las bandas de la imagen producto de la reducción se llamarán `B1_mean` y `B2_mean`.
+Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean()` sobre una colección de imágenes cuyas bandas se llaman `B1` y `B2`, las bandas de la imagen producto de la reducción se llamarán `B1_mean` y `B2_mean`.
 :::
 
 ### Compuestos y mosaicos
@@ -1439,10 +1447,10 @@ El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles m�
 
 #### Ejercicio: Filtro de colección de imágenes y visualización
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrata esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de 'BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de 'IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección. 
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de 'BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de 'IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección. 
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ruta_coleccion.png")
+knitr::include_graphics("Img/Ruta_colección.png")
 ```
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filta por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes: 'CLOUD_COVER_LAND', 'WRS_PATH', 'WRS_ROW'. En este caso se debe escribir exactamente igual el campo de los metadatos (CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (eq), distintos (neq), mayores (gt), menores (lt), mayores o igual (gte) o menores o iguales(lte).
@@ -1462,13 +1470,13 @@ print(L8imgCol);
 ```
 
 Una vez corrido el comando anterior, en la consola se puede consultar cuántas imágenes cumplieron con los filtros indicados. En este ejemplo, la colección filtrada incluye 17 imágenes.
-Despues se pueden consultar las características de las imágenes incluidas en la colección. Para ello, en la consola se le da un click a la flecha ubicada a la isquierda de la colección en la consola a **Features**, después a cualquier imagen (**Image**) y por último a **Properties**. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de **Search**.
+Después, se pueden consultar las características de las imágenes incluidas en la colección. Para ello, en la consola se le da un click a la flecha ubicada a la isquierda de la colección en la consola a **Features**, después a cualquier imagen (**Image**) y por último a **Properties**. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de **Search**.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/CamposImgCol.png")
 ```
 
-A continuación podemos ordenar la colección en orden ascendente de acuerdo al metadato de 'CLOUD_COVER_LAND'. Posteriormente, se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto ee.Image. La función `first()` devuelve la primera imagen de una colección y es útil para visualizar el tipo de información que está en la colección de imágenes.
+A continuación podemos ordenar la colección en orden ascendente de acuerdo al metadato de 'CLOUD_COVER_LAND'. Posteriormente, se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`. La función `first()` devuelve la primera imagen de una colección y es útil para visualizar el tipo de información que está en la colección de imágenes.
 
 ```{js, echo = T}
 L8imgCol = L8imgCol.sort('CLOUD_COVER_LAND');
@@ -1491,9 +1499,9 @@ knitr::include_graphics("Img/RGBIm.png")
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
-Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los pixeles cuya información provenga de nubes. Después se definirá una función para calcular el ndvi para cada imagen contenida en la colección de imágenes. Para ello se utiliza la función `normalizedDifference`, indicando las bandas de NIR y R. También se utilizará la función `rename` para cambiar el nombre dado por default a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con `add.Bands` Después, se utiliza la función `map` para aplicarla a cada una de las imágenes.
+Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los pixeles cuya información provenga de nubes. Después se definirá una función para calcular el ndvi para cada imagen contenida en la colección de imágenes. Para ello se utiliza la función `normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará la función `rename` para cambiar el nombre dado por default a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con `addBands` Después, se utiliza la función `map` para aplicarla a cada una de las imágenes.
 
-Primero se define la función para enmascarar las nubes. En este caso, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama "pixel_qa". Posteriormente se selecciona esta banda y se evalua que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un pixel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`updateMask`).
+Primero se define la función para enmascarar las nubes. En este caso, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama 'pixel_qa'. Posteriormente se selecciona esta banda y se evalua que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un pixel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`updateMask`).
 
 ```{js, echo = T}
 function maskL8sr(image) {
@@ -1623,7 +1631,7 @@ L8imgColT2 = L8imgColT2
 Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (`filter`), así como la selección de las bandas a utilizar (`select`), antes de realizar operaciones sobre todas las imágenes de la colección (`map`).
 :::
 
-Después se selecciona únicamente las bandas de NDVI y se reduce la colección para generar una imágen del valor promedio de NDVI. Posteriormente, se recorta la imagen a la extensión del polígono del área de interés. Finalmente, a esta imagen se le restarán los valores de la imagen del 2015-01-01 al 2016-01-01. De esta manera, los valores más negativos representarán valores más bajos de NDVI en el año 2 respecto al año 1.
+Después se selecciona únicamente las bandas de NDVI y se reduce la colección de imágenes para generar una imagen del valor promedio de NDVI. Posteriormente, se recorta la imagen a la extensión del polígono del área de interés. Finalmente, a esta imagen se le restarán los valores de la imagen del 2015-01-01 al 2016-01-01. De esta manera, los valores más negativos representarán valores más bajos de NDVI en el año 2 respecto al año 1.
 
 ```{js, echo = T}
 L8imgColT2 = L8imgColT2.select('ndvi');
@@ -1663,13 +1671,13 @@ Export.image.toDrive({
 \newpage
 # Importación de información a GEE (Assets)
 
-Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de **Assets** en al panel izquierdo y después dar click en NEW e indicar el archivo que se quiere importar a GEE.
+Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de **Assets** en al panel izquierdo y después dar click en **NEW** e indicar el archivo que se quiere importar a GEE.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/Asset1.png")
 ```
 
-Posteriormente se da click en SELECT y se seleccionan los arhivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en UPLOAD (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml. 
+Posteriormente se da click en **SELECT** y se seleccionan los arhivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en **UPLOAD** (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml. 
 
 ::: {.tipblock data-latex=""}
 Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (p.ej., sbx).
@@ -1679,7 +1687,7 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 knitr::include_graphics("Img/Asset2.png")
 ```
 
-Una vez que se haya dado click en UPLOAD, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de TASKS. Un vez terminado, el archivo podrá ser accesado dentro de la pestaña de **Assets**. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de NEW.
+Una vez que se haya dado click en **UPLOAD**, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de **TASKS**. Un vez terminado, el archivo podrá ser accesado dentro de la pestaña de **Assets**. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de NEW.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/Asset3.png")
@@ -1690,15 +1698,15 @@ Al igual que en la pestaña donde se organizan los repositorios y los códigos, 
 :::
 
 \newpage
-# Uso conjunto de atributos e imágenes
+# Uso conjunto de vectores e imágenes
 
-Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, atributos o colecciones de atributos, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestro de una imagen por atributos o la reducción de una imagen por atributos.
+Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestro de una imagen por vectores o la reducción de una imagen por vectores.
 
 ## Funciones comunes
 
-### Muestreo por atributo(s)
+### Muestreo por información vector(es)
 
-Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el atributo utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
 ```{js echo = T}
 var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
@@ -1716,12 +1724,12 @@ print(muestreo, 'muestreo');
 ```
 
 ::: {.tipblock data-latex=""}
-Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento `geometries: true`. Esto dará como resultado la misma información, pero con las coordenadas espaciales de los centros de los pixeles de la imagen muestreada.
+Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento `geometries: true`. Esto dará como resultado una tabla con la misma información, pero con las coordenadas geográficas de los centros de los pixeles de la imagen muestreada.
 :::
 
 ### Reducción de una imagen por región(es)
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `ee.Image.reduceRegion` o para varias regiones `ee.Image.reduceRegions`. Por ejemplo, la función `ee.Image.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el atributo.
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `ee.Image.reduceRegion` o para varias regiones `ee.Image.reduceRegions`. Por ejemplo, la función `ee.Image.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
 
 ```{js echo = T}
 var reduccion = ee.Image(L8imgMean)
@@ -1735,7 +1743,7 @@ print(reduccion, 'reduccion');
 ```
 
 ::: {.tipblock data-latex=""}
-En algunas ocasiones, los procesos de `reduceRegions` o `sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de "computation timed out". En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para lograr que este corra. `Scale` permite aumentar el tamaño de pixel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, `tileScale` permite definir un factor de reescalamiento que permite reducir la carga computacional de un proceso.
+En algunas ocasiones, los procesos de `reduceRegions` o `sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de 'computation timed out'. En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para lograr que este corra. `Scale` permite aumentar el tamaño de pixel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, `tileScale` permite definir un factor de reescalamiento que permite reducir la carga computacional de un proceso.
 :::
 
 \newpage
@@ -1755,7 +1763,7 @@ var rfClassif = ee.Classifier.smileRandomForest();
 
 Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, p.ej., QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE).
 
-Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza la función `train`. Los argumentos de esta función indican los atributos utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de atributos, así como las bandas a utilizar de la imagen.
+Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza la función `train`. Los argumentos de esta función indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -1767,7 +1775,7 @@ var trainedClassifier = rfClassif.train({
 
 ## Clasificación
 
-Una vez que se tiene entrenado el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interes. Para ello, se utiliza la función `classify`, la cual permite hacer predicciones sobre la clase de cada pixel, a partir de los insumos indicados en la fase de entrenamiento. Por ejemplo:
+Una vez que se tiene entrenado el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interés. Para ello, se utiliza la función `classify`, la cual permite hacer predicciones sobre la clase de cada pixel, a partir de los insumos indicados en la fase de entrenamiento. Por ejemplo:
 
 ```{js echo = T}
 var classifiedImg = imagen.classify(trainedClassifier);
@@ -1775,7 +1783,7 @@ var classifiedImg = imagen.classify(trainedClassifier);
 
 ## Evaluación
 
-La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido utilizado en la fase de entrenamiento. Comúnmente a estos datos se le conoce como los datos de validación. En este caso, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmnete se utiliza una matriz de confusión para realizar dicha evaluación. En GEE se puede obtener dicha matriz mediante la función `errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza la función `accuracy`. Por ejemplo:
+La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido utilizado en la fase de entrenamiento. Comúnmente a estos datos se le conoce como los datos de validación o verificación. En este caso, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmnete se utiliza una matriz de confusión para realizar dicha evaluación. En GEE se puede obtener dicha matriz mediante la función `errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza la función `accuracy`. Por ejemplo:
 
 ```{js echo = T}
 var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
@@ -1784,7 +1792,7 @@ var validAcc = validacion.accuracy();
 
 ### Ejercicio: Clasificación
 
-En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán 7 polígonos como sitios de entrenamiento, pertenecientes a 4 clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectangulo. Posteriormente, cada polígono se transforma en un objeto de tipo atributo (`Feature`) y se le asigna la propiedad de "clase" como número a través de un diccionario. Por último, se hace una colección de atributos.
+En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán 7 polígonos como sitios de entrenamiento, pertenecientes a 4 clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectangulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`Feature`) y se le asigna la propiedad de 'clase' como número a través de un diccionario. Por último, se hace una colección de vectores.
 
 ```{js echo = T}
 var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
@@ -1802,7 +1810,7 @@ var agua1 = ee.Geometry.Rectangle(-101.60826, 19.66885,
 var agua2 = ee.Geometry.Rectangle(-101.74686, 19.43937, 
   -101.733453,19.427012);
 
-var poligonos = ee.FeatureCollection([
+var polígonos = ee.FeatureCollection([
   ee.Feature(noBosque1, {'clase': 0}),
   ee.Feature(noBosque2, {'clase': 0}),
   ee.Feature(bosque1, {'clase': 1}),
@@ -1812,14 +1820,14 @@ var poligonos = ee.FeatureCollection([
   ee.Feature(urbano, {'clase': 3}),
 ]);
 
-Map.addLayer(poligonos, {}, 'poligonosEntrenamiento');
+Map.addLayer(polígonos, {}, 'polígonosEntrenamiento');
 ```
 
 A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre, y un filtro espacial. En este caso, se usó la función `filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `map`.
 
 ```{js echo = T}
 var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
-  .filterBounds(poligonos)
+  .filterBounds(polígonos)
   .filterDate('2015-01-01','2016-01-01')
   .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
   .map(maskL8sr);
@@ -1836,18 +1844,18 @@ var L8imgMean = L8imgCol.reduce(ee.Reducer.mean())
 print(L8imgMean);
 ```
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los pixeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando la función `sampleRegions`. A esta función hay que indicar la colección de atributos que se va a utilizar, así como la propiedad de los atributos que indica la clase y la escala a la que se van a muesrear los pixeles en m. El resultado de este procedimiento corresponde a una colección de atributos, en la cual cada atributo corresponde a un pixel dentro de un polígono de entrenamiento. De tal manera, para cada atributo se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los pixeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando la función `sampleRegions`. A esta función hay que indicar la colección de vectores que se va a utilizar, así como la propiedad de los vectores que indica la clase y la escala a la que se van a muesrear los pixeles en m. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un pixel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
 
 ```{js echo = T}
 var training = L8imgMean
   .sampleRegions({
-    collection: poligonos,
+    collection: polígonos,
     properties: ['clase'],
     scale: 30
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de atributos anterior. En este caso, se va a utilizar el algoritmo Random Forests. Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest()`. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante la función `train`. Los argumentos para la función `train` se pasan como un diccionario el cual indica la colección de atributos a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas. 
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests. Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest()`. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante la función `train`. Los argumentos para la función `train` se pasan como un diccionario el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas. 
 
 ```{js echo = T}
 var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
@@ -1857,7 +1865,7 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
 });
 ```
     
-Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando la función `classify`. Como argumentos de esta función se indica el clasificador entrenado que se desea utilizar. El resultado de la función `classify` va a ser un objeto de tipo `ee.FeatureCollection` que contiene la clase predicha en el campo `classification`. Por último, se agrega a la pantalla de mapas para ver los resultados.
+Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando la función `classify`. Como argumentos de esta función se indica el clasificador entrenado que se desea utilizar. El resultado de la función `classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo `classification`. Por último, se agrega a la pantalla de mapas para ver los resultados.
 
 ```{js echo = T}
 var classifiedImg = L8imgMean.classify(trainedClassifier);
@@ -1871,7 +1879,7 @@ Map.addLayer(classifiedImg,{min:0, max:3,
 knitr::include_graphics("Img/RFClass.png")
 ```
 
-Posteriormente se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`'classification'`), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean()`), las regiones de las cuáles se va a obtener esta información (`poligonos`), las etiquetas de las clases `['NoBosque','Bosque','Agua','Urbano']`, la escala en m de trabajo para aplicar el reductor (`240`) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
+Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`'classification'`), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean()`), las regiones de las cuales se va a obtener esta información (`polígonos`), las etiquetas de las clases `['NoBosque','Bosque','Agua','Urbano']`, la escala en m de trabajo para aplicar el reductor (`240`) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
 
 ```{js echo = T}
 var imgConClass = L8imgMean.addBands(classifiedImg);
@@ -1880,7 +1888,7 @@ var chartClassSpec = ui.Chart.image.byClass({
   image: imgConClass,
   classBand: 'classification',
   reducer: ee.Reducer.mean(),
-  region: poligonos,
+  region: polígonos,
   classLabels: ['NoBosque','Bosque','Agua','Urbano'],
   scale: 240
 }).setOptions({
@@ -1907,7 +1915,7 @@ var urbano2 = ee.Geometry.Rectangle(-101.609880,19.517665,
 var agua3 = ee.Geometry.Rectangle(-101.272720,19.612100, 
   -101.272668,19.611594);
 
-var poligonosVerif = ee.FeatureCollection([
+var polígonosVerif = ee.FeatureCollection([
   ee.Feature(noBosque3, {'clase': 0}),
   ee.Feature(bosque3, {'clase': 1}),
   ee.Feature(agua3, {'clase': 2}),
@@ -1915,18 +1923,18 @@ var poligonosVerif = ee.FeatureCollection([
 ]);
 ```
 
-El siguiente paso es extraer la información de la imagen clasificada de acuerdo con la extensión de los datos de verificación. Este paso es exactamente igual al que se hizo con los datos de entrenamiento, pero ahora utilizando los datos de verificación y la imagen clasificada en lugar de la imagen de reflectancia. De igual manera, el resultado de este paso es una colección de atributos.
+El siguiente paso es extraer la información de la imagen clasificada, de acuerdo con la extensión de los datos de verificación. Este paso es exactamente igual al que se hizo con los datos de entrenamiento, pero ahora utilizando los datos de verificación y la imagen clasificada en lugar de la imagen de reflectancia. De igual manera, el resultado de este paso es una colección de vectores.
 
 ```{js echo = T}
 var validating = classifiedImg
   .sampleRegions({
-  collection: poligonosVerif,
+  collection: polígonosVerif,
   properties: ['clase'],
   scale: 30,
 });
 ```
 
-El siguiente paso es calcular la matriz de error mediante la función `errorMatrix` indicando en primer lugar el campo de la clase "verdadera" ('clase') y en segundo lugar el campo de la predicción ('classification). Después se van a mostrar estos dos objetos en la consola mediante print para inspeccionar su contenido.
+El siguiente paso es calcular la matriz de error mediante la función `errorMatrix` indicando en primer lugar el campo de la clase "verdadera" ('clase') y en segundo lugar el campo de la predicción ('classification'). Después, se van a mostrar estos dos objetos en la consola mediante print para inspeccionar su contenido.
 
 ```{js echo = T}
 var validErrMat = validating.errorMatrix('clase', 'classification');
@@ -1940,7 +1948,7 @@ print('Validation overall accuracy: ', validAcc);
 Por default la imagen que se obtiene de una función `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `sampleRegions` y con la que se hace la matriz de error `errorMatrix` se llama 'classification'.
 :::
 
-Para exportar estos resultados primero hay que pasar los datos a tipo atributo. Para ello, se van a crear atributos sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar. En el caso de la matriz de error, primero se debe convertir a un arreglo mediante la función `.array()`. 
+Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear una vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante la función `.array()`. 
 
 ```{js echo = T}
 var expConfMatrix =  ee.Feature(null, {matrix: validErrMat.array()});
