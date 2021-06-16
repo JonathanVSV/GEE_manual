@@ -30,23 +30,22 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 
 ## ¿Qué es Google Earth Engine?
 
-Google Earth Engine (GEE) es una plataforma, desarrollada por Google, que permite realizar procesamientos geoespaciales a gran escala y utilizando bases de datos inmensas. Uno de los principales intereses de esta plataforma es reducir el tiempo invertido en pre procesamiento y facilitar los análisis realizados con información geoespacial. 
+Google Earth Engine (GEE) es una plataforma, desarrollada por Google, que permite realizar procesamientos geoespaciales a gran escala, utilizando bases de datos inmensas. Uno de los principales intereses de esta plataforma es reducir el tiempo invertido en pre procesamiento y facilitar los análisis realizados con información geoespacial. 
 
 ## ¿Cómo Funciona Google Earth Engine (GEE)?
-### background
+### Background
 
-Desde hace varios años hay misisones espaciales tomando datos de la tierra a traves de distintos satelites. Y  toda esa informacion se ha ido almacenando en acervos de imagenes. Aunque esa informacion ha sido muy util en el desarrollo ciencitifco, siempre habia habido el problema de la "Big-Data" (bases de datos enormes). Es decir, dichos acervos de imagenes son de gran dimension (millones de imagenes disponibles), lo cual resultaba imposible de procesar y analisar toda la informacion disponible. evitando asi poder aprovechar el potencial total de esta información.
+Desde hace varios años existen varias misiones espaciales que registran datos de la Tierra a traves de distintos satelites, las cuales se han almacenado en acervos de imágenes. Aunque esta información ha sido muy útil para el desarrollo científico, siempre había existido el problema de la "Big-Data" (bases de datos enormes). Es decir, que dichos acervos de imágenes cuentan con millones de imagenes disponibles, lo cual resultaba imposible de procesar y analizar en su totalidad. Esta situación evitaba la posibilidad de aprovechar el potencial total de esta información.
 
-GEE nace entonces de la necesidad de lograr analisis de esa "Big-Data", ofreciendo una herramienta que pueda lidiar tecnologicamente con la parte mas complicada y engorrosa del manejo de informacion, permitiendo entonces que los ususarios se concentren en la generacion de resultados, y nuevos desarrollos cientificos. 
+GEE nace entonces de la necesidad de aprovechar esa "Big-Data", ofreciendo una herramienta que pueda lidiar tecnológicamente con la parte más complicada y engorrosa del manejo de información, permitiendo entonces que los usuarios se concentren en la generación de resultados, y nuevos desarrollos científicos. 
 
-Para logar este objetivo, se creó una infraestructura con 3 elementos claves que son quienes permiten el funcionameinto de GEE: catalogo de informacion, capacidad computacional, APIs
+Para logar este objetivo, se creó una infraestructura con tres elementos claves que son los que permiten el funcionameinto de GEE: el catálogo de información, capacidad computacional y APIs.
 
 #### Catálogo de información
 
+GEE, recopiló la informacion geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio *datacenter* logrando asi almacenar mas de 20 petabytes (20 000 000 de gigabytes) de informacion, en un solo lugar.
 
-GEE, recopiló informacion geoespacial de diferentes fuentes al rededor del mundo, creó copias de esos datos en su propio datacenter logrando asi almacenar mas de 20 petabytes (20'000.000 de gigabytes) de informacion, en un solo lugar.
-
-GEE ofrece un amplio repositorio de información geográfica global, cuya informacion ya se encuentra cargada su catalogo, facilitando un sencillo acceso a diferentes Datasets. entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global ( WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
+GEE ofrece un amplio repositorio de información geográfica global, cuya información ya se encuentra cargada su catálogo, facilitando un sencillo acceso a diferentes Datasets. entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
 
 ::: {.tipblock data-latex=""}
 Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
@@ -54,21 +53,17 @@ Para consultar toda la información que esta disponible en GEE se puede consulta
 
 #### Capacidad computacional
 
-
-
-Paralelamente GEE puso a dispocicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad mas o menos equivalente a 10.000 computadores personales), para poder realizar rapida y eficazmente calculos y computaciones sobre esos datos
+Paralelamente GEE puso a disposicion, junto al datacenter, unos servidores (los cuales en 2010 tenian una capcidad más o menos equivalente a 10 000 computadores personales), para poder realizar rápida y eficazmente cálculos y computaciones sobre esos datos.
 
 ::: {.tipblock data-latex=""}
-Se estima que GEE era capaz (en 2010) de en cuestion de dias, ejecutar funciones que en un computador personal habria tomado 15 años  
+Se estima que GEE era capaz (en 2010) de en cuestión de días, ejecutar funciones que en un computador personal habria tomado 15 años.  
 :::
 
 #### API
 
+GEE es una API (Application Program Interface). Esto significa que es una interfaz que permite la comunicación entre nosotros (usuarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros análisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea. 
 
-
-GEE es una API (Application Program Interface), lo que basicamente significa, es una interfaz que permite la comunicación entre nosotros (ususarios) y los servidores de Google, proporcionando el acceso Y uso de la capacidad computacional de Google para nuestros analisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simpe línea. 
-
-GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conocida, mas actualizada, mas amigable con los usuarios, con mas docuemntacion disponible, y sobre la cual estaremos hablando; y una API en Python, la cual se puede trabajar desde la consola de Pyhton y permite entonces -hasta cierto punto- usar complementariamente librerias de Python, permitiendo asi procesamientos mas complejos, o funcionalidades que la API de Java no permite. la APi de Pyhton tiene las desventajas que tiene menos documentacion, y tiene algunas diferencias (que pueden resutlar poco intuitivas) a la hora de programar.
+GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conocida, más actualizada, más amigable con los usuarios, con más documentación disponible, y sobre la cual estaremos hablando; y una API en Python, la cual se puede trabajar desde la consola de Pyhton y permite entonces -hasta cierto punto- usar complementariamente librerias de Python, permitiendo asi procesamientos mas complejos, o funcionalidades que la API de Java no permite. la API de Python tiene las desventajas que tiene menos documentación, y tiene algunas diferencias (que pueden resutlar poco intuitivas) a la hora de programar.
 
 ########Grafico########
 
@@ -76,21 +71,19 @@ GEE ofrece dos APIs una en JavaScript la cual se accede online, es la mas conoci
 
 Entre las principales ventajas de utilizar esta API radica en: 
 
-1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna libreria de Python será necesaria la descarga de la informacion
-2. El procesamiento se hace en la nube, a traves de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexciaon estable y el consumo de ram depende del comsuno del navegador). en la API de Python hay mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
-3. Su interfaz es mucho mas amigable con los ususarios, ofreciendo una plataforma mas interactiva para programar, y mas sencilla para enseñar
-4. Se pueden realizar facilmente consultas de las colecciones de imagenes, y sus metadatos, antes de ecidir importarlos. la API de Pyhton no permite realizar ese tipo de consutas facilmente, de modo que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
+1. Los datos pueden ser consultados directamente en la nube, por lo que no requieren ser descargados para trabajar con ellos (lo que ahorra tiempo y espacio de almacenamiento para el usuario). En cambio, si se quiere usar alguna librería de Python será necesaria la descarga de la informacion.
+2. El procesamiento se hace en la nube, a través de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexión estable y el consumo de RAM depende del comsuno del navegador). En la API de Python hay mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerias) y requiere igualmente una conexion estable a internet.
+3. Su interfaz es mucho más amigable con los ususarios, ofreciendo una plataforma más interactiva para programar, y más sencilla para enseñar.
+4. Se pueden realizar fácilmente consultas de las colecciones de imágenes, y sus metadatos, antes de decidir importarlos. La API de Python no permite realizar ese tipo de consutas fácilmente, de modo que hay que tener previamente absoluta claridad sobre la coleccion de imagenes que se va a utilizar. 
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos. 
 
 ## Lenguaje Javascript
 
-La API permite trabajar mediante la programación en lenguaje Javascript, en una interfaz gráfica que resulta más amigable con el usuario. Además, para utilizarla únicamente requiere de una conexión a internet y un navegador. Toda la información del usuario es guardada en la cuenta asociada de Google en dicha plataforma. Existen otras opciones para trabajar con GEE, como la API de Python, sin embargo, los autores consideramos que la API de Javascript resulta la más sencilla de utilizar y se encuentra mejor documentada. 
-
 La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos _(de igual forma iremos tocando la gramatica del codigo a lo largo de los ejemplos)_:
 
 1. Es un lenguaje sensible a mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes uno llamado `a` y otro diferente llamado `A`.
-2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el codigo funcionara igualmente)
-3. Comúnmente en Javascript se utiliza el _lower Camel Case_ (unir palabras pero cada una comenzando con su respectiva mayuscula) para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask` .
+2. Siempre se debe cerrar cualquier comando con un `;`. (aunque de no hacerlo el codigo funcionara igualmente).
+3. Comúnmente en Javascript se utiliza el _lower Camel Case_ (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones o guión bajo. Por ejemplo: `intervalMean` o `updateMask`.
 4. Todas las variables, funciones, objetos deben ser definidos mediante la función `var`.
 5. Para definir variables se utiliza el operador `=`.
 6. Los operadores matemáticos son: `+ - * /`.
@@ -98,7 +91,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
 9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
-11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma linea
+11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma linea.
 
 \newpage
 # Primeros pasos
@@ -141,22 +134,21 @@ Los elementos de la API se enlistan a continuación:
 knitr::include_graphics("Img/left_panel.png")
 ```
 
-Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y folders para organizar los archivos de código, como se muestra a continuacion. 
+Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y folders para organizar los archivos de código, como se muestra a continuación. 
 
 ```{r, echo = F}
 knitr::include_graphics("Img/repositorio.png")
 ```
 
-Dentro de este espacio existen varias categorías (Los primeros tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios): 
-1. propietario (**Owner**): aca se guardan los codigos creados por el mismo usuario
-2. editor (**Writer**): aca se guardan codigos que pueden ser creados por otros usuarios, pero para los cuaels tenemos autorizacion de modificarlos    
-3. lector (**Reader**): aca aparecen codigos que otros usuarios nos han compartido acceso, pero no tenemos autizacion de mosificarlos   
-4. ejemplos: se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando distintas colecciones de imágenes (i.e., Landsat 4-7, Landsat 8, Sentinel-2, MODIS)
-5.  archivo: se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
+Dentro de este espacio existen varias categorías (los primeros tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios): 
+1. Propietario (**Owner**): En esta sección se guardan los codigos creados por el mismo usuario.
+2. Editor (**Writer**): En este apartado se guardan códigos que pueden ser creados por otros usuarios, pero para los cuales tenemos autorización de modificarlos.    
+3. Lector (**Reader**): En esta parte aparecen codigos que otros usuarios nos han compartido acceso, pero no tenemos autorización de modificarlos.   
+4. Ejemplos: se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando distintas colecciones de imágenes (i.e., Landsat 4-7, Landsat 8, Sentinel-2, MODIS).
+5.  Archivo: se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
 ::: {.tipblock data-latex=""}
 El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio).
-
 ```{r, echo = F}
 knitr::include_graphics("Img/engranaje.png")
 ```
@@ -168,13 +160,12 @@ knitr::include_graphics("Img/engranaje.png")
 knitr::include_graphics("Img/docs.png")
 ```
 
-Es un área donde se puede consultar todas las funciones y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada función le indica lo que hace, la entrada y salida que requiere y los argumentos de la función. Estas funciones se encuentran agrupados por objetos del servidor (los objetos se explican mas adelante).
+Es un área donde se pueden consultar todas las funciones y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada función se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos de la función. Estas funciones se encuentran agrupadas por objetos del servidor (los objetos se explican más adelante).
 adicionalmente tiene un buscador, donde se pueden consultar tambien las funciones.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/doc_ejemplo.png")
 ```
-
 
 **Assets**
 
@@ -189,17 +180,15 @@ knitr::include_graphics("Img/newAssets.png")
 ```
 
 para subir un nuevo archivo, dar click en el boton **NEW**, seleccionar el tipo de archivo, y seguir las instrucciones, 
-1. para los archivos raster, solo hace falta seleccionar el archivo correspondiente y dar click en upload
-2. para los archivos tipo _.shp_ es necesario subir **los archivos auxiliares** ( _dbf_, _prj_, _shx_, _cpg_, _fix_, _qix_, _sbn_, y/o _shp.xml_) con el mismo nombre. para los archivos _.zip_ es necesario que contenga **los archivos auxiliares**
-3. para los archivos _.csv_ es nescesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84).El nombre de esas columnas se debe indicar en _Advanced options_ / _x column_ - _Y column_. Ademas se debe tener **absoluta claridad** del tipo de delimitador (ejemplo: coma: _,_ punto y coma: _;_ u otro diferente) y este debe ser especificado en _Advanced options_ / _CSV delimiter_
+1. para los archivos raster, solo hace falta seleccionar el archivo correspondiente y dar click en upload.
+2. para los archivos tipo _.shp_ es necesario subir **los archivos auxiliares** ( _dbf_, _prj_, _shx_, _cpg_, _fix_, _qix_, _sbn_, y/o _shp.xml_) con el mismo nombre. para los archivos _.zip_ es necesario que contenga **los archivos auxiliares**.
+3. para los archivos _.csv_ es nescesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84).El nombre de esas columnas se debe indicar en _Advanced options_ / _x column_ - _Y column_. Además, se debe tener **absoluta claridad** del tipo de delimitador (ejemplo: coma: _,_ punto y coma: _;_ u otro diferente) y este debe ser especificado en _Advanced options_ / _CSV delimiter_.
 
 ::: {.tipblock data-latex=""}
-El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo)
-
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo).
 ```{r, echo = F}
 knitr::include_graphics("Img/shareAssets.png")
 ```
-
 :::
 
 **Pantalla de rutinas**
@@ -208,7 +197,7 @@ knitr::include_graphics("Img/shareAssets.png")
 knitr::include_graphics("Img/editor.png")
 ```
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion _Manage Links_ ) se puede hacer un manejo de las ligas que se tengan activas, así como borras ligas que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion _Manage Links_ ) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/links.png")
@@ -238,7 +227,7 @@ Cuando se corre un codigo en la consola con el botón de Run, éste no corre dir
 :::
 
 ::: {.tipblock data-latex=""}
-Para buscar un texto especifico dentro del codigo, se debe dar click en la pantalla de rutinas y presionar ctrl+H, (algunos atajos pueden variar segun la configuracion del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, tambien se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra.
+Para buscar un texto especifico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar segun la configuracion del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F tambien se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
 :::
 
 **Search**
@@ -253,9 +242,12 @@ Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. 
 ```{r, echo = F}
 knitr::include_graphics("Img/drawing.png")
 ```
-1. El mapa donde se pueden dibujar y visualizar puntos, polígonos, líneas o rectángulos
-2. mostrar la información que se haya indicado mediante la función `Map.addLayer`.
-3. añadir un mapa base (google maps , o google earth)
+
+En esta pantalla de mapa se pueden: 
+
+1. Dibujar y visualizar puntos, polígonos, líneas o rectángulos
+2. Mostrar la información que se haya indicado mediante la función `Map.addLayer`.
+3. Añadir un mapa base (google maps , o google earth).
 
 **Layer manager**
 
@@ -286,12 +278,14 @@ Permite consultar los valores de las capas que se muestran en el mapa, al dar cl
 ```{r, echo = F}
 knitr::include_graphics("Img/task.png")
 ```
-Muestra los trabajos que se hayan exportado mediante la función Export.image o Export.table y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). 
-1. muestra las tareas para ejecutar (con el boton de run, el cual permite especificar detalles de la exportacion)
-2. muestra las tareas en ejecucion (gris)
-3. muestra el tiempo demorado en el trabajo
-2. así como cuando el trabajo se ha finalizado (azul).
-3. cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
+
+En esta pestaña se muestran los trabajos que se hayan exportado mediante la función `Export.image` o `Export.table` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). Además, en esta pestaña se:
+
+1. Muestran las tareas para ejecutar (con el boton de run, el cual permite especificar detalles de la exportacion).
+2. Muestran las tareas en ejecucion (gris).
+3. Muestra el tiempo demorado en el trabajo.
+2. Así como cuando el trabajo se ha finalizado (azul).
+3. Cuando hay un error en algun objeto exportado, en esta ventana se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, permite obtener mayor información del trabajo, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
 \newpage 
 # Interfaz de usuario: Visualización de datos, gráficos y exportación
@@ -302,6 +296,7 @@ La interfaz más sencilla de la API es imprimir objetos en la consola. Esto se r
 
 ```{js, echo = T}
 print(Objeto);
+print('Hola Mundo');
 ```
 
 ## Map
@@ -314,9 +309,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 **Map.addLayer**
 
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Como argumentos de la función `Map.addLayer` se indica el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
+La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image`. Adicionalmente, se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario que señala las bandas a añadir y los valores máximos y mínimos para el despliegue de la capa y por último, se puede indicar el nombre de la capa.
 
-Al utilizar `Map.addLayer` sobre una imagen se se pueden indicar los siguientes argumentos: `bands`, `min` o `max`. Estos se deben pasar dentro de un `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. 
+Al utilizar `Map.addLayer` sobre una imagen  se pueden indicar los siguientes argumentos: `bands`, `min` o `max`. Estos se deben pasar dentro de un par de llaves (`{}`) como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
@@ -326,7 +321,7 @@ Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000}, 'RGB');
 En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (p.ej., QGIS)
 :::
 
-Para el caso de los atributos (`features`) se puede realizar una operación similar como
+Para el caso de los atributos (`features`) se puede realizar una operación similar como:
 
 ```{js, echo = T}
 Map.addLayer(feature, {palette: ['FF0000', 'FFFF00',' 008000'], min: 0, max: 10},
@@ -343,11 +338,11 @@ Esta función permite centrar la pantalla de mapas en algún objeto. Además, se
 
 ## Chart
 
-La función principal para realizar gráficos es ui.Chart. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: atributos (``Feature`), colecciones de atributos (`FeatureCollection`), imágenes (`Image`), colección de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
+La función principal para realizar gráficos es `ui.Chart`. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: vectores (``Feature`), colecciones de vectores (`FeatureCollection`), imágenes (`Image`), colecciones de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
 
 **Chart.feature**
 
-Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un atributo o una colección de atributos. Algunas de las funciones disponibles incluyen: `ui.Chart.feature.byFeature`, `ui.Chart.feature.byProperty`, `ui.Chart.feature.groups` y `ui.Chart.feature.histogram`.
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores. Algunas de las funciones disponibles incluyen: `ui.Chart.feature.byFeature`, `ui.Chart.feature.byProperty`, `ui.Chart.feature.groups` y `ui.Chart.feature.histogram`. Por ejemplo:
 
 ```{js, echo = T}
 ui.Chart.feature.byProperty({
@@ -365,14 +360,14 @@ Por ejemplo, para graficar una serie de tiempo a partir de una colección de im�
 ```{js, echo = T}
 ui.Chart.image.seriesByRegion({
   imageCollection: coleccionImagenes, 
-  regions: areas.filter(ee.Filter.eq('Tipo','Deforestacion')),
+  regions: areas.filter(ee.Filter.eq('Tipo','Bosque')),
   reducer: ee.Reducer.mean(), 
   band: 'NDVI', 
   scale: 30, 
   seriesProperty: 'Tipo'
 })
   .setOptions({
-    title: 'Deforestacion',
+    title: 'Bosque',
     colors: ['#EE3A19']
   });
 ```
@@ -383,13 +378,13 @@ El nombre de las funciones para generar gráficos en GEE dan una idea del tipo d
                                               
 ## Export
 
-Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa. Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
+Una vez que se haya obtenido el resultado de interés en GEE se puede exportar para ser manejado en otro programa (p.ej., un SIG). Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
 
 **Export.image**
 
 En el caso de las imágenes, la función para exportar es` Export.image`. Dentro de GEE hay 3 opciones para exportar los resultados de una imagen: `Export.image.toAsset`, `Export.image.toDrive` o `Export.image.toCloudStorage`. El primero permite exportar la imagen como una imagen a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes en algún entorno local como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. 
 
-Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
+Resulta obvio que el primero se va a utilizar para exportar imágenes en formato raster, sin embargo, no siempre resulta obvio, ya que algunas veces se pueden convertir imágenes a formato de arreglo (array), tras lo cual hay que volver a convertir la información a formato de imagen (Image) para poder exportarla. La aplicación permite exportar únicamente en formato GTiff o TRFrecord (tensores).
 
 Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
@@ -413,7 +408,7 @@ En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000
 
 **Export.table**
 
-Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe ser en formato atributo (`feature`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo atributo: `Export.table.toAsset`, `Export.table.toDrive` o `Export.table.toCloudStorage`. Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto atributo sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:
+Por su parte, el formato vector permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato vector (`feature`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo vector: `Export.table.toAsset`, `Export.table.toDrive` o `Export.table.toCloudStorage`. Para el caso de tablas, sin información geográfica asociada, se debe definir el objeto como un objeto vector sin geometría (es decir, `null`) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:
 
 ```{js echo = T}
 Export.table.toDrive({
@@ -426,7 +421,7 @@ Export.table.toDrive({
 
 **Export.video**
 
-Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google `Export.video.toCloudStorage` o al Drive `Export.video.toDrive`. Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. Para exportar una colección de imágenes a video se puede realizar de la siguiente manera:
+Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google `Export.video.toCloudStorage` o al Drive `Export.video.toDrive`. Esta función puede resultar atractiva para observar los cambios de un área de interés, a través del tiempo. Para exportar una colección de imágenes a video se puede realizar de la siguiente manera:
 
 ```{js echo = T}
 Export.video.toDrive({
@@ -442,9 +437,9 @@ Export.video.toDrive({
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera un objeto puede ser convertido entre los dos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizaría `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente. De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos pre cargados en GEE únicamente corren sobre objetos del lado del servidor, por lo cual, es recomendable utilizar dicha sintaxis. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizaría `ee.Number(1).add(ee.Number(2))`.
 
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) `ee.Export...`., agregar una capa a la pantalla del mapa `Map.addLayer()`o crear gráficos, así como imprimir información en la consola `print()`, sólo corren del lado del cliente. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de los condiciones se sugiere utilizar en lugar de `if` y `else`, `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) `ee.Export...`., agregar una capa a la pantalla del mapa `Map.addLayer()`o crear gráficos, así como imprimir información en la consola `print()`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
 ```{r, echo = F}
 knitr::include_graphics("Img/daigFunc.png")
@@ -453,24 +448,27 @@ knitr::include_graphics("Img/daigFunc.png")
 ## Tipos de objetos del lado del cliente
 
 ::: {.tipblock data-latex=""}
-Vamos a utilizar mucho la funcion `print()` esta funcion, permite visualizar en la **consola** diversos objetos. por ejemplo, si se quiere ver en la consola la palabra _"Hola"_  se usa el comando `print('Hola')`
+Vamos a utilizar mucho la funcion `print()` esta funcion, permite visualizar en la **consola** diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra _"Hola"_  se usa el comando `print('Hola')`
 :::
 
 **Cadenas de texto**
 
-Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un texto Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo; ejercicio 0:
+Se refiere a objetos de cadenas de símbolos de tipo carácter alfanumérico. Cualquier secuencia de caracteres puede ser un texto. Estos se definen como cualquier cadena de caracteres que se encuentren entre un par de comillas bien sean dobles  “” o sencillas ''. Por ejemplo; ejercicio 0:
 
 ```{js, echo = T}
 var cadena = “Esto es una cadena de caracteres”;  //cadena de texto de solo letras
 var telefono= '1234567890';                       //cadena de texto de solo numeros
-var direccion = 'calle cuarta casa # 16';         //cadena de texto de letras, numeros y simbolos
+var direccion = 'calle cuarta casa # 16';         //cadena de texto de letras, numeros y
+//simbolos
 ```
 
+::: {.tipblock data-latex=""}
 Resulta importante notar que los números en una cadena de texto no serán interpretados como valores numéricos sino como texto.
+:::
 
 **Números**
 
-Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un numero. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo; ejercicio 1:
+Se refiere a objetos numéricos que indican un valor. Cualquier secuencia de números puede ser un número. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo; ejercicio 1:
 
 ```{js, echo = T}
 var numero = 1;     //numero entero
@@ -481,7 +479,7 @@ Nótese que al declarar un objeto como numero no se hace uso de comillas.
 
 **Listas**
 
-Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (numeros), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes [] y cada entrada es separada mediante una coma (,). Permiten encadenar una serie de valores. Por ejemplo; ejercicio 2:
+Se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma (`,`). Permiten encadenar una serie de valores. Por ejemplo; ejercicio 2:
 
 ```{js, echo = T}
 var lista = [1, 2, 3, 4, 5, 6, 7, 8];                 //lista numerica 
@@ -490,7 +488,7 @@ var listaB = [“primero”, “segundo”, “tercero”, 4];    //lista de tex
 var listaC = [lista, listaA, listaB];                 //lista de listas
 ```
 
-Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, **siempre empezando desde 0**. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella. Ejercicio 2.1
+Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, **siempre empezando desde 0**. Entonces se puede consultar un solo elemento dentro de una lista, aportando el número de su posición dentro de ella. Ejercicio 2.1:
 
 ```{js, echo = T}
 print(lista[0]);  //primer objeto de la lista llamada "lista"
@@ -501,40 +499,50 @@ print(listaC);    //lista completa con todos sus elementos
 
 **Diccionarios (Dictionaries)**
 
-Los diccionarios son objetos que contienen claves (objetos o entradas) y valores asociados a estas claves (definicion del objeto). Los diccionarios se definen mediante el uso de llaves {} donde se define cada clave seguida de dos puntos ":" y (la definicion) el valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
-Las claves o entradas siempre seran leidas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, si es nescesario es mejor usar guon bajo `_`. Al hacer `print()` se ordenaran alfabeticamente
+Los diccionarios son objetos que contienen claves (objetos o entradas) y valores asociados a estas claves (definicion del objeto). Los diccionarios se definen mediante el uso de llaves (`{}`) donde se define cada clave seguida de dos puntos (`:`) y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, éstas deben ir separadas por una coma.
+Las claves o entradas siempre seran leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, si es nescesario es mejor usar guión bajo `_`. Al hacer `print()` se ordenarán alfabeticamente.
 
 ```{js, echo = T}
 var dicc = {    //se declara un nuevo diccionario
-  clave1: 1,    //la primera entrada es el texto "clave1" que esta definido con el valor de 1 (tipo numero)  
-  clave2: "A"   //la segunda entrada es el texto "clave2", y su definicion es la letra "A" (tipo cadena de texto)
+  clave1: 1,    //la primera entrada es el texto "clave1" que esta definido con el valor
+  //de 1 (tipo numero)  
+  clave2: "A"   //la segunda entrada es el texto "clave2", y su definicion es la letra
+  //"A" (tipo cadena de texto)
 };            
 ```
 
-Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada dentro de corchetes. Adicionalmente para los diccionarios se recomienda utilizar la notación de `.` seguido del nombre de la clave. la notacion con punto, es recomendada.
-Por ejemplo; ejercicio 3.1:
+Para consultar los valores dentro de un diccionario se puede hacer llamando directamente el nombre de la clave deseada dentro de corchetes. Adicionalmente para los diccionarios se recomienda utilizar la notación de `.` seguido del nombre de la clave. la notacion con punto, es recomendada.Por ejemplo; ejercicio 3.1:
 
 ```{js, echo = T}
-print(dicc["clave1"]);  //notacion de lista, se mostrara en la consola la definicion de "clave1", es decir el valor 1 
-print(dicc["clave2"]);  //notacion de lista, se mostrara en la consola la definicion de "clave2", es decir la letra "A"
+print(dicc["clave1"]);  //notacion de lista, se mostrara en la consola la definicion de 
+//"clave1", es decir el valor 1 
+print(dicc["clave2"]);  //notacion de lista, se mostrara en la consola la definicion de 
+//"clave2", es decir la letra "A"
 
-print(dicc.clave1);  //notacion con punto, se mostrara en la consola la definicion de "clave1", es decir el valor 1 
-print(dicc.clave2);  //notacion con punto, se mostrara en la consola la definicion de "clave2", es decir la letra "A"
+print(dicc.clave1);  //notacion con punto, se mostrara en la consola la definicion de 
+//"clave1", es decir el valor 1 
+print(dicc.clave2);  //notacion con punto, se mostrara en la consola la definicion de 
+//"clave2", es decir la letra "A"
 
 ```
 
 **Funciones (Functions)**
 
-las funciones seran revisadas a mayor profundidad despues.
+las funciones seran revisadas a mayor profundidad después.
 
-Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función, este objeto entre parentesis, y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función `return`. Por ejemplo:
+Se refieren a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función, este objeto entre paréntesis, y entre corchetes se coloca el procedimiento que va a realizar la función. Por último, deben regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
-var maskIm = function(objeto){              //maskIm es una nueva funcion, y su argumento de entrada es "objeto"
-  var image = ee.Image(objeto)              //se define que "objeto" es una imagen raster, y se guarda en la variable image
-  var qaImage = image.select('pixel_qa');   //se selecciona solamente la banda de nombre "pixel_qa" de la imagen image
-  var clearData = qaImage.eq(322);          //se crea una nueva imagen binaria donde sera 1 los pixeles con valor igual a 322, y 0 los demas
-  return image.updateMask(clearData);       //se crea una mascara con la imagen binaria, y se entreda la imagen original enmascarada
+var maskIm = function(objeto){              //maskIm es una nueva funcion, y su 
+//argumento de entrada es "objeto"
+  var image = ee.Image(objeto)              //se define que "objeto" es una imagen 
+//raster, y se guarda en la variable image
+  var qaImage = image.select('pixel_qa');   //se selecciona solamente la banda de nombre
+//"pixel_qa" de la imagen image
+  var clearData = qaImage.eq(322);          //se crea una nueva imagen binaria donde 
+//sera 1 los pixeles con valor igual a 322, y 0 los demas
+  return image.updateMask(clearData);       //se crea una mascara con la imagen binaria,
+//y se entreda la imagen original enmascarada
 };
 ```
 
@@ -546,7 +554,7 @@ Las funciones que se ejecuten sobre una coleccion de iamgenes o vectores, sólo 
 
 ## Tipo de objetos del lado del servidor
 
-Estas funciones permiten definir objetos como objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo objeto, por lo cual, se recomienda “llamar” dicho objeto como el servidor antes de proseguir con su uso.
+Estas funciones permiten definir objetosen el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`), por lo cual, se recomienda convertir dicho objeto al lado del servidor antes de proseguir con su uso.
 
 Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. 
 
@@ -557,20 +565,22 @@ Para revisar todos los métodos disponibles en GEE clasificados por tipo de obje
 Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. 
 
 ::: {.tipblock data-latex=""}
-Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo  `ee` (del servidor de **E**arth**E**ngine), seguido del nombre del tipo de objeto con inicial mayúscula.
+Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo  `ee` (del servidor de **Earth Engine**), seguido del nombre del tipo de objeto con inicial mayúscula.
 :::
 
 **ee.String()**
 
-es equivalente a la cadena de texto pero del lado del servidor.
-Permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.String** al revisar las librerías disponibles en la API (ver liga anterior).
+Es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier función indicada bajo la librería de **ee.String** al revisar las librerías disponibles en la API (ver liga anterior).
 
 Ejercicio 4:
 
 ```{js, echo = T}
-var cadena2 = "Esto es una cadena de caracteres";           //esta es una cadena de texto del lado del cliente
-var cadenaServ = ee.String(cadena2);                        //aca se convierte el texto del lado del cliente a un ee.String del lado dle servidor
-print("Esto está evaluado en el servidor", cadenaServ);     //se muestra primero un texto de cliente, y segundo un ee.String del servidor  
+var cadena2 = "Esto es una cadena de caracteres";           //esta es una cadena de 
+//texto del lado del cliente
+var cadenaServ = ee.String(cadena2);                        //aca se convierte el texto 
+//del lado del cliente a un ee.String del lado dle servidor
+print("Esto está evaluado en el servidor", cadenaServ);     //se muestra primero un 
+//texto de cliente, y segundo un ee.String del servidor  
 ```
 
 **ee.Number()**
@@ -580,8 +590,10 @@ Permite enviar un numero como objeto al servidor. Además, al definir un objeto 
 Ejercicio 5:
 
 ```{js, echo = T}
-var numServ = ee.Number(1900);                                    //se define un numero como ee.Number del servidor
-print("numero como un objeto ee.Number del servidor", numServ);   //se muestra primero un texto de cliente, y segundo el ee.Number del servidor
+var numServ = ee.Number(1900);                                    //se define un numero 
+//como ee.Number del servidor
+print("numero como un objeto ee.Number del servidor", numServ);   //se muestra primero 
+//un texto de cliente, y segundo el ee.Number del servidor
 ```
 
 **ee.List()**
@@ -591,17 +603,23 @@ Permite enviar un objeto como lista al servidor. Además, al definir un objeto d
 Ejercicio 6:
 
 ```{js, echo = T}
-var lista = ['hola','12','5%', ee.String('servidor'), ee.Number(64), 8.32]; //se construye una nueva lista con diferentes tipos de objetos del lado del usuario y servidor
-var listaServ = ee.List(lista);                                       //se define una lista como ee.List del servidor 
+var lista = ['hola','12','5%', ee.String('servidor'), ee.Number(64), 8.32]; //se 
+//construye una nueva lista con diferentes tipos de objetos del lado del usuario y 
+//servidor
+var listaServ = ee.List(lista);                                       //se define una 
+//lista como ee.List del servidor 
 
-print("Esto está evaluado como una lista del servidor", listaServ);    //se muestra primero un texto del cliente, y segundo el ee.List del servidor
+print("Esto está evaluado como una lista del servidor", listaServ);    //se muestra 
+//primero un texto del cliente, y segundo el ee.List del servidor
 ```
 
 Para acceder a un elemento de tipo ee.List se utiliza la función `get`. Ejercicio 6.1:
 
 ```{js, echo = T}
-print(listaServ.get(0));   //se llama solamente al primero objeto de la ee.List del servidor
-print(listaServ.get(1));   //se llama solamente al segundo objeto de la ee.List del servidor
+print(listaServ.get(0));   //se llama solamente al primero objeto de la ee.List del 
+//servidor
+print(listaServ.get(1));   //se llama solamente al segundo objeto de la ee.List del 
+//servidor
 ```
 
 **ee.Dictionary**
@@ -612,7 +630,8 @@ ejercicio 7
 
 ```{js, echo = T}
 
-var dicc = {                                                  //se construye un diccionario de usuario con diferentes tipos de objetos del lado del usuario y servidor
+var dicc = {                                                  //se construye un 
+//diccionario de usuario con diferentes tipos de objetos del lado del usuario y servidor
   'texto de usuario':'usuario',
   'string del servidor': ee.String('texto de servidor # 2'),
   'numero de usuario': 4,
@@ -621,17 +640,22 @@ var dicc = {                                                  //se construye un 
   'lista de servidor': ee.List([ee.String('texto de servidor # 3'), ee.Number(1.44)])
 }; 
 
-var diccServ = ee.Dictionary(dicc);                           //se define el diccionario de usuario anterior como ee.Dictionary del servidor 
+var diccServ = ee.Dictionary(dicc);                           //se define el diccionario
+//de usuario anterior como ee.Dictionary del servidor 
 
-print("Esto está evaluado como una lista del servidor", diccServ);    //se muestra primero un texto del cliente, y segundo el ee.Dictionary del servidor, notese que se ordenaron las claves alfabeticamente
+print("Esto está evaluado como una lista del servidor", diccServ);    //se muestra 
+//primero un texto del cliente, y segundo el ee.Dictionary del servidor, notese que se 
+//ordenaron las claves alfabeticamente
 
 ```
 
 Se puede consultar utilizando también la función `get` y el nombre de la clave. ejercicio 7.1
 
 ```{js, echo = T}
-print(diccServ.get('lista_de_servidor'));        //se muestra el valor que contiene la clave "lista_de_servidor"
-print(diccServ.get('numero_de_usuario'));        //se muestra el valor que contiene el elemento "numero_de_usuario"
+print(diccServ.get('lista_de_servidor'));        //se muestra el valor que contiene la 
+//clave "lista_de_servidor"
+print(diccServ.get('numero_de_usuario'));        //se muestra el valor que contiene el 
+//elemento "numero_de_usuario"
 ```
 
 Por último, si se desea obtener las claves disponibles en un ee.Dictionary se utiliza la función `.keys`. esta funcion devuelve una lista
@@ -668,15 +692,24 @@ hay varias formas de construir una fecha especifica:
 ejercicio 8
 ```{js, echo = T}
 var fechaString = '2001-10';                 //fecha como un texto de cliente
-var fecha = ee.Date(fechaString);             //convierte la fecha de texto de cliente a ee.Date del servidor
+var fecha = ee.Date(fechaString);             //convierte la fecha de texto de cliente a
+//ee.Date del servidor
 
-var fecha2 = ee.Date.fromYMD(2015,03,28);     //crea una ee.Date a partir de definir año, mes y dia con numeros del cliente
+var fecha2 = ee.Date.fromYMD(2015,03,28);     //crea una ee.Date a partir de definir 
+//año, mes y dia con numeros del cliente
 
-var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); //crea una fecha a partir de un formato especificado y un texto que cumple con dicho formato, notese que se especifica el orden del dia año y mes, se especifica cada separados, y si se usan años como texto deben ser las 3 primeras iniciales del mes en ingles 
+var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); //crea una fecha a partir de 
+//un formato especificado y un texto que cumple con dicho formato, notese que se 
+//especifica el orden del dia año y mes, se especifica cada separados, y si se usan años
+//como texto deben ser las 3 primeras iniciales del mes en ingles 
 
-print("Fecha como ee.Date a partir de texto", fecha);            //se muestra la fecha como texto de cliente, notese que la fecha se completa automaticamente al primer dia del mes con hora 00:00:00 
-print("Fecha como ee.Date a partir de numeros indicando el año mes y dia",fecha2);            //muestra la ee.Date creada con texto del cliente
-print("Fecha como ee.Date a partir de un formato especificado y texto que lo cumple",fecha3);   //muestra la ee.Date creada con numeros que definen año, mes y dia del cliente
+print("Fecha como ee.Date a partir de texto", fecha);            //se muestra la fecha 
+//como texto de cliente, notese que la fecha se completa automaticamente al primer dia 
+//del mes con hora 00:00:00 
+print("Fecha como ee.Date a partir de numeros indicando el año mes y dia",fecha2);      
+//muestra la ee.Date creada con texto del cliente
+print("Fecha como ee.Date a partir de un formato especificado y texto que lo cumple",fecha3);   //muestra la ee.Date creada con numeros que definen año, mes y dia 
+//del cliente
 ```
 
 **ee.Image**
@@ -800,11 +833,12 @@ tambien hay geometrias que incluyen el area, como son:
 
 Ejercicio X.1
 ```{js echo = T}
-var rectangulo = ee.Geometry.Rectangle(  //un rectangulo definido por las coordenadas de los vertices opuestos
+var rectangulo = ee.Geometry.Rectangle(  //un rectangulo definido por las coordenadas //de los vertices opuestos
   -104.12, 5.73,
   -88.21, -0.15); 
 
-var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas de sus vertices
+var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas de 
+//sus vertices
   -80.348, -3.36,
   -80.348, -3.36,
   -78.985, -5.113,
@@ -818,24 +852,33 @@ var Poligono = ee.Geometry.Polygon(  //un poligono definido por las coordenadas 
   -79.776, -2.614
   );
 
-var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por una LISTA de poligonos
+var MultiPoligono = ee.Geometry.MultiPolygon(  //un multipoligono definido por una 
+//LISTA de poligonos
   [
-    ee.Geometry.Polygon(                                                        //el primer poligono esta definido a partir de dos permietros 
-      [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el primer perimitro define el poligono 
-      ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el segundo perimetro define los huecos dentro del poligono
-    [-95.77, 17.2,          //el segundo poligono es una LISTA de coordenadas que forman un triangulo
+    ee.Geometry.Polygon(                                                        //el 
+//primer poligono esta definido a partir de dos permietros 
+      [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.93, 8.93),    //el 
+//primer perimitro define el poligono 
+      ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.72, 13.58)]), //el 
+//segundo perimetro define los huecos dentro del poligono
+    [-95.77, 17.2,          //el segundo poligono es una LISTA de coordenadas que forman 
+//un triangulo
       -108.7, 17.8,
       -110.0, 8.32],
-    [-105.6, 15.5,          //el tercer poligono es una LISTA de coordenadas que forman un triangulo
+    [-105.6, 15.5,          //el tercer poligono es una LISTA de coordenadas que forman 
+//un triangulo
       -105.9, 14.2,
       -103.7, 13.2],
-    [-94.98, 14.6,          //el cuarto poligono es una LISTA de coordenadas que forman un triangulo
+    [-94.98, 14.6,          //el cuarto poligono es una LISTA de coordenadas que forman 
+//un triangulo
       -95.50, 13.8,
       -93.13, 11.8],
-    [-84.52, 7.62,          //el quinto poligono es una LISTA de coordenadas que forman un triangulo
+    [-84.52, 7.62,          //el quinto poligono es una LISTA de coordenadas que forman 
+//un triangulo
       -85.84, 0.17,
       -78.10, 4.74],
-    [-67.03, 11.0,          //el sexto poligono es una LISTA de coordenadas que forman un triangulo
+    [-67.03, 11.0,          //el sexto poligono es una LISTA de coordenadas que forman 
+//un triangulo
       -67.64, 6.49,
       -62.11, 2.63]
       ]);
@@ -855,7 +898,7 @@ para crear un Vector desde 0 es necesario definir una geometria y opcionalmente 
 Ejercicio XX:
 
 ```{js echo = T}
-var poligono = ee.Geometry.Polygon([ ////crear un poligono
+var poligono = ee.Geometry.Polygon([ //crear un poligono
   -119.24, 32.73,
   -115.02, -3.29,
   -66.5, -3.29,
@@ -1002,7 +1045,8 @@ var MultiPoligono = ee.Feature(ee.Geometry.MultiPolygon(
     });
 
 
-var coleccionVectores = ee.FeatureCollection([ //crear una LISTA que incluya todos los vectores
+var coleccionVectores = ee.FeatureCollection([ //crear una LISTA que incluya todos los 
+//vectores
   MultiPoligono,
   Poligono,
   rectangulo,
@@ -1019,7 +1063,10 @@ estas colecciones de vectores de GEE se llaman `tables`.
 
 ejercicio Y
 ```{js echo = T}
-var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017') //en el buscador se busca una tabla de paises 'countries', y se escribe el ID de la tabla, en este caso es una coleccion de vectores del departamento de estado de Estados unidos, que contiene las divisiones politicas de los paises del mundo  
+var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017') //en el buscador se busca 
+//una tabla de paises 'countries', y se escribe el ID de la tabla, en este caso es una 
+//coleccion de vectores del departamento de estado de Estados unidos, que contiene las 
+//divisiones politicas de los paises del mundo  
 
 ```
 ## Puntos Aleatorios
