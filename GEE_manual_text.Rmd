@@ -1125,7 +1125,133 @@ La función `draw` convierte la colección de vectores en una imagen y por eso p
 
 Si uno quiere visualizar solo los contornos de los vectorespuede usar la siguiente función:
 ejercicio xy.2
+
+ejercicio xy.2
  
+```{js echo = T}
+var vacia = ee.Image().byte();//crear una imagen vacia
+
+var contornos = vacia.paint({       //sonbre la imagen vacia, dibujar los bordes de los vectores
+  featureCollection: ecoregiones,   //definir los vectores a dibujar
+  color:'BIOME_NUM',                //definir un atributo de los vectores, para agrupar vectores por color segun ese atributo (puede omitirse)
+  width: 3                          //definir el grosor (si no se especifica este parametro se dibujaran los vectores con color solido)
+});
+
+Map.addLayer(contornos, {palette: '6e00ff', max: 14}, 'bordes morados'); //mostrar la imagen con los vectores dibujados, y especificar la paleta de color (la cual en este caso es de n solo color por lo tanto todos los contornos seran del mismo color)
+
+Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], max: 14}, 'bordes de colores'); //mostrar la imagen con los vectores dibujados, y especificar la paleta de color en una lista [rojo, verde, azul], esto permite que los vectores se dibujen de diferentes colores segun el atributo 'color' de la variable 'contorno'
+```
+
+## filtrando una coleccion de vectores (ee.FeatureCollection)
+
+filtrar una coleccion de vectores permite seleccionar los vectores deseados.
+Hay filtros comunes como filtrar por fecha o por localizacion. perp de todas formas si se necesitan filtros mas avanzados se pueden configurar.
+  
+  filtro por localizacion
+    se puede filtrar los vectores usando `.filterBounds()` esto permite insertar una **geometria**, y todos los vectortes de la coleccion que se intersecten con dicha geometria seran seleccionados
+    
+ejercicio z
+
+```{js echo = T}
+var areasProtegidas = ee.FeatureCollection('WCMC/WDPA/current/polygons'); //table dentro de GEE que contiene vectores de areas protegidas globales
+
+var RecCostaRica = ee.Geometry.Rectangle(-86.16, 11.235, -82.601, 8.073); //dibujar una geometria (puede ser cualquier tipo de geometria }, en este caso escogimos un rectangulo, mas o menos sobre Costa Rica)
+
+var filtro = areasProtegidas.filterBounds(RecCostaRica); //areas protegidas que se intersectan con el rectangulo dibujado
+```
+  
+  filtro por atributos
+    se puede filtrar los vectores usando `.filterMetadata()` esto permite filtrar los vectores segun un **atributo de los mismos**, y todos los vectortes de la coleccion que se cumplan con la condicion seran seleccionados.
+    para usar `.filterMetadata()` dentro del parentesis se debe indicar (separado por comas): el nombre **entre comillas** del atributo a evaluar, el tipo de comparacion a hacer los valores aceptados son:
+      "equals",
+      "less_than",
+      "greater_than",
+      "not_equals",
+      "not_less_than",
+      "not_greater_than",
+      "starts_with",
+      "ends_with",
+      "not_starts_with",
+      "not_ends_with",
+      "contains",
+      "not_contains".
+    y finalmente el valor con el que se hara la comparacion
+    
+ejercicio z.1
+
+```{js echo = T}
+var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI'); //en este caso cada vector de la coleccion de areas protegidas, tiene un atributo llamado 'ISO3', basandonos en ese atributo, vamos a buscar todos los vectores que tengan (para ese atributo) un valor exactamente igual a 'CRI' (abreviacion de Costa Rica) 
+
+```
+
+::: {.tipblock data-latex=""}
+La funcion para filtrar por fecha `.filterDate()` solo aplica en caso que los vectores tengan un atributo llamado _'system:time_start'_  y en ese atributo se encuentre la fecha en fomato _'AAAA-MM-DD'_. en caso que los vectores no tengan ese atributo pero si tengan un atributo de fecha, entonces será nescesario renombrar dicho atributo de fecha a _'system:time_start'_  para ello se puede usar la funcion `.set()` y la funcion `.map()` (la funcion `.map()` se explicara mejor luego)
+
+ejercicio z.2
+
+```{js echo = T}
+var Areasfecha = AreasProCRI.map( function(vector){ //map es un afuncion que nos permite ejecturar una operacion sobre todos los vectores de la coleccion
+  var fecha = vector.get('STATUS_YR'); //fecha extrae el valor del atributo 'STATUS_YEAR'
+  return vector.set('system:time_start',fecha)}); //cada vector se entrega con una nueva propiedad 'system:time_start' que tiene fecha
+
+var filtroFechas = Areasfecha.filterDate(2020,2021); //ahora ya se puede aplicar el filtro de fecha filtrando solo las areas protegidas de Costa Rica declaradas en el año 2020 
+```
+:::
+
+  finalmente estan los filtros compuestos. estos filtros usan los filtros diponibles bajo la librería de **ee.Filter**
+
+en el ejercicio z.3 se mostrara solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones
+
+```{js echo = T}
+var areasProMar = areasProtegidas.filter( //se delcara que se ejecutara un filtro compuesto
+    ee.Filter.and(  // se crea un filtro compuesto en donde se debne cumplir las siguintes condiciones
+      ee.Filter.gte('MARINE',1), //un filtro donde se filtran los vectores que en el atributo marino tengan un valor de 1 o mas (areas protegidas con territorio marino)
+      ee.Filter.stringContains('NAME', 'Manglar'),//se filtran las areas protegidas que en su nombre contengan la palabra manglar
+      ee.Filter.rangeContains('GIS_M_AREA', 10,100))); //se filtran las areas que tengan un area marina protegida de entre 50 y 100 km2
+```
+## ejecutar Loops (Mapping)
+
+se pueden ejecutar operaciones dentro de una coleccion de vectores, que se ejecuten para cada vector de la coleccion. 
+para aplicar una operacion en todos los vectores de una coleccion se usa la funcion `.map()`
+
+para poder ejecutar la funcion `.map()` es necesario antes definir una funcion (del usuario)
+
+para definir una funcion es necesario tener en cuenta varias coas:
+  -usar el comando **function**
+  -luego de **function** y dentro de parentesis () definir un nombre cualquiera, que representara el objeto de entrada de la funcion (insumo)
+  -luego definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo
+  -finalmente antes de cerrar el diccionario especificar el producto de salida (resultado de la funcion) usando el comando **return**
+
+ejercicio P
+
+```{js echo = T}
+var paises = ee.FeatureCollection("USDOS/LSIB/2017"); //se llama una tabla de GEE con coleccion de vectores de paises 
+
+var peru = paises.filterMetadata('COUNTRY_NA','equals','Peru'); //se hace un filtro para seleccionar solo a Peru 
+
+var puntos =ee.FeatureCollection.randomPoints(peru, 100).randomColumn('aleatorio'); //creamos una coleccion de vectores de 100 puntos aleatorios en peru, y usando la funcion .randomColumn le asignamos un valor aleatorio (entre 0-1) a cada punto de la coleccion  
+
+var bufferAleatorio = function(punto){   // definimos una funcion llamada buffer cuyo insumo de entrada es un objeto que llamamos 'punto'
+  var numero = punto.get('aleatorio'); //aca si tomamos el objeto de entrada 'vector' y le extraemos el valor del atributo 'aleatorio´' (que es un numero del usuario)
+  var NumServidor = ee.Number(numero); //convertimos el numero de usuario en un ee.Number del servidor
+  var multiplicar = NumServidor.multiply(100000); //multiplicamos dicho numero por 100000
+  var redondear = multiplicar.ceil(); //aproximamos el resultado de la multiplicacion al numero entero mas cercano (igual o mayor)
+  var area = punto.buffer(redondear); //ejecutamos la funcion .buffer para el objeto llamado 'vector' y el tamaño esta determinado por el numero en 'redondear'
+  var tamaño = area.set('radio del buffer',redondear); //le añadimos un atributo en donde especificamos el tamaño del radio del buffer en metros
+  var circulo = tamaño.set('area',tamaño.area()); //le añadimos otro ar}tributo llamado 'area' el cual, esta definido calculando el area (con la funcion.area) en metros cuadrados del buffer 
+  return circulo; //el resultado de la funcion es entonces el objeto circulo que es un vector poligonal
+};
+
+var circulos = puntos.map(bufferAleatorio); //ejecutamos la funcion 'bufferAleatorio' sobre todos los vectores de la coleccion, cada punto de la coleccion entonces entrara como insumo de la funcion bufferAleatorio
+
+```
+##Informacion y metadatos
+##reducir una coleccion de vectores
+##interpolar de vector a imagen
+##convertir de vector a imagen
+##unir coleccionesde vectores
+##exportar vectores
+
 \newpage
 # Imagen
 
