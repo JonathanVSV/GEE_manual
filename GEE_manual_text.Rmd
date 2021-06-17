@@ -1062,6 +1062,59 @@ var colecciónVectores = ee.FeatureCollection([ //crear una LISTA que incluya to
   Punto]);
 ``` 
 
+::: {.tipblock data-latex=""}
+adicionalmente se pueden crear geometrias directamente dibujando con el mouse en el mapa, para ello se utilizan las herramientas de la esquina superior izquierda del panle del mapa:
+```{r, echo = F}
+knitr::include_graphics("Img/geometrias.png")
+```
+para crear puntos: 
+```{r, echo = F}
+knitr::include_graphics("Img/punto.png")
+```
+para crear lineas: 
+```{r, echo = F}
+knitr::include_graphics("Img/linea.png")
+```
+para crear poligonos: 
+```{r, echo = F}
+knitr::include_graphics("Img/poligono.png")
+```
+para crear rectangulos: 
+```{r, echo = F}
+knitr::include_graphics("Img/rec.png")
+```
+todas las geometrias creadas con estas herrameintas se importaran automaticamente al codigo y se podran ver sobre las lineas del codigo 
+```{r, echo = F}
+knitr::include_graphics("Img/import.png")
+```
+estas se les puede cambiar el nombre dando click en el nombre de la geometria importada
+
+usando la mano se pueden mover y modificar las geometrias **DIBUJADAS**
+```{r, echo = F}
+knitr::include_graphics("Img/mano.png")
+```
+
+todas las geometrias dibujadas se importaran como una sola coleccion, pero si se quiere tener geometrias separadas en diferentes colecciones se debe dar click en `new layer`. este meno aparecera cuando se pase el mouse sobre la pestaña de geometias dibujadas
+```{r, echo = F}
+knitr::include_graphics("Img/nuevaGeo.png")
+```
+pasando el moouse sobre cada una de las geometrias (en la pestana de geometrias dibujadas), se podra bloquear la capa para evitar modificaciones (con el candado), o cambiar la su configuracion (en el engranaje)
+```{r, echo = F}
+knitr::include_graphics("Img/dibujarGeo.png")
+```
+
+al dar click en el engranaje se abrira un menu donde se podra:
+  cambiar el nombre de la geometria (por default es _geometry_)
+  cambiar el tipo de geometria  (geometria, vector o coleccion de vectores)
+    vector y coleccion de vectores permiten añadir manualmente propiedades
+  cambiar el color de la geometria dibujada
+  eliminar la geometria
+
+```{r, echo = F}
+knitr::include_graphics("Img/menuiGeo.png")
+```
+:::
+
 ## Vectores de GEE 
 
 GEE ofrece un catálogo de colecciones de vectores, se pueden buscar en la barra de búsqueda.
