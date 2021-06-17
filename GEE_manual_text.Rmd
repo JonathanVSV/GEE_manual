@@ -1387,8 +1387,44 @@ print('frecuencias de cuencas islas canarias con o sin costa',CUENCAS_MUNDIAL.fi
 print('estadisticas descriptivas del area superficial de las cuencas islas canarias',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_stats('UP_AREA')); // arroja las estatisticas descriptivas del area supercicial de las cuencas de la zona
 ```
 
-
 ##reducir una coleccion de vectores
+
+las colecciones tambien permiten agregar atributos de sus vectores en los metadatos de la coleccion,
+esta agregacion se llama Reducir
+
+los reductores de atributos, tomaran el valor del atributo de todos los vectores y los convertiran en un solo valor para toda la coleccion (depende el usuario, escoger prmedio, minimo,maximo, mediana, etc).
+estos reductores entragaran como resultado un diccionario
+
+ejercicio m
+```{js echo = T}
+// importar una capa de cuencas
+var cuencasHawaii = ee.FeatureCollection('USGS/WBD/2017/HUC06')
+  .filterBounds(ee.Geometry.Rectangle(-160.969, 23.104, -154.136, 18.733));
+
+// definir una funcion que ejecute la diferencia entre el area reportada en el atributo vector y la calculada en GEE
+var areaDife = function(cuenca) {
+  // calcular el area de la cuenca en km2 (por default area siempre se calcula en m2)
+  var area = cuenca.area().divide(1000000);
+  // calcular la diferencie de areas, para ello se extrae del vector el valor del atributo 'areasqkm', y lo convertimos en un ee.Number
+  var dife = area.subtract(ee.Number.parse(cuenca.get('areasqkm')));
+  // el resultado es añadir un nuevo atributo 'diferencia' que contenga el valor calculado elevado al cuadrado. (esto para calcular el error cuadratico medio)
+  return cuenca.set('diferencia', dife.pow(2));
+};
+
+// calcular el error cuadratico medio de toda la coleccion.
+var RECM = ee.Number(
+  // ejecutar la funcion 'areaDife' para todos los vectores de la coleccion
+  cuencasHawaii.map(areaDife)
+  // agregar el atributo de 'diferencia' que contiene el error cuadratico medio de cada vector, para obtener el error cuadratico medio promedio de toda la coleccion
+  .reduceColumns(ee.Reducer.mean(), ['diferencia'])
+  //esto entrega un dicionario, pero solo nos interesa el valor que queda en la clave 'mean'
+  .get('mean')
+)
+//finalmente calculamos la raiz cuadrada del error cuadratico medio promedio de toda la coleccion.
+//para obetener la raiz del error cuadratico medio
+.sqrt();
+```
+
 ##interpolar de vector a imagen
 ##convertir de vector a imagen
 ##unir coleccionesde vectores
