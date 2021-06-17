@@ -1246,6 +1246,95 @@ var circulos = puntos.map(bufferAleatorio); //ejecutamos la funcion 'bufferAleat
 
 ```
 ##Informacion y metadatos
+
+los vectores y a su vez las colecciones de vectores, contienen informacion y metadatos 
+los cuales pueden ser consultados con la funcion `print` y ser utiles para los usuarios
+
+::: {.tipblock data-latex=""}
+al usar `print` con las colecciones de vectores, la consola tiene un limite de mostrar maximo 5000 vectores. en caso que uno neceite usar `print` wn una coleccion de mas de 5000 vectores, será necesario filtrar la coleccion previamente.
+otra opcion es limitar la cantidad de vectores que se vayan a mostrar en la **consola**. Para ello se puede usar la funcion `.limit()` la cual se le especifica la cantidad de vectores que queremos ver (siempre que sean <= 5000)
+
+ejercicio o
+
+```{js echo = T}
+
+var cuencas = ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12"); //llamamos uuna capa de cuencas de alta resolucion de GEE
+
+// 
+
+print(cuencas.size());  //cantidad de vectores en la coleccion (1034083)
+
+print(cuencas); //este comando resultara en un error, porque excede los 5000 vectores
+
+print(cuencas.limit(50)); //solo vamos a mostrar los primero 50 vectores
+
+Map.addLayer(cuencas,{},'todas las cuencas'); //esta capa contiene todos los vectores 1034083. notese que en el mapa si se pueden proyectar mas de 5000 vectores, notese tambien que cargar esta capa es un poco lento y pesado
+
+Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas'); //esta capa solo contiene las primeras 1000 cuencas, y carga mucho mas rapido (NorOccidente de Africa)
+
+```
+:::
+
+ejemplos para la extraccion de informacion de vectores
+
+ejercicio L
+```{js echo = T}
+var CUENCAS_MUNDIAL = ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12"); //llamamos uuna capa de cuencas de alta resolucion de GEE
+
+var cuenca = ee.Feature(CUENCAS_MUNDIAL.first()); //filtramos la coleccion solo al primer vector, l}y lo convertimos de una coleccion de un solo elemanto (ee.FeatureCollection) a un vector independiente (ee.Feature)
+
+print('toda la informacion del vector',cuenca); //mostramos toda la informacion del vector
+
+print('nombres de los atributos del vector',cuenca.propertyNames()); //generamos una lista con los nombres de los atributos del vector
+
+print('dicionario de atributos de la cuenca',cuenca.toDictionary()); // generamos un diccionario con todos los atributos y sus valores del vector
+
+print('tiene costa maritima 1=si 0=no' ,cuenca.get('COAST')); // extraemos el valor de un atributo
+
+print('vector solo con atributos seleccionados',cuenca.select(['COAST'],['costa maritima'])); //seleccionamos solo un atributo y lo renombramos
+
+print('perimetro',cuenca.perimeter()); //calculamos el perimetro del vector
+
+print('area',cuenca.area()); //calculamos el area del vector
+
+//
+
+Map.setCenter(-14.7777, 24.1173, 11);  //centramos el mapa en las coordenadas especificadas, y con el zoom indicado
+
+Map.addLayer(cuenca,{color:'000000',},'cuenca'); //mostramos la cuenca
+
+Map.addLayer(cuenca.bounds(),{color:'ff00ff'},'recuadro de extension'); //mostramos el recuadro que abarca todo el vector
+
+Map.addLayer(cuenca.convexHull(),{color:'ffff00'},'poligono minimo convexo'); // mostramos el poligono minimo convexco de la cuenca
+
+Map.addLayer(cuenca.simplify(2000),{color:'FFffff'},'cuenca simplificada'); //simplificamos el vector a una figura con menos vertices
+
+Map.addLayer(cuenca.centroid(),{color:'00FF00'},'centroide'); //mostramos el centroide del vector
+```
+
+Para las colecciones de vectores se puede tambien extraer los metadatos (**los metadatos de la coleccion no son los mismos de los vectores que la conforman**)
+
+ejercicio L.1
+```{js echo = T}
+print('nombres de los metadatos de la coleccion de vectores',CUENCAS_MUNDIAL.propertyNames()); //se muestran los metadatos de la coleccion de vectores
+
+print('ID de la coleccion', CUENCAS_MUNDIAL.get('system:id')); //mostrar un metadato de la coleccion de vectores
+```
+
+adicionalmente en las colecciones de vectores se puede resumir la informacion segun los atributos de sus vectores
+
+ejercicio L.2
+
+```{js echo = T}
+var canaria = ee.Geometry.Rectangle(-18.89,27.46, -13.26,29.93); // rectangulo que abarca las islas canarias
+
+print('ID cuencas islas canarias',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_array('HYBAS_ID')); // arroja un alsita con todos los ID de las cuencas de esta zona
+print('area subsuperficial promedio de las cuencas islas canarias',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_mean('SUB_AREA')); // arroja el dato del area subsuperficial promedio de las cuencas de esta zona
+print('frecuencias de cuencas islas canarias con o sin costa',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_histogram('COAST')); // arroja el dato de frecuencias de cada uno de los posibles valores de COAST (1=si tiene costa, 0 =no tiene costa)
+print('estadisticas descriptivas del area superficial de las cuencas islas canarias',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_stats('UP_AREA')); // arroja las estatisticas descriptivas del area supercicial de las cuencas de la zona
+```
+
+
 ##reducir una coleccion de vectores
 ##interpolar de vector a imagen
 ##convertir de vector a imagen
