@@ -1424,6 +1424,46 @@ var RECM = ee.Number(
 //para obetener la raiz del error cuadratico medio
 .sqrt();
 ```
+tambien se puede usar coleccion de vectores para reducir las informacion raster de una imagen
+por ejemplo se puede tomar una imagen de precipitacion y ver cual es precipitacion total para cada vector
+
+ejercicio n
+```{js echo = T}
+//importar una imagen de clima de WorldClim y renombrar sus bandas
+var clima = ee.Image("WORLDCLIM/V1/BIO").rename([
+  'Annual_mean_temperature',
+  'Mean_diurnal_range',
+  'Isothermality',
+  'Temperature_seasonality',
+  'Max_temperature_of_warmest_month',
+  'Min_temperature_of_coldest_month',
+  'Temperature_annual_range',
+  'Mean_temperature_of_wettest_quarter',
+  'Mean_temperature_of_driest_quarter',
+  'Mean_temperature_of_warmest_quarter',
+  'Mean_temperature_of coldest_quarter',
+  'Annual_precipitation',
+  'Precipitation_of_wettest month',
+  'Precipitation_of_driest month',
+  'Precipitation_seasonality',
+  'Precipitation_of_wettest_quarter',
+  'Precipitation_of_driest_quarter',
+  'Precipitation_of_warmest_quarter',
+  'Precipitation_of_coldest_quarter']);
+
+print('bandas de la imagen de clima ',clima.bandNames());
+
+// importar una capa de cuencas filtrada a Puerto Rico
+var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
+  .filterBounds(ee.Geometry.Rectangle(-79.906, 25.196, -59.6, 9.776));
+
+print('propiedades de los vectores de cuencas',cuencasPuertorRico.first().propertyNames());
+
+var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
+
+print('vectores con informacion de clima', cuencaClima);
+print('propiedades de los vectores de cuencas con clima ',cuencaClima.first().propertyNames());
+```
 
 ##interpolar de vector a imagen
 ##convertir de vector a imagen
