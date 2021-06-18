@@ -1473,6 +1473,52 @@ interpolar de vector a imagen , consiste en tomar los datos numericos de un vect
 
 es un metodo descrito por (Basso et al. 1999 https://ieeexplore.ieee.org/abstract/document/805606)
 
+ejercicio K
+```{js echo = T}
+// importamos datos de metano de 5 dias, los filtramos y sacamos el promedio.
+var ch4 = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CH4')
+  .select('CH4_column_volume_mixing_ratio_dry_air')
+  .filterDate('2020-01-01', '2020-01-05')
+  .mean()
+  .rename('ch4');
+
+// Definimos un rectang}ulo de area de estudio al norte de Mexico.
+var norteMex =
+  ee.Geometry.Rectangle(-117.33, 32.753, -97.773, 22.634);
+
+// crear una coleccion de vectores para interpolar.
+var muestras = ch4.addBands(ee.Image.pixelLonLat()) //se crean dos bandas adicionales para la imagen indicando la longitud y latitud de cada pixel 
+  .sample({region: norteMex, numPixels: 10000, //se crean una coleccion de vectores (sin geometria) en la region norteMex y aproximandamente cuantos puntos generar
+    scale:1000}) //resolucion de la imagen en metros por pixel
+  .map(function(sample) { //funcion para cada punto generado
+    var lat = sample.get('latitude'); //tomar el valor del punto de latitud
+    var lon = sample.get('longitude'); //tomar el valor del punto de Longitud
+    var ch4 = sample.get('ch4'); //tomar el valor del punto de metano
+    return ee.Feature(ee.Geometry.Point([lon, lat]), {ch4: ch4});//crear una geometria para el vector asignandole el valor de metano
+  });
+
+// Combinaar un reductor de promedio y desviacion estandar
+var Reductores = ee.Reducer.mean().combine({
+  reducer2: ee.Reducer.stdDev(),
+  sharedInputs: true});
+
+// Estimar el promedio y la desviacion estandarde metano de los puntos.
+var stats = muestras.reduceColumns({
+  reducer: Reductores,
+  selectors: ['ch4']});
+
+// interpolar para 70 km.
+var interpolado = muestras.inverseDistance({
+  range: 70000, //rango p}de interpolacion para cada punto
+  propertyName: 'ch4', //atributo numerico a inerpolar
+  mean: stats.get('mean'), //promedio (parametro para la funcion)
+  stdDev: stats.get('stdDev'), //desviacion estandar (parametro para la funcion)
+  }); 
+```
+###kriging
+
+es un metodo de interpolacion que utiliza un estimativo de la semi-varianza, para crear un aimagen de valores interpolados que sea una combinacion optima de los datos conocidos. necesita unos parametros que describan la forma de la funcion de semi-varianza, ajustada a los datos conocidos. 
+
 ##convertir de vector a imagen
 ##unir coleccionesde vectores
 ##exportar vectores
