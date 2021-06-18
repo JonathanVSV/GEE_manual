@@ -1,13 +1,14 @@
 ---
 title: "GEE manual"
-header-includes:
-  \renewcommand{\contentsname}{Índice}
-  \usepackage{tcolorbox}
 author: "JVS GAP JFM"
-output: 
+header-includes: \renewcommand{\contentsname}{Índice} \usepackage{tcolorbox}
+output:
+  word_document:
+    toc: yes
+    toc_depth: '3'
   pdf_document:
     extra_dependencies: awesomebox
-    toc: true
+    toc: yes
     toc_depth: 3
 ---
 
@@ -885,6 +886,58 @@ var Multipolígono = ee.Geometry.MultiPolygon(  //un multipolígono definido por
       -62.11, 2.63]
       ]);
 ```
+::: {.tipblock data-latex=""}
+adicionalmente se pueden crear geometrias directamente dibujando con el mouse en el mapa, para ello se utilizan las herramientas de la esquina superior izquierda del panle del mapa:
+```{r, echo = F}
+knitr::include_graphics("Img/geometrias.png")
+```
+para crear puntos: 
+```{r, echo = F}
+knitr::include_graphics("Img/punto.png")
+```
+para crear lineas: 
+```{r, echo = F}
+knitr::include_graphics("Img/linea.png")
+```
+para crear poligonos: 
+```{r, echo = F}
+knitr::include_graphics("Img/poligono.png")
+```
+para crear rectangulos: 
+```{r, echo = F}
+knitr::include_graphics("Img/rec.png")
+```
+todas las geometrias creadas con estas herrameintas se importaran automaticamente al codigo y se podran ver sobre las lineas del codigo 
+```{r, echo = F}
+knitr::include_graphics("Img/import.png")
+```
+estas se les puede cambiar el nombre dando click en el nombre de la geometria importada
+
+usando la mano se pueden mover y modificar las geometrias **DIBUJADAS**
+```{r, echo = F}
+knitr::include_graphics("Img/mano.png")
+```
+
+todas las geometrias dibujadas se importaran como una sola coleccion, pero si se quiere tener geometrias separadas en diferentes colecciones se debe dar click en `new layer`. este meno aparecera cuando se pase el mouse sobre la pestaña de geometias dibujadas
+```{r, echo = F}
+knitr::include_graphics("Img/nuevaGeo.png")
+```
+pasando el moouse sobre cada una de las geometrias (en la pestana de geometrias dibujadas), se podra bloquear la capa para evitar modificaciones (con el candado), o cambiar la su configuracion (en el engranaje)
+```{r, echo = F}
+knitr::include_graphics("Img/dibujarGeo.png")
+```
+
+al dar click en el engranaje se abrira un menu donde se podra:
+  cambiar el nombre de la geometria (por default es _geometry_)
+  cambiar el tipo de geometria  (geometria, vector o coleccion de vectores)
+    vector y coleccion de vectores permiten añadir manualmente propiedades
+  cambiar el color de la geometria dibujada
+  eliminar la geometria
+
+```{r, echo = F}
+knitr::include_graphics("Img/menuGeo.png")
+```
+:::
 
 \newpage
 
@@ -1061,59 +1114,6 @@ var colecciónVectores = ee.FeatureCollection([ //crear una LISTA que incluya to
   Multipunto,
   Punto]);
 ``` 
-
-::: {.tipblock data-latex=""}
-adicionalmente se pueden crear geometrias directamente dibujando con el mouse en el mapa, para ello se utilizan las herramientas de la esquina superior izquierda del panle del mapa:
-```{r, echo = F}
-knitr::include_graphics("Img/geometrias.png")
-```
-para crear puntos: 
-```{r, echo = F}
-knitr::include_graphics("Img/punto.png")
-```
-para crear lineas: 
-```{r, echo = F}
-knitr::include_graphics("Img/linea.png")
-```
-para crear poligonos: 
-```{r, echo = F}
-knitr::include_graphics("Img/poligono.png")
-```
-para crear rectangulos: 
-```{r, echo = F}
-knitr::include_graphics("Img/rec.png")
-```
-todas las geometrias creadas con estas herrameintas se importaran automaticamente al codigo y se podran ver sobre las lineas del codigo 
-```{r, echo = F}
-knitr::include_graphics("Img/import.png")
-```
-estas se les puede cambiar el nombre dando click en el nombre de la geometria importada
-
-usando la mano se pueden mover y modificar las geometrias **DIBUJADAS**
-```{r, echo = F}
-knitr::include_graphics("Img/mano.png")
-```
-
-todas las geometrias dibujadas se importaran como una sola coleccion, pero si se quiere tener geometrias separadas en diferentes colecciones se debe dar click en `new layer`. este meno aparecera cuando se pase el mouse sobre la pestaña de geometias dibujadas
-```{r, echo = F}
-knitr::include_graphics("Img/nuevaGeo.png")
-```
-pasando el moouse sobre cada una de las geometrias (en la pestana de geometrias dibujadas), se podra bloquear la capa para evitar modificaciones (con el candado), o cambiar la su configuracion (en el engranaje)
-```{r, echo = F}
-knitr::include_graphics("Img/dibujarGeo.png")
-```
-
-al dar click en el engranaje se abrira un menu donde se podra:
-  cambiar el nombre de la geometria (por default es _geometry_)
-  cambiar el tipo de geometria  (geometria, vector o coleccion de vectores)
-    vector y coleccion de vectores permiten añadir manualmente propiedades
-  cambiar el color de la geometria dibujada
-  eliminar la geometria
-
-```{r, echo = F}
-knitr::include_graphics("Img/menuiGeo.png")
-```
-:::
 
 ## Vectores de GEE 
 
@@ -1518,9 +1518,59 @@ var interpolado = muestras.inverseDistance({
 ###kriging
 
 es un metodo de interpolacion que utiliza un estimativo de la semi-varianza, para crear un aimagen de valores interpolados que sea una combinacion optima de los datos conocidos. necesita unos parametros que describan la forma de la funcion de semi-varianza, ajustada a los datos conocidos. 
+ejercicio j
+```{js echo = T}
+// importar una imagen de temperatura marina superficial
+var temperatura = ee.Image('NOAA/AVHRR_Pathfinder_V52_L3/20120802025048')
+  .select('sea_surface_temperature')
+  .rename('temperatura')
+  .divide(100);
 
+// Definir una geometria donde muestrear puntos
+var geometria = ee.Geometry.Rectangle([-65.60, 31.75, -52.18, 43.12]);
+
+// Muestrear las temperaturas en 1000 localizaciones aleatoria.
+var muestras = temperatura.addBands(ee.Image.pixelLonLat())
+  .sample({region: geometria, numPixels: 1000})
+  .map(function(sample) {
+    var lat = sample.get('latitude');
+    var lon = sample.get('longitude');
+    var temperatura1 = sample.get('temperatura');
+    return ee.Feature(ee.Geometry.Point([lon, lat]), {temperaturaMarina: temperatura1});
+  });
+
+// Interpolate SST from the sampled points.
+var interpolar = muestras.kriging({
+  propertyName: 'temperaturaMarina',
+  shape: 'exponential', //forma de la funcion de la varianza de los datos
+  range: 100 * 1000, //rango de la varianza
+  sill: 1.0,
+  nugget: 0.1,
+  maxDistance: 100 * 1000,
+  reducer: 'mean',
+});
+```
 ##convertir de vector a imagen
-##unir coleccionesde vectores
+
+para resterizar un vector se usa el metodo `reduceToImage()`. este metodo asigna pixeles del valor del atributo especificado, bajo cada vector
+
+ejercicio T
+```{js echo = T}
+// definir un area en la antartida
+var rectangulo = ee.Geometry.Rectangle(-158.63,-81.47,-40.51,-59.12);
+
+//importar una coleccion de vectores de GEe con datos de glaciares
+var hielo = ee.FeatureCollection("GLIMS/current").filterBounds(rectangulo);
+
+// crear una imagen raster de las areas de los glaciares.
+var areaGlaciar = hielo
+  .filter(ee.Filter.notNull(['area'])) //seleccionar vectores cuyo atributo area no este vacio 
+  .reduceToImage({ //rasterizar
+    properties: ['area'], //atributo del vector para rasterizar
+    reducer: ee.Reducer.first() //tomar el primer valor 
+});
+```
+##unir colecciones de vectores
 ##exportar vectores
 
 \newpage
@@ -1847,7 +1897,7 @@ El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles m�
 Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (tier 1) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su "path" y "row" se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de **Search**, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de 'BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de 'IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección. 
 
 ```{r, echo = F}
-knitr::include_graphics("Img/Ruta_colección.png")
+knitr::include_graphics("Img/Ruta_coleccion.png")
 ```
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filta por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes: 'CLOUD_COVER_LAND', 'WRS_PATH', 'WRS_ROW'. En este caso se debe escribir exactamente igual el campo de los metadatos (CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (eq), distintos (neq), mayores (gt), menores (lt), mayores o igual (gte) o menores o iguales(lte).
