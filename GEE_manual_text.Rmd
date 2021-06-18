@@ -3,13 +3,17 @@ title: "GEE manual"
 author: "JVS GAP JFM"
 header-includes: \renewcommand{\contentsname}{Índice} \usepackage{tcolorbox}
 output:
-  word_document:
+  html_document:
     toc: yes
     toc_depth: '3'
+    df_print: paged
   pdf_document:
     extra_dependencies: awesomebox
     toc: yes
     toc_depth: 3
+  word_document:
+    toc: yes
+    toc_depth: '3'
 ---
 
 ```{r setup, include=FALSE}
@@ -187,9 +191,11 @@ para subir un nuevo archivo, dar click en el boton **NEW**, seleccionar el tipo 
 
 ::: {.tipblock data-latex=""}
 El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo).
+
 ```{r, echo = F}
 knitr::include_graphics("Img/shareAssets.png")
 ```
+
 :::
 
 **Pantalla de rutinas**
@@ -888,41 +894,55 @@ var Multipolígono = ee.Geometry.MultiPolygon(  //un multipolígono definido por
 ```
 ::: {.tipblock data-latex=""}
 adicionalmente se pueden crear geometrias directamente dibujando con el mouse en el mapa, para ello se utilizan las herramientas de la esquina superior izquierda del panle del mapa:
+
 ```{r, echo = F}
 knitr::include_graphics("Img/geometrias.png")
 ```
+
 para crear puntos: 
+
 ```{r, echo = F}
 knitr::include_graphics("Img/punto.png")
 ```
+
 para crear lineas: 
 ```{r, echo = F}
 knitr::include_graphics("Img/linea.png")
 ```
 para crear poligonos: 
+
 ```{r, echo = F}
 knitr::include_graphics("Img/poligono.png")
 ```
+
 para crear rectangulos: 
+
 ```{r, echo = F}
 knitr::include_graphics("Img/rec.png")
 ```
+
 todas las geometrias creadas con estas herrameintas se importaran automaticamente al codigo y se podran ver sobre las lineas del codigo 
+
 ```{r, echo = F}
 knitr::include_graphics("Img/import.png")
 ```
+
 estas se les puede cambiar el nombre dando click en el nombre de la geometria importada
 
 usando la mano se pueden mover y modificar las geometrias **DIBUJADAS**
+
 ```{r, echo = F}
 knitr::include_graphics("Img/mano.png")
 ```
 
 todas las geometrias dibujadas se importaran como una sola coleccion, pero si se quiere tener geometrias separadas en diferentes colecciones se debe dar click en `new layer`. este meno aparecera cuando se pase el mouse sobre la pestaña de geometias dibujadas
+
 ```{r, echo = F}
 knitr::include_graphics("Img/nuevaGeo.png")
 ```
+
 pasando el moouse sobre cada una de las geometrias (en la pestana de geometrias dibujadas), se podra bloquear la capa para evitar modificaciones (con el candado), o cambiar la su configuracion (en el engranaje)
+
 ```{r, echo = F}
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
@@ -1298,6 +1318,7 @@ var bufferAleatorio = function(punto){   // definimos una funcion llamada buffer
 var circulos = puntos.map(bufferAleatorio); //ejecutamos la funcion 'bufferAleatorio' sobre todos los vectores de la coleccion, cada punto de la coleccion entonces entrara como insumo de la funcion bufferAleatorio
 
 ```
+
 ##Informacion y metadatos
 
 los vectores y a su vez las colecciones de vectores, contienen informacion y metadatos 
@@ -1571,9 +1592,106 @@ var areaGlaciar = hielo
 });
 ```
 ##unir colecciones de vectores
+
+para unir colecciones de vectores se usan los `ee.join`, que permiten unir vectores de dos colecciones basados en valores de sus atributos que esten relacionados entre ellos. usando un `filter` se determina el tipo de relacion entre los atributos de los vectores de ambas colecciones
+
+adicionalmente se debe definir el tipo de union `join` los cuales pueden ser consultados en la libreria **ee.Join** 
+en el siguiente ejercicio usaremos el mismo tipo de tipo de union espacial  `saveALL` pero lo usaremos con 2 filtros diferentes (uno de interseccion y otro de distancia)
+
+en estos casos se busca encontrar cuales areas protegidas se encuentran a menos de 10 km de una planta de energia, y ver cuales areas protegidas tienen una planta de energia dentro de sus limites
+```{js echo = T}
+// importar una coleccion de vectores: area protegidas de guatemala
+var APGuatemala = ee.FeatureCollection("WCMC/WDPA/current/polygons")
+  .filter(ee.Filter.eq('PARENT_ISO', 'GTM'));
+
+// importar otra coleccion de vectores plantas de  energia
+var plantas = ee.FeatureCollection('WRI/GPPD/power_plants');
+
+// Define un filtro espacial con distancia de 10 km. el .geo se utiliza para indicar que se compararan geometrias
+var distFiltro = ee.Filter.withinDistance({
+  distance: 10000,
+  leftField: '.geo', //geometria de la primera coleccion
+  rightField: '.geo', //geometrtia de la segunda coleccion
+  maxError: 10
+});
+
+// Define un filtro espacial de interseccion el .geo se utiliza para indicar que se compararan geometrias
+var interFiltro = ee.Filter.intersects({
+  leftField: '.geo', //geometria de la primera coleccion
+  rightField: '.geo', //geometrtia de la segunda coleccion
+  maxError: 0.1
+});
+
+// definir la forma de union el Join
+var Union = ee.Join.saveAll({
+  matchesKey: 'plantas_energia_PA',
+  measureKey: 'metros'
+});
+
+// ejecutar la union por distancia
+var AP_cerca_PE = Union.apply(APGuatemala, plantas, distFiltro);
+
+// ejecutar la union por interseccion
+var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
+```
 ##exportar vectores
 
+en GEE se permite exportar vectores a los **assets**, al **drive** o al googleCloud. GoogleCloud como es un servicio de cobro no lo vamos a explicar
+
+es importante recordar que no se podran exportar vecotres sin geometrias, o vectores con geometria `NULL`, siempre que se quiera exportar sera necesario especificar alguna geometria por vector de la coleccion. para exportar vectores es necesario usar la funcion `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`
+
+sus argumentos en comun son:
+  collection: obligatoriamente una coleccion de vectores **ee.FeatureCollection**, si se quiere un solo vector se debera convertir en una coleccion de un solo elemento
+  description: es una cadena de texto de usuario (no debe contener espacios, ni simbolos; solo letras, numeros y guion bajo _ ). esta cadena de texto es una descripcion que el usuario quiera darle a la tarea de exportar
+  
+los argumentos adicionales especificos para exportar a drive `Export.table.toDrive`:
+  folder: cadena de texto del usuario que sera el nombre de la carpeta donde se guardara el vector dentro del drive (si no se especifica se guarda en el drive sin carpeta),(si se especifica un nombre de una carpeta que no existe, la creara automaticamente)
+  fileNamePrefix: el nombre que le pondremos al vector guardado en drive
+  fileFormat: el tipo de formato en el que se exportara la coleccion de archivos se permiten ("CSV","GeoJSON", "KML", "KMZ", "SHP", "TFRecord")
+los argumentos adicionales especificos para exportar a los assets `Export.table.toAssets`:
+  assetID: el nombre que le pondremos al nuevo asset
+  
+ejercicio c
+```{js echo = T}
+//determinamos un area de estudio con un poligono
+var poligono = ee.Geometry.Polygon(
+        [-79.59, 7.00,
+          -85.02, 8.14,
+          -88.04, 10.68,
+          -93.69, 9.44,
+          -98.51, 4.69,
+          -94.24, -2.93,
+          -92.70, 0.56,
+          -89.13, 0.82,
+          -87.57, -1.55,
+          -82.31, -0.08,
+          -79.64, 3.24]);
+
+//creac}mos un acoleccion de vectores de puntos de ejemplo
+var puntos = ee.FeatureCollection.randomPoints(poligono, 4000);
+
+
+
+//exportamos a los assets dentro de la nube
+Export.table.toAsset({
+  collection: punto,
+  description: 'exportar_puntos_asset',
+  assetId: 'puntos_exportados'
+});
+
+//exportamos al drive personal
+Export.table.toDrive({
+  collection:punto, 
+  description:'exportar_puntos_drive',
+  folder:'carpeta_clase_GEE',
+  fileNamePrefix:'puntos_ejemplo',
+  fileFormat:'SHP'
+});
+```
+al final es importante recordar que es necesario dar click a las tareas en la pestaña **Tasks**
+
 \newpage
+
 # Imagen
 
 ## Características
