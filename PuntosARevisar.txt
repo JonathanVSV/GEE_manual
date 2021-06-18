@@ -1,5 +1,13 @@
 Revisar:
 
 1. Cómo llamar a las funciones, por ejemplo, 1) ee.Image.reduce, 2) .reduce o simplemente 3) reduce. Hay que homogeneizar eso.
+
+Acuerdo. funciones con puntito. Y aclarar qué es el punto.
+
 2. Cómo llamar a las propiedades de features o images. BANDS o bands o 'bands' o **bands**.
-3. Creo que para la parte de ee.Feature y ee.FeatureCollection faltan explicar funciones como usar filtros, select, rename, clip, condicionales (eq, lt, lte, etc0), mask, area, merge. Así quedaría muy similar a la parte de ee.Image e ImageCollection
+
+Acuerdo. en negritas **bands**
+
+3. Creo que para la parte de ee.Feature y ee.FeatureCollection faltan explicar funciones como usar filtros, select, rename, clip, condicionales (eq, lt, lte, etc0), mask, area, merge. Así quedaría muy similar a la parte de ee.Image e ImageCollection.
+
+Listo.
