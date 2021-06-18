@@ -3,17 +3,10 @@ title: "GEE manual"
 author: "JVS GAP JFM"
 header-includes: \renewcommand{\contentsname}{Índice} \usepackage{tcolorbox}
 output:
-  html_document:
-    toc: yes
-    toc_depth: '3'
-    df_print: paged
   pdf_document:
     extra_dependencies: awesomebox
     toc: yes
     toc_depth: 3
-  word_document:
-    toc: yes
-    toc_depth: '3'
 ---
 
 ```{r setup, include=FALSE}
@@ -1863,7 +1856,7 @@ knitr::include_graphics("Img/histElevacion.png")
 ```
 
 \newpage
-# colecciones de imágenes
+# Colecciones de imágenes
 
 Las imágenes que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones, es decir, dentro de una `ImageCollection`. Estas se pueden definir como colecciones de objetos  `ee.Image`. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds()`, mientras que para delimitar por fecha `ImageCollection.filterDate()`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o ciertos parámetros de la geometría del registro.
 
@@ -2269,7 +2262,7 @@ Además de las funciones que existen en GEE para realizar operaciones sobre imá
 
 ## Funciones comunes
 
-### Muestreo por información vector(es)
+### Muestreo por vector(es)
 
 Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
