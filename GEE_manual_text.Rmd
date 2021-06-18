@@ -1465,7 +1465,14 @@ print('vectores con informacion de clima', cuencaClima);
 print('propiedades de los vectores de cuencas con clima ',cuencaClima.first().propertyNames());
 ```
 
-##interpolar de vector a imagen
+##interpolar de vector a Imagen
+
+interpolar de vector a imagen , consiste en tomar los datos numericos de un vector e interpolarlos a areas fuera de los vectores. resultando en una imagen con el valor numerico interpolado del vector.
+
+###ponderación de distancia inversa  
+
+es un metodo descrito por (Basso et al. 1999 https://ieeexplore.ieee.org/abstract/document/805606)
+
 ##convertir de vector a imagen
 ##unir coleccionesde vectores
 ##exportar vectores
