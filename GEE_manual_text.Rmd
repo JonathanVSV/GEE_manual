@@ -87,7 +87,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 6. Los operadores matemáticos son: `+ - * /`.
 7. Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
 8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
-9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`
+9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`. En este manual, la mayoría de las funciones aplicadas a algún objeto se escribirán precedidas por el operador `.` para evitar errores de sintáxis.
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
 11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
@@ -338,7 +338,7 @@ Esta función permite centrar la pantalla de mapas en algún objeto. Además, se
 
 ## Chart
 
-La función principal para realizar gráficos es `ui.Chart`. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: vectores (``Feature`), colecciones de vectores (`FeatureCollection`), imágenes (`Image`), colecciones de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `setOptions` sobre el objeto de tipo gráfico.
+La función principal para realizar gráficos es `ui.Chart`. Esta función tiene varios algoritmos para realizar diferentes tipos de gráficos, sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Los objetos básicos que permite graficar GEE son: vectores (``Feature`), colecciones de vectores (`FeatureCollection`), imágenes (`Image`), colecciones de imágenes (`ImageCollection`), arreglos (`Array`) y listas (`List`). Por otro lado, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar la función `.setOptions` sobre el objeto de tipo gráfico.
 
 **Chart.feature**
 
@@ -557,7 +557,7 @@ Las funciones que se ejecuten sobre una colección de iamgenes o vectores, sólo
 Estas funciones permiten definir objetos en el lado del servidor o convertir objetos en el lado del cliente al servidor. También, en algunos casos los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`), por lo cual, se recomienda convertir dicho objeto al lado del servidor antes de proseguir con su uso.
 
 ::: {.tipblock data-latex=""}
-Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `first` o `get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
+Como resultado de algunas operaciones realizadas en GEE, por ejemplo, `.first` o `.get`, el objeto resultante no tiene un tipo definido, por lo cual, resulta necesario meterlo en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje "`...is not a function`"
 :::
 
 Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor. Por ende, la mayoría de los métodos disponibles en GEE trabajarán únicamente con objetos del lado del servidor. 
@@ -617,7 +617,7 @@ print("Esto está evaluado como una lista del servidor", listaServ);    //se mue
 //primero un texto del cliente, y segundo el ee.List del servidor
 ```
 
-Para acceder a un elemento de tipo `ee.List` se utiliza la función `get`. Ejercicio 6.1:
+Para acceder a un elemento de tipo `ee.List` se utiliza la función `.get`. Ejercicio 6.1:
 
 ```{js, echo = T}
 print(listaServ.get(0));   //se llama solamente al primero objeto de la ee.List del 
@@ -1208,7 +1208,7 @@ Map.addLayer(contornos, {palette: '6e00ff', max: 14}, 'bordes morados'); //mostr
 Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], max: 14}, 'bordes de colores'); //mostrar la imagen con los vectores dibujados, y especificar la paleta de color en una lista [rojo, verde, azul], esto permite que los vectores se dibujen de diferentes colores segun el atributo 'color' de la variable 'contorno'
 ```
 
-## filtrando una coleccion de vectores (ee.FeatureCollection)
+## Filtrando una coleccion de vectores (ee.FeatureCollection)
 
 filtrar una coleccion de vectores permite seleccionar los vectores deseados.
 Hay filtros comunes como filtrar por fecha o por localizacion. perp de todas formas si se necesitan filtros mas avanzados se pueden configurar.
@@ -1319,7 +1319,7 @@ los cuales pueden ser consultados con la funcion `print` y ser utiles para los u
 
 ::: {.tipblock data-latex=""}
 al usar `print` con las colecciones de vectores, la consola tiene un limite de mostrar maximo 5000 vectores. en caso que uno neceite usar `print` wn una coleccion de mas de 5000 vectores, será necesario filtrar la coleccion previamente.
-otra opcion es limitar la cantidad de vectores que se vayan a mostrar en la **consola**. Para ello se puede usar la funcion `.limit()` la cual se le especifica la cantidad de vectores que queremos ver (siempre que sean <= 5000)
+otra opcion es limitar la cantidad de vectores que se vayan a mostrar en la **consola**. Para ello se puede usar la funcion `.limit` la cual se le especifica la cantidad de vectores que queremos ver (siempre que sean <= 5000)
 
 ejercicio o
 
@@ -1566,7 +1566,7 @@ var interpolar = muestras.kriging({
 ```
 ##convertir de vector a imagen
 
-para resterizar un vector se usa el metodo `reduceToImage()`. este metodo asigna pixeles del valor del atributo especificado, bajo cada vector
+para resterizar un vector se usa el metodo `.reduceToImage`. este metodo asigna pixeles del valor del atributo especificado, bajo cada vector
 
 ejercicio T
 ```{js echo = T}
@@ -1693,17 +1693,17 @@ Las imágenes que se encuentran disponibles en colecciones de imágenes en GEE, 
 
 ## Información y metadatos
 
-Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `ee.Image.propertyNames()`. Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames()`, `.projection()`, `.projection().nominalScale()`, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de pixel en m que presenta, respectivamente.
+Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `.propertyNames`. Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames`, `.projection`, `.projection().nominalScale()`, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de pixel en m que presenta, respectivamente.
 
 ::: {.tipblock data-latex=""}
-La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar la función `reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
+La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar la función `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
 :::
 
 ## Funciones comunes
 
 ### Selección de bandas
 
-Una vez, revisado los nombres de las bandas de una imagen, se pueden  seleccionar ciertas bandas mediante la función `select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo: 
+Una vez, revisado los nombres de las bandas de una imagen, se pueden  seleccionar ciertas bandas mediante la función `.select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo: 
 
 ```{js, echo = T}
 ee.Image.select('B1');
@@ -1712,7 +1712,7 @@ ee.Image.select(['B1','B2','B3']);
 
 ### Cambio de nombres de bandas
 
-Por default, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `rename` para cambiar los nombres de las bandas. Por ejemplo:
+Por default, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar la función `.rename` para cambiar los nombres de las bandas. Por ejemplo:
 
 ```{js, echo = T}
 var seleccionBandas = ee.Image.select(['B2','B3','B4']);
@@ -1722,7 +1722,7 @@ seleccionBandas = seleccionBands.rename(['B','G','R']);
 ### Cortes
 
 Se pueden realizar cortes de una imagen para quedarse con un área específica utilizando la 
-función: 
+función `.clip`. Por ejemplo: 
 
 ```{js, echo = T}
 ee.Image.clip(roi);
@@ -1731,12 +1731,12 @@ ee.Image.clip(roi);
 Esto permite trabajar únicamente con la región de interés (en el ejemplo anterior, específicada en el objeto *roi*).
 
 ::: {.tipblock data-latex=""}
-Se sugiere evitar el uso de la función `clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
+Se sugiere evitar el uso de la función .`clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
 :::
 
 ### Operaciones matemáticas
 
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract(), .add(), .divide(), .multiply()`. Además, GEE cuenta con una función de `.normalizedDifference()` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `.normalizedDifference()`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression()`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply`. Además, GEE cuenta con una función de `.normalizedDifference` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `.normalizedDifference`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante la función de `.expression`. En esta función se indica primero la fórmula del cálculo que se va a realizar y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen: 
 
 ```{js, echo = T}
 var NDVI = ee.Image.expression( '(NIR - R) / (NIR + R)', {
@@ -1749,7 +1749,7 @@ Dentro de las fórmulas utilizadas dentro de expression se puede utilizar la not
 
 ### Operaciones relacionales, condicionales y booleanas
 
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt()`, `.lte()`, `.gt()`, `.gte()`, `.eq()`, `.neq()`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and()` u `.or()`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0: 
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0: 
 
 ```{js, echo = T}
 ee.Image.lte(0.2).and(ee.Image.gte(0));
@@ -1765,24 +1765,35 @@ var mask = qa.bitwiseAnd(nubesBit).eq(0);
 
 ### Enmascaramiento
 
-La función `updateMask` permite enmascarar los pixeles de una imagen, utilizando otra imagen como máscara que indique cuáles pixeles se deben conservar (valores de 1) y cuáles enmscarar (valores de 0).
+La función `.updateMask` permite enmascarar los pixeles de una imagen, utilizando otra imagen como máscara que indique cuáles pixeles se deben conservar (valores de 1) y cuáles enmscarar (valores de 0).
 
 ```{js, echo = T}
 ee.Image.updateMask(mascara);
 ```
 
 ::: {.tipblock data-latex=""}
-Aunque en GEE existe la función `mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `updateMask`. La función `mask` simplemente substituye la máscara original de la imagen, mientras que `updateMask` combina la máscara anterior con la nueva. Por ello, el usar `updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
+Aunque en GEE existe la función `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. La función `.mask` simplemente substituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva. Por ello, el usar `.updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
 :::
 
 ### Agregar bandas
 
-El usuario puede estar interesado en agregar una banda al conjunto de bandas que contiene por default una imagen. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Esto se puede lograr utilizando la función `addBands`. Por ejemplo:
+El usuario puede estar interesado en agregar una banda al conjunto de bandas que contiene por default una imagen. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Esto se puede lograr utilizando la función `.addBands`. Por ejemplo:
 
 ```{js, echo = T}
 var ndvi = imagen.normalizedDifference(['B5' , 'B4']);
 imagen = imagen.addBands(ndvi);
+```
 
+### Convertir de imagen a vector
+
+En algunos casos puede ser conveniente transformar de una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener cierto tipo de gráficos, p.ej., un gráfico de series de tiempo (`ui.Chart.image.series`). La función para convertir una imagen en vector es `.reduceToVectors`. 
+
+```{js, echo = T}
+var ndviVec = ndvi.reduceToVectors({
+  geometryType: 'polygon',
+  scale: 1200,
+  maxPixels: 1e11
+});
 ```
 
 #### Ejercicio: Consulta y procesamiento de imagen
@@ -1858,9 +1869,9 @@ knitr::include_graphics("Img/histElevacion.png")
 \newpage
 # Colecciones de imágenes
 
-Las imágenes que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones, es decir, dentro de una `ImageCollection`. Estas se pueden definir como colecciones de objetos  `ee.Image`. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `ImageCollection.filterBounds()`, mientras que para delimitar por fecha `ImageCollection.filterDate()`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o ciertos parámetros de la geometría del registro.
+Las imágenes que se encuentran disponibles en los servidores de GEE se encuentran en forma de colecciones, es decir, dentro de una `ImageCollection`. Estas se pueden definir como colecciones de objetos  `ee.Image`. Normalmente, el primer paso para trabajar con estas colecciones radica en delimitar el área y periodo de estudio, para lo cual se utilizan las funciones de filter. Por ejemplo, para delimitar un área se puede utilizar `.filterBounds`, mientras que para delimitar por fecha `.filterDate`. Además, se pueden filtrar, de acuerdo con otros criterios contenidos en los metadatos de las imágenes. Por ejemplo, se puede definir un valor umbral de porcentaje de nubosidad de las imágenes con las que se desean trabajar o ciertos parámetros de la geometría del registro.
 
-Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función `map`.
+Adicionalmente, si se desea calcular una nueva banda para todas las imágenes de la colección, se debe aplicar una función que agregue la nueva banda a cada imagen y aplicar dicha función a cada imagen de la colección mediante la función `.map`.
 
 ## Características
 
@@ -1892,7 +1903,7 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 ee.ImageCollection.filterBounds(polygon1); 
 ```
 
-Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante `filter` y después definiendo el filtro del metadaro con `ee.Filter`. Otra forma de realizar este proceso es mediante `filterMetadata`. Las siguientes dos líneas obtienen el mismo resultado.
+Si se desea filtrar por alguna característica de los metadatos se puede hacer mediante `.filter` y después definiendo el filtro del metadaro con `ee.Filter`. Otra forma de realizar este proceso es mediante `.filterMetadata`. Las siguientes dos líneas obtienen el mismo resultado.
 
 ```{js, echo = T}
 ee.ImageCollection.filter(ee.Filter.lt('CLOUD_COVER', 20));
@@ -1901,7 +1912,7 @@ ee.ImageCollection.filterMetadata('CLOUD_COVER','less_than', 20);
 
 ### Selección de bandas
 
-Al igual que con las imágenes, se puede utilizar la función `select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandas. Por ejemplo: 
+Al igual que con las imágenes, se puede utilizar la función `.select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Notése que el nombre de las bandas. Por ejemplo: 
 
 ```{js, echo = T}
 ee.ImageCollection.select('B1');
@@ -1910,7 +1921,7 @@ ee.ImageCollection.select(['B1','B2','B3']);
 
 ### Ordenar colección
 
-La función `sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por default, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, la función `sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica de las imágenes indicadas. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
+La función `.sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por default, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, la función `.sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica de las imágenes indicadas. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
 
 ```{js, echo = T}
 ee.ImageCollection.sort('PropiedadImagenes');
@@ -1919,7 +1930,7 @@ ee.ImageCollection.sort('PropiedadImagenes', false);
 
 ### Obtener primera imagen
 
-En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza la función `first` que devuelve la primera imagen que se encuentra en la colección y permite agregarla en la pantalla de mapas para analizarla más a detalle. 
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza la función `.first` que devuelve la primera imagen que se encuentra en la colección y permite agregarla en la pantalla de mapas para analizarla más a detalle. 
 
 ```{js, echo = T}
 ee.ImageCollection.first()
@@ -1927,7 +1938,7 @@ ee.ImageCollection.first()
 
 ### Número de valores sin enmascarar por pixel
 
-Para conocer el número de valores sin enmascarar por pixel en la colección de imágenes se utiliza la función `count`. 
+Para conocer el número de valores sin enmascarar por pixel en la colección de imágenes se utiliza la función `.count`. 
 
 ```{js, echo = T}
 ee.ImageCollection.count();
@@ -1935,7 +1946,7 @@ ee.ImageCollection.count();
 
 ### Unión de colecciones
 
-Para unir una colección de imágenes con otra se utiliza la función `merge`. Un caso típico de tal operación sería el unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.
+Para unir una colección de imágenes con otra se utiliza la función `.merge`. Un caso típico de tal operación sería el unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.
 
 ::: {.tipblock data-latex=""}
 Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul (blue), mientras que en Landsat 8, la banda 1 corresponde al azul de costa (coastal blue). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse que el nombre las bandas a unir en una colección corresponda con las de la otra. 
@@ -1957,7 +1968,7 @@ var l7y8 = l7.merge(l8);
 
 ### Mapeo
 
-Para realizar alguna operación sobre todas las imágenes de una `ee.ImageCollection` se utilizar la función `map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
+Para realizar alguna operación sobre todas las imágenes de una `ee.ImageCollection` se utilizar la función `.map`. Esto va a aplicar la función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisieramos agregar una banda con un índice de vegetación a todas las imágenes se podría hacer de la siguiente manera:
 
 ```{js, echo = T}
 ee.ImageCollection.map(function(image){
@@ -1966,20 +1977,20 @@ ee.ImageCollection.map(function(image){
 ```
 
 ::: {.tipblock data-latex=""}
-Notar que la función `map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas. Recordar que Javascript es un lenguaje sensible a mayúsculas y minúsculas.
+Notar que la función `.map` es distinta de la función `Map` que permite agregar objetos a la pantalla de mapas. Recordar que Javascript es un lenguaje sensible a mayúsculas y minúsculas.
 :::
 
 Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
 
 ::: {.tipblock data-latex=""}
-La función `map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print`, `Map`, `Export`, `Chart`.
+La función `.map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print`, `Map`, `Export`, `Chart`.
 :::
 
 ### Reducción
 
-Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año). Para reducir una colección de imágenes se utilizará la función `reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
+Los reductores permiten crear un mosaico (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes (por ejemplo, cuántas observaciones válidas tiene cada pixel en un año). Para reducir una colección de imágenes se utilizará la función `.reduce` e indicando el método a utilizar mediante un objeto tipo `ee.Reducer`.
 
- De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean()`, mediana  `ee.Reducer.median()`, moda  `ee.Reducer.mode()`, mínimo  `ee.Reducer.min()`, máximo `ee.Reducer.max()` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean()`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `min`, `max`, `mean`, `mode`, `median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
+ De tal manera, se puede indicar si el resultado corresponderá a la media  `ee.Reducer.mean`, mediana  `ee.Reducer.median`, moda  `ee.Reducer.mode`, mínimo  `ee.Reducer.min`, máximo `ee.Reducer.max` o inclusive la media de un intervalo determinado de observaciones `ee.Reducer.intervalMean`. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones `.min`, `.max`, `.mean`, `.mode`, `.median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
 
 ```{js, echo = T}
 ee.ImageCollection.reduce(ee.Reducer.mean());
@@ -1992,7 +2003,7 @@ Al aplicar una reducción a una colección de imágenes, el nombre de las bandas
 
 ### Compuestos y mosaicos
 
-Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: `ee.ImageCollection.mosaic()` y `ee.ImageCollection.qualityMosaic()`. La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de `qualityMosaic()` permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI. En el caso de `qualityMosaic()` hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
+Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: `.mosaic` y `.qualityMosaic`. La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, la función de `.qualityMosaic` permite priorizar el pixel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar por ejemplo un mosaico del pixel con mayor valor de NDVI. En el caso de `.qualityMosaic` hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
 
 ```{js, echo = T}
 var mosaicImg = ee.ImageCollection.mosaic();
@@ -2000,7 +2011,7 @@ var mosaicQualImg = ee.ImageCollection.qualityMosaic({qualityBand: 'ndvi'})
 ```
 
 ::: {.tipblock data-latex=""}
-El utilizar la función `mosaic()` siempre le dará preferencia a los pixeles más recientes ya que la colección por default se encuentra ordenada por fechas de adquisición de la imagen.
+El utilizar la función `.mosaic` siempre le dará preferencia a los pixeles más recientes ya que la colección por default se encuentra ordenada por fechas de adquisición de la imagen.
 :::
 
 #### Ejercicio: Filtro de colección de imágenes y visualización
@@ -2034,7 +2045,7 @@ Después, se pueden consultar las características de las imágenes incluidas en
 knitr::include_graphics("Img/CamposImgCol.png")
 ```
 
-A continuación podemos ordenar la colección en orden ascendente de acuerdo al metadato de 'CLOUD_COVER_LAND'. Posteriormente, se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`. La función `first()` devuelve la primera imagen de una colección y es útil para visualizar el tipo de información que está en la colección de imágenes.
+A continuación podemos ordenar la colección en orden ascendente de acuerdo al metadato de 'CLOUD_COVER_LAND'. Posteriormente, se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`. La función `.first` devuelve la primera imagen de una colección y es útil para visualizar el tipo de información que está en la colección de imágenes.
 
 ```{js, echo = T}
 L8imgCol = L8imgCol.sort('CLOUD_COVER_LAND');
@@ -2057,9 +2068,9 @@ knitr::include_graphics("Img/RGBIm.png")
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
-Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los pixeles cuya información provenga de nubes. Después se definirá una función para calcular el ndvi para cada imagen contenida en la colección de imágenes. Para ello se utiliza la función `normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará la función `rename` para cambiar el nombre dado por default a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con `addBands` Después, se utiliza la función `map` para aplicarla a cada una de las imágenes.
+Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los pixeles cuya información provenga de nubes. Después se definirá una función para calcular el ndvi para cada imagen contenida en la colección de imágenes. Para ello se utiliza la función `.normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará la función `.rename` para cambiar el nombre dado por default a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con `.addBands` Después, se utiliza la función `.map` para aplicarla a cada una de las imágenes.
 
-Primero se define la función para enmascarar las nubes. En este caso, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama 'pixel_qa'. Posteriormente se selecciona esta banda y se evalua que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un pixel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`updateMask`).
+Primero se define la función para enmascarar las nubes. En este caso, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama 'pixel_qa'. Posteriormente se selecciona esta banda y se evalua que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un pixel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
 
 ```{js, echo = T}
 function maskL8sr(image) {
@@ -2083,7 +2094,7 @@ var ndviCalc = function(image){
 ```
 
 ::: {.tipblock data-latex=""}
-Si no se cambia el nombre de la banda producida por `normalizedDifference`, por default, ésta va a recibir el nombre de `nd`.
+Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por default, ésta va a recibir el nombre de `nd`.
 :::
 
 Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa.
@@ -2098,7 +2109,7 @@ Map.addLayer(L8imgCol.first(),
 knitr::include_graphics("Img/imNubes.png")
 ```
 
-A continuación se aplican las dos funciones utilizando `map` y sobreescribir el objeto L8imgCol.
+A continuación se aplican las dos funciones utilizando `.map` y sobreescribir el objeto L8imgCol.
 
 ```{js, echo = T}
 L8imgCol = L8imgCol
@@ -2125,7 +2136,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 knitr::include_graphics("Img/imConNDVI.png")
 ```
 
-Posteriormente, se puede reducir la colección de imágenes para formar una sola imagen que represente el valor promedio de ndvi en el periodo de la colección (2015 - 2016). Para ello se utiliza la función `reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
+Posteriormente, se puede reducir la colección de imágenes para formar una sola imagen que represente el valor promedio de ndvi en el periodo de la colección (2015 - 2016). Para ello se utiliza la función `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
 
 ```{js, echo = T}
 var L8imgMean = L8imgCol.reduce(ee.Reducer.mean());
@@ -2186,7 +2197,7 @@ L8imgColT2 = L8imgColT2
 ```
 
 ::: {.tipblock data-latex=""}
-Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (`filter`), así como la selección de las bandas a utilizar (`select`), antes de realizar operaciones sobre todas las imágenes de la colección (`map`).
+Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (`.filter`), así como la selección de las bandas a utilizar (`.select`), antes de realizar operaciones sobre todas las imágenes de la colección (`.map`).
 :::
 
 Después se selecciona únicamente las bandas de NDVI y se reduce la colección de imágenes para generar una imagen del valor promedio de NDVI. Posteriormente, se recorta la imagen a la extensión del polígono del área de interés. Finalmente, a esta imagen se le restarán los valores de la imagen del 2015-01-01 al 2016-01-01. De esta manera, los valores más negativos representarán valores más bajos de NDVI en el año 2 respecto al año 1.
@@ -2264,7 +2275,7 @@ Además de las funciones que existen en GEE para realizar operaciones sobre imá
 
 ### Muestreo por vector(es)
 
-Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `ee.Image.sample` o para un rectángulo `ee.Image.sampleRectangle` o para varias regiones `ee.Image.sampleRegions`. Por ejemplo, la función `ee.Image.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres funciones para hacer este proceso, para un raster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, la función `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
 ```{js echo = T}
 var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
@@ -2287,7 +2298,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 
 ### Reducción de una imagen por región(es)
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `ee.Image.reduceRegion` o para varias regiones `ee.Image.reduceRegions`. Por ejemplo, la función `ee.Image.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, la función `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
 
 ```{js echo = T}
 var reduccion = ee.Image(L8imgMean)
@@ -2301,7 +2312,7 @@ print(reduccion, 'reduccion');
 ```
 
 ::: {.tipblock data-latex=""}
-En algunas ocasiones, los procesos de `reduceRegions` o `sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de 'computation timed out'. En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para lograr que este corra. `Scale` permite aumentar el tamaño de pixel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, `tileScale` permite definir un factor de reescalamiento que permite reducir la carga computacional de un proceso.
+En algunas ocasiones, los procesos de `.reduceRegions` o `.sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de 'computation timed out'. En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para lograr que este corra. `Scale` permite aumentar el tamaño de pixel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, `tileScale` permite definir un factor de reescalamiento que permite reducir la carga computacional de un proceso.
 :::
 
 \newpage
@@ -2321,7 +2332,7 @@ var rfClassif = ee.Classifier.smileRandomForest();
 
 Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, p.ej., QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE).
 
-Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza la función `train`. Los argumentos de esta función indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
+Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza la función `.train`. Los argumentos de esta función indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -2333,7 +2344,7 @@ var trainedClassifier = rfClassif.train({
 
 ## Clasificación
 
-Una vez que se tiene entrenado el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interés. Para ello, se utiliza la función `classify`, la cual permite hacer predicciones sobre la clase de cada pixel, a partir de los insumos indicados en la fase de entrenamiento. Por ejemplo:
+Una vez que se tiene entrenado el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interés. Para ello, se utiliza la función `.classify`, la cual permite hacer predicciones sobre la clase de cada pixel, a partir de los insumos indicados en la fase de entrenamiento. Por ejemplo:
 
 ```{js echo = T}
 var classifiedImg = imagen.classify(trainedClassifier);
@@ -2341,7 +2352,7 @@ var classifiedImg = imagen.classify(trainedClassifier);
 
 ## Evaluación
 
-La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido utilizado en la fase de entrenamiento. Comúnmente a estos datos se le conoce como los datos de validación o verificación. En este caso, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmnete se utiliza una matriz de confusión para realizar dicha evaluación. En GEE se puede obtener dicha matriz mediante la función `errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza la función `accuracy`. Por ejemplo:
+La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido utilizado en la fase de entrenamiento. Comúnmente a estos datos se le conoce como los datos de validación o verificación. En este caso, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmnete se utiliza una matriz de confusión para realizar dicha evaluación. En GEE se puede obtener dicha matriz mediante la función `.errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza la función `.accuracy`. Por ejemplo:
 
 ```{js echo = T}
 var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
@@ -2381,7 +2392,7 @@ var polígonos = ee.FeatureCollection([
 Map.addLayer(polígonos, {}, 'polígonosEntrenamiento');
 ```
 
-A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre, y un filtro espacial. En este caso, se usó la función `filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `map`.
+A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre, y un filtro espacial. En este caso, se usó la función `.filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
 
 ```{js echo = T}
 var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
@@ -2402,7 +2413,7 @@ var L8imgMean = L8imgCol.reduce(ee.Reducer.mean())
 print(L8imgMean);
 ```
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los pixeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando la función `sampleRegions`. A esta función hay que indicar la colección de vectores que se va a utilizar, así como la propiedad de los vectores que indica la clase y la escala a la que se van a muesrear los pixeles en m. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un pixel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los pixeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando la función `.sampleRegions`. A esta función hay que indicar la colección de vectores que se va a utilizar, así como la propiedad de los vectores que indica la clase y la escala a la que se van a muesrear los pixeles en m. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un pixel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
 
 ```{js echo = T}
 var training = L8imgMean
@@ -2413,7 +2424,7 @@ var training = L8imgMean
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests. Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest()`. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante la función `train`. Los argumentos para la función `train` se pasan como un diccionario el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas. 
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests. Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest()`. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante la función `.train`. Los argumentos para la función `.train` se pasan como un diccionario el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas. 
 
 ```{js echo = T}
 var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
@@ -2423,7 +2434,7 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
 });
 ```
     
-Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando la función `classify`. Como argumentos de esta función se indica el clasificador entrenado que se desea utilizar. El resultado de la función `classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo `classification`. Por último, se agrega a la pantalla de mapas para ver los resultados.
+Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando la función `.classify`. Como argumentos de esta función se indica el clasificador entrenado que se desea utilizar. El resultado de la función `.classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo `classification`. Por último, se agrega a la pantalla de mapas para ver los resultados.
 
 ```{js echo = T}
 var classifiedImg = L8imgMean.classify(trainedClassifier);
@@ -2437,7 +2448,7 @@ Map.addLayer(classifiedImg,{min:0, max:3,
 knitr::include_graphics("Img/RFClass.png")
 ```
 
-Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`'classification'`), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean()`), las regiones de las cuales se va a obtener esta información (`polígonos`), las etiquetas de las clases `['NoBosque','Bosque','Agua','Urbano']`, la escala en m de trabajo para aplicar el reductor (`240`) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
+Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`'classification'`), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean`), las regiones de las cuales se va a obtener esta información (`polígonos`), las etiquetas de las clases `['NoBosque','Bosque','Agua','Urbano']`, la escala en m de trabajo para aplicar el reductor (`240`) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
 
 ```{js echo = T}
 var imgConClass = L8imgMean.addBands(classifiedImg);
@@ -2492,7 +2503,7 @@ var validating = classifiedImg
 });
 ```
 
-El siguiente paso es calcular la matriz de error mediante la función `errorMatrix` indicando en primer lugar el campo de la clase "verdadera" ('clase') y en segundo lugar el campo de la predicción ('classification'). Después, se van a mostrar estos dos objetos en la consola mediante print para inspeccionar su contenido.
+El siguiente paso es calcular la matriz de error mediante la función `.errorMatrix` indicando en primer lugar el campo de la clase "verdadera" ('clase') y en segundo lugar el campo de la predicción ('classification'). Después, se van a mostrar estos dos objetos en la consola mediante print para inspeccionar su contenido.
 
 ```{js echo = T}
 var validErrMat = validating.errorMatrix('clase', 'classification');
@@ -2503,10 +2514,10 @@ print('Validation overall accuracy: ', validAcc);
 ```
 
 ::: {.tipblock data-latex=""}
-Por default la imagen que se obtiene de una función `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `sampleRegions` y con la que se hace la matriz de error `errorMatrix` se llama 'classification'.
+Por default la imagen que se obtiene de una función `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama 'classification'.
 :::
 
-Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear una vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante la función `.array()`. 
+Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear una vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante la función `.array`. 
 
 ```{js echo = T}
 var expConfMatrix =  ee.Feature(null, {matrix: validErrMat.array()});
