@@ -778,7 +778,7 @@ Resulta útil recordar que normalmente los argumentos de cualquier función del 
 
 # Geometrías
 
-GEE utiliza el objeto ee.Geometry para leer y manejar formas geométricas, estos incluyen geometrías sin area, como son: 
+GEE utiliza el objeto `ee.Geometry` para leer y manejar formas geométricas, estos incluyen geometrías sin area, como son: 
     **Punto** (`ee.Geometry.Point`): una coordenada en X & Y.
     **Multi punto** (`ee.Geometry.MultiPoint`): una lista de puntos.
     **línea** (`ee.Geometry.LineString`): una línea.
@@ -956,7 +956,7 @@ knitr::include_graphics("Img/menuGeo.png")
 
 # Vectores (ee.Features)
 
-Los vectores en GEE son los objetos predeterminados para leer informacion vectorial o de tablas. Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono), y los atributos asociados a esa geometría (estos atributos son llamados propiedades y estan almacenados en un diccionario).
+Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer informacion vectorial o de tablas. Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono), y los atributos asociados a esa geometría (estos atributos son llamados propiedades y estan almacenados en un diccionario).
 
 ## Creando Vectores (ee.Features)
 
@@ -1275,7 +1275,7 @@ var areasProMar = areasProtegidas.filter( //se delcara que se ejecutara un filtr
       ee.Filter.stringContains('NAME', 'Manglar'),//se filtran las areas protegidas que en su nombre contengan la palabra manglar
       ee.Filter.rangeContains('GIS_M_AREA', 10,100))); //se filtran las areas que tengan un area marina protegida de entre 50 y 100 km2
 ```
-## ejecutar Loops (Mapping)
+## Ejecutar Loops (Mapping)
 
 se pueden ejecutar operaciones dentro de una coleccion de vectores, que se ejecuten para cada vector de la coleccion. 
 para aplicar una operacion en todos los vectores de una coleccion se usa la funcion `.map()`
@@ -1312,7 +1312,7 @@ var circulos = puntos.map(bufferAleatorio); //ejecutamos la funcion 'bufferAleat
 
 ```
 
-##Informacion y metadatos
+## Informacion y metadatos
 
 los vectores y a su vez las colecciones de vectores, contienen informacion y metadatos 
 los cuales pueden ser consultados con la funcion `print` y ser utiles para los usuarios
@@ -1401,7 +1401,7 @@ print('frecuencias de cuencas islas canarias con o sin costa',CUENCAS_MUNDIAL.fi
 print('estadisticas descriptivas del area superficial de las cuencas islas canarias',CUENCAS_MUNDIAL.filterBounds(canaria).aggregate_stats('UP_AREA')); // arroja las estatisticas descriptivas del area supercicial de las cuencas de la zona
 ```
 
-##reducir una coleccion de vectores
+## Reducir una coleccion de vectores
 
 las colecciones tambien permiten agregar atributos de sus vectores en los metadatos de la coleccion,
 esta agregacion se llama Reducir
@@ -1479,11 +1479,11 @@ print('vectores con informacion de clima', cuencaClima);
 print('propiedades de los vectores de cuencas con clima ',cuencaClima.first().propertyNames());
 ```
 
-##interpolar de vector a Imagen
+## Interpolar de vector a Imagen
 
 interpolar de vector a imagen , consiste en tomar los datos numericos de un vector e interpolarlos a areas fuera de los vectores. resultando en una imagen con el valor numerico interpolado del vector.
 
-###ponderación de distancia inversa  
+### Ponderación de distancia inversa  
 
 es un metodo descrito por (Basso et al. 1999 https://ieeexplore.ieee.org/abstract/document/805606)
 
@@ -1529,7 +1529,7 @@ var interpolado = muestras.inverseDistance({
   stdDev: stats.get('stdDev'), //desviacion estandar (parametro para la funcion)
   }); 
 ```
-###kriging
+### Kriging
 
 es un metodo de interpolacion que utiliza un estimativo de la semi-varianza, para crear un aimagen de valores interpolados que sea una combinacion optima de los datos conocidos. necesita unos parametros que describan la forma de la funcion de semi-varianza, ajustada a los datos conocidos. 
 ejercicio j
@@ -1564,7 +1564,7 @@ var interpolar = muestras.kriging({
   reducer: 'mean',
 });
 ```
-##convertir de vector a imagen
+## Convertir de vector a imagen
 
 para resterizar un vector se usa el metodo `.reduceToImage`. este metodo asigna pixeles del valor del atributo especificado, bajo cada vector
 
@@ -1584,7 +1584,7 @@ var areaGlaciar = hielo
     reducer: ee.Reducer.first() //tomar el primer valor 
 });
 ```
-##unir colecciones de vectores
+## Unir colecciones de vectores
 
 para unir colecciones de vectores se usan los `ee.join`, que permiten unir vectores de dos colecciones basados en valores de sus atributos que esten relacionados entre ellos. usando un `filter` se determina el tipo de relacion entre los atributos de los vectores de ambas colecciones
 
@@ -1627,7 +1627,7 @@ var AP_cerca_PE = Union.apply(APGuatemala, plantas, distFiltro);
 // ejecutar la union por interseccion
 var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
 ```
-##exportar vectores
+## Exportar vectores
 
 en GEE se permite exportar vectores a los **assets**, al **drive** o al googleCloud. GoogleCloud como es un servicio de cobro no lo vamos a explicar
 
@@ -1786,7 +1786,7 @@ imagen = imagen.addBands(ndvi);
 
 ### Convertir de imagen a vector
 
-En algunos casos puede ser conveniente transformar de una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener cierto tipo de gráficos, p.ej., un gráfico de series de tiempo (`ui.Chart.image.series`). La función para convertir una imagen en vector es `.reduceToVectors`. 
+En algunos casos puede ser conveniente transformar de una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener un gráfico de series de tiempo (`ui.Chart.image.series`). La función para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera:
 
 ```{js, echo = T}
 var ndviVec = ndvi.reduceToVectors({
