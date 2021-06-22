@@ -2539,4 +2539,3 @@ var exportTable = function(feature, name){
 exportTable(ee.FeatureCollection(expConfMatrix), 'confMatrix');
 exportTable(ee.FeatureCollection(expAccuracy), 'validAcc');
 ```
-
