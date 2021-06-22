@@ -87,9 +87,13 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 6. Los operadores matemáticos son: `+ - * /`.
 7. Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
 8. Para realizar comentarios se puede utilizar `//` para comentarios de una línea o `/* … */` para comentarios de varias líneas
-9. Se puede utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `imagen.updateMask(mascara);`. En este manual, la mayoría de las funciones aplicadas a algún objeto se escribirán precedidas por el operador `.` para evitar errores de sintáxis.
+9. Se suele utilizar el operador `.` para aplicar una función al objeto que lo precede. Por ejemplo, `ee.Image.updateMask(mascara);`. En este manual, la mayoría de las funciones aplicadas a algún objeto se escribirán precedidas por el operador `.` para evitar errores de sintáxis.
 10.  No es sensible a las tabulaciones, aunque son recomendadas para un código ordenado.
 11. Son igualmente validas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
+
+::: {.tipblock data-latex=""}
+El término correcto para llamar a las funciones aplicadas con el operador `.` es el de método ("method"), lo cual quiere decir que son funciones ligadas un tipo de objeto. Por ejemplo, `ee.Image.updateMask`, la función `updateMask` es un método ligado a un objeto de tipo imagen (`ee.Image`). Aunque método es el término correcto, para facilitar la lectura de este manual se utilizará el término de función para referirse tanto a funciones en sentido estricto, como a métodos. 
+:::
 
 \newpage
 # Primeros pasos
