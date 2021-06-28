@@ -457,9 +457,9 @@ Este grupo de funciones permiten realizar gráficos de diferentes tipos, sin emb
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores. Algunas de los métodos disponibles incluyen: 
 
 * `ui.Chart.feature.byFeature`.
-* `ui.Chart.feature.byProperty`
+* `ui.Chart.feature.byProperty`.
 * `ui.Chart.feature.groups`. 
-* `ui.Chart.feature.histogram`. 
+* `ui.Chart.feature.histogram`.
 
 Por ejemplo:
 
@@ -474,6 +474,7 @@ ui.Chart.feature.byProperty({
 **Chart.image**
 
 Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles incluyen: 
+
 *	`ui.Chart.image.byClass`
 *	`ui.Chart.image.byRegion`
 *	`ui.Chart.image.doySeries`
