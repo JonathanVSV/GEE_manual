@@ -7,8 +7,9 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true
-    self_contained: false
+    self_contained: true
     highlight: "tango"
+    css: style.css
   # pdf_document:
   #   extra_dependencies: awesomebox
   #   toc: yes
@@ -24,35 +25,6 @@ knitr::opts_chunk$set(out.width = "500px", dpi=150)
 
 ```{js setup2, include=FALSE}
 knitr::opts_chunk$set(out.width = "500px", dpi=150)
-```
-
-```{=latex}
-% Para cambiar los parámetros por default de las cajas de tips o notas
-\setlength{\aweboxleftmargin}{0.1\linewidth}.
-\setlength{\aweboxcontentwidth}{0.85\linewidth}
-\setlength{\aweboxvskip}{6mm}
-\setlength{\aweboxrulewidth}{5pt}
-\definecolor{abvrulecolor}{RGB}{48,90,255}
-
-\usepackage{tcolorbox}
-
-\newtcolorbox{blackbox}{
-  colback=gray90,
-  colframe=black,
-  coltext=black,
-  boxsep=15pt,
-  arc=8pt}
-```
-
-```{=html}
-<style>
-  div.blue { background-color:#FFDADA; 
-             border-color:#545454;
-             border: 1px;
-             margin: 10px;
-             border-radius: 5px; 
-             padding: 10px;}
-</style>
 ```
 
 \newpage
@@ -95,17 +67,17 @@ GEE ofrece un amplio repositorio de información geográfica global, cuya inform
 knitr::include_graphics("Img/Datasets.png")
 ```
 
-<div class = "blue">
+:::rmdtip
 Para consultar toda la información que esta disponible en GEE se puede consultar la siguiente liga: https://developers.google.com/earth-engine/datasets
-</div>
+:::
 
 #### Capacidad computacional
 
 De manera paralela al catálogo de información, GEE puso a disposición un conjunto de servidores (los cuales en 2010 tenían una capacidad más o menos equivalente a 10000 computadores personales) para poder realizar rápida y eficazmente cálculos y computaciones sobre esos datos.
 
-<div class = "blue">
+:::rmdtip
 Se estima que GEE era capaz (en 2010) de en cuestión de días, ejecutar funciones que en un computador personal habría tomado 15 años.
-</div>
+:::
 
 #### API
 
@@ -142,9 +114,9 @@ GEE  se ha utilizado para una diversidad muy grande de estudios enfocados en est
 
 Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su corto tiempo para realizar análisis con información geoespacial (Kumar et al., 2018).
 
-<div class = "blue">
+:::rmdtip
 GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick et al. (2017).
-</div>
+:::
 
 \newpage
 # Primeros pasos
@@ -163,9 +135,9 @@ knitr::include_graphics("Img/Signup.png")
 
 Luego se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE requerimos de una cuenta de Google para poder utilizar la API.
 
-<div class = "blue">
+:::rmdtip
 Se recomienda dar de alta una cuenta de Google que tenga suficiente espacio disponible en Google Drive, ya que será la forma más fácil de exportar los resultados generados en GEE.
-</div>
+:::
 
 ```{r, echo = F}
 knitr::include_graphics("Img/formulario.png")
@@ -215,9 +187,9 @@ Dentro de este espacio existen varias categorías, las primeras tres se pueden u
 4. Ejemplos (Examples): se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando diferentes colecciones de imágenes (por ejemplo: Landsat 4-7, Landsat 8, Sentinel-2, MODIS). 
 5. Archivo (Archive): se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
-<div class = "blue">
+:::rmdtip
 El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio). 
-</div>
+:::
 
 ```{r, echo = F}
 knitr::include_graphics("Img/repofolderfile.png")
@@ -283,13 +255,13 @@ Después se encuentra el botón de Apps que sirve para crear Apps a partir del c
 
 Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como ’, ", ( y {.
 
-<div class = "blue">
+:::rmdtip
 Cuando se corre un código en la consola con el botón de Run, este no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
-</div>
+:::
 
-<div class = "blue">
+:::rmdtip
 Para buscar un texto específico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
-</div>
+:::
 
 **Search**
 
@@ -385,9 +357,9 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 10.	Son igualmente válidas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
 
-<div class = "blue">
+:::rmdtip
 El término correcto para llamar a las funciones aplicadas con el operador `.` es el de método (method), lo cual quiere decir que son funciones ligadas a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, la función updateMask es un método ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
-</div>
+:::
 
 
 \newpage 
@@ -404,17 +376,17 @@ print(Objeto);
 print('Hola Mundo');
 ```
 
-<div class = "blue">
+:::rmdtip
 Vamos a utilizar mucho la función print() esta función, permite visualizar en la consola diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra “Hola Mundo” se usa el comando `print('Hola Mundo')`
-</div>
+:::
 
 ## Interacción con la pantalla de mapas
 
 Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapas se encuentran dentro de la función `Map`.
 
-<div class = "blue">
+:::rmdtip
 Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor**  en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
-</div>
+:::
 
 **Map.addLayer**
 
@@ -426,9 +398,9 @@ Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes arg
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], min: 0, max: 2000, palette: ['FF0000', 'FFFF00',' 008000']}, 'RGB');
 ```
 
-<div class = "blue">
+:::rmdtip
 En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o de el límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (por ejemplo, QGIS).
-</div>
+:::
 
 Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar (pero el único argumento válido es color) como:
 
@@ -436,9 +408,9 @@ Para el caso de los vectores (`ee.Feature`) se puede realizar una operación sim
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
 ```
 
-<div class = "blue">
+:::rmdtip
 El código de los colores pasados al argumento de _palette_ o color corresponden a códigos hexadecimales
-</div>
+:::
 
 **Map.centerObject**
 
@@ -499,9 +471,9 @@ ui.Chart.image.seriesByRegion({
   });
 ```
 
-<div class = "blue">
+:::rmdtip
 El nombre de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
-</div>
+:::
                                               
 ## Exportación de objetos fuera de GEE
 
@@ -517,9 +489,9 @@ En el caso de las imágenes (raster), la función para exportarlas es `Export.im
 
 El primero permite exportar la imagen (raster) como una imagen (raster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rasters )en algún entorno local como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`.
 
-<div class = "blue">
+:::rmdtip
 Solo se pueden exportar imágenes en formato raster, sin embargo, no siempre resulta obvio, ya que algunas veces se pueden convertir imágenes a formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (ee.Image) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TRFrecord (tensores).
-</div>
+:::
 
 Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
@@ -533,13 +505,13 @@ Export.image.toDrive({
 }); 
 ```
 
-<div class = "blue">
+:::rmdtip
 En GEE muchas operaciones utilizan el término de scale, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de pixel expresado en metros.
-</div>
+:::
 
-<div class = "blue">
+:::rmdtip
 En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de pixeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de pixeles. En este caso, se debe aumentar el número de pixeles máximo permitido para la exportación. Esto se logra indicando el argumento maxPixels dentro del diccionario que se pasa a `Export.image.toDrive`. Por ejemplo, maxPixels: 1e10, lo cual permite exportar una imagen con hasta 1 x 10^10 pixeles.
-</div>
+:::
 
 **Export.table**
 
@@ -619,9 +591,9 @@ Ejercicio 0.1
 var direccion = direccion + ' su número telefónico es:' + telefono;
 ```
 
-<div class = "blue">
+:::rmdtip
 Resulta importante notar que los números en una cadena de texto no serán interpretados como valores numéricos sino como texto.
-</div>
+:::
 
 **Números**
 
@@ -747,28 +719,28 @@ return image.updateMask(clearData);
 
 Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite definir cualquier serie de procesos como una función y que GEE la interprete de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
-<div class = "blue">
+:::rmdtip
 Las funciones que se ejecuten sobre una colección de imágenes o vectores, sólo funcionan si regresan un objeto de tipo `ee.Feature`, `ee.FeatureCollection`, `ee.Image` o `ee.ImageCollection`, por lo cual, a veces se deben realizar ciertas conversiones para evitar un error.
-</div>
+:::
 
 ## Tipo de objetos del lado del servidor
 
 Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de funciones particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Por otro lado, toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (raster), vector, colecciones de imágenes y colecciones de vectores. 
 
-<div class = "blue">
+:::rmdtip
 Para recordar cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo `ee.` (del servidor de Earth Engine), seguido del nombre del tipo de objeto con inicial mayúscula.
-</div>
+:::
 
 Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continación se describen los tipos de objetos más comúnmente utilizados.
 
-<div class = "blue">
+:::rmdtip
 En algunos casos, los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`), por ejemplo, en casos particulares al usar los métodos `.first` ó `.get`, por lo cual, se recomienda meter este objeto en un contenedor que indique el tipo de objeto. Este tipo de errores suelen mostrar un mensaje `“...is not a function”`.
-</div>
+:::
 
-<div class = "blue">
+:::rmdtip
 Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor visitar la sección de Client libraries en la siguiente liga: https://developers.google.com/earth-engine/apidocs 
 Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
-</div>
+:::
 
 **ee.String()**
 
@@ -968,9 +940,9 @@ Los reductores permiten agregar datos basados en una regla o utilizando una func
 
 Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran las funciones `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
 
-<div class = "blue">
+:::rmdtip
 Resulta útil recordar que normalmente los argumentos de cualquier función del servidor se pasan como un diccionario (dentro de llaves {} ).
-</div>
+:::
 
 \newpage
 # Geometrías
@@ -1173,9 +1145,9 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multi-
 
 Las geometrías, vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semi-opaco gris. Sin embargo se puede especificar el parámetro color, dentro de un diccionario en la función `Map.addLayer`, sólo que el color debe ingresarse como código hexadecimal.
 
-<div class = "blue">
+:::rmdtip
 Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa layers, solo puede hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder a la siguiente liga: https://htmlcolorcodes.com/es/
-</div>
+:::
 
 ```{js echo = T}
 // Especificar el color de la capa 
@@ -1366,9 +1338,9 @@ var union = rectangulo2.union(buff
 
 Las colecciones de vectores son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
  
-<div class = "blue">
+:::rmdtip
 GEE ofrece un catálogo de colecciones de vectores, se pueden buscar en la barra de búsqueda. Estas colecciones de vectores de GEE se llaman tables.
-</div>
+:::
 
 Ejercicio 13
 
@@ -1380,17 +1352,17 @@ Ejercicio 13
 var países = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 ```
 
-<div class = "blue">
+:::rmdtip
 La búsqueda de información vectorial en los acervos de GEE es más difícil (que búsqueda de imágenes), y a pesar que puede haber mucha información vectorial disponible (compartida por usuarios), encontrarla no es fácil ya que solo está indexada la información vectorial compartida por Google
-</div>
+:::
 
 ## Información y metadatos
 
 Las colecciones de vectores contienen los metadatos e información de todos los vectores que contienen. De tal manera, se puede utilizar esta información para filtrar y utilizar únicamente los vectores que cumplen con ciertos criterios.
 
-<div class = "blue">
+:::rmdtip
 Al usar `print` con las colecciones de vectores, la consola tiene un límite de mostrar maximo 5000 vectores. En caso que uno necesite usar `print` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar en la consola. Para ello se puede usar el método `.limit` el cual se le especifica la cantidad de vectores que queremos ver (siempre que sean <= 5000)
-</div>
+:::
 
 Ejercicio 14
 
@@ -1750,9 +1722,9 @@ var cuenca = ee.Feature(CUENCAS_MUNDIAL.first());
 
 Para extraer los nombres de los metadatos de una colección de vectores se usa el método `.propertyNames`. Para algún metadato en particular de una colección de vectores se puede utilizar el método de `.get`, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer. 
 
-<div class = "blue">
+:::rmdtip
 Los metadatos de una colección de vectores no son los mismos que los de los vectores que la conforman.
-</div>
+:::
 
 Ejercicio 20.1
 
@@ -1796,14 +1768,14 @@ var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
 
 Se pueden ejecutar operaciones dentro de una colección de vectores, que se ejecuten para cada vector de la colección. Para aplicar una operación en todos los vectores de una colección se usa el método `.map`.
 
-<div class = "blue">
+:::rmdtip
 Para poder ejecutar el método `.map` es necesario antes definir una función (del usuario)
 para definir una función es necesario tener en cuenta varias cosas: 
 1.  Usar el comando function.
 2.	Luego de function y dentro de paréntesis () definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo). 
 3.	Luego definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
 4.	Finalmente antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando return.
-</div>
+:::
 
 *	En el siguiente ejercicio llamamos a una colección con los límites políticos de los países
 *	Seleccionamos el vector cuyo atributo ‘COUNTRY_NAME’ es igual a ‘Peru’
@@ -2038,9 +2010,9 @@ var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
 
 En GEE se permite exportar vectores a los assets, al drive o al GoogleCloud. GoogleCloud como es un servicio de cobro no lo vamos a explicar. 
 
-<div class = "blue">
+:::rmdtip
 Es importante recordar que no se podrán exportar vectores A LOS ASSETS sin geometrías, ni vectores con geometría `NULL`, siempre que se quiera exportar será necesario especificar alguna geometría por vector de la colección. Para exportar vectores es necesario usar la función `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`.
-</div>
+:::
 
 Sus argumentos en común son: collection: obligatoriamente una colección de vectores `ee.FeatureCollection`, si se quiere un solo vector se deberá convertir en una colección de un solo elemento description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
 
@@ -2154,9 +2126,9 @@ Ejercicio 27.1
 CHM.propertyNames();
 ```
 
-<div class = "blue">
+:::rmdtip
 La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
-</div>
+:::
 
 Por otro lado, la información almacenada en un raster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `.bandNames`. 
 
@@ -2224,9 +2196,9 @@ Ejercicio 27.6
 banda1 = banda1.rename("chm");
 ```
 
-<div class = "blue">
+:::rmdtip
 Nótese que se puede reescribir la misma variable, pero hay que tener cuidado porque la información reescrita se pierde
-</div>
+:::
 
 ### Realización de cortes
 
@@ -2241,9 +2213,9 @@ var chmMx = banda1.clip(MX);
 
 Esto permite trabajar únicamente con la región de interés (en el ejemplo anterior, especificada en el objeto roi).
 
-<div class = "blue">
+:::rmdtip
 Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
-</div>
+:::
 
 ### Cálculo de operaciones matemáticas
 
@@ -2264,9 +2236,9 @@ var ndvi= landsat7imBands.expression( '(NIR - R) / (NIR + R)', {
   .rename('ndvi');
 ```
 
-<div class = "blue">
+:::rmdtip
 Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por default, ésta va a recibir el nombre de nd.
-</div>
+:::
 
 Dentro de las fórmulas utilizadas dentro de expression se puede utilizar la notación estándar matemática (`+, -, /, *`), módulo (`%`), exponente (`**`), relacionales(`>, <, >=, <=, !=, ==`), lógicos (`&&, ||, !, ^`), o if then else (`?:`).
 
@@ -2310,9 +2282,9 @@ var chmMxMayor20 = chmMx.updateMask(chmMXMask20);
 var landsat7imMask = landsat7im.updateMask(mask);
 ```
 
-<div class = "blue">
+:::rmdtip
 Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. El método `.mask` simplemente sustituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva. Por ello, el usar `.updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
-</div>
+:::
 
 ### Adición de bandas
 
@@ -2495,9 +2467,9 @@ Ejercicio 28.1
 var S2Prop = S2.propertyNames();
 ```
 
-<div class = "blue">
+:::rmdtip
 No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de éstas para que se pueda sobreescribir la característica de interés.
-</div>
+:::
 
 ## Creación de colecciones de imágenes (ee.ImageCollection)
 
@@ -2571,13 +2543,13 @@ imCol4 = imCol4.filter(ee.Filter.lt('CLOUD_COVERAGE_ASSESSMENT', 50));
 imCol4 = imCol4.filterMetadata('CLOUD_COVERAGE_ASSESSMENT','less_than', 50);
 ```
 
-<div class = "blue">
+:::rmdtip
 Recordar que para filtar con metadatos, se debe filtrar de acuerdo a las propiedades de las imágenes, no de la colección. 
-</div>
+:::
 
-<div class = "blue">
+:::rmdtip
 Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (`.filter`), así como la selección de las bandas a utilizar (`.select`), antes de realizar operaciones sobre todas las imágenes de la colección (`.map`).
-</div> 
+::: 
 
 ### Selección de bandas
 
@@ -2595,9 +2567,9 @@ var imCol5 = imCol4.select(['B4','B3','B2']);
 
 ```
 
-<div class = "blue">
+:::rmdtip
 Recordar que para seleccionar ciertas bandas en una colección de imágenes, éstas corresponden a bandas de las imágenes, no de la colección. Esto es útil para revisar los nombres de las bandas.
-</div>
+:::
 
 ### Ordenación de una colección
 
@@ -2643,9 +2615,9 @@ var conteoImgs = imCol5.count();
 v
 Para unir una colección de imágenes con otra se utiliza el método `.merge`. Un caso típico de tal operación sería unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.
 
-<div class = "blue">
+:::rmdtip
 Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul (blue), mientras que en Landsat 8, la banda 1 corresponde al azul de costa (coastal blue). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse que el nombre de las bandas a unir en una colección corresponda con las de la otra.
-</div>
+:::
 
 La unión de una colección de landsat 7 y con una landsat 8 se podría hacer de la siguiente manera:
 
@@ -2684,16 +2656,16 @@ var ndviCalc = function(image){
 var imCol9 = imCol4.map(ndviCalc);
 ```
 
-<div class = "blue">
+:::rmdtip
 Nótese que el método `.map` es distinto de la función Map que permite agregar objetos a la pantalla de mapas. Recordar que Javascript es un lenguaje sensible a mayúsculas y minúsculas.
-</div>
+:::
 
-<div class = "blue">
+:::rmdtip
 Este tipo de operación es la sugerida para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (e.g., `for`).
-</div>
-<div class = "blue">
+:::
+:::rmdtip
 El método `.map` sólo funciona con funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como `print, Map, Export, Chart`.
-</div>
+:::
 
 ### Reducción de una colección de imágenes
 
@@ -2710,9 +2682,9 @@ var imRedMean = imCol9.mean();
 // Realizar lo mismo pero utilizando explicitamente la definición del reductor
 var imRedMean2 = imCol9.reduce(ee.Reducer.mean());
 ```
-<div class = "blue">
+:::rmdtip
 Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean` sobre una colección de imágenes cuyas bandas se llaman B1 y B2, las bandas de la imagen producto de la reducción se llamarán B1_mean y B2_mean.
-</div>
+:::
 
 ### Creación de compuestos y mosaicos
 
@@ -2880,9 +2852,9 @@ El resultado se ve así:
 knitr::include_graphics("Img/imNDVI.png")
 ```
 
-<div class = "blue">
+:::rmdtip
 Se pueden prender y apagar las capas de la pantalla de mapas utilizando el menú que se despliega al posicionar el puntero sobre el letrero de layers y prendiendo y apagando las capas con las palomitas a la izquierda de cada capa.
-</div>
+:::
 
 El último paso será cortar la imagen a una extensión de interés. En este caso primero se define un área de interés mediante coordenadas: 
 
@@ -2968,9 +2940,9 @@ knitr::include_graphics("Img/Asset1.png")
 
 Posteriormente se da click en SELECT y se seleccionan los archivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en UPLOAD (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
 
-<div class = "blue">
+:::rmdtip
 Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (por ejemplo, sbx).
-</div>
+:::
 
 ```{r, echo = F}
 knitr::include_graphics("Img/Asset2.png")
@@ -2982,9 +2954,9 @@ Una vez que se haya dado click en UPLOAD, el progreso en la subida del archivo a
 knitr::include_graphics("Img/Asset3.png")
 ```
 
-<div class = "blue">
+:::rmdtip
 Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de Assets se puede organizar la información en folders.
-</div>
+:::
 
 ```{r, echo = F}
 knitr::include_graphics("Img/newAssets.png")
@@ -3000,9 +2972,9 @@ Para subir un nuevo archivo, dar click en el botón NEW, seleccionar el tipo de 
 knitr::include_graphics("Img/shareAssets.png")
 ```
 
-<div class = "blue">
+:::rmdtip
 El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo).
-</div>
+:::
 
 \newpage
 # Uso conjunto de vectores e imágenes
@@ -3030,9 +3002,9 @@ var muestreo = L8imgMean
 print(muestreo, 'muestreo');
 ```
 
-<div class = "blue">
+:::rmdtip
 Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento geometries: true. Esto dará como resultado una tabla con la misma información, pero con las coordenadas geográficas de los centros de los pixeles de la imagen muestreada.
-</div>
+:::
 
 ### Reducción de una imagen por región(es)
 
@@ -3049,9 +3021,9 @@ var reduccion = ee.Image(L8imgMean)
 print(reduccion, 'reduccion');
 ```
 
-<div class = "blue">
+:::rmdtip
 En algunas ocasiones, los procesos de `.reduceRegions` o `.sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de ‘computation timed out’. En estos casos, se pueden utilizar los argumentos de scale o tileScale para lograr que este corra. Scale permite aumentar el tamaño de pixel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, tileScale permite definir un factor de escalamiento que permite reducir la carga computacional de un proceso.
-</div>
+:::
 
 ## Interpolación de vector a Imagen
 
@@ -3270,7 +3242,7 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
 });
 ```
 
-<div class = "blue">   
+:::rmdtip   
 Usando al final el método `.setOutputMode` se puede cambiar la forma que el clasificador entrega los resultados para ello dentro de los paréntesis del método toca escribir entre comillas cualquiera de las siguientes opciones:
 
 *	CLASSIFICATION (default): devuelve clases.
@@ -3280,7 +3252,7 @@ Usando al final el método `.setOutputMode` se puede cambiar la forma que el cla
 *	RAW: devuelve un array con la representación interna del proceso de clasificación. Por ejemplo los votos crudos de un modelo de múltiples árboles de decisión 
 *	RAW_REGRESSION: devuelve array con la representación interna del proceso de regresion. Por ejemplo las preedicciones crudas de los multiples arboles de regresion
 Resulta importante recordar que dependiendo del clasificador, algunas de estas opciones de resultado estarán disponibles o no.
-</div>
+:::
  
 Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando el método `.classify`. Como argumentos se indica el clasificador entrenado que se desea utilizar. El resultado de `.classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo classification. Por último, se agrega a la pantalla de mapas para ver los resultados.
 
@@ -3361,9 +3333,9 @@ print('Validation error matrix: ', validErrMat);
 print('Validation overall accuracy: ', validAcc);
 ```
 
-<div class = "blue">
+:::rmdtip
 Por default la imagen que se obtiene de una función `.classify` obtiene el nombre de ‘classification’, por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama ‘classification’.
-</div>
+:::
 
 Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear un vector sin geometría (que es lo que indica el null en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante el método `.array`. 
 

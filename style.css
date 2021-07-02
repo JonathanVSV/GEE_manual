@@ -1,0 +1,10 @@
+/*Taken from https://github.com/tidymodels/TMwR*/
+.rmdtip {
+  padding: 1em 1em 1em 5em;
+  margin-bottom: 2px;
+  border: 1px solid black;
+  background: #FFDADA 15px center/3em no-repeat;
+  background-image: url("Img/lightbulb.png");
+  background-position: 2.5% 25%;
+}
+
