@@ -1,10 +1,49 @@
-/*Taken from https://github.com/tidymodels/TMwR*/
+/*Based on https://github.com/tidymodels/TMwR*/
 .rmdtip {
+  font-family: 'Times New Roman', 'Georgia', serif;
   padding: 1em 1em 1em 5em;
   margin-bottom: 2px;
   border: 1px solid black;
-  background: #FFDADA 15px center/3em no-repeat;
+  background: #DEF3F7 15px center/3em no-repeat;
   background-image: url("Img/lightbulb.png");
   background-position: 2.5% 25%;
 }
 
+body{ /* Normal  */
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 14px;
+      color: #000000;
+  }
+td {  /* Table  */
+  font-size: 12px;
+}
+/*
+h1.title {
+  font-size: 38px;
+  color: #1d4d56;
+}
+*/
+h1 { /* Header 1 */
+  font-size: 28px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #165C69;
+}
+h2 { /* Header 2 */
+    font-size: 24px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #165C69;
+}
+h3 { /* Header 3 */
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #165C69;
+}
+code{ /* Code block */
+    font-size: 14px;
+}
+pre { /* Code block - determines code spacing between lines */
+    font-size: 14px;
+}

@@ -7,6 +7,7 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true
+    # number_sections: true
     self_contained: true
     highlight: "tango"
     css: style.css
@@ -20,11 +21,7 @@ output:
 
 ```{r setup, include=FALSE}
 # Set global options for chunks
-knitr::opts_chunk$set(out.width = "500px", dpi=150)
-```
-
-```{js setup2, include=FALSE}
-knitr::opts_chunk$set(out.width = "500px", dpi=150)
+knitr::opts_chunk$set(out.width = "80%", dpi=150)
 ```
 
 \newpage
@@ -847,6 +844,7 @@ Esta es la forma en la que GEE permite trabajar con fechas. Permite enviar un ob
 Hay varias formas de construir una fecha específica:
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “YYYY-MM-DD”, esta fecha obligatoriamente debe:
+
   *	Usar la función `ee.Date`.
   *	Estar en orden Año Mes Día (AAAA-MM-DD).
   *	Usar guiones como separadores -.
@@ -956,6 +954,7 @@ La información que contienen los objetos de tipo geometría corresponden a punt
 ## Creación de geometrías
 
 GEE utiliza el objeto `ee.Geometry` para leer y manejar formas geométricas, estos incluyen geometrías sin área, como son: 
+
 *	Punto (`ee.Geometry.Point`): una coordenada en X & Y.
 *	Multipunto (`ee.Geometry.MultiPoint`): una lista de puntos. 
 *	Línea (`ee.Geometry.LineString`): una línea. 
@@ -1013,6 +1012,7 @@ var perimetro = ee.Geometry.LinearRing([
 ```
 
 También hay geometrías que tienen el componente de área, como son:
+
 *	Rectángulo (`ee.Geometry.Rectangle`): un rectángulo.
 *	Polígono (`ee.Geometry.Polygon`): un polígono.
 *	Multi polígono (`ee.Geometry.MultiPolygon`): una lista de polígonos.
@@ -2185,6 +2185,10 @@ var CHMprop1 = CHM.set('miPropiedad','miImagen');
 var CHMprop2 = CHM.set(title,'miTítulo');
 ```
 
+:::rmdtip
+Nótese que se puede reescribir la misma variable, pero hay que tener cuidado porque la información reescrita se pierde
+:::
+
 ### Sustitución de nombres de bandas
 
 Por default, el nombre de las bandas de las imágenes suelen corresponder a la letra ‘B’ más un número que indica el número de banda. Por ejemplo, ‘B1’, ‘B2’,‘B3’, etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar el método `.rename` para cambiar los nombres de las bandas. En caso de constar de una sola banda y un solo nombre se puede indicar directamente el nuevo nombre, sino, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo:
@@ -2195,10 +2199,6 @@ Ejercicio 27.6
 // Cambiar el nombre de la banda 
 banda1 = banda1.rename("chm");
 ```
-
-:::rmdtip
-Nótese que se puede reescribir la misma variable, pero hay que tener cuidado porque la información reescrita se pierde
-:::
 
 ### Realización de cortes
 
@@ -2734,6 +2734,7 @@ print(L8imgCol);
 ```
 
 Una vez pasado el comando anterior, en la consola se puede consultar cuántas imágenes cumplieron con los filtros indicados. En este ejemplo, la colección filtrada incluye 17 imágenes. Después, se pueden consultar las características de las imágenes incluidas en la colección. Para ello, en la consola se le da:
+
 *	Un click a la colección en la consola .
 *	Luego un click a features.
 *	Después a cualquier imagen (Image) .
