@@ -1,0 +1,169 @@
+\newpage
+# Uso conjunto de vectores e imágenes
+
+Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestreo de una imagen por vectores o la reducción de una imagen por vectores.
+
+## Funciones comunes
+
+### Muestreo por vector(es) (Ejercicio E)
+
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un raster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un raster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
+
+```{js echo = T}
+var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
+  -101.51906,19.72362);
+```
+
+```{js echo = T}
+var muestreo = L8imgMean
+  .sample({
+    region: bosque1,
+    scale:30
+  });
+
+print(muestreo, 'muestreo');
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Si se desea obtener la información de un muestreo de una imagen con su correspondiente información espacial, se puede utilizar el argumento geometries: true. Esto dará como resultado una tabla con la misma información, pero con las coordenadas geográficas de los centros de los píxeles de la imagen muestreada.
+:::
+::::
+
+### Reducción de una imagen por región(es)
+
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún raster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
+
+```{js echo = T}
+var reduccion = ee.Image(L8imgMean)
+  .reduceRegion({
+    reducer: ee.Reducer.mean(),
+    geometry: bosque1,
+    scale: 30
+  });
+  
+print(reduccion, 'reduccion');
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+En algunas ocasiones, los procesos de `.reduceRegions` o `.sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de ‘computation timed out’. En estos casos, se pueden utilizar los argumentos de scale o tileScale para lograr que este corra. Scale permite aumentar el tamaño de píxel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, tileScale permite definir un factor de escalamiento que permite reducir la carga computacional de un proceso.
+:::
+::::
+
+## Interpolación de vector a Imagen
+
+Interpolar de vector a imagen , consiste en tomar los datos numéricos de un vector e interpolarlos a áreas fuera de los vectores. Resultando en una imagen con el valor numérico interpolado del vector.
+
+### Ponderación de distancia inversa
+
+Este método interpola al píxel de interés un valor según cada uno de los puntos más cercanos, y los pondera según su distancia generando un promedio de esos valores. De modo que los píxeles más cercanos tendrán más influencia en el resultado de la interpolación que los píxeles alejados. Este método es descrito por Basso (et al. 1999).
+
+Esta interpolación se utiliza con el método `.inverseDistance` donde toca especificar al menos:
+
+*	El radio a interpolar alrededor de cada vector.
+*	El atributo (la propiedad) numérica del vector, que se interpolará.
+*	El promedio global (global se refiere a todo el universo de los datos, no al del planeta) de la variable.
+*	La desviación estándar global de la variable.
+
+Ejercicio 29
+
+```{js echo = T}
+// Importamos datos de metano de 5 días, los filtramos y sacamos el 
+// promedio.
+var ch4 = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CH4')
+  .select('CH4_column_volume_mixing_ratio_dry_air')
+  .filterDate('2020-01-01', '2020-01-05')
+  .mean()
+  .rename('ch4');
+
+// Definimos un rectangulo de area de estudio al norte de México.
+var norteMex =
+  ee.Geometry.Rectangle(-117.33, 32.753, -97.773, 22.634);
+
+// Crear una colección de vectores para interpolar.
+// Se crean dos bandas
+// adicionales para la imagen indicando la longitud y latitud de cada 
+// píxel
+var muestras = ch4.addBands(ee.Image.pixelLonLat()) 
+  // Se crean una colección 
+  // de vectores (sin geometria) en la región norteMex y aproximadamente 
+  // cuantos puntos generar
+  .sample({region: norteMex, numPixels: 10000, 
+    // resolución de la imagen en metros por píxel
+    scale:1000}) 
+  // Función para cada punto generado
+  .map(function(sample) { 
+    // Tomar el valor del punto de latitud
+    var lat = sample.get('latitude'); 
+    // Tomar el valor del punto de Longitud
+    var lon = sample.get('longitude'); 
+    // Tomar el valor del punto de metano
+    var ch4 = sample.get('ch4'); 
+    // Crear una geometría para el vector asignandole el valor de metano
+    return ee.Feature(ee.Geometry.Point([lon, lat]), {ch4: ch4});
+  });
+
+// Combinar un reductor de promedio y desviación estándar
+var Reductores = ee.Reducer.mean().combine({
+  reducer2: ee.Reducer.stdDev(),
+  sharedInputs: true});
+
+// Estimar el promedio y la desviación estándar de metano de los puntos.
+var stats = muestras.reduceColumns({
+  reducer: Reductores,
+  selectors: ['ch4']});
+
+// Interpolar para 70 km.
+var interpolado = muestras.inverseDistance({
+  // Rango de interpolación para cada punto
+  range: 70000, 
+  // Atributo numerico a interpolar
+  propertyName: 'ch4', 
+  // Promedio (parametro para la función)
+  mean: stats.get('mean'), 
+  // Desviación estándar (parámetro para la funcion)
+  stdDev: stats.get('stdDev'), 
+  }); 
+```
+
+### Kriging
+
+Es un método de interpolación que utiliza un estimativo de la semi-varianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. Necesita unos parámetros que describen la forma de la función de semivarianza, ajustada a los datos conocidos. 
+
+Ejercicio 30
+
+```{js echo = T}
+// Importar una imagen de temperatura marina superficial
+var temperatura = ee.Image('NOAA/AVHRR_Pathfinder_V52_L3/20120802025048')
+  .select('sea_surface_temperature')
+  .rename('temperatura')
+  .divide(100);
+
+// Definir una geometría donde muestrear puntos
+var geometria = ee.Geometry.Rectangle([-65.60, 31.75, -52.18, 43.12]);
+
+// Muestrear las temperaturas en 1000 localizaciones aleatorias.
+var muestras = temperatura.addBands(ee.Image.pixelLonLat())
+  .sample({region: geometria, numPixels: 1000})
+  .map(function(sample) {
+    var lat = sample.get('latitude');
+    var lon = sample.get('longitude');
+    var temperatura1 = sample.get('temperatura');
+    return ee.Feature(ee.Geometry.Point([lon, lat]), 
+    {temperaturaMarina: temperatura1});
+  });
+
+// Interpolate SST from the sampled points.
+var interpolar = muestras.kriging({
+  propertyName: 'temperaturaMarina',
+  // Forma de la función de la varianza de los datos
+  shape: 'exponential', 
+  // Rango de la varianza
+  range: 100 * 1000, 
+  sill: 1.0,
+  nugget: 0.1,
+  maxDistance: 100 * 1000,
+  reducer: 'mean',
+});
+```

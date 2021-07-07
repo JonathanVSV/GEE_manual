@@ -1,0 +1,52 @@
+\newpage
+# Importación de información a GEE (Assets)
+
+Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar click en NEW e indicar el archivo que se quiere importar a GEE.
+
+```{r, echo = F, out.width="100%", fig.cap="Ubicación de la pestaña de importación de datos a GEE"}
+knitr::include_graphics("Img/Asset1.png")
+```
+
+Posteriormente se da click en SELECT y se seleccionan los archivos que se quieren subir. Además, directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en UPLOAD (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (por ejemplo, sbx).
+:::
+::::
+
+```{r, echo = F, out.width="100%", fig.cap="Ejemplo de la ventana para importar un vector o tabla"}
+knitr::include_graphics("Img/Asset2.png")
+```
+
+Una vez que se haya dado click en UPLOAD, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de TASKS. Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de NEW.
+
+```{r, echo = F, out.width="100%", fig.cap="Ejemplo de una importación en proceso"}
+knitr::include_graphics("Img/Asset3.png")
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de Assets se puede organizar la información en folders.
+:::
+::::
+
+```{r, echo = F, out.width="100%", fig.cap="Opciones disponibles para importar datos en GEE"}
+knitr::include_graphics("Img/newAssets.png")
+```
+
+Para subir un nuevo archivo, dar click en el botón NEW, seleccionar el tipo de archivo, y seguir las instrucciones:
+
+1. Para los archivos raster, solo hace falta seleccionar el archivo correspondiente y dar click en upload. 
+2. Para los archivos tipo .shp es necesario subir los archivos auxiliares (dbf, prj, shx, cpg, fix, qix, sbn, y/o shp.xml) con el mismo nombre. Para los archivos .zip es necesario que contenga los archivos auxiliares. 
+3. Para los archivos .csv es necesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84).El nombre de esas columnas se debe indicar en Advanced options / x column - Y column. Además, se debe tener absoluta claridad del tipo de delimitador (ejemplo: coma: , punto y coma: ; u otro diferente) y este debe ser especificado en Advanced options / CSV delimiter.
+
+```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para compartir información importada en GEE"}
+knitr::include_graphics("Img/shareAssets.png")
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo).
+:::
+::::

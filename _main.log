@@ -1,0 +1,2157 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.6)  7 JUL 2021 10:29
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**_main.tex
+(./_main.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-06-18>
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cl
+s
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk12.cl
+o
+File: bk12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@chapter=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsm
+ath.sty
+Package: amsmath 2021/04/20 v2.17j AMS math features
+\@mathmargin=\skip49
+For additional information on amsmath, use the `?' option.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amst
+ext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsg
+en.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen139
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsb
+sy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen140
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amso
+pn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count191
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count192
+\leftroot@=\count193
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count194
+\DOTSCASE@=\count195
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box50
+\strutbox@=\box51
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count196
+\c@MaxMatrixCols=\count197
+\dotsspace@=\muskip16
+\c@parentequation=\count198
+\dspbrk@lvl=\count199
+\tag@help=\toks17
+\row@=\count266
+\column@=\count267
+\maxfields@=\count268
+\andhelp@=\toks18
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks19
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ams
+symb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ams
+fonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/times
+.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxe
+tex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifte
+x.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iflu
+atex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc
+.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
+2.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm
+.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputen
+c.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/textcom
+p.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolo
+r.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg
+/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def
+/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyp
+erref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/lt
+xcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds
+/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/
+infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/key
+val.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvsetkeys/
+kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefineke
+ys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/
+pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hyco
+lor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/letltxmacro/
+letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/auxhook/auxh
+ook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kv
+options.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen148
+\Hy@linkcounter=\count269
+\Hy@pagecounter=\count270
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1
+enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyp
+erref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
+nguages
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/in
+tcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/e
+texcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count271
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pue
+nc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count272
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen149
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bit
+set.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc
+/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count273
+\Field@Width=\dimen150
+\Fld@charsize=\dimen151
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegsh
+i-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count274
+\c@Item=\count275
+\c@Hfootnote=\count276
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpd
+ftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atverye
+nd-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+\Fld@listcount=\count277
+\c@bookmark@seq@number=\count278
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfileche
+ck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecoun
+ter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip52
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geo
+metry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifvt
+ex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count279
+\Gm@cntv=\count280
+\c@Gm@tempcnt=\count281
+\Gm@bindingoffset=\dimen152
+\Gm@wd@mp=\dimen153
+\Gm@odd@mp=\dimen154
+\Gm@even@mp=\dimen155
+\Gm@layoutwidth=\dimen156
+\Gm@layoutheight=\dimen157
+\Gm@layouthoffset=\dimen158
+\Gm@layoutvoffset=\dimen159
+\Gm@dimlist=\toks24
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fan
+cyvrb.sty
+Package: fancyvrb 2021/01/20 v3.7 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count282
+\FV@InFile=\read2
+\FV@TabBox=\box52
+\c@FancyVerbLine=\count283
+\FV@StepNumber=\count284
+\FV@OutFile=\write3
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/frame
+d.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip53
+\fb@frw=\dimen160
+\fb@frh=\dimen161
+\FrameRule=\dimen162
+\FrameSep=\dimen163
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longta
+ble.sty
+Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
+\LTleft=\skip54
+\LTright=\skip55
+\LTpre=\skip56
+\LTpost=\skip57
+\LTchunksize=\count285
+\LTcapwidth=\dimen164
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@gbox=\box57
+\LT@cols=\count286
+\LT@rows=\count287
+\c@LT@tables=\count288
+\c@LT@chunks=\count289
+\LT@p@ftn=\toks25
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/boo
+ktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen165
+\lightrulewidth=\dimen166
+\cmidrulewidth=\dimen167
+\belowrulesep=\dimen168
+\belowbottomsep=\dimen169
+\aboverulesep=\dimen170
+\abovetopsep=\dimen171
+\cmidrulesep=\dimen172
+\cmidrulekern=\dimen173
+\defaultaddspace=\dimen174
+\@cmidla=\count290
+\@cmidlb=\count291
+\@aboverulesep=\dimen175
+\@belowrulesep=\dimen176
+\@thisruleclass=\count292
+\@lastruleclass=\count293
+\@thisrulewidth=\dimen177
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.
+sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen178
+\ar@mcellbox=\box58
+\extrarowheight=\dimen179
+\NC@list=\toks26
+\extratabsurround=\skip58
+\backup@length=\skip59
+\ar@cellbox=\box59
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.s
+ty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count294
+\calc@Bcount=\count295
+\calc@Adimen=\dimen180
+\calc@Bdimen=\dimen181
+\calc@Askip=\skip60
+\calc@Bskip=\skip61
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count296
+\calc@Cskip=\skip62
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/eto
+olbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count297
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/foo
+tnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box60
+\fn@width=\dimen182
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/gra
+phicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/gra
+phics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/tri
+g.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg
+/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen183
+\Gin@req@width=\dimen184
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fan
+cyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip63
+\f@nch@O@elh=\skip64
+\f@nch@O@erh=\skip65
+\f@nch@O@olh=\skip66
+\f@nch@O@orh=\skip67
+\f@nch@O@elf=\skip68
+\f@nch@O@erf=\skip69
+\f@nch@O@olf=\skip70
+\f@nch@O@orf=\skip71
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tcolorbox/tc
+olorbox.sty
+Package: tcolorbox 2021/06/14 version 4.51 text color boxes
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclay
+er/pgf.sty
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/utilitie
+s/pgfrcs.sty
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen185
+\pgfutil@tempdimb=\dimen186
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfutil-common-lists.tex))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfutil-latex.def
+\pgfutil@abb=\box61
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfrcs.code.tex
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/pgf.re
+vision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/basiclay
+er/pgfcore.sty
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/systemla
+yer/pgfsys.sty
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/utilit
+ies/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen187
+\pgf@y=\dimen188
+\pgf@xa=\dimen189
+\pgf@ya=\dimen190
+\pgf@xb=\dimen191
+\pgf@yb=\dimen192
+\pgf@xc=\dimen193
+\pgf@yc=\dimen194
+\pgf@xd=\dimen195
+\pgf@yd=\dimen196
+\w@pgf@writea=\write4
+\r@pgf@reada=\read3
+\c@pgf@counta=\count298
+\c@pgf@countb=\count299
+\c@pgf@countc=\count300
+\c@pgf@countd=\count301
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count302
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count303
+\pgfsyssoftpath@bigbuffer@items=\count304
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/system
+layer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmath.code.tex
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathcalc.code.tex
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathutil.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathparser.code.tex
+\pgfmath@dimen=\dimen197
+\pgfmath@count=\count305
+\pgfmath@box=\box62
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.code.tex
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.basic.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.trigonometric.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.random.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.comparison.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.base.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.round.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.misc.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfunctions.integerarithmetics.code.tex)))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count306
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/math/p
+gfint.code.tex)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen198
+\pgf@picmaxx=\dimen199
+\pgf@picminy=\dimen256
+\pgf@picmaxy=\dimen257
+\pgf@pathminx=\dimen258
+\pgf@pathmaxx=\dimen259
+\pgf@pathminy=\dimen260
+\pgf@pathmaxy=\dimen261
+\pgf@xx=\dimen262
+\pgf@xy=\dimen263
+\pgf@yx=\dimen264
+\pgf@yy=\dimen265
+\pgf@zx=\dimen266
+\pgf@zy=\dimen267
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen268
+\pgf@path@lasty=\dimen269
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen270
+\pgf@shorten@start@additional=\dimen271
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box63
+\pgf@hbox=\box64
+\pgf@layerbox@main=\box65
+\pgf@picture@serial@count=\count307
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen272
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen273
+\pgf@pt@y=\dimen274
+\pgf@pt@temp=\dimen275
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen276
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen277
+\pgf@sys@shading@range@num=\count308
+\pgf@shadingcount=\count309
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box66
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/basicl
+ayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/module
+s/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box67
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/module
+s/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatib
+ility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen278
+\pgf@nodesepend=\dimen279
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatib
+ility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbat
+im.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks37
+\verbatim@line=\toks38
+\verbatim@in@stream=\read4
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/envi
+ron.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/t
+rimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box68
+\tcb@upperbox=\box69
+\tcb@lowerbox=\box70
+\tcb@phantombox=\box71
+\c@tcbbreakpart=\count310
+\c@tcblayer=\count311
+\c@tcolorbox@number=\count312
+\tcb@temp=\box72
+\tcb@temp=\box73
+\tcb@temp=\box74
+\tcb@temp=\box75
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/awesomebox/a
+wesomebox.sty
+Package: awesomebox 2019/07/27 v0.6
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome5
+/fontawesome5.sty
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/exp
+l3.sty
+Package: expl3 2021-06-18 L3 programming layer (loader) 
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3
+backend-pdftex.def
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count313
+\l__pdf_internal_box=\box76
+))
+Package: fontawesome5 2021/06/04 v5.15.3 Font Awesome 5
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l
+3keys2e/l3keys2e.sty
+Package: l3keys2e 2021-06-18 LaTeX2e option processing using LaTeX3 keys
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/x
+parse/xparse.sty
+Package: xparse 2021-06-18 L3 Experimental document command parser
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome5
+/fontawesome5-generic-helper.sty
+Package: fontawesome5-generic-helper 2021/06/04 v5.15.3 non-uTeX helper for fon
+tawesome5
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome5
+/fontawesome5-mapping.def)))
+\aweboxleftmargin=\skip72
+\aweboxcontentwidth=\skip73
+\aweboxvskip=\skip74
+\aweboxsignraise=\skip75
+\aweboxrulewidth=\skip76
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.
+sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\aweboxlinewidthvar=\skip77
+\aweboxlinewidthref=\skip78
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titling/titl
+ing.sty
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip79
+\thanksmargin=\skip80
+\droptitle=\skip81
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.s
+ty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babe
+l.sty
+Package: babel 2021/06/28 3.61 The Babel package
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/babe
+l.def
+File: babel.def 2021/06/28 3.61 Babel common definitions
+\babel@savecnt=\count314
+\U@D=\dimen280
+\l@unhyphenated=\language3
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel/txtb
+abel.def)
+\bbl@readstream=\read5
+)
+\bbl@dirlevel=\count315
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/babel-span
+ish/spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+
+Package babel Warning: No hyphenation patterns were preloaded for
+(babel)                the language 'Spanish' into the format.
+(babel)                Please, configure your TeX system to add them and
+(babel)                rebuild the format. Now I will use the patterns
+(babel)                preloaded for \language=0 instead on input line 51.
+
+Package babel Info: Hyphen rules for 'spanish' set to \l@english
+(babel)             (\language0). Reported on input line 52.
+\es@quottoks=\toks39
+\es@quotdepth=\count316
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+))
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 15
+2.
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) (./_main.aux
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+)
+\openout1 = `_main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 152.
+LaTeX Font Info:    ... okay on input line 152.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg
+/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/grfext/grfex
+t.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/
+epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring OFF on input line 152.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nam
+eref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/ref
+count.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlest
+ring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count317
+)
+LaTeX Info: Redefining \ref on input line 152.
+LaTeX Info: Redefining \pageref on input line 152.
+LaTeX Info: Redefining \nameref on input line 152.
+(./_main.out) (./_main.out)
+\@outlinefile=\write5
+\openout5 = `_main.out'.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 652.70622pt, 71.13188pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=472.03123pt
+* \textheight=652.70622pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-33.0119pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=98.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+53.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+53.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+153.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.f
+d
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+153.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.f
+d
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 153.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 153.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 153.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 153
+.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
+a.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 153
+.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/ums
+b.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+{c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap
+/pdftex.map}]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2
+
+] (./_main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.35403pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.35403pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-3.35403pt}.
+
+[3]
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.35403pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.35403pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-3.35403pt}.
+
+[4])
+\tf@toc=\write6
+\openout6 = `_main.toc'.
+
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+LaTeX Info: Redefining \. on input line 165.
+LaTeX Info: Redefining \% on input line 165.
+[5]
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+[6
+
+]
+Cap\'{\i }tulo 1.
+LaTeX Info: Redefining \. on input line 187.
+LaTeX Info: Redefining \% on input line 187.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.187 
+       [1
+
+]
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.206 
+       [2]
+<Img/Datasets.png, id=334, 462.528pt x 217.2918pt>
+File: Img/Datasets.png Graphic file (type png)
+<use Img/Datasets.png>
+Package pdftex.def Info: Img/Datasets.png  used on input line 209.
+(pdftex.def)             Requested size: 377.6451pt x 177.4145pt.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
+nput line 213.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome5
+/ufontawesomefree2.fd)
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.232 \end{bluebox2}
+                     [3 <./Img/Datasets.png>]
+LaTeX Info: Redefining \. on input line 258.
+LaTeX Info: Redefining \% on input line 258.
+LaTeX Info: Redefining \. on input line 258.
+LaTeX Info: Redefining \% on input line 258.
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.258 \end{enumerate}
+                      [4]
+LaTeX Info: Redefining \. on input line 304.
+LaTeX Info: Redefining \% on input line 304.
+LaTeX Info: Redefining \. on input line 304.
+LaTeX Info: Redefining \% on input line 304.
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.304 \newpage
+               [5]
+LaTeX Info: Redefining \. on input line 307.
+LaTeX Info: Redefining \% on input line 307.
+LaTeX Info: Redefining \. on input line 307.
+LaTeX Info: Redefining \% on input line 307.
+pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.307 ...er{Primeros pasos}\label{primeros-pasos}}
+                                                   [6
+
+]
+Cap\'{\i }tulo 2.
+<Img/Signup.png, id=365, 772.78812pt x 515.19208pt>
+File: Img/Signup.png Graphic file (type png)
+<use Img/Signup.png>
+Package pdftex.def Info: Img/Signup.png  used on input line 318.
+(pdftex.def)             Requested size: 377.62003pt x 251.74667pt.
+LaTeX Info: Redefining \. on input line 330.
+LaTeX Info: Redefining \% on input line 330.
+[7 <./Img/Signup.png>]
+<Img/formulario.png, id=373, 400.63771pt x 523.7166pt>
+File: Img/formulario.png Graphic file (type png)
+<use Img/formulario.png>
+Package pdftex.def Info: Img/formulario.png  used on input line 331.
+(pdftex.def)             Requested size: 377.63263pt x 493.6442pt.
+<Img/correo.png, id=374, 578.16pt x 539.53293pt>
+File: Img/correo.png Graphic file (type png)
+<use Img/correo.png>
+Package pdftex.def Info: Img/correo.png  used on input line 335.
+(pdftex.def)             Requested size: 377.6257pt x 352.3964pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 337.
+LaTeX Info: Redefining \% on input line 337.
+LaTeX Info: Redefining \. on input line 337.
+LaTeX Info: Redefining \% on input line 337.
+[8 <./Img/formulario.png>]
+<Img/homeFolder.png, id=382, 499.00714pt x 516.05296pt>
+File: Img/homeFolder.png Graphic file (type png)
+<use Img/homeFolder.png>
+Package pdftex.def Info: Img/homeFolder.png  used on input line 346.
+(pdftex.def)             Requested size: 377.62753pt x 390.5271pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 349.
+LaTeX Info: Redefining \% on input line 349.
+LaTeX Info: Redefining \. on input line 349.
+LaTeX Info: Redefining \% on input line 349.
+[9 <./Img/correo.png>]
+<Img/GEE_inicio_API.png, id=389, 1923.185pt x 902.37125pt>
+File: Img/GEE_inicio_API.png Graphic file (type png)
+<use Img/GEE_inicio_API.png>
+Package pdftex.def Info: Img/GEE_inicio_API.png  used on input line 353.
+(pdftex.def)             Requested size: 377.61664pt x 177.18024pt.
+LaTeX Info: Redefining \. on input line 357.
+LaTeX Info: Redefining \% on input line 357.
+LaTeX Info: Redefining \. on input line 357.
+LaTeX Info: Redefining \% on input line 357.
+[10 <./Img/homeFolder.png> <./Img/GEE_inicio_API.png>]
+<Img/left_panel.png, id=397, 234.8775pt x 335.00156pt>
+File: Img/left_panel.png Graphic file (type png)
+<use Img/left_panel.png>
+Package pdftex.def Info: Img/left_panel.png  used on input line 361.
+(pdftex.def)             Requested size: 234.87692pt x 335.00073pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 378.
+LaTeX Info: Redefining \% on input line 378.
+LaTeX Info: Redefining \. on input line 378.
+LaTeX Info: Redefining \% on input line 378.
+[11 <./Img/left_panel.png>]
+<Img/repofolderfile.png, id=403, 542.30084pt x 531.26726pt>
+File: Img/repofolderfile.png Graphic file (type png)
+<use Img/repofolderfile.png>
+Package pdftex.def Info: Img/repofolderfile.png  used on input line 379.
+(pdftex.def)             Requested size: 377.63858pt x 369.9552pt.
+<Img/engranaje.png, id=404, 232.61906pt x 56.46094pt>
+File: Img/engranaje.png Graphic file (type png)
+<use Img/engranaje.png>
+Package pdftex.def Info: Img/engranaje.png  used on input line 381.
+(pdftex.def)             Requested size: 232.63268pt x 56.46422pt.
+LaTeX Info: Redefining \. on input line 386.
+LaTeX Info: Redefining \% on input line 386.
+LaTeX Info: Redefining \. on input line 386.
+LaTeX Info: Redefining \% on input line 386.
+[12 <./Img/repofolderfile.png> <./Img/engranaje.png>]
+<Img/docs.png, id=411, 235.63031pt x 336.50719pt>
+File: Img/docs.png Graphic file (type png)
+<use Img/docs.png>
+Package pdftex.def Info: Img/docs.png  used on input line 387.
+(pdftex.def)             Requested size: 235.63332pt x 336.51147pt.
+<Img/doc_ejemplo.png, id=412, 240.9pt x 311.66437pt>
+File: Img/doc_ejemplo.png Graphic file (type png)
+<use Img/doc_ejemplo.png>
+Package pdftex.def Info: Img/doc_ejemplo.png  used on input line 389.
+(pdftex.def)             Requested size: 240.90306pt x 311.66835pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 391.
+LaTeX Info: Redefining \% on input line 391.
+LaTeX Info: Redefining \. on input line 391.
+LaTeX Info: Redefining \% on input line 391.
+[13 <./Img/docs.png>]
+<Img/assets.png, id=419, 234.8775pt x 337.26pt>
+File: Img/assets.png Graphic file (type png)
+<use Img/assets.png>
+Package pdftex.def Info: Img/assets.png  used on input line 395.
+(pdftex.def)             Requested size: 234.8805pt x 337.26431pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+[14 <./Img/doc_ejemplo.png>]
+<Img/newAssets.png, id=425, 1353.55687pt x 895.84688pt>
+File: Img/newAssets.png Graphic file (type png)
+<use Img/newAssets.png>
+Package pdftex.def Info: Img/newAssets.png  used on input line 397.
+(pdftex.def)             Requested size: 377.6302pt x 249.93323pt.
+LaTeX Info: Redefining \. on input line 402.
+LaTeX Info: Redefining \% on input line 402.
+LaTeX Info: Redefining \. on input line 402.
+LaTeX Info: Redefining \% on input line 402.
+[15 <./Img/assets.png> <./Img/newAssets.png>]
+<Img/editor.png, id=432, 467.49657pt x 362.10281pt>
+File: Img/editor.png Graphic file (type png)
+<use Img/editor.png>
+Package pdftex.def Info: Img/editor.png  used on input line 403.
+(pdftex.def)             Requested size: 377.64293pt x 292.50603pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+05.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<Img/links.png, id=433, 185.94469pt x 83.5622pt>
+File: Img/links.png Graphic file (type png)
+<use Img/links.png>
+Package pdftex.def Info: Img/links.png  used on input line 407.
+(pdftex.def)             Requested size: 185.95839pt x 83.56834pt.
+<Img/save.png, id=434, 170.13562pt x 82.80937pt>
+File: Img/save.png Graphic file (type png)
+<use Img/save.png>
+Package pdftex.def Info: Img/save.png  used on input line 411.
+(pdftex.def)             Requested size: 170.14297pt x 82.81294pt.
+LaTeX Info: Redefining \. on input line 414.
+LaTeX Info: Redefining \% on input line 414.
+LaTeX Info: Redefining \. on input line 414.
+LaTeX Info: Redefining \% on input line 414.
+[16 <./Img/editor.png> <./Img/links.png> <./Img/save.png>]
+<Img/run.png, id=444, 189.70876pt x 38.39343pt>
+File: Img/run.png Graphic file (type png)
+<use Img/run.png>
+Package pdftex.def Info: Img/run.png  used on input line 415.
+(pdftex.def)             Requested size: 189.71985pt x 38.39566pt.
+<Img/search.png, id=445, 428.35031pt x 86.57344pt>
+File: Img/search.png Graphic file (type png)
+<use Img/search.png>
+Package pdftex.def Info: Img/search.png  used on input line 445.
+(pdftex.def)             Requested size: 377.62918pt x 76.32222pt.
+LaTeX Info: Redefining \. on input line 449.
+LaTeX Info: Redefining \% on input line 449.
+LaTeX Info: Redefining \. on input line 449.
+LaTeX Info: Redefining \% on input line 449.
+[17 <./Img/run.png> <./Img/search.png>]
+<Img/drawing.png, id=452, 379.4175pt x 280.04625pt>
+File: Img/drawing.png Graphic file (type png)
+<use Img/drawing.png>
+Package pdftex.def Info: Img/drawing.png  used on input line 464.
+(pdftex.def)             Requested size: 377.6334pt x 278.7294pt.
+<Img/layer.png, id=453, 529.22719pt x 306.39468pt>
+File: Img/layer.png Graphic file (type png)
+<use Img/layer.png>
+Package pdftex.def Info: Img/layer.png  used on input line 470.
+(pdftex.def)             Requested size: 377.62741pt x 218.62639pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 472.
+LaTeX Info: Redefining \% on input line 472.
+LaTeX Info: Redefining \. on input line 472.
+LaTeX Info: Redefining \% on input line 472.
+[18 <./Img/drawing.png>]
+<Img/rigthPanel.png, id=462, 410.2828pt x 268.75406pt>
+File: Img/rigthPanel.png Graphic file (type png)
+<use Img/rigthPanel.png>
+Package pdftex.def Info: Img/rigthPanel.png  used on input line 476.
+(pdftex.def)             Requested size: 377.62126pt x 247.35925pt.
+<Img/inspector.png, id=463, 300.3722pt x 217.5628pt>
+File: Img/inspector.png Graphic file (type png)
+<use Img/inspector.png>
+Package pdftex.def Info: Img/inspector.png  used on input line 482.
+(pdftex.def)             Requested size: 300.38977pt x 217.57555pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 484.
+LaTeX Info: Redefining \% on input line 484.
+LaTeX Info: Redefining \. on input line 484.
+LaTeX Info: Redefining \% on input line 484.
+[19 <./Img/layer.png> <./Img/rigthPanel.png>]
+<Img/task.png, id=471, 660.21657pt x 308.65312pt>
+File: Img/task.png Graphic file (type png)
+<use Img/task.png>
+Package pdftex.def Info: Img/task.png  used on input line 503.
+(pdftex.def)             Requested size: 377.63698pt x 176.54636pt.
+LaTeX Info: Redefining \. on input line 509.
+LaTeX Info: Redefining \% on input line 509.
+LaTeX Info: Redefining \. on input line 509.
+LaTeX Info: Redefining \% on input line 509.
+[20 <./Img/inspector.png> <./Img/task.png>]
+LaTeX Info: Redefining \. on input line 562.
+LaTeX Info: Redefining \% on input line 562.
+LaTeX Info: Redefining \. on input line 562.
+LaTeX Info: Redefining \% on input line 562.
+[21]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+562.
+
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.f
+d
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Info: Redefining \. on input line 574.
+LaTeX Info: Redefining \% on input line 574.
+LaTeX Info: Redefining \. on input line 574.
+LaTeX Info: Redefining \% on input line 574.
+[22]
+Cap\'{\i }tulo 3.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 588.
+LaTeX Info: Redefining \. on input line 606.
+LaTeX Info: Redefining \% on input line 606.
+[23
+
+]
+LaTeX Info: Redefining \. on input line 643.
+LaTeX Info: Redefining \% on input line 643.
+LaTeX Info: Redefining \. on input line 643.
+LaTeX Info: Redefining \% on input line 643.
+[24]
+LaTeX Info: Redefining \. on input line 709.
+LaTeX Info: Redefining \% on input line 709.
+LaTeX Info: Redefining \. on input line 709.
+LaTeX Info: Redefining \% on input line 709.
+[25]
+LaTeX Info: Redefining \. on input line 762.
+LaTeX Info: Redefining \% on input line 762.
+LaTeX Info: Redefining \. on input line 762.
+LaTeX Info: Redefining \% on input line 762.
+[26]
+LaTeX Info: Redefining \. on input line 807.
+LaTeX Info: Redefining \% on input line 807.
+LaTeX Info: Redefining \. on input line 807.
+LaTeX Info: Redefining \% on input line 807.
+[27]
+LaTeX Info: Redefining \. on input line 856.
+LaTeX Info: Redefining \% on input line 856.
+LaTeX Info: Redefining \. on input line 856.
+LaTeX Info: Redefining \% on input line 856.
+[28]
+Cap\'{\i }tulo 4.
+<Img/daigFunc.png, id=541, 940.9554pt x 476.5002pt>
+File: Img/daigFunc.png Graphic file (type png)
+<use Img/daigFunc.png>
+Package pdftex.def Info: Img/daigFunc.png  used on input line 870.
+(pdftex.def)             Requested size: 377.62462pt x 191.22925pt.
+
+Underfull \vbox (badness 4291) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 873.
+LaTeX Info: Redefining \% on input line 873.
+[29
+
+]
+LaTeX Info: Redefining \. on input line 916.
+LaTeX Info: Redefining \% on input line 916.
+LaTeX Info: Redefining \. on input line 916.
+LaTeX Info: Redefining \% on input line 916.
+[30 <./Img/daigFunc.png>]
+LaTeX Info: Redefining \. on input line 970.
+LaTeX Info: Redefining \% on input line 970.
+LaTeX Info: Redefining \. on input line 970.
+LaTeX Info: Redefining \% on input line 970.
+[31]
+LaTeX Info: Redefining \. on input line 1015.
+LaTeX Info: Redefining \% on input line 1015.
+LaTeX Info: Redefining \. on input line 1015.
+LaTeX Info: Redefining \% on input line 1015.
+[32]
+Underfull \vbox (badness 2103) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1056.
+LaTeX Info: Redefining \% on input line 1056.
+LaTeX Info: Redefining \. on input line 1056.
+LaTeX Info: Redefining \% on input line 1056.
+[33]
+LaTeX Info: Redefining \. on input line 1094.
+LaTeX Info: Redefining \% on input line 1094.
+LaTeX Info: Redefining \. on input line 1094.
+LaTeX Info: Redefining \% on input line 1094.
+[34]
+LaTeX Info: Redefining \. on input line 1155.
+LaTeX Info: Redefining \% on input line 1155.
+LaTeX Info: Redefining \. on input line 1155.
+LaTeX Info: Redefining \% on input line 1155.
+[35]
+LaTeX Info: Redefining \. on input line 1209.
+LaTeX Info: Redefining \% on input line 1209.
+LaTeX Info: Redefining \. on input line 1209.
+LaTeX Info: Redefining \% on input line 1209.
+[36]
+LaTeX Info: Redefining \. on input line 1294.
+LaTeX Info: Redefining \% on input line 1294.
+LaTeX Info: Redefining \. on input line 1294.
+LaTeX Info: Redefining \% on input line 1294.
+[37]
+<Img/objetosServ.png, id=591, 411.55283pt x 510.85512pt>
+File: Img/objetosServ.png Graphic file (type png)
+<use Img/objetosServ.png>
+Package pdftex.def Info: Img/objetosServ.png  used on input line 1296.
+(pdftex.def)             Requested size: 377.64099pt x 468.7608pt.
+LaTeX Info: Redefining \. on input line 1301.
+LaTeX Info: Redefining \% on input line 1301.
+LaTeX Info: Redefining \. on input line 1301.
+LaTeX Info: Redefining \% on input line 1301.
+[38 <./Img/objetosServ.png>]
+LaTeX Info: Redefining \. on input line 1333.
+LaTeX Info: Redefining \% on input line 1333.
+LaTeX Info: Redefining \. on input line 1333.
+LaTeX Info: Redefining \% on input line 1333.
+[39]
+LaTeX Info: Redefining \. on input line 1359.
+LaTeX Info: Redefining \% on input line 1359.
+LaTeX Info: Redefining \. on input line 1359.
+LaTeX Info: Redefining \% on input line 1359.
+[40]
+Cap\'{\i }tulo 5.
+LaTeX Info: Redefining \. on input line 1440.
+LaTeX Info: Redefining \% on input line 1440.
+[41
+
+]
+Underfull \vbox (badness 10000) detected at line 1440
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1440
+ []
+
+LaTeX Info: Redefining \. on input line 1440.
+LaTeX Info: Redefining \% on input line 1440.
+LaTeX Info: Redefining \. on input line 1440.
+LaTeX Info: Redefining \% on input line 1440.
+[42]
+LaTeX Info: Redefining \. on input line 1507.
+LaTeX Info: Redefining \% on input line 1507.
+LaTeX Info: Redefining \. on input line 1507.
+LaTeX Info: Redefining \% on input line 1507.
+[43]
+<Img/geometrias.png, id=622, 173.14688pt x 152.82094pt>
+File: Img/geometrias.png Graphic file (type png)
+<use Img/geometrias.png>
+Package pdftex.def Info: Img/geometrias.png  used on input line 1511.
+(pdftex.def)             Requested size: 173.15437pt x 152.82753pt.
+<Img/punto.png, id=623, 117.43875pt x 27.85406pt>
+File: Img/punto.png Graphic file (type png)
+<use Img/punto.png>
+Package pdftex.def Info: Img/punto.png  used on input line 1515.
+(pdftex.def)             Requested size: 117.44023pt x 27.85439pt.
+<Img/linea.png, id=624, 117.43875pt x 27.85406pt>
+File: Img/linea.png Graphic file (type png)
+<use Img/linea.png>
+Package pdftex.def Info: Img/linea.png  used on input line 1519.
+(pdftex.def)             Requested size: 117.44023pt x 27.85439pt.
+<Img/poligono.png, id=625, 117.43875pt x 27.85406pt>
+File: Img/poligono.png Graphic file (type png)
+<use Img/poligono.png>
+Package pdftex.def Info: Img/poligono.png  used on input line 1523.
+(pdftex.def)             Requested size: 117.44023pt x 27.85439pt.
+<Img/rec.png, id=626, 117.43875pt x 27.85406pt>
+File: Img/rec.png Graphic file (type png)
+<use Img/rec.png>
+Package pdftex.def Info: Img/rec.png  used on input line 1527.
+(pdftex.def)             Requested size: 117.44023pt x 27.85439pt.
+LaTeX Info: Redefining \. on input line 1531.
+LaTeX Info: Redefining \% on input line 1531.
+LaTeX Info: Redefining \. on input line 1531.
+LaTeX Info: Redefining \% on input line 1531.
+[44 <./Img/geometrias.png> <./Img/punto.png> <./Img/linea.png> <./Img/poligono.
+png> <./Img/rec.png>]
+<Img/import.png, id=631, 273.27094pt x 186.6975pt>
+File: Img/import.png Graphic file (type png)
+<use Img/import.png>
+Package pdftex.def Info: Img/import.png  used on input line 1531.
+(pdftex.def)             Requested size: 273.28275pt x 186.70558pt.
+<Img/mano.png, id=632, 102.3825pt x 29.35968pt>
+File: Img/mano.png Graphic file (type png)
+<use Img/mano.png>
+Package pdftex.def Info: Img/mano.png  used on input line 1537.
+(pdftex.def)             Requested size: 102.38225pt x 29.35959pt.
+<Img/nuevaGeo.png, id=633, 310.91156pt x 125.71968pt>
+File: Img/nuevaGeo.png Graphic file (type png)
+<use Img/nuevaGeo.png>
+Package pdftex.def Info: Img/nuevaGeo.png  used on input line 1541.
+(pdftex.def)             Requested size: 310.91078pt x 125.71936pt.
+<Img/dibujarGeo.png, id=634, 207.02344pt x 102.3825pt>
+File: Img/dibujarGeo.png Graphic file (type png)
+<use Img/dibujarGeo.png>
+Package pdftex.def Info: Img/dibujarGeo.png  used on input line 1545.
+(pdftex.def)             Requested size: 207.03555pt x 102.38849pt.
+LaTeX Info: Redefining \. on input line 1548.
+LaTeX Info: Redefining \% on input line 1548.
+LaTeX Info: Redefining \. on input line 1548.
+LaTeX Info: Redefining \% on input line 1548.
+[45 <./Img/import.png> <./Img/mano.png> <./Img/nuevaGeo.png> <./Img/dibujarGeo.
+png>]
+<Img/menuGeo.png, id=643, 380.17032pt x 271.76532pt>
+File: Img/menuGeo.png Graphic file (type png)
+<use Img/menuGeo.png>
+Package pdftex.def Info: Img/menuGeo.png  used on input line 1549.
+(pdftex.def)             Requested size: 377.63437pt x 269.95248pt.
+LaTeX Info: Redefining \. on input line 1556.
+LaTeX Info: Redefining \% on input line 1556.
+LaTeX Info: Redefining \. on input line 1556.
+LaTeX Info: Redefining \% on input line 1556.
+[46 <./Img/menuGeo.png>]
+Cap\'{\i }tulo 6.
+LaTeX Info: Redefining \. on input line 1595.
+LaTeX Info: Redefining \% on input line 1595.
+[47
+
+]
+Overfull \hbox (5.94838pt too wide) in paragraph at lines 1639--1639
+[]\T1/lmr/bx/n/14.4 Adición de nuevas propiedades o mod-i-fi-cación de propieda
+des
+ []
+
+LaTeX Info: Redefining \. on input line 1642.
+LaTeX Info: Redefining \% on input line 1642.
+LaTeX Info: Redefining \. on input line 1642.
+LaTeX Info: Redefining \% on input line 1642.
+[48]
+LaTeX Info: Redefining \. on input line 1694.
+LaTeX Info: Redefining \% on input line 1694.
+LaTeX Info: Redefining \. on input line 1694.
+LaTeX Info: Redefining \% on input line 1694.
+[49]
+LaTeX Info: Redefining \. on input line 1746.
+LaTeX Info: Redefining \% on input line 1746.
+LaTeX Info: Redefining \. on input line 1746.
+LaTeX Info: Redefining \% on input line 1746.
+[50]
+LaTeX Info: Redefining \. on input line 1799.
+LaTeX Info: Redefining \% on input line 1799.
+LaTeX Info: Redefining \. on input line 1799.
+LaTeX Info: Redefining \% on input line 1799.
+[51]
+LaTeX Info: Redefining \. on input line 1808.
+LaTeX Info: Redefining \% on input line 1808.
+LaTeX Info: Redefining \. on input line 1808.
+LaTeX Info: Redefining \% on input line 1808.
+[52]
+Cap\'{\i }tulo 7.
+
+Underfull \vbox (badness 3058) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 1849.
+LaTeX Info: Redefining \% on input line 1849.
+[53
+
+]
+LaTeX Info: Redefining \. on input line 1898.
+LaTeX Info: Redefining \% on input line 1898.
+LaTeX Info: Redefining \. on input line 1898.
+LaTeX Info: Redefining \% on input line 1898.
+[54]
+LaTeX Info: Redefining \. on input line 2006.
+LaTeX Info: Redefining \% on input line 2006.
+LaTeX Info: Redefining \. on input line 2006.
+LaTeX Info: Redefining \% on input line 2006.
+[55]
+Underfull \vbox (badness 10000) detected at line 2006
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2006
+ []
+
+LaTeX Info: Redefining \. on input line 2006.
+LaTeX Info: Redefining \% on input line 2006.
+LaTeX Info: Redefining \. on input line 2006.
+LaTeX Info: Redefining \% on input line 2006.
+[56]
+LaTeX Info: Redefining \. on input line 2039.
+LaTeX Info: Redefining \% on input line 2039.
+LaTeX Info: Redefining \. on input line 2039.
+LaTeX Info: Redefining \% on input line 2039.
+[57]
+LaTeX Info: Redefining \. on input line 2092.
+LaTeX Info: Redefining \% on input line 2092.
+LaTeX Info: Redefining \. on input line 2092.
+LaTeX Info: Redefining \% on input line 2092.
+[58]
+LaTeX Info: Redefining \. on input line 2146.
+LaTeX Info: Redefining \% on input line 2146.
+LaTeX Info: Redefining \. on input line 2146.
+LaTeX Info: Redefining \% on input line 2146.
+[59]
+LaTeX Info: Redefining \. on input line 2195.
+LaTeX Info: Redefining \% on input line 2195.
+LaTeX Info: Redefining \. on input line 2195.
+LaTeX Info: Redefining \% on input line 2195.
+[60]
+LaTeX Info: Redefining \. on input line 2274.
+LaTeX Info: Redefining \% on input line 2274.
+LaTeX Info: Redefining \. on input line 2274.
+LaTeX Info: Redefining \% on input line 2274.
+[61]
+LaTeX Info: Redefining \. on input line 2321.
+LaTeX Info: Redefining \% on input line 2321.
+LaTeX Info: Redefining \. on input line 2321.
+LaTeX Info: Redefining \% on input line 2321.
+[62]
+LaTeX Info: Redefining \. on input line 2372.
+LaTeX Info: Redefining \% on input line 2372.
+LaTeX Info: Redefining \. on input line 2372.
+LaTeX Info: Redefining \% on input line 2372.
+[63]
+LaTeX Info: Redefining \. on input line 2420.
+LaTeX Info: Redefining \% on input line 2420.
+LaTeX Info: Redefining \. on input line 2420.
+LaTeX Info: Redefining \% on input line 2420.
+[64]
+LaTeX Info: Redefining \. on input line 2479.
+LaTeX Info: Redefining \% on input line 2479.
+LaTeX Info: Redefining \. on input line 2479.
+LaTeX Info: Redefining \% on input line 2479.
+[65]
+LaTeX Info: Redefining \. on input line 2515.
+LaTeX Info: Redefining \% on input line 2515.
+LaTeX Info: Redefining \. on input line 2515.
+LaTeX Info: Redefining \% on input line 2515.
+[66]
+LaTeX Info: Redefining \. on input line 2581.
+LaTeX Info: Redefining \% on input line 2581.
+LaTeX Info: Redefining \. on input line 2581.
+LaTeX Info: Redefining \% on input line 2581.
+[67]
+LaTeX Info: Redefining \. on input line 2611.
+LaTeX Info: Redefining \% on input line 2611.
+LaTeX Info: Redefining \. on input line 2611.
+LaTeX Info: Redefining \% on input line 2611.
+[68]
+LaTeX Info: Redefining \. on input line 2666.
+LaTeX Info: Redefining \% on input line 2666.
+LaTeX Info: Redefining \. on input line 2666.
+LaTeX Info: Redefining \% on input line 2666.
+[69]
+LaTeX Info: Redefining \. on input line 2699.
+LaTeX Info: Redefining \% on input line 2699.
+LaTeX Info: Redefining \. on input line 2699.
+LaTeX Info: Redefining \% on input line 2699.
+[70]
+LaTeX Info: Redefining \. on input line 2738.
+LaTeX Info: Redefining \% on input line 2738.
+LaTeX Info: Redefining \. on input line 2738.
+LaTeX Info: Redefining \% on input line 2738.
+[71]
+LaTeX Info: Redefining \. on input line 2741.
+LaTeX Info: Redefining \% on input line 2741.
+LaTeX Info: Redefining \. on input line 2741.
+LaTeX Info: Redefining \% on input line 2741.
+[72
+
+]
+Cap\'{\i }tulo 8.
+LaTeX Info: Redefining \. on input line 2775.
+LaTeX Info: Redefining \% on input line 2775.
+[73]
+Underfull \hbox (badness 1163) in paragraph at lines 2796--2797
+[]\T1/lmr/m/n/12 Los metadatos de la im-a-gen se en-cuen-tran co-mo propiedades
+. Para con-sul-tar-las se
+ []
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 2796--2797
+\T1/lmr/m/n/12 puede uti-lizar el sigu-iente co-man-do: \T1/lmtt/m/n/12 .proper
+tyNames\T1/lmr/m/n/12 . Otros co-man-dos que fa-cil-i-
+ []
+
+
+Underfull \hbox (badness 2443) in paragraph at lines 2796--2797
+\T1/lmr/m/n/12 tan la con-sul-ta de al-gunos el-e-men-tos par-tic-u-lares son: 
+\T1/lmtt/m/n/12 .bandNames\T1/lmr/m/n/12 , \T1/lmtt/m/n/12 .projection\T1/lmr/m
+/n/12 ,
+ []
+
+LaTeX Info: Redefining \. on input line 2820.
+LaTeX Info: Redefining \% on input line 2820.
+LaTeX Info: Redefining \. on input line 2820.
+LaTeX Info: Redefining \% on input line 2820.
+[74]
+Overfull \hbox (5.94838pt too wide) in paragraph at lines 2867--2867
+[]\T1/lmr/bx/n/14.4 Adición de nuevas propiedades o mod-i-fi-cación de propieda
+des
+ []
+
+LaTeX Info: Redefining \. on input line 2870.
+LaTeX Info: Redefining \% on input line 2870.
+LaTeX Info: Redefining \. on input line 2870.
+LaTeX Info: Redefining \% on input line 2870.
+[75]
+LaTeX Info: Redefining \. on input line 2929.
+LaTeX Info: Redefining \% on input line 2929.
+LaTeX Info: Redefining \. on input line 2929.
+LaTeX Info: Redefining \% on input line 2929.
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 2956--2957
+[]|\T1/lmr/m/n/12 Si no se cam-bia el nom-bre de la ban-da pro-duci-da por
+ []
+
+LaTeX Info: Redefining \. on input line 2968.
+LaTeX Info: Redefining \% on input line 2968.
+LaTeX Info: Redefining \. on input line 2968.
+LaTeX Info: Redefining \% on input line 2968.
+[77]
+LaTeX Info: Redefining \. on input line 3010.
+LaTeX Info: Redefining \% on input line 3010.
+LaTeX Info: Redefining \. on input line 3010.
+LaTeX Info: Redefining \% on input line 3010.
+[78]
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
+[79]
+<Img/SRTM.png, id=886, 462.528pt x 216.5691pt>
+File: Img/SRTM.png Graphic file (type png)
+<use Img/SRTM.png>
+Package pdftex.def Info: Img/SRTM.png  used on input line 3095.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 3097.
+LaTeX Info: Redefining \% on input line 3097.
+LaTeX Info: Redefining \. on input line 3097.
+LaTeX Info: Redefining \% on input line 3097.
+[80]
+<Img/SRTM_prop.png, id=895, 462.528pt x 216.5691pt>
+File: Img/SRTM_prop.png Graphic file (type png)
+<use Img/SRTM_prop.png>
+Package pdftex.def Info: Img/SRTM_prop.png  used on input line 3099.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 3123.
+LaTeX Info: Redefining \% on input line 3123.
+LaTeX Info: Redefining \. on input line 3123.
+LaTeX Info: Redefining \% on input line 3123.
+[81 <./Img/SRTM.png> <./Img/SRTM_prop.png>]
+LaTeX Info: Redefining \. on input line 3180.
+LaTeX Info: Redefining \% on input line 3180.
+LaTeX Info: Redefining \. on input line 3180.
+LaTeX Info: Redefining \% on input line 3180.
+[82]
+<Img/histElevacion.png, id=906, 1501.61pt x 600.2425pt>
+File: Img/histElevacion.png Graphic file (type png)
+<use Img/histElevacion.png>
+Package pdftex.def Info: Img/histElevacion.png  used on input line 3182.
+(pdftex.def)             Requested size: 377.62411pt x 150.94867pt.
+LaTeX Info: Redefining \. on input line 3184.
+LaTeX Info: Redefining \% on input line 3184.
+LaTeX Info: Redefining \. on input line 3184.
+LaTeX Info: Redefining \% on input line 3184.
+[83 <./Img/histElevacion.png>]
+LaTeX Info: Redefining \. on input line 3187.
+LaTeX Info: Redefining \% on input line 3187.
+LaTeX Info: Redefining \. on input line 3187.
+LaTeX Info: Redefining \% on input line 3187.
+[84
+
+]
+Cap\'{\i }tulo 9.
+LaTeX Info: Redefining \. on input line 3221.
+LaTeX Info: Redefining \% on input line 3221.
+[85]
+LaTeX Info: Redefining \. on input line 3269.
+LaTeX Info: Redefining \% on input line 3269.
+LaTeX Info: Redefining \. on input line 3269.
+LaTeX Info: Redefining \% on input line 3269.
+[86]
+LaTeX Info: Redefining \. on input line 3314.
+LaTeX Info: Redefining \% on input line 3314.
+LaTeX Info: Redefining \. on input line 3314.
+LaTeX Info: Redefining \% on input line 3314.
+[87]
+LaTeX Info: Redefining \. on input line 3374.
+LaTeX Info: Redefining \% on input line 3374.
+LaTeX Info: Redefining \. on input line 3374.
+LaTeX Info: Redefining \% on input line 3374.
+[88]
+LaTeX Info: Redefining \. on input line 3414.
+LaTeX Info: Redefining \% on input line 3414.
+LaTeX Info: Redefining \. on input line 3414.
+LaTeX Info: Redefining \% on input line 3414.
+[89]
+LaTeX Info: Redefining \. on input line 3462.
+LaTeX Info: Redefining \% on input line 3462.
+LaTeX Info: Redefining \. on input line 3462.
+LaTeX Info: Redefining \% on input line 3462.
+[90]
+LaTeX Info: Redefining \. on input line 3513.
+LaTeX Info: Redefining \% on input line 3513.
+LaTeX Info: Redefining \. on input line 3513.
+LaTeX Info: Redefining \% on input line 3513.
+[91]
+LaTeX Info: Redefining \. on input line 3555.
+LaTeX Info: Redefining \% on input line 3555.
+LaTeX Info: Redefining \. on input line 3555.
+LaTeX Info: Redefining \% on input line 3555.
+[92]
+<Img/Ruta_coleccion.png, id=977, 462.2871pt x 199.947pt>
+File: Img/Ruta_coleccion.png Graphic file (type png)
+<use Img/Ruta_coleccion.png>
+Package pdftex.def Info: Img/Ruta_coleccion.png  used on input line 3556.
+(pdftex.def)             Requested size: 377.62476pt x 163.3291pt.
+
+Overfull \hbox (44.1746pt too wide) in paragraph at lines 3570--3571
+[]\T1/lmr/m/n/12 En este ca-so se debe es-cribir ex-ac-ta-mente igual el cam-po
+ de los metadatos (CLOUD_COVER_LAND)
+ []
+
+LaTeX Info: Redefining \. on input line 3599.
+LaTeX Info: Redefining \% on input line 3599.
+LaTeX Info: Redefining \. on input line 3599.
+LaTeX Info: Redefining \% on input line 3599.
+[93 <./Img/Ruta_coleccion.png>]
+<Img/CamposImgCol.png, id=983, 462.528pt x 216.5691pt>
+File: Img/CamposImgCol.png Graphic file (type png)
+<use Img/CamposImgCol.png>
+Package pdftex.def Info: Img/CamposImgCol.png  used on input line 3604.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+<Img/RGBIm.png, id=984, 462.528pt x 216.5691pt>
+File: Img/RGBIm.png Graphic file (type png)
+<use Img/RGBIm.png>
+Package pdftex.def Info: Img/RGBIm.png  used on input line 3625.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+
+Underfull \vbox (badness 2828) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3628.
+LaTeX Info: Redefining \% on input line 3628.
+LaTeX Info: Redefining \. on input line 3628.
+LaTeX Info: Redefining \% on input line 3628.
+[94 <./Img/CamposImgCol.png>]
+LaTeX Info: Redefining \. on input line 3651.
+LaTeX Info: Redefining \% on input line 3651.
+LaTeX Info: Redefining \. on input line 3651.
+LaTeX Info: Redefining \% on input line 3651.
+[95 <./Img/RGBIm.png>]
+<Img/imNubes.png, id=997, 462.528pt x 216.5691pt>
+File: Img/imNubes.png Graphic file (type png)
+<use Img/imNubes.png>
+Package pdftex.def Info: Img/imNubes.png  used on input line 3671.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+<Img/imSinNubes.png, id=998, 462.528pt x 216.5691pt>
+File: Img/imSinNubes.png Graphic file (type png)
+<use Img/imSinNubes.png>
+Package pdftex.def Info: Img/imSinNubes.png  used on input line 3694.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 3696.
+LaTeX Info: Redefining \% on input line 3696.
+LaTeX Info: Redefining \. on input line 3696.
+LaTeX Info: Redefining \% on input line 3696.
+[96 <./Img/imNubes.png>]
+<Img/imConNDVI.png, id=1004, 462.528pt x 216.5691pt>
+File: Img/imConNDVI.png Graphic file (type png)
+<use Img/imConNDVI.png>
+Package pdftex.def Info: Img/imConNDVI.png  used on input line 3698.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+<Img/imNDVI.png, id=1005, 462.528pt x 216.5691pt>
+File: Img/imNDVI.png Graphic file (type png)
+<use Img/imNDVI.png>
+Package pdftex.def Info: Img/imNDVI.png  used on input line 3720.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 3729.
+LaTeX Info: Redefining \% on input line 3729.
+LaTeX Info: Redefining \. on input line 3729.
+LaTeX Info: Redefining \% on input line 3729.
+[97 <./Img/imSinNubes.png> <./Img/imConNDVI.png>]
+LaTeX Info: Redefining \. on input line 3760.
+LaTeX Info: Redefining \% on input line 3760.
+LaTeX Info: Redefining \. on input line 3760.
+LaTeX Info: Redefining \% on input line 3760.
+[98 <./Img/imNDVI.png>]
+<Img/imDifNDVI.png, id=1020, 462.528pt x 216.5691pt>
+File: Img/imDifNDVI.png Graphic file (type png)
+<use Img/imDifNDVI.png>
+Package pdftex.def Info: Img/imDifNDVI.png  used on input line 3797.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 3801.
+LaTeX Info: Redefining \% on input line 3801.
+LaTeX Info: Redefining \. on input line 3801.
+LaTeX Info: Redefining \% on input line 3801.
+[99 <./Img/imDifNDVI.png>]
+LaTeX Info: Redefining \. on input line 3813.
+LaTeX Info: Redefining \% on input line 3813.
+LaTeX Info: Redefining \. on input line 3813.
+LaTeX Info: Redefining \% on input line 3813.
+[100]
+Cap\'{\i }tulo 10.
+<Img/Asset1.png, id=1030, 462.528pt x 216.5691pt>
+File: Img/Asset1.png Graphic file (type png)
+<use Img/Asset1.png>
+Package pdftex.def Info: Img/Asset1.png  used on input line 3820.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3832.
+LaTeX Info: Redefining \% on input line 3832.
+[101
+
+ <./Img/Asset1.png>]
+<Img/Asset2.png, id=1037, 462.528pt x 216.5691pt>
+File: Img/Asset2.png Graphic file (type png)
+<use Img/Asset2.png>
+Package pdftex.def Info: Img/Asset2.png  used on input line 3833.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+<Img/Asset3.png, id=1038, 462.528pt x 216.5691pt>
+File: Img/Asset3.png Graphic file (type png)
+<use Img/Asset3.png>
+Package pdftex.def Info: Img/Asset3.png  used on input line 3837.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+File: Img/newAssets.png Graphic file (type png)
+<use Img/newAssets.png>
+Package pdftex.def Info: Img/newAssets.png  used on input line 3848.
+(pdftex.def)             Requested size: 377.6302pt x 249.93323pt.
+
+Underfull \vbox (badness 4792) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 3850.
+LaTeX Info: Redefining \% on input line 3850.
+[102 <./Img/Asset2.png> <./Img/Asset3.png>]
+<Img/shareAssets.png, id=1045, 216.05719pt x 70.76437pt>
+File: Img/shareAssets.png Graphic file (type png)
+<use Img/shareAssets.png>
+Package pdftex.def Info: Img/shareAssets.png  used on input line 3863.
+(pdftex.def)             Requested size: 216.07312pt x 70.76958pt.
+LaTeX Info: Redefining \. on input line 3874.
+LaTeX Info: Redefining \% on input line 3874.
+[103 <./Img/shareAssets.png>]
+LaTeX Info: Redefining \. on input line 3877.
+LaTeX Info: Redefining \% on input line 3877.
+[104
+
+]
+Cap\'{\i }tulo 11.
+LaTeX Info: Redefining \. on input line 3916.
+LaTeX Info: Redefining \% on input line 3916.
+[105]
+Underfull \hbox (badness 10000) in paragraph at lines 3938--3939
+[]|\T1/lmr/m/n/12 En al-gu-nas oca-siones, los pro-ce-sos de \T1/lmtt/m/n/12 .r
+educeRegions \T1/lmr/m/n/12 o
+ []
+
+LaTeX Info: Redefining \. on input line 3953.
+LaTeX Info: Redefining \% on input line 3953.
+LaTeX Info: Redefining \. on input line 3953.
+LaTeX Info: Redefining \% on input line 3953.
+[106]
+LaTeX Info: Redefining \. on input line 4012.
+LaTeX Info: Redefining \% on input line 4012.
+LaTeX Info: Redefining \. on input line 4012.
+LaTeX Info: Redefining \% on input line 4012.
+[107]
+LaTeX Info: Redefining \. on input line 4053.
+LaTeX Info: Redefining \% on input line 4053.
+LaTeX Info: Redefining \. on input line 4053.
+LaTeX Info: Redefining \% on input line 4053.
+[108]
+LaTeX Info: Redefining \. on input line 4055.
+LaTeX Info: Redefining \% on input line 4055.
+LaTeX Info: Redefining \. on input line 4055.
+LaTeX Info: Redefining \% on input line 4055.
+[109]
+LaTeX Info: Redefining \. on input line 4058.
+LaTeX Info: Redefining \% on input line 4058.
+LaTeX Info: Redefining \. on input line 4058.
+LaTeX Info: Redefining \% on input line 4058.
+[110
+
+]
+Cap\'{\i }tulo 12.
+LaTeX Info: Redefining \. on input line 4081.
+LaTeX Info: Redefining \% on input line 4081.
+[111]
+LaTeX Info: Redefining \. on input line 4148.
+LaTeX Info: Redefining \% on input line 4148.
+LaTeX Info: Redefining \. on input line 4148.
+LaTeX Info: Redefining \% on input line 4148.
+[112]
+LaTeX Info: Redefining \. on input line 4164.
+LaTeX Info: Redefining \% on input line 4164.
+LaTeX Info: Redefining \. on input line 4164.
+LaTeX Info: Redefining \% on input line 4164.
+[113]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4226.
+LaTeX Info: Redefining \% on input line 4226.
+LaTeX Info: Redefining \. on input line 4226.
+LaTeX Info: Redefining \% on input line 4226.
+[114]
+<Img/RFClass.png, id=1119, 462.528pt x 216.5691pt>
+File: Img/RFClass.png Graphic file (type png)
+<use Img/RFClass.png>
+Package pdftex.def Info: Img/RFClass.png  used on input line 4239.
+(pdftex.def)             Requested size: 377.6451pt x 176.82445pt.
+LaTeX Info: Redefining \. on input line 4242.
+LaTeX Info: Redefining \% on input line 4242.
+LaTeX Info: Redefining \. on input line 4242.
+LaTeX Info: Redefining \% on input line 4242.
+[115 <./Img/RFClass.png>]
+<Img/SpectralSignClass.png, id=1126, 1501.61pt x 658.46pt>
+File: Img/SpectralSignClass.png Graphic file (type png)
+<use Img/SpectralSignClass.png>
+Package pdftex.def Info: Img/SpectralSignClass.png  used on input line 4263.
+(pdftex.def)             Requested size: 377.62411pt x 165.58917pt.
+LaTeX Info: Redefining \. on input line 4285.
+LaTeX Info: Redefining \% on input line 4285.
+LaTeX Info: Redefining \. on input line 4285.
+LaTeX Info: Redefining \% on input line 4285.
+[116 <./Img/SpectralSignClass.png>]
+Underfull \vbox (badness 3568) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 4320.
+LaTeX Info: Redefining \% on input line 4320.
+LaTeX Info: Redefining \. on input line 4320.
+LaTeX Info: Redefining \% on input line 4320.
+[117]
+LaTeX Info: Redefining \. on input line 4348.
+LaTeX Info: Redefining \% on input line 4348.
+LaTeX Info: Redefining \. on input line 4348.
+LaTeX Info: Redefining \% on input line 4348.
+[118]
+Cap\'{\i }tulo 13.
+LaTeX Info: Redefining \. on input line 4371.
+LaTeX Info: Redefining \% on input line 4371.
+[119
+
+]
+LaTeX Info: Redefining \. on input line 4395.
+LaTeX Info: Redefining \% on input line 4395.
+[120]
+LaTeX Info: Redefining \. on input line 4396.
+LaTeX Info: Redefining \% on input line 4396.
+[121] (./_main.aux
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+)
+Package rerunfilecheck Info: File `_main.out' has not changed.
+(rerunfilecheck)             Checksum: A57964150B68DF266EF45829A540907E;10951.
+ ) 
+Here is how much of TeX's memory you used:
+ 26239 strings out of 480477
+ 486422 string characters out of 5897077
+ 774258 words of memory out of 5000000
+ 43045 multiletter control sequences out of 15000+600000
+ 465887 words of font info for 77 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 83i,12n,83p,1317b,823s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/l
+m-ts1.enc}{c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dv
+ips/lm/lm-ec.enc}{c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts
+/enc/dvips/fontawesome5/fa5free2.enc}<c:/Users/JonathanVSV/AppData/Roaming/Tiny
+TeX/texmf-dist/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><c:/U
+sers/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx1
+2.pfb><c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
+ic/lm/lmr12.pfb><c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/
+type1/public/lm/lmr17.pfb><c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-d
+ist/fonts/type1/public/lm/lmri12.pfb><c:/Users/JonathanVSV/AppData/Roaming/Tiny
+TeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/JonathanVSV/AppData/R
+oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/JonathanVS
+V/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users
+/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.p
+fb>
+Output written on _main.pdf (127 pages, 17651368 bytes).
+PDF statistics:
+ 1311 PDF objects out of 1440 (max. 8388607)
+ 1052 compressed objects within 11 object streams
+ 391 named destinations out of 1000 (max. 500000)
+ 721 words of extra memory for PDF output out of 10000 (max. 10000000)
+

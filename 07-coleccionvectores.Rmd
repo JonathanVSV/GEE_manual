@@ -1,0 +1,757 @@
+\newpage
+# Colecciones de Vectores
+
+Las colecciones de vectores son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
+ 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+GEE ofrece un catálogo de colecciones de vectores que se puede buscar en la barra de búsqueda. Estas colecciones de vectores se llaman tables.
+:::
+::::
+
+Ejercicio 13
+
+```{js echo = T}
+// En el buscador se busca una tabla de paises 'countries', y se escribe 
+// el ID de la tabla, en este caso es una colección de vectores del 
+// departamento de estado de Estados unidos, que contiene las divisiones 
+// políticas de los países del mundo  
+var países = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+La búsqueda de información vectorial en los acervos de GEE es más difícil que la búsqueda de imágenes. Eso ocurre porque a pesar de que hay mucha información vectorial disponible (compartida por usuarios), solo está indexada la información compartida por Google.
+:::
+::::
+
+## Información y metadatos
+
+Las colecciones de vectores contienen los metadatos e información de todos los vectores que contienen. Gracias a ello, se puede utilizar esa información para filtrar y utilizar únicamente los vectores que cumplen con ciertos criterios.
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Al usar `print` con las colecciones de vectores, la consola puede mostrar máximo 5000 vectores. En caso que uno necesite usar `print` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método `.limit` el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean <= 5000).
+:::
+::::
+
+Ejercicio 14
+
+```{js echo = T}
+// Llamamos una capa de cuencas de alta resolución de GEE
+var cuencas = ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12");
+
+// Cantidad de vectores en la colección (1034083)
+var cantidad =cuencas.size(); 
+// Seleccionamos solo los primero 50 vectores
+var primeras50cuencas= cuencas.limit(50); 
+// Este comando resultará en un error porque excede los 5000 vectores
+print(cuencas); 
+// Esta capa contiene todos los vectores 1034083. Nótese que en el mapa 
+// sí se pueden proyectar más de 5000 vectores, aunque esta capa es un 
+// poco pesada 
+Map.addLayer(cuencas,{},'todas las cuencas');
+// Esta capa solo contiene las primeras 1000 cuencas y carga mucho más 
+// rápido (NorOccidente de áfrica)
+Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas');
+``` 
+
+## Creación de colecciones de vectores
+
+Una colección de vectores puede contener como elementos: 
+
+*	Vectores.
+*	Geometrías.
+*	Otras colecciones de vectores.
+
+No es relevante si los elementos de la colección tienen o no atributos.
+
+Una colección de vectores se define a partir del método `ee.FeatureCollection` y debe contener geometrías, vectores, o colección de vectores. Una colección de geometrías  puede contener un solo vector o una sola geometría.
+
+Ejercicio 15
+
+```{js echo = T}
+// Crear una colección de vectores con un solo punto, sin atributos 
+var colección = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
+```
+
+Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
+
+## Información adicional para el ejemplo 
+
+```{js echo = T}
+var Punto = ee.Feature(ee.Geometry.Point(-99.1362, 19.4352),
+    {pais:'Mexico',capital:'cdmx'});
+
+var Multipunto = ee.Feature(
+ee.Geometry.MultiPoint([-90.496, 14.605,                               
+    					-88.717, 17.245,                              
+    					-87.157, 14.094,
+    					-89.2275, 13.6937,
+    					-86.273, 12.115
+    					-84.097, 9.958
+    					-79.527, 8.983]),
+    { pais: ['Guatemala', 
+      	'Belice', 
+      	'Honduras', 
+      	'El Salvador', 
+      	'Nicaragua', 
+      	'Costa Rica', 
+      	'Panama'],
+      capital: 	['cdad. de Guatemala', 
+      		'Belmopan', 
+      		'Tegucigalpa', 
+      		'San Salvador', 
+      		'Managua', 
+      		'San Jose', 
+      		'cdad. de Panama']});
+
+var línea = ee.Feature(ee.Geometry.LineString([-66.865, 10.479,                    
+ 							-74.072,4.732]),
+    	{pais: 'Venezuela - Colombia', 
+capital: 'Caracas - Bogota'}); 
+
+var Multilinea = ee.Feature(ee.Geometry.MultiLineString([  
+   	ee.Geometry.LineString([-76.803, 18.021, -82.362, 23.121]),      
+  	ee.Geometry.LineString([-72.31, 18.69, -69.98, 18.44]),        
+  	ee.Geometry.LineString([-66.103, 18.4597, -61.8558, 17.1315]),
+  	ee.Geometry.LineString([-55.165, 5.861, -58.149, 6.822])]),
+    {pais:	['Jamacia - Cuba',
+    		'Haiti - Republica Dominicana',
+    		'Puerto Rico - Antigua y Barbuda',
+    		'Surinam - Guyana'],
+    capital:['Kingston - La Habana',
+    		'Puerto Principe - Santo Domingo',
+    		'San Juan - saint John',
+    		'Paramaribo - Georgetown']});
+
+var perimetro = ee.Feature(ee.Geometry.linearRing([-79.354,27.32,
+  								   -79.332, 23.661,
+  								   -74.19, 21.161,
+       							   -72.235, 23.165,
+  								   -78.039, 27.859]),
+    	{pais:'Bahamas',
+capital: 'Nasau'});
+
+var rectangulo = ee.Feature(ee.Geometry.Rectangle(-127.97, 50.25,
+  								  -68.2, 27.63),
+    	{pais:'eeuu', 
+capital:'Washington'}); 
+
+var poligono = ee.Feature(ee.Geometry.Polygon(-80.348, -3.36, -80.348, -3.36,
+  -							    78.985, -5.11, -78.019, -3.228,
+ 							    -75.99, -2.394, -75.25, -0.901,
+  							    -75.865, 0.11, -78.941, 1.428,
+  							    -80.26, 0.725, -80.919, -1.911,
+  							    -79.776, -2.614),
+{pais:'Ecuador', 
+capital:'Quito'});
+
+var Multipoligono = ee.Feature(ee.Geometry.MultiPolygon([
+                ee.Geometry.Polygon([-61.955, 10.146,         
+      								    -61.713, 10.967,
+      								    -60.593, 10.881,
+    									   -60.68, 10.081]),
+    						ee.Geometry.Polygon([-61.779, 12.269,     
+      								   -61.504, 12.205,
+      								   -61.57, 11.968,
+      								   -61.845, 12.044]),
+    						ee.Geometry.Polygon([-59.703, 13.042,         
+      							 	   -59.417, 13.032,
+      								   -59.45, 13.32,
+      								   -59.736, 13.342]),
+    						ee.Geometry.Polygon([-61.526, 15.671,          
+      								   -61.087, 15.512,
+      								   -61.274, 15.194,
+      								   -61.438, 15.279])]),
+    	{pais:['Trinidad y Tobago',
+    		'Granada',
+    		'Barbados',
+    		'Dominica'],
+    	capital:['Puerto España',
+    		  'Chantimelle',
+    		  'Bridgetown',
+    		  'Roseau']});
+```
+
+Ejercicio 16
+
+```{js echo = T}
+// Crear una LISTA que incluya todos los vectores
+var coleccionVectores = ee.FeatureCollection([Multipoligono,
+  poligono,
+  rectangulo,
+  perimetro,
+  Multilínea,
+  linea,
+  Multipunto,
+  Punto]);
+```
+
+## Visualización de colecciones de vectores
+
+Al igual que los vectores, las colecciones de vectores se pueden agregar a la pantalla de mapas mediante la función `Map.addLayer`.
+
+Ejercicio 17
+
+```{js echo = T}
+var ecoregiones = ee.FeatureCollection("RESOLVE/ECOREGIONS/2017");
+
+// Especificar el color de la capa 
+Map.addLayer(ecoregiones, {}, 'capa por default');
+Map.addLayer(ecoregiones, {color: '2AF116'}, 'capa color verde');
+```
+
+Adicionalmente, sólo para las colecciones de vectores se pueden especificar parámetros adicionales con el método `.draw` (el cual transforma la colección de vectores en una imagen y permite así especificar tamaño del punto pointRadius y grosor strokeWidth de la línea). Esto se logra con el método `.draw`.
+
+Ejercicio 17.1
+
+```{js echo = T}
+Map.addLayer(ecoregiones.draw({color: 'FF6969', strokeWidth:10 }), {},
+  'capa color rosa, y linea gruesa');
+```
+
+Si queremos visualizar solo los contornos de los vectores puede usar el siguiente código, que lo que hace es dibujar con el método `.paint`, solo los contornos de los vectores sobre una imagen vacía, y luego proyecta esa imagen: 
+
+Ejercicio 17.2
+
+```{js echo = T}
+// Crear una imagen vacía
+var vacia = ee.Image().byte();
+
+// Sobre la imagen vacía, dibujar los bordes de los vectores
+var contornos = vacia.paint({
+  // Definir los vectores a dibujar
+  featureCollection: ecoregiones,  
+  // Definir un atributo de los vectores para agrupar vectores por color 
+  // según este atributo (puede omitirse)
+  color:'BIOME_NUM',  
+  // Definir el grosor (si no se especifica este parámetro se dibujarán los   
+  // vectores con color sólido)       
+  width: 3                          
+});
+
+// Mostrar la imagen con los vectores dibujados y especificar la paleta de
+// color (la cual en este caso es de un solo color, por lo tanto todos los
+// contornos serán del mismo color)
+Map.addLayer(contornos, {palette: '6e00ff', max: 14}, 
+  'bordes morados'); 
+
+// Mostrar la imagen con los vectores dibujados y especificar la paleta de
+// color en una lista [rojo, verde, azul]. Esto permite que los vectores 
+// se dibujen de diferentes colores según el atributo 'color' de la 
+// variable 'contorno'
+Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], max: 14}, 'bordes de colores'); 
+```
+
+## Funciones comunes
+
+### Filtración de una colección de vectores
+
+Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar.
+
+Para filtrar por localización se hace usando el método `.filterBounds` esto permite insertar una geometría, y todos los vectores de la colección que se intersectan con dicha geometría serán seleccionados.
+
+En el ejercicio vamos a crear un rectángulo más o menos sobre costa rica y filtrar las áreas protegidas que se intersectan con ese rectángulo 
+
+Ejercicio 18
+
+```{js echo = T}
+// Table dentro de GEE que contiene vectores de áreas protegidas globales
+var areasProtegidas = ee.FeatureCollection('WCMC/WDPA/current/polygons'); 
+
+// Dibujar una geometría (puede ser cualquier tipo de geometría }, en este
+// caso escogimos un rectángulo, más o menos sobre Costa Rica)
+var RecCostaRica = ee.Geometry.Rectangle(-86.16, 11.235, -82.601, 8.073);
+
+//áreas protegidas que se intersectan con el rectángulo dibujado
+var filtro = areasProtegidas.filterBounds(RecCostaRica);
+```
+
+Filtrar por atributos se puede filtrar los vectores usando el método `.filterMetadata` esto permite filtrar los vectores según un atributo de los mismos, y todos los vectores de la colección que se cumplan con la condición serán seleccionados. Para usar `.filterMetadata` se debe dentro del paréntesis indicar (separado por comas): el nombre entre comillas del atributo a evaluar, el tipo de comparación a hacer los valores aceptados son: 
+
+*	“equals”, 
+*	“less_than”,
+*	 “greater_than”,
+*	 “not_equals”, 
+*	“not_less_than”,
+*	 “not_greater_than”, 
+*	“starts_with”,
+*	 “ends_with”, 
+*	“not_starts_with”,
+*	 “not_ends_with”, 
+*	“contains”, 
+*	“not_contains”.
+
+y finalmente el valor con el que se hará la comparación.
+
+En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo ‘ISO3’ que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es ‘CRI’.
+
+Ejercicio 18.1
+
+```{js echo = T}
+// En este caso cada vector de la colección de areas protegidas, tiene un 
+// atributo llamado 'ISO3', basándonos en ese atributo, vamos a buscar 
+// todos los vectores que tengan (para ese atributo) un valor exactamente 
+// igual a 'CRI' (abreviación de Costa Rica)
+var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI'); 
+```
+
+El filtro para filtrar por fecha es `.filterDate` ,solo aplica en caso que los vectores tengan un atributo llamado ‘system:time_start’ y en ese atributo se encuentre la fecha en formato ‘AAAA-MM-DD’. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a ‘system:time_start’ para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara mejor luego).
+
+### Funciones de usuario
+
+En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado ‘system:time_start’. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
+
+Ejercicio 17.2
+
+```{js echo = T}
+// Map es una función que nos permite ejecutar una operación sobre todos 
+// los vectores de la colección
+var Areasfecha = AreasProCRI.map( function(vector){ 
+  // Fecha extrae el valor del atributo 'STATUS_YEAR'
+  var fecha = vector.get('STATUS_YR');   
+  // Cada vector se entrega con una nueva propiedad 'system:time_start' 
+  // que tiene fecha
+  return vector.set('system:time_start',fecha)
+}); 
+
+// Ahora ya se puede aplicar el filtro de fecha filtrando solo las áreas 
+// protegidas de Costa Rica declaradas en el año 2020
+var filtroFechas = Areasfecha.filterDate(2020,2021); 
+```
+
+Finalmente están los filtros compuestos. Estos filtros usan los filtros disponibles bajo la librería de `ee.Filter`.
+En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. Para ello usamos:
+
+1.	!l método `.filter` declarando que vamos a realizar un filtro
+2.	`ee.Filter.and` indica que todos los filtros siguientes deben cumplirse para seleccionar un vector
+3.	`ee.Filter.gte` es un filtro para seleccionar todo lo que sea mayor o igual a
+  a.	‘MARINE’ es un atributo donde 1 es área costera, y 2 son áreas marinas
+  b.	Por lo tanto todas las áreas con un valor de 1 o 2 estarán protegiendo área marina.
+4.	, una coma para indicar otro filtro
+5.	`ee.Filter.stringContains` es un filtro para seleccionar todo lo que tenga una cadena de texto que contenga:
+  a.	‘NAME’ es un atributo del nombre del área protegida.
+  b.	‘Manglar’ es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
+6.	, otra coma para indicar otro filtro
+7.	`ee.Filter.rangeContains` es un filtro para seleccionar todo lo que se encuentre en un rango de valores.
+  a.	‘GIS_M_AREA’ es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
+  b.	10 es el valor mínimo del rango de área marina que queremos filtrar.
+  c.	100 es el valor máximo del rango de área marina que queremos filtrar.
+
+Ejercicio 18.3
+
+```{js echo = T}
+// Se declara que se ejecutará un filtro compuesto
+var areasProMar = areasProtegidas.filter( 
+  // Se crea un filtro compuesto en donde se deben cumplir las siguientes 
+  // Condiciones
+  ee.Filter.and(    
+  // Un filtro donde se filtran los vectores que en el atributo marino 
+  // tengan 
+  // Un valor de 1 o más (áreas protegidas con territorio marino)
+  ee.Filter.gte('MARINE',1),   
+  // Se filtran las áreas protegidas que en su nombre contengan la palabra
+  // manglar
+  ee.Filter.stringContains('NAME', 'Manglar'),
+  // Se filtran las áreas que tengan un área marina protegida de entre 50 
+  // y 100 km2
+  ee.Filter.rangeContains('GIS_M_AREA', 10,100))); 
+```
+
+### Selección de atributos
+
+Al igual que con los vectores, se puede utilizar el método `.select` para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar una única banda sólo se requiere indicar el nombre del atributo, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
+
+```{js echo = T}
+ee.FeatureCollection.select(['atributo']);
+```
+
+### Creación de puntos aleatorios
+
+GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método `.randomPoints` luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados.
+
+Ejercicio 19
+
+```{js echo = T}
+// Determinar una región específica donde se quiere lanzar puntos 
+// aleatorios
+var region = ee.Geometry.Rectangle(-61.36, 31.2, -16.54, 1.93);
+
+// Crear 1000 puntos aleatorios en la región especificada
+var puntos = ee.FeatureCollection.randomPoints(region,1000);
+```
+
+### Obtención del primer vector
+
+En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle.
+
+Ejercicio 20
+
+```{js echo = T}
+// Llamamos una capa de cuencas de alta resolución de GEE
+var CUENCAS_MUNDIAL = ee.FeatureCollection(
+  "WWF/HydroSHEDS/v1/Basins/hybas_12");
+ 
+// Filtramos la colección solo al primer vector y lo convertimos de una
+// colección de un solo elemento (ee.FeatureCollection) a un vector 
+// independiente (ee.Feature)
+var cuenca = ee.Feature(CUENCAS_MUNDIAL.first()); 
+```
+
+### Extracción de metadatos de una colección de vectores
+
+Para extraer los nombres de los metadatos de una colección de vectores se usa el método `.propertyNames`. Para algún metadato en particular de una colección de vectores se puede utilizar el método de `.get`, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer. 
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Los metadatos de una colección de vectores no son los mismos que los de los vectores que la conforman.
+:::
+::::
+
+Ejercicio 20.1
+
+```{js echo = T}
+// Se muestran los metadatos de la  colección de vectores
+var metadatosCOL = CUENCAS_MUNDIAL.propertyNames()
+// Mostrar un metadato de la colección de vectores
+var IDcoleccion = CUENCAS_MUNDIAL.get('system:id') 
+```
+
+### Extracción de listas con atributos de vectores
+
+Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
+
+Ejercicio 20.2
+
+```{js echo = T}
+// Rectángulo que abarca las islas canarias
+var canaria = ee.Geometry.Rectangle(-18.89,27.46, -13.26,29.93); 
+// Arroja una lista con todos los ID de las cuencas de esta zona
+var IDcuencasCana = CUENCAS_MUNDIAL.filterBounds(canaria)
+.aggregate_array('HYBAS_ID');
+
+// Arroja el dato del área subsuperficial promedio de las cuencas de 
+// esta zona
+var areaCuencasCana = CUENCAS_MUNDIAL.filterBounds(canaria)
+.aggregate_mean('SUB_AREA');
+
+// Arroja el dato de frecuencias de cada uno de los posibles valores de
+// COAST (1=si tiene costa, 0 =no tiene costa)
+var costaCana = CUENCAS_MUNDIAL.filterBounds(canaria)
+.aggregate_histogram('COAST'); 
+
+// Arroja las estadísticas descriptivas del área superficial de las
+// cuencas de la zona
+var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
+.aggregate_stats('UP_AREA'); 
+```
+
+### Ejecución de una función sobre todos los vectores una colección
+
+Se pueden ejecutar operaciones dentro de una colección de vectores, que se ejecuten para cada vector de la colección. Para aplicar una operación en todos los vectores de una colección se usa el método `.map`.
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Para poder ejecutar el método `.map` es necesario antes definir una función (del usuario)
+para definir una función es necesario tener en cuenta varias cosas: 
+1.  Usar el comando function.
+2.	Luego de function y dentro de paréntesis () definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo). 
+3.	Luego definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
+4.	Finalmente antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando return.
+:::
+::::
+
+*	En el siguiente ejercicio llamamos a una colección con los límites políticos de los países
+*	Seleccionamos el vector cuyo atributo ‘COUNTRY_NAME’ es igual a ‘Peru’
+*	Generamos 100 puntos aleatorios en Peru y usando el método `.randomColumn` le añadimos a cada punto un nuevo atributo llamado ‘aleatorio’ que contiene un número aleatorio entre 0-1
+*	Definimos una función del usuario (con el método function) llamada ‘bufferAleatorio’ en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
+  -	Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (punto).
+  -	Extraemos el número aleatorio del vector que se encuentra en el atributo ‘aleatorio’.
+  -	Convertimos el número extraído en el paso anterior en un `ee.Number` del servidor.
+  -	Multiplicamos ese `ee.Number` por 100000
+  -	Cedondeamos el resultado de la multiplicación en el número entero mayor o igual  más cercano 
+  -	Creamos un buffer alrededor del vector de entrada de longitud definida según el número redondeado
+  -	Le asignamos al buffer un nuevo atributo llamado ‘radio del buffer’ con el número redondeado (metros usados para calcular el buffer)
+  -	Le asignamos al buffer otro atributo llamado ‘area’, en donde calculamos el área del buffer usando el método `.area`.
+  -	Usando el método return especificamos que el buffer con los dos nuevos atributos será el resultado de esta función
+*	usando el método `.map` ejecutamos la función ‘bufferAleatorio’ sobre todos los puntos aleatorios 
+
+Ejercicio 21
+
+```{js echo = T}
+// Se llama una tabla de GEE con colección de vectores de paises 
+var paises = ee.FeatureCollection("USDOS/LSIB/2017"); 
+
+// Se hace un filtro para seleccionar solo a Perú 
+var peru = paises.filterMetadata('COUNTRY_NA','equals','Peru'); 
+
+// Creamos una colección de vectores de 100 puntos aleatorios en Perú, y 
+// usando la función .randomColumn le asignamos un valor aleatorio (entre 
+// 0-1) a cada punto de la colección
+var puntos =ee.FeatureCollection.randomPoints(peru, 100).randomColumn('aleatorio');  
+
+// Definimos una función llamada buffer cuyo insumo de entrada es un 
+// objeto que llamamos 'punto'
+var bufferAleatorio = function(punto){   
+  // Aca si tomamos el objeto de entrada 'vector' y le extraemos el valor 
+  // del atributo 'aleatorio' (que es un número del usuario)  
+  var numero = punto.get('aleatorio');  
+ 
+  // Convertimos el número de usuario en un `ee.Number` del servidor
+  var NumServidor = ee.Number(numero);   
+
+  // Multiplicamos dicho número por 100000
+  var multiplicar = NumServidor.multiply(100000); 
+ 
+  // Aproximamos el resultado de la multiplicación al numero entero mas 
+  // cercano (igual o mayor)
+  var redondear = multiplicar.ceil(); 
+  
+  // Ejecutamos la función .buffer para el objeto llamado 'vector' y el 
+  // tamaño está determinado por el número en 'redondear'
+  var area = punto.buffer(redondear);
+
+  // Le añadimos un atributo en donde especificamos el tamaño del radio 
+  // del buffer en metros
+  var tamaño = area.set('radio del buffer',redondear);  
+
+  // Le añadimos otro ar}tributo llamado 'area' el cual, está definido 
+  // calculando el area (con la funcion.area) en metros cuadrados del 
+  // buffer 
+  var circulo = tamaño.set('area',tamaño.area());  
+
+  // El resultado de la función es entonces el objeto círculo que es un 
+  // vector poligonal 
+  return circulo;
+};
+
+// Ejecutamos la función 'bufferAleatorio' sobre todos los vectores de la 
+// colección, cada punto de la colección entonces entrará como insumo de 
+// la función bufferAleatorio
+var circulos = puntos.map(bufferAleatorio); 
+```
+
+### Reducción de una colección de vectores
+
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir.
+
+Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección (depende el usuario, escoger promedio, mínimo, máximo, mediana, etc). Estos reductores entregarán como resultado un diccionario.
+
+*	Importamos una capa de cuencas, la filtramos con un rectángulo sobre Hawaii
+*	Definimos una función del usuario (con el método function) llamada ‘areaDife’ en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
+  -	Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (cuenca).
+  -	Calculamos el área del vector (con el método `.area`), y dividimos en 1000000 para convertir a km2.
+  -	Con `.get` extraemos el valor del atributo 'areasqkm' (el cual es una cadena de texto).
+  -	Con `.parse` convertimos el valor extraído anteriormente a un número del servidor (`ee.Number`).
+  -	Usando el método `.subtract` restamos el área calculada con el método `.area` menos el área reportada según el atributo del vector.
+  -	Usando el método return especificamos que el vector cuenca con un nuevo atributo llamado ‘diferencia’ (el cual contiene el valor de la resta elevado al cuadrado usando el método `.pow`), será el resultado de esta función
+*	Ejecutamos la función ‘areaDife’ sobre todos los vectores de la colección ‘cuencasHawaii’.
+*	Usando el método `.reduceColumns` declaramos que usaremos un reductor sobre toda la colección enfocándonos en un atributo de los vectores.
+*	Con `ee.Reducer.mean` declaramos que el reductor que emplearemos (para toda la colección) es, reducir con el promedio del atributo (de cada vector) ‘diferencia’.
+*	Con `.get` extraemos el valor del reductor que por default se llama ‘mean’.
+*	Con `.sqrt` calculamos la raíz cuadrada del promedio calculado.
+
+Ejercicio 22
+
+```{js echo = T}
+// Importar una capa de cuencas
+var cuencasHawaii = ee.FeatureCollection('USGS/WBD/2017/HUC06')
+  .filterBounds(ee.Geometry.Rectangle(-160.969, 23.104, -154.136, 18.733));
+
+// Definir una función que ejecute la diferencia entre el área reportada 
+// en el atributo vector y la calculada en GEE
+var areaDife = function(cuenca) {
+ 
+  var area = cuenca.area().divide(1000000);
+  var dife = area.subtract(ee.Number.parse(cuenca.get('areasqkm')));
+  return cuenca.set('diferencia', dife.pow(2));
+};
+
+// Calcular el error cuadrático medio de toda la colección.
+var RECM = ee.Number(
+  cuencasHawaii.map(areaDife)
+  .reduceColumns(ee.Reducer.mean(), ['diferencia'])
+  .get('mean')).sqrt();
+```
+
+También, se puede usar colección de vectores para reducir las información raster de una imagen por ejemplo se puede tomar una imagen de precipitación y ver cual es el valor de diferentes variables climáticas, para cada vector.
+*	Usando `.rename` renombramos todas las bandas de la capa WorldClim  (cuyos nombres van desde bio01 hasta bio19)
+*	Filtramos las cuencas con un rectángulo sobre Puerto Rico
+*	Usando el método `.reduceRegions` declaramos que usaremos un reductor espacial en el área de las cuencas de Puerto Rico.
+  -	Con `ee.Reducer.sum` especificamos que el tipo de reductor que usaremos es la suma de los valores de los atributos de todos los píxeles que caigan en cada vector.
+
+Ejercicio 23
+
+```{js echo = T}
+// Importar una imagen de clima de WorldClim y renombrar sus bandas
+var clima = ee.Image("WORLDCLIM/V1/BIO").rename([
+  'Annual_mean_temperature',
+  'Mean_diurnal_range',
+  'Isothermality',
+  'Temperature_seasonality',
+  'Max_temperature_of_warmest_month',
+  'Min_temperature_of_coldest_month',
+  'Temperature_annual_range',
+  'Mean_temperature_of_wettest_quarter',
+  'Mean_temperature_of_driest_quarter',
+  'Mean_temperature_of_warmest_quarter',
+  'Mean_temperature_of coldest_quarter',
+  'Annual_precipitation',
+  'Precipitation_of_wettest month',
+  'Precipitation_of_driest month',
+  'Precipitation_seasonality',
+  'Precipitation_of_wettest_quarter',
+  'Precipitation_of_driest_quarter',
+  'Precipitation_of_warmest_quarter',
+  'Precipitation_of_coldest_quarter']);
+
+// Importar una capa de cuencas filtrada a Puerto Rico
+var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
+  .filterBounds(ee.Geometry.Rectangle(-79.906, 25.196, -59.6, 9.776));
+
+var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
+```
+
+### Conversión de vector a imagen
+
+Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector píxeles del valor del atributo especificado. Para usar `.reduceToImage` especificamos que el atributo que usaremos como valor de los píxeles del raster es ‘área’, y con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo será el valor del píxel.
+
+Ejercicio 24
+
+```{js echo = T}
+// Definir un área en la antartida
+var rectangulo = ee.Geometry.Rectangle(-158.63,-81.47,-40.51,-59.12);
+
+// Importar una colección de vectores de GEe con datos de glaciares
+var hielo = ee.FeatureCollection("GLIMS/current").filterBounds(rectangulo);
+
+// Crear una imagen raster de las áreas de los glaciares.
+var areaGlaciar = hielo
+// Seleccionar vectores cuyo atributo área no esté vacío
+  	.filter(ee.Filter.notNull(['area'])) 
+	
+// Rasterizar  
+.reduceToImage({
+	// Atributo del vector para rasterizar
+    properties: ['area'], 
+    // Tomar el primer valor
+    reducer: ee.Reducer.first()  
+	});
+```
+
+### Unión de colecciones de vectores
+
+Para unir colecciones de vectores se usan los `ee.join`, que permiten unir vectores de dos colecciones basados en valores de sus atributos que estén relacionados entre ellos. Usando un `.filter` se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
+
+Adicionalmente se debe definir el tipo de unión join los cuales pueden ser consultados en la librería `ee.Join` en el siguiente ejercicio usaremos el mismo tipo de tipo de unión espacial saveALL pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
+
+En estos casos se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
+
+Ejercicio 25
+
+```{js echo = T}
+// Importar una colección de vectores: área protegidas de guatemala
+var APGuatemala = ee.FeatureCollection("WCMC/WDPA/current/polygons")
+  .filter(ee.Filter.eq('PARENT_ISO', 'GTM'));
+
+// Importar otra colección de vectores plantas de  energía
+var plantas = ee.FeatureCollection('WRI/GPPD/power_plants');
+
+// Define un filtro espacial con distancia de 10 km. El .geo se utiliza 
+// para indicar que se comparan geometrías
+var distFiltro = ee.Filter.withinDistance({
+  distance: 10000,
+  // Geometría de la primera colección
+  leftField: '.geo', 
+  // Geometría de la segunda colección
+  rightField: '.geo', 
+  maxError: 10
+});
+
+// Define un filtro espacial de intersección el .geo se utiliza para 
+// indicar que se compararán geometrías
+var interFiltro = ee.Filter.intersects({
+  // Geometría de la primera colección
+  leftField: '.geo', 
+  // Geometría de la segunda colección
+  rightField: '.geo', 
+  maxError: 0.1
+});
+
+// Definir la forma de unión el Join
+var Union = ee.Join.saveAll({
+  matchesKey: 'plantas_energia_PA',
+  measureKey: 'metros'
+});
+
+// Ejecutar la unión por distancia
+var AP_cerca_PE = Union.apply(APGuatemala, plantas, distFiltro);
+
+// Ejecutar la unión por intersección
+var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
+```
+
+### Exportación de colecciones de vectores
+
+En GEE se permite exportar vectores a los assets, al drive o al GoogleCloud. GoogleCloud como es un servicio de cobro no lo vamos a explicar. 
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Es importante recordar que no se podrán exportar vectores A LOS ASSETS sin geometrías, ni vectores con geometría `NULL`, siempre que se quiera exportar será necesario especificar alguna geometría por vector de la colección. Para exportar vectores es necesario usar la función `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`.
+:::
+::::
+
+Sus argumentos en común son: collection: obligatoriamente una colección de vectores `ee.FeatureCollection`, si se quiere un solo vector se deberá convertir en una colección de un solo elemento description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
+
+Los argumentos adicionales específicos para exportar a drive `Export.table.toDrive` son: 
+*	folder: cadena de texto del usuario que será el nombre de la carpeta donde se guardará el vector dentro del drive (si no se especifica se guarda en el drive sin carpeta),(si se especifica un nombre de una carpeta que no existe, la creará automáticamente) 
+*	fileNamePrefix: el nombre que le pondremos al vector guardado en drive
+*	fileFormat: el tipo de formato en el que se exportará la colección de archivos se permiten:
+  -	“CSV”, valor por default
+  -	“GeoJSON”,
+  -	“KML”, 
+  -	“KMZ”, 
+  -	“SHP”, 
+  -	“TFRecord”
+Los argumentos adicionales específicos para exportar a los assets `Export.table.toAssets` son: 
+*	assetID: el nombre que le pondremos al nuevo asset.
+
+Ejercicio 26
+
+```{js echo = T}
+// Determinamos un área de estudio con un polígono
+var poligono = ee.Geometry.Polygon(
+        [-79.59, 7.00,
+          -85.02, 8.14,
+          -88.04, 10.68,
+          -93.69, 9.44,
+          -98.51, 4.69,
+          -94.24, -2.93,
+          -92.70, 0.56,
+          -89.13, 0.82,
+          -87.57, -1.55,
+          -82.31, -0.08,
+          -79.64, 3.24]);
+
+// Creamos la colección de vectores de puntos de ejemplo
+var puntos = ee.FeatureCollection.randomPoints(poligono, 4000);
+
+// Exportamos a los assets dentro de la nube
+Export.table.toAsset({
+  collection: punto,
+  description: 'exportar_puntos_asset',
+  assetId: 'puntos_exportados'
+});
+
+// Exportamos al drive personal
+Export.table.toDrive({
+  collection:punto, 
+  description:'exportar_puntos_drive',
+  folder:'carpeta_clase_GEE',
+  fileNamePrefix:'puntos_ejemplo',
+  fileFormat:'SHP'
+});
+```
+
+Al final es importante recordar que es necesario dar click a las tareas en la pestaña Tasks.

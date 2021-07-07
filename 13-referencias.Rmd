@@ -1,0 +1,46 @@
+\newpage
+\backmatter
+# Referencias
+
+| Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M.,  Parsian, S., Wu, Q., and Brisco, B.. 2020. “Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review,” no. September. https://doi.org/10.1109/JSTARS.2020.3021052.
+
+| Arévalo, P., Bullock, E. L., Woodcock, C.E., and Olofsson, P. 2020. “A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine.” Frontiers in Climate 2 (December). https://doi.org/10.3389/fclim.2020.576740.
+
+| Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., and Matricardi, E. A. T. 2021. “An Alternative Approach for Mapping Burn Scars Using Landsat Imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna.” Remote Sensing Applications: Society and Environment 22: 100472. https://doi.org/10.1016/j.rsase.2021.100472.
+
+| Basso, K., De Avila Zingano, P. R.  and Dal Sasso Freitas, C. M. 1999. "Interpolation of scattered data: investigating alternatives for the modified Shepard method," XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), pp. 39-47, https://doi.org/10.1109/SIBGRA.1999.805606.
+
+| Breiman, L. 2001. Random Forests. Machine Learning, 45, 5-32.
+Campos-Taberner, M., Moreno-Martínez, A., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., and Running, S. W. 2018. “Global Estimation of Biophysical Variables from Google Earth Engine Platform.” Remote Sensing 10 (8): 1–17. https://doi.org/10.3390/rs10081167.
+
+| Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, T., Thau, D., Biradar, C., and Moore, B.. 2016. “Mapping Paddy Rice Planting Area in Northeastern Asia with Landsat 8 Images, Phenology-Based Algorithm and Google Earth Engine.” Remote Sensing of Environment 185: 142–54. https://doi.org/10.1016/j.rse.2016.02.016.
+
+| Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., and Moore, R.. 2017. “Google Earth Engine: Planetary-Scale Geospatial Analysis for Everyone.” Remote Sensing of Environment 202 (2016): 18–27. https://doi.org/10.1016/j.rse.2017.06.031.
+
+| Hansen, M. C., Potapov, P. V., Moore, R., Hancher, M., Turubanova, S. A., Tyukavina, A., ... & Townshend, J. (2013). High-resolution global maps of 21st-century forest cover change. science, 342(6160), 850-853. https://doi.org/10.1126/science.1244693 
+
+| Hamunyela, E, Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., and Verbesselt, J. 2020. “Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data.” Remote Sensing 12: 2953. https://doi.org/10.3390/rs12182953.
+
+| Kumar, L., Mutanga, O., Kumar, L., and Mutanga, O.. 2018. “Google Earth Engine Applications Since Inception: Usage, Trends, and Potential.” Remote Sensing 10: 1509. https://doi.org/10.3390/rs10101509.
+
+| Lee, J. S. H., Wich, S., Widayati, A., and Koh, L. P.. 2016. “Detecting Industrial Oil Palm Plantations on Landsat Images with Google Earth Engine.” Remote Sensing Applications: Society and Environment 4: 219–24. https://doi.org/10.1016/j.rsase.2016.11.003.
+
+| Mateo-García, G., Gómez-Chova, L.,  Amorós-López, J., Muñoz-Marí, J., and Camps-Valls, G.. 2018. “Multitemporal Cloud Masking in the Google Earth Engine.” Remote Sensing 10 (7): 1079. https://doi.org/10.3390/rs10071079.
+
+| Perilla, G. A., and Mas, J. F. 2020. “Google Earth Engine (GEE): Una Poderosa Herramienta Que Vincula El Potencial de Los Datos Masivos y La Eficacia Del Procesamiento En La Nube.” Investigaciones Geográficas, no. 42: 0–2. https://doi.org/10.14350/
+
+| Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., and Crespi, M.. 2018. “Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems.” Remote Sensing 10 (9): 1488. https://doi.org/10.3390/rs10091488.
+
+| Sazib, N., Mladenova, I., and Bolten, J. 2018. “Leveraging the Google Earth Engine for Drought Assessment Using Global Soil Moisture Data.” Remote Sensing 10 (8). https://doi.org/10.3390/rs10081265.
+
+| Slagter, B., Tsendbazar, N. E., Vollrath, A., and Reiche, R. 2020. “Mapping Wetland Characteristics Using Temporally Dense Sentinel-1 and Sentinel-2 Data: A Case Study in the St. Lucia Wetlands, South Africa.” International Journal of Applied Earth Observation and Geoinformation 86 (October 2019): 102009. https://doi.org/10.1016/j.jag.2019.102009.
+
+| Solórzano, J. V., Gallardo-Cruz, J. A., and Peralta-Carreta, C. 2020a. “Potencial Del Acervo de Imágenes Landsat Disponible En Google Earth Engine Para El Estudio Del Territorio Mexicano.” Investigaciones Geográficas 101: e59821. https://doi.org/10.14350/rig.59821.
+
+| Solórzano, J.V., Mas, J. F, Gao, Y., and Gallardo-Cruz, J.A. 2020b. “Patrones Espaciotemporales de Las Observaciones de Sentinel-2 a Nivel de Imagen y Píxel Sobre El Territorio Mexicano Entre 2015 y 2019.” Revista de Teledetección 56 (Número especial): 103–15. https://doi.org/10.4995/raet.2020.14044.
+
+| Trianni, G, Angiuli, E., Lisini, G., and Gamba, P. 2014. “Human Settlements from Landsat Data Using Google Earth Engine.” Geoscience and Remote Sensing Symposium, 1473–76. https://doi.org/10.1109/IGARSS.2014.6946715.
+
+| Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., Yadav, K., and Thau, D. 2017. “Automated Cropland Mapping of Continental Africa Using Google Earth Engine Cloud Computing.” ISPRS Journal of Photogrammetry and Remote Sensing 126: 225–44. https://doi.org/10.1016/j.isprsjprs.2017.01.019.
+
+| Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., and Lee, D. H. 2020. “Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods.” Applied Sciences 10 (22): 8083. https://doi.org/10.3390/app10228083.

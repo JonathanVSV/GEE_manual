@@ -1,0 +1,382 @@
+\newpage
+# Imagen
+
+Las imágenes generalmente se encuentran disponibles en colecciones de imágenes en GEE, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato raster que cuenta con una resolución espacial, espectral y radiométrica particular. Los metadatos de cada imagen se encuentran como propiedades de ésta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes pero puede ser importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2).
+
+A continuación se carga una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005.
+
+Ejercicio 27
+
+```{js echo = T}
+// Cargar la imagen global de la altura del dosel para áreas con cobertura // arbórea en el 2005
+var CHM = ee.Image("NASA/JPL/global_forest_canopy_height_2005");
+```
+
+## Información adicional para los ejemplos
+
+Para realizar los ejercicios de este apartado, se cargarán dos fuentes de información para aplicar algunos de los métodos disponibles para imágenes. La primera consta de una simple geometría de una región de interés, mientras que la segunda, es un vector que contiene el polígono de la superficie de México.
+
+```{js echo = T}
+// Cargar un polígono con el área de interés
+var roi1 = ee.Geometry.Polygon(
+        [[[-101.90832388457699, 20.455157626721274],
+          [-101.90832388457699, 19.422397223570666],
+          [-100.56799185332699, 19.422397223570666],
+          [-100.56799185332699, 20.455157626721274]]], null, false);
+
+// Cargar la colección de atributos de los polígonos de la superficie de 
+// los países
+var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+  // Filtrar por la propiedad country_co para elegir México
+  .filter(ee.Filter.eq('country_co','MX'));
+```
+
+Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos que se ven más a detalle en los siguientes párrafos.
+
+```{js echo = T}
+// Obtener la primera imagen Landsat 7 de una colección de imágenes.
+// Cargar coleccción de imágenes de Landsat 7          
+var landsat7im = ee.ImageCollection("LANDSAT/LE07/C01/T1_SR")
+  // Filtrar por fecha
+  .filterDate('2020-01-01','2020-02-01')
+  // Filtrar imágenes para mantener únicamente las que se sobrelapen con 
+  // el área de interés
+  .filterBounds(roi1)
+  // Obtener la primera imagen de la colección
+  .first();
+```
+
+## Información y metadatos
+
+Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: `.propertyNames`. Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames`, `.projection`, `.projection().nominalScale`, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de píxel en m que presenta, respectivamente.
+
+Ejercicio 27.1
+
+```{js echo = T}
+// Obtener las propiedades de la imagen
+CHM.propertyNames();
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
+:::
+::::
+
+Por otro lado, la información almacenada en un raster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `.bandNames`. 
+
+Ejercicio 27.2
+
+```{js echo = T}
+// Obtener los nombres de las bandas de la imagen
+CHM.bandNames();
+```
+
+## Visualización de una imagen
+
+De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapas mediante el método `Map.addLayer`.
+
+Ejercicio 27.3
+
+```{js echo = T}
+// Cargar la imagen a la pantalla de mapas
+Map.addLayer(CHM, 
+  // Definir los valores mínimos y máximos de la imagen para su 
+  // visualización
+  {min: 1000, max: 2500}, 
+  // Definir el nombre con el que se desea cargar la imagen a la pantalla 
+  // de mapas
+  'primera imagen');
+```
+
+## Funciones comunes
+
+### Selección de bandas
+
+Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar ciertas bandas mediante el método `.select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo:
+
+Ejercicio 27.4
+
+```{js, echo = T}
+// Seleccionar la banda 1 de la imagen (que es la única)
+var banda1 = CHM.select('1');
+
+// Seleccionar sólo las primeras tres bandas de la imagen
+var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);v
+```
+
+### Adición de nuevas propiedades o modificación de propiedades preexistentes
+
+Además, usando el método `.set` se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo.
+
+Ejercicio 27.5
+
+```{js, echo = T}
+// Agregar una nueva propiedad
+var CHMprop1 = CHM.set('miPropiedad','miImagen');
+
+// Modificar una propiedad preexistente
+var CHMprop2 = CHM.set(title,'miTítulo');
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Nótese que se puede reescribir la misma variable, pero hay que tener cuidado porque la información reescrita se pierde
+:::
+::::
+
+### Sustitución de nombres de bandas
+
+Por default, el nombre de las bandas de las imágenes suelen corresponder a la letra ‘B’ más un número que indica el número de banda. Por ejemplo, ‘B1’, ‘B2’,‘B3’, etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. En estos casos, se puede utilizar el método `.rename` para cambiar los nombres de las bandas. En caso de constar de una sola banda y un solo nombre se puede indicar directamente el nuevo nombre, sino, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo:
+
+Ejercicio 27.6
+
+```{js, echo = T}
+// Cambiar el nombre de la banda 
+banda1 = banda1.rename("chm");
+```
+
+### Realización de cortes
+
+Se pueden realizar cortes de una imagen para quedarse con un área específica (indicada por una geometría o un vector) utilizando el método `.clip`. Por ejemplo:
+
+Ejercicio 27.7
+
+```{js, echo = T}
+// Cortar la imagen a la extensión del polígono de México
+var chmMx = banda1.clip(MX);
+```
+
+Esto permite trabajar únicamente con la región de interés (en el ejemplo anterior, especificada en el objeto roi).
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento.
+:::
+::::
+
+### Cálculo de operaciones matemáticas
+
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply`. Además, GEE cuenta con una función de `.normalizedDifference` para calcular un índice normalizado, a partir de las bandas que se indiquen como: `.normalizedDifference`. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método de `.expression`. En esta función se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen:
+
+Ejercicio 27.8
+
+```{js, echo = T}
+// Multiplicar la imagen por 100 para obtener el valor en cm
+var chmCmMx = chmMx.multiply(100);
+
+// Calcular el ndvi con la imagen de landsat 7 obtenida previamente
+var ndvi= landsat7imBands.expression( '(NIR - R) / (NIR + R)', {
+  'NIR' = landsat7imBands.select('B4'),
+  'R' = landsat7imBands.select('B3')
+})
+  // Renombrar la banda como ‘ndvi’
+  .rename('ndvi');
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por default, ésta va a recibir el nombre de nd.
+:::
+::::
+
+Dentro de las fórmulas utilizadas dentro de expression se puede utilizar la notación estándar matemática (`+, -, /, *`), módulo (`%`), exponente (`**`), relacionales(`>, <, >=, <=, !=, ==`), lógicos (`&&, ||, !, ^`), o if then else (`?:`).
+
+### Uso de operaciones relacionales, condicionales y booleanas
+
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Se pueden utilizar las siguientes notaciones para hacer comparaciones de los valores una imagen con cierto valor `.lt, .lte, .gt, .gte, .eq, .neq`, que equivalen a menor que (less than), menor que o igual (less than or equal), mayor que (greater than), mayor que o igual (greater than or equal), igual (equal) o no igual (not equal), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
+
+Ejercicio 27.9
+ 
+```{js, echo = T}
+// Crear una imagen de los píxeles que cumplen con la condición de tener 
+// valores mayores o iguales a 20
+// Nótese que se utiliza la imagen con valores en m
+var chmMXMask20 = chmMx.gte(20);
+```
+
+Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda ‘pixel_qa’. En esta banda, el bit 5 indica cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda ‘pixel_qa’ para después evaluar una condición sobre ella. En este caso, se crea una máscara que tenga valores a conservar (1) en áreas donde el bit 5 sea 0; por el contrario, contendrá valores a eliminar (0) en áreas donde el bit 5 no sea 0.
+
+Ejercicio 27.10
+
+```{js, echo = T}
+// Definir la regla en bits de la imagen de los valores que se desean 
+// enmascarar
+var nubesBit = (1 << 5);
+
+// Seleccionar la banda de evaluación de la calidad de la imagen
+var qa = landsat7im.select('pixel_qa');
+
+// Definir una máscara donde las áreas a mantener (1) serán las áreas 
+// donde el bit 5 tenga valores iguales a cero
+var mask = qa.bitwiseAnd(nubesBit).eq(0);
+```
+
+### Enmascaramiento
+
+El método `.updateMask` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0).
+
+Ejercicio 27.11
+
+```{js, echo = T}
+// Utilizar la máscara de valores que tienen alturas >= 20 y aplicarla a 
+// la imagen con los valores de alturas
+var chmMxMayor20 = chmMx.updateMask(chmMXMask20);
+// Aplicar la máscara a la imagen original
+var landsat7imMask = landsat7im.updateMask(mask);
+```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. El método `.mask` simplemente sustituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva. Por ello, el usar `.updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
+:::
+::::
+
+### Adición de bandas
+
+El usuario puede estar interesado en agregar una banda al conjunto de bandas que contiene por default una imagen. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Esto se puede lograr utilizando el método `.addBands`. Por ejemplo:
+
+Ejercicio 27.12
+
+```{js, echo = T}
+// Agregar la banda de alturas en cm a la banda original en m
+chmMx2Bands = chmMx.addBands(chmCmMx.rename('chmCm'));
+
+// Agregar la banda de ndvi a la imagen original
+landsat7im = landsat7im.addBands(ndvi);
+```
+
+### Conversión de imagen a vector
+
+En algunos casos puede ser conveniente transformar de una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener un gráfico de series de tiempo (`ui.Chart.image.series`). El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera:
+
+Ejercicio 27.13
+
+```{js, echo = T}
+// Convertir la máscara de valores que tienen valores de altura >= 20 a 
+// vector
+var chmMxMayor20Vec = chmMXMask20.reduceToVectors({
+     // Usar el polígono de México para definir el área a convertir a 
+     // vector
+  geometry: MX,
+// Definir el tipo de geometría que se desea
+  geometryType: 'polygon',
+// Definir el tamaño de píxel en m con el cual se va a crear el vector
+  scale: 1200,
+// Definir el tamaño máximo de píxeles a procesar
+  maxPixels: 1e11
+});
+```
+
+### Exportación de una imagen
+
+En GEE se permite exportar imágenes a los assets, al drive o al googleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive`. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que pueden consultar en la sección de Reference (pestaña docs buscar export).
+
+Ejercicio 27.14
+
+```{js, echo = T}
+// Exportación al drive personal
+Export.image.toDrive({
+  // Nombre de la imagen a exportar en GEE
+  image:chmMx, 
+  // Nombre con el que se va a guardar la imagen en el drive
+  description:'CanopyHeightModelMX',
+  // Folder dentro del drive en el cual se va a exportar la imagen
+  folder:'carpeta_clase_GEE',
+  // Tamaño en m del píxel de la imagen a exportar
+  scale: 30,
+  // Tamaño en m del píxel de la imagen a exportar
+  maxPixels:1e12,
+  // Formato en el cual se va a exportar la imagen
+  fileFormat: 'GeoTIFF'
+});
+```
+
+Al final es importante recordar que es necesario dar click a las tareas en la pestaña Tasks
+
+#### Ejercicio: Consulta y procesamiento de imagen (Ejercicio A)
+
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (Search) y escribir SRTM. Debería aparecer una ventana así:
+
+```{r, echo = F, out.width="100%", fig.cap="Ejemplo de búsqueda de información en la barra de búsqueda"}
+knitr::include_graphics("Img/SRTM.png")
+```
+
+Posteriormente se da click sobre el primer resultado y debería abrirse la siguiente ventana.
+
+```{r, echo = F, out.width="100%", fig.cap="Consulta de información de una imagen del repositorio de GEE"}
+knitr::include_graphics("Img/SRTM_prop.png")
+```
+
+En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
+
+```{js, echo = T}
+// Cargar la imagen con el DEM de SRTM
+var dem = ee.Image("CGIAR/SRTM90_V4");
+```
+
+Posteriormente, se puede cortar el DEM a la extensión que nos interesa. En este caso se utilizará la colección con los límites políticos del mundo que se encuentra cargada en GEE. ésta se puede buscar de igual manera que la capa de SRTM en la barra de búsqueda. Posteriormente, se puede consultar la información que contiene la capa en la pestaña de ‘TABLE SCHEMA’. Por último, se aplica un filtro para seleccionar el país que nos interesa, en este caso México.
+
+```{js  echo = T}
+// Cargar la colección de atributos con polígonos de la superficie de los 
+// países
+var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+   // Filtrar para seleccionar únicamente México
+  .filter(ee.Filter.eq('country_co','MX'));
+```
+
+Y se corta la imagen a la extensión del polígono de interés.
+
+```{js, echo = T}
+// Cortar el DEM con el polígono de México
+var demCortado = dem.clip(MX);
+```
+
+Para comparar el DEM antes y después de cortar la imagen a la extensión del polígono de interés, se pueden cargar los dos objetos: dem y demCortado.
+
+```{js, echo = T}
+// Cargar el DEM global y el cortado (sólo MX), indicando valores máximos 
+// y mínimos en m
+Map.addLayer(dem, {min: 0, max:4000}, 'dem');
+Map.addLayer(demCortado, {min: 0, max:4000}, 'demMX');
+```
+
+Posteriormente, se define una máscara de todas las áreas que tengan una elevación menor o igual a 2500 m s.n.m. y mayor o igual a 1000 m s.n.m. Después, se aplica esta máscara al DEM cortado para mantener únicamente las áreas que cumplan con el criterio anterior.
+
+```{js, echo = T}
+// Crear máscara de zona de interés
+var mascara = demCortado.lte(2500).and(demCortado.gte(1000));
+// Aplicar máscara al DEM de México
+var imgEnmascarada = demCortado.updateMask(mascara);
+```
+
+A continuación, se renombrará la banda de la imagen de ‘elevation’ a ‘elevación’ y se agrega la imagen a la pantalla de mapas.
+
+```{js, echo = T}
+// Cambiar el nombre de la banda de la imagen enmascarada a elevacion
+imgEnmascarada = imgEnmascarada.rename('elevacion');
+// Agregar imagen enmascarada a la pantalla de mapas
+Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
+```
+
+Por último, se puede generar un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (image), la escala en metros a la que se quiere obtener los valores del histograma (scale) y el número máximo de clases (maxBuckets). Por último, se agrega este gráfico a la consola con un print.
+
+```{js, echo = T}
+// Crear gráfico de histograma de los valores del DEM enmascarado
+var graficoHistorgrama = ui.Chart.image.histogram({
+     // Indicar imagen de la cual se va a crear el histograma  
+  image: imgEnmascarada,
+  // Indicar la escala en m a la que se va a muestrear la información para  
+  // obtener el histograma
+  scale: 9000,
+  // Indicar el número máximo de categorías (en eje x) para crear el 
+  // histograma
+  maxBuckets: 10
+  });
+
+print(graficoHistorgrama,'gráfico Historgrama');
+```
+
+```{r, echo = F, out.width="100%", fig.cap="Histograma de valores del DEM"}
+knitr::include_graphics("Img/histElevacion.png")
+```

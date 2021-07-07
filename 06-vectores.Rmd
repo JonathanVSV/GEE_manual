@@ -1,0 +1,205 @@
+\newpage
+# Vectores
+
+Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas. 
+
+## Información y metadatos
+
+Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto `ee.Geometry`. Para conocer características de las propiedades se puede utilizar el método `.propertyNames`.
+
+## Visualización de vectores
+
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semi-opaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, ingresando el color como código hexadecimal.
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa layers solo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: https://htmlcolorcodes.com/es/
+:::
+::::
+
+```{js echo = T}
+// Especificar el color de la capa 
+Map.addLayer(vector , {}, 'capa por default');
+Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
+```
+
+## Creación de Vectores (ee.Features)
+
+Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo:
+
+Ejercicio 10:
+
+```{js echo = T}
+// Crear un polígono
+var poligono = ee.Geometry.Polygon([
+  -119.24, 32.73,
+  -115.02, -3.29,
+  -66.5, -3.29,
+  -68.43, 32.14
+]);
+
+// Crear un vector a partir del polígono y un diccionario de atributos.
+var vector = ee.Feature(
+  // Polígono del vector
+  poligono,                      
+  // Diccionario de atributos con 3 atributos
+  {anno: 1500,                    
+  tamaño: '865 kilometros',
+  nombres:['hugo','paco','luis']});
+```
+  
+## Funciones comunes
+
+### Selección de propiedades
+
+Una vez revisado los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `.select`. Para seleccionar una única propiedad sólo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
+
+Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo:
+
+Ejercicio 10
+
+```{js echo = T}
+print(vector.select(['anno']));
+print(vector.select(['anno','tamaño']));
+print(vector.select(['anno','tamaño'],['year','southamerica']));
+```
+
+### Adición de nuevas propiedades o modificación de propiedades preexistentes
+
+Usando el método `.set` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo:
+
+Ejercicio 10.1
+
+```{js echo = T}
+var vector1 = vector.set('tamaño','neotropico');
+```
+
+### Extracción y edición de propiedades de vectores
+
+Para extraer ciertas propiedades de un vector se puede utilizar el método `.get`, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con `.first`) de una colección de vectores de cuencas (las colecciones de vectores se explican después)
+
+1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
+2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
+3.	Usamos el método `.get` para obtener el valor del atributo ‘COAST’.
+4.	Usando el método `.select` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
+
+Ejercicio 11
+
+```{js echo = T}
+// Llamamos una capa de cuencas de alta resolución de GEE
+var cuenca = ee.Feature(
+  ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12")
+  .first());
+
+// Extraemos los nombres de los atributos del vector como una lista
+var propiedades = cuenca.propertyNames();
+
+// Extraemos los atributos del vector como un diccionario
+var atributos = cuenca.toDictionary();
+
+// Extraemos el atributo ‘COAST’
+var costa = cuenca.get('COAST');
+
+// Extraemos el atributo ‘COAST’
+var renombre = cuenca.select(['COAST'],['costa maritima']);
+```
+
+### Intersección con otros vectores 
+
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método `.intersection`. Por ejemplo:
+
+Ejercicio 12
+
+```{js echo = T}
+// Crear dos vectores rectangulares
+var rectangulo1 = ee.Feature(ee.Geometry.Rectangle(-92.0,10.6,-82.0,20.7));
+var rectangulo2 = ee.Feature(ee.Geometry.Rectangle(-86.03,15.6,-100.0,40.7));
+
+// Interseccion
+var interseccion = rectangulo1.intersection(rectangulo2);
+```
+
+### Creación de un buffer
+
+Para realizar un buffer a partir de un vector se utiliza el método `.buffer`, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado.
+
+Ejercicio 12.1
+
+```{js echo = T}
+// Crear un vector de un  punto
+var punto = ee.Feature(ee.Geometry.Point(-105.24, -2.73));
+
+// Calcular un buffer de 500 km alrededor del punto
+var bufferPol = punto.buffer(500000, 0.1);
+```
+
+### Cálculo de área
+
+Para calcular el área de un vector se utiliza el método `.area`. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados.
+
+Ejercicio 12.2
+
+```{js echo = T}
+// Calcular el area del buffer
+var area = bufferPol.area(0.1);
+```
+
+### Cálculo de perímetro
+
+Podemos calcular el perímetro de un vector usando el método `.perimeter`, que hace el cálculo en metros.
+
+Ejercicio 12.3
+
+```{js echo = T}
+// Calcular el perimetro del buffer
+var perimetro = interseccion.perimeter();
+```
+
+### Disolución de polígonos
+
+El método `.dissolve` une todas las geometrías que se intersectan de un vector en un solo polígono, y si no se intersectan genera un multipolígono.
+
+Ejercicio 12.4
+
+```{js echo = T}
+// Crear un vector de multipoligono
+var multi = ee.Feature(ee.Geometry.MultiPolygon(
+            [[[[-137, 20],
+               [-128, 9],
+               [-116, 15],
+               [-124, 25]]],
+             [[[-123, 28],
+               [-129, 30],
+               [-139, 5]]],
+             [[[-113, 19],
+               [-143, 18],
+               [-123, 4]]],
+             [[[-133, 1],
+               [-118, 2],
+               [-116, 24]]],
+             [[[-109, 5],
+               [-103, 10],
+               [-147, 9]]],
+             [[[-110, 14],
+               [-160, 12],
+               [-161, 7]]],
+             [[[-117, -1],
+               [-117, -2],
+               [-136, -9]]],
+             [[[-121, -1],
+               [-123, -1],
+               [-126, -18]]]]));
+// Disolver sus geometrías
+var disuelto = ee.Feature(multi.dissolve(0.1));
+```
+
+### Unión de vectores
+
+El método `.union` permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo están se convertirán en un multi-polígono.
+
+Ejercicio 12.5
+
+```{js echo = T}
+// Unir geometrías del buffer y un rectángulo 
+var union = rectangulo2.union(buff
+```
