@@ -1,11 +1,11 @@
 \newpage
 # Interfaz de usuario
 
-Dentro de GEE, hay un grupo de funciones que permiten interactuar con los objetos y obtener información sobre sus características o propiedades. A este conjunto de funciones le llamaremos funciones de interfaz de usuario ya que permiten obtener información sobre los objetos, visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen cuatro grupos de funciones que se detallan en las siguientes secciones.
+Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos y obtener información sobre sus características o propiedades. A este conjunto de funciones le llamaremos funciones de interfaz de usuario, ya que permiten obtener información sobre los objetos, visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen cuatro grupos de funciones que se detallan en las siguientes secciones.
 
 ## Impresión en consola
 
-El método más sencillo de la API es imprimir objetos en la consola. Esto se realiza mediante la función print. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación (bugs) en los códigos.
+El método más sencillo de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación ("bugs") en los códigos.
 
 ```{js, echo = T}
 print(Objeto);
@@ -14,7 +14,7 @@ print('Hola Mundo');
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Vamos a utilizar mucho la función print que permite visualizar en la consola diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra “Hola Mundo” se usa el comando `print('Hola Mundo')`
+Vamos a utilizar mucho la función `print` que permite visualizar en la consola diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra “Hola Mundo” se usa el comando `print('Hola Mundo')`
 :::
 ::::
 
@@ -30,9 +30,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 **Map.addLayer**
 
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo `ee.Feature` o `ee.Image` (estos objetos se presentan con mayor detalle más adelante). Adicionalmente, se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa y por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
+La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Adicionalmente, se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: bands, min o max. Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Esta función también permite (para imágenes `ee.Image`) asignar colores mediante el argumento de palette:. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands`, `min` o `max.` Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Esta función también permite (para imágenes `ee.Image`) asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], 
@@ -47,7 +47,7 @@ En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que se
 :::
 ::::
 
-Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar (pero el único argumento válido es color) como:
+Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar como, aunque el único argumento válido es `color`:
 
 ```{js, echo = T}
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
@@ -55,7 +55,7 @@ Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El código de los colores pasados al argumento de _palette_ o color corresponden a códigos hexadecimales
+El código de los colores pasados al argumento de `palette` o `color` corresponden a códigos hexadecimales
 :::
 ::::
 
@@ -69,7 +69,7 @@ Map.setCenter(-39.86, 20.52, 5)
 
 ## Creación de gráficos
 
-Este grupo de funciones permiten realizar gráficos de diferentes tipos. Sin embargo, existen diferentes opciones de gráficos para distintos tipos de objetos. Todas estas funciones se encuentran agrupadas dentro de la función principal `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
+Este grupo de funciones permiten realizar gráficos de diversos tipos. Sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la función principal `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
 
 **Chart.feature**
 
@@ -100,7 +100,6 @@ Este conjunto de funciones permiten obtener distintos tipos de gráficos a parti
 *	`ui.Chart.image.histogram`
 *	`ui.Chart.image.seriesByRegion`, entre otras.
 
-
 Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion``. Este tipo de gráficos permiten graficar las series de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
 
 ```{js, echo = T}
@@ -126,21 +125,21 @@ El nombre de las funciones para generar gráficos en GEE dan una idea del tipo d
                                               
 ## Exportación de objetos fuera de GEE
 
-Este grupo de funciones permiten exportar algún resultado fuera de GEE para ser manejado en otro programa (por ejemplo, un SIG). Todas estas funciones se encuentran dentro de la función Export. Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: raster, vector, mapa y video.
+Este grupo de funciones permiten exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la función `Export.` Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: ráster, vector, mapa y video.
 
 **Export.image**
 
-En el caso de las imágenes (raster), la función para exportarlas es `Export.image`. Dentro de GEE hay tres opciones para exportar los resultados de una imagen: 
+En el caso de las imágenes (ráster), la función para exportarlas es `Export.image`. Dentro de GEE hay tres opciones para exportar los resultados de una imagen: 
 
 *	`Export.image.toAsset`
 *	`Export.image.toDrive` 
 *	`Export.image.toCloudStorage`
 
-El primero permite exportar la imagen (raster) como una imagen (raster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rasters)en algún entorno local como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`.
+El primero permite exportar la imagen (ráster) como una imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Solo se pueden exportar imágenes en formato raster. Sin embargo, no siempre resulta obvio, ya que algunas veces se pueden convertir imágenes a formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (ee.Image) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TRFrecord (tensores).
+Sólo se pueden exportar imágenes en formato ráster. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (`ee.Image`) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TRFrecord (tensores).
 :::
 ::::
 
@@ -158,13 +157,13 @@ Export.image.toDrive({
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En GEE muchas operaciones utilizan el término de _scale_, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.
+En GEE muchas operaciones utilizan el término de `scale`, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento maxPixels dentro del diccionario que se pasa a `Export.image.toDrive`. Por ejemplo, maxPixels: 1e10, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.
+En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento `maxPixels` dentro del diccionario que se pasa a `Export.image.toDrive`. Por ejemplo, `maxPixels: 1e10`, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.
 :::
 ::::
 
@@ -189,7 +188,7 @@ Export.table.toDrive({
 
 **Export.video**
 
-Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google o al Drive
+Esta opción permite exportar una colección de imágenes como video ya sea al almacenamiento de la nube de Google o al Drive.
 
 *	`Export.video.toCloudStorage`.
 *	`Export.video.toDrive`.

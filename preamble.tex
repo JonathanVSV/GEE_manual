@@ -1,32 +1,22 @@
-\usepackage{graphicx}
+%\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \usepackage{awesomebox}
-\usepackage{titling}
+%\usepackage{titling}
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{titlesec}
-\titleformat{\chapter}
-  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
-\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
-\fancypagestyle{toc}{
-  \fancyhf{}
-  \pagenumbering{roman}
-}
-\pagestyle{fancy}
-  \fancyfoot{}
-  \fancyfoot[LE,RO]{\thepage}
-  \fancyhead{}
-  \fancyhead[LE,RO]{\leftmark}
-  \fancyhead[LO,RE]{\rightmark}
-\renewcommand\headrulewidth{1pt}
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{#1}{}}
-\fancypagestyle{plain}{}
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{22,92,105}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
+\renewcommand\headrulewidth{1pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\titleformat{\chapter}{\normalfont\LARGE\bfseries\color{darkblue}}{\thechapter}{1em}{}
+\titleformat*{\section}{\normalfont\Large\bfseries\color{darkblue}}
+\titleformat*{\subsection}{\normalfont\large\bfseries\color{darkblue}}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 \newtcolorbox{bluebox2}{
   colback=lightblue,
   colframe=darkblue,
@@ -34,3 +24,5 @@
   boxsep=0pt,
   arc=0pt
 }
+  
+

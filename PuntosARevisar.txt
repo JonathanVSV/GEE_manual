@@ -1,15 +1,5 @@
 Revisar:
 
-1. Cómo llamar a las funciones, por ejemplo, 1) ee.Image.reduce, 2) .reduce o simplemente 3) reduce. Hay que homogeneizar eso.
+1. Creo que es mejor idea no usar separadores de miles porque allá usan . y acá usan ,. En todo caso mejor podríamos usar un espacio. Por ejemplo, 50 000.
+2. Creo que hay algunos términos que acá son válidos que me imagino que allá no, p.ej., usar liga para referirse a los enlaces. Eso lo podemos platicar luego.
 
-Acuerdo. funciones con puntito. Y aclarar qué es el punto.
-
-2. Cómo llamar a las propiedades de features o images. BANDS o bands o 'bands' o **bands**.
-
-Acuerdo. en negritas **bands**
-
-3. Creo que para la parte de ee.Feature y ee.FeatureCollection faltan explicar funciones como usar filtros, select, rename, clip, condicionales (eq, lt, lte, etc0), mask, area, merge. Así quedaría muy similar a la parte de ee.Image e ImageCollection.
-
-Listo.
-
-4. ¿Utilizar el término de método para la mayoría de las funciones?

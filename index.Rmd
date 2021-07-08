@@ -11,8 +11,11 @@ papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
 fontfamily: times # palatino, helvet, utopia, times, pifont, courier, bookman, newcent y avant
 classoption: twoside # una cara
-# pagestyle: headings
+pagestyle: "empty"
 openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
+toc-title: "Índice"
+toc: yes
+toccolor: black
 geometry: 
   - tmargin=3.5cm
   - bmargin=2.5cm
@@ -45,4 +48,3 @@ knitr::opts_chunk$set(out.width = "80%",
 \setlength{\aweboxvskip}{1mm}
 \setlength{\aweboxrulewidth}{5pt}
 ```
-

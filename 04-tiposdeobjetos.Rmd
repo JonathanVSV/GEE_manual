@@ -5,11 +5,11 @@ Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, obj
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario. De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Muchos de los algoritmos precargados en GEE únicamente aceptan como argumentos objetos del lado del servidor, por lo cual es recomendable utilizar dicha sintaxis. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario. De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
 
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo corren del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un raster, un vector o una tabla) `ee.Export...`, agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un ráster, un vector o una tabla) `ee.Export...`, agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
-```{r, echo = F, out.width="100%", fig.cap="Representación de los dos lados de programación en GEE: del cliente y el servidor"}
+```{r, echo = F, out.width="100%", fig.cap="Representación de los dos lados de programación en GEE: del cliente y el servidor."}
 knitr::include_graphics("Img/daigFunc.png")
 ```
 
@@ -17,7 +17,7 @@ knitr::include_graphics("Img/daigFunc.png")
 
 **Cadenas de texto**
 
-Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Cualquier secuencia de caracteres puede ser un texto. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo:
+Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo:
 
 Ejercicio 0
 
@@ -61,7 +61,7 @@ var numero2 = 2.5;
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para los objetos numéricos no se usan las comillas
+Para los objetos numéricos no se usan las comillas.
 :::
 ::::
 
@@ -105,14 +105,14 @@ print(listaC);
 
 **Diccionarios**
 
-Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves {} donde se define cada clave seguida de dos puntos `:` y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
+Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves `{}` donde se define cada clave seguida de dos puntos `:` y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
-Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, si es necesario es mejor usar guión bajo `_`. Al hacer `print` se ordenarán alfabéticamente las claves.
+Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo `_` o la notación de "lowerCamelCase". Al hacer `print` se ordenarán alfabéticamente las claves.
 
 Ejercicio 3 
 
 ```{js, echo = T}
-// Se declara un nuevo diccionario
+// Se declara un nuevo diccionario.
 // La primera entrada es el texto "clave1" que está definido con el valor
 // de 1 (tipo número) la segunda entrada es el texto "clave2", y su 
 // definición es la letra "A" (tipo cadena de texto)
@@ -125,7 +125,7 @@ var dicc = {
 
 Para consultar los valores dentro de un diccionario se puede hacer de dos formas: 
 
-  * Llamar directamente el nombre de la clave deseada dentro de  comillas en un par de corchetes [‘’].
+  * Llamar directamente el nombre de la clave deseada dentro de  comillas en un par de corchetes `[‘’]`.
   * Utilizar la notación de `.` seguida del nombre de la clave. 
 
 Por ejemplo:
@@ -152,19 +152,19 @@ print(dicc.clave2);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave. La notación con punto es recomendada por GEE. 
+Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave, ya que es la recomendad por GEE.
 :::
 ::::
 
 **Funciones**
 
-Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función function seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
+Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
 // MaskIm es una nueva función, y su argumento de entrada es "objeto"
 var maskIm = function(objeto){ 
 
-// Se define qué "objeto" es una imagen raster, y se guarda en la 
+// Se define qué "objeto" es una imagen ráster, y se guarda en la 
 // variable image
 var image = ee.Image(objeto)     
  
@@ -192,7 +192,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 
 ## Tipo de objetos del lado del servidor
 
-Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de funciones particulares por tipo de objeto. Esto quiere decir que, al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (raster), vector, colecciones de imágenes y colecciones de vectores. 
+Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de funciones particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -210,8 +210,8 @@ En algunos casos, los objetos que se obtienen a partir de ciertas funciones reto
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor visitar la sección de Client libraries en el siguiente enlace: https://developers.google.com/earth-engine/apidocs 
-En _Client libraries_ se indican cuáles argumentos acepta cada función, así como el tipo de objeto de la salida.
+Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se pueden consultar la sección de Client libraries en el siguiente enlace: https://developers.google.com/earth-engine/apidocs 
+En `Client libraries` se indican cuáles argumentos acepta cada función, así como el tipo de objeto de la salida.
 :::
 ::::
 
@@ -225,7 +225,7 @@ Ejercicio 4:
 // Esta es una cadena de texto del lado del cliente
 var cadena2 = "Esto es una cadena de caracteres";
 // En este paso se convierte el texto del lado del cliente a un ee.String
-//del lado del servidor
+// del lado del servidor
 var cadenaServ = ee.String(cadena2);                         
 ```
 
@@ -317,21 +317,19 @@ print('valores',diccServ.values());
 
 **ee.Date**
 
-Esta es la forma en la que GEE trabaja con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior).
-Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior). Hay varias formas de construir una fecha específica:
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “YYYY-MM-DD”, esta fecha obligatoriamente debe:
-
   *	Usar la función `ee.Date`.
-  *	Estar en orden Año Mes Día (AAAA-MM-DD).
-  *	Usar guiones como separadores -.
+  *	Indicar la fecha en el orden de Año Mes Día (AAAA-MM-DD).
+  *	Usar guiones como separadores `-`.
   *	Tener meses numéricos de dos dígitos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).
   *	Tener días de dos dígitos (01, 02, 03 … 09, 10, 11 … 30).
   *	Estar entre comillas, "1989-08-23".
-2.	Se pueden usar números de usuario, en este caso se debe:
+2.	Usar números de usuario, en este caso se debe:
   *	Usar el método  `ee.DatefromYMD`.
   *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas. `ee.Date.fromYMD(2015,03,28)`
-3.	Se puede usar un texto de usuario especificando el formato, para esto se debe:
+3.	Usar un texto de usuario especificando el formato, para esto se debe:
   *	Usar el método `ee.Date.parse`.
   *	Especificar el formato de la fecha con la siguiente clave (YYYY=año, MM=mes, D=día).
   *	Especificar el tipo de separador.
@@ -360,25 +358,25 @@ var fecha2 = ee.Date.fromYMD(2015,03,28);
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 
 ```
 
-```{r, echo = F, out.width="100%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE"}
+```{r, echo = F, out.width="100%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
 knitr::include_graphics("Img/objetosServ.png")
 ```
 
 **ee.Image**
 
-Permite leer un objeto individual tipo raster en el servidor. Al definir un objeto de este tipo se puede utilizar cualquier método para objetos `ee.Image`. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo raster en GEE. Más adelante se explica con mayor detalle.
+Permite leer un objeto individual tipo ráster en el servidor. Al definir un objeto de este tipo se puede utilizar cualquier método para objetos `ee.Image`. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
 
 **ee.ImageCollection**
 
-Las colecciones de imágenes están formadas por imágenes individuales (ee.Image). Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
+Las colecciones de imágenes están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
 
 **ee.Feature**
 
-Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Permite leer un objeto como vector en el servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.Feature`. Más adelante se explica este tipo de objeto con mayor detalle.
+Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Además, permite enviar un objeto como vector al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.Feature`. Más adelante se explica este tipo de objeto con mayor detalle.
 
 **ee.FeatureCollection**
 
-Las colecciones de features están formadas por varios vectores (ee.Feature). Permite enviar un objeto como colección de vectores al servidor. Además, al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.FeatureCollection`. Más adelante se explica estos objetos con mayor detalle.
+Las colecciones de features están formadas por varios vectores (ee.Feature). Además, permite enviar un objeto como colección de vectores al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.FeatureCollection`. Más adelante se explica estos objetos con mayor detalle.
 
 **ee.Algorithms**
 
@@ -402,11 +400,11 @@ Este tipo de objetos normalmente se utilizan para filtrar colecciones, ya sean d
 
 **ee.Geometry**
 
-Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, por ejemplo, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o calcular el área `ee.Geometry.Polygon.area`.
+Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, por ejemplo, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o `ee.Geometry.Polygon.area` para calcular el área de un polígono.
 
 **ee.Join**
 
-Este conjunto de métodos permite realizar uniones entre colecciones de vectores, utilizando los campos de éstos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
+Este conjunto de métodos permite realizar uniones entre colecciones de vectores, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
 
 **ee.Reducer**
 
@@ -418,6 +416,6 @@ Este conjunto de métodos permite calcular algunas operaciones topográficas, a 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Los argumentos de cualquier función del servidor se pasan como un diccionario (dentro de llaves {} ).
+Los argumentos de cualquier función del servidor se pasan como un diccionario (dentro de llaves `{}`).
 :::
 ::::

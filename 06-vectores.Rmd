@@ -9,11 +9,11 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multip
 
 ## Visualización de vectores
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semi-opaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, ingresando el color como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa layers solo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: https://htmlcolorcodes.com/es/
+Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa, sólo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: https://htmlcolorcodes.com/es/
 :::
 ::::
 
@@ -115,7 +115,7 @@ Ejercicio 12
 var rectangulo1 = ee.Feature(ee.Geometry.Rectangle(-92.0,10.6,-82.0,20.7));
 var rectangulo2 = ee.Feature(ee.Geometry.Rectangle(-86.03,15.6,-100.0,40.7));
 
-// Interseccion
+// Intersección
 var interseccion = rectangulo1.intersection(rectangulo2);
 ```
 
@@ -201,5 +201,5 @@ Ejercicio 12.5
 
 ```{js echo = T}
 // Unir geometrías del buffer y un rectángulo 
-var union = rectangulo2.union(buff
+var union = rectangulo2.union(bufferPol)
 ```

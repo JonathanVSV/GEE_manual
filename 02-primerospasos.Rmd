@@ -3,13 +3,13 @@
 
 ## Registro para el uso de GEE Javascript API
 
-Lo primero que hay que hacer para poder utilizar la API Javascript de Google Earth Engine es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
+Lo primero que hay que hacer para poder utilizar la API Javascript de GEE es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
 
 **https://earthengine.google.com/**
 
 Después, le damos click en la esquina superior derecha donde dice **Sign Up**. 
 
-```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE"}
+```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
 ```
 
@@ -21,13 +21,13 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 :::
 ::::
 
-```{r, echo = F, out.width="60%", fig.cap="Formulario de datos a llenar para registrarse en GEE"}
+```{r, echo = F, out.width="60%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
 knitr::include_graphics("Img/formulario.png")
 ```
 
 Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
 
-```{r, echo = F, out.width="60%", fig.cap="Ejemplo de correo de confirmación por parte de GEE para poder utilizar la API"}
+```{r, echo = F, out.width="60%", fig.cap="Ejemplo de correo de confirmación por parte de GEE para poder utilizar la API."}
 knitr::include_graphics("Img/correo.png")
 ```
 
@@ -36,11 +36,11 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API a través del
 **https://code.earthengine.google.com/**
 
 y se accede con la cuenta de Google con la que nos registramos.
-Una vez registrados, se podrá acceder al material de todos los ejercicio entrando a la siguiente liga: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
+Una vez registrados, se podrá acceder al material de todos los ejercicio entrando al siguiente enlace: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
 
-Una vez dentro de la API, es importante crear un Home folder que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
+Una vez dentro de la API, es importante crear un folder de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
 
-```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API"}
+```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
 ```
 
@@ -48,7 +48,7 @@ knitr::include_graphics("Img/homeFolder.png")
 
 Una vez abierta la Javascript API, se observa la siguiente pantalla.
 
-```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE"}
+```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE."}
 knitr::include_graphics("Img/GEE_inicio_API.png")
 ```
 
@@ -58,11 +58,12 @@ Los elementos de la API se enlistan a continuación:
 
 Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y fólderes para organizar los archivos de código, como se muestra a continuación:
 
-```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE"}
+```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
 knitr::include_graphics("Img/left_panel.png")
 ```
 
 Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios:
+
 1. Propietario (Owner): en esta sección se guardan los códigos creados por el mismo usuario. 
 2. Editor (Writer): en este apartado se guardan códigos que pueden ser creados por otros usuarios, pero para los cuales tenemos autorización de modificarlos.
 3. Lector (Reader): en esta parte aparecen códigos que otros usuarios nos han compartido, pero que no tenemos autorización de modificarlos.
@@ -75,11 +76,11 @@ El usuario puede compartir repositorios con otros usuarios de GEE como lector o 
 :::
 ::::
 
-```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo"}
+```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
 knitr::include_graphics("Img/repofolderfile.png")
 ```
 
-```{r, echo = F, out.width="40%", fig.cap="Vista del espacio de propietario"}
+```{r, echo = F, out.width="40%", fig.cap="Vista del espacio de propietario."}
 knitr::include_graphics("Img/engranaje.png")
 ```
 
@@ -87,11 +88,11 @@ knitr::include_graphics("Img/engranaje.png")
 
 Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método. Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
-```{r, echo = F, out.width="40%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE"}
+```{r, echo = F, out.width="40%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE."}
 knitr::include_graphics("Img/docs.png")
 ```
 
-```{r, echo = F, out.width="40%", fig.cap="Ejemplo de consulta de una función dentro de la sección de documentación"}
+```{r, echo = F, out.width="40%", fig.cap="Ejemplo de consulta de una función dentro de la sección de documentación."}
 knitr::include_graphics("Img/doc_ejemplo.png")
 ```
 
@@ -99,77 +100,75 @@ knitr::include_graphics("Img/doc_ejemplo.png")
 
 En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente.
 
-```{r, echo = F, out.width="40%", fig.cap="Vistazo de la sección de información del usuario"}
+```{r, echo = F, out.width="40%", fig.cap="Vistazo de la sección de información del usuario."}
 knitr::include_graphics("Img/assets.png")
 ```
 
-```{r, echo = F, out.width="100%", fig.cap="Ejemplos de pantallas para subir diferentes tipos de datos a GEE"}
+```{r, echo = F, out.width="100%", fig.cap="Ejemplos de pantallas para subir diferentes tipos de datos a GEE."}
 knitr::include_graphics("Img/newAssets.png")
 ```
 
 **Pantalla de rutinas**
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, Get link sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opción Manage Links ) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opción Manage Links) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen.
 
-```{r, echo = F, out.width="50%", fig.cap="Vistazo de la pantalla de rutinas o scripts"}
+```{r, echo = F, out.width="50%", fig.cap="Vistazo de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
 ```
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion _Manage Links_ ) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
 
-```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para obtener enlaces para compartir rutinas"}
+```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para obtener enlaces para compartir rutinas."}
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de Save el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opción Save as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
 
-```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código"}
+```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
-A continuación está el botón Run que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
-```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código"}
+```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
 ```
 
-A su derecha se encuentra el botón de Reset el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
+A su derecha se encuentra el botón de `Reset` el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
 
-Después se encuentra el botón de Apps que sirve para crear Apps a partir del código que se encuentra en la pantalla.
+Después se encuentra el botón de `Apps` que sirve para crear apps a partir del código que se encuentra en la pantalla.
 
-Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como ’, ", ( y {.
+Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como `’`, `"`, `(` y `{`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Cuando se corre un código en la consola con el botón de Run, este no corre directamente en los servidores de Google, sino que éstos se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
+Cuando se corre un código en la consola con el botón de `Run`, este no corre directamente en los servidores de Google, sino que se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para buscar un texto específico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el cual resulta de gran ayuda para sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
+Para buscar un texto específico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
 :::
 ::::
 
 **Search**
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de algún dataset o una colección en particular, así como para consultar sus metadatos, bandas y características.
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
-```{r, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda"}
+```{r, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
 ```
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de algun Dataset o colección en particular, así como para consultar sus metadatos, bandas y características. 
-
 **Map**
 
-En esta pantalla de mapas se pueden:
+En esta pantalla de mapas se puede:
 
 1. Dibujar y visualizar puntos, polígonos, líneas o rectángulos. 
-2. Mostrar la información que se haya indicado mediante la función Map.addLayer.
+2. Mostrar la información que se haya indicado mediante la función `Map.addLayer`.
 3. Añadir un mapa base (Google maps o Google earth).
 
-```{r, echo = F, out.width="80%", fig.cap="Vista de la pantalla de mapas, indicando las diferentes herramientas que se pueden utilizar en ella"}
+```{r, echo = F, out.width="80%", fig.cap="Vista de la pantalla de mapas, indicando las diferentes herramientas que se pueden utilizar en ella."}
 knitr::include_graphics("Img/drawing.png")
 ```
 
@@ -177,15 +176,15 @@ knitr::include_graphics("Img/drawing.png")
 
 Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
-```{r, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas"}
+```{r, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas."}
 knitr::include_graphics("Img/layer.png")
 ```
 
 **Consola**
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un código o se pueden mostrar la información indicada por la función `print`.
+La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
 
-```{r, echo = F, out.width="80%", fig.cap="Vista de la consola en GEE"}
+```{r, echo = F, out.width="80%", fig.cap="Vista de la consola en GEE."}
 knitr::include_graphics("Img/rigthPanel.png")
 ```
 
@@ -193,21 +192,21 @@ knitr::include_graphics("Img/rigthPanel.png")
 
 Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
 
-```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de la herramienta de Inspector"}
+```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de la herramienta de Inspector."}
 knitr::include_graphics("Img/inspector.png")
 ```
 
 **Tasks**
 
-En esta pestaña se muestran los trabajos que se hayan exportado mediante la función Export y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). Además, esta pestaña tiene otras funciones:
+En esta pestaña se muestran los trabajos que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). Además, esta pestaña tiene otras funciones:
 
-1. Mostrar las tareas para ejecutar (con el botón de run, el cual permite especificar detalles de la exportación).
+1. Mostrar las tareas para ejecutar (con el botón de `Run`, el cual permite especificar detalles de la exportación).
 2. Presentar las tareas en ejecución (color gris).
 3. Señalar el tiempo demorado en el trabajo.
 4. Indicar cuándo el trabajo se ha finalizado (color azul).
 5. Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información del trabajo como, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
-```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de tareas dentro de GEE"}
+```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de tareas dentro de GEE."}
 knitr::include_graphics("Img/task.png")
 ```
 
@@ -229,24 +228,22 @@ La programación dentro de la API de GEE es una orientada a objetos, siguiendo l
 
 ### Lenguaje Javascript en GEE
 
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos _(de igual forma iremos tocando la gramatica del código a lo largo de los ejemplos)_:
-
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas en GEE. Entre algunos elementos de la sintaxis básica se encuentran los siguientes puntos (de igual forma iremos tocando la gramática del código a lo largo de los ejemplos):
+La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos (de igual forma iremos tocando la gramatica del código a lo largo de los ejemplos):
 
 1.	Es un lenguaje sensible a las mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes uno llamado `a` y otro diferente llamado `A`.
 2.	Siempre se debe cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente).
-3.	Comúnmente en Javascript se utiliza el lowerCamelCase (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones `-` o guión bajo `_`. Por ejemplo: intervalMean o updateMask.
-4.	Todas las variables, funciones y objetos deben ser definidos mediante la función var.
+3.	Comúnmente en Javascript se utiliza el "lowerCamelCase" (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones `-` o guión bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
+4.	Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
 5.	Para definir variables se utiliza el operador `=`.
 6.	Los operadores matemáticos son: `+ - * /`.
 7.	Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
-8.	Para realizar comentarios se puede utilizar `//` para comentarios de una línea, o también `/* … */` para comentarios de varias líneas
-9.	Se suele utilizar el operador `.` (punto) para aplicar una función al objeto que lo precede. Por ejemplo, `ee.Image.updateMask(mascara)` (se aplica la función `updateMask` al objeto `ee.Image`);. A este tipo de funciones se les llama MéTODOS. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador `.`  para evitar errores de sintaxis.
+8.	Para realizar comentarios se puede utilizar `//` para comentarios de una línea, o también `/* … */` para comentarios de varias líneas.
+9.	Se suele utilizar el operador `.` (punto) para aplicar una función al objeto que lo precede. Por ejemplo, `ee.Image.updateMask(mascara)` (se aplica la función `updateMask` al objeto `ee.Image`);. A este tipo de funciones se les llama métodos. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador `.`  para evitar errores de sintaxis.
 10.	Son igualmente válidas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El término correcto para llamar a las funciones aplicadas con el operador `.` es el de método (method), lo cual quiere decir que son funciones ligadas a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, la función updateMask es un método ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
+El término correcto para llamar a las funciones aplicadas con el operador `.` es el de método ("method"), lo cual quiere decir que son funciones ligadas a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, la función `updateMask` es un método ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
 :::
 ::::
