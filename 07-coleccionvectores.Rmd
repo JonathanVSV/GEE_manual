@@ -234,7 +234,8 @@ Map.addLayer(contornos, {palette: '6e00ff', max: 14},
 // color en una lista [rojo, verde, azul]. Esto permite que los vectores 
 // se dibujen de diferentes colores según el atributo 'color' de la 
 // variable 'contorno'
-Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], max: 14}, 'bordes de colores'); 
+Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], 
+  max: 14}, 'bordes de colores'); 
 ```
 
 ## Funciones comunes
@@ -478,7 +479,8 @@ var peru = paises.filterMetadata('COUNTRY_NA','equals','Peru');
 // Creamos una colección de vectores de 100 puntos aleatorios en Perú, y 
 // usando la función .randomColumn le asignamos un valor aleatorio (entre 
 // 0-1) a cada punto de la colección
-var puntos =ee.FeatureCollection.randomPoints(peru, 100).randomColumn('aleatorio');  
+var puntos =ee.FeatureCollection.randomPoints(peru, 100)
+  .randomColumn('aleatorio');  
 
 // Definimos una función llamada buffer cuyo insumo de entrada es un 
 // objeto que llamamos 'punto'
@@ -684,16 +686,16 @@ var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
 
 GEE permite exportar vectores a la sección de Assets, al Google Drive o al GoogleCloud. Como GoogleCloud es un servicio de cobro no lo vamos a explicar. 
 
+Para exportar vectores es necesario usar la función `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`. Sus argumentos en común son: 
+
+* Collection: obligatoriamente una colección de vectores `ee.FeatureCollection`. Si se quiere exportar un solo vector se deberá convertir en una colección de un solo elemento. 
+* Description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
+
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Es importante recordar que no se podrán exportar vectores a los Assets sin geometrías, ni vectores con geometría `NULL`. Siempre que se quiera exportar una colección de vectores a la sección de Assets será necesario especificar alguna geometría por vector de la colección.
 :::
 ::::
-
-Para exportar vectores es necesario usar la función `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`. Sus argumentos en común son: 
-
-* Collection: obligatoriamente una colección de vectores `ee.FeatureCollection`. Si se quiere exportar un solo vector se deberá convertir en una colección de un solo elemento. 
-* Description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
 
 Los argumentos adicionales específicos para exportar a drive `Export.table.toDrive` son: 
 

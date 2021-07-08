@@ -1,5 +1,5 @@
 \newpage
-# Importación de información a GEE (Assets)
+# Importación de información a GEE
 
 Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar click en `New` e indicar el archivo que se quiere importar a GEE.
 

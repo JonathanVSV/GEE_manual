@@ -127,7 +127,7 @@
 \usepackage[spanish]{babel}
 \usepackage{titlesec}
 \definecolor{lightblue}{RGB}{222,243,247}
-\definecolor{darkblue}{RGB}{22,92,105}
+\definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
 \renewcommand\headrulewidth{1pt}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -2374,7 +2374,8 @@ Ejercicio 17.2
 \CommentTok{// color en una lista [rojo, verde, azul]. Esto permite que los vectores }
 \CommentTok{// se dibujen de diferentes colores según el atributo \textquotesingle{}color\textquotesingle{} de la }
 \CommentTok{// variable \textquotesingle{}contorno\textquotesingle{}}
-\BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(contornos}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{palette}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}FF0000\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}00FF00\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}0000FF\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{14}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}bordes de colores\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
+\BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(contornos}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{palette}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}FF0000\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}00FF00\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}0000FF\textquotesingle{}}\NormalTok{]}\OperatorTok{,} 
+  \DataTypeTok{max}\OperatorTok{:} \DecValTok{14}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}bordes de colores\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
 
@@ -2739,7 +2740,8 @@ Ejercicio 21
 \CommentTok{// Creamos una colección de vectores de 100 puntos aleatorios en Perú, y }
 \CommentTok{// usando la función .randomColumn le asignamos un valor aleatorio (entre }
 \CommentTok{// 0{-}1) a cada punto de la colección}
-\KeywordTok{var}\NormalTok{ puntos }\OperatorTok{=}\NormalTok{ee}\OperatorTok{.}\AttributeTok{FeatureCollection}\OperatorTok{.}\FunctionTok{randomPoints}\NormalTok{(peru}\OperatorTok{,} \DecValTok{100}\NormalTok{)}\OperatorTok{.}\FunctionTok{randomColumn}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
+\KeywordTok{var}\NormalTok{ puntos }\OperatorTok{=}\NormalTok{ee}\OperatorTok{.}\AttributeTok{FeatureCollection}\OperatorTok{.}\FunctionTok{randomPoints}\NormalTok{(peru}\OperatorTok{,} \DecValTok{100}\NormalTok{)}
+  \OperatorTok{.}\FunctionTok{randomColumn}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
 
 \CommentTok{// Definimos una función llamada buffer cuyo insumo de entrada es un }
 \CommentTok{// objeto que llamamos \textquotesingle{}punto\textquotesingle{}}
@@ -2981,15 +2983,6 @@ Ejercicio 25
 
 GEE permite exportar vectores a la sección de Assets, al Google Drive o al GoogleCloud. Como GoogleCloud es un servicio de cobro no lo vamos a explicar.
 
-\begin{bluebox2}
-
-\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Es importante recordar que no se podrán exportar vectores a los Assets sin geometrías, ni vectores con geometría \texttt{NULL}. Siempre que se quiera exportar una colección de vectores a la sección de Assets será necesario especificar alguna geometría por vector de la colección.
-
-\end{awesomeblock}
-
-\end{bluebox2}
-
 Para exportar vectores es necesario usar la función \texttt{Export.table} y especificar si va a ser para drive \texttt{.toDrive} o para los assets \texttt{.toAsset}. Sus argumentos en común son:
 
 \begin{itemize}
@@ -2999,6 +2992,15 @@ Para exportar vectores es necesario usar la función \texttt{Export.table} y esp
 \item
   Description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo \texttt{\_} ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
 \end{itemize}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Es importante recordar que no se podrán exportar vectores a los Assets sin geometrías, ni vectores con geometría \texttt{NULL}. Siempre que se quiera exportar una colección de vectores a la sección de Assets será necesario especificar alguna geometría por vector de la colección.
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 Los argumentos adicionales específicos para exportar a drive \texttt{Export.table.toDrive} son:
 
@@ -4008,7 +4010,8 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 \begin{Shaded}
 \begin{Highlighting}[]
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgFirst)}\OperatorTok{;}
-\BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgFirst}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{bands}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{min}\OperatorTok{:} \DecValTok{95}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{1288}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}RGB menos nubes L8\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgFirst}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{bands}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{min}\OperatorTok{:} \DecValTok{95}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{1288}\NormalTok{\}}\OperatorTok{,} 
+  \StringTok{\textquotesingle{}RGB menos nubes L8\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -4244,8 +4247,8 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
 
 \newpage
 
-\hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee-assets}{%
-\chapter{Importación de información a GEE (Assets)}\label{importaciuxf3n-de-informaciuxf3n-a-gee-assets}}
+\hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee}{%
+\chapter{Importación de información a GEE}\label{importaciuxf3n-de-informaciuxf3n-a-gee}}
 
 Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar click en \texttt{New} e indicar el archivo que se quiere importar a GEE.
 

@@ -351,7 +351,8 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 ```{js, echo = T}
 Map.addLayer(L8imgFirst);
-Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288}, 'RGB menos nubes L8');
+Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288}, 
+  'RGB menos nubes L8');
 ```
 
 ```{r, echo = F, out.width="100%", fig.cap="Visualización de la primera imagen de la colección de imágenes."}
