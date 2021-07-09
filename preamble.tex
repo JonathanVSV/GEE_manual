@@ -10,7 +10,6 @@
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
-\renewcommand\headrulewidth{1pt}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \titleformat{\chapter}{\normalfont\LARGE\bfseries\color{darkblue}}{\thechapter}{1em}{}
@@ -24,5 +23,13 @@
   boxsep=0pt,
   arc=0pt
 }
-  
+\renewcommand\headrulewidth{0pt}
+\pagestyle{empty}
+  \fancyhf{}
+\fancypagestyle{plain}{}
+\fancypagestyle{fancy}{}
+%\fancypagestyle{toc}{}
+%\fancypagestyle{main}{}
+%\fancypagestyle{contents}{}
+
 

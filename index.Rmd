@@ -1,6 +1,6 @@
 ---
-title: "Manual de Google Earth Engine"   
-author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla"
+title: "Manual de Google Earth Engine"
+author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
 documentclass: book  # tipo documento: book, article
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
@@ -11,7 +11,7 @@ papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
 fontfamily: times # palatino, helvet, utopia, times, pifont, courier, bookman, newcent y avant
 classoption: twoside # una cara
-pagestyle: "empty"
+pagestyle: empty
 openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
 toc-title: "Índice"
 toc: yes
@@ -23,11 +23,8 @@ geometry:
   - rmargin=2.5cm
   - headheight=3cm,
   - bottom=3cm,
-output: pdf_book 
+output: pdf_book
 language:
-#  label:
-#    fig: 'Figura '
-#    exr: 'Ejercicio '
   ui:
     chapter_name: ''
 ---

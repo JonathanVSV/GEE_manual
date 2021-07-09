@@ -40,7 +40,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={Manual de Google Earth Engine},
-  pdfauthor={Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla},
+  pdfauthor={Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez},
   colorlinks=true,
   linkcolor=Maroon,
   filecolor=Maroon,
@@ -129,7 +129,6 @@
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
-\renewcommand\headrulewidth{1pt}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \titleformat{\chapter}{\normalfont\LARGE\bfseries\color{darkblue}}{\thechapter}{1em}{}
@@ -143,27 +142,26 @@
   boxsep=0pt,
   arc=0pt
 }
-  
+\renewcommand\headrulewidth{0pt}
+\pagestyle{empty}
+  \fancyhf{}
+\fancypagestyle{plain}{}
+\fancypagestyle{fancy}{}
+%\fancypagestyle{toc}{}
+%\fancypagestyle{main}{}
+%\fancypagestyle{contents}{}
+
 
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
 \title{Manual de Google Earth Engine}
-\author{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla}
+\author{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez}
 \date{}
 
 \begin{document}
 \maketitle
-
-\pagestyle{plain} 
-  \fancyfoot{}
-  \fancyfoot[LE,RO]{\thepage}
-  \fancyhead{}
-  \fancyhead[LE,RO]{\leftmark}
-  \fancyhead[LO,RE]{\rightmark}
-\fancypagestyle{plain}{}
-\pagestyle{fancy}
 
 \renewcommand*\contentsname{Índice}
 {
@@ -178,6 +176,15 @@
 
 \newpage
 \mainmatter
+
+\renewcommand\headrulewidth{1pt}
+\pagestyle{fancy} 
+  \fancyfoot{}
+  \fancyfoot[LE,RO]{\thepage}
+  \fancyhead{}
+  \fancyhead[LE,RO]{\leftmark}
+  \fancyhead[LO,RE]{\rightmark}
+\fancypagestyle{plain}{}
 
 \hypertarget{introducciuxf3n}{%
 \chapter{Introducción}\label{introducciuxf3n}}
@@ -1075,7 +1082,7 @@ Ejercicio 0
 \CommentTok{// Cadena de texto de solo letras}
 \KeywordTok{var}\NormalTok{ cadena }\OperatorTok{=}\NormalTok{ “Esto es una cadena de caracteres”}\OperatorTok{;}
 
-\CommentTok{// Cadena de texto de solo numeros}
+\CommentTok{// Cadena de texto de solo números}
 \KeywordTok{var}\NormalTok{ telefono}\OperatorTok{=} \StringTok{\textquotesingle{}1234567890\textquotesingle{}}\OperatorTok{;}  
                      
 \CommentTok{// Cadena de texto de letras, números y símbolos}
@@ -1212,8 +1219,8 @@ Ejercicio 3.1
 
 \CommentTok{// Notación de lista, se mostrará en la consola la definición de }
 \CommentTok{// "clave2", es decir la letra "A"}
- 
 \FunctionTok{print}\NormalTok{(dicc[}\StringTok{"clave2"}\NormalTok{])}\OperatorTok{;}  
+
 \CommentTok{// Notación con punto, se mostrará en la consola la definición de }
 \CommentTok{// "clave1", es decir el valor 1 }
 \FunctionTok{print}\NormalTok{(dicc}\OperatorTok{.}\AttributeTok{clave1}\NormalTok{)}\OperatorTok{;}  
@@ -1505,7 +1512,7 @@ Ejercicio 8:
 \KeywordTok{var}\NormalTok{ fecha2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Date}\OperatorTok{.}\FunctionTok{fromYMD}\NormalTok{(}\DecValTok{2015}\OperatorTok{,}\DecValTok{03}\OperatorTok{,}\DecValTok{28}\NormalTok{)}\OperatorTok{;} 
    
 \CommentTok{// Crea una fecha a partir de un formato especificado y un texto que }
-\CommentTok{// cumple con dicho formato, nótese que se especifica el orden del dia }
+\CommentTok{// cumple con dicho formato, nótese que se especifica el orden del día }
 \CommentTok{// año y mes, se especifica cada separador, y si se usan meses como texto}
 \CommentTok{// deben ser las 3 primeras iniciales del mes en inglés}
 \KeywordTok{var}\NormalTok{ fecha3 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Date}\OperatorTok{.}\FunctionTok{parse}\NormalTok{(}\StringTok{\textquotesingle{}DD\_YYYY/MMM\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}14\_1827/jul\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
@@ -2034,7 +2041,7 @@ Ejercicio 12.2
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Calcular el area del buffer}
+\CommentTok{// Calcular el área del buffer}
 \KeywordTok{var}\NormalTok{ area }\OperatorTok{=}\NormalTok{ bufferPol}\OperatorTok{.}\FunctionTok{area}\NormalTok{(}\FloatTok{0.1}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -2130,7 +2137,7 @@ Ejercicio 13
 \begin{Highlighting}[]
 \CommentTok{// En el buscador se busca una tabla de paises \textquotesingle{}countries\textquotesingle{}, y se escribe }
 \CommentTok{// el ID de la tabla, en este caso es una colección de vectores del }
-\CommentTok{// departamento de estado de Estados unidos, que contiene las divisiones }
+\CommentTok{// departamento de estado de Estados Unidos, que contiene las divisiones }
 \CommentTok{// políticas de los países del mundo  }
 \KeywordTok{var}\NormalTok{ países }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(}\StringTok{\textquotesingle{}USDOS/LSIB\_SIMPLE/2017\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -2178,7 +2185,7 @@ Ejercicio 14
 \CommentTok{// poco pesada }
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(cuencas}\OperatorTok{,}\NormalTok{\{\}}\OperatorTok{,}\StringTok{\textquotesingle{}todas las cuencas\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \CommentTok{// Esta capa solo contiene las primeras 1000 cuencas y carga mucho más }
-\CommentTok{// rápido (NorOccidente de áfrica)}
+\CommentTok{// rápido (Noroccidente de áfrica)}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(cuencas}\OperatorTok{.}\FunctionTok{limit}\NormalTok{(}\DecValTok{1000}\NormalTok{)}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{color}\OperatorTok{:}\StringTok{\textquotesingle{}00ff00\textquotesingle{}}\NormalTok{\}}\OperatorTok{,}\StringTok{\textquotesingle{}1000 cuencas filtradas\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -2487,55 +2494,43 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la librer�
   Utilizar \texttt{ee.Filter.and} para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
 \item
   Usar \texttt{ee.Filter.gte} para seleccionar mediante una condición.
-\end{enumerate}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  Indicar el atributo a utilizar (`MARINE'). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
-\item
-  Por lo tanto al llamar \texttt{ee.Filter.gte} con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
-\end{enumerate}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{3}
-\tightlist
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    Indicar el atributo a utilizar (`MARINE'). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
+  \item
+    Por lo tanto al llamar \texttt{ee.Filter.gte} con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
+  \end{enumerate}
 \item
   Después se utiliza una coma para indicar otro filtro.
 \item
   Al indicar \texttt{ee.Filter.stringContains} se realiza un filtro para seleccionar los vectores que a partir de una cadena de caracteres:
-\end{enumerate}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  `NAME' es un atributo del nombre del área protegida.
-\item
-  `Manglar' es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
-\end{enumerate}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{5}
-\tightlist
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    `NAME' es un atributo del nombre del área protegida.
+  \item
+    `Manglar' es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
+  \end{enumerate}
 \item
   Después se usa otra coma para indicar otro filtro.
 \item
   Por último se utiliza \texttt{ee.Filter.rangeContains} para seleccionar todo lo que se encuentre en un rango de valores.
-\end{enumerate}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\tightlist
-\item
-  `GIS\_M\_AREA' es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
-\item
-  10 es el valor mínimo del rango de área marina que queremos filtrar.
-\item
-  100 es el valor máximo del rango de área marina que queremos filtrar.
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    `GIS\_M\_AREA' es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
+  \item
+    10 es el valor mínimo del rango de área marina que queremos filtrar.
+  \item
+    100 es el valor máximo del rango de área marina que queremos filtrar.
+  \end{enumerate}
 \end{enumerate}
 
 Ejercicio 18.3

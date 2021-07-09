@@ -14,7 +14,7 @@ Ejercicio 13
 ```{js echo = T}
 // En el buscador se busca una tabla de paises 'countries', y se escribe 
 // el ID de la tabla, en este caso es una colección de vectores del 
-// departamento de estado de Estados unidos, que contiene las divisiones 
+// departamento de estado de Estados Unidos, que contiene las divisiones 
 // políticas de los países del mundo  
 var países = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 ```
@@ -53,7 +53,7 @@ print(cuencas);
 // poco pesada 
 Map.addLayer(cuencas,{},'todas las cuencas');
 // Esta capa solo contiene las primeras 1000 cuencas y carga mucho más 
-// rápido (NorOccidente de áfrica)
+// rápido (Noroccidente de áfrica)
 Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas');
 ``` 
 
@@ -316,17 +316,17 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la librer�
 1.	Utilizar el método `.filter` para indicar que vamos a realizar un filtro.
 2.	Utilizar `ee.Filter.and` para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
 3.	Usar `ee.Filter.gte` para seleccionar mediante una condición.
-  a.	Indicar el atributo a utilizar (‘MARINE’). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
-  b.	Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
+    a. Indicar el atributo a utilizar (‘MARINE’). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
+    b.	Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
 4.	Después se utiliza una coma para indicar otro filtro.
 5.	Al indicar `ee.Filter.stringContains` se realiza un filtro para seleccionar los vectores que a partir de una cadena de caracteres:
-  a.	‘NAME’ es un atributo del nombre del área protegida.
-  b.	‘Manglar’ es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
+    a.	‘NAME’ es un atributo del nombre del área protegida.
+    b.	‘Manglar’ es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
 6.	Después se usa otra coma para indicar otro filtro.
 7.	Por último se utiliza `ee.Filter.rangeContains` para seleccionar todo lo que se encuentre en un rango de valores.
-  a.	‘GIS_M_AREA’ es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
-  b.	10 es el valor mínimo del rango de área marina que queremos filtrar.
-  c.	100 es el valor máximo del rango de área marina que queremos filtrar.
+    a.	‘GIS_M_AREA’ es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
+    b.	10 es el valor mínimo del rango de área marina que queremos filtrar.
+    c. 100 es el valor máximo del rango de área marina que queremos filtrar.
 
 Ejercicio 18.3
 

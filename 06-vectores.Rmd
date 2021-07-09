@@ -140,7 +140,7 @@ Para calcular el área de un vector se utiliza el método `.area`. En este caso 
 Ejercicio 12.2
 
 ```{js echo = T}
-// Calcular el area del buffer
+// Calcular el área del buffer
 var area = bufferPol.area(0.1);
 ```
 

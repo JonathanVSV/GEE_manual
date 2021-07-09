@@ -25,7 +25,7 @@ Ejercicio 0
 // Cadena de texto de solo letras
 var cadena = “Esto es una cadena de caracteres”;
 
-// Cadena de texto de solo numeros
+// Cadena de texto de solo números
 var telefono= '1234567890';  
                      
 // Cadena de texto de letras, números y símbolos
@@ -139,8 +139,8 @@ print(dicc["clave1"]);
 
 // Notación de lista, se mostrará en la consola la definición de 
 // "clave2", es decir la letra "A"
- 
 print(dicc["clave2"]);  
+
 // Notación con punto, se mostrará en la consola la definición de 
 // "clave1", es decir el valor 1 
 print(dicc.clave1);  
@@ -352,7 +352,7 @@ var fecha = ee.Date(fechaString);
 var fecha2 = ee.Date.fromYMD(2015,03,28); 
    
 // Crea una fecha a partir de un formato especificado y un texto que 
-// cumple con dicho formato, nótese que se especifica el orden del dia 
+// cumple con dicho formato, nótese que se especifica el orden del día 
 // año y mes, se especifica cada separador, y si se usan meses como texto
 // deben ser las 3 primeras iniciales del mes en inglés
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 

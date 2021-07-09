@@ -1,5 +1,15 @@
 \newpage
 \mainmatter
+```{=latex}
+\renewcommand\headrulewidth{1pt}
+\pagestyle{fancy} 
+  \fancyfoot{}
+  \fancyfoot[LE,RO]{\thepage}
+  \fancyhead{}
+  \fancyhead[LE,RO]{\leftmark}
+  \fancyhead[LO,RE]{\rightmark}
+\fancypagestyle{plain}{}
+```
 # Introducción
 
 ## ¿Qué es Google Earth Engine?
