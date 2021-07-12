@@ -3,4 +3,4 @@ Revisar:
 1. Creo que es mejor idea no usar separadores de miles porque allá usan . y acá usan ,. En todo caso mejor podríamos usar un espacio. Por ejemplo, 50 000.
 2. Creo que hay algunos términos que acá son válidos que me imagino que allá no, p.ej., usar liga para referirse a los enlaces. Eso lo podemos platicar luego.
 3. Quizás podríamos usar la terminología de Python para referirnos a los paquetes de funciones como módulos. Por ejemplo, Map, Export, etc. Esta terminología también ayudaría a entender los submodulos, por ejemplo, Export.image.toDrive.
-
+4. El ejercicio 31 no está en el manual. El incluirlo aumentaría bastante dicha sección y realmente muestra lo mismo que el Ejercicio F, aunque con MODIS. Creo que no vale la pena incluirlo, pero se puede discutir (p.ej., para que todo el manual tenga un formato de puros ejemplo o podemos hacer una excepción).

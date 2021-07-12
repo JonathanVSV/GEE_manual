@@ -5,16 +5,20 @@ Además de las funciones que existen en GEE para realizar operaciones sobre imá
 
 ## Funciones comunes
 
-### Muestreo por vector(es) (Ejercicio E)
+### Muestreo por vector(es)
 
 Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
+Ejercicio 29
+
 ```{js echo = T}
+// Definir región a muestrear
 var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
   -101.51906,19.72362);
 ```
 
 ```{js echo = T}
+// Muestrear imagen
 var muestreo = L8imgMean
   .sample({
     region: bosque1,
@@ -35,6 +39,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
 
 ```{js echo = T}
+// Reducción por región
 var reduccion = ee.Image(L8imgMean)
   .reduceRegion({
     reducer: ee.Reducer.mean(),
@@ -64,7 +69,7 @@ Este método interpola al píxel de interés un valor según cada uno de los pun
 *	El promedio global de la variable.
 *	La desviación estándar global de la variable.
 
-Ejercicio 29
+Ejercicio 30
 
 ```{js echo = T}
 // Importamos datos de metano de 5 días, los filtramos y sacamos el 
@@ -128,7 +133,7 @@ var interpolado = muestras.inverseDistance({
 
 Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En esta función hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. 
 
-Ejercicio 30
+Ejercicio 31
 
 ```{js echo = T}
 // Importar una imagen de temperatura marina superficial

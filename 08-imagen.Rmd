@@ -84,7 +84,7 @@ Ejercicio 27.3
 Map.addLayer(CHM, 
   // Definir los valores mínimos y máximos de la imagen para su 
   // visualización
-  {min: 1000, max: 2500}, 
+  {min: 0, max: 32}, 
   // Definir el nombre con el que se desea cargar la imagen a la pantalla 
   // de mapas
   'primera imagen');
@@ -182,11 +182,11 @@ Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por
 :::
 ::::
 
-Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+, -, /, *`), módulo (`%`), exponente (`**`), relacionales(`>, <, >=, <=, !=, ==`), lógicos (`&&, ||, !, ^`), o if then else (`?:`).
+Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales(`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`), o if then else (`?:`).
 
 ### Uso de operaciones relacionales, condicionales y booleanas
 
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones `.lt, .lte, .gt, .gte, .eq, .neq`, que equivalen a menor que (less than), menor que o igual (less than or equal), mayor que (greater than), mayor que o igual (greater than or equal), igual (equal) o no igual (not equal), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (less than), menor que o igual (less than or equal), mayor que (greater than), mayor que o igual (greater than or equal), igual (equal) o no igual (not equal), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
 
 Ejercicio 27.9
  

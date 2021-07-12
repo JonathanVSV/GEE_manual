@@ -136,7 +136,6 @@ Ejercicio 28.5
 // Obtener el nombre de las bandas de una imagen de una colección de 
 // imágenes
 var imBandNames = im1.bandNames();
-print(imBandNames, 'imBandNames');
 
 // Seleccionar ciertas bandas de todas las imágenes que conforman la 
 // colección
@@ -315,6 +314,7 @@ Una vez que se conoce la ruta de la colección de interés, se llama dicha colec
 Para realizar este filtro se deben escribir exactamente igual el nombre de las propiedades (por ejemeplo, CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (`eq`), distintos (`neq`), mayores (`gt`), menores (`lt`), mayores o igual (`gte`) o menores o iguales(`lte`).
 
 ```{js, echo = T}
+// Filtrado de la colección
 var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterDate('2015-01-01','2016-01-01')
   .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
@@ -342,6 +342,7 @@ knitr::include_graphics("Img/CamposImgCol.png")
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de ‘CLOUD_COVER_LAND’. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`.
 
 ```{js, echo = T}
+// Ordenar imágenes y obtener la primera
 L8imgCol = L8imgCol.sort('CLOUD_COVER_LAND');
 var L8imgFirst = L8imgCol.first(); 
 print(L8imgFirst);
@@ -350,6 +351,7 @@ print(L8imgFirst);
 Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información. Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
 
 ```{js, echo = T}
+// Agregar a la pantalla de mapa
 Map.addLayer(L8imgFirst);
 Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288}, 
   'RGB menos nubes L8');
@@ -368,6 +370,7 @@ Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la másca
 En este procedimiento, primero se define la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama ‘pixel_qa’. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
 
 ```{js, echo = T}
+// Crear función para enmascarar nubes
 function maskL8sr(image) {
   var cloudShadowBitMask = (1 << 3);
   var cloudsBitMask = (1 << 5);
@@ -381,6 +384,7 @@ function maskL8sr(image) {
 Se define la función para calcular el NDVI de todas las imágenes.
 
 ```{js, echo = T}
+// Crear función para calcular NDVI
 var ndviCalc = function(image){
   var ndvi = image.normalizedDifference(['B5','B4']);
   ndvi = ndvi.rename('ndvi');
@@ -391,6 +395,7 @@ var ndviCalc = function(image){
 Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa.
 
 ```{js, echo = T}
+// Agregar la primera imagen a la pantalla de mapa
 Map.addLayer(L8imgCol.first(), 
   {bands:['B4','B3','B2'], min: 0, max: 1300},
   'Imagen con nubes');
@@ -403,6 +408,7 @@ knitr::include_graphics("Img/imNubes.png")
 A continuación se aplican las dos funciones utilizando `.map` y sobreescribir el objeto L8imgCol.
 
 ```{js, echo = T}
+// Aplicar las dos funciones a la colección
 L8imgCol = L8imgCol
   .map(maskL8sr)
   .map(ndviCalc);
@@ -412,6 +418,7 @@ print(L8imgCol);
 Se muestra la primera imagen sin nubes.
 
 ```{js, echo = T}
+// Visualizar la primera imagen
 Map.addLayer(L8imgCol.first(), 
   {bands:['B4','B3','B2'], min: 0, max: 1300},
   'Imagen sin nubes');
@@ -430,6 +437,8 @@ knitr::include_graphics("Img/imConNDVI.png")
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
 
 ```{js, echo = T}
+// Seleccionar la banda ndvi y hacer dos reducciones
+L8imgCol = L8imgCol.select('ndvi');
 var L8imgMean = L8imgCol.reduce(ee.Reducer.mean());
 var L8imgSD = L8imgCol.reduce(ee.Reducer.stdDev());
 ```
@@ -437,6 +446,7 @@ var L8imgSD = L8imgCol.reduce(ee.Reducer.stdDev());
 Por último, agregamos los dos resultados a la pantalla de mapas.
 
 ```{js, echo = T}
+// Visualizar las imágenes
 Map.addLayer(L8imgMean, {min:-0.14, max:0.15}, 'NDVI mean 2015 - 2016');
 Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 ```
@@ -456,6 +466,7 @@ Se pueden prender y apagar las capas de la pantalla de mapas utilizando el menú
 El último paso será cortar la imagen a una extensión de interés. En este caso primero se define un área de interés mediante coordenadas: 
 
 ```{js  echo = T}
+// Cargar el polígono del área de interés
 var geometry = ee.Geometry.Polygon(
         [[[-101.82737418916153, 19.836437094032178],
           [-101.82737418916153, 19.368119068204525],
@@ -466,9 +477,11 @@ var geometry = ee.Geometry.Polygon(
 Para después cortar las dos imágenes y mostrarlas en la pantalla de mapas.
 
 ```{js  echo = T}
+// Cortar la imágenes
 L8imgMean = L8imgMean.clip(geometry);
 L8imgSD = L8imgSD.clip(geometry);
 
+// Visualizarlas
 Map.addLayer(L8imgMean, {min:0.2, max:0.8}, 'NDVI mean 2015 - 2016 clip');
 Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 ```
@@ -478,6 +491,7 @@ Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 Se utilizarán las funciones previamente definidas para generar un mosaico igual al ya generado, pero ahora con fechas de 2016-01-01 al 2017-01-01. Primero se filtra la colección de imágenes y se mapean las funciones para enmascarar las nubes y agregar el NDVI a las imágenes.
 
 ```{js, echo = T}
+// Filtrado en tiempo 2
 var L8imgColT2 = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .filterDate('2016-01-01','2017-01-01')
   .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
@@ -492,17 +506,21 @@ L8imgColT2 = L8imgColT2
 Después, se seleccionan únicamente las bandas de NDVI y se reduce la colección de imágenes para generar una imagen del valor promedio de NDVI. Posteriormente, se recorta la imagen a la extensión del polígono del área de interés. A esta imagen se le restarán los valores de la imagen del 2015-01-01 al 2016-01-01. De esta manera, los valores más negativos representarán valores más bajos de NDVI en el año 2 respecto al año 1.
 
 ```{js, echo = T}
+// Seleccionar NDVI y reducción
 L8imgColT2 = L8imgColT2.select('ndvi');
 var L8imgMeanT2 = L8imgColT2.reduce(ee.Reducer.mean());
 
+// Cortar imagen a área de interés
 L8imgMeanT2 = L8imgMeanT2.clip(geometry);
 
+// Restar media T1 a T2
 var imgDiff = L8imgMeanT2.subtract(L8imgMean);  
 ```
 
 Posteriormente se agrega el resultado a la pantalla de mapas.
 
 ```{js, echo = T}
+// Visualizar imagen resultante
 Map.addLayer(imgDiff,{min:-0.3, max: 0.1, 
   palette:['FF0000', 'FFFF00', '008000'] }, 
   'Diferencia NDVI 2015 vs 2016');
@@ -515,6 +533,7 @@ knitr::include_graphics("Img/imDifNDVI.png")
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de un folder del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
 
 ```{js echo = T}
+// Exportar imagen a Google Drive
 Export.image.toDrive({
   image: imgDiff,
   description: 'DiferenciaNDVI_2016-2017',

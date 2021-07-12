@@ -124,7 +124,9 @@
 %\usepackage{titling}
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage{hyphenat}
 \usepackage{titlesec}
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
@@ -169,7 +171,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\setlength{\aweboxleftmargin}{0.1\linewidth}.
+\setlength{\aweboxleftmargin}{0.1\linewidth}
 \setlength{\aweboxcontentwidth}{0.85\linewidth}
 \setlength{\aweboxvskip}{1mm}
 \setlength{\aweboxrulewidth}{5pt}
@@ -3169,7 +3171,7 @@ Ejercicio 27.3
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(CHM}\OperatorTok{,} 
   \CommentTok{// Definir los valores mínimos y máximos de la imagen para su }
   \CommentTok{// visualización}
-\NormalTok{  \{}\DataTypeTok{min}\OperatorTok{:} \DecValTok{1000}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{2500}\NormalTok{\}}\OperatorTok{,} 
+\NormalTok{  \{}\DataTypeTok{min}\OperatorTok{:} \DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{32}\NormalTok{\}}\OperatorTok{,} 
   \CommentTok{// Definir el nombre con el que se desea cargar la imagen a la pantalla }
   \CommentTok{// de mapas}
   \StringTok{\textquotesingle{}primera imagen\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -3293,12 +3295,12 @@ Si no se cambia el nombre de la banda producida por \texttt{.normalizedDifferenc
 
 \end{bluebox2}
 
-Dentro de las fórmulas utilizadas dentro de \texttt{expression} se puede utilizar la notación estándar matemática (\texttt{+,\ -,\ /,\ *}), módulo (\texttt{\%}), exponente (\texttt{**}), relacionales(\texttt{\textgreater{},\ \textless{},\ \textgreater{}=,\ \textless{}=,\ !=,\ ==}), lógicos (\texttt{\&\&,\ \textbar{}\textbar{},\ !,\ \^{}}), o if then else (\texttt{?:}).
+Dentro de las fórmulas utilizadas dentro de \texttt{expression} se puede utilizar la notación estándar matemática (\texttt{+}, \texttt{-}, \texttt{/}, \texttt{*}), módulo (\texttt{\%}), exponente (\texttt{**}), relacionales(\texttt{\textgreater{}}, \texttt{\textless{}}, \texttt{\textgreater{}=}, \texttt{\textless{}=}, \texttt{!=}, \texttt{==}), lógicos (\texttt{\&\&}, \texttt{\textbar{}\textbar{}}, \texttt{!}, \texttt{\^{}}), o if then else (\texttt{?:}).
 
 \hypertarget{uso-de-operaciones-relacionales-condicionales-y-booleanas}{%
 \subsection{Uso de operaciones relacionales, condicionales y booleanas}\label{uso-de-operaciones-relacionales-condicionales-y-booleanas}}
 
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones \texttt{.lt,\ .lte,\ .gt,\ .gte,\ .eq,\ .neq}, que equivalen a menor que (less than), menor que o igual (less than or equal), mayor que (greater than), mayor que o igual (greater than or equal), igual (equal) o no igual (not equal), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante \texttt{.and} u \texttt{.or}, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones \texttt{.lt}, \texttt{.lte}, \texttt{.gt}, \texttt{.gte}, \texttt{.eq}, \texttt{.neq}, que equivalen a menor que (less than), menor que o igual (less than or equal), mayor que (greater than), mayor que o igual (greater than or equal), igual (equal) o no igual (not equal), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante \texttt{.and} u \texttt{.or}, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
 
 Ejercicio 27.9
 
@@ -3717,7 +3719,6 @@ Ejercicio 28.5
 \CommentTok{// Obtener el nombre de las bandas de una imagen de una colección de }
 \CommentTok{// imágenes}
 \KeywordTok{var}\NormalTok{ imBandNames }\OperatorTok{=}\NormalTok{ im1}\OperatorTok{.}\FunctionTok{bandNames}\NormalTok{()}\OperatorTok{;}
-\FunctionTok{print}\NormalTok{(imBandNames}\OperatorTok{,} \StringTok{\textquotesingle{}imBandNames\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// Seleccionar ciertas bandas de todas las imágenes que conforman la }
 \CommentTok{// colección}
@@ -3951,6 +3952,7 @@ Para realizar este filtro se deben escribir exactamente igual el nombre de las p
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Filtrado de la colección}
 \KeywordTok{var}\NormalTok{ L8imgCol }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{ImageCollection}\NormalTok{(}\StringTok{"LANDSAT/LC08/C01/T1\_SR"}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2015{-}01{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2016{-}01{-}01\textquotesingle{}}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filter}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{lte}\NormalTok{(}\StringTok{\textquotesingle{}CLOUD\_COVER\_LAND\textquotesingle{}}\OperatorTok{,}\DecValTok{50}\NormalTok{))}
@@ -3994,6 +3996,7 @@ A continuación se ordena la colección de manera ascendente de acuerdo a la pro
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Ordenar imágenes y obtener la primera}
 \NormalTok{L8imgCol }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{sort}\NormalTok{(}\StringTok{\textquotesingle{}CLOUD\_COVER\_LAND\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ L8imgFirst }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{first}\NormalTok{()}\OperatorTok{;} 
 \FunctionTok{print}\NormalTok{(L8imgFirst)}\OperatorTok{;}
@@ -4004,6 +4007,7 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Agregar a la pantalla de mapa}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgFirst)}\OperatorTok{;}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgFirst}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{bands}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{min}\OperatorTok{:} \DecValTok{95}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{1288}\NormalTok{\}}\OperatorTok{,} 
   \StringTok{\textquotesingle{}RGB menos nubes L8\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4030,6 +4034,7 @@ En este procedimiento, primero se define la función para enmascarar las nubes. 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Crear función para enmascarar nubes}
 \KeywordTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
   \KeywordTok{var}\NormalTok{ cloudShadowBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{3}\NormalTok{)}\OperatorTok{;}
   \KeywordTok{var}\NormalTok{ cloudsBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{5}\NormalTok{)}\OperatorTok{;}
@@ -4045,6 +4050,7 @@ Se define la función para calcular el NDVI de todas las imágenes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Crear función para calcular NDVI}
 \KeywordTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \KeywordTok{function}\NormalTok{(image)\{}
   \KeywordTok{var}\NormalTok{ ndvi }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{normalizedDifference}\NormalTok{([}\StringTok{\textquotesingle{}B5\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \NormalTok{  ndvi }\OperatorTok{=}\NormalTok{ ndvi}\OperatorTok{.}\FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4057,6 +4063,7 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Agregar la primera imagen a la pantalla de mapa}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgCol}\OperatorTok{.}\FunctionTok{first}\NormalTok{()}\OperatorTok{,} 
 \NormalTok{  \{}\DataTypeTok{bands}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{min}\OperatorTok{:} \DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{1300}\NormalTok{\}}\OperatorTok{,}
   \StringTok{\textquotesingle{}Imagen con nubes\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4076,6 +4083,7 @@ A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreesc
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Aplicar las dos funciones a la colección}
 \NormalTok{L8imgCol }\OperatorTok{=}\NormalTok{ L8imgCol}
   \OperatorTok{.}\FunctionTok{map}\NormalTok{(maskL8sr)}
   \OperatorTok{.}\FunctionTok{map}\NormalTok{(ndviCalc)}\OperatorTok{;}
@@ -4087,6 +4095,7 @@ Se muestra la primera imagen sin nubes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Visualizar la primera imagen}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgCol}\OperatorTok{.}\FunctionTok{first}\NormalTok{()}\OperatorTok{,} 
 \NormalTok{  \{}\DataTypeTok{bands}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{]}\OperatorTok{,} \DataTypeTok{min}\OperatorTok{:} \DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{1300}\NormalTok{\}}\OperatorTok{,}
   \StringTok{\textquotesingle{}Imagen sin nubes\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4117,6 +4126,8 @@ Posteriormente, se reduce la colección de imágenes para formar una sola imagen
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Seleccionar la banda ndvi y hacer dos reducciones}
+\NormalTok{L8imgCol }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ L8imgMean }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{reduce}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{mean}\NormalTok{())}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ L8imgSD }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{reduce}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{stdDev}\NormalTok{())}\OperatorTok{;}
 \end{Highlighting}
@@ -4126,6 +4137,7 @@ Por último, agregamos los dos resultados a la pantalla de mapas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Visualizar las imágenes}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgMean}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{min}\OperatorTok{:{-}}\FloatTok{0.14}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:}\FloatTok{0.15}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}NDVI mean 2015 {-} 2016\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgSD}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{min}\OperatorTok{:}\DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:}\FloatTok{0.13}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}NDVI SD 2015 {-} 2016\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -4155,6 +4167,7 @@ El último paso será cortar la imagen a una extensión de interés. En este cas
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Cargar el polígono del área de interés}
 \KeywordTok{var}\NormalTok{ geometry }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{(}
 \NormalTok{        [[[}\OperatorTok{{-}}\FloatTok{101.82737418916153}\OperatorTok{,} \FloatTok{19.836437094032178}\NormalTok{]}\OperatorTok{,}
 \NormalTok{          [}\OperatorTok{{-}}\FloatTok{101.82737418916153}\OperatorTok{,} \FloatTok{19.368119068204525}\NormalTok{]}\OperatorTok{,}
@@ -4167,9 +4180,11 @@ Para después cortar las dos imágenes y mostrarlas en la pantalla de mapas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Cortar la imágenes}
 \NormalTok{L8imgMean }\OperatorTok{=}\NormalTok{ L8imgMean}\OperatorTok{.}\FunctionTok{clip}\NormalTok{(geometry)}\OperatorTok{;}
 \NormalTok{L8imgSD }\OperatorTok{=}\NormalTok{ L8imgSD}\OperatorTok{.}\FunctionTok{clip}\NormalTok{(geometry)}\OperatorTok{;}
 
+\CommentTok{// Visualizarlas}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgMean}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{min}\OperatorTok{:}\FloatTok{0.2}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:}\FloatTok{0.8}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}NDVI mean 2015 {-} 2016 clip\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(L8imgSD}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{min}\OperatorTok{:}\DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:}\FloatTok{0.3}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}NDVI SD 2015 {-} 2016 clip\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -4182,6 +4197,7 @@ Se utilizarán las funciones previamente definidas para generar un mosaico igual
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Filtrado en tiempo 2}
 \KeywordTok{var}\NormalTok{ L8imgColT2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{ImageCollection}\NormalTok{(}\StringTok{"LANDSAT/LC08/C01/T1\_SR"}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2016{-}01{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2017{-}01{-}01\textquotesingle{}}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filter}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{lte}\NormalTok{(}\StringTok{\textquotesingle{}CLOUD\_COVER\_LAND\textquotesingle{}}\OperatorTok{,}\DecValTok{50}\NormalTok{))}
@@ -4198,11 +4214,14 @@ Después, se seleccionan únicamente las bandas de NDVI y se reduce la colecció
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Seleccionar NDVI y reducción}
 \NormalTok{L8imgColT2 }\OperatorTok{=}\NormalTok{ L8imgColT2}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ L8imgMeanT2 }\OperatorTok{=}\NormalTok{ L8imgColT2}\OperatorTok{.}\FunctionTok{reduce}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{mean}\NormalTok{())}\OperatorTok{;}
 
+\CommentTok{// Cortar imagen a área de interés}
 \NormalTok{L8imgMeanT2 }\OperatorTok{=}\NormalTok{ L8imgMeanT2}\OperatorTok{.}\FunctionTok{clip}\NormalTok{(geometry)}\OperatorTok{;}
 
+\CommentTok{// Restar media T1 a T2}
 \KeywordTok{var}\NormalTok{ imgDiff }\OperatorTok{=}\NormalTok{ L8imgMeanT2}\OperatorTok{.}\FunctionTok{subtract}\NormalTok{(L8imgMean)}\OperatorTok{;}  
 \end{Highlighting}
 \end{Shaded}
@@ -4211,6 +4230,7 @@ Posteriormente se agrega el resultado a la pantalla de mapas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Visualizar imagen resultante}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(imgDiff}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{min}\OperatorTok{:{-}}\FloatTok{0.3}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \FloatTok{0.1}\OperatorTok{,} 
   \DataTypeTok{palette}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}FF0000\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}FFFF00\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}008000\textquotesingle{}}\NormalTok{] \}}\OperatorTok{,} 
   \StringTok{\textquotesingle{}Diferencia NDVI 2015 vs 2016\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4230,6 +4250,7 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Exportar imagen a Google Drive}
 \NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgDiff}\OperatorTok{,}
   \DataTypeTok{description}\OperatorTok{:} \StringTok{\textquotesingle{}DiferenciaNDVI\_2016{-}2017\textquotesingle{}}\OperatorTok{,}
@@ -4346,13 +4367,16 @@ Además de las funciones que existen en GEE para realizar operaciones sobre imá
 \hypertarget{funciones-comunes-5}{%
 \section{Funciones comunes}\label{funciones-comunes-5}}
 
-\hypertarget{muestreo-por-vectores-ejercicio-e}{%
-\subsection{Muestreo por vector(es) (Ejercicio E)}\label{muestreo-por-vectores-ejercicio-e}}
+\hypertarget{muestreo-por-vectores}{%
+\subsection{Muestreo por vector(es)}\label{muestreo-por-vectores}}
 
 Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, \texttt{.sample} o para un rectángulo \texttt{.sampleRectangle} o para varias regiones \texttt{.sampleRegions}. Por ejemplo, el método \texttt{.sample} toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
 
+Ejercicio 29
+
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Definir región a muestrear}
 \KeywordTok{var}\NormalTok{ bosque1 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.53892}\OperatorTok{,} \FloatTok{19.74148}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.51906}\OperatorTok{,}\FloatTok{19.72362}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -4360,6 +4384,7 @@ Este tipo de operaciones normalmente se utilizan para muestrear los datos de una
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Muestrear imagen}
 \KeywordTok{var}\NormalTok{ muestreo }\OperatorTok{=}\NormalTok{ L8imgMean}
   \OperatorTok{.}\FunctionTok{sample}\NormalTok{(\{}
     \DataTypeTok{region}\OperatorTok{:}\NormalTok{ bosque1}\OperatorTok{,}
@@ -4386,6 +4411,7 @@ Este tipo de operaciones normalmente se utilizan para resumir los valores de alg
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Reducción por región}
 \KeywordTok{var}\NormalTok{ reduccion }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Image}\NormalTok{(L8imgMean)}
   \OperatorTok{.}\FunctionTok{reduceRegion}\NormalTok{(\{}
     \DataTypeTok{reducer}\OperatorTok{:}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{mean}\NormalTok{()}\OperatorTok{,}
@@ -4428,7 +4454,7 @@ Este método interpola al píxel de interés un valor según cada uno de los pun
   La desviación estándar global de la variable.
 \end{itemize}
 
-Ejercicio 29
+Ejercicio 30
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4495,7 +4521,7 @@ Ejercicio 29
 
 Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En esta función hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos.
 
-Ejercicio 30
+Ejercicio 31
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4546,7 +4572,7 @@ Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmo
 
 Los objetos \texttt{ee.Classifier} son los objetos que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: \texttt{ee.Classifier.smileCART,\ ee.Classifier.smileRandomForest,\ ee.Classifier.amnhMaxent}, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (\texttt{Reference}) en el apartado de librerías del cliente (\texttt{Client\ libraries}), o también en la pestaña \texttt{Docs} bajo \texttt{ee.Classifier}.
 
-Ejercicio 31
+Ejercicio 32
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4592,13 +4618,14 @@ La última fase de una clasificación consta de la evaluación de los resultados
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ejercicio-clasificaciuxf3n-ejerciciof}{%
-\subsection{Ejercicio: Clasificación (EjercicioF)}\label{ejercicio-clasificaciuxf3n-ejerciciof}}
+\hypertarget{ejercicio-clasificaciuxf3n-ejercicioe}{%
+\subsection{Ejercicio: Clasificación (EjercicioE)}\label{ejercicio-clasificaciuxf3n-ejercicioe}}
 
 En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos \texttt{ee.Geometry} de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (\texttt{ee.Feature}) y se le asigna la propiedad de `clase' como número a través de un diccionario. Por último, se hace una colección de vectores.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Definición de datos de entrenamiento}
 \KeywordTok{var}\NormalTok{ bosque1 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.53892}\OperatorTok{,} \FloatTok{19.74148}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.51906}\OperatorTok{,}\FloatTok{19.72362}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ bosque2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.64826}\OperatorTok{,} \FloatTok{19.49264}\OperatorTok{,} 
@@ -4614,6 +4641,7 @@ En este ejercicio se hará una clasificación supervisada utilizando el algoritm
 \KeywordTok{var}\NormalTok{ agua2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.74686}\OperatorTok{,} \FloatTok{19.43937}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.733453}\OperatorTok{,}\FloatTok{19.427012}\NormalTok{)}\OperatorTok{;}
 
+\CommentTok{// Definición de colección de vectores}
 \KeywordTok{var}\NormalTok{ poligonos }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{([}
 \NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(noBosque1}\OperatorTok{,}\NormalTok{ \{}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{:} \DecValTok{0}\NormalTok{\})}\OperatorTok{,}
 \NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(noBosque2}\OperatorTok{,}\NormalTok{ \{}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{:} \DecValTok{0}\NormalTok{\})}\OperatorTok{,}
@@ -4624,6 +4652,7 @@ En este ejercicio se hará una clasificación supervisada utilizando el algoritm
 \NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(urbano}\OperatorTok{,}\NormalTok{ \{}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{:} \DecValTok{3}\NormalTok{\})}\OperatorTok{,}
 \NormalTok{])}\OperatorTok{;}
 
+\CommentTok{// Agregar a pantalla de mapas}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(poligonos}\OperatorTok{,}\NormalTok{ \{\}}\OperatorTok{,} \StringTok{\textquotesingle{}polígonosEntrenamiento\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -4632,6 +4661,7 @@ A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcen
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Filtrar colección y aplicar máscara de nubes}
 \KeywordTok{var}\NormalTok{ L8imgCol }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{ImageCollection}\NormalTok{(}\StringTok{"LANDSAT/LC08/C01/T1\_SR"}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filterBounds}\NormalTok{(poligonos)}
   \OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2015{-}01{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2016{-}01{-}01\textquotesingle{}}\NormalTok{)}
@@ -4644,6 +4674,7 @@ El siguiente paso consta de reducir la colección para generar una sola imagen c
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Reducir, cortar, seleccionar y renombrar bandas}
 \KeywordTok{var}\NormalTok{ L8imgMean }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{reduce}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{mean}\NormalTok{())}
   \OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}B1\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B5\_mean\textquotesingle{}}\OperatorTok{,}
   \StringTok{\textquotesingle{}B6\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B7\_mean\textquotesingle{}}\NormalTok{])}
@@ -4658,6 +4689,7 @@ Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Muestrear regiones }
 \KeywordTok{var}\NormalTok{ training }\OperatorTok{=}\NormalTok{ L8imgMean}
   \OperatorTok{.}\FunctionTok{sampleRegions}\NormalTok{(\{}
     \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ poligonos}\OperatorTok{,}
@@ -4671,6 +4703,7 @@ El siguiente paso es entrenar al clasificador utilizando la colección de vector
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Entrenamiento del clasificador}
 \KeywordTok{var}\NormalTok{ trainedClassifier }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Classifier}\OperatorTok{.}\FunctionTok{smileRandomForest}\NormalTok{(}\DecValTok{30}\NormalTok{)}\OperatorTok{.}\FunctionTok{train}\NormalTok{(\{}
   \DataTypeTok{features}\OperatorTok{:}\NormalTok{ training}\OperatorTok{,}
   \DataTypeTok{classProperty}\OperatorTok{:} \StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{,}
@@ -4710,8 +4743,10 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Usar el clasificador entrenado sobre toda la imagen}
 \KeywordTok{var}\NormalTok{ classifiedImg }\OperatorTok{=}\NormalTok{ L8imgMean}\OperatorTok{.}\FunctionTok{classify}\NormalTok{(trainedClassifier)}\OperatorTok{;}
 
+\CommentTok{// Visualizar resultado}
 \BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(classifiedImg}\OperatorTok{,}\NormalTok{\{}\DataTypeTok{min}\OperatorTok{:}\DecValTok{0}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:}\DecValTok{3}\OperatorTok{,} 
   \DataTypeTok{palette}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}\#fcff21\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}\#20da25\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}\#05a9da\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}\#dadada\textquotesingle{}}\NormalTok{]\}}\OperatorTok{,}
   \StringTok{\textquotesingle{}Clasificación RF L8\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -4731,8 +4766,10 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Agregar clasificación como banda}
 \KeywordTok{var}\NormalTok{ imgConClass }\OperatorTok{=}\NormalTok{ L8imgMean}\OperatorTok{.}\FunctionTok{addBands}\NormalTok{(classifiedImg)}\OperatorTok{;}
-  
+
+\CommentTok{// Hacer gráfico de barras}
 \KeywordTok{var}\NormalTok{ chartClassSpec }\OperatorTok{=}\NormalTok{ ui}\OperatorTok{.}\AttributeTok{Chart}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{byClass}\NormalTok{(\{}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgConClass}\OperatorTok{,}
   \DataTypeTok{classBand}\OperatorTok{:} \StringTok{\textquotesingle{}classification\textquotesingle{}}\OperatorTok{,}
@@ -4762,6 +4799,7 @@ Una vez que se tiene la clasificación del área de interés, se van a cargar lo
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Definción de áreas de verificación}
 \KeywordTok{var}\NormalTok{ bosque3 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.62016}\OperatorTok{,}\FloatTok{19.61895}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.60543}\OperatorTok{,}\FloatTok{19.60492}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ noBosque3 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.313746}\OperatorTok{,}\FloatTok{19.716531}\OperatorTok{,} 
@@ -4771,6 +4809,7 @@ Una vez que se tiene la clasificación del área de interés, se van a cargar lo
 \KeywordTok{var}\NormalTok{ agua3 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.272720}\OperatorTok{,}\FloatTok{19.612100}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.272668}\OperatorTok{,}\FloatTok{19.611594}\NormalTok{)}\OperatorTok{;}
 
+\CommentTok{// Creación de colección de verificación}
 \KeywordTok{var}\NormalTok{ poligonosVerif }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{([}
 \NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(noBosque3}\OperatorTok{,}\NormalTok{ \{}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{:} \DecValTok{0}\NormalTok{\})}\OperatorTok{,}
 \NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(bosque3}\OperatorTok{,}\NormalTok{ \{}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{:} \DecValTok{1}\NormalTok{\})}\OperatorTok{,}
@@ -4784,6 +4823,7 @@ El siguiente paso es extraer la información de la imagen clasificada, de acuerd
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Muestrear imagen}
 \KeywordTok{var}\NormalTok{ validating }\OperatorTok{=}\NormalTok{ classifiedImg}
   \OperatorTok{.}\FunctionTok{sampleRegions}\NormalTok{(\{}
   \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ poligonosVerif}\OperatorTok{,}
@@ -4797,6 +4837,7 @@ A continuación, se calcula la matriz de error mediante el método \texttt{.erro
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Obtener matriz de confusión y precisión}
 \KeywordTok{var}\NormalTok{ validErrMat }\OperatorTok{=}\NormalTok{ validating}\OperatorTok{.}\FunctionTok{errorMatrix}\NormalTok{(}\StringTok{\textquotesingle{}clase\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}classification\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ validAcc }\OperatorTok{=}\NormalTok{ validErrMat}\OperatorTok{.}\FunctionTok{accuracy}\NormalTok{()}\OperatorTok{;}
 
@@ -4818,6 +4859,7 @@ Para exportar estos resultados primero hay que pasar los datos a tipo vector. Pa
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Transformarlos en vectores}
 \KeywordTok{var}\NormalTok{ expConfMatrix }\OperatorTok{=}\NormalTok{  ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(}\KeywordTok{null}\OperatorTok{,}\NormalTok{ \{}\DataTypeTok{matrix}\OperatorTok{:}\NormalTok{ validErrMat}\OperatorTok{.}\FunctionTok{array}\NormalTok{()\})}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ expAccuracy }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(}\KeywordTok{null}\OperatorTok{,}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Dictionary}\NormalTok{(\{}\DataTypeTok{Accuracy}\OperatorTok{:}\NormalTok{ validAcc\}))}\OperatorTok{;}
 \end{Highlighting}
@@ -4827,6 +4869,7 @@ Posteriormente se define una función para exportar (\texttt{ExportTable}) y se 
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{// Definir función de exportación}
 \KeywordTok{var}\NormalTok{ exportTable }\OperatorTok{=} \KeywordTok{function}\NormalTok{(feature}\OperatorTok{,}\NormalTok{ name)\{}
 \NormalTok{  Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
     \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ feature}\OperatorTok{,}
@@ -4836,6 +4879,7 @@ Posteriormente se define una función para exportar (\texttt{ExportTable}) y se 
 \NormalTok{ \})}\OperatorTok{;}
 \NormalTok{\}}\OperatorTok{;}
 
+\CommentTok{// Exportar a Google Drive}
 \FunctionTok{exportTable}\NormalTok{(ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(expConfMatrix)}\OperatorTok{,} \StringTok{\textquotesingle{}confMatrix\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \FunctionTok{exportTable}\NormalTok{(ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(expAccuracy)}\OperatorTok{,} \StringTok{\textquotesingle{}validAcc\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -4847,48 +4891,48 @@ Posteriormente se define una función para exportar (\texttt{ExportTable}) y se 
 \hypertarget{referencias}{%
 \chapter{Referencias}\label{referencias}}
 
-Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., Parsian, S., Wu, Q., and Brisco, B.. 2020. ``Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review,'' no. September. \url{https://doi.org/10.1109/JSTARS.2020.3021052}.
+Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., \ldots{} Brisco, B. (2020). Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5326--5350. \url{https://doi.org/10.1109/JSTARS.2020.3021052}
 
-Arévalo, P., Bullock, E. L., Woodcock, C.E., and Olofsson, P. 2020. ``A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine.'' Frontiers in Climate 2 (December). \url{https://doi.org/10.3389/fclim.2020.576740}.
+Arévalo, P., Bullock, E. L., Woodcock, C. E., \& Olofsson, P. (2020). A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine. Frontiers in Climate, 2, 576740. \url{https://doi.org/10.3389/fclim.2020.576740}
 
-Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., and Matricardi, E. A. T. 2021. ``An Alternative Approach for Mapping Burn Scars Using Landsat Imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna.'' Remote Sensing Applications: Society and Environment 22: 100472. \url{https://doi.org/10.1016/j.rsase.2021.100472}.
+Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., \& Matricardi, E. A. T. (2021). An alternative approach for mapping burn scars using Landsat imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna. Remote Sensing Applications: Society and Environment, 22, 100472. \url{https://doi.org/10.1016/j.rsase.2021.100472}
 
-Basso, K., De Avila Zingano, P. R. and Dal Sasso Freitas, C. M. 1999. ``Interpolation of scattered data: investigating alternatives for the modified Shepard method,'' XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), pp.~39-47, \url{https://doi.org/10.1109/SIBGRA.1999.805606}.
+Basso, K., De Avila Zingano, P. R., \& Dal Sasso Freitas, C. M. (1999). Interpolation of scattered data: investigating alternatives for the modified Shepard method, XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), 39-47. \url{https://doi.org/10.1109/SIBGRA.1999.805606}.
 
-Breiman, L. 2001. Random Forests. Machine Learning, 45, 5-32.
+Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.
 
-Campos-Taberner, M., Moreno-Martínez, A., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., and Running, S. W. 2018. ``Global Estimation of Biophysical Variables from Google Earth Engine Platform.'' Remote Sensing 10 (8): 1--17. \url{https://doi.org/10.3390/rs10081167}.
+Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., \& Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. \url{https://doi.org/10.3390/rs10081167}
 
-Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, T., Thau, D., Biradar, C., and Moore, B.. 2016. ``Mapping Paddy Rice Planting Area in Northeastern Asia with Landsat 8 Images, Phenology-Based Algorithm and Google Earth Engine.'' Remote Sensing of Environment 185: 142--54. \url{https://doi.org/10.1016/j.rse.2016.02.016}.
+Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., \ldots{} Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142--154. \url{https://doi.org/10.1016/j.rse.2016.02.016}
 
-Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., and Moore, R.. 2017. ``Google Earth Engine: Planetary-Scale Geospatial Analysis for Everyone.'' Remote Sensing of Environment 202 (2016): 18--27. \url{https://doi.org/10.1016/j.rse.2017.06.031}.
+Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., \& Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202(2016), 18--27. \url{https://doi.org/10.1016/j.rse.2017.06.031}
 
-Hansen, M. C., Potapov, P. V., Moore, R., Hancher, M., Turubanova, S. A., Tyukavina, A., \ldots{} \& Townshend, J. (2013). High-resolution global maps of 21st-century forest cover change. science, 342(6160), 850-853. \url{https://doi.org/10.1126/science.1244693}
+Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., \& Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. \url{https://doi.org/10.3390/rs12182953}
 
-Hamunyela, E, Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., and Verbesselt, J. 2020. ``Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data.'' Remote Sensing 12: 2953. \url{https://doi.org/10.3390/rs12182953}.
+Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., \ldots{} Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342(6160), 850--853. \url{https://doi.org/http://doi.org/10.1126/science.1244693}
 
-Kumar, L., Mutanga, O., Kumar, L., and Mutanga, O.. 2018. ``Google Earth Engine Applications Since Inception: Usage, Trends, and Potential.'' Remote Sensing 10: 1509. \url{https://doi.org/10.3390/rs10101509}.
+Kumar, L., Mutanga, O., Kumar, L., \& Mutanga, O. (2018). Google Earth Engine Applications Since Inception: Usage, Trends, and Potential. Remote Sensing, 10, 1509. \url{https://doi.org/10.3390/rs10101509}
 
-Lee, J. S. H., Wich, S., Widayati, A., and Koh, L. P.. 2016. ``Detecting Industrial Oil Palm Plantations on Landsat Images with Google Earth Engine.'' Remote Sensing Applications: Society and Environment 4: 219--24. \url{https://doi.org/10.1016/j.rsase.2016.11.003}.
+Lee, J. S. H., Wich, S., Widayati, A., \& Koh, L. P. (2016). Detecting industrial oil palm plantations on Landsat images with Google Earth Engine. Remote Sensing Applications: Society and Environment, 4, 219--224. \url{https://doi.org/10.1016/j.rsase.2016.11.003}
 
-Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., and Camps-Valls, G.. 2018. ``Multitemporal Cloud Masking in the Google Earth Engine.'' Remote Sensing 10 (7): 1079. \url{https://doi.org/10.3390/rs10071079}.
+Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., \& Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10(7), 1079. \url{https://doi.org/10.3390/rs10071079}
 
-Perilla, G. A., and Mas, J. F. 2020. ``Google Earth Engine (GEE): Una Poderosa Herramienta Que Vincula El Potencial de Los Datos Masivos y La Eficacia Del Procesamiento En La Nube.'' Investigaciones Geográficas, no. 42: 0--2. \url{https://doi.org/10.14350/}
+Perilla, G. A., \& Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. \url{https://doi.org/10.14350/rig.59929}
 
-Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., and Crespi, M.. 2018. ``Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems.'' Remote Sensing 10 (9): 1488. \url{https://doi.org/10.3390/rs10091488}.
+Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., \& Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. \url{http://dx.doi.org/10.3390/rs10091488}
 
-Sazib, N., Mladenova, I., and Bolten, J. 2018. ``Leveraging the Google Earth Engine for Drought Assessment Using Global Soil Moisture Data.'' Remote Sensing 10 (8). \url{https://doi.org/10.3390/rs10081265}.
+Sazib, N., Mladenova, I., \& Bolten, J. (2018). Leveraging the google earth engine for drought assessment using global soil moisture data. Remote Sensing, 10, 1265. \url{https://doi.org/10.3390/rs10081265}
 
-Slagter, B., Tsendbazar, N. E., Vollrath, A., and Reiche, R. 2020. ``Mapping Wetland Characteristics Using Temporally Dense Sentinel-1 and Sentinel-2 Data: A Case Study in the St.~Lucia Wetlands, South Africa.'' International Journal of Applied Earth Observation and Geoinformation 86 (October 2019): 102009. \url{https://doi.org/10.1016/j.jag.2019.102009}.
+Slagter, B., Tsendbazar, N.-E., Vollrath, A., \& Reiche, J. (2020). Mapping wetland characteristics using temporally dense Sentinel-1 and Sentinel-2 data: A case study in the St.~Lucia wetlands, South Africa. International Journal of Applied Earth Observation and Geoinformation, 86, 102009. \url{https://doi.org/10.1016/j.jag.2019.102009}
 
-Solórzano, J. V., Gallardo-Cruz, J. A., and Peralta-Carreta, C. 2020a. ``Potencial Del Acervo de Imágenes Landsat Disponible En Google Earth Engine Para El Estudio Del Territorio Mexicano.'' Investigaciones Geográficas 101: e59821. \url{https://doi.org/10.14350/rig.59821}.
+Solórzano, J. V., Gallardo-Cruz, J. A., \& Peralta-Carreta, C. (2020). Potencial del acervo de imágenes Landsat disponible en Google Earth Engine para el estudio del territorio mexicano. Investigaciones Geográficas, 101, e59821. \url{https://doi.org/10.14350/rig.59821}
 
-Solórzano, J.V., Mas, J. F, Gao, Y., and Gallardo-Cruz, J.A. 2020b. ``Patrones Espaciotemporales de Las Observaciones de Sentinel-2 a Nivel de Imagen y Píxel Sobre El Territorio Mexicano Entre 2015 y 2019.'' Revista de Teledetección 56 (Número especial): 103--15. \url{https://doi.org/10.4995/raet.2020.14044}.
+Solórzano, J. V., Mas, J. F., Gao, Y., \& Gallardo-Cruz, J. A. (2020). Patrones espaciotemporales de las observaciones de Sentinel-2 a nivel de imagen y píxel sobre el territorio mexicano entre 2015 y 2019. Revista de Teledetección, 56(Número especial), 103--115. \url{https://doi.org/10.4995/raet.2020.14044}
 
-Trianni, G, Angiuli, E., Lisini, G., and Gamba, P. 2014. ``Human Settlements from Landsat Data Using Google Earth Engine.'' Geoscience and Remote Sensing Symposium, 1473--76. \url{https://doi.org/10.1109/IGARSS.2014.6946715}.
+Trianni, G., Angiuli, E., Lisini, G., \& Gamba, P. (2014). Human settlements from Landsat data using Google Earth Engine. Geoscience and Remote Sensing Symposium, 1473--1476. \url{https://doi.org/10.1109/IGARSS.2014.6946715}
 
-Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., Yadav, K., and Thau, D. 2017. ``Automated Cropland Mapping of Continental Africa Using Google Earth Engine Cloud Computing.'' ISPRS Journal of Photogrammetry and Remote Sensing 126: 225--44. \url{https://doi.org/10.1016/j.isprsjprs.2017.01.019}.
+Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., \& Lee, D. H. (2020). Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods. Applied Sciences, 10, 8083. \url{https://doi.org/10.3390/app10228083}
 
-Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., and Lee, D. H. 2020. ``Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods.'' Applied Sciences 10 (22): 8083. \url{https://doi.org/10.3390/app10228083}.
+Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., \ldots{} Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225--244. \url{https://doi.org/10.1016/j.isprsjprs.2017.01.019}
 
 \end{document}
