@@ -53,7 +53,7 @@ var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148,
 var bosque2 = ee.Geometry.Rectangle(-101.64826, 19.49264, 
   -101.62839,19.47545);
 var noBosque1 = ee.Geometry.Rectangle(-101.35448, 19.65992, 
-  -101.34509,19.65990);
+  -101.34509,19.64990);
 var noBosque2 = ee.Geometry.Rectangle(-101.56907, 19.58312, 
   -101.54939,19.56435);
 var urbano = ee.Geometry.Rectangle(-101.20999, 19.71300, 

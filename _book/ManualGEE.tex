@@ -3746,7 +3746,8 @@ Ejercicio 28.6
 \begin{Highlighting}[]
 \CommentTok{// Cambiar el orden de la colección en función de la propiedad de las }
 \CommentTok{// imágenes de cobertura de nubes en sentido descendente}
-\NormalTok{imCol5 }\OperatorTok{=}\NormalTok{ imCol5}\OperatorTok{.}\FunctionTok{sort}\NormalTok{(\{}\DataTypeTok{property}\OperatorTok{:} \StringTok{\textquotesingle{}CLOUD\_COVERAGE\_ASSESSMENT\textquotesingle{}}\OperatorTok{,} \DataTypeTok{ascending}\OperatorTok{:} \KeywordTok{false}\NormalTok{\})}\OperatorTok{;}
+\NormalTok{imCol5 }\OperatorTok{=}\NormalTok{ imCol5}\OperatorTok{.}\FunctionTok{sort}\NormalTok{(\{}\DataTypeTok{property}\OperatorTok{:} \StringTok{\textquotesingle{}CLOUD\_COVERAGE\_ASSESSMENT\textquotesingle{}}\OperatorTok{,} 
+  \DataTypeTok{ascending}\OperatorTok{:} \KeywordTok{false}\NormalTok{\})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3779,6 +3780,9 @@ Ejercicio 28.8
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{conteo-de-observaciones-por-pixel}{%
+\subsection{Conteo de observaciones por pixel}\label{conteo-de-observaciones-por-pixel}}
+
 Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método \texttt{.count}.
 
 \begin{Shaded}
@@ -3786,6 +3790,19 @@ Para conocer el número de valores sin enmascarar por píxel en la colección de
 \CommentTok{// Obtener el número de observaciones válidas para un píxel dentro de una }
 \CommentTok{// colección de imágenes}
 \KeywordTok{var}\NormalTok{ conteoImgs }\OperatorTok{=}\NormalTok{ imCol5}\OperatorTok{.}\FunctionTok{count}\NormalTok{()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{conocer-tamauxf1o-de-la-colecciuxf3n}{%
+\subsection{Conocer tamaño de la colección}\label{conocer-tamauxf1o-de-la-colecciuxf3n}}
+
+Para conocer el tamaño de la colección en número de imágenes incluidas se utiliza el método \texttt{.size}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// Obtener el número de observaciones válidas para un píxel dentro de una }
+\CommentTok{// colección de imágenes}
+\KeywordTok{var}\NormalTok{ numImgs }\OperatorTok{=}\NormalTok{ imCol5}\OperatorTok{.}\FunctionTok{size}\NormalTok{()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3933,7 +3950,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 
 }
 
-\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-141}
+\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-142}
 \end{figure}
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
@@ -3989,7 +4006,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 
 }
 
-\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-144}
+\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-145}
 \end{figure}
 
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de `CLOUD\_COVER\_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable \texttt{L8imgFirst}, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto \texttt{ee.Image}.
@@ -4020,7 +4037,7 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 }
 
-\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-147}
+\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-148}
 \end{figure}
 
 \hypertarget{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}{%
@@ -4076,7 +4093,7 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 
 }
 
-\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-151}
+\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-152}
 \end{figure}
 
 A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreescribir el objeto L8imgCol.
@@ -4108,7 +4125,7 @@ Se muestra la primera imagen sin nubes.
 
 }
 
-\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-154}
+\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-155}
 \end{figure}
 
 En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi'.
@@ -4119,7 +4136,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 
 }
 
-\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-155}
+\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-156}
 \end{figure}
 
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método \texttt{.reduce}. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -4151,7 +4168,7 @@ El resultado se ve así:
 
 }
 
-\caption{Ejemplo de una imagen de NDVI.}\label{fig:unnamed-chunk-158}
+\caption{Ejemplo de una imagen de NDVI.}\label{fig:unnamed-chunk-159}
 \end{figure}
 
 \begin{bluebox2}
@@ -4243,7 +4260,7 @@ Posteriormente se agrega el resultado a la pantalla de mapas.
 
 }
 
-\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-164}
+\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-165}
 \end{figure}
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de un folder del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
@@ -4274,7 +4291,7 @@ Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: im
 
 }
 
-\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-166}
+\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-167}
 \end{figure}
 
 Posteriormente se da click en \texttt{Select} y se seleccionan los archivos que se quieren subir. Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
@@ -4294,7 +4311,7 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 
 }
 
-\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-167}
+\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-168}
 \end{figure}
 
 Una vez que se haya dado click en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks}. Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
@@ -4305,7 +4322,7 @@ Una vez que se haya dado click en \texttt{Upload}, el progreso en la subida del 
 
 }
 
-\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-168}
+\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-169}
 \end{figure}
 
 \begin{bluebox2}
@@ -4323,7 +4340,7 @@ Al igual que en la pestaña donde se organizan los repositorios y los códigos, 
 
 }
 
-\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-169}
+\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-170}
 \end{figure}
 
 Para subir un nuevo archivo hay que dar click en el botón \texttt{New}, seleccionar el tipo de archivo, y seguir las instrucciones:
@@ -4345,7 +4362,7 @@ Para subir un nuevo archivo hay que dar click en el botón \texttt{New}, selecci
 
 }
 
-\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-170}
+\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-171}
 \end{figure}
 
 \begin{bluebox2}
@@ -4631,7 +4648,7 @@ En este ejercicio se hará una clasificación supervisada utilizando el algoritm
 \KeywordTok{var}\NormalTok{ bosque2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.64826}\OperatorTok{,} \FloatTok{19.49264}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.62839}\OperatorTok{,}\FloatTok{19.47545}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ noBosque1 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.35448}\OperatorTok{,} \FloatTok{19.65992}\OperatorTok{,} 
-  \OperatorTok{{-}}\FloatTok{101.34509}\OperatorTok{,}\FloatTok{19.65990}\NormalTok{)}\OperatorTok{;}
+  \OperatorTok{{-}}\FloatTok{101.34509}\OperatorTok{,}\FloatTok{19.64990}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ noBosque2 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.56907}\OperatorTok{,} \FloatTok{19.58312}\OperatorTok{,} 
   \OperatorTok{{-}}\FloatTok{101.54939}\OperatorTok{,}\FloatTok{19.56435}\NormalTok{)}\OperatorTok{;}
 \KeywordTok{var}\NormalTok{ urbano }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{101.20999}\OperatorTok{,} \FloatTok{19.71300}\OperatorTok{,} 
@@ -4759,7 +4776,7 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 
 }
 
-\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-186}
+\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-187}
 \end{figure}
 
 Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`classification'), el reductor que se va a utilizar para resumir los valores por clase (\texttt{ee.Reducer.mean}), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases {[}`NoBosque',`Bosque',`Agua',`Urbano'{]}, la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola.
@@ -4792,7 +4809,7 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 
 }
 
-\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-188}
+\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-189}
 \end{figure}
 
 Una vez que se tiene la clasificación del área de interés, se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.

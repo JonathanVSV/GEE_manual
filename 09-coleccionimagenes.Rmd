@@ -158,7 +158,8 @@ Ejercicio 28.6
 ```{js, echo = T}
 // Cambiar el orden de la colección en función de la propiedad de las 
 // imágenes de cobertura de nubes en sentido descendente
-imCol5 = imCol5.sort({property: 'CLOUD_COVERAGE_ASSESSMENT', ascending: false});
+imCol5 = imCol5.sort({property: 'CLOUD_COVERAGE_ASSESSMENT', 
+  ascending: false});
 ```
 
 ### Obtención de la primera imagen
@@ -184,12 +185,24 @@ Ejercicio 28.8
 var listMetadatos = imCol5.aggregate_array('CLOUD_COVERAGE_ASSESSMENT');
 ```
 
+### Conteo de observaciones por pixel
+
 Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método `.count`.
 
 ```{js, echo = T}
 // Obtener el número de observaciones válidas para un píxel dentro de una 
 // colección de imágenes
 var conteoImgs = imCol5.count();
+```
+
+### Conocer tamaño de la colección
+
+Para conocer el tamaño de la colección en número de imágenes incluidas se utiliza el método `.size`.
+
+```{js, echo = T}
+// Obtener el número de observaciones válidas para un píxel dentro de una 
+// colección de imágenes
+var numImgs = imCol5.size();
 ```
 
 ### Unión de más de una colección
