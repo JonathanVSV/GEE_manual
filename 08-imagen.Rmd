@@ -102,7 +102,7 @@ Ejercicio 27.4
 // Seleccionar la banda 1 de la imagen (que es la única)
 var banda1 = CHM.select('1');
 
-// Seleccionar sólo las primeras tres bandas de la imagen
+// Seleccionar sólo las primeras cuatro bandas de la imagen
 var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 ```
 
@@ -117,7 +117,7 @@ Ejercicio 27.5
 var CHMprop1 = CHM.set('miPropiedad','miImagen');
 
 // Modificar una propiedad preexistente
-var CHMprop2 = CHM.set(title,'miTítulo');
+var CHMprop2 = CHM.set('title','miTítulo');
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -250,7 +250,7 @@ landsat7im = landsat7im.addBands(ndvi);
 
 ### Conversión de imagen a vector
 
-En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener un gráfico de series de tiempo (`ui.Chart.image.series`). El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera:
+En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera:
 
 Ejercicio 27.13
 
@@ -294,7 +294,7 @@ Export.image.toDrive({
 });
 ```
 
-Es importante recordar que es necesario dar click a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
 
 #### Ejercicio: Consulta y procesamiento de imagen (Ejercicio A)
 
@@ -304,7 +304,7 @@ En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pu
 knitr::include_graphics("Img/SRTM.png")
 ```
 
-Posteriormente se da click sobre el primer resultado y debería abrirse la siguiente ventana.
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana.
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de información de una imagen del repositorio de GEE."}
 knitr::include_graphics("Img/SRTM_prop.png")

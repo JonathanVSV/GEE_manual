@@ -9,7 +9,7 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multip
 
 ## Visualización de vectores
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}

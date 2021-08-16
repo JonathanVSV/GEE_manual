@@ -66,7 +66,7 @@ var imColl = ee.ImageCollection.fromImages([im1, im2]);
 
 ## Visualización de colecciones de imágenes
 
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden visualizar en la pantalla de mapas mediante la función `Map.addLayer`. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección.
+De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función `Map.addLayer`. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección.
 
 Ejercicio 28.3
 
@@ -85,7 +85,7 @@ Map.addLayer(imCol3, {bands: ['B4','B3','B2'], min:200, max: 2000},
 
 ### Filtración de colecciones de imágenes
 
-Los filtros permiten filtrar las colecciones de imágenes a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos `ee.Filter`. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar `.filterDate`:
+Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos `ee.Filter`. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar `.filterDate`:
 
 Ejercicio 28.4
 
@@ -102,7 +102,7 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 imCol4 = imCol4.filterBounds(roi);
 ```
 
-Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante `.filter` y después definiendo el filtro del metadato con `ee.Filter`. Otra forma de realizar este proceso es mediante `.filterMetadata`. Las siguientes dos líneas obtienen el mismo resultado.
+Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante `.filter` y después definiendo el filtro del metadato con `ee.Filter`. Otra forma de realizar este proceso es mediante `.filterMetadata`. Las siguientes dos líneas son equivalentes ya qye obtienen el mismo resultado.
 
 ```{js, echo = T}
 // Obtener el nombre de las propiedades de una imágen de la colección de 
@@ -187,7 +187,7 @@ var listMetadatos = imCol5.aggregate_array('CLOUD_COVERAGE_ASSESSMENT');
 
 ### Conteo de observaciones por pixel
 
-Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método `.count`.
+Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método `.count`. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel. 
 
 ```{js, echo = T}
 // Obtener el número de observaciones válidas para un píxel dentro de una 
@@ -215,18 +215,18 @@ Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las
 :::
 ::::
 
-La unión de una colección de landsat 7 y una landsat 8 se podría hacer de la siguiente manera:
+La unión de una colección de Sentinel-2 se podría hacer de la siguiente manera:
 
 Ejercicio 28.9
 
 ```{js, echo = T}
 // Aplicar un filtro por fechas a la colección de Sentinel-2
-var imCol6 = S2.filterDate('2019-01-01','2020-05-01')
+var imCol6 = S2.filterDate('2019-01-01','2019-05-01')
   // Aplicar filtro espacial
   .filterBounds(roi);
 
 // Hacer lo mismo que en el caso anterior, pero cambiando las fechas
-var imCol7 = S2.filterDate('2019-06-01','2020-11-01')
+var imCol7 = S2.filterDate('2020-06-01','2020-11-01')
   .filterBounds(roi);
 
 // Unir las dos colecciones de imágenes en una sola  
@@ -244,7 +244,7 @@ Ejercicio 28.10
 var ndviCalc = function(image){
   // Calcular el ndvi utilizando las bandas del NIR, B8 y R, B4
   var ndvi = image.normalizedDifference(['B8','B4']);
-  // Regresar sólo la imagen de ndvi
+  // Regresar la imagen con la nueva banda de ndvi
   return image.addBands(ndvi);
 };
 
@@ -307,12 +307,12 @@ var imRedMosaic = imCol9.mosaic();
 //corresponde al ndvi
 // Esta función permite obtener mosaicos, por ejemplo, del valor del píxel
 //de mayor verdor o mayor valor de ndvi
-var imRedMean2 = imCol9.qualityMosaic('nd');
+var imRedQualMosaic = imCol9.qualityMosaic('nd');
 ```
 
 #### Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de `Search`, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de ‘BANDS’ se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de ‘IMAGE PROPERTIES’ se pueden consultar los metadatos que contienen las imágenes de esta colección.
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de `Search`, después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de ‘BANDS’ se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de ‘IMAGE PROPERTIES’ se pueden consultar los metadatos que contienen las imágenes de esta colección.
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de propiedades de las imágenes contenidas en una colección de imágenes."}
 knitr::include_graphics("Img/Ruta_coleccion.png")
@@ -343,9 +343,9 @@ print(L8imgCol);
 
 Una vez pasado el comando anterior, en la consola se puede consultar cuántas imágenes cumplieron con los filtros indicados. En este ejemplo, la colección filtrada incluye 17 imágenes. Después, se pueden consultar las características de las imágenes. Para ello, en la consola se le da:
 
-*	Un click a la colección en la consola .
-*	Luego un click a features.
-*	Después un click a cualquier imagen (`Image`) .
+*	Un clic a la colección en la consola .
+*	Luego un clic a features.
+*	Después un clic a cualquier imagen (`Image`) .
 *	Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda.
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de una consulta de información de la colección de imágenes en la consola."}
@@ -418,7 +418,7 @@ Map.addLayer(L8imgCol.first(),
 knitr::include_graphics("Img/imNubes.png")
 ```
 
-A continuación se aplican las dos funciones utilizando `.map` y sobreescribir el objeto L8imgCol.
+A continuación se aplican las dos funciones utilizando `.map` y sobreescribir el objeto L8imgCol. 
 
 ```{js, echo = T}
 // Aplicar las dos funciones a la colección
@@ -456,7 +456,7 @@ var L8imgMean = L8imgCol.reduce(ee.Reducer.mean());
 var L8imgSD = L8imgCol.reduce(ee.Reducer.stdDev());
 ```
 
-Por último, agregamos los dos resultados a la pantalla de mapas.
+A continuación, agregamos los dos resultados a la pantalla de mapas.
 
 ```{js, echo = T}
 // Visualizar las imágenes
@@ -466,8 +466,25 @@ Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 
 El resultado se ve así:
 
-```{r, echo = F, out.width="100%", fig.cap="Ejemplo de una imagen de NDVI."}
+```{r, echo = F, out.width="100%", fig.cap="Visualización de la imagen de NDVI promedio."}
 knitr::include_graphics("Img/imNDVI.png")
+```
+
+Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método `count`. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
+
+```{js, echo = T}
+// Obtener la imagen del número de observaciones por píxel sin enmascarar 
+var numObsPixel = L8imgCol.count();
+
+Map.addLayer(numObsPixel,
+  {min: 1, max: 17},
+  'Número de observaciones sin enmascarar por píxel');
+```
+
+La imagen con el número de observaciones por píxel sin enmascarar se ve así:
+
+```{r, echo = F, out.width="100%", fig.cap="Visualización de la imagen con el número de observaciones sin enmascarar por píxel."}
+knitr::include_graphics("Img/imCount.png")
 ```
 
 :::: {.bluebox2 data-latex=""}

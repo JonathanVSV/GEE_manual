@@ -5,10 +5,9 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 
 ## Impresión en consola
 
-El método más sencillo de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación ("bugs") en los códigos.
+La función más sencilla de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación ("bugs") en los códigos.
 
 ```{js, echo = T}
-print(Objeto);
 print('Hola Mundo');
 ```
 
@@ -30,9 +29,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 **Map.addLayer**
 
-La función `Map.addLayer` permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Adicionalmente, se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
+La función `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands`, `min` o `max.` Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Esta función también permite (para imágenes `ee.Image`) asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands`, `min` o `max.` Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], 
@@ -47,7 +46,7 @@ En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que se
 :::
 ::::
 
-Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar como, aunque el único argumento válido es `color`:
+Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es `color`:
 
 ```{js, echo = T}
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
@@ -135,7 +134,7 @@ En el caso de las imágenes (ráster), la función para exportarlas es `Export.i
 *	`Export.image.toDrive` 
 *	`Export.image.toCloudStorage`
 
-El primero permite exportar la imagen (ráster) como una imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`.
+El primero permite exportar la imagen (ráster) como una imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. Para exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizar la información. El nombre de la carpeta se define en el argumento de `folder`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -143,7 +142,7 @@ Sólo se pueden exportar imágenes en formato ráster. Sin embargo, no siempre r
 :::
 ::::
 
-Un ejemplo de cómo exportar una imagen se presenta a continuación.
+Un ejemplo de cómo exportar una imagen se presenta a continuación. 
 
 ```{js echo = T}
 Export.image.toDrive({

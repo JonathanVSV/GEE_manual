@@ -311,7 +311,7 @@ var Areasfecha = AreasProCRI.map( function(vector){
 var filtroFechas = Areasfecha.filterDate(2020,2021); 
 ```
 
-Los filtros compuestos permiten combinar los filtros disponibles bajo la librería de `ee.Filter`. En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. El ejercicio consta de los siguientes pasos:
+Los filtros compuestos permiten combinar los filtros disponibles bajo la biblioteca de `ee.Filter`. En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. El ejercicio consta de los siguientes pasos:
 
 1.	Utilizar el método `.filter` para indicar que vamos a realizar un filtro.
 2.	Utilizar `ee.Filter.and` para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
@@ -634,7 +634,7 @@ var areaGlaciar = hielo
 
 Para unir diferentes colecciones de vectores se usan las funciones de `ee.Join`. Estas funciones permiten  unir vectores basados en los valores de sus atributos. Usando un `.filter` se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
 
-Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la librería `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial  de tipo `saveALL`, pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
+Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial  de tipo `saveALL`, pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
 
 En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
 
@@ -702,12 +702,14 @@ Los argumentos adicionales específicos para exportar a drive `Export.table.toDr
 *	Folder: cadena de texto del usuario que será el nombre de la carpeta donde se guardará el vector dentro del drive. Si no se especifica este argumento, se guarda en el drive sin carpeta, aunque si se especifica un nombre de una carpeta que no existe, dicha carpeta se creará automáticamente.
 *	FileNamePrefix: el nombre que le pondremos al vector guardado en drive.
 *	FileFormat: el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
-  -	“CSV”, valor por default
-  -	“GeoJSON”,
-  -	“KML”, 
-  -	“KMZ”, 
-  -	“SHP”, 
-  -	“TFRecord”
+
+    -	“CSV”, valor por default
+    -	“GeoJSON”,
+    -	“KML”, 
+    -	“KMZ”, 
+    -	“SHP”, 
+    -	“TFRecord”.
+    
 El argumento adicional para exportar a los Assets `Export.table.toAssets` es: 
 
 *	AssetID: el nombre que le pondremos al nuevo asset.
@@ -749,4 +751,4 @@ Export.table.toDrive({
 });
 ```
 
-Es importante recordar que es necesario dar click a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.

@@ -164,26 +164,26 @@ Todas las geometrías creadas con estas herramientas se importarán automáticam
 knitr::include_graphics("Img/import.png")
 ```
 
-A estas se les puede cambiar el nombre dando click en el nombre de la geometría importada.
+A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
 Usando la mano se pueden mover y modificar las geometrías dibujadas.
 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para desplazarse en la pantalla de mapas."}
 knitr::include_graphics("Img/mano.png")
 ```
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar click en `new layer`. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas.
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en `new layer`. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas.
 
 ```{r, echo = F, out.width="60%", fig.cap="Herramienta de geometrías en la pantalla de mapas."}
 knitr::include_graphics("Img/nuevaGeo.png")
 ```
 
-Pasando el cursos sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje).
 
 ```{r, echo = F, out.width="40%", fig.cap="Ubicación de las herramientas de candado y engranaje."}
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
 
-Al dar click en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades.
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades.
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo de modificación de las propiedades de las geometrías."}
 knitr::include_graphics("Img/menuGeo.png")
@@ -191,4 +191,4 @@ knitr::include_graphics("Img/menuGeo.png")
 
 ## Funciones comunes
 
-La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismo que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores.
+La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores.

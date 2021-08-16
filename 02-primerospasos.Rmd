@@ -7,7 +7,7 @@ Lo primero que hay que hacer para poder utilizar la API Javascript de GEE es ing
 
 **https://earthengine.google.com/**
 
-Después, le damos click en la esquina superior derecha donde dice **Sign Up**. 
+Después, le damos clic en la esquina superior derecha donde dice **Sign Up**. 
 
 ```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
@@ -38,7 +38,7 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API a través del
 y se accede con la cuenta de Google con la que nos registramos.
 Una vez registrados, se podrá acceder al material de todos los ejercicio entrando al siguiente enlace: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
 
-Una vez dentro de la API, es importante crear un folder de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
+Una vez dentro de la API, es importante crear una carpeta de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
 
 ```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
@@ -56,7 +56,7 @@ Los elementos de la API se enlistan a continuación:
 
 **Pantalla de Repositorios**
 
-Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y fólderes para organizar los archivos de código, como se muestra a continuación:
+Es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y fólderes para organizar los archivos de código, como se muestra a continuación:
 
 ```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
 knitr::include_graphics("Img/left_panel.png")
@@ -72,7 +72,7 @@ Dentro de este espacio existen varias categorías. Las primeras tres se pueden u
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio). 
+El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio). 
 :::
 ::::
 
@@ -110,25 +110,23 @@ knitr::include_graphics("Img/newAssets.png")
 
 **Pantalla de rutinas**
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opción Manage Links) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
 
 ```{r, echo = F, out.width="50%", fig.cap="Vistazo de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
 ```
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
-
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para obtener enlaces para compartir rutinas."}
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle clic en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
-A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
@@ -136,7 +134,7 @@ knitr::include_graphics("Img/run.png")
 
 A su derecha se encuentra el botón de `Reset` el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
 
-Después se encuentra el botón de `Apps` que sirve para crear apps a partir del código que se encuentra en la pantalla.
+Después se encuentra el botón de `Apps` que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: https://www.earthengine.app/
 
 Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como `’`, `"`, `(` y `{`.
 
@@ -148,7 +146,7 @@ Cuando se corre un código en la consola con el botón de `Run`, este no corre d
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para buscar un texto específico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
+Para buscar un texto específico dentro del código, se debe dar clic en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
 :::
 ::::
 
@@ -160,7 +158,7 @@ Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. 
 knitr::include_graphics("Img/search.png")
 ```
 
-**Map**
+**Pantalla de Mapa**
 
 En esta pantalla de mapas se puede:
 
@@ -190,7 +188,7 @@ knitr::include_graphics("Img/rigthPanel.png")
 
 **Inspector**
 
-Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
+Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés.
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de la herramienta de Inspector."}
 knitr::include_graphics("Img/inspector.png")
@@ -204,7 +202,7 @@ En esta pestaña se muestran los trabajos que se hayan exportado mediante la fun
 2. Presentar las tareas en ejecución (color gris).
 3. Señalar el tiempo demorado en el trabajo.
 4. Indicar cuándo el trabajo se ha finalizado (color azul).
-5. Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información del trabajo como, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
+5. Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo, indicando el error. Por último, al dar clic sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información del trabajo como, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de tareas dentro de GEE."}
 knitr::include_graphics("Img/task.png")
@@ -216,14 +214,14 @@ La programación dentro de la API de GEE es una orientada a objetos, siguiendo l
 
 ### Simbología
 
-*	`‘ ’` : comillas simples
-*	`“ ”` : comillas dobles
-* `[ ]` : corchetes
-*	`{ }` : llaves
-*	`( )` : paréntesis
-*	`-` : guion
-*	`_` : guion bajo
-*	`,` : coma
+*	`‘ ’` : comillas simples.
+*	`“ ”` : comillas dobles.
+* `[ ]` : corchetes.
+*	`{ }` : llaves.
+*	`( )` : paréntesis.
+*	`-` : guion.
+*	`_` : guion bajo.
+*	`,` : coma.
 
 
 ### Lenguaje Javascript en GEE
@@ -234,11 +232,11 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 2.	Siempre se debe cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente).
 3.	Comúnmente en Javascript se utiliza el "lowerCamelCase" (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones `-` o guión bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
 4.	Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
-5.	Para definir variables se utiliza el operador `=`.
+5.	El operador `=`asigna un valor a una variable.
 6.	Los operadores matemáticos son: `+ - * /`.
 7.	Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
 8.	Para realizar comentarios se puede utilizar `//` para comentarios de una línea, o también `/* … */` para comentarios de varias líneas.
-9.	Se suele utilizar el operador `.` (punto) para aplicar una función al objeto que lo precede. Por ejemplo, `ee.Image.updateMask(mascara)` (se aplica la función `updateMask` al objeto `ee.Image`);. A este tipo de funciones se les llama métodos. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador `.`  para evitar errores de sintaxis.
+9.	Se suele utilizar el operador `.` (punto) para aplicar un método al objeto que lo precede. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador `.`  para evitar errores de sintaxis.
 10.	Son igualmente válidas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
 

@@ -158,7 +158,7 @@ Para los diccionarios se recomienda utilizar la notación de `.` seguida del nom
 
 **Funciones**
 
-Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función `function` seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
+Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con `function` seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
 // MaskIm es una nueva función, y su argumento de entrada es "objeto"
@@ -182,7 +182,7 @@ return image.updateMask(clearData);
  };
 ```
 
-Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite definir cualquier serie de procesos como una función y que GEE la interprete de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
+Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite que GEE interprete cualquier serie de procesos de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -269,7 +269,7 @@ print(listaServ.get(1));
 
 **ee.Dictionary**
 
-Permite enviar un objeto como diccionario al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.Dictionary` (ver liga anterior).
+Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior).
 
 Ejercicio 7
 
@@ -384,7 +384,7 @@ Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos t
 
 **ee.Array**
 
-Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, los cuales se pueden consultar bajo la librería de `ee.Array` (ver liga anterior).
+Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, los cuales se pueden consultar bajo la biblioteca de `ee.Array` (ver liga anterior).
 
 **ee.Classifier**
 
