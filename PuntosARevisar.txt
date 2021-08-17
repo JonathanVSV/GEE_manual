@@ -1,6 +1,13 @@
-Revisar:
+Revisión 05-06-2021:
 
 1. Creo que es mejor idea no usar separadores de miles porque allá usan . y acá usan ,. En todo caso mejor podríamos usar un espacio. Por ejemplo, 50 000.
 2. Creo que hay algunos términos que acá son válidos que me imagino que allá no, p.ej., usar liga para referirse a los enlaces. Eso lo podemos platicar luego.
 3. Quizás podríamos usar la terminología de Python para referirnos a los paquetes de funciones como módulos. Por ejemplo, Map, Export, etc. Esta terminología también ayudaría a entender los submodulos, por ejemplo, Export.image.toDrive.
 4. El ejercicio 31 no está en el manual. El incluirlo aumentaría bastante dicha sección y realmente muestra lo mismo que el Ejercicio F, aunque con MODIS. Creo que no vale la pena incluirlo, pero se puede discutir (p.ej., para que todo el manual tenga un formato de puros ejemplo o podemos hacer una excepción).
+
+Revisión 17-08-2021
+
+1. Sugerencia de meter imágenes de resultados en la parte de Gabriel (vectores y colección de vectores).
+2. Para la última versión se va a tener que jugar con los parámetros de fig.pos en el knitr::opts_chunk$set(...) dentro del archivo index.Rmd, así como el parámetro de líneas viudas y huérfanas en \usepackage[all]{nowidow} dentro del archivo preamble.tex. De todas maneras creo que habrá que hacer algunos saltos de línea o cosas así de manera manual.
+Para hacer esos cambios consultar: https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html y https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html#fn10 para el control de fig.pos en bookdown, así como https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/nowidow/nowidow.pdf para el paquete de nowidow.
+3. Aunque hay opciones para automatizar las referencias a las figuras, creo que con la numeración que siguen (primero el número del capítulo seguido de un número progresivo por capítulo), va a ser más fácil hacerlo manual. Recordar que a las nuevas figuras habrá que citarlas en el texto porque luego se mueven de acuerdo al acomodo del "float" de Latex.

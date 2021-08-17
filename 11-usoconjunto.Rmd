@@ -1,9 +1,9 @@
 \newpage
 # Uso conjunto de vectores e imágenes
 
-Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestreo de una imagen por vectores o la reducción de una imagen por vectores.
+Además de los métodos que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunos métodos que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestreo de una imagen por vectores o la reducción de una imagen por vectores.
 
-## Funciones comunes
+## Métodos comunes
 
 ### Muestreo por vector(es)
 
@@ -36,7 +36,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 
 ### Reducción de una imagen por región(es)
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
 
 ```{js echo = T}
 // Reducción por región
@@ -122,16 +122,16 @@ var interpolado = muestras.inverseDistance({
   range: 70000, 
   // Atributo numerico a interpolar
   propertyName: 'ch4', 
-  // Promedio (parametro para la función)
+  // Promedio (parametro para el método)
   mean: stats.get('mean'), 
-  // Desviación estándar (parámetro para la funcion)
+  // Desviación estándar (parámetro para la método)
   stdDev: stats.get('stdDev'), 
   }); 
 ```
 
 ### Kriging
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En esta función hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. 
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. 
 
 Ejercicio 31
 

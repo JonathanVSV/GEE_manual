@@ -1,7 +1,7 @@
 \newpage
 # Imagen
 
-Las imágenes (`ee.Image`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular. Los metadatos de cada imagen se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos.
+Las imágenes (`ee.Image`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster). Los metadatos de cada imagen se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos.
 
 Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005.
 
@@ -32,7 +32,7 @@ var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
   .filter(ee.Filter.eq('country_co','MX'));
 ```
 
-Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. El uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos que se ven más a detalle en los siguientes párrafos.
+Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método `.first` permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (`ee.Image`). Ya que las imágenes multiespectrales sólo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre imágenes multiespectrales.
 
 ```{js echo = T}
 // Obtener la primera imagen Landsat 7 de una colección de imágenes.
@@ -90,7 +90,7 @@ Map.addLayer(CHM,
   'primera imagen');
 ```
 
-## Funciones comunes
+## Métodos comunes
 
 ### Selección de bandas
 
@@ -159,14 +159,18 @@ Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente neces
 
 ### Cálculo de operaciones matemáticas
 
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply` para restar, sumar, dividir y multiplicar, respectivamente. Además, GEE cuenta con una función de `.normalizedDifference` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `.expression`. En esta función se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen:
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply` para restar, sumar, dividir y multiplicar, respectivamente. 
 
 Ejercicio 27.8
 
 ```{js, echo = T}
 // Multiplicar la imagen por 100 para obtener el valor en cm
 var chmCmMx = chmMx.multiply(100);
+```
 
+Además, GEE cuenta con un método de `.normalizedDifference` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `.expression`. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
+
+```{js, echo = T}
 // Calcular el ndvi con la imagen de landsat 7 obtenida previamente
 var ndvi= landsat7imBands.expression( '(NIR - R) / (NIR + R)', {
   'NIR' = landsat7imBands.select('B4'),
@@ -174,11 +178,15 @@ var ndvi= landsat7imBands.expression( '(NIR - R) / (NIR + R)', {
 })
   // Renombrar la banda como ‘ndvi’
   .rename('ndvi');
+  
+var ndvi2 = landsat7imBands.normalizedDifference('B4','B3')
+  // Renombrar la banda como ‘ndvi’
+  .rename('ndvi');
 ```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por default, ésta va a recibir el nombre de 'nd'.
+Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por defecto, ésta va a recibir el nombre de 'nd'.
 :::
 ::::
 
@@ -272,7 +280,7 @@ var chmMxMayor20Vec = chmMXMask20.reduceToVectors({
 
 ### Exportación de una imagen
 
-En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive`. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que pueden consultar en la sección de Reference (Ver Pestaña de Docs y buscar Export).
+En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive`. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de Reference o en la pestaña de Docs, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos excepto la imagen a exportar son opcionales, sin embargo, se recomienda siempre definir por lo menos los argumentos indicados en el siguiente ejemplo.
 
 Ejercicio 27.14
 
@@ -290,21 +298,37 @@ Export.image.toDrive({
   // Tamaño en m del píxel de la imagen a exportar
   maxPixels:1e12,
   // Formato en el cual se va a exportar la imagen
-  fileFormat: 'GeoTIFF'
+  fileFormat: 'GeoTIFF',
+  // Región de la imagen a exportar
+  region: roi1,
+  // Definir sistema de coordenadas de referencia
+  crs: 'EPSG:4326'
 });
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+En experiencia de los autores el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un 1 seguido de trece ceros.
+:::
+::::
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+El sistema de coordenadas de referencia usado en el ejemplo anterior se definió de acuerdo a los códigos EPSG. Estos pueden consultarse en el siguiente enlace: https://epsg.io/
+:::
+::::
 
 Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
 
 #### Ejercicio: Consulta y procesamiento de imagen (Ejercicio A)
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (`Search`) y escribir SRTM. Debería aparecer una ventana así:
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (`Search`) y escribir SRTM. Debería aparecer una ventana así (Fig. 8.1):
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de búsqueda de información en la barra de búsqueda."}
 knitr::include_graphics("Img/SRTM.png")
 ```
 
-Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana.
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 8.2).
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de información de una imagen del repositorio de GEE."}
 knitr::include_graphics("Img/SRTM_prop.png")
@@ -361,11 +385,11 @@ imgEnmascarada = imgEnmascarada.rename('elevacion');
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 ```
 
-Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print`.
+Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print` (Fig. 8.3).
 
 ```{js, echo = T}
 // Crear gráfico de histograma de los valores del DEM enmascarado
-var graficoHistorgrama = ui.Chart.image.histogram({
+var graficoHistograma = ui.Chart.image.histogram({
      // Indicar imagen de la cual se va a crear el histograma  
   image: imgEnmascarada,
   // Indicar la escala en m a la que se va a muestrear la información para  
@@ -376,9 +400,26 @@ var graficoHistorgrama = ui.Chart.image.histogram({
   maxBuckets: 10
   });
 
-print(graficoHistorgrama,'gráfico Historgrama');
+print(graficoHistograma,'gráfico Histograma');
 ```
 
 ```{r, echo = F, out.width="100%", fig.cap="Histograma de valores del DEM."}
 knitr::include_graphics("Img/histElevacion.png")
 ```
+
+Por último, se puede exportar el resultado al Google Drive del usuario. En este caso se definirá un valor de `scale` de 9000 para acelerar el tiempo demorado en la exportación.
+
+```{js, echo = T}
+Export.image.toDrive({
+  image:imgEnmascarada, 
+  description:'MX_DEM1000-2500msnm',
+  folder:'carpeta_clase_GEE',
+  scale: 9000,
+  maxPixels:1e12,
+  fileFormat: 'GeoTIFF',
+  region: MX,
+  crs: 'EPSG:4326'
+});
+```
+
+Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic en Run y comenzar a exportar la imagen al Google Drive. A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en Run . Por último, el producto exportado aparecerá en la pestaña de Tasks con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al Drive, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al Drive (ver Fig. 2.22).

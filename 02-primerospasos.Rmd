@@ -7,13 +7,13 @@ Lo primero que hay que hacer para poder utilizar la API Javascript de GEE es ing
 
 **https://earthengine.google.com/**
 
-Después, le damos clic en la esquina superior derecha donde dice **Sign Up**. 
+Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (Fig. 2.1). 
 
 ```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
 ```
 
-Luego se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE se requiere de una cuenta de Google.
+Luego se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE se requiere de una cuenta de Google (Fig. 2.2).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -25,7 +25,7 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 knitr::include_graphics("Img/formulario.png")
 ```
 
-Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
+Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API (Fig. 2.3).
 
 ```{r, echo = F, out.width="60%", fig.cap="Ejemplo de correo de confirmación por parte de GEE para poder utilizar la API."}
 knitr::include_graphics("Img/correo.png")
@@ -36,17 +36,17 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API a través del
 **https://code.earthengine.google.com/**
 
 y se accede con la cuenta de Google con la que nos registramos.
-Una vez registrados, se podrá acceder al material de todos los ejercicio entrando al siguiente enlace: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
+Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
 
-Una vez dentro de la API, es importante crear una carpeta de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
+## Elementos básicos de la interfaz gráfica
+
+Una vez dentro de la API, es importante crear una carpeta de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario (Fig. 2.4).
 
 ```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
 ```
 
-## Elementos básicos de la interfaz gráfica
-
-Una vez abierta la Javascript API, se observa la siguiente pantalla.
+Una vez abierta la Javascript API, se observan cuatro pantallas (Fig. 2.5): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla que contiene el inspector, la consola y la pestaña de trabajos.
 
 ```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE."}
 knitr::include_graphics("Img/GEE_inicio_API.png")
@@ -56,13 +56,13 @@ Los elementos de la API se enlistan a continuación:
 
 **Pantalla de Repositorios**
 
-Es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y fólderes para organizar los archivos de código, como se muestra a continuación:
+Es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.6):
 
-```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
-knitr::include_graphics("Img/left_panel.png")
+```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
+knitr::include_graphics("Img/repofolderfile.png")
 ```
 
-Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios:
+Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (Fig. 2.7):
 
 1. Propietario (Owner): en esta sección se guardan los códigos creados por el mismo usuario. 
 2. Editor (Writer): en este apartado se guardan códigos que pueden ser creados por otros usuarios, pero para los cuales tenemos autorización de modificarlos.
@@ -70,15 +70,15 @@ Dentro de este espacio existen varias categorías. Las primeras tres se pueden u
 4. Ejemplos (Examples): se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando diferentes colecciones de imágenes (por ejemplo: Landsat 4-7, Landsat 8, Sentinel-2, MODIS). 
 5. Archivo (Archive): se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
+```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
+knitr::include_graphics("Img/left_panel.png")
+```
+
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio). 
+El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; Fig. 2.8). 
 :::
 ::::
-
-```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
-knitr::include_graphics("Img/repofolderfile.png")
-```
 
 ```{r, echo = F, out.width="40%", fig.cap="Vista del espacio de propietario."}
 knitr::include_graphics("Img/engranaje.png")
@@ -86,19 +86,19 @@ knitr::include_graphics("Img/engranaje.png")
 
 **Docs**
 
-Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método. Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
+Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (Fig. 2.9). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (Fig. 2.10). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
 ```{r, echo = F, out.width="40%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE."}
 knitr::include_graphics("Img/docs.png")
 ```
 
-```{r, echo = F, out.width="40%", fig.cap="Ejemplo de consulta de una función dentro de la sección de documentación."}
+```{r, echo = F, out.width="40%", fig.cap="Ejemplo de consulta de un método dentro de la sección de documentación."}
 knitr::include_graphics("Img/doc_ejemplo.png")
 ```
 
 **Assets**
 
-En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente.
+En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (Fig. 2.11). Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente (Fig. 2.12).
 
 ```{r, echo = F, out.width="40%", fig.cap="Vistazo de la sección de información del usuario."}
 knitr::include_graphics("Img/assets.png")
@@ -110,7 +110,7 @@ knitr::include_graphics("Img/newAssets.png")
 
 **Pantalla de rutinas**
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen (Fig. 2.14).
 
 ```{r, echo = F, out.width="50%", fig.cap="Vistazo de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
@@ -120,13 +120,13 @@ knitr::include_graphics("Img/editor.png")
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando. Además, al darle clic en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
-A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
@@ -152,7 +152,7 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 
 **Search**
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios (Fig. 2.17). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
@@ -160,7 +160,7 @@ knitr::include_graphics("Img/search.png")
 
 **Pantalla de Mapa**
 
-En esta pantalla de mapas se puede:
+En esta pantalla de mapas se puede (Fig. 2.18):
 
 1. Dibujar y visualizar puntos, polígonos, líneas o rectángulos. 
 2. Mostrar la información que se haya indicado mediante la función `Map.addLayer`.
@@ -172,7 +172,7 @@ knitr::include_graphics("Img/drawing.png")
 
 **Layer manager**
 
-Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
+Permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas."}
 knitr::include_graphics("Img/layer.png")
@@ -180,7 +180,7 @@ knitr::include_graphics("Img/layer.png")
 
 **Consola**
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
+La consola consiste en la pantalla de comunicación con el servidor (Fig. 2.20). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la consola en GEE."}
 knitr::include_graphics("Img/rigthPanel.png")
@@ -188,7 +188,7 @@ knitr::include_graphics("Img/rigthPanel.png")
 
 **Inspector**
 
-Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés.
+Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés (Fig. 2.21).
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la pestaña de la herramienta de Inspector."}
 knitr::include_graphics("Img/inspector.png")
@@ -196,7 +196,7 @@ knitr::include_graphics("Img/inspector.png")
 
 **Tasks**
 
-En esta pestaña se muestran los trabajos que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). Además, esta pestaña tiene otras funciones:
+En esta pestaña se muestran los trabajos que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; Fig. 2.22). Además, esta pestaña tiene otras funcionalidades:
 
 1. Mostrar las tareas para ejecutar (con el botón de `Run`, el cual permite especificar detalles de la exportación).
 2. Presentar las tareas en ejecución (color gris).
@@ -210,7 +210,7 @@ knitr::include_graphics("Img/task.png")
 
 ## Programación en GEE
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones para crear nuevos objetos o sobreescribir objetos preexistentes.
+La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes.
 
 ### Simbología
 
@@ -242,6 +242,6 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El término correcto para llamar a las funciones aplicadas con el operador `.` es el de método ("method"), lo cual quiere decir que son funciones ligadas a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, la función `updateMask` es un método ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
+El término correcto para llamar a los procesos aplicados con el operador `.` es el de método ("method"), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, el método `updateMask` es uno ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
 :::
 ::::

@@ -5,7 +5,7 @@ Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, obj
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario. De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (Fig. 4.1). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
 
 En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un ráster, un vector o una tabla) `ee.Export...`, agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
@@ -182,7 +182,7 @@ return image.updateMask(clearData);
  };
 ```
 
-Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite que GEE interprete cualquier serie de procesos de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
+Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente métodos del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite que GEE interprete cualquier serie de procesos de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -192,7 +192,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 
 ## Tipo de objetos del lado del servidor
 
-Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de funciones particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
+Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -200,20 +200,24 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 :::
 ::::
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan.
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 4.2).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunos casos, los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo al usar, en casos particulares, los métodos `.first` ó `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `“...is not a function”`.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo al usar, en casos particulares, los métodos `.first` ó `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `“...is not a function”`.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se pueden consultar la sección de Client libraries en el siguiente enlace: https://developers.google.com/earth-engine/apidocs 
-En `Client libraries` se indican cuáles argumentos acepta cada función, así como el tipo de objeto de la salida.
+En `Client libraries` se indican cuáles argumentos acepta cada método o función, así como el tipo de objeto de la salida.
 :::
 ::::
+
+```{r, echo = F, out.width="100%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
+knitr::include_graphics("Img/objetosServ2.png")
+```
 
 **ee.String**
 
@@ -242,7 +246,7 @@ var numServ = ee.Number(1900);
 
 **ee.List**
 
-Permite enviar un objeto como lista al servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
+Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
 
 Ejercicio 6:
 
@@ -303,7 +307,7 @@ print(diccServ.get('lista_de_servidor'));
 print(diccServ.get('numero_de_usuario'));        
 ```
 
-Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Esta función devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista.
+Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista.
 
 Ejercicio 7.2
 
@@ -317,7 +321,7 @@ print('valores',diccServ.values());
 
 **ee.Date**
 
-Esta es la forma en la que GEE trabaja con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior). Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior). Hay varias formas de construir una fecha específica:
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “YYYY-MM-DD”, esta fecha obligatoriamente debe:
   *	Usar la función `ee.Date`.
@@ -358,25 +362,21 @@ var fecha2 = ee.Date.fromYMD(2015,03,28);
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 
 ```
 
-```{r, echo = F, out.width="100%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
-knitr::include_graphics("Img/objetosServ.png")
-```
-
 **ee.Image**
 
-Permite leer un objeto individual tipo ráster en el servidor. Al definir un objeto de este tipo se puede utilizar cualquier método para objetos `ee.Image`. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
+La definición de objetos `ee.Image` habilita los métodos disponibles en GEE para este tipo de objetos. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
 
 **ee.ImageCollection**
 
-Las colecciones de imágenes están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
+Las colecciones de imágenes están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
 
 **ee.Feature**
 
-Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Además, permite enviar un objeto como vector al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.Feature`. Más adelante se explica este tipo de objeto con mayor detalle.
+Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos `ee.Feature`. Más adelante se explica este tipo de objeto con mayor detalle.
 
 **ee.FeatureCollection**
 
-Las colecciones de features están formadas por varios vectores (ee.Feature). Además, permite enviar un objeto como colección de vectores al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos `ee.FeatureCollection`. Más adelante se explica estos objetos con mayor detalle.
+Las colecciones de vectores están formadas por varios vectores (ee.Feature). Además, al definir un objeto como `ee.FeatureCollection` permite utilizar cualquier método definido para este tipo de objetos. Más adelante se explica estos objetos con mayor detalle.
 
 **ee.Algorithms**
 
@@ -408,7 +408,7 @@ Este conjunto de métodos permite realizar uniones entre colecciones de vectores
 
 **ee.Reducer**
 
-Los reductores permiten agregar datos basados en una regla o utilizando una función determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
+Los reductores permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
 
 **ee.Terrain**
 
@@ -416,6 +416,6 @@ Este conjunto de métodos permite calcular algunas operaciones topográficas, a 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Los argumentos de cualquier función del servidor se pasan como un diccionario (dentro de llaves `{}`).
+Los argumentos de cualquier método del servidor se pasan como un diccionario (dentro de llaves `{}`).
 :::
 ::::

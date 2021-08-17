@@ -128,6 +128,10 @@
 \usepackage[spanish, mexico]{babel}
 \usepackage{hyphenat}
 \usepackage{titlesec}
+% Para el control de viudas y huerfanos
+\usepackage[defaultlines=4,all]{nowidow}
+%\usepackage{float}
+%\floatplacement{figure}{h}
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
@@ -191,17 +195,12 @@
 \hypertarget{introducciuxf3n}{%
 \chapter{Introducción}\label{introducciuxf3n}}
 
-\hypertarget{quuxe9-es-google-earth-engine}{%
-\section{¿Qué es Google Earth Engine?}\label{quuxe9-es-google-earth-engine}}
-
-Google Earth Engine (GEE) es una plataforma desarrollada por Google que permite realizar procesamientos geoespaciales a gran escala, utilizando bases de datos con millones de datos. Uno de los principales intereses de esta plataforma es reducir el tiempo invertido en el pre-procesamiento y facilitar los análisis realizados con información geoespacial.
-
 \hypertarget{propuxf3sito-del-libro}{%
 \section{Propósito del libro}\label{propuxf3sito-del-libro}}
 
 La idea del presente manual es fungir como una guía introductoria que ayude a los nuevos usuarios de GEE a entender su estructura, funcionamiento y capacidades. Esto facilitará el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritas en inglés (Gorelick et al, 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, {[}2020{]}). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes.
 
-Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, análisis de series de tiempo o creación de aplicaciones). Así mismo, GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos siempre tratar de buscar información adicional y actualizada, así como revisar la documentación oficial de GEE.
+Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, análisis de series de tiempo o creación de aplicaciones). Además, debido a su caracter introductorio, este manual está dirigido a usuarios con y sin conocimientos previos de programación. GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos siempre tratar de buscar información adicional y actualizada, así como revisar la documentación oficial de GEE.
 
 Para aprender a usar GEE, como todos los programas de programación, se debe llevar a cabo un proceso de prueba y error, mediante el desarrollo de códigos propios. Los autores esperamos que esta herramienta ayude a los nuevos usuarios a comenzar a utilizar GEE y a alcanzar sus objetivos particulares de investigación.
 
@@ -212,24 +211,23 @@ El manual está organizado en doce capítulos que cubren diferentes aspectos de 
 
 El manual incluye ejemplos que ayudarán a entender la sintaxis y experimentar con distintos tipos de datos, provenientes de distintas fuentes. De manera particular, en los capítulos sobre imágenes y colecciones de imágenes se incluyen ejemplos más prácticos con aplicaciones más reales. Por último, este manual cuenta con una serie de ejercicios complementarios y explicativos los cuales pueden ser implementados directamente en línea. El enlace para acceder a este material se encontrará más adelante.
 
-\hypertarget{cuxf3mo-funciona-google-earth-engine-gee}{%
-\section{¿Cómo Funciona Google Earth Engine (GEE)?}\label{cuxf3mo-funciona-google-earth-engine-gee}}
+\hypertarget{descripciuxf3n-general-de-google-earth-engine}{%
+\section{Descripción general de Google Earth Engine}\label{descripciuxf3n-general-de-google-earth-engine}}
 
-\hypertarget{antecedentes}{%
-\subsection{Antecedentes}\label{antecedentes}}
+\hypertarget{quuxe9-es-google-earth-engine}{%
+\subsection{¿Qué es Google Earth Engine?}\label{quuxe9-es-google-earth-engine}}
+
+Google Earth Engine (GEE) es una plataforma desarrollada por Google que permite realizar procesamientos geoespaciales a gran escala, utilizando bases de datos con millones de datos. Uno de los principales intereses de esta plataforma es reducir el tiempo invertido en el pre-procesamiento y facilitar los análisis realizados con información geoespacial.
 
 Desde hace varios años existen distintas misiones espaciales que registran datos de la Tierra a través de satélites, los cuales se almacenan en acervos de imágenes. Aunque esta información ha sido muy útil para el desarrollo científico, siempre ha existido el problema de la ``Big-Data'' (bases de datos enormes). Es decir, que dichos acervos de imágenes cuentan con millones de imágenes disponibles que resultan imposibles de procesar y analizar en su totalidad. Esta situación evitaba la posibilidad de aprovechar el potencial total de esta información.
 
 GEE nace de la necesidad de aprovechar esa ``Big-Data'', ofreciendo una herramienta que pueda lidiar tecnológicamente con la parte más complicada del manejo de la información, permitiendo entonces que los usuarios se concentren en la generación de resultados y nuevos desarrollos científicos. Para lograr este objetivo, se creó una infraestructura con tres elementos claves, que son los que permiten el funcionamiento de GEE: el catálogo de información, la capacidad computacional y las APIs.
 
-\hypertarget{catuxe1logo-de-informaciuxf3n}{%
-\subsection{Catálogo de información}\label{catuxe1logo-de-informaciuxf3n}}
-
 GEE recopiló la información geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio ``datacenter'' logrando así almacenar más de 20 petabytes (20 000 000 de gigabytes) de información en un solo lugar.
 
-El programa ofrece un amplio repositorio de información geográfica global, cuya información ya se encuentra cargada en su catálogo, facilitando un sencillo acceso a diferentes fuentes de datos. Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
+El programa ofrece un amplio repositorio de información geográfica global, cuya información ya se encuentra cargada en su catálogo, facilitando un sencillo acceso a diferentes fuentes de datos (Fig. 1.1). Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Datasets} 
 
@@ -247,15 +245,12 @@ Para consultar toda la información que esta disponible en GEE se puede dirigir 
 
 \end{bluebox2}
 
-\hypertarget{capacidad-computacional}{%
-\subsection{Capacidad computacional}\label{capacidad-computacional}}
-
 De manera paralela al catálogo de información, GEE puso a disposición un conjunto de servidores para poder realizar rápida y eficazmente cálculos y computaciones sobre esos datos. En 2010, estos servidores tenían una capacidad más o menos equivalente a 10000 computadores personales.
 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días funciones que en un computador personal habría tardado 15 años.
+Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamientos que en un computador personal habría tardado 15 años.
 
 \end{awesomeblock}
 
@@ -266,10 +261,7 @@ Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días funciones 
 
 GEE es una API (``Application Program Interface''). Esto significa que es una interfaz que permite la comunicación entre nosotros (los usuarios) y los servidores de Google, proporcionando el acceso y uso de la capacidad computacional de Google para nuestros análisis. GEE tiene el objetivo de facilitar la creación de programas. Por ello, cuenta con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simple línea de código.
 
-GEE ofrece dos APIs, una en JavaScript la cual se accede en línea y es la más conocida, actualizada y amigable con los usuarios, con más documentación disponible, y sobre la cual estaremos hablando. Además, existe otra API en Python, la cual se puede trabajar desde la consola de Python y permite -hasta cierto punto- usar complementariamente librerías de Python, para así hacer procesamientos más complejos, o funcionalidades que la API de Java no permite. La API de Python tiene la gran desventaja de que tiene menos documentación y algunas diferencias que pueden resultar poco intuitivas a la hora de programar.
-
-\hypertarget{ventajas-de-la-api-de-java}{%
-\section{Ventajas de la API de Java}\label{ventajas-de-la-api-de-java}}
+GEE ofrece dos APIs, una en JavaScript la cual se accede en línea y es la más conocida, actualizada y amigable con los usuarios, con más documentación disponible, y sobre la cual estaremos hablando. Además, existe otra API en Python, la cual se puede trabajar desde la consola de Python y permite -hasta cierto punto- usar complementariamente bibliotecas de Python, para así hacer procesamientos más complejos, o funcionalidades que la API de Java no permite. La API de Python tiene la gran desventaja de que tiene menos documentación y algunas diferencias que pueden resultar poco intuitivas a la hora de programar.
 
 Las principales ventajas de la API de Javascript son:
 
@@ -277,9 +269,9 @@ Las principales ventajas de la API de Javascript son:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Los datos pueden ser consultados directamente en la nube (no requieren ser descargados para trabajar con ellos), lo que ahorra tiempo y espacio de almacenamiento para el usuario. En cambio, si se quiere usar alguna librería de Python será necesaria descargar la información.
+  Los datos pueden ser consultados directamente en la nube (no requieren ser descargados para trabajar con ellos), lo que ahorra tiempo y espacio de almacenamiento para el usuario. En cambio, si se quiere usar alguna biblioteca de Python será necesaria descargar la información.
 \item
-  El procesamiento se hace en la nube, a través de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexión estable y el consumo de RAM depende del consumo del navegador). En la API de Python hay un mayor consumo de memoria RAM (para ejecutar la consola de python y sus librerías) y requiere igualmente una conexión estable a internet.
+  El procesamiento se hace en la nube, a través de internet, utilizando el poder de cómputo asignado para la API, lo cual reduce el gasto de memoria RAM (solo necesita una conexión estable y el consumo de RAM depende del consumo del navegador). En la API de Python hay un mayor consumo de memoria RAM (para ejecutar la consola de python y sus bibliotecas) y requiere igualmente una conexión estable a internet.
 \item
   Su interfaz es mucho más amigable con los usuarios, ya que ofrece una plataforma más interactiva para programar y más sencilla para enseñar.
 \item
@@ -289,7 +281,7 @@ Las principales ventajas de la API de Javascript son:
 \end{enumerate}
 
 \hypertarget{ejemplos-de-aplicaciones-realizadas-con-gee}{%
-\section{Ejemplos de aplicaciones realizadas con GEE}\label{ejemplos-de-aplicaciones-realizadas-con-gee}}
+\subsection{Ejemplos de aplicaciones realizadas con GEE}\label{ejemplos-de-aplicaciones-realizadas-con-gee}}
 
 GEE se ha utilizado para estudios diversos enfocados en estudiar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo, Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 
@@ -344,9 +336,9 @@ Lo primero que hay que hacer para poder utilizar la API Javascript de GEE es ing
 
 \textbf{\url{https://earthengine.google.com/}}
 
-Después, le damos click en la esquina superior derecha donde dice \textbf{Sign Up}.
+Después, le damos clic en la esquina superior derecha donde dice \textbf{Sign Up} (Fig. 2.1).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Signup} 
 
@@ -355,7 +347,7 @@ Después, le damos click en la esquina superior derecha donde dice \textbf{Sign 
 \caption{Pantalla de incio en la página de registro de GEE.}\label{fig:unnamed-chunk-2}
 \end{figure}
 
-Luego se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE se requiere de una cuenta de Google.
+Luego se ingresan todos los datos que pide el formulario. Recordar que para utilizar GEE se requiere de una cuenta de Google (Fig. 2.2).
 
 \begin{bluebox2}
 
@@ -366,7 +358,7 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 
 \end{bluebox2}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.6\linewidth]{Img/formulario} 
 
@@ -375,9 +367,9 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 \caption{Formulario de datos a llenar para registrarse en GEE.}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API.
+Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API (Fig. 2.3).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.6\linewidth]{Img/correo} 
 
@@ -391,11 +383,14 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API a través del
 \textbf{\url{https://code.earthengine.google.com/}}
 
 y se accede con la cuenta de Google con la que nos registramos.
-Una vez registrados, se podrá acceder al material de todos los ejercicio entrando al siguiente enlace: \url{https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual}
+Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: \url{https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual}
 
-Una vez dentro de la API, es importante crear un folder de raíz (``Home folder'') que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario.
+\hypertarget{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}{%
+\section{Elementos básicos de la interfaz gráfica}\label{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}}
 
-\begin{figure}
+Una vez dentro de la API, es importante crear una carpeta de raíz (``Home folder'') que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario (Fig. 2.4).
+
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.6\linewidth]{Img/homeFolder} 
 
@@ -404,12 +399,9 @@ Una vez dentro de la API, es importante crear un folder de raíz (``Home folder'
 \caption{Folder de inicio dentro de la API.}\label{fig:unnamed-chunk-5}
 \end{figure}
 
-\hypertarget{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}{%
-\section{Elementos básicos de la interfaz gráfica}\label{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}}
+Una vez abierta la Javascript API, se observan cuatro pantallas (Fig. 2.5): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla que contiene el inspector, la consola y la pestaña de trabajos.
 
-Una vez abierta la Javascript API, se observa la siguiente pantalla.
-
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/GEE_inicio_API} 
 
@@ -422,18 +414,18 @@ Los elementos de la API se enlistan a continuación:
 
 \textbf{Pantalla de Repositorios}
 
-Es el espacio donde se guardan y ordenan los scripts del usuario. En ella se pueden crear repositorios y fólderes para organizar los archivos de código, como se muestra a continuación:
+Es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.6):
 
-\begin{figure}
+\begin{figure}[btp]
 
-{\centering \includegraphics[width=0.4\linewidth]{Img/left_panel} 
+{\centering \includegraphics[width=0.8\linewidth]{Img/repofolderfile} 
 
 }
 
-\caption{Vista del panel de repositorios dentro de GEE.}\label{fig:unnamed-chunk-7}
+\caption{Opciones disponibles dentro de la pestaña de Nuevo.}\label{fig:unnamed-chunk-7}
 \end{figure}
 
-Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios:
+Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (Fig. 2.7):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -450,25 +442,25 @@ Dentro de este espacio existen varias categorías. Las primeras tres se pueden u
   Archivo (Archive): se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 \end{enumerate}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.4\linewidth]{Img/left_panel} 
+
+}
+
+\caption{Vista del panel de repositorios dentro de GEE.}\label{fig:unnamed-chunk-8}
+\end{figure}
+
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle click en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio).
+El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; Fig. 2.8).
 
 \end{awesomeblock}
 
 \end{bluebox2}
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{Img/repofolderfile} 
-
-}
-
-\caption{Opciones disponibles dentro de la pestaña de Nuevo.}\label{fig:unnamed-chunk-8}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.4\linewidth]{Img/engranaje} 
 
@@ -479,9 +471,9 @@ El usuario puede compartir repositorios con otros usuarios de GEE como lector o 
 
 \textbf{Docs}
 
-Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE. Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método. Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
+Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (Fig. 2.9). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (Fig. 2.10). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.4\linewidth]{Img/docs} 
 
@@ -490,20 +482,20 @@ Es un área donde se pueden consultar todos los métodos y algoritmos que se enc
 \caption{Ejemplo de la pestaña de documentación dentro de GEE.}\label{fig:unnamed-chunk-10}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.4\linewidth]{Img/doc_ejemplo} 
 
 }
 
-\caption{Ejemplo de consulta de una función dentro de la sección de documentación.}\label{fig:unnamed-chunk-11}
+\caption{Ejemplo de consulta de un método dentro de la sección de documentación.}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 \textbf{Assets}
 
-En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE. Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente.
+En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (Fig. 2.11). Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente (Fig. 2.12).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.4\linewidth]{Img/assets} 
 
@@ -512,7 +504,7 @@ En este apartado el usuario puede subir y guardar su propia información para se
 \caption{Vistazo de la sección de información del usuario.}\label{fig:unnamed-chunk-12}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/newAssets} 
 
@@ -523,9 +515,9 @@ En este apartado el usuario puede subir y guardar su propia información para se
 
 \textbf{Pantalla de rutinas}
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, \texttt{Get\ link} sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opción Manage Links) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen.
+Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En la parte superior de esta pantalla se encuentran varios botones. El primero, \texttt{Get\ link} sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion \texttt{Manage\ Links}) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen (Fig. 2.14).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.5\linewidth]{Img/editor} 
 
@@ -534,9 +526,7 @@ Esta ventana es donde se va a escribir el código en JavaScript. En la parte sup
 \caption{Vistazo de la pantalla de rutinas o scripts.}\label{fig:unnamed-chunk-14}
 \end{figure}
 
-Esta ventana es donde se va a escribir el código en JavaScript. En la parte superior de esta pantalla se encuentran varios botones. El primero, \texttt{Get\ link} sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle click en la flecha de despliegue (en la opcion \texttt{Manage\ Links}) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen.
-
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.3\linewidth]{Img/links} 
 
@@ -545,9 +535,9 @@ Esta ventana es donde se va a escribir el código en JavaScript. En la parte sup
 \caption{Ubicación del botón para obtener enlaces para compartir rutinas.}\label{fig:unnamed-chunk-15}
 \end{figure}
 
-A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el código con el que se esté trabajando. Además, al darle click en la flecha de despliegue se puede usar la opción \texttt{Save} as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción \texttt{Save} as para crear una copia del código con otro nombre.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.3\linewidth]{Img/save} 
 
@@ -556,9 +546,9 @@ A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el 
 \caption{Ubicación del botón para guardar el código.}\label{fig:unnamed-chunk-16}
 \end{figure}
 
-A continuación está el botón\texttt{Run} que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin. Al darle click a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación está el botón\texttt{Run} que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.3\linewidth]{Img/run} 
 
@@ -569,7 +559,7 @@ A continuación está el botón\texttt{Run} que sirve para correr el código que
 
 A su derecha se encuentra el botón de \texttt{Reset} el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
 
-Después se encuentra el botón de \texttt{Apps} que sirve para crear apps a partir del código que se encuentra en la pantalla.
+Después se encuentra el botón de \texttt{Apps} que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: \url{https://www.earthengine.app/}
 
 Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como \texttt{’}, \texttt{"}, \texttt{(} y \texttt{\{}.
 
@@ -585,7 +575,7 @@ Cuando se corre un código en la consola con el botón de \texttt{Run}, este no 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Para buscar un texto específico dentro del código, se debe dar click en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
+Para buscar un texto específico dentro del código, se debe dar clic en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
 
 \end{awesomeblock}
 
@@ -593,9 +583,9 @@ Para buscar un texto específico dentro del código, se debe dar click en la pan
 
 \textbf{Search}
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
+Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios (Fig. 2.17). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/search} 
 
@@ -604,9 +594,9 @@ Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios. 
 \caption{Vista de la barra de búsqueda.}\label{fig:unnamed-chunk-18}
 \end{figure}
 
-\textbf{Map}
+\textbf{Pantalla de Mapa}
 
-En esta pantalla de mapas se puede:
+En esta pantalla de mapas se puede (Fig. 2.18):
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -619,7 +609,7 @@ En esta pantalla de mapas se puede:
   Añadir un mapa base (Google maps o Google earth).
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/drawing} 
 
@@ -630,9 +620,9 @@ En esta pantalla de mapas se puede:
 
 \textbf{Layer manager}
 
-Permite prender y apagar las capas que se estén mostrando en el área del mapa. Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
+Permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/layer} 
 
@@ -643,9 +633,9 @@ Permite prender y apagar las capas que se estén mostrando en el área del mapa.
 
 \textbf{Consola}
 
-La consola consiste en la pantalla de comunicación con el servidor. En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función \texttt{print}.
+La consola consiste en la pantalla de comunicación con el servidor (Fig. 2.20). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función \texttt{print}.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/rigthPanel} 
 
@@ -656,9 +646,9 @@ La consola consiste en la pantalla de comunicación con el servidor. En ella se 
 
 \textbf{Inspector}
 
-Permite consultar los valores de las capas que se muestran en el mapa, al dar click sobre el punto de interés.
+Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés (Fig. 2.21).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/inspector} 
 
@@ -669,7 +659,7 @@ Permite consultar los valores de las capas que se muestran en el mapa, al dar cl
 
 \textbf{Tasks}
 
-En esta pestaña se muestran los trabajos que se hayan exportado mediante la función \texttt{Export} y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets). Además, esta pestaña tiene otras funciones:
+En esta pestaña se muestran los trabajos que se hayan exportado mediante la función \texttt{Export} y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; Fig. 2.22). Además, esta pestaña tiene otras funcionalidades:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -683,10 +673,10 @@ En esta pestaña se muestran los trabajos que se hayan exportado mediante la fun
 \item
   Indicar cuándo el trabajo se ha finalizado (color azul).
 \item
-  Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo, indicando el error. Por último, al dar click sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información del trabajo como, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
+  Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo, indicando el error. Por último, al dar clic sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información del trabajo como, por ejemplo, el error que arrojó el servidor al tratar de realizar una exportación o la ubicación del archivo exportado.
 \end{enumerate}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/task} 
 
@@ -698,7 +688,7 @@ En esta pestaña se muestran los trabajos que se hayan exportado mediante la fun
 \hypertarget{programaciuxf3n-en-gee}{%
 \section{Programación en GEE}\label{programaciuxf3n-en-gee}}
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones para crear nuevos objetos o sobreescribir objetos preexistentes.
+La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes.
 
 \hypertarget{simbologuxeda}{%
 \subsection{Simbología}\label{simbologuxeda}}
@@ -706,21 +696,21 @@ La programación dentro de la API de GEE es una orientada a objetos, siguiendo l
 \begin{itemize}
 \tightlist
 \item
-  \texttt{‘\ ’} : comillas simples
+  \texttt{‘\ ’} : comillas simples.
 \item
-  \texttt{“\ ”} : comillas dobles
+  \texttt{“\ ”} : comillas dobles.
 \item
-  \texttt{{[}\ {]}} : corchetes
+  \texttt{{[}\ {]}} : corchetes.
 \item
-  \texttt{\{\ \}} : llaves
+  \texttt{\{\ \}} : llaves.
 \item
-  \texttt{(\ )} : paréntesis
+  \texttt{(\ )} : paréntesis.
 \item
-  \texttt{-} : guion
+  \texttt{-} : guion.
 \item
-  \texttt{\_} : guion bajo
+  \texttt{\_} : guion bajo.
 \item
-  \texttt{,} : coma
+  \texttt{,} : coma.
 \end{itemize}
 
 \hypertarget{lenguaje-javascript-en-gee}{%
@@ -740,7 +730,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 \item
   Todas las variables, funciones y objetos deben ser definidos mediante la función \texttt{var}.
 \item
-  Para definir variables se utiliza el operador \texttt{=}.
+  El operador \texttt{=}asigna un valor a una variable.
 \item
   Los operadores matemáticos son: \texttt{+\ -\ *\ /}.
 \item
@@ -748,7 +738,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 \item
   Para realizar comentarios se puede utilizar \texttt{//} para comentarios de una línea, o también \texttt{/*\ \ldots{}\ */} para comentarios de varias líneas.
 \item
-  Se suele utilizar el operador \texttt{.} (punto) para aplicar una función al objeto que lo precede. Por ejemplo, \texttt{ee.Image.updateMask(mascara)} (se aplica la función \texttt{updateMask} al objeto \texttt{ee.Image});. A este tipo de funciones se les llama métodos. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador \texttt{.} para evitar errores de sintaxis.
+  Se suele utilizar el operador \texttt{.} (punto) para aplicar un método al objeto que lo precede. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador \texttt{.} para evitar errores de sintaxis.
 \item
   Son igualmente válidas las comillas sencillas \texttt{\textquotesingle{}\textquotesingle{}} como las comillas dobles \texttt{""}, pero no deben mezclarse ambos tipos de comillas en una misma línea.
 \end{enumerate}
@@ -756,7 +746,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-El término correcto para llamar a las funciones aplicadas con el operador \texttt{.} es el de método (``method''), lo cual quiere decir que son funciones ligadas a un tipo de objeto. Por ejemplo, en \texttt{ee.Image.updateMask}, la función \texttt{updateMask} es un método ligado a un objeto de tipo imagen (\texttt{ee.Image}). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: \texttt{function(objeto)\{\}}. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
+El término correcto para llamar a los procesos aplicados con el operador \texttt{.} es el de método (``method''), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en \texttt{ee.Image.updateMask}, el método \texttt{updateMask} es uno ligado a un objeto de tipo imagen (\texttt{ee.Image}). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: \texttt{function(objeto)\{\}}. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
 
 \end{awesomeblock}
 
@@ -772,11 +762,10 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 \hypertarget{impresiuxf3n-en-consola}{%
 \section{Impresión en consola}\label{impresiuxf3n-en-consola}}
 
-El método más sencillo de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función \texttt{print}. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para eliminar errores de programación (``bugs'') en los códigos.
+La función más sencilla de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función \texttt{print}. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (``bugs'') en los códigos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(Objeto)}\OperatorTok{;}
 \FunctionTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Hola Mundo\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -806,9 +795,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 \textbf{Map.addLayer}
 
-La función \texttt{Map.addLayer} permite mostrar elementos en la parte de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (\texttt{ee.Feature}) o imagen (\texttt{ee.Image}; estos objetos se presentan con mayor detalle más adelante). Adicionalmente, se pueden indicar otros parámetros como la forma de visualización de los objetos y el nombre de la capa. Los argumentos de la función \texttt{Map.addLayer} incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
+La función \texttt{Map.addLayer} permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (\texttt{ee.Feature}) o imagen (\texttt{ee.Image}; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función \texttt{Map.addLayer} incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar \texttt{Map.addLayer} sobre una imagen se pueden indicar los siguientes argumentos: \texttt{bands}, \texttt{min} o \texttt{max.} Estos se deben pasar dentro de un par de llaves \texttt{\{\}} como un diccionario. Esta función también permite (para imágenes \texttt{ee.Image}) asignar colores mediante el argumento de \texttt{palette}. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
+Al utilizar \texttt{Map.addLayer} sobre una imagen se pueden indicar los siguientes argumentos: \texttt{bands}, \texttt{min} o \texttt{max.} Estos se deben pasar dentro de un par de llaves \texttt{\{\}} como un diccionario. Esta función también permite asignar colores mediante el argumento de \texttt{palette}. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -828,7 +817,7 @@ En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que se
 
 \end{bluebox2}
 
-Para el caso de los vectores (\texttt{ee.Feature}) se puede realizar una operación similar como, aunque el único argumento válido es \texttt{color}:
+Para el caso de los vectores (\texttt{ee.Feature}) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es \texttt{color}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -952,7 +941,7 @@ En el caso de las imágenes (ráster), la función para exportarlas es \texttt{E
   \texttt{Export.image.toCloudStorage}
 \end{itemize}
 
-El primero permite exportar la imagen (ráster) como una imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de \texttt{Export.image.toDrive}.
+El primero permite exportar la imagen (ráster) como una imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud. La opción que creemos es más común para cualquier usuario será la de \texttt{Export.image.toDrive}. Para exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizar la información. El nombre de la carpeta se define en el argumento de \texttt{folder}.
 
 \begin{bluebox2}
 
@@ -1057,11 +1046,11 @@ Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, obj
 \hypertarget{objetos-del-cliente-y-del-servidor}{%
 \section{Objetos del cliente y del servidor}\label{objetos-del-cliente-y-del-servidor}}
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario. De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: \texttt{“cadena”}, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: \texttt{ee.String(“cadena”)}. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante \texttt{1\ +\ 2}, mientras que del lado del servidor se utilizará \texttt{ee.Number(1).add(ee.Number(2))}.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (Fig. 4.1). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: \texttt{“cadena”}, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: \texttt{ee.String(“cadena”)}. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante \texttt{1\ +\ 2}, mientras que del lado del servidor se utilizará \texttt{ee.Number(1).add(ee.Number(2))}.
 
 En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de \texttt{if} y \texttt{else}, la función \texttt{ee.Algorithms.If}. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un ráster, un vector o una tabla) \texttt{ee.Export...}, agregar una capa a la pantalla del mapa \texttt{Map.addLayer} o crear gráficos, así como imprimir información en la consola \texttt{print}. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/daigFunc} 
 
@@ -1244,7 +1233,7 @@ Para los diccionarios se recomienda utilizar la notación de \texttt{.} seguida 
 
 \textbf{Funciones}
 
-Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la función \texttt{function} seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función \texttt{return}. Por ejemplo:
+Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con \texttt{function} seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función \texttt{return}. Por ejemplo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1270,7 +1259,7 @@ Se refiere a objetos que contienen algún proceso que se realizará a alguna var
 \end{Highlighting}
 \end{Shaded}
 
-Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente funciones del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite definir cualquier serie de procesos como una función y que GEE la interprete de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
+Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente métodos del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite que GEE interprete cualquier serie de procesos de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.
 
 \begin{bluebox2}
 
@@ -1284,7 +1273,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 \hypertarget{tipo-de-objetos-del-lado-del-servidor}{%
 \section{Tipo de objetos del lado del servidor}\label{tipo-de-objetos-del-lado-del-servidor}}
 
-Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de funciones particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores.
+Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores.
 
 \begin{bluebox2}
 
@@ -1295,12 +1284,12 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 
 \end{bluebox2}
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan.
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 4.2).
 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-En algunos casos, los objetos que se obtienen a partir de ciertas funciones retornan un objeto de tipo indefinido (tipo objeto, \texttt{ee.Object}) como por ejemplo al usar, en casos particulares, los métodos \texttt{.first} ó \texttt{.get}, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error \texttt{“...is\ not\ a\ function”}.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, \texttt{ee.Object}) como por ejemplo al usar, en casos particulares, los métodos \texttt{.first} ó \texttt{.get}, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error \texttt{“...is\ not\ a\ function”}.
 
 \end{awesomeblock}
 
@@ -1310,11 +1299,20 @@ En algunos casos, los objetos que se obtienen a partir de ciertas funciones reto
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
 Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se pueden consultar la sección de Client libraries en el siguiente enlace: \url{https://developers.google.com/earth-engine/apidocs}
-En \texttt{Client\ libraries} se indican cuáles argumentos acepta cada función, así como el tipo de objeto de la salida.
+En \texttt{Client\ libraries} se indican cuáles argumentos acepta cada método o función, así como el tipo de objeto de la salida.
 
 \end{awesomeblock}
 
 \end{bluebox2}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/objetosServ2} 
+
+}
+
+\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-42}
+\end{figure}
 
 \textbf{ee.String}
 
@@ -1347,7 +1345,7 @@ Ejercicio 5:
 
 \textbf{ee.List}
 
-Permite enviar un objeto como lista al servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.List} (ver enlace anterior).
+Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.List} (ver enlace anterior).
 
 Ejercicio 6:
 
@@ -1378,7 +1376,7 @@ Ejercicio 6.1:
 
 \textbf{ee.Dictionary}
 
-Permite enviar un objeto como diccionario al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.Dictionary} (ver liga anterior).
+Permite enviar un objeto como diccionario al servidor. La definición de objetos \texttt{ee.Dictionary} habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior).
 
 Ejercicio 7
 
@@ -1416,7 +1414,7 @@ Ejercicio 7.1
 \end{Highlighting}
 \end{Shaded}
 
-Por último, si se desea obtener las claves disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.keys}. Esta función devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.values}, la cual devuelve una lista.
+Por último, si se desea obtener las claves disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.keys}. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.values}, la cual devuelve una lista.
 
 Ejercicio 7.2
 
@@ -1432,7 +1430,7 @@ Ejercicio 7.2
 
 \textbf{ee.Date}
 
-Esta es la forma en la que GEE trabaja con fechas. Permite enviar un objeto como fecha al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Date} (ver enlace anterior). Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Date} (ver enlace anterior). Hay varias formas de construir una fecha específica:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1521,30 +1519,21 @@ Ejercicio 8:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{Img/objetosServ} 
-
-}
-
-\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-50}
-\end{figure}
-
 \textbf{ee.Image}
 
-Permite leer un objeto individual tipo ráster en el servidor. Al definir un objeto de este tipo se puede utilizar cualquier método para objetos \texttt{ee.Image}. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
+La definición de objetos \texttt{ee.Image} habilita los métodos disponibles en GEE para este tipo de objetos. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
 
 \textbf{ee.ImageCollection}
 
-Las colecciones de imágenes están formadas por imágenes individuales (\texttt{ee.Image}). Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos de tipo \texttt{ee.ImageCollection}. Más adelante se explica este tipo de objetos con mayor detalle.
+Las colecciones de imágenes están formadas por imágenes individuales (\texttt{ee.Image}). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo \texttt{ee.ImageCollection}. Más adelante se explica este tipo de objetos con mayor detalle.
 
 \textbf{ee.Feature}
 
-Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Además, permite enviar un objeto como vector al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos \texttt{ee.Feature}. Más adelante se explica este tipo de objeto con mayor detalle.
+Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos \texttt{ee.Feature}. Más adelante se explica este tipo de objeto con mayor detalle.
 
 \textbf{ee.FeatureCollection}
 
-Las colecciones de features están formadas por varios vectores (ee.Feature). Además, permite enviar un objeto como colección de vectores al servidor. Al definir un objeto de este tipo, se pueden utilizar cualquier método para objetos \texttt{ee.FeatureCollection}. Más adelante se explica estos objetos con mayor detalle.
+Las colecciones de vectores están formadas por varios vectores (ee.Feature). Además, al definir un objeto como \texttt{ee.FeatureCollection} permite utilizar cualquier método definido para este tipo de objetos. Más adelante se explica estos objetos con mayor detalle.
 
 \textbf{ee.Algorithms}
 
@@ -1552,7 +1541,7 @@ Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos t
 
 \textbf{ee.Array}
 
-Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, los cuales se pueden consultar bajo la librería de \texttt{ee.Array} (ver liga anterior).
+Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, los cuales se pueden consultar bajo la biblioteca de \texttt{ee.Array} (ver liga anterior).
 
 \textbf{ee.Classifier}
 
@@ -1576,7 +1565,7 @@ Este conjunto de métodos permite realizar uniones entre colecciones de vectores
 
 \textbf{ee.Reducer}
 
-Los reductores permiten agregar datos basados en una regla o utilizando una función determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
+Los reductores permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
 
 \textbf{ee.Terrain}
 
@@ -1585,7 +1574,7 @@ Este conjunto de métodos permite calcular algunas operaciones topográficas, a 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Los argumentos de cualquier función del servidor se pasan como un diccionario (dentro de llaves \texttt{\{\}}).
+Los argumentos de cualquier método del servidor se pasan como un diccionario (dentro de llaves \texttt{\{\}}).
 
 \end{awesomeblock}
 
@@ -1747,9 +1736,9 @@ Ejercicio 9.1
 \end{Highlighting}
 \end{Shaded}
 
-Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa:
+Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 5.1):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.3\linewidth]{Img/geometrias} 
 
@@ -1758,9 +1747,9 @@ Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor
 \caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-53}
 \end{figure}
 
-Para crear puntos:
+Para crear puntos (Fig. 5.2):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.2\linewidth]{Img/punto} 
 
@@ -1769,9 +1758,9 @@ Para crear puntos:
 \caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-54}
 \end{figure}
 
-Para crear líneas:
+Para crear líneas (Fig. 5.3):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.2\linewidth]{Img/linea} 
 
@@ -1780,9 +1769,9 @@ Para crear líneas:
 \caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-55}
 \end{figure}
 
-Para crear polígonos:
+Para crear polígonos (Fig. 5.4):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.2\linewidth]{Img/poligono} 
 
@@ -1791,9 +1780,9 @@ Para crear polígonos:
 \caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-56}
 \end{figure}
 
-Para crear rectángulos:
+Para crear rectángulos (Fig. 5.5):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.2\linewidth]{Img/rec} 
 
@@ -1802,9 +1791,9 @@ Para crear rectángulos:
 \caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-57}
 \end{figure}
 
-Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código:
+Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 5.6):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.5\linewidth]{Img/import} 
 
@@ -1813,10 +1802,10 @@ Todas las geometrías creadas con estas herramientas se importarán automáticam
 \caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-58}
 \end{figure}
 
-A estas se les puede cambiar el nombre dando click en el nombre de la geometría importada.
-Usando la mano se pueden mover y modificar las geometrías dibujadas.
+A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
+Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 5.7).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.2\linewidth]{Img/mano} 
 
@@ -1825,9 +1814,9 @@ Usando la mano se pueden mover y modificar las geometrías dibujadas.
 \caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-59}
 \end{figure}
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar click en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas.
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 5.8).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.6\linewidth]{Img/nuevaGeo} 
 
@@ -1836,9 +1825,9 @@ Todas las geometrías dibujadas se importarán como una sola colección, pero si
 \caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-60}
 \end{figure}
 
-Pasando el cursos sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 5.9).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.4\linewidth]{Img/dibujarGeo} 
 
@@ -1847,9 +1836,9 @@ Pasando el cursos sobre cada una de las geometrías (en la pestaña de geometrí
 \caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-61}
 \end{figure}
 
-Al dar click en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades.
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades (Fig. 5.10).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.8\linewidth]{Img/menuGeo} 
 
@@ -1858,10 +1847,10 @@ Al dar click en el engranaje se abrirá un menú donde se podrá cambiar el nomb
 \caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-62}
 \end{figure}
 
-\hypertarget{funciones-comunes}{%
-\section{Funciones comunes}\label{funciones-comunes}}
+\hypertarget{muxe9todos-comunes}{%
+\section{Métodos comunes}\label{muxe9todos-comunes}}
 
-La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismo que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores.
+La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores.
 
 \newpage
 
@@ -1873,12 +1862,12 @@ Los vectores (\texttt{ee.Feature}) en GEE son los objetos predeterminados para l
 \hypertarget{informaciuxf3n-y-metadatos-1}{%
 \section{Información y metadatos}\label{informaciuxf3n-y-metadatos-1}}
 
-Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto \texttt{ee.Geometry}. Para conocer características de las propiedades se puede utilizar el método \texttt{.propertyNames}.
+Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya {[}2020{]} para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto \texttt{ee.Geometry}. Para conocer características de las propiedades se puede utilizar el método \texttt{.propertyNames}.
 
 \hypertarget{visualizaciuxf3n-de-vectores}{%
 \section{Visualización de vectores}\label{visualizaciuxf3n-de-vectores}}
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. La configuración predeterminada para estos elementos es verlos con líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función \texttt{Map.addLayer}, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función \texttt{Map.addLayer}, como código hexadecimal.
 
 \begin{bluebox2}
 
@@ -1925,8 +1914,8 @@ Ejercicio 10:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{funciones-comunes-1}{%
-\section{Funciones comunes}\label{funciones-comunes-1}}
+\hypertarget{muxe9todos-comunes-1}{%
+\section{Métodos comunes}\label{muxe9todos-comunes-1}}
 
 \hypertarget{selecciuxf3n-de-propiedades}{%
 \subsection{Selección de propiedades}\label{selecciuxf3n-de-propiedades}}
@@ -2388,8 +2377,8 @@ Ejercicio 17.2
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{funciones-comunes-2}{%
-\section{Funciones comunes}\label{funciones-comunes-2}}
+\hypertarget{muxe9todos-comunes-2}{%
+\section{Métodos comunes}\label{muxe9todos-comunes-2}}
 
 \hypertarget{filtraciuxf3n-de-una-colecciuxf3n-de-vectores}{%
 \subsection{Filtración de una colección de vectores}\label{filtraciuxf3n-de-una-colecciuxf3n-de-vectores}}
@@ -2469,7 +2458,7 @@ Ejercicio 17.2
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Map es una función que nos permite ejecutar una operación sobre todos }
+\CommentTok{// Map es un método que nos permite ejecutar una operación sobre todos }
 \CommentTok{// los vectores de la colección}
 \KeywordTok{var}\NormalTok{ Areasfecha }\OperatorTok{=}\NormalTok{ AreasProCRI}\OperatorTok{.}\FunctionTok{map}\NormalTok{( }\KeywordTok{function}\NormalTok{(vector)\{ }
   \CommentTok{// Fecha extrae el valor del atributo \textquotesingle{}STATUS\_YEAR\textquotesingle{}}
@@ -2485,7 +2474,7 @@ Ejercicio 17.2
 \end{Highlighting}
 \end{Shaded}
 
-Los filtros compuestos permiten combinar los filtros disponibles bajo la librería de \texttt{ee.Filter}. En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. El ejercicio consta de los siguientes pasos:
+Los filtros compuestos permiten combinar los filtros disponibles bajo la biblioteca de \texttt{ee.Filter}. En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. El ejercicio consta de los siguientes pasos:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2735,7 +2724,7 @@ Ejercicio 21
 \KeywordTok{var}\NormalTok{ peru }\OperatorTok{=}\NormalTok{ paises}\OperatorTok{.}\FunctionTok{filterMetadata}\NormalTok{(}\StringTok{\textquotesingle{}COUNTRY\_NA\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}equals\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}Peru\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 
 \CommentTok{// Creamos una colección de vectores de 100 puntos aleatorios en Perú, y }
-\CommentTok{// usando la función .randomColumn le asignamos un valor aleatorio (entre }
+\CommentTok{// usando el método .randomColumn le asignamos un valor aleatorio (entre }
 \CommentTok{// 0{-}1) a cada punto de la colección}
 \KeywordTok{var}\NormalTok{ puntos }\OperatorTok{=}\NormalTok{ee}\OperatorTok{.}\AttributeTok{FeatureCollection}\OperatorTok{.}\FunctionTok{randomPoints}\NormalTok{(peru}\OperatorTok{,} \DecValTok{100}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{randomColumn}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
@@ -2757,7 +2746,7 @@ Ejercicio 21
   \CommentTok{// cercano (igual o mayor)}
   \KeywordTok{var}\NormalTok{ redondear }\OperatorTok{=}\NormalTok{ multiplicar}\OperatorTok{.}\FunctionTok{ceil}\NormalTok{()}\OperatorTok{;} 
   
-  \CommentTok{// Ejecutamos la función .buffer para el objeto llamado \textquotesingle{}vector\textquotesingle{} y el }
+  \CommentTok{// Ejecutamos el método .buffer para el objeto llamado \textquotesingle{}vector\textquotesingle{} y el }
   \CommentTok{// tamaño está determinado por el número en \textquotesingle{}redondear\textquotesingle{}}
   \KeywordTok{var}\NormalTok{ area }\OperatorTok{=}\NormalTok{ punto}\OperatorTok{.}\FunctionTok{buffer}\NormalTok{(redondear)}\OperatorTok{;}
 
@@ -2766,7 +2755,7 @@ Ejercicio 21
   \KeywordTok{var}\NormalTok{ tamaño }\OperatorTok{=}\NormalTok{ area}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}radio del buffer\textquotesingle{}}\OperatorTok{,}\NormalTok{redondear)}\OperatorTok{;}  
 
   \CommentTok{// Le añadimos otro ar\}tributo llamado \textquotesingle{}area\textquotesingle{} el cual, está definido }
-  \CommentTok{// calculando el area (con la funcion.area) en metros cuadrados del }
+  \CommentTok{// calculando el area (con el método.area) en metros cuadrados del }
   \CommentTok{// buffer }
   \KeywordTok{var}\NormalTok{ circulo }\OperatorTok{=}\NormalTok{ tamaño}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}area\textquotesingle{}}\OperatorTok{,}\NormalTok{tamaño}\OperatorTok{.}\FunctionTok{area}\NormalTok{())}\OperatorTok{;}  
 
@@ -2785,7 +2774,7 @@ Ejercicio 21
 \hypertarget{reducciuxf3n-de-una-colecciuxf3n-de-vectores}{%
 \subsection{Reducción de una colección de vectores}\label{reducciuxf3n-de-una-colecciuxf3n-de-vectores}}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la función que se utilizará para la reducción ya se promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya se promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
 
 \begin{itemize}
 \tightlist
@@ -2925,7 +2914,7 @@ Ejercicio 24
 
 Para unir diferentes colecciones de vectores se usan las funciones de \texttt{ee.Join}. Estas funciones permiten unir vectores basados en los valores de sus atributos. Usando un \texttt{.filter} se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
 
-Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la librería \texttt{ee.Join}. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo \texttt{saveALL}, pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
+Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca \texttt{ee.Join}. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo \texttt{saveALL}, pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
 
 En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
 
@@ -3008,19 +2997,28 @@ Los argumentos adicionales específicos para exportar a drive \texttt{Export.tab
   FileNamePrefix: el nombre que le pondremos al vector guardado en drive.
 \item
   FileFormat: el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
-\item
-  ``CSV'', valor por default
-\item
-  ``GeoJSON'',
-\item
-  ``KML'',
-\item
-  ``KMZ'',
-\item
-  ``SHP'',
-\item
-  ``TFRecord''
-  El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``CSV'', valor por default
+  \item
+    ``GeoJSON'',
+  \item
+    ``KML'',
+  \item
+    ``KMZ'',
+  \item
+    ``SHP'',
+  \item
+    ``TFRecord''.
+  \end{itemize}
+\end{itemize}
+
+El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es:
+
+\begin{itemize}
+\tightlist
 \item
   AssetID: el nombre que le pondremos al nuevo asset.
 \end{itemize}
@@ -3064,14 +3062,14 @@ Ejercicio 26
 \end{Highlighting}
 \end{Shaded}
 
-Es importante recordar que es necesario dar click a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
 
 \newpage
 
 \hypertarget{imagen}{%
 \chapter{Imagen}\label{imagen}}
 
-Las imágenes (\texttt{ee.Image}) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular. Los metadatos de cada imagen se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos.
+Las imágenes (\texttt{ee.Image}) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya {[}2020{]} para una descripción más detallada de un ráster). Los metadatos de cada imagen se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos.
 
 Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005.
 
@@ -3107,7 +3105,7 @@ Para realizar los ejercicios de este apartado, se cargarán dos fuentes de infor
 \end{Highlighting}
 \end{Shaded}
 
-Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. El uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos que se ven más a detalle en los siguientes párrafos.
+Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método \texttt{.first} permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (\texttt{ee.Image}). Ya que las imágenes multiespectrales sólo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre imágenes multiespectrales.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3178,8 +3176,8 @@ Ejercicio 27.3
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{funciones-comunes-3}{%
-\section{Funciones comunes}\label{funciones-comunes-3}}
+\hypertarget{muxe9todos-comunes-3}{%
+\section{Métodos comunes}\label{muxe9todos-comunes-3}}
 
 \hypertarget{selecciuxf3n-de-bandas}{%
 \subsection{Selección de bandas}\label{selecciuxf3n-de-bandas}}
@@ -3193,7 +3191,7 @@ Ejercicio 27.4
 \CommentTok{// Seleccionar la banda 1 de la imagen (que es la única)}
 \KeywordTok{var}\NormalTok{ banda1 }\OperatorTok{=}\NormalTok{ CHM}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}1\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 
-\CommentTok{// Seleccionar sólo las primeras tres bandas de la imagen}
+\CommentTok{// Seleccionar sólo las primeras cuatro bandas de la imagen}
 \KeywordTok{var}\NormalTok{ landsat7imBands }\OperatorTok{=}\NormalTok{ landsat7im}\OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}B1\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -3211,7 +3209,7 @@ Ejercicio 27.5
 \KeywordTok{var}\NormalTok{ CHMprop1 }\OperatorTok{=}\NormalTok{ CHM}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}miPropiedad\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}miImagen\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// Modificar una propiedad preexistente}
-\KeywordTok{var}\NormalTok{ CHMprop2 }\OperatorTok{=}\NormalTok{ CHM}\OperatorTok{.}\FunctionTok{set}\NormalTok{(title}\OperatorTok{,}\StringTok{\textquotesingle{}miTítulo\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ CHMprop2 }\OperatorTok{=}\NormalTok{ CHM}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}title\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}miTítulo\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3267,7 +3265,7 @@ Se sugiere evitar el uso del método \texttt{.clip} a menos que sea estrictament
 \hypertarget{cuxe1lculo-de-operaciones-matemuxe1ticas}{%
 \subsection{Cálculo de operaciones matemáticas}\label{cuxe1lculo-de-operaciones-matemuxe1ticas}}
 
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: \texttt{.subtract,\ .add,\ .divide,\ .multiply} para restar, sumar, dividir y multiplicar, respectivamente. Además, GEE cuenta con una función de \texttt{.normalizedDifference} para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método \texttt{.expression}. En esta función se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen:
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: \texttt{.subtract,\ .add,\ .divide,\ .multiply} para restar, sumar, dividir y multiplicar, respectivamente.
 
 Ejercicio 27.8
 
@@ -3275,12 +3273,22 @@ Ejercicio 27.8
 \begin{Highlighting}[]
 \CommentTok{// Multiplicar la imagen por 100 para obtener el valor en cm}
 \KeywordTok{var}\NormalTok{ chmCmMx }\OperatorTok{=}\NormalTok{ chmMx}\OperatorTok{.}\FunctionTok{multiply}\NormalTok{(}\DecValTok{100}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
 
+Además, GEE cuenta con un método de \texttt{.normalizedDifference} para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método \texttt{.expression}. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{// Calcular el ndvi con la imagen de landsat 7 obtenida previamente}
 \KeywordTok{var}\NormalTok{ ndvi}\OperatorTok{=}\NormalTok{ landsat7imBands}\OperatorTok{.}\FunctionTok{expression}\NormalTok{( }\StringTok{\textquotesingle{}(NIR {-} R) / (NIR + R)\textquotesingle{}}\OperatorTok{,}\NormalTok{ \{}
   \StringTok{\textquotesingle{}NIR\textquotesingle{}} \OperatorTok{=}\NormalTok{ landsat7imBands}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{)}\OperatorTok{,}
   \StringTok{\textquotesingle{}R\textquotesingle{}} \OperatorTok{=}\NormalTok{ landsat7imBands}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}B3\textquotesingle{}}\NormalTok{)}
 \NormalTok{\})}
+  \CommentTok{// Renombrar la banda como ‘ndvi’}
+  \OperatorTok{.}\FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+  
+\KeywordTok{var}\NormalTok{ ndvi2 }\OperatorTok{=}\NormalTok{ landsat7imBands}\OperatorTok{.}\FunctionTok{normalizedDifference}\NormalTok{(}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\NormalTok{)}
   \CommentTok{// Renombrar la banda como ‘ndvi’}
   \OperatorTok{.}\FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
@@ -3289,7 +3297,7 @@ Ejercicio 27.8
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Si no se cambia el nombre de la banda producida por \texttt{.normalizedDifference}, por default, ésta va a recibir el nombre de `nd'.
+Si no se cambia el nombre de la banda producida por \texttt{.normalizedDifference}, por defecto, ésta va a recibir el nombre de `nd'.
 
 \end{awesomeblock}
 
@@ -3378,7 +3386,7 @@ Ejercicio 27.12
 \hypertarget{conversiuxf3n-de-imagen-a-vector}{%
 \subsection{Conversión de imagen a vector}\label{conversiuxf3n-de-imagen-a-vector}}
 
-En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. Por ejemplo, para obtener un gráfico de series de tiempo (\texttt{ui.Chart.image.series}). El método para convertir una imagen en vector es \texttt{.reduceToVectors} y se utiliza de la siguiente manera:
+En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es \texttt{.reduceToVectors} y se utiliza de la siguiente manera:
 
 Ejercicio 27.13
 
@@ -3403,7 +3411,7 @@ Ejercicio 27.13
 \hypertarget{exportaciuxf3n-de-una-imagen}{%
 \subsection{Exportación de una imagen}\label{exportaciuxf3n-de-una-imagen}}
 
-En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es \texttt{Export.imageToDrive}. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que pueden consultar en la sección de Reference (Ver Pestaña de Docs y buscar Export).
+En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es \texttt{Export.imageToDrive}. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de Reference o en la pestaña de Docs, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos excepto la imagen a exportar son opcionales, sin embargo, se recomienda siempre definir por lo menos los argumentos indicados en el siguiente ejemplo.
 
 Ejercicio 27.14
 
@@ -3422,36 +3430,58 @@ Ejercicio 27.14
   \CommentTok{// Tamaño en m del píxel de la imagen a exportar}
   \DataTypeTok{maxPixels}\OperatorTok{:}\FloatTok{1e12}\OperatorTok{,}
   \CommentTok{// Formato en el cual se va a exportar la imagen}
-  \DataTypeTok{fileFormat}\OperatorTok{:} \StringTok{\textquotesingle{}GeoTIFF\textquotesingle{}}
+  \DataTypeTok{fileFormat}\OperatorTok{:} \StringTok{\textquotesingle{}GeoTIFF\textquotesingle{}}\OperatorTok{,}
+  \CommentTok{// Región de la imagen a exportar}
+  \DataTypeTok{region}\OperatorTok{:}\NormalTok{ roi1}\OperatorTok{,}
+  \CommentTok{// Definir sistema de coordenadas de referencia}
+  \DataTypeTok{crs}\OperatorTok{:} \StringTok{\textquotesingle{}EPSG:4326\textquotesingle{}}
 \NormalTok{\})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
-Es importante recordar que es necesario dar click a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+En experiencia de los autores el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un 1 seguido de trece ceros.
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+El sistema de coordenadas de referencia usado en el ejemplo anterior se definió de acuerdo a los códigos EPSG. Estos pueden consultarse en el siguiente enlace: \url{https://epsg.io/}
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
 
 \hypertarget{ejercicio-consulta-y-procesamiento-de-imagen-ejercicio-a}{%
 \subsubsection{Ejercicio: Consulta y procesamiento de imagen (Ejercicio A)}\label{ejercicio-consulta-y-procesamiento-de-imagen-ejercicio-a}}
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así:
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM. Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así (Fig. 8.1):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/SRTM} 
 
 }
 
-\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-114}
+\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-115}
 \end{figure}
 
-Posteriormente se da click sobre el primer resultado y debería abrirse la siguiente ventana.
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 8.2).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/SRTM_prop} 
 
 }
 
-\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-115}
+\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-116}
 \end{figure}
 
 En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
@@ -3517,12 +3547,12 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevaci�
 \end{Highlighting}
 \end{Shaded}
 
-Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print}.
+Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 8.3).
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Crear gráfico de histograma de los valores del DEM enmascarado}
-\KeywordTok{var}\NormalTok{ graficoHistorgrama }\OperatorTok{=}\NormalTok{ ui}\OperatorTok{.}\AttributeTok{Chart}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{histogram}\NormalTok{(\{}
+\KeywordTok{var}\NormalTok{ graficoHistograma }\OperatorTok{=}\NormalTok{ ui}\OperatorTok{.}\AttributeTok{Chart}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{histogram}\NormalTok{(\{}
      \CommentTok{// Indicar imagen de la cual se va a crear el histograma  }
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgEnmascarada}\OperatorTok{,}
   \CommentTok{// Indicar la escala en m a la que se va a muestrear la información para  }
@@ -3533,25 +3563,44 @@ Por último, se generará un gráfico para obtener un histograma de los valores 
   \DataTypeTok{maxBuckets}\OperatorTok{:} \DecValTok{10}
 \NormalTok{  \})}\OperatorTok{;}
 
-\FunctionTok{print}\NormalTok{(graficoHistorgrama}\OperatorTok{,}\StringTok{\textquotesingle{}gráfico Historgrama\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\FunctionTok{print}\NormalTok{(graficoHistograma}\OperatorTok{,}\StringTok{\textquotesingle{}gráfico Histograma\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/histElevacion} 
 
 }
 
-\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-123}
+\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-124}
 \end{figure}
+
+Por último, se puede exportar el resultado al Google Drive del usuario. En este caso se definirá un valor de \texttt{scale} de 9000 para acelerar el tiempo demorado en la exportación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+  \DataTypeTok{image}\OperatorTok{:}\NormalTok{imgEnmascarada}\OperatorTok{,} 
+  \DataTypeTok{description}\OperatorTok{:}\StringTok{\textquotesingle{}MX\_DEM1000{-}2500msnm\textquotesingle{}}\OperatorTok{,}
+  \DataTypeTok{folder}\OperatorTok{:}\StringTok{\textquotesingle{}carpeta\_clase\_GEE\textquotesingle{}}\OperatorTok{,}
+  \DataTypeTok{scale}\OperatorTok{:} \DecValTok{9000}\OperatorTok{,}
+  \DataTypeTok{maxPixels}\OperatorTok{:}\FloatTok{1e12}\OperatorTok{,}
+  \DataTypeTok{fileFormat}\OperatorTok{:} \StringTok{\textquotesingle{}GeoTIFF\textquotesingle{}}\OperatorTok{,}
+  \DataTypeTok{region}\OperatorTok{:}\NormalTok{ MX}\OperatorTok{,}
+  \DataTypeTok{crs}\OperatorTok{:} \StringTok{\textquotesingle{}EPSG:4326\textquotesingle{}}
+\NormalTok{\})}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic en Run y comenzar a exportar la imagen al Google Drive. A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en Run . Por último, el producto exportado aparecerá en la pestaña de Tasks con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al Drive, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al Drive (ver Fig. 2.22).
 
 \newpage
 
 \hypertarget{colecciones-de-imuxe1genes}{%
 \chapter{Colecciones de imágenes}\label{colecciones-de-imuxe1genes}}
 
-Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos.
+Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020).
 
 Ejercicio 28
 
@@ -3631,7 +3680,7 @@ Ejercicio 28.2
 \hypertarget{visualizaciuxf3n-de-colecciones-de-imuxe1genes}{%
 \section{Visualización de colecciones de imágenes}\label{visualizaciuxf3n-de-colecciones-de-imuxe1genes}}
 
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden visualizar en la pantalla de mapas mediante la función \texttt{Map.addLayer}. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección.
+De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función \texttt{Map.addLayer}. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección.
 
 Ejercicio 28.3
 
@@ -3648,13 +3697,13 @@ Ejercicio 28.3
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{funciones-comunes-4}{%
-\section{Funciones comunes}\label{funciones-comunes-4}}
+\hypertarget{muxe9todos-comunes-4}{%
+\section{Métodos comunes}\label{muxe9todos-comunes-4}}
 
 \hypertarget{filtraciuxf3n-de-colecciones-de-imuxe1genes}{%
 \subsection{Filtración de colecciones de imágenes}\label{filtraciuxf3n-de-colecciones-de-imuxe1genes}}
 
-Los filtros permiten filtrar las colecciones de imágenes a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos \texttt{ee.Filter}. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar \texttt{.filterDate}:
+Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos \texttt{ee.Filter}. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar \texttt{.filterDate}:
 
 Ejercicio 28.4
 
@@ -3675,7 +3724,7 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 \end{Highlighting}
 \end{Shaded}
 
-Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante \texttt{.filter} y después definiendo el filtro del metadato con \texttt{ee.Filter}. Otra forma de realizar este proceso es mediante \texttt{.filterMetadata}. Las siguientes dos líneas obtienen el mismo resultado.
+Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante \texttt{.filter} y después definiendo el filtro del metadato con \texttt{ee.Filter}. Otra forma de realizar este proceso es mediante \texttt{.filterMetadata}. Las siguientes dos líneas son equivalentes ya qye obtienen el mismo resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3783,7 +3832,7 @@ Ejercicio 28.8
 \hypertarget{conteo-de-observaciones-por-pixel}{%
 \subsection{Conteo de observaciones por pixel}\label{conteo-de-observaciones-por-pixel}}
 
-Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método \texttt{.count}.
+Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método \texttt{.count}. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3820,19 +3869,19 @@ Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las
 
 \end{bluebox2}
 
-La unión de una colección de landsat 7 y una landsat 8 se podría hacer de la siguiente manera:
+La unión de una colección de Sentinel-2 se podría hacer de la siguiente manera:
 
 Ejercicio 28.9
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Aplicar un filtro por fechas a la colección de Sentinel{-}2}
-\KeywordTok{var}\NormalTok{ imCol6 }\OperatorTok{=}\NormalTok{ S2}\OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2019{-}01{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2020{-}05{-}01\textquotesingle{}}\NormalTok{)}
+\KeywordTok{var}\NormalTok{ imCol6 }\OperatorTok{=}\NormalTok{ S2}\OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2019{-}01{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2019{-}05{-}01\textquotesingle{}}\NormalTok{)}
   \CommentTok{// Aplicar filtro espacial}
   \OperatorTok{.}\FunctionTok{filterBounds}\NormalTok{(roi)}\OperatorTok{;}
 
 \CommentTok{// Hacer lo mismo que en el caso anterior, pero cambiando las fechas}
-\KeywordTok{var}\NormalTok{ imCol7 }\OperatorTok{=}\NormalTok{ S2}\OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2019{-}06{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2020{-}11{-}01\textquotesingle{}}\NormalTok{)}
+\KeywordTok{var}\NormalTok{ imCol7 }\OperatorTok{=}\NormalTok{ S2}\OperatorTok{.}\FunctionTok{filterDate}\NormalTok{(}\StringTok{\textquotesingle{}2020{-}06{-}01\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}2020{-}11{-}01\textquotesingle{}}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filterBounds}\NormalTok{(roi)}\OperatorTok{;}
 
 \CommentTok{// Unir las dos colecciones de imágenes en una sola  }
@@ -3853,7 +3902,7 @@ Ejercicio 28.10
 \KeywordTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \KeywordTok{function}\NormalTok{(image)\{}
   \CommentTok{// Calcular el ndvi utilizando las bandas del NIR, B8 y R, B4}
   \KeywordTok{var}\NormalTok{ ndvi }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{normalizedDifference}\NormalTok{([}\StringTok{\textquotesingle{}B8\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
-  \CommentTok{// Regresar sólo la imagen de ndvi}
+  \CommentTok{// Regresar la imagen con la nueva banda de ndvi}
   \ControlFlowTok{return}\NormalTok{ image}\OperatorTok{.}\FunctionTok{addBands}\NormalTok{(ndvi)}\OperatorTok{;}
 \NormalTok{\}}\OperatorTok{;}
 
@@ -3892,7 +3941,7 @@ El método \texttt{.map} requiere del uso de funciones del lado del servidor, as
 \hypertarget{reducciuxf3n-de-una-colecciuxf3n-de-imuxe1genes}{%
 \subsection{Reducción de una colección de imágenes}\label{reducciuxf3n-de-una-colecciuxf3n-de-imuxe1genes}}
 
-Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método \texttt{.reduce} e indicando la función a utilizar mediante un objeto tipo \texttt{ee.Reducer}. De tal manera, se puede indicar si el resultado corresponderá a la media \texttt{ee.Reducer.mean}, mediana, \texttt{ee.Reducer.median}, moda, \texttt{ee.Reducer.mode}, mínimo, \texttt{ee.Reducer.min}, máximo, \texttt{ee.Reducer.max} o inclusive la media de un intervalo determinado de observaciones, \texttt{ee.Reducer.intervalMean}. Otra forma de realizar estas mismas reducciones es utilizando directamente las funciones \texttt{.min,\ .max,\ .mean,\ .mode,\ .median}. Las siguientes dos líneas realizan exactamente el mismo proceso:
+Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método \texttt{.reduce}, indicando la operación matemática a utilizar mediante un objeto tipo \texttt{ee.Reducer}. De tal manera, se puede indicar si el resultado corresponderá a la media \texttt{ee.Reducer.mean}, mediana, \texttt{ee.Reducer.median}, moda, \texttt{ee.Reducer.mode}, mínimo, \texttt{ee.Reducer.min}, máximo, \texttt{ee.Reducer.max} o inclusive la media de un intervalo determinado de observaciones, \texttt{ee.Reducer.intervalMean}. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de \texttt{.min,\ .max,\ .mean,\ .mode,\ .median}. Las siguientes dos líneas realizan exactamente el mismo proceso:
 
 Ejercicio 28.11
 
@@ -3902,7 +3951,7 @@ Ejercicio 28.11
 \CommentTok{// de las imágenes que conforman la colección}
 \KeywordTok{var}\NormalTok{ imRedMean }\OperatorTok{=}\NormalTok{ imCol9}\OperatorTok{.}\FunctionTok{mean}\NormalTok{()}\OperatorTok{;}
 
-\CommentTok{// Realizar lo mismo pero utilizando explicitamente la definición del }
+\CommentTok{// Realizar lo mismo pero utilizando explícitamente la definición del }
 \CommentTok{// reductor}
 \KeywordTok{var}\NormalTok{ imRedMean2 }\OperatorTok{=}\NormalTok{ imCol9}\OperatorTok{.}\FunctionTok{reduce}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{mean}\NormalTok{())}\OperatorTok{;}
 \end{Highlighting}
@@ -3911,7 +3960,7 @@ Ejercicio 28.11
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la función utilizada para hacer la reducción. Por ejemplo, al utilizar \texttt{ee.Reducer.mean} sobre una colección de imágenes cuyas bandas se llaman `B1' y `B2', las bandas de la imagen producto de la reducción se llamarán `B1\_mean' y `B2\_mean'.
+Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la operación matemática utilizada para hacer la reducción. Por ejemplo, al utilizar \texttt{ee.Reducer.mean} sobre una colección de imágenes cuyas bandas se llaman `B1' y `B2', las bandas de la imagen producto de la reducción se llamarán `B1\_mean' y `B2\_mean'.
 
 \end{awesomeblock}
 
@@ -3920,7 +3969,7 @@ Al aplicar una reducción a una colección de imágenes, el nombre de las bandas
 \hypertarget{creaciuxf3n-de-compuestos-y-mosaicos}{%
 \subsection{Creación de compuestos y mosaicos}\label{creaciuxf3n-de-compuestos-y-mosaicos}}
 
-Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos funciones: \texttt{.mosaic} y \texttt{.qualityMosaic}. La principal diferencia entre estas dos funciones radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de \texttt{.qualityMosaic} permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de \texttt{.qualityMosaic} hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
+Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos métodos: \texttt{.mosaic} y \texttt{.qualityMosaic}. La principal diferencia entre estos dos procesos radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de \texttt{.qualityMosaic} permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de \texttt{.qualityMosaic} hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
 
 Ejercicio 28.12
 
@@ -3933,24 +3982,24 @@ Ejercicio 28.12
 
 \CommentTok{// Crear un mosaico utilizando como banda de calidad \textquotesingle{}nd\textquotesingle{} que en este caso}
 \CommentTok{//corresponde al ndvi}
-\CommentTok{// Esta función permite obtener mosaicos, por ejemplo, del valor del píxel}
+\CommentTok{// Este método permite obtener mosaicos, por ejemplo, del valor del píxel}
 \CommentTok{//de mayor verdor o mayor valor de ndvi}
-\KeywordTok{var}\NormalTok{ imRedMean2 }\OperatorTok{=}\NormalTok{ imCol9}\OperatorTok{.}\FunctionTok{qualityMosaic}\NormalTok{(}\StringTok{\textquotesingle{}nd\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ imRedQualMosaic }\OperatorTok{=}\NormalTok{ imCol9}\OperatorTok{.}\FunctionTok{qualityMosaic}\NormalTok{(}\StringTok{\textquotesingle{}nd\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}{%
 \subsubsection{Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)}\label{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}}
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de \texttt{Search}, después se le da click y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de `BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de `IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección.
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de \texttt{Search}, después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de `BANDS' se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de `IMAGE PROPERTIES' se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 9.1).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Ruta_coleccion} 
 
 }
 
-\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-142}
+\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-144}
 \end{figure}
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
@@ -3991,22 +4040,22 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 \begin{itemize}
 \tightlist
 \item
-  Un click a la colección en la consola .
+  Un clic a la colección en la consola .
 \item
-  Luego un click a features.
+  Luego un clic a features.
 \item
-  Después un click a cualquier imagen (\texttt{Image}) .
+  Después un clic a cualquier imagen (\texttt{Image}) .
 \item
-  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda.
+  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (Fig. 9.2).
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/CamposImgCol} 
 
 }
 
-\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-145}
+\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-147}
 \end{figure}
 
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de `CLOUD\_COVER\_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable \texttt{L8imgFirst}, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto \texttt{ee.Image}.
@@ -4020,7 +4069,7 @@ A continuación se ordena la colección de manera ascendente de acuerdo a la pro
 \end{Highlighting}
 \end{Shaded}
 
-Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información. Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
+Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (Fig. 9.3). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4031,13 +4080,13 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/RGBIm} 
 
 }
 
-\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-148}
+\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-150}
 \end{figure}
 
 \hypertarget{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}{%
@@ -4076,7 +4125,7 @@ Se define la función para calcular el NDVI de todas las imágenes.
 \end{Highlighting}
 \end{Shaded}
 
-Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa.
+Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa (Fig. 9.4).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4087,13 +4136,13 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/imNubes} 
 
 }
 
-\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-152}
+\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-154}
 \end{figure}
 
 A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreescribir el objeto L8imgCol.
@@ -4108,7 +4157,7 @@ A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreesc
 \end{Highlighting}
 \end{Shaded}
 
-Se muestra la primera imagen sin nubes.
+Se muestra la primera imagen sin nubes (Fig. 9.5).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4119,24 +4168,24 @@ Se muestra la primera imagen sin nubes.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/imSinNubes} 
 
 }
 
-\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-155}
+\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-157}
 \end{figure}
 
-En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi'.
+En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 9.6).
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/imConNDVI} 
 
 }
 
-\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-156}
+\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-158}
 \end{figure}
 
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método \texttt{.reduce}. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -4150,7 +4199,7 @@ Posteriormente, se reduce la colección de imágenes para formar una sola imagen
 \end{Highlighting}
 \end{Shaded}
 
-Por último, agregamos los dos resultados a la pantalla de mapas.
+A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 9.7).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4160,15 +4209,39 @@ Por último, agregamos los dos resultados a la pantalla de mapas.
 \end{Highlighting}
 \end{Shaded}
 
-El resultado se ve así:
+El resultado se ve así (Fig. 9.8):
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/imNDVI} 
 
 }
 
-\caption{Ejemplo de una imagen de NDVI.}\label{fig:unnamed-chunk-159}
+\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-161}
+\end{figure}
+
+Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método \texttt{count}. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// Obtener la imagen del número de observaciones por píxel sin enmascarar }
+\KeywordTok{var}\NormalTok{ numObsPixel }\OperatorTok{=}\NormalTok{ L8imgCol}\OperatorTok{.}\FunctionTok{count}\NormalTok{()}\OperatorTok{;}
+
+\BuiltInTok{Map}\OperatorTok{.}\FunctionTok{addLayer}\NormalTok{(numObsPixel}\OperatorTok{,}
+\NormalTok{  \{}\DataTypeTok{min}\OperatorTok{:} \DecValTok{1}\OperatorTok{,} \DataTypeTok{max}\OperatorTok{:} \DecValTok{17}\NormalTok{\}}\OperatorTok{,}
+  \StringTok{\textquotesingle{}Número de observaciones sin enmascarar por píxel\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 9.9):
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/imCount} 
+
+}
+
+\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-163}
 \end{figure}
 
 \begin{bluebox2}
@@ -4243,7 +4316,7 @@ Después, se seleccionan únicamente las bandas de NDVI y se reduce la colecció
 \end{Highlighting}
 \end{Shaded}
 
-Posteriormente se agrega el resultado a la pantalla de mapas.
+Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 9.10).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4254,13 +4327,13 @@ Posteriormente se agrega el resultado a la pantalla de mapas.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/imDifNDVI} 
 
 }
 
-\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-165}
+\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-169}
 \end{figure}
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de un folder del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
@@ -4272,8 +4345,11 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgDiff}\OperatorTok{,}
   \DataTypeTok{description}\OperatorTok{:} \StringTok{\textquotesingle{}DiferenciaNDVI\_2016{-}2017\textquotesingle{}}\OperatorTok{,}
   \DataTypeTok{scale}\OperatorTok{:} \DecValTok{30}\OperatorTok{,}
+  \DataTypeTok{maxPixels}\OperatorTok{:} \FloatTok{1e12}\OperatorTok{,}
   \DataTypeTok{fileFormat}\OperatorTok{:} \StringTok{\textquotesingle{}GeoTIFF\textquotesingle{}}\OperatorTok{,}
-  \DataTypeTok{folder}\OperatorTok{:} \StringTok{\textquotesingle{}DiferenciaNDVIL8\textquotesingle{}}
+  \DataTypeTok{folder}\OperatorTok{:} \StringTok{\textquotesingle{}DiferenciaNDVIL8\textquotesingle{}}\OperatorTok{,}
+  \DataTypeTok{region}\OperatorTok{:}\NormalTok{ roi}\OperatorTok{,}
+  \DataTypeTok{crs}\OperatorTok{:} \StringTok{\textquotesingle{}EPSG:4326}
 \NormalTok{\})}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
@@ -4283,18 +4359,27 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
 \hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee}{%
 \chapter{Importación de información a GEE}\label{importaciuxf3n-de-informaciuxf3n-a-gee}}
 
-Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders. Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar click en \texttt{New} e indicar el archivo que se quiere importar a GEE.
+Se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders (Fig. 10.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en \texttt{New} e indicar el archivo que se quiere importar a GEE (Fig. 10.2).
 
-\begin{figure}
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/newAssets} 
+
+}
+
+\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-171}
+\end{figure}
+
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Asset1} 
 
 }
 
-\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-167}
+\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-172}
 \end{figure}
 
-Posteriormente se da click en \texttt{Select} y se seleccionan los archivos que se quieren subir. Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da click en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
+Posteriormente se da clic en \texttt{Select} y se seleccionan los archivos que se quieren subir (Fig. 10.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
 
 \begin{bluebox2}
 
@@ -4305,24 +4390,24 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 
 \end{bluebox2}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Asset2} 
 
 }
 
-\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-168}
+\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-173}
 \end{figure}
 
-Una vez que se haya dado click en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks}. Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
+Una vez que se haya dado clic en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks} (Fig. 10.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/Asset3} 
 
 }
 
-\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-169}
+\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-174}
 \end{figure}
 
 \begin{bluebox2}
@@ -4334,55 +4419,46 @@ Al igual que en la pestaña donde se organizan los repositorios y los códigos, 
 
 \end{bluebox2}
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{Img/newAssets} 
-
-}
-
-\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-170}
-\end{figure}
-
-Para subir un nuevo archivo hay que dar click en el botón \texttt{New}, seleccionar el tipo de archivo, y seguir las instrucciones:
+Para subir un nuevo archivo hay que dar clic en el botón \texttt{New}, seleccionar el tipo de archivo, y seguir las instrucciones:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Para los archivos ráster, sólo hace falta seleccionar el archivo correspondiente y dar click en \texttt{Upload}.
+  Para los archivos ráster, sólo hace falta seleccionar el archivo correspondiente y dar clic en \texttt{Upload}.
 \item
   Para los archivos tipo .shp es necesario subir los archivos auxiliares (dbf, prj, shx, cpg, fix, qix, sbn, y/o shp.xml) con el mismo nombre. Para los archivos .zip es necesario que contenga los archivos auxiliares.
 \item
   Para los archivos .csv es necesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84). El nombre de esas columnas se debe indicar en \texttt{Advanced\ options} / x column - Y column. Además, se debe tener absoluta claridad del tipo de delimitador (ejemplo: coma: , punto y coma: ; u otro diferente) y este debe ser especificado en \texttt{Advanced\ options} / CSV delimiter.
 \end{enumerate}
 
-\begin{figure}
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; Fig. 10.5).
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=0.3\linewidth]{Img/shareAssets} 
 
 }
 
-\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-171}
+\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-175}
 \end{figure}
-
-\begin{bluebox2}
-
-\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podra ser consultado por los usuarios indicados. Esta opción está disponible al darle click en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo).
-
-\end{awesomeblock}
-
-\end{bluebox2}
 
 \newpage
 
 \hypertarget{uso-conjunto-de-vectores-e-imuxe1genes}{%
 \chapter{Uso conjunto de vectores e imágenes}\label{uso-conjunto-de-vectores-e-imuxe1genes}}
 
-Además de las funciones que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunas funciones que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestreo de una imagen por vectores o la reducción de una imagen por vectores.
+Además de los métodos que existen en GEE para realizar operaciones sobre imágenes, colecciones de imágenes, vectores o colecciones de vectores, existen algunos métodos que permiten combinar estos dos tipos de información para realizar ciertos procesos. Los dos tipos de procesos más comúnmente utilizados son el muestreo de una imagen por vectores o la reducción de una imagen por vectores.
 
-\hypertarget{funciones-comunes-5}{%
-\section{Funciones comunes}\label{funciones-comunes-5}}
+\hypertarget{muxe9todos-comunes-5}{%
+\section{Métodos comunes}\label{muxe9todos-comunes-5}}
 
 \hypertarget{muestreo-por-vectores}{%
 \subsection{Muestreo por vector(es)}\label{muestreo-por-vectores}}
@@ -4424,7 +4500,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 \hypertarget{reducciuxf3n-de-una-imagen-por-regiuxf3nes}{%
 \subsection{Reducción de una imagen por región(es)}\label{reducciuxf3n-de-una-imagen-por-regiuxf3nes}}
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos funciones para realizar este proceso, para una única región \texttt{.reduceRegion} o para varias regiones \texttt{.reduceRegions}. Por ejemplo, el método \texttt{.reduceRegion} permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región \texttt{.reduceRegion} o para varias regiones \texttt{.reduceRegions}. Por ejemplo, el método \texttt{.reduceRegion} permite obtener estadísticas de la imagen en la extensión indicada por el vector. En este caso, además hay que indicar el reductor que se desea utilizar.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4525,9 +4601,9 @@ Ejercicio 30
   \DataTypeTok{range}\OperatorTok{:} \DecValTok{70000}\OperatorTok{,} 
   \CommentTok{// Atributo numerico a interpolar}
   \DataTypeTok{propertyName}\OperatorTok{:} \StringTok{\textquotesingle{}ch4\textquotesingle{}}\OperatorTok{,} 
-  \CommentTok{// Promedio (parametro para la función)}
+  \CommentTok{// Promedio (parametro para el método)}
   \DataTypeTok{mean}\OperatorTok{:}\NormalTok{ stats}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}mean\textquotesingle{}}\NormalTok{)}\OperatorTok{,} 
-  \CommentTok{// Desviación estándar (parámetro para la funcion)}
+  \CommentTok{// Desviación estándar (parámetro para la método)}
   \DataTypeTok{stdDev}\OperatorTok{:}\NormalTok{ stats}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}stdDev\textquotesingle{}}\NormalTok{)}\OperatorTok{,} 
 \NormalTok{  \})}\OperatorTok{;} 
 \end{Highlighting}
@@ -4536,7 +4612,7 @@ Ejercicio 30
 \hypertarget{kriging}{%
 \subsection{Kriging}\label{kriging}}
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En esta función hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos.
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos.
 
 Ejercicio 31
 
@@ -4582,12 +4658,14 @@ Ejercicio 31
 \hypertarget{clasificaciuxf3n-supervisada}{%
 \chapter{Clasificación supervisada}\label{clasificaciuxf3n-supervisada}}
 
-Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees), Random Forests, Naive Bayes, Gradient Tree Boost, Support Vector Machine, MaxEnt (Maximum Entropy) y Decision Trees. Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos del servidor.
+Una clasificación supervisada se refiere al proceso en el cual se genera un mapa temático a partir de imágenes satelitales u otro tipo de información obtenida mediante sensores remotos. Este tipo de procedimiento tiene el objetivo de asociarle una etiqueta a cada píxel de una imagen, que puede constar de por ejemplo, una clase de tipo de vegetación o uso de suelo (Chuvieco, 1995). Las clasificaciones se pueden ver como una interpretación de la reflectancia de una imagen en un sistema de clases de interés. Adicionalmente, las clasificaciones supervisadas constan de procedimientos en los cuales se entrena un algoritmo a reconocer las clases de interés a partir de muestras otorgadas por el usuario (Chuvieco, 1995). Generalmente, el proceso de una clasificación supervisada implica los siguientes pasos: 1) obtención de los datos de entrenamiento, 2) selección del clasificador, 3) entrenamiento del clasificador basado en los datos de entrenamiento, 4) obtención de la clasificación, 5) registro de los datos de verificación y 6) verificación o de la clasificación.
+
+Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman et al., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik 1995), MaxEnt (Maximum Entropy; Phillips et al., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos del servidor.
 
 \hypertarget{clasificadores}{%
 \section{Clasificadores}\label{clasificadores}}
 
-Los objetos \texttt{ee.Classifier} son los objetos que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: \texttt{ee.Classifier.smileCART,\ ee.Classifier.smileRandomForest,\ ee.Classifier.amnhMaxent}, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (\texttt{Reference}) en el apartado de librerías del cliente (\texttt{Client\ libraries}), o también en la pestaña \texttt{Docs} bajo \texttt{ee.Classifier}.
+Los objetos \texttt{ee.Classifier} son los objetos que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: \texttt{ee.Classifier.smileCART,\ ee.Classifier.smileRandomForest,\ ee.Classifier.amnhMaxent}, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (\texttt{Reference}) en el apartado de bibliotecas del cliente (\texttt{Client\ libraries}), o también en la pestaña \texttt{Docs} bajo \texttt{ee.Classifier}. Cabe destacar que cada clasificador tiene diferentes argumentos.
 
 Ejercicio 32
 
@@ -4600,7 +4678,7 @@ Ejercicio 32
 \hypertarget{realizaciuxf3n-de-la-fase-de-entrenamiento}{%
 \section{Realización de la fase de entrenamiento}\label{realizaciuxf3n-de-la-fase-de-entrenamiento}}
 
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método \texttt{.train}. Los argumentos de esta función indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método \texttt{.train}. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4674,7 +4752,23 @@ En este ejercicio se hará una clasificación supervisada utilizando el algoritm
 \end{Highlighting}
 \end{Shaded}
 
-A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso, se usa la función \texttt{.filterBounds} que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando \texttt{.map}.
+Antes de pasar al filtrado de la colección de Landsat 8 y enmascarar las nubes, habrá que volver a definir la función \texttt{maskL8sr}, que es la misma que se definió en la sección \emph{9.5.11.2. Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C)}, como:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// Crear función para enmascarar nubes}
+\KeywordTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
+  \KeywordTok{var}\NormalTok{ cloudShadowBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{3}\NormalTok{)}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ cloudsBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{5}\NormalTok{)}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ qa }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}pixel\_qa\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
+  \KeywordTok{var}\NormalTok{ mask }\OperatorTok{=}\NormalTok{ qa}\OperatorTok{.}\FunctionTok{bitwiseAnd}\NormalTok{(cloudShadowBitMask)}\OperatorTok{.}\FunctionTok{eq}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+                 \OperatorTok{.}\FunctionTok{and}\NormalTok{(qa}\OperatorTok{.}\FunctionTok{bitwiseAnd}\NormalTok{(cloudsBitMask)}\OperatorTok{.}\FunctionTok{eq}\NormalTok{(}\DecValTok{0}\NormalTok{))}\OperatorTok{;}
+  \ControlFlowTok{return}\NormalTok{ image}\OperatorTok{.}\FunctionTok{updateMask}\NormalTok{(mask)}\OperatorTok{;}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso, se usa el método \texttt{.filterBounds} que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando \texttt{.map}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4696,13 +4790,28 @@ El siguiente paso consta de reducir la colección para generar una sola imagen c
   \OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}B1\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B5\_mean\textquotesingle{}}\OperatorTok{,}
   \StringTok{\textquotesingle{}B6\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B7\_mean\textquotesingle{}}\NormalTok{])}
   \OperatorTok{.}\FunctionTok{rename}\NormalTok{([}\StringTok{\textquotesingle{}CB\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}G\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}R\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}NIR\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}SWIR1\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}SWIR2\textquotesingle{}}\NormalTok{])}
-  \OperatorTok{.}\FunctionTok{clip}\NormalTok{(geometry)}\OperatorTok{;}
 
 \FunctionTok{print}\NormalTok{(L8imgMean)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método \texttt{.sampleRegions}. Para esta función hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual, cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
+Posteriormente se va a cortar la imagen para quedarnos únicamente con el área de interés. Para ello, primero se define un área de interés y después se corta la imagen con ese objeto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{// Definir el área de interés}
+\KeywordTok{var}\NormalTok{ geometry }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{(}
+\NormalTok{        [[[}\OperatorTok{{-}}\FloatTok{101.82737418916153}\OperatorTok{,} \FloatTok{19.836437094032178}\NormalTok{]}\OperatorTok{,}
+\NormalTok{          [}\OperatorTok{{-}}\FloatTok{101.82737418916153}\OperatorTok{,} \FloatTok{19.368119068204525}\NormalTok{]}\OperatorTok{,}
+\NormalTok{          [}\OperatorTok{{-}}\FloatTok{101.15171500947403}\OperatorTok{,} \FloatTok{19.368119068204525}\NormalTok{]}\OperatorTok{,}
+\NormalTok{          [}\OperatorTok{{-}}\FloatTok{101.15171500947403}\OperatorTok{,} \FloatTok{19.836437094032178}\NormalTok{]]])}\OperatorTok{;}
+          
+\CommentTok{// Cortar la imagen a la geometría del área de interés}
+\NormalTok{L8imgMean }\OperatorTok{=}\NormalTok{ L8imgMean}\OperatorTok{.}\FunctionTok{clip}\NormalTok{(geometry)}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método \texttt{.sampleRegions}. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual, cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4716,7 +4825,7 @@ Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, 
 \end{Highlighting}
 \end{Shaded}
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza \texttt{ee.Classifier.smileRandomForest}. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante el método \texttt{.train}. Los argumentos para \texttt{.train} se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas.
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza \texttt{ee.Classifier.smileRandomForest}. En este caso, se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de Reference o en la pestaña de Docs, e incluyen parámetros como el número de variables a utilizar por división, el número máximo de nodos, entre otros. Posteriormente, se entrena este algoritmo mediante el método \texttt{.train}. Los argumentos para \texttt{.train} se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4728,6 +4837,15 @@ El siguiente paso es entrenar al clasificador utilizando la colección de vector
 \NormalTok{\})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Generalmente se menciona que el utilizar un mayor número de árboles en el algoritmo Random Forest permite obtener mejores resultados, sin embargo, dependiendo del conjunto de datos utilizado existe un umbral a partir del cual aumentar el número de árboles no resulta en una mejoría significativa de la clasificación. Consultar Oshiro et al.~(2012) para ver una evaluación del efecto del número de árboles sobre las capacidades de clasificación.
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 \begin{bluebox2}
 
@@ -4756,7 +4874,7 @@ Usando al final el método \texttt{.setOutputMode} se puede cambiar la forma que
 
 \end{bluebox2}
 
-Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando el método \texttt{.classify}. Como argumentos se indica el clasificador entrenado que se desea utilizar. El resultado de \texttt{.classify} va a ser un objeto de tipo \texttt{ee.Image} que contiene la clase predicha en el campo `classification'. Por último, se visualiza en la pantalla de mapas para ver los resultados.
+Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando el método \texttt{.classify}. Como argumentos se indica el clasificador entrenado que se desea utilizar. El resultado de \texttt{.classify} va a ser un objeto de tipo \texttt{ee.Image} que contiene la clase predicha en el campo `classification'. Por último, se visualiza en la pantalla de mapas para ver los resultados (Fig. 12.1).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4770,16 +4888,16 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/RFClass} 
 
 }
 
-\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-187}
+\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-193}
 \end{figure}
 
-Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`classification'), el reductor que se va a utilizar para resumir los valores por clase (\texttt{ee.Reducer.mean}), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases {[}`NoBosque',`Bosque',`Agua',`Urbano'{]}, la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola.
+Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación (`classification'), el reductor que se va a utilizar para resumir los valores por clase (\texttt{ee.Reducer.mean}), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases {[}`NoBosque',`Bosque',`Agua',`Urbano'{]}, la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola (Fig. 12.2).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4803,13 +4921,13 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[btp]
 
 {\centering \includegraphics[width=1\linewidth]{Img/SpectralSignClass} 
 
 }
 
-\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-189}
+\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-195}
 \end{figure}
 
 Una vez que se tiene la clasificación del área de interés, se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.
@@ -4866,7 +4984,7 @@ A continuación, se calcula la matriz de error mediante el método \texttt{.erro
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Por defecto la imagen que se obtiene de una función \texttt{.classify} obtiene el nombre de `classification', por eso la propiedad que se muestrea en el paso de \texttt{.sampleRegions} y con la que se hace la matriz de error \texttt{.errorMatrix} se llama `classification'.
+Por defecto la imagen que se obtiene de un método \texttt{.classify} obtiene el nombre de `classification', por eso la propiedad que se muestrea en el paso de \texttt{.sampleRegions} y con la que se hace la matriz de error \texttt{.errorMatrix} se llama `classification'.
 
 \end{awesomeblock}
 
@@ -4903,6 +5021,20 @@ Posteriormente se define una función para exportar (\texttt{ExportTable}) y se 
 \end{Shaded}
 
 \newpage
+
+\hypertarget{cierre}{%
+\chapter{Cierre}\label{cierre}}
+
+Seguramente el aprendizaje de la programación en GEE será lenta en un inicio. Pero como cualquier otro lenguaje de programación, una vez aprendida lo lógica y sintaxis básica del programa, el avance será mucho más rápido. Esperamos haber motivado a los usuario a adentrarse en el uso de GEE y brindar una noción general de las capacidades y posibilidades de procesos a desarrollar en dicha API. Por último, esperamos que este manual haya brindado herramientas para entender las cuestiones básicas sobre el funcionamiento de GEE, así como ofrecido ejemplos de diferentes funciones y métodos disponibles en la API que puedan ser utilizadas en los futuros proyectos de nuestros lectores.
+
+A pesar de que GEE es una herramienta muy poderosa para realizar análisis geomáticos, hay que tener presente que como cualquier otro programa tiene sus propias limitaciones. Por lo tanto, habrá procesos para los cuales resulte muy conveniente realizar el procesamiento en GEE, pero para algunos otros no. Por ejemplo, a pesar de que GEE permite crear mapas (inclusive con leyendas), consideramos que sus capacidades son bastante limitadas. Por ello, consideramos que se pueden obtener resultados personalizados de manera más sencilla en otros Sistemas de Información Geográfica. Este ejemplo, sirve para mostrar que no todos los procesos se podrán realizar más fácilmente ni rápidamente en GEE. Sin embargo, con la práctica el usuario podrá aprender qué procesos resulta más conveniente realizarlo en GEE y cuáles no.
+
+\hypertarget{agradecimientos}{%
+\section{Agradecimientos}\label{agradecimientos}}
+
+Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán y Sandra Lucía Hernández Zetina por sus comentarios para mejorar este manual.
+
+\newpage
 \backmatter
 
 \hypertarget{referencias}{%
@@ -4918,9 +5050,17 @@ Basso, K., De Avila Zingano, P. R., \& Dal Sasso Freitas, C. M. (1999). Interpol
 
 Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.
 
+Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). Classification and regression trees. Wadsworth, Belmont, EUA.
+
 Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., \& Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. \url{https://doi.org/10.3390/rs10081167}
 
+Chuvieco, E. (1995). Fundamentos de Teledetección Espacial. Segunda edición. Ediciones RIALP, Madrid, España.
+
+Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273--297.
+
 Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., \ldots{} Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142--154. \url{https://doi.org/10.1016/j.rse.2016.02.016}
+
+Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics, 1189--1232.
 
 Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., \& Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202(2016), 18--27. \url{https://doi.org/10.1016/j.rse.2017.06.031}
 
@@ -4934,7 +5074,17 @@ Lee, J. S. H., Wich, S., Widayati, A., \& Koh, L. P. (2016). Detecting industria
 
 Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., \& Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10(7), 1079. \url{https://doi.org/10.3390/rs10071079}
 
+Olaya, V. (2020). Sistemas de Información Geográfica. CreateSpace Independent Publishing Platform, España. \url{https://volaya.github.io/libro-sig/}
+
+Oshiro, T. M., Perez, P. S., Baranauskas, J. A. (2012). How Many Trees in a Random Forest?. En: Perner, P. (eds) Machine Learning and Data Mining in Pattern Recognition. MLDM 2012. Lecture Notes in Computer Science, 7376. Springer, Berlin, Alemania. \url{https://doi.org/10.1007/978-3-642-31537-4_13}
+
 Perilla, G. A., \& Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. \url{https://doi.org/10.14350/rig.59929}
+
+Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p.~83).
+
+Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1(1), 81--106. \url{https://doi.org/10.1023/A:1022643204877}
+
+Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9(11), 1--24. \url{https://doi.org/10.3390/land9110402}
 
 Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., \& Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. \url{http://dx.doi.org/10.3390/rs10091488}
 
@@ -4950,6 +5100,15 @@ Trianni, G., Angiuli, E., Lisini, G., \& Gamba, P. (2014). Human settlements fro
 
 Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., \& Lee, D. H. (2020). Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods. Applied Sciences, 10, 8083. \url{https://doi.org/10.3390/app10228083}
 
+Webb, G. I. (2011). Naïve Bayes. En: Sammut, C., Webb, G. I. (eds) Encyclopedia of Machine Learning. Springer, Boston, EUA. \url{https://doi.org/10.1007/978-0-387-30164-8_576}
+
 Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., \ldots{} Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225--244. \url{https://doi.org/10.1016/j.isprsjprs.2017.01.019}
+
+\newpage
+
+\hypertarget{apuxe9ndice}{%
+\chapter{Apéndice}\label{apuxe9ndice}}
+
+Scripts completos
 
 \end{document}

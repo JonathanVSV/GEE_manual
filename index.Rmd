@@ -31,12 +31,17 @@ language:
 
 ```{r setup, include=FALSE, echo = F}
 library(formatR)
+
+# para automatizar la referencia a las figuras
+library(captioner)
+fig_nums <- captioner()
 # Set global options for chunks
 knitr::opts_chunk$set(out.width = "80%",
                       fig.align = "center", 
                       dpi = 150,
                       tidy.opts=list(width.cutoff=80),
-                      tidy=TRUE)
+                      tidy=TRUE,
+                      fig.pos = "btp")
 ```
 
 ```{=latex}

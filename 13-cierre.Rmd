@@ -1,0 +1,10 @@
+\newpage
+# Cierre
+
+Seguramente el aprendizaje de la programación en GEE será lenta en un inicio. Pero como cualquier otro lenguaje de programación, una vez aprendida lo lógica y sintaxis básica del programa, el avance será mucho más rápido.  Esperamos haber motivado a los usuario a adentrarse en el uso de GEE y brindar una noción general de las capacidades y posibilidades de procesos a desarrollar en dicha API. Por último, esperamos que este manual haya brindado herramientas para entender las cuestiones básicas sobre el funcionamiento de GEE, así como ofrecido ejemplos de diferentes funciones y métodos disponibles en la API que puedan ser utilizadas en los futuros proyectos de nuestros lectores. 
+
+A pesar de que GEE es una herramienta muy poderosa para realizar análisis geomáticos, hay que tener presente que como cualquier otro programa tiene sus propias limitaciones. Por lo tanto, habrá procesos para los cuales resulte muy conveniente realizar el procesamiento en GEE, pero para algunos otros no. Por ejemplo, a pesar de que GEE permite crear mapas (inclusive con leyendas), consideramos que sus capacidades son bastante limitadas. Por ello, consideramos que se pueden obtener resultados personalizados de manera más sencilla en otros Sistemas de Información Geográfica. Este ejemplo, sirve para mostrar que no todos los procesos se podrán realizar más fácilmente ni rápidamente en GEE. Sin embargo, con la práctica el usuario podrá aprender qué procesos resulta más conveniente realizarlo en GEE y cuáles no. 
+
+## Agradecimientos
+
+Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán y Sandra Lucía Hernández Zetina por sus comentarios para mejorar este manual.

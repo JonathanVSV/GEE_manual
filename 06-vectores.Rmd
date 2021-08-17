@@ -5,7 +5,7 @@ Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer inf
 
 ## Información y metadatos
 
-Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto `ee.Geometry`. Para conocer características de las propiedades se puede utilizar el método `.propertyNames`.
+Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto `ee.Geometry`. Para conocer características de las propiedades se puede utilizar el método `.propertyNames`.
 
 ## Visualización de vectores
 
@@ -48,7 +48,7 @@ var vector = ee.Feature(
   nombres:['hugo','paco','luis']});
 ```
   
-## Funciones comunes
+## Métodos comunes
 
 ### Selección de propiedades
 

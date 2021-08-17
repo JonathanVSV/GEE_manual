@@ -1,11 +1,13 @@
 \newpage
 # Clasificación supervisada
 
-Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees), Random Forests, Naive Bayes, Gradient Tree Boost, Support Vector Machine, MaxEnt (Maximum Entropy) y Decision Trees. Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos del servidor.
+Una clasificación supervisada se refiere al proceso en el cual se genera un mapa temático a partir de imágenes satelitales u otro tipo de información obtenida mediante sensores remotos. Este tipo de procedimiento tiene el objetivo de asociarle una etiqueta a cada píxel de una imagen, que puede constar de por ejemplo, una clase de tipo de vegetación o uso de suelo (Chuvieco, 1995). Las clasificaciones se pueden ver como una interpretación de la reflectancia de una imagen en un sistema de clases de interés. Adicionalmente, las clasificaciones supervisadas constan de procedimientos en los cuales se entrena un algoritmo a reconocer las clases de interés a partir de muestras otorgadas por el usuario (Chuvieco, 1995). Generalmente, el proceso de una clasificación supervisada implica los siguientes pasos: 1) obtención de los datos de entrenamiento, 2) selección del clasificador, 3) entrenamiento del clasificador basado en los datos de entrenamiento, 4) obtención de la clasificación, 5) registro de los datos de verificación y 6) verificación o de la clasificación.
+
+Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman et al., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik 1995), MaxEnt (Maximum Entropy; Phillips et al., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos del servidor.
 
 ## Clasificadores
 
-Los objetos `ee.Classifier` son los objetos que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `ee.Classifier.smileCART, ee.Classifier.smileRandomForest, ee.Classifier.amnhMaxent`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (`Reference`) en el apartado de bibliotecas del cliente (`Client libraries`), o también en la pestaña `Docs` bajo `ee.Classifier`.
+Los objetos `ee.Classifier` son los objetos que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `ee.Classifier.smileCART, ee.Classifier.smileRandomForest, ee.Classifier.amnhMaxent`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (`Reference`) en el apartado de bibliotecas del cliente (`Client libraries`), o también en la pestaña `Docs` bajo `ee.Classifier`. Cabe destacar que cada clasificador tiene diferentes argumentos.
 
 Ejercicio 32
 
@@ -15,7 +17,7 @@ var rfClassif = ee.Classifier.smileRandomForest();
 
 ## Realización de la fase de entrenamiento
 
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método `.train`. Los argumentos de esta función indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método `.train`. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -92,7 +94,7 @@ function maskL8sr(image) {
 }
 ```
 
-A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso, se usa la función `.filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
+A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso, se usa el método `.filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
 
 ```{js echo = T}
 // Filtrar colección y aplicar máscara de nubes
@@ -129,7 +131,7 @@ var geometry = ee.Geometry.Polygon(
 L8imgMean = L8imgMean.clip(geometry)
 ```
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `.sampleRegions`. Para esta función hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual, cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `.sampleRegions`. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual, cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada.
 
 ```{js echo = T}
 // Muestrear regiones 
@@ -141,7 +143,7 @@ var training = L8imgMean
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest`. En este caso, se utilizarán 30 árboles de clasificación. Posteriormente, se entrena este algoritmo mediante el método `.train`. Los argumentos para `.train` se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas.
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest`. En este caso, se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de Reference o en la pestaña de Docs, e incluyen parámetros como el número de variables a utilizar por división, el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train`. Los argumentos para `.train` se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas.
 
 ```{js echo = T}
 // Entrenamiento del clasificador
@@ -151,6 +153,12 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
   inputProperties: ['CB','B','G','R','NIR','SWIR1','SWIR2']
 });
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Generalmente se menciona que el utilizar un mayor número de árboles en el algoritmo Random Forest permite obtener mejores resultados, sin embargo, dependiendo del conjunto de datos utilizado existe un umbral a partir del cual aumentar el número de árboles no resulta en una mejoría significativa de la clasificación. Consultar Oshiro et al. (2012) para ver una evaluación del efecto del número de árboles sobre las capacidades de clasificación.
+:::
+::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -166,7 +174,7 @@ Usando al final el método `.setOutputMode` se puede cambiar la forma que el cla
 :::
 ::::
  
-Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando el método `.classify`. Como argumentos se indica el clasificador entrenado que se desea utilizar. El resultado de `.classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo 'classification'. Por último, se visualiza en la pantalla de mapas para ver los resultados.
+Una vez entrenado el clasificador, se puede clasificar la imagen completa utilizando el método `.classify`. Como argumentos se indica el clasificador entrenado que se desea utilizar. El resultado de `.classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en el campo 'classification'. Por último, se visualiza en la pantalla de mapas para ver los resultados (Fig. 12.1).
 
 ```{js echo = T}
 // Usar el clasificador entrenado sobre toda la imagen
@@ -182,7 +190,7 @@ Map.addLayer(classifiedImg,{min:0, max:3,
 knitr::include_graphics("Img/RFClass.png")
 ```
 
-Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación ('classification'), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean`), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases ['NoBosque','Bosque','Agua','Urbano'], la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola.
+Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación ('classification'), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean`), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases ['NoBosque','Bosque','Agua','Urbano'], la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola (Fig. 12.2).
 
 ```{js echo = T}
 // Agregar clasificación como banda
@@ -255,7 +263,7 @@ print('Validation overall accuracy: ', validAcc);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Por defecto la imagen que se obtiene de una función `.classify` obtiene el nombre de ‘classification’, por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama ‘classification’.
+Por defecto la imagen que se obtiene de un método `.classify` obtiene el nombre de ‘classification’, por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama ‘classification’.
 :::
 ::::
 
