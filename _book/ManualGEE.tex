@@ -3853,6 +3853,15 @@ Para trabajar con una colección de imágenes se sugiere que primero se apliquen
 
 \end{bluebox2}
 
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Para combinar varios filtros se utiliza \texttt{ee.Filter.and} o \texttt{ee.Filter.or} dependiendo de si se desea que se cumplan todas las condiciones indicadas (\texttt{and}) o alguna de ellas (\texttt{or}).
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
 \hypertarget{selecciuxf3n-de-bandas-1}{%
 \subsection{Selección de bandas}\label{selecciuxf3n-de-bandas-1}}
 
@@ -4099,7 +4108,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 \caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-147}
 \end{figure}
 
-Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
+Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
 
 \begin{itemize}
 \tightlist
@@ -5129,7 +5138,7 @@ A pesar de que GEE es una herramienta muy poderosa para realizar análisis geom�
 \hypertarget{agradecimientos}{%
 \section{Agradecimientos}\label{agradecimientos}}
 
-Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán y Sandra Lucía Hernández Zetina por sus comentarios para mejorar este manual.
+Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina y Xanat Antonio Némiga por sus comentarios para mejorar este manual.
 
 \newpage
 \backmatter

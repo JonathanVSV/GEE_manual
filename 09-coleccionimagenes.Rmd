@@ -126,6 +126,12 @@ Para trabajar con una colección de imágenes se sugiere que primero se apliquen
 ::: 
 ::::
 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Para combinar varios filtros se utiliza `ee.Filter.and` o `ee.Filter.or` dependiendo de si se desea que se cumplan todas las condiciones indicadas (`and`) o alguna de ellas (`or`).
+::: 
+::::
+
 ### Selección de bandas
 
 Al igual que con las imágenes, se puede utilizar el método `.select` para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo:
@@ -318,7 +324,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 knitr::include_graphics("Img/Ruta_coleccion.png")
 ```
 
-Una vez que se conoce la ruta de la colección de interés, se llama dicha colección. Después se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
+Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y  se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
 
 *	‘CLOUD_COVER_LAND’,
 *	‘WRS_PATH’, 

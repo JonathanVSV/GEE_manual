@@ -7,4 +7,4 @@ A pesar de que GEE es una herramienta muy poderosa para realizar análisis geom�
 
 ## Agradecimientos
 
-Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán y Sandra Lucía Hernández Zetina por sus comentarios para mejorar este manual.
+Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina y Xanat Antonio Némiga por sus comentarios para mejorar este manual.
