@@ -7,7 +7,13 @@ Revisión 05-06-2021:
 
 Revisión 17-08-2021
 
-1. Sugerencia de meter imágenes de resultados en la parte de Gabriel (vectores y colección de vectores).
-2. Para la última versión se va a tener que jugar con los parámetros de fig.pos en el knitr::opts_chunk$set(...) dentro del archivo index.Rmd, así como el parámetro de líneas viudas y huérfanas en \usepackage[all]{nowidow} dentro del archivo preamble.tex. De todas maneras creo que habrá que hacer algunos saltos de línea o cosas así de manera manual.
+1. Sugerencia de meter imágenes de resultados, sobre todo en la parte de Gabriel (vectores y colección de vectores).
+2. Vi un par de comentarios que creo que en la parte de FeatureCollections se trabaron. Revisar a ver qué se podría cambiar para hacerlo más claro.
+3. Explicitar la traducción al español de términos, por ejemplo, decir la escala (scale) o carpeta (folder), etc.
+
+
+Cosas más de estilo para la versión final.
+
+1. Para la última versión se va a tener que jugar con los parámetros de fig.pos en el knitr::opts_chunk$set(...) dentro del archivo index.Rmd, así como el parámetro de líneas viudas y huérfanas en \usepackage[all]{nowidow} dentro del archivo preamble.tex. De todas maneras creo que habrá que hacer algunos saltos de línea o cosas así de manera manual.
 Para hacer esos cambios consultar: https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html y https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html#fn10 para el control de fig.pos en bookdown, así como https://ctan.math.washington.edu/tex-archive/macros/latex/contrib/nowidow/nowidow.pdf para el paquete de nowidow.
-3. Aunque hay opciones para automatizar las referencias a las figuras, creo que con la numeración que siguen (primero el número del capítulo seguido de un número progresivo por capítulo), va a ser más fácil hacerlo manual. Recordar que a las nuevas figuras habrá que citarlas en el texto porque luego se mueven de acuerdo al acomodo del "float" de Latex.
+2. Aunque hay opciones para automatizar las referencias a las figuras, creo que con la numeración que siguen (primero el número del capítulo seguido de un número progresivo por capítulo), va a ser más fácil hacerlo manual. Recordar que a las nuevas figuras habrá que citarlas en el texto porque luego se mueven de acuerdo al acomodo del "float" de Latex.

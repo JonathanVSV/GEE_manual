@@ -5,15 +5,19 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 
 ## Impresión en consola
 
-La función más sencilla de la interfaz es imprimir objetos en la consola. Esto se realiza mediante la función `print`. Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación ("bugs") en los códigos.
+La función más sencilla de la interfaz es la de imprimir objetos en la consola. Esto se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como su tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación ("bugs") en los códigos. El resultado de la siguiente línea de código se puede apreciar en la Fig. 3.1.
 
 ```{js, echo = T}
 print('Hola Mundo');
 ```
 
+```{r, echo = F, out.width="30%",  fig.cap="Ejemplo del uso de la función print para imprimir en la consola"}
+knitr::include_graphics("Img/holaMundo.png")
+```
+
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Vamos a utilizar mucho la función `print` que permite visualizar en la consola diversos objetos. Por ejemplo, si se quiere ver en la consola la palabra “Hola Mundo” se usa el comando `print('Hola Mundo')`
+La función `print` se utiliza mucho ya que permite obtener descripciones de diferentes objetos en la consola.
 :::
 ::::
 
@@ -31,13 +35,16 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 La función `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands`, `min` o `max.` Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas:
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands`, `min` o `max.` Estos se deben pasar dentro de un par de llaves `{}` como un diccionario. Las bandas se deben agregar en el orden RGB, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul. Esta función también permite asignar colores mediante el argumento de `palette`. Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas (Fig. 3.2):
 
 ```{js, echo = T}
-Map.addLayer(image, {bands: ['B1', 'B2', 'B3'], 
-                      min: 0, max: 2000, 
-                      palette: ['FF0000', 'FFFF00',' 008000']}, 
+Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], 
+                      min: 0, max: 2000}, 
                       'RGB');
+```
+
+```{r, echo = F, out.width="100%",  fig.cap="Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México"}
+knitr::include_graphics("Img/LTerminos.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -46,15 +53,25 @@ En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que se
 :::
 ::::
 
-Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es `color`:
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+La proyección por defecto para mostrar la información en la pantalla de mapas corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: https://epsg.io/. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.
+:::
+::::
+
+Para el caso de los vectores (`ee.Feature`) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es `color` (Fig. 3.3.):
 
 ```{js, echo = T}
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
 ```
 
+```{r, echo = F, out.width="100%",  fig.cap="Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color"}
+knitr::include_graphics("Img/SAmerica.png")
+```
+
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El código de los colores pasados al argumento de `palette` o `color` corresponden a códigos hexadecimales
+El código de los colores pasados al argumento de `palette` o `color` corresponden a códigos hexadecimales. El siguiente enlace puede ser útil para consultar los códigos decimales de distintos colores: https://htmlcolorcodes.com/es/
 :::
 ::::
 
@@ -70,7 +87,7 @@ Map.setCenter(-39.86, 20.52, 5)
 
 Este grupo de funciones permiten realizar gráficos de diversos tipos. Sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la función principal `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
 
-**Chart.feature**
+**ui.Chart.feature**
 
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores. Algunas de los métodos disponibles son: 
 
@@ -83,13 +100,16 @@ Por ejemplo:
 
 ```{js, echo = T}
 ui.Chart.feature.byProperty({
+  // Indicar el vector o colección de atributos a partir del cual se 
+  // va a hacer el gráfico
   feature: coleccionAtributos, 
+  // La propiedad a colocar en el eje de las x
   xProperties: 'Clase',
 })
 
 ```
 
-**Chart.image**
+**ui.Chart.image**
 
 Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles son: 
 
@@ -103,11 +123,19 @@ Por ejemplo, para graficar una serie de tiempo a partir de una colección de im�
 
 ```{js, echo = T}
 ui.Chart.image.seriesByRegion({
+  // Definir la colección de imágenes a graficar
   imageCollection: coleccionImagenes, 
+  // Definir las regiones sobre las cuales se va a extraer la
+  // información para el gráfico
   regions: areas.filter(ee.Filter.eq('Tipo','Bosque')),
+  // El reductor a utilizar para resumir la información de la
+  // colección de imágenes en las regiones indicadas
   reducer: ee.Reducer.mean(), 
+  // La banda sobre la cual se quiere construir el gráfico
   band: 'NDVI', 
+  // Tamaño en m del píxel para obtener la información
   scale: 30, 
+  // Propiedad para nombrar a cada serie
   seriesProperty: 'Tipo'
 })
   .setOptions({
@@ -138,7 +166,7 @@ El primero permite exportar la imagen (ráster) como una imagen (ráster) a la s
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Sólo se pueden exportar imágenes en formato ráster. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (`ee.Image`) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TRFrecord (tensores).
+Sólo se pueden exportar imágenes en formato ráster. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (`ee.Image`) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TRFrecord (tensores), siendo la primera la opción por defecto.
 :::
 ::::
 
@@ -146,10 +174,17 @@ Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
 ```{js echo = T}
 Export.image.toDrive({
+  // Definir la imagen a exportar
   image: imgDiff,
+  // Especificar el nombre con el cual se va a guardar la imagen en
+  // el Google Drive
   description: 'DiferenciaNDVI_2016-2017',
+  // Determinar el tamaño del píxel en m de la imagen a exportar
   scale: 30,
+  // Exportar la imagen en formato GeoTIFF
   fileFormat: 'GeoTIFF',
+  // Definir la carpeta del Google Drive en la que se va a exportar
+  // la imagen
   folder: 'DiferenciaNDVIL8'
 }); 
 ```
@@ -178,12 +213,25 @@ Para el caso de las tablas, sin información geográfica asociada, se debe defin
 
 ```{js echo = T}
 Export.table.toDrive({
-    collection: feature,
-    description: 'nombreArchivo',
-    folder: 'mifolder',
-    fileFormat: 'CSV'
- });
+  // Definir la colección de vectores a exportar
+  collection: feature,
+  // Especificar el nombre con el que se va a guardar el 
+  // archivo en el Google Drive
+  description: 'nombreArchivo',
+  // Determinar la carpeta dentro de Google Drive donde
+  // se va a guardar el archivo
+  folder: 'mifolder',
+  // Exportar la información en formato csv (valores 
+  // delimitados por comas)
+  fileFormat: 'CSV'
+});
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+GEE permite exportar información en formato vector sólo en formato CSV, GeoJSON, KML, KMZ, SHP, o TFRecord. El primer formato es el formato predeterminado. 
+:::
+::::
 
 **Export.video**
 
@@ -196,9 +244,14 @@ Esta función puede resultar atractiva para observar los cambios de un área de 
 
 ```{js echo = T}
 Export.video.toDrive({
-    collection: coleccionImgs,
-    description: 'videoTimelapse',
-    folder: 'mifolder',
-    framesPerSecond: 24
+  // Definir la colección de imágenes a exportar
+  collection: coleccionImgs,
+  // Especificar el nombre con el que se va a guardar el vídeo
+  // en el Google Drive
+  description: 'videoTimelapse',
+  // Definir la carpeta donde se va a exportar el vídeo
+  folder: 'mifolder',
+  // Determinar el número de cuadros por segundo
+  framesPerSecond: 24
  });
 ```

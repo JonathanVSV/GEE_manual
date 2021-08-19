@@ -60,7 +60,7 @@ CHM.propertyNames();
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-La proyección de trabajo para todas las capas es de EPSG:3857 WGS84 pseudomercator. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
+El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
 :::
 ::::
 
@@ -89,6 +89,13 @@ Map.addLayer(CHM,
   // de mapas
   'primera imagen');
 ```
+
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+La información ráster en GEE se almacena en un esquema piramidal, es decir, que existen varias copias de la imagen, en la que cada una corresponde a una escala distinta. Al visualizar una imagen en la pantalla de mapas, la imagen mostrada será la de la escala que se encuentre más cercana al nivel del zoom de la pantalla de mapas. Por ello, en algunas ocasiones al usar el Inspector y mover el zoom, el valor de un píxel puede cambiar, ya que se están consultando valores de distintas imágenes (cada una asociada a una escala distinta). Para mayores detalles visitar: https://developers.google.com/earth-engine/guides/scale
+:::
+::::
 
 ## Métodos comunes
 
@@ -122,7 +129,7 @@ var CHMprop2 = CHM.set('title','miTítulo');
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Nótese que se puede reescribir la misma variable, pero hay que tener cuidado porque la información reescrita se pierde.
+Nótese que se puede sobreescribir la misma variable, pero hay que tener cuidado porque la información anterior se pierde.
 :::
 ::::
 
@@ -278,9 +285,15 @@ var chmMxMayor20Vec = chmMXMask20.reduceToVectors({
 });
 ```
 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+En operaciones como la anterior, donde se debe indicar el tamaño del píxel para realizar el proceso, el argumento de scale le indica a GEE la escala de la representación piramidal de una imagen de la cual va a tomar los valores para realizar la operación. Ver sección 8.3.
+:::
+::::
+
 ### Exportación de una imagen
 
-En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive`. Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de Reference o en la pestaña de Docs, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos excepto la imagen a exportar son opcionales, sin embargo, se recomienda siempre definir por lo menos los argumentos indicados en el siguiente ejemplo.
+En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: la imagen a exportar, el nombre con el que se desea guardar el archivo, el folder donde se desea guardar la imagen, la escala para exportar la imagen, el número máximo de píxeles permitido y el formato de imagen deseado. La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de Reference o en la pestaña de Docs, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región.
 
 Ejercicio 27.14
 
@@ -308,13 +321,13 @@ Export.image.toDrive({
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En experiencia de los autores el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un 1 seguido de trece ceros.
+En experiencia de los autores el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un uno seguido de trece ceros.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El sistema de coordenadas de referencia usado en el ejemplo anterior se definió de acuerdo a los códigos EPSG. Estos pueden consultarse en el siguiente enlace: https://epsg.io/
+El sistema de coordenadas de referencia (CRS, por sus siglas en inglés) usado en el ejemplo anterior se definió de acuerdo a un código EPSG. Estos pueden consultarse en el siguiente enlace: https://epsg.io/. Por defecto, el sistema de coordenadas de referencia de la información almacenada en GEE corresponde a coordenadas geográficas WGS84 (EPSG:4326) con un tamaño de píxel de un grado. Recordar que para mostrar la información en la pantalla de mapas, esta se proyecta a un CRS con la clave EPSG:3857, sin embargo, dicha proyección únicamente se hace para desplegar la información, mas no transforma la información con la que el usuario está trabajando. Por lo tanto, puede haber pequeñas diferencias entra la información visualizada en la pantalla de mapas y la información exportada.
 :::
 ::::
 

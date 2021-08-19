@@ -36,39 +36,34 @@ Una vez que tengamos dicha confirmación, podemos acceder a la API a través del
 **https://code.earthengine.google.com/**
 
 y se accede con la cuenta de Google con la que nos registramos.
+
 Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual 
 
 ## Elementos básicos de la interfaz gráfica
 
-Una vez dentro de la API, es importante crear una carpeta de raíz ("Home folder") que es donde se guardará toda la información del usuario. En esta sección definiremos nuestro nombre de usuario (Fig. 2.4).
-
-```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
-knitr::include_graphics("Img/homeFolder.png")
-```
-
-Una vez abierta la Javascript API, se observan cuatro pantallas (Fig. 2.5): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla que contiene el inspector, la consola y la pestaña de trabajos.
+Una vez abierta la Javascript API, se observan cuatro pantallas (Fig. 2.4): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.
 
 ```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE."}
-knitr::include_graphics("Img/GEE_inicio_API.png")
+knitr::include_graphics("Img/GEE_inicio_API2.png")
 ```
 
 Los elementos de la API se enlistan a continuación:
 
-**Pantalla de Repositorios**
+**Scripts**
 
-Es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.6):
+La pantalla de repositorioes es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.5):
 
 ```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
 knitr::include_graphics("Img/repofolderfile.png")
 ```
 
-Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (Fig. 2.7):
+Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (Fig. 2.6):
 
-1. Propietario (Owner): en esta sección se guardan los códigos creados por el mismo usuario. 
-2. Editor (Writer): en este apartado se guardan códigos que pueden ser creados por otros usuarios, pero para los cuales tenemos autorización de modificarlos.
-3. Lector (Reader): en esta parte aparecen códigos que otros usuarios nos han compartido, pero que no tenemos autorización de modificarlos.
-4. Ejemplos (Examples): se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando diferentes colecciones de imágenes (por ejemplo: Landsat 4-7, Landsat 8, Sentinel-2, MODIS). 
-5. Archivo (Archive): se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
+1. **Owner** (Propietario): en esta sección se guardan los códigos creados por el mismo usuario. 
+2. **Writer** (Editor): en este apartado se guardan códigos que pueden ser creados por otros usuarios, pero para los cuales tenemos autorización de modificarlos.
+3. **Reader** (Lector): en esta parte aparecen códigos que otros usuarios nos han compartido, pero que no tenemos autorización de modificarlos.
+4. **Examples** (Ejemplos): se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando diferentes colecciones de imágenes (por ejemplo: Landsat 4-7, Landsat 8, Sentinel-2, MODIS). 
+5. **Archive** (Archivo): se pueden guardar archivos de código que ya no se utilicen, pero que no se desean eliminar.
 
 ```{r, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
 knitr::include_graphics("Img/left_panel.png")
@@ -76,7 +71,7 @@ knitr::include_graphics("Img/left_panel.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; Fig. 2.8). 
+El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al darle clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; Fig. 2.7). 
 :::
 ::::
 
@@ -86,7 +81,7 @@ knitr::include_graphics("Img/engranaje.png")
 
 **Docs**
 
-Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (Fig. 2.9). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (Fig. 2.10). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
+Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (Fig. 2.8). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (Fig. 2.9). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
 ```{r, echo = F, out.width="40%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE."}
 knitr::include_graphics("Img/docs.png")
@@ -98,7 +93,13 @@ knitr::include_graphics("Img/doc_ejemplo.png")
 
 **Assets**
 
-En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (Fig. 2.11). Se pueden subir archivos en formato raster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente (Fig. 2.12).
+La primera vez que se accede a la pestaña de Assets hay que crear una carpeta principal ("Home Folder") para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (Fig. 2.10).
+
+```{r, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
+knitr::include_graphics("Img/homeFolder.png")
+```
+
+En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (Fig. 2.11). Se pueden subir archivos en formato ráster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente (Fig. 2.12).
 
 ```{r, echo = F, out.width="40%", fig.cap="Vistazo de la sección de información del usuario."}
 knitr::include_graphics("Img/assets.png")
@@ -152,7 +153,7 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 
 **Search**
 
-Es una barra de búsqueda en la que se pueden buscar fuentes de datos o sitios (Fig. 2.17). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
+Es una barra de búsqueda (Search) en la que se pueden buscar fuentes de datos o sitios (Fig. 2.17). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
 ```{r, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
@@ -170,15 +171,19 @@ En esta pantalla de mapas se puede (Fig. 2.18):
 knitr::include_graphics("Img/drawing.png")
 ```
 
-**Layer manager**
+**Gestor de capas**
 
-Permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
+El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas."}
 knitr::include_graphics("Img/layer.png")
 ```
 
-**Consola**
+**Pantalla de control**
+
+La pantalla de control contiene tres pestañas: consola (console), inspector (inspector) y de tareas (tasks). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
+
+**Console**
 
 La consola consiste en la pantalla de comunicación con el servidor (Fig. 2.20). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
 
@@ -196,7 +201,7 @@ knitr::include_graphics("Img/inspector.png")
 
 **Tasks**
 
-En esta pestaña se muestran los trabajos que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; Fig. 2.22). Además, esta pestaña tiene otras funcionalidades:
+En esta pestaña se muestran las tareas que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; Fig. 2.22). Además, esta pestaña tiene otras funcionalidades:
 
 1. Mostrar las tareas para ejecutar (con el botón de `Run`, el cual permite especificar detalles de la exportación).
 2. Presentar las tareas en ejecución (color gris).
