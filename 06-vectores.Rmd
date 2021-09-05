@@ -1,5 +1,5 @@
 \newpage
-# Vectores
+# ee.Feature
 
 Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas. 
 
@@ -9,7 +9,7 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multip
 
 ## Visualización de vectores
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el  color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar elcolor dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -23,7 +23,7 @@ Map.addLayer(vector , {}, 'capa por default');
 Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
 ```
 
-## Creación de Vectores (ee.Features)
+## Creación de Vectores
 
 Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo:
 
@@ -76,17 +76,18 @@ var vector1 = vector.set('tamaño','neotropico');
 
 ### Extracción y edición de propiedades de vectores
 
-Para extraer ciertas propiedades de un vector se puede utilizar el método `.get`, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con `.first`) de una colección de vectores de cuencas (las colecciones de vectores se explican después)
+Para extraer ciertas propiedades de un vector se puede utilizar el método `.get`, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con `.first`) de una colección de vectores de cuencas (las colecciones de vectores se explican en el siguiente capítulo)
 
 1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
 2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
-3.	Usamos el método `.get` para obtener el valor del atributo ‘COAST’.
+3.	Usamos el método `.get` para obtener el valor del atributo 'COAST'.
 4.	Usando el método `.select` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
 
 Ejercicio 11
 
 ```{js echo = T}
 // Llamamos una capa de cuencas de alta resolución de GEE
+// y se selecciona el primer vector de la colección
 var cuenca = ee.Feature(
   ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12")
   .first());
@@ -97,10 +98,10 @@ var propiedades = cuenca.propertyNames();
 // Extraemos los atributos del vector como un diccionario
 var atributos = cuenca.toDictionary();
 
-// Extraemos el atributo ‘COAST’
+// Extraemos el atributo 'COAST'
 var costa = cuenca.get('COAST');
 
-// Extraemos el atributo ‘COAST’
+// Extraemos el atributo 'COAST'
 var renombre = cuenca.select(['COAST'],['costa maritima']);
 ```
 

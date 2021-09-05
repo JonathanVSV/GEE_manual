@@ -3,11 +3,11 @@
 
 ## Registro para el uso de GEE Javascript API
 
-Lo primero que hay que hacer para poder utilizar la API Javascript de GEE es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
+Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
 
 **https://earthengine.google.com/**
 
-Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (Fig. 2.1). 
+Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (inscribirse; Fig. 2.1). 
 
 ```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
@@ -41,7 +41,7 @@ Una vez registrados, se podrá acceder al material de todos los ejercicios entra
 
 ## Elementos básicos de la interfaz gráfica
 
-Una vez abierta la Javascript API, se observan cuatro pantallas (Fig. 2.4): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.
+Una vez abierta la API de Javascript, se observan cuatro pantallas (Fig. 2.4): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.
 
 ```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE."}
 knitr::include_graphics("Img/GEE_inicio_API2.png")
@@ -51,7 +51,7 @@ Los elementos de la API se enlistan a continuación:
 
 **Scripts**
 
-La pantalla de repositorioes es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.5):
+La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.5):
 
 ```{r, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
 knitr::include_graphics("Img/repofolderfile.png")
@@ -173,7 +173,7 @@ knitr::include_graphics("Img/drawing.png")
 
 **Gestor de capas**
 
-El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características necesarias para su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
+El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características de su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas."}
 knitr::include_graphics("Img/layer.png")
@@ -181,7 +181,7 @@ knitr::include_graphics("Img/layer.png")
 
 **Pantalla de control**
 
-La pantalla de control contiene tres pestañas: consola (console), inspector (inspector) y de tareas (tasks). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
+La pantalla de control contiene tres pestañas: console (consola), inspector (inspector) y de tasks (tareas). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
 
 **Console**
 
@@ -215,7 +215,7 @@ knitr::include_graphics("Img/task.png")
 
 ## Programación en GEE
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes.
+La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 4.
 
 ### Simbología
 
@@ -228,14 +228,13 @@ La programación dentro de la API de GEE es una orientada a objetos, siguiendo l
 *	`_` : guion bajo.
 *	`,` : coma.
 
-
 ### Lenguaje Javascript en GEE
 
-La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos (de igual forma iremos tocando la gramatica del código a lo largo de los ejemplos):
+La sintaxis de Javascript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos (de igual forma iremos tocando la gramática del código a lo largo de los ejemplos):
 
-1.	Es un lenguaje sensible a las mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes uno llamado `a` y otro diferente llamado `A`.
-2.	Siempre se debe cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente).
-3.	Comúnmente en Javascript se utiliza el "lowerCamelCase" (unir palabras pero cada una comenzando con su respectiva mayúscula) para unir palabras, en lugar de guiones `-` o guión bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
+1.	Es un lenguaje sensible a las mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes, uno llamado `a` y otro llamado `A`.
+2.	Siempre se debe cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).
+3.	Comúnmente en Javascript se utiliza la notación "lowerCamelCase" para unir palabras (unir palabras sin espacio pero cada una comenzando con su respectiva mayúscula) , en lugar de guiones `-` o guión bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
 4.	Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
 5.	El operador `=`asigna un valor a una variable.
 6.	Los operadores matemáticos son: `+ - * /`.

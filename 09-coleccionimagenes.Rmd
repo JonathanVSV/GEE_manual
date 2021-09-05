@@ -1,5 +1,5 @@
 \newpage
-# Colecciones de imágenes
+# ee.ImageCollection
 
 Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020).  
 
@@ -36,7 +36,7 @@ var S2Prop = S2.propertyNames();
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de éstas para que se pueda sobreescribir la propiedad de interés.
+No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear (`.map`) una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de éstas para que se pueda sobreescribir la propiedad de interés.
 :::
 ::::
 
@@ -157,7 +157,7 @@ Recordar que para seleccionar ciertas bandas en una colección de imágenes, és
 
 ### Ordenación de una colección
 
-El método `.sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por default, el método `.sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica indicada. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
+El método `.sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por defecto, el método `.sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica indicada. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
 
 Ejercicio 28.6
 
@@ -170,7 +170,7 @@ imCol5 = imCol5.sort({property: 'CLOUD_COVERAGE_ASSESSMENT',
 
 ### Obtención de la primera imagen
 
-En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle.
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle. Al utilizar el método `.first` sobre una colección de imágenes (`ee.ImageCollection`) el resultado corresponderá a una imagen (`ee.Image`).
 
 Ejercicio 28.7
 
@@ -181,7 +181,7 @@ var primera = imCol3.first()
 
 ### Extracción de listas con atributos de imágenes
 
-Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
+Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`). Por ejemplo, para obtener una lista con la propiedad 'CLOUD_COVERAGE_ASSESSMENT' de todas las imágenes contenidas en una colección de imágenes se puede realizar de la siguiente manera:
 
 Ejercicio 28.8
 
@@ -277,7 +277,7 @@ El método `.map` requiere del uso de funciones del lado del servidor, así que 
 
 ### Reducción de una colección de imágenes
 
-Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método `.reduce`, indicando la operación matemática a utilizar mediante un objeto tipo `ee.Reducer`. De tal manera, se puede indicar si el resultado corresponderá a la media `ee.Reducer.mean`, mediana, `ee.Reducer.median`, moda, `ee.Reducer.mode`, mínimo, `ee.Reducer.min`, máximo, `ee.Reducer.max` o inclusive la media de un intervalo determinado de observaciones, `ee.Reducer.intervalMean`. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de `.min, .max, .mean, .mode, .median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
+Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Por ello, el resultado obtenido tras una redicción sobre una colección de imágenes (`ee.ImageCollection`) será una imagen (`ee.Image`). Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método `.reduce`, indicando la operación matemática a utilizar mediante un objeto tipo `ee.Reducer`. De tal manera, se puede indicar si el resultado corresponderá a la media `ee.Reducer.mean`, mediana, `ee.Reducer.median`, moda, `ee.Reducer.mode`, mínimo, `ee.Reducer.min`, máximo, `ee.Reducer.max` o inclusive la media de un intervalo determinado de observaciones, `ee.Reducer.intervalMean`. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de `.min, .max, .mean, .mode, .median`. Las siguientes dos líneas realizan exactamente el mismo proceso:
 
 Ejercicio 28.11
 
@@ -293,7 +293,7 @@ var imRedMean2 = imCol9.reduce(ee.Reducer.mean());
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Al aplicar una reducción a una colección de imágenes, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la operación matemática utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean` sobre una colección de imágenes cuyas bandas se llaman 'B1' y 'B2', las bandas de la imagen producto de la reducción se llamarán 'B1_mean' y 'B2_mean'.
+Al aplicar una reducción a una colección de imágenes mediante el método `.reduce`, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la operación matemática utilizada para hacer la reducción. Por ejemplo, al utilizar `ee.Reducer.mean` sobre una colección de imágenes cuyas bandas se llaman 'B1' y 'B2', las bandas de la imagen producto de la reducción se llamarán 'B1_mean' y 'B2_mean'.
 :::
 ::::
 
@@ -318,7 +318,7 @@ var imRedQualMosaic = imCol9.qualityMosaic('nd');
 
 #### Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de `Search`, después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **BANDS** se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **IMAGE PROPERTIES** se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 9.1).
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (`Search`), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **BANDS** se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **IMAGE PROPERTIES** se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 9.1).
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de propiedades de las imágenes contenidas en una colección de imágenes."}
 knitr::include_graphics("Img/Ruta_coleccion.png")
@@ -326,9 +326,9 @@ knitr::include_graphics("Img/Ruta_coleccion.png")
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y  se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
 
-*	‘CLOUD_COVER_LAND’,
-*	‘WRS_PATH’, 
-*	‘WRS_ROW’. 
+*	'CLOUD_COVER_LAND',
+*	'WRS_PATH', 
+*	'WRS_ROW'. 
 
 Para realizar este filtro se deben escribir exactamente igual el nombre de las propiedades (por ejemeplo, CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (`eq`), distintos (`neq`), mayores (`gt`), menores (`lt`), mayores o igual (`gte`) o menores o iguales(`lte`).
 
@@ -358,7 +358,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 knitr::include_graphics("Img/CamposImgCol.png")
 ```
 
-A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de ‘CLOUD_COVER_LAND’. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`.
+A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de 'CLOUD_COVER_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable `L8imgFirst`, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto `ee.Image`.
 
 ```{js, echo = T}
 // Ordenar imágenes y obtener la primera
@@ -386,7 +386,7 @@ Utilizando la colección que ya se filtró en el ejercicio anterior se hará un 
 
 Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el ndvi de cada imagen contenida en la colección de imágenes. Para ello se utiliza el método `.normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método `.rename` para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método `.addBands` y se utiliza el método `.map` para aplicarla a cada una de las imágenes.
 
-En este procedimiento, primero se define la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en landsat 8 se llama ‘pixel_qa’. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
+En este procedimiento, primero se define la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama 'pixel_qa'. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
 
 ```{js, echo = T}
 // Crear función para enmascarar nubes
@@ -566,7 +566,7 @@ Map.addLayer(imgDiff,{min:-0.3, max: 0.1,
 knitr::include_graphics("Img/imDifNDVI.png")
 ```
 
-Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de un folder del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
+Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
 
 ```{js echo = T}
 // Exportar imagen a Google Drive

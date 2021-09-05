@@ -17,7 +17,7 @@ var rfClassif = ee.Classifier.smileRandomForest();
 
 ## Realización de la fase de entrenamiento
 
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección importar datos a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método `.train`. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método `.train`. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento, el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores, así como las bandas a utilizar de la imagen.
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -46,7 +46,7 @@ var validAcc = validacion.accuracy();
 
 ### Ejercicio: Clasificación (EjercicioE)
 
-En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`ee.Feature`) y se le asigna la propiedad de ‘clase’ como número a través de un diccionario. Por último, se hace una colección de vectores.
+En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`ee.Feature`) y se le asigna la propiedad de 'clase' como número a través de un diccionario. Por último, se hace una colección de vectores.
 
 ```{js echo = T}
 // Definición de datos de entrenamiento
@@ -80,7 +80,7 @@ var poligonos = ee.FeatureCollection([
 Map.addLayer(poligonos, {}, 'polígonosEntrenamiento');
 ```
 
-Antes de pasar al filtrado de la colección de Landsat 8 y enmascarar las nubes, habrá que volver a definir la función `maskL8sr`, que es la misma que se definió en la sección *9.5.11.2. Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C)*, como:
+Antes de pasar al filtrado de la colección de Landsat 8 y enmascarar las nubes, habrá que volver a definir la función `maskL8sr`, que es la misma que se definió en la sección 9.5.11.2. Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C), como:
 
 ```{js, echo = T}
 // Crear función para enmascarar nubes
@@ -105,7 +105,7 @@ var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
   .map(maskL8sr);
 ```
 
-El siguiente paso consta de reducir la colección para generar una sola imagen con el valor promedio para todas las bandas. Después, se corta la imagen a la extensión del área de estudio. Ya que no se van a utilizar todas las bandas de la imagen para la clasificación, se indica el nombre de las bandas que se van a utilizar dentro de una lista. Por último, se van a renombrar las bandas para recordar más fácilmente el espectro de cada banda.
+El siguiente paso consta de reducir la colección para generar una sola imagen con el valor promedio para todas las bandas. Ya que no se van a utilizar todas las bandas de la imagen para la clasificación, se indica el nombre de las bandas que se van a utilizar dentro de una lista. Por último, se van a renombrar las bandas para recordar más fácilmente el espectro de cada banda.
 
 ```{js echo = T}
 // Reducir, cortar, seleccionar y renombrar bandas
@@ -137,19 +137,25 @@ Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, 
 // Muestrear regiones 
 var training = L8imgMean
   .sampleRegions({
+    // colección de vectores a utilizar
     collection: poligonos,
+    // propiedad que se desea mantener los vectores de la colección
     properties: ['clase'],
+    // tamaño de píxel
     scale: 30
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest`. En este caso, se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de Reference o en la pestaña de Docs, e incluyen parámetros como el número de variables a utilizar por división, el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train`. Los argumentos para `.train` se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento, el nombre de la clase objetivo y el nombre de las propiedades de la imagen, es decir, el nombre de las bandas.
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo Random Forests (Breiman, 2001). Para llamar este algoritmo se utiliza `ee.Classifier.smileRandomForest`. En este caso, se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de Reference o en la pestaña de Docs, e incluyen parámetros como el número de variables a utilizar por división, el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train`. Los argumentos para `.train` se pasan como un diccionario, el cual indica la colección de vectores a utilizar para el entrenamiento (features), el nombre de la clase objetivo (classProperty) y el nombre de las propiedades de la imagen (inputProperties), es decir, el nombre de las bandas.
 
 ```{js echo = T}
 // Entrenamiento del clasificador
 var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
+  // Vectores con la información extraida en el paso anterior
   features: training,
+  // Propiedad que indica la clase de cobertura
   classProperty: 'clase',
+  // Nombres de las propiedades de la imagen
   inputProperties: ['CB','B','G','R','NIR','SWIR1','SWIR2']
 });
 ```
@@ -164,12 +170,12 @@ Generalmente se menciona que el utilizar un mayor número de árboles en el algo
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Usando al final el método `.setOutputMode` se puede cambiar la forma que el clasificador entrega los resultados para ello dentro de los paréntesis del método toca escribir entre comillas cualquiera de las siguientes opciones:
 
-  *	Classification (por defecto): devuelve una variable nominal (clases).
-  *	Regresión: devuelve una variable numérica.
-  *	Probabilidad: devuelve la probabilidad de que la clasificación sea correcta.
-  *	Multiprobabilidad: devuelve un arrreglo de probabilidades para cada una de las clases.
-  *	Raw: devuelve un arreglo con la representación interna del proceso de clasificación. Por ejemplo los votos crudos de un modelo de múltiples árboles de decisión.
-  *	Raw_regression: devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las preedicciones crudas de los multiples arboles de regresión.
+  *	Classification (clasificación, por defecto): devuelve una variable nominal (clases).
+  *	Regresion (regresión): devuelve una variable numérica.
+  *	Probability (probabilidad): devuelve la probabilidad de que la clasificación sea correcta.
+  *	Multiprobability (multiprobabilidad): devuelve un arreglo de probabilidades para cada una de las clases.
+  *	Raw (crudo): devuelve un arreglo con la representación interna del proceso de clasificación. Por ejemplo los votos crudos de un modelo de múltiples árboles de decisión como random forests.
+  *	Raw_regression (regresión cruda): devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las predicciones crudas de los múltiples arboles de regresión.
   Resulta importante recordar que dependiendo del clasificador, algunas de estas opciones de resultado estarán disponibles o no.
 :::
 ::::
@@ -190,7 +196,7 @@ Map.addLayer(classifiedImg,{min:0, max:3,
 knitr::include_graphics("Img/RFClass.png")
 ```
 
-Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica el nombre de la banda que contiene las categorías de la clasificación ('classification'), el reductor que se va a utilizar para resumir los valores por clase (`ee.Reducer.mean`), las regiones de las cuales se va a obtener esta información (polígonos), las etiquetas de las clases ['NoBosque','Bosque','Agua','Urbano'], la escala en m de trabajo para aplicar el reductor (240) y algunas opciones para ponerle título y asignar los colores al gráfico. Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola (Fig. 12.2).
+Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (image), el nombre de la banda que contiene las categorías de la clasificación (classBand), el reductor que se va a utilizar para resumir los valores por clase (reducer), las regiones de las cuales se va a obtener esta información (region), las etiquetas de las clases (classLabels), la escala en m de trabajo para aplicar el reductor (scale) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de `.setOptions`). Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola (Fig. 12.2).
 
 ```{js echo = T}
 // Agregar clasificación como banda
@@ -198,14 +204,24 @@ var imgConClass = L8imgMean.addBands(classifiedImg);
 
 // Hacer gráfico de barras
 var chartClassSpec = ui.Chart.image.byClass({
+  // Imagen a utilizar para construir el gráfico
   image: imgConClass,
+  // Banda que contiene las clases
   classBand: 'classification',
+  // Reductor a utilizar
   reducer: ee.Reducer.mean(),
+  // Regiones a partir de las cuales se va a construir el 
+  // gráfico
   region: poligonos,
+  // Etiquetas de las clases
   classLabels: ['NoBosque','Bosque','Agua','Urbano'],
+  // Tamaño de píxel
   scale: 240
+  // Definir más opciones para el gráfico
 }).setOptions({
+  // Título del gráfico
   title: 'Perfil espectral por clase',
+  // Colores a utilizar
   colors: ['#fcff21','#20da25','#05a9da','#dadada']
 });
 
@@ -250,7 +266,7 @@ var validating = classifiedImg
 });
 ```
 
-A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando en primer lugar el campo de la clase de referencia (‘clase’) y en segundo lugar el campo de la predicción (‘classification’). Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido.
+A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando en primer lugar el campo de la clase de referencia ('clase') y en segundo lugar el campo de la predicción ('classification'). Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido.
 
 ```{js echo = T}
 // Obtener matriz de confusión y precisión
@@ -263,7 +279,7 @@ print('Validation overall accuracy: ', validAcc);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Por defecto la imagen que se obtiene de un método `.classify` obtiene el nombre de ‘classification’, por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama ‘classification’.
+Por defecto la imagen que se obtiene de un método `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama 'classification'.
 :::
 ::::
 
@@ -275,20 +291,25 @@ var expConfMatrix =  ee.Feature(null, {matrix: validErrMat.array()});
 var expAccuracy = ee.Feature(null, ee.Dictionary({Accuracy: validAcc}));
 ```
 
-Posteriormente se define una función para exportar (`ExportTable`) y se utiliza para exportar la matriz de error y el valor de precisión total. Esta función toma dos argumentos, el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `Export.table.toDrive` sólo permite exportar objetos de tipo `ee.FeatureCollection`, se debe meter a los objetos de tipo `ee.Feature` en un contenedor `ee.FeatureCollection`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar el folder dentro del que se quiere guardar la tabla exportada.
+Posteriormente se define una función para exportar (`ExportTable`) y se utiliza para exportar la matriz de error y el valor de precisión total. Esta función toma dos argumentos, el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `Export.table.toDrive` sólo permite exportar objetos de tipo `ee.FeatureCollection`, se debe meter a los objetos de tipo `ee.Feature` en un contenedor `ee.FeatureCollection`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar la carpeta dentro del que se quiere guardar la tabla exportada.
 
 ```{js echo = T}
 // Definir función de exportación
 var exportTable = function(feature, name){
   Export.table.toDrive({
+    // Colección de vectores a exportar
     collection: feature,
+    // Nombre para guardar el archivo
     description: name,
+    // Carpeta donde se guardará el archivo
     folder: 'Clasificacion_RF',
+    // Formato del archivo
     fileFormat: 'CSV'
  });
 };
 
 // Exportar a Google Drive
+// Usar la función exportTable
 exportTable(ee.FeatureCollection(expConfMatrix), 'confMatrix');
 exportTable(ee.FeatureCollection(expAccuracy), 'validAcc');
 ```

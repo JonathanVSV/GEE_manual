@@ -1,7 +1,7 @@
 \newpage
-# Geometrías
+# ee.Geometry
 
-Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas geométricas asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipoligono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.
+Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas geométricas asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.
 
 ## Información y metadatos
 

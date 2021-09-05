@@ -1,5 +1,5 @@
 \newpage
-# Colecciones de Vectores
+# ee.FeatureCollection
 
 Las colecciones de vectores (`ee.FeatureCollection`) son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
  
@@ -12,7 +12,7 @@ GEE ofrece un catálogo de colecciones de vectores que se puede buscar en la bar
 Ejercicio 13
 
 ```{js echo = T}
-// En el buscador se busca una tabla de paises 'countries', y se escribe 
+// En el buscador se busca una tabla de países 'countries', y se escribe 
 // el ID de la tabla, en este caso es una colección de vectores del 
 // departamento de estado de Estados Unidos, que contiene las divisiones 
 // políticas de los países del mundo  
@@ -204,7 +204,7 @@ Map.addLayer(ecoregiones.draw({color: 'FF6969', strokeWidth:10 }), {},
   'capa color rosa, y linea gruesa');
 ```
 
-Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual  dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía, y luego proyecta esa imagen: 
+Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía (`ee.Image`), y luego proyecta esa imagen: 
 
 Ejercicio 17.2
 
@@ -242,7 +242,7 @@ Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'],
 
 ### Filtración de una colección de vectores
 
-Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se hace usando el método `.filterBounds` esto permite insertar una geometría, y todos los vectores de la colección que se intersectan con dicha geometría serán seleccionados. En el ejercicio vamos a crear un rectángulo más o menos sobre costa rica y filtrar las áreas protegidas que se intersectan con ese rectángulo 
+Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se hace usando el método `.filterBounds` esto permite insertar una geometría, y todos los vectores de la colección que se intersectan con dicha geometría serán seleccionados. En el ejercicio vamos a crear un rectángulo sobre Costa Rica y filtrar las áreas protegidas que se intersectan con ese rectángulo.
 
 Ejercicio 18
 
@@ -275,7 +275,7 @@ Para filtrar por atributos de los vectores se puede realizar mediante el método
 
 y finalmente el valor con el que se hará la comparación.
 
-En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo ‘ISO3’ que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es ‘CRI’.
+En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo 'ISO3' que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es 'CRI'.
 
 Ejercicio 18.1
 
@@ -287,11 +287,11 @@ Ejercicio 18.1
 var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI'); 
 ```
 
-El filtro para filtrar por fecha es `.filterDate` ,solo aplica en caso que los vectores tengan un atributo llamado ‘system:time_start’ y en ese atributo se encuentre la fecha en formato ‘AAAA-MM-DD’. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a ‘system:time_start’ para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara mejor luego).
+El filtro para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara con mayor detalle más adelante).
 
 ### Funciones de usuario
 
-En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado ‘system:time_start’. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
+En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado 'system:time_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
 
 Ejercicio 17.2
 
@@ -315,16 +315,16 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la bibliot
 
 1.	Utilizar el método `.filter` para indicar que vamos a realizar un filtro.
 2.	Utilizar `ee.Filter.and` para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
-3.	Usar `ee.Filter.gte` para seleccionar mediante una condición.
-    a. Indicar el atributo a utilizar (‘MARINE’). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
+3.	Usar `ee.Filter.gte` para seleccionar mediante la condición mayor o igual a ("greater than or equal").
+    a. Indicar el atributo a utilizar ('MARINE'). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
     b.	Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
 4.	Después se utiliza una coma para indicar otro filtro.
 5.	Al indicar `ee.Filter.stringContains` se realiza un filtro para seleccionar los vectores que a partir de una cadena de caracteres:
-    a.	‘NAME’ es un atributo del nombre del área protegida.
-    b.	‘Manglar’ es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
+    a.	'NAME' es un atributo del nombre del área protegida.
+    b.	'Manglar' es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
 6.	Después se usa otra coma para indicar otro filtro.
 7.	Por último se utiliza `ee.Filter.rangeContains` para seleccionar todo lo que se encuentre en un rango de valores.
-    a.	‘GIS_M_AREA’ es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
+    a.	'GIS_M_AREA' es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
     b.	10 es el valor mínimo del rango de área marina que queremos filtrar.
     c. 100 es el valor máximo del rango de área marina que queremos filtrar.
 
@@ -372,7 +372,7 @@ var puntos = ee.FeatureCollection.randomPoints(region,1000);
 
 ### Obtención del primer vector
 
-En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle.
+En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (`ee.FeatureCollection`), el resultado devuelto será un vector (`ee.Feature`).
 
 Ejercicio 20
 
@@ -453,17 +453,17 @@ Para poder ejecutar el método `.map` es necesario antes definir una función (d
 En el siguiente ejercicio se realizarán los siguientes pasos: 
 
 * Llamamos a una colección con los límites políticos de los países.
-*	Seleccionamos el vector cuyo atributo ‘COUNTRY_NAME’ es igual a ‘Peru’.
-*	Generamos 100 puntos aleatorios en Peru usando el método `.randomColumn`. Le añadimos a cada punto un nuevo atributo llamado ‘aleatorio’ que contiene un número aleatorio entre 0-1.
-*	Definimos una función del usuario (con el método `function`) llamada ‘bufferAleatorio’ en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
+*	Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual a 'Peru'.
+*	Generamos 100 puntos aleatorios en Peru usando el método `.randomColumn`. Le añadimos a cada punto un nuevo atributo llamado 'aleatorio' que contiene un número aleatorio entre 0-1.
+*	Definimos una función del usuario (con el método `function`) llamada 'bufferAleatorio' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
   -	Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (punto).
-  -	Extraemos el número aleatorio del vector que se encuentra en el atributo ‘aleatorio’.
+  -	Extraemos el número aleatorio del vector que se encuentra en el atributo 'aleatorio'.
   -	Convertimos el número extraído en el paso anterior en un `ee.Number` del servidor.
-  -	Multiplicamos ese `ee.Number` por 100000.
-  -	Redondeamos el resultado de la multiplicación en el número entero mayor o igual  más cercano.
+  -	Multiplicamos ese `ee.Number` por 100 000.
+  -	Redondeamos el resultado de la multiplicación en el número entero mayor o igual más cercano.
   -	Creamos un buffer alrededor del vector de entrada de longitud definida según el número redondeado.
-  -	Le asignamos al buffer un nuevo atributo llamado ‘radio del buffer’ con el número redondeado (metros usados para calcular el buffer).
-  -	Le asignamos al buffer otro atributo llamado ‘area’, en donde calculamos el área del buffer usando el método `.area`.
+  -	Le asignamos al buffer un nuevo atributo llamado 'radio del buffer' con el número redondeado (metros usados para calcular el buffer).
+  -	Le asignamos al buffer otro atributo llamado 'area', en donde calculamos el área del buffer usando el método `.area`.
   -	Usando el método return especificamos que el buffer con los dos nuevos atributos será el resultado de esta función.
 *	usando el método `.map` ejecutamos la función `bufferAleatorio` sobre todos los puntos aleatorios 
 
@@ -525,20 +525,20 @@ var circulos = puntos.map(bufferAleatorio);
 
 ### Reducción de una colección de vectores
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección.  Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya se promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
 
 *	Importamos una capa de cuencas, la filtramos con un rectángulo sobre Hawaii.
-*	Definimos una función del usuario (`function`) llamada ‘areaDife’ en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
+*	Definimos una función del usuario (`function`) llamada 'areaDife' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
   -	Abrimos un diccionario donde especificaremos los procedimientos a realizarle al vector (cuenca).
-  -	Calculamos el área del vector (con el método `.area`), y lo dividimos por 1000000 para convertir a km2.
+  -	Calculamos el área del vector (con el método `.area`), y lo dividimos por 1 000 000 para convertir a km2.
   -	Con `.get` extraemos el valor del atributo 'areasqkm' (el cual es una cadena de texto).
   -	Con `.parse` convertimos el valor extraído anteriormente a un número del servidor (`ee.Number`).
   -	Usando el método `.subtract` restamos el área calculada con el método `.area` menos el área reportada según el atributo del vector.
-  -	Usando el método `return` especificamos que el vector sea devuelto con un nuevo atributo llamado ‘diferencia’ (el cual contiene el valor de la resta elevado al cuadrado usando el método `.pow`).
-*	Ejecutamos la función ‘areaDife’ sobre todos los vectores de la colección ‘cuencasHawaii’.
+  -	Usando el método `return` especificamos que el vector sea devuelto con un nuevo atributo llamado 'diferencia' (el cual contiene el valor de la resta elevado al cuadrado usando el método `.pow`).
+*	Ejecutamos la función 'areaDife' sobre todos los vectores de la colección 'cuencasHawaii'.
 *	Usando el método `.reduceColumns` declaramos que usaremos un reductor sobre toda la colección enfocándonos en un atributo de los vectores.
-*	Con `ee.Reducer.mean` declaramos que el reductor a utilizar será uno promedio. Por lo que el resultado será el  promedio del atributo ‘diferencia’.
-*	Con `.get` extraemos el valor del reductor que por default se llama ‘mean’.
+*	Con `ee.Reducer.mean` declaramos que el reductor a utilizar será uno promedio. Por lo que el resultado será el  promedio del atributo 'diferencia'.
+*	Con `.get` extraemos el valor del reductor que por defecto se llama 'mean'.
 *	Con `.sqrt` calculamos la raíz cuadrada del promedio calculado.
 
 Ejercicio 22
@@ -564,9 +564,8 @@ var RECM = ee.Number(
   .get('mean')).sqrt();
 ```
 
-También, se puede usar colección de vectores para reducir las información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. En este caso se realizará el siguiente procedimiento:
+También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento:
 
-*	Usando `.rename` renombramos todas las bandas de la capa WorldClim  (cuyos nombres van desde bio01 hasta bio19).
 *	Filtramos las cuencas con un rectángulo sobre Puerto Rico.
 *	Usando el método `.reduceRegions` declaramos que usaremos un reductor espacial en el área de las cuencas de Puerto Rico.
   -	Con `ee.Reducer.sum` especificamos que se desea obtener la la suma de los valores de los atributos de todos los píxeles que caigan en cada vector.
@@ -574,27 +573,8 @@ También, se puede usar colección de vectores para reducir las información rá
 Ejercicio 23
 
 ```{js echo = T}
-// Importar una imagen de clima de WorldClim y renombrar sus bandas
-var clima = ee.Image("WORLDCLIM/V1/BIO").rename([
-  'Annual_mean_temperature',
-  'Mean_diurnal_range',
-  'Isothermality',
-  'Temperature_seasonality',
-  'Max_temperature_of_warmest_month',
-  'Min_temperature_of_coldest_month',
-  'Temperature_annual_range',
-  'Mean_temperature_of_wettest_quarter',
-  'Mean_temperature_of_driest_quarter',
-  'Mean_temperature_of_warmest_quarter',
-  'Mean_temperature_of coldest_quarter',
-  'Annual_precipitation',
-  'Precipitation_of_wettest month',
-  'Precipitation_of_driest month',
-  'Precipitation_seasonality',
-  'Precipitation_of_wettest_quarter',
-  'Precipitation_of_driest_quarter',
-  'Precipitation_of_warmest_quarter',
-  'Precipitation_of_coldest_quarter']);
+// Importar una imagen de clima de WorldClim
+var clima = ee.Image("WORLDCLIM/V1/BIO");
 
 // Importar una capa de cuencas filtrada a Puerto Rico
 var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
@@ -605,7 +585,7 @@ var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
 
 ### Conversión de vector a imagen
 
-Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar `.reduceToImage` indicamos que el atributo a utilizar que corresponderá al valor de los píxeles del raster sea ‘área’. Por último, con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel.
+Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar `.reduceToImage` indicamos el atributo que corresponderá al valor de los píxeles del raster como 'área'. Por último, con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel.
 
 Ejercicio 24
 
@@ -634,18 +614,18 @@ var areaGlaciar = hielo
 
 Para unir diferentes colecciones de vectores se usan las funciones de `ee.Join`. Estas funciones permiten  unir vectores basados en los valores de sus atributos. Usando un `.filter` se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
 
-Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial  de tipo `saveALL`, pero lo usaremos con 2 filtros diferentes (uno de intersección y otro de distancia).
+Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo `saveALL`, pero lo usaremos con dos filtros diferentes (uno de intersección y otro de distancia).
 
 En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
 
 Ejercicio 25
 
 ```{js echo = T}
-// Importar una colección de vectores: área protegidas de guatemala
+// Importar una colección de vectores: área protegidas de Guatemala
 var APGuatemala = ee.FeatureCollection("WCMC/WDPA/current/polygons")
   .filter(ee.Filter.eq('PARENT_ISO', 'GTM'));
 
-// Importar otra colección de vectores plantas de  energía
+// Importar otra colección de vectores plantas de energía
 var plantas = ee.FeatureCollection('WRI/GPPD/power_plants');
 
 // Define un filtro espacial con distancia de 10 km. El .geo se utiliza 
@@ -688,8 +668,8 @@ GEE permite exportar vectores a la sección de Assets, al Google Drive o al Goog
 
 Para exportar vectores es necesario usar la función `Export.table` y especificar si va a ser para drive `.toDrive` o para los assets `.toAsset`. Sus argumentos en común son: 
 
-* Collection: obligatoriamente una colección de vectores `ee.FeatureCollection`. Si se quiere exportar un solo vector se deberá convertir en una colección de un solo elemento. 
-* Description: es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
+* Collection (colección): obligatoriamente una colección de vectores `ee.FeatureCollection`. Si se quiere exportar un solo vector se deberá convertir en una colección de un solo elemento. 
+* Description (descripción): es una cadena de texto de usuario (no debe contener espacios, ni símbolos; sólo letras, números y guión bajo `_` ). Esta cadena de texto es una descripción que el usuario quiera darle a la tarea de exportar.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -699,9 +679,9 @@ Es importante recordar que no se podrán exportar vectores a los Assets sin geom
 
 Los argumentos adicionales específicos para exportar a drive `Export.table.toDrive` son: 
 
-*	Folder: cadena de texto del usuario que será el nombre de la carpeta donde se guardará el vector dentro del drive. Si no se especifica este argumento, se guarda en el drive sin carpeta, aunque si se especifica un nombre de una carpeta que no existe, dicha carpeta se creará automáticamente.
-*	FileNamePrefix: el nombre que le pondremos al vector guardado en drive.
-*	FileFormat: el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
+*	Folder (carpeta): cadena de texto del usuario que será el nombre de la carpeta donde se guardará el vector dentro del drive. Si no se especifica este argumento, se guarda en el drive sin carpeta, aunque si se especifica un nombre de una carpeta que no existe, dicha carpeta se creará automáticamente.
+*	FileNamePrefix (prefijo del archivo): el nombre que le pondremos al vector guardado en drive.
+*	FileFormat (formato del archivo): el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
 
     -	“CSV”, valor por default
     -	“GeoJSON”,
@@ -712,7 +692,7 @@ Los argumentos adicionales específicos para exportar a drive `Export.table.toDr
     
 El argumento adicional para exportar a los Assets `Export.table.toAssets` es: 
 
-*	AssetID: el nombre que le pondremos al nuevo asset.
+*	AssetID: el nombre que le pondremos al nuevo archivo.
 
 Ejercicio 26
 

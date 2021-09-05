@@ -152,13 +152,13 @@ print(dicc.clave2);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave, ya que es la recomendad por GEE.
+Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave, ya que es la recomendada por GEE.
 :::
 ::::
 
 **Funciones**
 
-Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con `function` seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
+Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
 // MaskIm es una nueva función, y su argumento de entrada es "objeto"
@@ -246,7 +246,7 @@ var numServ = ee.Number(1900);
 
 **ee.List**
 
-Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
+Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
 
 Ejercicio 6:
 
@@ -364,11 +364,11 @@ var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul');
 
 **ee.Image**
 
-La definición de objetos `ee.Image` habilita los métodos disponibles en GEE para este tipo de objetos. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo imagen en GEE. Más adelante se explica con mayor detalle.
+La definición de objetos `ee.Image` (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.
 
 **ee.ImageCollection**
 
-Las colecciones de imágenes están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
+Las colecciones de imágenes ("image collections") están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
 
 **ee.Feature**
 
@@ -376,7 +376,7 @@ Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vect
 
 **ee.FeatureCollection**
 
-Las colecciones de vectores están formadas por varios vectores (ee.Feature). Además, al definir un objeto como `ee.FeatureCollection` permite utilizar cualquier método definido para este tipo de objetos. Más adelante se explica estos objetos con mayor detalle.
+Las colecciones de vectores ("feature collections") están formadas por varios vectores (`ee.Feature`). Además, al definir un objeto como `ee.FeatureCollection` permite utilizar cualquier método definido para este tipo de objetos. Más adelante se explica estos objetos con mayor detalle.
 
 **ee.Algorithms**
 
@@ -396,7 +396,7 @@ Este tipo de objetos corresponden a algoritmos de clasificación no supervisada 
 
 **ee.Filter**
 
-Este tipo de objetos normalmente se utilizan para filtrar colecciones, ya sean de vectores o de imágenes. También permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (por ejemplo, metadatos). Por último, contienen métodos para combinar filtros.
+Este tipo de objetos se utilizan para filtrar colecciones, ya sean de vectores o de imágenes. También permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (por ejemplo, metadatos). Por último, contienen métodos para combinar filtros.
 
 **ee.Geometry**
 
@@ -408,11 +408,11 @@ Este conjunto de métodos permite realizar uniones entre colecciones de vectores
 
 **ee.Reducer**
 
-Los reductores permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
+Los reductores ("reducers") permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
 
 **ee.Terrain**
 
-Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran las funciones `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
+Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
