@@ -256,7 +256,7 @@ Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamie
 
 El tercer componente clave para el funcionamiento de GEE son las API (``Application Program Interface''). Una API es una interfaz que permite la comunicación entre nosotros (los usuarios) y los servidores de Google, proporcionando el acceso y el uso de la capacidad computacional de Google para nuestros análisis. Las API de GEE tienen el objetivo de facilitar la creación de programas, por lo cual, cuentan con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simple línea de código. La idea central de las API de GEE es brindar una interfaz que permita crear códigos y programas claros y concisos.
 
-GEE ofrece dos APIs, una en JavaScript, la cual se accede en línea, es la más conocida, actualizada y amigable con los usuarios, y es la que contiene más documentación disponible. Por esta razón, el manual se enfocará a hablar sobre la API de Javascript. Además, existe otra API en Python, la cual se puede trabajar desde la consola de Python y permite -hasta cierto punto- usar complementariamente bibliotecas de Python, para así hacer procesamientos más complejos, o funcionalidades que la API de Java no permite. La API de Python tiene la gran desventaja de que tiene menos documentación y algunas diferencias que pueden resultar poco intuitivas a la hora de programar. A continuación se mencionan algunas de las principales ventajas de la API de Javascript:
+GEE ofrece dos APIs, una en JavaScript, la cual se accede vía internet, mediante un explorador y es la más conocida, actualizada y amigable con los usuarios. Además, es la que contiene más documentación y ayuda disponible. Por esta razón, el manual se enfocará a hablar sobre la API de Javascript. Por otro lado, existe la API en Python, la cual se puede trabajar desde la consola de Python y permite -hasta cierto punto- usar complementariamente bibliotecas de Python, para así hacer procesamientos más complejos, o funcionalidades que la API de Java no permite. Sin embargo, las desventajas de la API de Python incluyen: el tener que instalar varias bibliotecas en la computadora para poder trabajar con GEE, existe mucho menos documentación y ayuda disponible para esta API y requiere de la actualización constante de algunas bibliotecas para su uso apropiado. A continuación se mencionan algunas de las principales ventajas de la API de Javascript:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1908,7 +1908,7 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 \caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-64}
 \end{figure}
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades (Fig. 5.10).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 5.10).
 
 \begin{figure}[btp]
 
@@ -1918,6 +1918,15 @@ Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombr
 
 \caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-65}
 \end{figure}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Recordar que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (\texttt{ee.Feature}) o colecciones de vectores (\texttt{ee.FeatureCollection})
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 \hypertarget{muxe9todos-comunes}{%
 \section{Métodos comunes}\label{muxe9todos-comunes}}
@@ -1939,7 +1948,7 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multip
 \hypertarget{visualizaciuxf3n-de-vectores}{%
 \section{Visualización de vectores}\label{visualizaciuxf3n-de-vectores}}
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar elcolor dentro de un diccionario en la función \texttt{Map.addLayer}, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función \texttt{Map.addLayer}, como código hexadecimal.
 
 \begin{bluebox2}
 
@@ -2032,7 +2041,7 @@ Para extraer ciertas propiedades de un vector se puede utilizar el método \text
 \item
   Usamos el método \texttt{.toDictionary} para generar un diccionario con todos los atributos(claves) y sus valores del vector.
 \item
-  Usamos el método \texttt{.get} para obtener el valor del atributo `COAST'.
+  Usamos el método \texttt{.get} para obtener el valor del atributo `COAST' del vector.
 \item
   Usando el método \texttt{.select} podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
 \end{enumerate}
@@ -2078,6 +2087,15 @@ Ejercicio 12
 \KeywordTok{var}\NormalTok{ interseccion }\OperatorTok{=}\NormalTok{ rectangulo1}\OperatorTok{.}\FunctionTok{intersection}\NormalTok{(rectangulo2)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método \texttt{.intersection}).
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 \hypertarget{creaciuxf3n-de-un-buffer}{%
 \subsection{Creación de un buffer}\label{creaciuxf3n-de-un-buffer}}
@@ -2320,7 +2338,7 @@ Una colección de vectores puede construirse con vectores de geometrías diferen
             \StringTok{\textquotesingle{}San Juan {-} saint John\textquotesingle{}}\OperatorTok{,}
             \StringTok{\textquotesingle{}Paramaribo {-} Georgetown\textquotesingle{}}\NormalTok{]\})}\OperatorTok{;}
 
-\KeywordTok{var}\NormalTok{ perimetro }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{linearRing}\NormalTok{([}\OperatorTok{{-}}\FloatTok{79.354}\OperatorTok{,}\FloatTok{27.32}\OperatorTok{,}
+\KeywordTok{var}\NormalTok{ perimetro }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LinearRing}\NormalTok{([}\OperatorTok{{-}}\FloatTok{79.354}\OperatorTok{,}\FloatTok{27.32}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{79.332}\OperatorTok{,} \FloatTok{23.661}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{74.19}\OperatorTok{,} \FloatTok{21.161}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{72.235}\OperatorTok{,} \FloatTok{23.165}\OperatorTok{,}
@@ -2456,7 +2474,7 @@ Ejercicio 17.2
 \hypertarget{filtraciuxf3n-de-una-colecciuxf3n-de-vectores}{%
 \subsection{Filtración de una colección de vectores}\label{filtraciuxf3n-de-una-colecciuxf3n-de-vectores}}
 
-Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se hace usando el método \texttt{.filterBounds} esto permite insertar una geometría, y todos los vectores de la colección que se intersectan con dicha geometría serán seleccionados. En el ejercicio vamos a crear un rectángulo sobre Costa Rica y filtrar las áreas protegidas que se intersectan con ese rectángulo.
+Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se usa el método \texttt{.filterBounds}, el cual permite seleccionar todos los vectores de la colección que se intersecten con la geometría indicada por el usuario. En el ejercicio se va a filtrar espacialmente una colección de vectores que contiene las áreas protegidas del mundo para seleccionar únicamente las áreas que se intersecten con un rectángulo que abarca el país de Costa Rica.
 
 Ejercicio 18
 
@@ -2466,7 +2484,7 @@ Ejercicio 18
 \KeywordTok{var}\NormalTok{ areasProtegidas }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(}\StringTok{\textquotesingle{}WCMC/WDPA/current/polygons\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 
 \CommentTok{// Dibujar una geometría (puede ser cualquier tipo de geometría \}, en este}
-\CommentTok{// caso escogimos un rectángulo, más o menos sobre Costa Rica)}
+\CommentTok{// caso escogimos un rectángulo sobre Costa Rica)}
 \KeywordTok{var}\NormalTok{ RecCostaRica }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{86.16}\OperatorTok{,} \FloatTok{11.235}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{82.601}\OperatorTok{,} \FloatTok{8.073}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// Áreas protegidas que se intersectan con el rectángulo dibujado}
@@ -2474,34 +2492,34 @@ Ejercicio 18
 \end{Highlighting}
 \end{Shaded}
 
-Para filtrar por atributos de los vectores se puede realizar mediante el método \texttt{.filterMetadata}. De esta forma, todos los vectores de la colección que cumplan con la condición serán seleccionados. Para usar \texttt{.filterMetadata} se debe indicar dentro del paréntesis (separado por comas): el nombre entre comillas del atributo a evaluar, el tipo de comparación a hacer los valores aceptados son:
+Para filtrar por atributos de los vectores se puede realizar mediante el método \texttt{.filterMetadata}. De esta forma, todos los vectores de la colección que cumplan con una condición deseada serán seleccionados. Para usar \texttt{.filterMetadata} se debe indicar dentro del paréntesis (separado por comas): el nombre entre comillas del atributo a evaluar y el tipo de comparación a hacer, de acuerdo con ciertos operadores lógicos. Los operadores lógicos aceptados en este método son:
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{equals},
+  \texttt{equals} (igual a),
 \item
-  \texttt{less\_than},
+  \texttt{less\_than} (menor que),
 \item
-  \texttt{greater\_than},
+  \texttt{greater\_than} (mayor que),
 \item
-  \texttt{not\_equals},
+  \texttt{not\_equals} (no igual a o diferente de),
 \item
-  \texttt{not\_less\_than},
+  \texttt{not\_less\_than} (no menor que),
 \item
-  \texttt{not\_greater\_than},
+  \texttt{not\_greater\_than} (no mayor que),
 \item
-  \texttt{starts\_with},
+  \texttt{starts\_with} (empieza con),
 \item
-  \texttt{ends\_with},
+  \texttt{ends\_with} (termina con),
 \item
-  \texttt{not\_starts\_with},
+  \texttt{not\_starts\_with} (no empieza con),
 \item
-  \texttt{not\_ends\_with},
+  \texttt{not\_ends\_with} (no termina con),
 \item
-  \texttt{contains},
+  \texttt{contains} (contiene),
 \item
-  \texttt{not\_contains}.
+  \texttt{not\_contains} (no contiene).
 \end{itemize}
 
 y finalmente el valor con el que se hará la comparación.
@@ -2512,15 +2530,15 @@ Ejercicio 18.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// En este caso cada vector de la colección de areas protegidas, tiene un }
+\CommentTok{// En este caso cada vector de la colección de áreas protegidas, tiene un }
 \CommentTok{// atributo llamado \textquotesingle{}ISO3\textquotesingle{}, basándonos en ese atributo, vamos a buscar }
 \CommentTok{// todos los vectores que tengan (para ese atributo) un valor exactamente }
-\CommentTok{// igual a \textquotesingle{}CRI\textquotesingle{} (abreviación de Costa Rica)}
+\CommentTok{// igual (\textquotesingle{}equals\textquotesingle{}) a \textquotesingle{}CRI\textquotesingle{} (abreviación de Costa Rica)}
 \KeywordTok{var}\NormalTok{ AreasProCRI }\OperatorTok{=}\NormalTok{ areasProtegidas}\OperatorTok{.}\FunctionTok{filterMetadata}\NormalTok{(}\StringTok{\textquotesingle{}ISO3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}equals\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}CRI\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
 
-El filtro para filtrar por fecha es \texttt{.filterDate} ,sólo aplica en caso que los vectores tengan un atributo llamado `system:time\_start' y en ese atributo se encuentre la fecha en formato `AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a `system:time\_start' para ello se puede usar el método \texttt{.set} y el método \texttt{.map} (el método \texttt{.map} se explicara con mayor detalle más adelante).
+El método para filtrar por fecha es \texttt{.filterDate} ,sólo aplica en caso que los vectores tengan un atributo llamado `system:time\_start' y en ese atributo se encuentre la fecha en formato `AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a `system:time\_start' para ello se puede usar el método \texttt{.set} y el método \texttt{.map} (el método \texttt{.map} se explicara con mayor detalle más adelante en la sección 7.5.8).
 
 \hypertarget{funciones-de-usuario}{%
 \subsection{Funciones de usuario}\label{funciones-de-usuario}}
@@ -2685,17 +2703,17 @@ Ejercicio 20.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Se muestran los metadatos de la  colección de vectores}
-\KeywordTok{var}\NormalTok{ metadatosCOL }\OperatorTok{=}\NormalTok{ CUENCAS\_MUNDIAL}\OperatorTok{.}\FunctionTok{propertyNames}\NormalTok{()}
 \CommentTok{// Mostrar un metadato de la colección de vectores}
 \KeywordTok{var}\NormalTok{ IDcoleccion }\OperatorTok{=}\NormalTok{ CUENCAS\_MUNDIAL}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}system:id\textquotesingle{}}\NormalTok{) }
+\CommentTok{// Se muestran los metadatos de la  colección de vectores}
+\KeywordTok{var}\NormalTok{ metadatosCOL }\OperatorTok{=}\NormalTok{ CUENCAS\_MUNDIAL}\OperatorTok{.}\FunctionTok{propertyNames}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{extracciuxf3n-de-listas-con-atributos-de-vectores}{%
 \subsection{Extracción de listas con atributos de vectores}\label{extracciuxf3n-de-listas-con-atributos-de-vectores}}
 
-Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}).
+Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}).
 
 Ejercicio 20.2
 
@@ -2727,7 +2745,7 @@ Ejercicio 20.2
 \hypertarget{ejecuciuxf3n-de-una-funciuxf3n-sobre-todos-los-vectores-una-colecciuxf3n}{%
 \subsection{Ejecución de una función sobre todos los vectores una colección}\label{ejecuciuxf3n-de-una-funciuxf3n-sobre-todos-los-vectores-una-colecciuxf3n}}
 
-Se pueden ejecutar operaciones dentro de una colección de vectores, que se ejecuten para cada vector de la colección. Para aplicar una operación en todos los vectores de una colección se usa el método \texttt{.map}.
+Para aplicar una operación en todos los vectores de una colección se usa el método \texttt{.map}.
 
 \begin{bluebox2}
 
@@ -2741,11 +2759,11 @@ Para poder ejecutar el método \texttt{.map} es necesario antes definir una func
 \item
   Usar el comando \texttt{function}.
 \item
-  Luego definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo).
+  Definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo).
 \item
-  Después definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
+  Definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
 \item
-  Finalmente antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando \texttt{return}.
+  Antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando \texttt{return}.
 \end{enumerate}
 
 \end{awesomeblock}
@@ -2759,7 +2777,7 @@ En el siguiente ejercicio se realizarán los siguientes pasos:
 \item
   Llamamos a una colección con los límites políticos de los países.
 \item
-  Seleccionamos el vector cuyo atributo `COUNTRY\_NAME' es igual a `Peru'.
+  Seleccionamos el vector cuyo atributo `COUNTRY\_NAME' es igual (`equals') a `Peru'.
 \item
   Generamos 100 puntos aleatorios en Peru usando el método \texttt{.randomColumn}. Le añadimos a cada punto un nuevo atributo llamado `aleatorio' que contiene un número aleatorio entre 0-1.
 \item
@@ -2964,7 +2982,7 @@ Ejercicio 24
 \hypertarget{uniuxf3n-de-colecciones-de-vectores}{%
 \subsection{Unión de colecciones de vectores}\label{uniuxf3n-de-colecciones-de-vectores}}
 
-Para unir diferentes colecciones de vectores se usan las funciones de \texttt{ee.Join}. Estas funciones permiten unir vectores basados en los valores de sus atributos. Usando un \texttt{.filter} se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
+Para unir diferentes colecciones de vectores, mediante los valores de sus atributos, se usan las funciones de \texttt{ee.Join}. El resultado de estas funciones suele constar de una colección de vectores que contendrá los atributos de otra colección de vectores. Para determinar el tipo de relación entre los atributos de los vectores de ambas colecciones se utilizar un filtro (\texttt{.filter}).
 
 Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca \texttt{ee.Join}. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo \texttt{saveALL}, pero lo usaremos con dos filtros diferentes (uno de intersección y otro de distancia).
 
@@ -3053,27 +3071,21 @@ Los argumentos adicionales específicos para exportar a drive \texttt{Export.tab
   \begin{itemize}
   \tightlist
   \item
-    ``CSV'', valor por default
+    ``CSV'', valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este format es el más utilizado para exportar colecciones de vectores sin geometrías (es decir una simple tabla de atributos).
   \item
-    ``GeoJSON'',
+    ``GeoJSON'' (``Geographic javaScript Object Notation''). Formato basado en el lenguaje JSON (``JavaScript Object Notation'') para almacenar datos vectoriales y sus atributos.
   \item
-    ``KML'',
+    ``KML'' (``keyhole markup language''). Formato utilizado sobre todo por Google para almacenar datos espaciales y tablas de atributos asociados a ellos.
   \item
-    ``KMZ'',
+    ``KMZ'' (``kml zipped''). Formato que consta de de un KML comprimido.
   \item
-    ``SHP'',
+    ``SHP'' (``shapefile''). Formato utilizado sobre todo por ESRI para almacenar vectores y tablas de atributos asociados a ellos.
   \item
-    ``TFRecord''.
+    ``TFRecord'' ("tensorflow record). Formato utilizado por Tensorflow para almacenar datos tanto vectoriales como ráster.
   \end{itemize}
 \end{itemize}
 
-El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es:
-
-\begin{itemize}
-\tightlist
-\item
-  AssetID: el nombre que le pondremos al nuevo archivo.
-\end{itemize}
+El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es `AssetID', que corresponde el nombre que le pondremos al nuevo archivo.
 
 Ejercicio 26
 
@@ -3670,7 +3682,7 @@ Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic 
 \hypertarget{ee.imagecollection}{%
 \chapter{ee.ImageCollection}\label{ee.imagecollection}}
 
-Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020).
+Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:
 
 Ejercicio 28
 
@@ -3684,7 +3696,7 @@ Ejercicio 28
 \hypertarget{informaciuxf3n-adicional-para-los-ejemplos-1}{%
 \section{Información adicional para los ejemplos}\label{informaciuxf3n-adicional-para-los-ejemplos-1}}
 
-Como información adicional para esta sección se definirá una geometría de un área de interés.
+Como información adicional para este capítulo se definirá una geometría de un área de interés.
 
 \begin{Shaded}
 \begin{Highlighting}[]

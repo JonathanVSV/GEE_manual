@@ -183,11 +183,17 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría (por defecto es geometry), cambiar el tipo de geometría (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría o añadir manualmente propiedades (Fig. 5.10).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada "Name" (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de "Import as" (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice "+ Property"; Fig. 5.10).
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo de modificación de las propiedades de las geometrías."}
 knitr::include_graphics("Img/menuGeo.png")
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Recordar que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (`ee.Feature`) o colecciones de vectores (`ee.FeatureCollection`)
+:::
+::::
 
 ## Métodos comunes
 

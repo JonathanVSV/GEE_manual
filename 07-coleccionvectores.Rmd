@@ -118,7 +118,7 @@ var Multilinea = ee.Feature(ee.Geometry.MultiLineString([
     		'San Juan - saint John',
     		'Paramaribo - Georgetown']});
 
-var perimetro = ee.Feature(ee.Geometry.linearRing([-79.354,27.32,
+var perimetro = ee.Feature(ee.Geometry.LinearRing([-79.354,27.32,
   								   -79.332, 23.661,
   								   -74.19, 21.161,
        							   -72.235, 23.165,
@@ -242,7 +242,7 @@ Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'],
 
 ### Filtración de una colección de vectores
 
-Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se hace usando el método `.filterBounds` esto permite insertar una geometría, y todos los vectores de la colección que se intersectan con dicha geometría serán seleccionados. En el ejercicio vamos a crear un rectángulo sobre Costa Rica y filtrar las áreas protegidas que se intersectan con ese rectángulo.
+Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se usa el método `.filterBounds`, el cual permite seleccionar todos los vectores de la colección que se intersecten con la geometría indicada por el usuario. En el ejercicio se va a filtrar espacialmente una colección de vectores que contiene las áreas protegidas del mundo para seleccionar únicamente las áreas que se intersecten con un rectángulo que abarca el país de Costa Rica.
 
 Ejercicio 18
 
@@ -251,27 +251,27 @@ Ejercicio 18
 var areasProtegidas = ee.FeatureCollection('WCMC/WDPA/current/polygons'); 
 
 // Dibujar una geometría (puede ser cualquier tipo de geometría }, en este
-// caso escogimos un rectángulo, más o menos sobre Costa Rica)
+// caso escogimos un rectángulo sobre Costa Rica)
 var RecCostaRica = ee.Geometry.Rectangle(-86.16, 11.235, -82.601, 8.073);
 
 // Áreas protegidas que se intersectan con el rectángulo dibujado
 var filtro = areasProtegidas.filterBounds(RecCostaRica);
 ```
 
-Para filtrar por atributos de los vectores se puede realizar mediante el método `.filterMetadata`. De esta forma, todos los vectores de la colección que cumplan con la condición serán seleccionados. Para usar `.filterMetadata` se debe indicar dentro del paréntesis (separado por comas): el nombre entre comillas del atributo a evaluar, el tipo de comparación a hacer los valores aceptados son: 
+Para filtrar por atributos de los vectores se puede realizar mediante el método `.filterMetadata`. De esta forma, todos los vectores de la colección que cumplan con una condición deseada serán seleccionados. Para usar `.filterMetadata` se debe indicar dentro del paréntesis (separado por comas): el nombre entre comillas del atributo a evaluar y el tipo de comparación a hacer, de acuerdo con ciertos operadores lógicos. Los operadores lógicos aceptados en este método son: 
 
-*	`equals`, 
-*	`less_than`,
-*	 `greater_than`,
-*	 `not_equals`, 
-*	`not_less_than`,
-*	 `not_greater_than`, 
-*	`starts_with`,
-*	 `ends_with`, 
-*	`not_starts_with`,
-*	 `not_ends_with`, 
-*	`contains`, 
-*	`not_contains`.
+*	`equals` (igual a), 
+*	`less_than` (menor que),
+*	 `greater_than` (mayor que),
+*	 `not_equals` (no igual a o diferente de), 
+*	`not_less_than` (no menor que),
+*	 `not_greater_than` (no mayor que), 
+*	`starts_with` (empieza con),
+*	 `ends_with` (termina con), 
+*	`not_starts_with` (no empieza con),
+*	 `not_ends_with` (no termina con), 
+*	`contains` (contiene), 
+*	`not_contains` (no contiene).
 
 y finalmente el valor con el que se hará la comparación.
 
@@ -280,14 +280,14 @@ En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas seg
 Ejercicio 18.1
 
 ```{js echo = T}
-// En este caso cada vector de la colección de areas protegidas, tiene un 
+// En este caso cada vector de la colección de áreas protegidas, tiene un 
 // atributo llamado 'ISO3', basándonos en ese atributo, vamos a buscar 
 // todos los vectores que tengan (para ese atributo) un valor exactamente 
-// igual a 'CRI' (abreviación de Costa Rica)
+// igual ('equals') a 'CRI' (abreviación de Costa Rica)
 var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI'); 
 ```
 
-El filtro para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara con mayor detalle más adelante).
+El método para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara con mayor detalle más adelante en la sección 7.5.8).
 
 ### Funciones de usuario
 
@@ -400,15 +400,15 @@ Los metadatos de una colección de vectores no son los mismos que los de los vec
 Ejercicio 20.1
 
 ```{js echo = T}
-// Se muestran los metadatos de la  colección de vectores
-var metadatosCOL = CUENCAS_MUNDIAL.propertyNames()
 // Mostrar un metadato de la colección de vectores
 var IDcoleccion = CUENCAS_MUNDIAL.get('system:id') 
+// Se muestran los metadatos de la  colección de vectores
+var metadatosCOL = CUENCAS_MUNDIAL.propertyNames()
 ```
 
 ### Extracción de listas con atributos de vectores
 
-Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
+Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
 
 Ejercicio 20.2
 
@@ -437,23 +437,23 @@ var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
 
 ### Ejecución de una función sobre todos los vectores una colección
 
-Se pueden ejecutar operaciones dentro de una colección de vectores, que se ejecuten para cada vector de la colección. Para aplicar una operación en todos los vectores de una colección se usa el método `.map`.
+Para aplicar una operación en todos los vectores de una colección se usa el método `.map`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Para poder ejecutar el método `.map` es necesario antes definir una función (del usuario). Para definir una función es necesario tener en cuenta varias cosas: 
 
 1.  Usar el comando `function`.
-2.	Luego definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo). 
-3.	Después definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
-4.	Finalmente antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando `return`.
+2.	Definir un nombre cualquiera, que representara el objeto de entrada de la función (insumo). 
+3.	Definir un diccionario dentro del cual se especifiquen los procedimientos a realizar sobre el insumo.
+4.	Antes de cerrar el diccionario especificar el producto de salida (resultado de la función) usando el comando `return`.
 :::
 ::::
 
 En el siguiente ejercicio se realizarán los siguientes pasos: 
 
 * Llamamos a una colección con los límites políticos de los países.
-*	Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual a 'Peru'.
+*	Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual ('equals') a 'Peru'.
 *	Generamos 100 puntos aleatorios en Peru usando el método `.randomColumn`. Le añadimos a cada punto un nuevo atributo llamado 'aleatorio' que contiene un número aleatorio entre 0-1.
 *	Definimos una función del usuario (con el método `function`) llamada 'bufferAleatorio' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
   -	Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (punto).
@@ -612,7 +612,7 @@ var areaGlaciar = hielo
 
 ### Unión de colecciones de vectores
 
-Para unir diferentes colecciones de vectores se usan las funciones de `ee.Join`. Estas funciones permiten  unir vectores basados en los valores de sus atributos. Usando un `.filter` se determina el tipo de relación entre los atributos de los vectores de ambas colecciones.
+Para unir diferentes colecciones de vectores, mediante los valores de sus atributos, se usan las funciones de `ee.Join`. El resultado de estas funciones suele constar de una colección de vectores que contendrá los atributos de otra colección de vectores. Para determinar el tipo de relación entre los atributos de los vectores de ambas colecciones se utilizar un filtro (`.filter`).
 
 Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo `saveALL`, pero lo usaremos con dos filtros diferentes (uno de intersección y otro de distancia).
 
@@ -683,16 +683,14 @@ Los argumentos adicionales específicos para exportar a drive `Export.table.toDr
 *	FileNamePrefix (prefijo del archivo): el nombre que le pondremos al vector guardado en drive.
 *	FileFormat (formato del archivo): el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
 
-    -	“CSV”, valor por default
-    -	“GeoJSON”,
-    -	“KML”, 
-    -	“KMZ”, 
-    -	“SHP”, 
-    -	“TFRecord”.
+    -	“CSV”, valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este format es el más utilizado para exportar colecciones de vectores sin geometrías (es decir una simple tabla de atributos).
+    -	“GeoJSON” ("Geographic javaScript Object Notation"). Formato basado en el lenguaje JSON ("JavaScript Object Notation") para almacenar datos vectoriales y sus atributos.
+    -	“KML” ("keyhole markup language"). Formato utilizado sobre todo por Google para almacenar datos espaciales y tablas de atributos asociados a ellos.
+    -	“KMZ” ("kml zipped"). Formato que consta de de un KML comprimido. 
+    -	“SHP” ("shapefile"). Formato utilizado sobre todo por ESRI para almacenar vectores y tablas de atributos asociados a ellos.
+    -	“TFRecord” ("tensorflow record). Formato utilizado por Tensorflow para almacenar datos tanto vectoriales como ráster. 
     
-El argumento adicional para exportar a los Assets `Export.table.toAssets` es: 
-
-*	AssetID: el nombre que le pondremos al nuevo archivo.
+El argumento adicional para exportar a los Assets `Export.table.toAssets` es 'AssetID', que corresponde el nombre que le pondremos al nuevo archivo.
 
 Ejercicio 26
 

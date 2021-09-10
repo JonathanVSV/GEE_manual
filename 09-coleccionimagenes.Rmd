@@ -1,7 +1,7 @@
 \newpage
 # ee.ImageCollection
 
-Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020).  
+Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:  
 
 Ejercicio 28
 
@@ -12,7 +12,7 @@ var S2 = ee.ImageCollection("COPERNICUS/S2_SR");
 
 ## Información adicional para los ejemplos
 
-Como información adicional para esta sección se definirá una geometría de un área de interés.
+Como información adicional para este capítulo se definirá una geometría de un área de interés.
 
 ```{js, echo = T}
 // Definición de un área de interés

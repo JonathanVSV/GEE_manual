@@ -9,7 +9,7 @@ Un vector estará compuesto por una geometría (punto, línea, polígono, multip
 
 ## Visualización de vectores
 
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar elcolor dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -80,7 +80,7 @@ Para extraer ciertas propiedades de un vector se puede utilizar el método `.get
 
 1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
 2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
-3.	Usamos el método `.get` para obtener el valor del atributo 'COAST'.
+3.	Usamos el método `.get` para obtener el valor del atributo 'COAST' del vector.
 4.	Usando el método `.select` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
 
 Ejercicio 11
@@ -119,6 +119,12 @@ var rectangulo2 = ee.Feature(ee.Geometry.Rectangle(-86.03,15.6,-100.0,40.7));
 // Intersección
 var interseccion = rectangulo1.intersection(rectangulo2);
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método `.intersection`).
+:::
+::::
 
 ### Creación de un buffer
 
