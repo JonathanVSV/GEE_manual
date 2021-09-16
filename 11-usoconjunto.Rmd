@@ -72,6 +72,12 @@ Este método interpola al píxel de interés un valor según cada uno de los pun
 *	El promedio global de la variable.
 *	La desviación estándar global de la variable.
 
+El siguiente ejercicio tiene como objetivo interpolar valores de CH4 para el norte de México.
+La imagen Sentinel que se utilizara, no tiene los valores de CH4 completos, muchos de los pixeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área de estudio 
+Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios dentro del norte de México, de una imagen satelital Sentinel.
+Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos)
+y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar.
+
 Ejercicio 30
 
 ```{js echo = T}

@@ -335,13 +335,13 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña Tas
 
 #### Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A)
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (`Search`) y escribir SRTM. Debería aparecer una ventana así (Fig. 8.1):
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (`Search`) y escribir SRTM. Debería aparecer una ventana así (Fig. 9.1):
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de búsqueda de información en la barra de búsqueda."}
 knitr::include_graphics("Img/SRTM.png")
 ```
 
-Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 8.2).
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 9.2).
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de información de una imagen del repositorio de GEE."}
 knitr::include_graphics("Img/SRTM_prop.png")
@@ -398,7 +398,7 @@ imgEnmascarada = imgEnmascarada.rename('elevacion');
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 ```
 
-Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print` (Fig. 8.3).
+Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Por último, se agrega este gráfico a la consola con un `print` (Fig. 9.3).
 
 ```{js, echo = T}
 // Crear gráfico de histograma de los valores del DEM enmascarado

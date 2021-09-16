@@ -1,7 +1,7 @@
 \newpage
 # Importación de información a GEE
 
-En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders (Fig. 10.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en `New` (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 10.2).
+En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders (Fig. 4.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en `New` (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 4.2).
 
 ```{r, echo = F, out.width="100%", fig.cap="Opciones disponibles para importar datos en GEE."}
 knitr::include_graphics("Img/newAssets.png")
@@ -11,7 +11,7 @@ knitr::include_graphics("Img/newAssets.png")
 knitr::include_graphics("Img/Asset1.png")
 ```
 
-Posteriormente se da clic en `Select` y se seleccionan los archivos que se quieren subir (Fig. 10.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en `Upload` (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
+Posteriormente se da clic en `Select` y se seleccionan los archivos que se quieren subir (Fig. 4.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en `Upload` (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -23,7 +23,7 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 knitr::include_graphics("Img/Asset2.png")
 ```
 
-Una vez que se haya dado clic en `Upload`, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de `Tasks` (Fig. 10.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de `New`.
+Una vez que se haya dado clic en `Upload`, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de `Tasks` (Fig. 4.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de `New`.
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de una importación en proceso."}
 knitr::include_graphics("Img/Asset3.png")
@@ -43,7 +43,7 @@ Para subir un nuevo archivo hay que dar clic en el botón `New`, seleccionar el 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podrá ser consultado por los usuarios indicados. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; Fig. 10.5).
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podrá ser consultado por los usuarios indicados. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; Fig. 4.5).
 :::
 ::::
 
@@ -51,15 +51,15 @@ El usuario puede compartir sus archivos con otros usuarios de GEE como lector o 
 knitr::include_graphics("Img/shareAssets.png")
 ```
 
-Por último, para utilizar cualquier información importada a GEE en un código, se puede realizar de dos maneras. Lo primero que hay que hacer es darle clic a la información importada en la sección de Assets, tras lo cual aparecerá la siguiente ventana (Fig. 10.6). 
+Por último, para utilizar cualquier información importada a GEE en un código, se puede realizar de dos maneras. Lo primero que hay que hacer es darle clic a la información importada en la sección de Assets, tras lo cual aparecerá la siguiente ventana (Fig. 4.6). 
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma."}
 knitr::include_graphics("Img/Asset_ruta.png")
 ```
 
-La primera manera de utilizar dicha información en un código consiste en copiar la ruta de la información y utilizar en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; Fig. 10.6).
+La primera manera de utilizar dicha información en un código consiste en copiar la ruta de la información y utilizar en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; Fig. 4.6).
 
-La segunda consiste en acceder al código en el que estamos interesados en utilizar la información. Buscar la información que se desea importar en la pestaña de Assets, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (Fig. 10.7). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
+La segunda consiste en acceder al código en el que estamos interesados en utilizar la información. Buscar la información que se desea importar en la pestaña de Assets, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (Fig. 4.7). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
 
 ```{r, echo = F, out.width="100%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación del botón para importar la misma a un código previamente abierto."}
 knitr::include_graphics("Img/Asset_ruta2.png")

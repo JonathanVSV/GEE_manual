@@ -2,6 +2,7 @@
 # ee.FeatureCollection
 
 Las colecciones de vectores (`ee.FeatureCollection`) son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
+Es importante recalcar que una `ee.FeatureCollection` es un conjunto de vectores, de modo que puede contener distintas `ee.Feature` con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono)
  
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -70,9 +71,13 @@ var coleccion = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
 
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
 
-## Información adicional para el ejemplo 
-
 ```{js echo = T}
+//  Información adicional para el ejemplo, creación de distintos vectores (ee.Feature),
+//  cada cual con diferentes tipos de geometrías y distintos atributos.
+//  esto para mostrar que una ee.FeatureCollection, no requiere que todos sus elementos (ee.Feature)
+//  tengan los mismos atributos, ni geometrías
+
+
 var Punto = ee.Feature(ee.Geometry.Point(-99.1362, 19.4352),
     {pais:'Mexico',capital:'cdmx'});
 
@@ -313,37 +318,38 @@ var filtroFechas = Areasfecha.filterDate(2020,2021);
 
 Los filtros compuestos permiten combinar los filtros disponibles bajo la biblioteca de `ee.Filter`. En el ejercicio 18.3 se mostrará solo un ejemplo de este filtro, para filtrar vectores que cumplan con todas las condiciones. El ejercicio consta de los siguientes pasos:
 
-1.	Utilizar el método `.filter` para indicar que vamos a realizar un filtro.
-2.	Utilizar `ee.Filter.and` para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
-3.	Usar `ee.Filter.gte` para seleccionar mediante la condición mayor o igual a ("greater than or equal").
-    a. Indicar el atributo a utilizar ('MARINE'). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
-    b.	Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
+1.	El método `.filter` es para indicar que vamos a realizar un filtro.
+2.	`ee.Filter.and` es para indicar que se debn cumplir todas las condiciones para filtrar
+3.	`ee.Filter.gte` es para seleccionar mediante la condición mayor o igual a ("greater than or equal").
 4.	Después se utiliza una coma para indicar otro filtro.
-5.	Al indicar `ee.Filter.stringContains` se realiza un filtro para seleccionar los vectores que a partir de una cadena de caracteres:
-    a.	'NAME' es un atributo del nombre del área protegida.
-    b.	'Manglar' es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
+5.	`ee.Filter.stringContains` es un filtro, para seleccionar basado en una cadena de texo que se encuentre dentro de un atributo
 6.	Después se usa otra coma para indicar otro filtro.
-7.	Por último se utiliza `ee.Filter.rangeContains` para seleccionar todo lo que se encuentre en un rango de valores.
-    a.	'GIS_M_AREA' es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
-    b.	10 es el valor mínimo del rango de área marina que queremos filtrar.
-    c. 100 es el valor máximo del rango de área marina que queremos filtrar.
+7.	`ee.Filter.rangeContains` es para seleccionar todo lo que se encuentre en un rango de valores.
+    
 
 Ejercicio 18.3
 
 ```{js echo = T}
-// Se declara que se ejecutará un filtro compuesto
+// Se declara que se ejecutará un filtro
 var areasProMar = areasProtegidas.filter( 
-  // Se crea un filtro compuesto en donde se deben cumplir las siguientes 
-  // condiciones
+  // ee.Filter.and indica que se crea un filtro compuesto en donde se deben cumplir 
+  //TODAS las siguientes condiciones para seleccionar un vector
   ee.Filter.and(    
-  // Un filtro donde se filtran los vectores que en el atributo marino 
-  // tengan un valor de 1 o más (áreas protegidas con territorio marino)
+  //  Un filtro donde se indica el atributo a utilizar ('MARINE'). Este es un un
+  //  atributo donde 1 es área costera, y 2 son áreas marinas.
+  //  Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas
+  //  las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un 
+  //  área marina.
   ee.Filter.gte('MARINE',1),   
-  // Se filtran las áreas protegidas que en su nombre contengan la palabra
-  // manglar
+  //  Se filtran las áreas protegidas que en su atributo 'NAME' (el nombre del área
+  //  protegida), contengan la palabra manglar
+  //  es asi para seleccionar solo las áreas protegidas que en su nombre incluya la 
+  //  palabra manglar.
   ee.Filter.stringContains('NAME', 'Manglar'),
-  // Se filtran las áreas que tengan un área marina protegida de entre 50 
-  // y 100 km2
+  //  'GIS_M_AREA' es un atributo de las áreas protegidas que indica el área marina 
+  //  protegida calculada con un SIG.	10 es el valor mínimo del rango de área marina 
+  //  que queremos filtrar. 100 es el valor máximo del rango de área marina que 
+  //  queremos filtrar.
   ee.Filter.rangeContains('GIS_M_AREA', 10,100))); 
 ```
 
@@ -453,18 +459,16 @@ Para poder ejecutar el método `.map` es necesario antes definir una función (d
 En el siguiente ejercicio se realizarán los siguientes pasos: 
 
 * Llamamos a una colección con los límites políticos de los países.
-*	Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual ('equals') a 'Peru'.
-*	Generamos 100 puntos aleatorios en Peru usando el método `.randomColumn`. Le añadimos a cada punto un nuevo atributo llamado 'aleatorio' que contiene un número aleatorio entre 0-1.
-*	Definimos una función del usuario (con el método `function`) llamada 'bufferAleatorio' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
-  -	Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (punto).
-  -	Extraemos el número aleatorio del vector que se encuentra en el atributo 'aleatorio'.
-  -	Convertimos el número extraído en el paso anterior en un `ee.Number` del servidor.
-  -	Multiplicamos ese `ee.Number` por 100 000.
-  -	Redondeamos el resultado de la multiplicación en el número entero mayor o igual más cercano.
-  -	Creamos un buffer alrededor del vector de entrada de longitud definida según el número redondeado.
-  -	Le asignamos al buffer un nuevo atributo llamado 'radio del buffer' con el número redondeado (metros usados para calcular el buffer).
-  -	Le asignamos al buffer otro atributo llamado 'area', en donde calculamos el área del buffer usando el método `.area`.
-  -	Usando el método return especificamos que el buffer con los dos nuevos atributos será el resultado de esta función.
+*	Seleccionamos a 'Peru'.
+*	Generamos 100 puntos aleatorios en Peru 
+* Le añadimos a cada punto un nuevo atributo llamado 'aleatorio'.
+*	Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio
+*	Ejecutamos la función sobre todos los puntos aleatorios 
+
+
+
+
+
 *	usando el método `.map` ejecutamos la función `bufferAleatorio` sobre todos los puntos aleatorios 
 
 Ejercicio 21
@@ -473,47 +477,51 @@ Ejercicio 21
 // Se llama una tabla de GEE con colección de vectores de paises 
 var paises = ee.FeatureCollection("USDOS/LSIB/2017"); 
 
-// Se hace un filtro para seleccionar solo a Perú 
+//  Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual ('equals')
+//  a 'Peru'.Filtrando asi solo a Perú 
 var peru = paises.filterMetadata('COUNTRY_NA','equals','Peru'); 
 
 // Creamos una colección de vectores de 100 puntos aleatorios en Perú, y 
-// usando el método .randomColumn le asignamos un valor aleatorio (entre 
-// 0-1) a cada punto de la colección
+// usando el método .randomColumn le asignamos a cada punto un nuevo atributo
+//  llamado 'aleatorio' cuyo valor es aleatorio (entre 0-1)
 var puntos =ee.FeatureCollection.randomPoints(peru, 100)
   .randomColumn('aleatorio');  
 
-// Definimos una función llamada buffer cuyo insumo de entrada es un 
-// objeto que llamamos 'punto'
+//  Definimos una función del usuario (con el método `function`) llamada 
+//  'bufferAleatorio' en la que el dato de entrada (insumo) será un vector 
+//  (y el nombre genérico que le asignamos al insumo es (punto)):
+//    -Abrimos un diccionario donde especificaremos los procedimiento a 
+//    realizarle al vector (punto).
 var bufferAleatorio = function(punto){   
-  // Aca si tomamos el objeto de entrada 'vector' y le extraemos el valor 
-  // del atributo 'aleatorio' (que es un número del usuario)  
+  //  -Extraemos el número aleatorio del vector que se encuentra en el 
+  //  atributo 'aleatorio'.
   var numero = punto.get('aleatorio');  
  
-  // Convertimos el número de usuario en un `ee.Number` del servidor
-  var NumServidor = ee.Number(numero);   
+  //  -Convertimos el número extraído en el paso anterior en un `ee.Number`
+  //  del servidor.
+    var NumServidor = ee.Number(numero);   
 
-  // Multiplicamos dicho número por 100000
+  //  -Multiplicamos ese `ee.Number` por 100 000.
   var multiplicar = NumServidor.multiply(100000); 
  
-  // Aproximamos el resultado de la multiplicación al numero entero mas 
-  // cercano (igual o mayor)
+  //  -Redondeamos el resultado de la multiplicación en el número entero 
+  //  mayor o igual más cercano.
   var redondear = multiplicar.ceil(); 
   
-  // Ejecutamos el método .buffer para el objeto llamado 'vector' y el 
-  // tamaño está determinado por el número en 'redondear'
+  //  -Creamos un buffer (area) alrededor del vector de entrada de longitud
+  //  definida según el número redondeado (redondear).
   var area = punto.buffer(redondear);
 
-  // Le añadimos un atributo en donde especificamos el tamaño del radio 
-  // del buffer en metros
+  //  -Le asignamos al buffer (area) un nuevo atributo llamado 'radio del 
+  //  buffer' con el número redondeado (metros usados para calcular el buffer).
   var tamaño = area.set('radio del buffer',redondear);  
 
-  // Le añadimos otro ar}tributo llamado 'area' el cual, está definido 
-  // calculando el area (con el método.area) en metros cuadrados del 
-  // buffer 
+  //  -Le asignamos al buffer (tamaño) otro atributo llamado 'area', en donde
+  //  calculamos el área del buffer usando el método `.area`.
   var circulo = tamaño.set('area',tamaño.area());  
 
-  // El resultado de la función es entonces el objeto círculo que es un 
-  // vector poligonal 
+  //  -Usando el método return especificamos que el buffer (circulo) con los 
+  //  dos nuevos atributos será el resultado de esta función. 
   return circulo;
 };
 
@@ -566,9 +574,8 @@ var RECM = ee.Number(
 
 También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento:
 
-*	Filtramos las cuencas con un rectángulo sobre Puerto Rico.
-*	Usando el método `.reduceRegions` declaramos que usaremos un reductor espacial en el área de las cuencas de Puerto Rico.
-  -	Con `ee.Reducer.sum` especificamos que se desea obtener la la suma de los valores de los atributos de todos los píxeles que caigan en cada vector.
+*	Filtramos las cuencas de Puerto Rico.
+* Obtener la suma de los valores de todos los píxeles que caigan en cada cuenca
 
 Ejercicio 23
 
@@ -576,10 +583,15 @@ Ejercicio 23
 // Importar una imagen de clima de WorldClim
 var clima = ee.Image("WORLDCLIM/V1/BIO");
 
-// Importar una capa de cuencas filtrada a Puerto Rico
+//  Importar una capa de cuencas y filtramos las cuencas con un rectángulo 
+//  sobre Puerto Rico.
 var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
   .filterBounds(ee.Geometry.Rectangle(-79.906, 25.196, -59.6, 9.776));
-
+//  Usando el método `.reduceRegions` declaramos que usaremos un reductor 
+//  espacial en el área de las cuencas de Puerto Rico.
+//    -Con `ee.Reducer.sum` especificamos que se desea obtener la la suma
+//    de los valores de los atributos de todos los píxeles que caigan en 
+//    cada vector.
 var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
 ```
 
@@ -730,3 +742,6 @@ Export.table.toDrive({
 ```
 
 Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+```{r, echo = F, out.width="100%", fig.cap="ubicacion del boton 'Run? para ejecutar las tareas en 'Task'."}
+knitr::include_graphics("Img/boton_run.png")
+```

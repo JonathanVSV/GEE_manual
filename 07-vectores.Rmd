@@ -1,7 +1,8 @@
 \newpage
 # ee.Feature
 
-Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas. 
+Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Es importante recalcar que una `ee.Feature` es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono)
 
 ## Información y metadatos
 
@@ -101,7 +102,7 @@ var atributos = cuenca.toDictionary();
 // Extraemos el atributo 'COAST'
 var costa = cuenca.get('COAST');
 
-// Extraemos el atributo 'COAST'
+// Extraemos el atributo 'COAST' y lo renombramos como 'costa maritima'
 var renombre = cuenca.select(['COAST'],['costa maritima']);
 ```
 
