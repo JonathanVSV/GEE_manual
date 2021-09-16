@@ -1,0 +1,6 @@
+.Rproj.user
+.Rhistory
+.RDdata
+_publish.R
+_bookdown_files
+rsconnect

@@ -1,0 +1,6 @@
+Package: ManualGEE
+Type: Book
+Title: ManualGEE.
+Version: 0.0.1
+Imports: bookdown
+Remotes: JonathanVSV/GEE_manual

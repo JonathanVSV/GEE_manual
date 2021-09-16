@@ -1110,6 +1110,126 @@ Esta función puede resultar atractiva para observar los cambios de un área de 
 
 \newpage
 
+\hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee}{%
+\chapter{Importación de información a GEE}\label{importaciuxf3n-de-informaciuxf3n-a-gee}}
+
+En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders (Fig. 4.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en \texttt{New} (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 4.2).
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/newAssets} 
+
+}
+
+\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-36}
+\end{figure}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/Asset1} 
+
+}
+
+\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-37}
+\end{figure}
+
+Posteriormente se da clic en \texttt{Select} y se seleccionan los archivos que se quieren subir (Fig. 4.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (por ejemplo, sbx).
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/Asset2} 
+
+}
+
+\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-38}
+\end{figure}
+
+Una vez que se haya dado clic en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks} (Fig. 4.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/Asset3} 
+
+}
+
+\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-39}
+\end{figure}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de Assets se puede organizar la información en carpetas.
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+Para subir un nuevo archivo hay que dar clic en el botón \texttt{New}, seleccionar el tipo de archivo, y seguir las instrucciones:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Para los archivos ráster, sólo hace falta seleccionar el archivo correspondiente y dar clic en \texttt{Upload}.
+\item
+  Para los archivos tipo .shp es necesario subir los archivos auxiliares (dbf, prj, shx, cpg, fix, qix, sbn, y/o shp.xml) con el mismo nombre. Para los archivos .zip es necesario que contenga los archivos auxiliares.
+\item
+  Para los archivos .csv es necesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84). El nombre de esas columnas se debe indicar en \texttt{Advanced\ options} / x column - Y column. Además, se debe tener absoluta claridad del tipo de delimitador (ejemplo: coma: , punto y coma: ; u otro diferente) y este debe ser especificado en \texttt{Advanced\ options} / CSV delimiter.
+\end{enumerate}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podrá ser consultado por los usuarios indicados. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; Fig. 4.5).
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.3\linewidth]{Img/shareAssets} 
+
+}
+
+\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-40}
+\end{figure}
+
+Por último, para utilizar cualquier información importada a GEE en un código, se puede realizar de dos maneras. Lo primero que hay que hacer es darle clic a la información importada en la sección de Assets, tras lo cual aparecerá la siguiente ventana (Fig. 4.6).
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/Asset_ruta} 
+
+}
+
+\caption{Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.}\label{fig:unnamed-chunk-41}
+\end{figure}
+
+La primera manera de utilizar dicha información en un código consiste en copiar la ruta de la información y utilizar en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; Fig. 4.6).
+
+La segunda consiste en acceder al código en el que estamos interesados en utilizar la información. Buscar la información que se desea importar en la pestaña de Assets, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (Fig. 4.7). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/Asset_ruta2} 
+
+}
+
+\caption{Ejemplo de la ventana de información importada en GEE y ubicación del botón para importar la misma a un código previamente abierto.}\label{fig:unnamed-chunk-42}
+\end{figure}
+
+\newpage
+
 \hypertarget{tipos-de-objetos}{%
 \chapter{Tipos de objetos}\label{tipos-de-objetos}}
 
@@ -1118,7 +1238,7 @@ Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, obj
 \hypertarget{objetos-del-cliente-y-del-servidor}{%
 \section{Objetos del cliente y del servidor}\label{objetos-del-cliente-y-del-servidor}}
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (Fig. 4.1). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: \texttt{“cadena”}, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: \texttt{ee.String(“cadena”)}. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante \texttt{1\ +\ 2}, mientras que del lado del servidor se utilizará \texttt{ee.Number(1).add(ee.Number(2))}.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (Fig. 5.1). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: \texttt{“cadena”}, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: \texttt{ee.String(“cadena”)}. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante \texttt{1\ +\ 2}, mientras que del lado del servidor se utilizará \texttt{ee.Number(1).add(ee.Number(2))}.
 
 En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de \texttt{if} y \texttt{else}, la función \texttt{ee.Algorithms.If}. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un ráster, un vector o una tabla) \texttt{ee.Export...}, agregar una capa a la pantalla del mapa \texttt{Map.addLayer} o crear gráficos, así como imprimir información en la consola \texttt{print}. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
@@ -1128,11 +1248,11 @@ En la mayoría de los casos se va a utilizar la programación del lado del servi
 
 }
 
-\caption{Representación de los dos lados de programación en GEE: del cliente y el servidor.}\label{fig:unnamed-chunk-36}
+\caption{Representación de los dos lados de programación en GEE: del cliente y el servidor.}\label{fig:unnamed-chunk-43}
 \end{figure}
 
 \hypertarget{tipos-de-objetos-del-lado-del-cliente}{%
-\section{Tipos de objetos del lado del cliente}\label{tipos-de-objetos-del-lado-del-cliente}}
+\subsection{Tipos de objetos del lado del cliente}\label{tipos-de-objetos-del-lado-del-cliente}}
 
 \textbf{Cadenas de texto}
 
@@ -1343,7 +1463,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 \end{bluebox2}
 
 \hypertarget{tipo-de-objetos-del-lado-del-servidor}{%
-\section{Tipo de objetos del lado del servidor}\label{tipo-de-objetos-del-lado-del-servidor}}
+\subsection{Tipo de objetos del lado del servidor}\label{tipo-de-objetos-del-lado-del-servidor}}
 
 Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores.
 
@@ -1356,7 +1476,7 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 
 \end{bluebox2}
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 4.2).
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.2).
 
 \begin{bluebox2}
 
@@ -1383,7 +1503,7 @@ En \texttt{Client\ libraries} se indican cuáles argumentos acepta cada método 
 
 }
 
-\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-45}
+\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-52}
 \end{figure}
 
 \textbf{ee.String}
@@ -1808,7 +1928,7 @@ Ejercicio 9.1
 \end{Highlighting}
 \end{Shaded}
 
-Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 5.1):
+Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.1):
 
 \begin{figure}[btp]
 
@@ -1816,10 +1936,10 @@ Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor
 
 }
 
-\caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-56}
+\caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-63}
 \end{figure}
 
-Para crear puntos (Fig. 5.2):
+Para crear puntos (Fig. 6.2):
 
 \begin{figure}[btp]
 
@@ -1827,10 +1947,10 @@ Para crear puntos (Fig. 5.2):
 
 }
 
-\caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-57}
+\caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-64}
 \end{figure}
 
-Para crear líneas (Fig. 5.3):
+Para crear líneas (Fig. 6.3):
 
 \begin{figure}[btp]
 
@@ -1838,10 +1958,10 @@ Para crear líneas (Fig. 5.3):
 
 }
 
-\caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-58}
+\caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-65}
 \end{figure}
 
-Para crear polígonos (Fig. 5.4):
+Para crear polígonos (Fig. 6.4):
 
 \begin{figure}[btp]
 
@@ -1849,10 +1969,10 @@ Para crear polígonos (Fig. 5.4):
 
 }
 
-\caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-59}
+\caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-66}
 \end{figure}
 
-Para crear rectángulos (Fig. 5.5):
+Para crear rectángulos (Fig. 6.5):
 
 \begin{figure}[btp]
 
@@ -1860,10 +1980,10 @@ Para crear rectángulos (Fig. 5.5):
 
 }
 
-\caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-60}
+\caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-67}
 \end{figure}
 
-Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 5.6):
+Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.6):
 
 \begin{figure}[btp]
 
@@ -1871,11 +1991,11 @@ Todas las geometrías creadas con estas herramientas se importarán automáticam
 
 }
 
-\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-61}
+\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-68}
 \end{figure}
 
 A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
-Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 5.7).
+Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.7).
 
 \begin{figure}[btp]
 
@@ -1883,10 +2003,10 @@ Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 5.7).
 
 }
 
-\caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-62}
+\caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-69}
 \end{figure}
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 5.8).
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.8).
 
 \begin{figure}[btp]
 
@@ -1894,10 +2014,10 @@ Todas las geometrías dibujadas se importarán como una sola colección, pero si
 
 }
 
-\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-63}
+\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-70}
 \end{figure}
 
-Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 5.9).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.9).
 
 \begin{figure}[btp]
 
@@ -1905,10 +2025,10 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 
 }
 
-\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-64}
+\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-71}
 \end{figure}
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 5.10).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 6.10).
 
 \begin{figure}[btp]
 
@@ -1916,7 +2036,7 @@ Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombr
 
 }
 
-\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-65}
+\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-72}
 \end{figure}
 
 \begin{bluebox2}
@@ -1939,6 +2059,7 @@ La mayoría de los métodos que se pueden utilizar sobre una geometría suelen s
 \chapter{ee.Feature}\label{ee.feature}}
 
 Los vectores (\texttt{ee.Feature}) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Es importante recalcar que una \texttt{ee.Feature} es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono)
 
 \hypertarget{informaciuxf3n-y-metadatos-1}{%
 \section{Información y metadatos}\label{informaciuxf3n-y-metadatos-1}}
@@ -2065,7 +2186,7 @@ Ejercicio 11
 \CommentTok{// Extraemos el atributo \textquotesingle{}COAST\textquotesingle{}}
 \KeywordTok{var}\NormalTok{ costa }\OperatorTok{=}\NormalTok{ cuenca}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}COAST\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 
-\CommentTok{// Extraemos el atributo \textquotesingle{}COAST\textquotesingle{}}
+\CommentTok{// Extraemos el atributo \textquotesingle{}COAST\textquotesingle{} y lo renombramos como \textquotesingle{}costa maritima\textquotesingle{}}
 \KeywordTok{var}\NormalTok{ renombre }\OperatorTok{=}\NormalTok{ cuenca}\OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}COAST\textquotesingle{}}\NormalTok{]}\OperatorTok{,}\NormalTok{[}\StringTok{\textquotesingle{}costa maritima\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -2203,6 +2324,7 @@ Ejercicio 12.5
 \chapter{ee.FeatureCollection}\label{ee.featurecollection}}
 
 Las colecciones de vectores (\texttt{ee.FeatureCollection}) son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
+Es importante recalcar que una \texttt{ee.FeatureCollection} es un conjunto de vectores, de modo que puede contener distintas \texttt{ee.Feature} con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono)
 
 \begin{bluebox2}
 
@@ -2288,11 +2410,14 @@ Ejercicio 15
 
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
 
-\hypertarget{informaciuxf3n-adicional-para-el-ejemplo}{%
-\section{Información adicional para el ejemplo}\label{informaciuxf3n-adicional-para-el-ejemplo}}
-
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{//  Información adicional para el ejemplo, creación de distintos vectores (ee.Feature),}
+\CommentTok{//  cada cual con diferentes tipos de geometrías y distintos atributos.}
+\CommentTok{//  esto para mostrar que una ee.FeatureCollection, no requiere que todos sus elementos (ee.Feature)}
+\CommentTok{//  tengan los mismos atributos, ni geometrías}
+
+
 \KeywordTok{var}\NormalTok{ Punto }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Point}\NormalTok{(}\OperatorTok{{-}}\FloatTok{99.1362}\OperatorTok{,} \FloatTok{19.4352}\NormalTok{)}\OperatorTok{,}
 \NormalTok{    \{}\DataTypeTok{pais}\OperatorTok{:}\StringTok{\textquotesingle{}Mexico\textquotesingle{}}\OperatorTok{,}\DataTypeTok{capital}\OperatorTok{:}\StringTok{\textquotesingle{}cdmx\textquotesingle{}}\NormalTok{\})}\OperatorTok{;}
 
@@ -2571,67 +2696,45 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la bibliot
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Utilizar el método \texttt{.filter} para indicar que vamos a realizar un filtro.
+  El método \texttt{.filter} es para indicar que vamos a realizar un filtro.
 \item
-  Utilizar \texttt{ee.Filter.and} para indicar que todos los filtros siguientes deben cumplirse para seleccionar un vector.
+  \texttt{ee.Filter.and} es para indicar que se debn cumplir todas las condiciones para filtrar
 \item
-  Usar \texttt{ee.Filter.gte} para seleccionar mediante la condición mayor o igual a (``greater than or equal'').
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \tightlist
-  \item
-    Indicar el atributo a utilizar (`MARINE'). Este es un un atributo donde 1 es área costera, y 2 son áreas marinas.
-  \item
-    Por lo tanto al llamar \texttt{ee.Filter.gte} con el valor 1, se seleccionarán todas las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un área marina.
-  \end{enumerate}
+  \texttt{ee.Filter.gte} es para seleccionar mediante la condición mayor o igual a (``greater than or equal'').
 \item
   Después se utiliza una coma para indicar otro filtro.
 \item
-  Al indicar \texttt{ee.Filter.stringContains} se realiza un filtro para seleccionar los vectores que a partir de una cadena de caracteres:
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \tightlist
-  \item
-    `NAME' es un atributo del nombre del área protegida.
-  \item
-    `Manglar' es para seleccionar solo las áreas protegidas que en su nombre incluya la palabra manglar.
-  \end{enumerate}
+  \texttt{ee.Filter.stringContains} es un filtro, para seleccionar basado en una cadena de texo que se encuentre dentro de un atributo
 \item
   Después se usa otra coma para indicar otro filtro.
 \item
-  Por último se utiliza \texttt{ee.Filter.rangeContains} para seleccionar todo lo que se encuentre en un rango de valores.
-
-  \begin{enumerate}
-  \def\labelenumii{\alph{enumii}.}
-  \tightlist
-  \item
-    `GIS\_M\_AREA' es un atributo de las áreas protegidas que indica el área marina calculada con un SIG.
-  \item
-    10 es el valor mínimo del rango de área marina que queremos filtrar.
-  \item
-    100 es el valor máximo del rango de área marina que queremos filtrar.
-  \end{enumerate}
+  \texttt{ee.Filter.rangeContains} es para seleccionar todo lo que se encuentre en un rango de valores.
 \end{enumerate}
 
 Ejercicio 18.3
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Se declara que se ejecutará un filtro compuesto}
+\CommentTok{// Se declara que se ejecutará un filtro}
 \KeywordTok{var}\NormalTok{ areasProMar }\OperatorTok{=}\NormalTok{ areasProtegidas}\OperatorTok{.}\FunctionTok{filter}\NormalTok{( }
-  \CommentTok{// Se crea un filtro compuesto en donde se deben cumplir las siguientes }
-  \CommentTok{// condiciones}
+  \CommentTok{// ee.Filter.and indica que se crea un filtro compuesto en donde se deben cumplir }
+  \CommentTok{//TODAS las siguientes condiciones para seleccionar un vector}
 \NormalTok{  ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{and}\NormalTok{(    }
-  \CommentTok{// Un filtro donde se filtran los vectores que en el atributo marino }
-  \CommentTok{// tengan un valor de 1 o más (áreas protegidas con territorio marino)}
+  \CommentTok{//  Un filtro donde se indica el atributo a utilizar (\textquotesingle{}MARINE\textquotesingle{}). Este es un un}
+  \CommentTok{//  atributo donde 1 es área costera, y 2 son áreas marinas.}
+  \CommentTok{//  Por lo tanto al llamar \textasciigrave{}ee.Filter.gte\textasciigrave{} con el valor 1, se seleccionarán todas}
+  \CommentTok{//  las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un }
+  \CommentTok{//  área marina.}
 \NormalTok{  ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{gte}\NormalTok{(}\StringTok{\textquotesingle{}MARINE\textquotesingle{}}\OperatorTok{,}\DecValTok{1}\NormalTok{)}\OperatorTok{,}   
-  \CommentTok{// Se filtran las áreas protegidas que en su nombre contengan la palabra}
-  \CommentTok{// manglar}
+  \CommentTok{//  Se filtran las áreas protegidas que en su atributo \textquotesingle{}NAME\textquotesingle{} (el nombre del área}
+  \CommentTok{//  protegida), contengan la palabra manglar}
+  \CommentTok{//  es asi para seleccionar solo las áreas protegidas que en su nombre incluya la }
+  \CommentTok{//  palabra manglar.}
 \NormalTok{  ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{stringContains}\NormalTok{(}\StringTok{\textquotesingle{}NAME\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}Manglar\textquotesingle{}}\NormalTok{)}\OperatorTok{,}
-  \CommentTok{// Se filtran las áreas que tengan un área marina protegida de entre 50 }
-  \CommentTok{// y 100 km2}
+  \CommentTok{//  \textquotesingle{}GIS\_M\_AREA\textquotesingle{} es un atributo de las áreas protegidas que indica el área marina }
+  \CommentTok{//  protegida calculada con un SIG.   10 es el valor mínimo del rango de área marina }
+  \CommentTok{//  que queremos filtrar. 100 es el valor máximo del rango de área marina que }
+  \CommentTok{//  queremos filtrar.}
 \NormalTok{  ee}\OperatorTok{.}\AttributeTok{Filter}\OperatorTok{.}\FunctionTok{rangeContains}\NormalTok{(}\StringTok{\textquotesingle{}GIS\_M\_AREA\textquotesingle{}}\OperatorTok{,} \DecValTok{10}\OperatorTok{,}\DecValTok{100}\NormalTok{)))}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
@@ -2773,33 +2876,18 @@ Para poder ejecutar el método \texttt{.map} es necesario antes definir una func
 En el siguiente ejercicio se realizarán los siguientes pasos:
 
 \begin{itemize}
-\tightlist
 \item
   Llamamos a una colección con los límites políticos de los países.
 \item
-  Seleccionamos el vector cuyo atributo `COUNTRY\_NAME' es igual (`equals') a `Peru'.
+  Seleccionamos a `Peru'.
 \item
-  Generamos 100 puntos aleatorios en Peru usando el método \texttt{.randomColumn}. Le añadimos a cada punto un nuevo atributo llamado `aleatorio' que contiene un número aleatorio entre 0-1.
+  Generamos 100 puntos aleatorios en Peru
 \item
-  Definimos una función del usuario (con el método \texttt{function}) llamada `bufferAleatorio' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (punto)).
+  Le añadimos a cada punto un nuevo atributo llamado `aleatorio'.
 \item
-  Abrimos un diccionario donde especificaremos los procedimiento a realizarle al vector (punto).
+  Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio
 \item
-  Extraemos el número aleatorio del vector que se encuentra en el atributo `aleatorio'.
-\item
-  Convertimos el número extraído en el paso anterior en un \texttt{ee.Number} del servidor.
-\item
-  Multiplicamos ese \texttt{ee.Number} por 100 000.
-\item
-  Redondeamos el resultado de la multiplicación en el número entero mayor o igual más cercano.
-\item
-  Creamos un buffer alrededor del vector de entrada de longitud definida según el número redondeado.
-\item
-  Le asignamos al buffer un nuevo atributo llamado `radio del buffer' con el número redondeado (metros usados para calcular el buffer).
-\item
-  Le asignamos al buffer otro atributo llamado `area', en donde calculamos el área del buffer usando el método \texttt{.area}.
-\item
-  Usando el método return especificamos que el buffer con los dos nuevos atributos será el resultado de esta función.
+  Ejecutamos la función sobre todos los puntos aleatorios
 \item
   usando el método \texttt{.map} ejecutamos la función \texttt{bufferAleatorio} sobre todos los puntos aleatorios
 \end{itemize}
@@ -2811,47 +2899,51 @@ Ejercicio 21
 \CommentTok{// Se llama una tabla de GEE con colección de vectores de paises }
 \KeywordTok{var}\NormalTok{ paises }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(}\StringTok{"USDOS/LSIB/2017"}\NormalTok{)}\OperatorTok{;} 
 
-\CommentTok{// Se hace un filtro para seleccionar solo a Perú }
+\CommentTok{//  Seleccionamos el vector cuyo atributo \textquotesingle{}COUNTRY\_NAME\textquotesingle{} es igual (\textquotesingle{}equals\textquotesingle{})}
+\CommentTok{//  a \textquotesingle{}Peru\textquotesingle{}.Filtrando asi solo a Perú }
 \KeywordTok{var}\NormalTok{ peru }\OperatorTok{=}\NormalTok{ paises}\OperatorTok{.}\FunctionTok{filterMetadata}\NormalTok{(}\StringTok{\textquotesingle{}COUNTRY\_NA\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}equals\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}Peru\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 
 \CommentTok{// Creamos una colección de vectores de 100 puntos aleatorios en Perú, y }
-\CommentTok{// usando el método .randomColumn le asignamos un valor aleatorio (entre }
-\CommentTok{// 0{-}1) a cada punto de la colección}
+\CommentTok{// usando el método .randomColumn le asignamos a cada punto un nuevo atributo}
+\CommentTok{//  llamado \textquotesingle{}aleatorio\textquotesingle{} cuyo valor es aleatorio (entre 0{-}1)}
 \KeywordTok{var}\NormalTok{ puntos }\OperatorTok{=}\NormalTok{ee}\OperatorTok{.}\AttributeTok{FeatureCollection}\OperatorTok{.}\FunctionTok{randomPoints}\NormalTok{(peru}\OperatorTok{,} \DecValTok{100}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{randomColumn}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
 
-\CommentTok{// Definimos una función llamada buffer cuyo insumo de entrada es un }
-\CommentTok{// objeto que llamamos \textquotesingle{}punto\textquotesingle{}}
+\CommentTok{//  Definimos una función del usuario (con el método \textasciigrave{}function\textasciigrave{}) llamada }
+\CommentTok{//  \textquotesingle{}bufferAleatorio\textquotesingle{} en la que el dato de entrada (insumo) será un vector }
+\CommentTok{//  (y el nombre genérico que le asignamos al insumo es (punto)):}
+\CommentTok{//    {-}Abrimos un diccionario donde especificaremos los procedimiento a }
+\CommentTok{//    realizarle al vector (punto).}
 \KeywordTok{var}\NormalTok{ bufferAleatorio }\OperatorTok{=} \KeywordTok{function}\NormalTok{(punto)\{   }
-  \CommentTok{// Aca si tomamos el objeto de entrada \textquotesingle{}vector\textquotesingle{} y le extraemos el valor }
-  \CommentTok{// del atributo \textquotesingle{}aleatorio\textquotesingle{} (que es un número del usuario)  }
+  \CommentTok{//  {-}Extraemos el número aleatorio del vector que se encuentra en el }
+  \CommentTok{//  atributo \textquotesingle{}aleatorio\textquotesingle{}.}
   \KeywordTok{var}\NormalTok{ numero }\OperatorTok{=}\NormalTok{ punto}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
  
-  \CommentTok{// Convertimos el número de usuario en un \textasciigrave{}ee.Number\textasciigrave{} del servidor}
-  \KeywordTok{var}\NormalTok{ NumServidor }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Number}\NormalTok{(numero)}\OperatorTok{;}   
+  \CommentTok{//  {-}Convertimos el número extraído en el paso anterior en un \textasciigrave{}ee.Number\textasciigrave{}}
+  \CommentTok{//  del servidor.}
+    \KeywordTok{var}\NormalTok{ NumServidor }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Number}\NormalTok{(numero)}\OperatorTok{;}   
 
-  \CommentTok{// Multiplicamos dicho número por 100000}
+  \CommentTok{//  {-}Multiplicamos ese \textasciigrave{}ee.Number\textasciigrave{} por 100 000.}
   \KeywordTok{var}\NormalTok{ multiplicar }\OperatorTok{=}\NormalTok{ NumServidor}\OperatorTok{.}\FunctionTok{multiply}\NormalTok{(}\DecValTok{100000}\NormalTok{)}\OperatorTok{;} 
  
-  \CommentTok{// Aproximamos el resultado de la multiplicación al numero entero mas }
-  \CommentTok{// cercano (igual o mayor)}
+  \CommentTok{//  {-}Redondeamos el resultado de la multiplicación en el número entero }
+  \CommentTok{//  mayor o igual más cercano.}
   \KeywordTok{var}\NormalTok{ redondear }\OperatorTok{=}\NormalTok{ multiplicar}\OperatorTok{.}\FunctionTok{ceil}\NormalTok{()}\OperatorTok{;} 
   
-  \CommentTok{// Ejecutamos el método .buffer para el objeto llamado \textquotesingle{}vector\textquotesingle{} y el }
-  \CommentTok{// tamaño está determinado por el número en \textquotesingle{}redondear\textquotesingle{}}
+  \CommentTok{//  {-}Creamos un buffer (area) alrededor del vector de entrada de longitud}
+  \CommentTok{//  definida según el número redondeado (redondear).}
   \KeywordTok{var}\NormalTok{ area }\OperatorTok{=}\NormalTok{ punto}\OperatorTok{.}\FunctionTok{buffer}\NormalTok{(redondear)}\OperatorTok{;}
 
-  \CommentTok{// Le añadimos un atributo en donde especificamos el tamaño del radio }
-  \CommentTok{// del buffer en metros}
+  \CommentTok{//  {-}Le asignamos al buffer (area) un nuevo atributo llamado \textquotesingle{}radio del }
+  \CommentTok{//  buffer\textquotesingle{} con el número redondeado (metros usados para calcular el buffer).}
   \KeywordTok{var}\NormalTok{ tamaño }\OperatorTok{=}\NormalTok{ area}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}radio del buffer\textquotesingle{}}\OperatorTok{,}\NormalTok{redondear)}\OperatorTok{;}  
 
-  \CommentTok{// Le añadimos otro ar\}tributo llamado \textquotesingle{}area\textquotesingle{} el cual, está definido }
-  \CommentTok{// calculando el area (con el método.area) en metros cuadrados del }
-  \CommentTok{// buffer }
+  \CommentTok{//  {-}Le asignamos al buffer (tamaño) otro atributo llamado \textquotesingle{}area\textquotesingle{}, en donde}
+  \CommentTok{//  calculamos el área del buffer usando el método \textasciigrave{}.area\textasciigrave{}.}
   \KeywordTok{var}\NormalTok{ circulo }\OperatorTok{=}\NormalTok{ tamaño}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}area\textquotesingle{}}\OperatorTok{,}\NormalTok{tamaño}\OperatorTok{.}\FunctionTok{area}\NormalTok{())}\OperatorTok{;}  
 
-  \CommentTok{// El resultado de la función es entonces el objeto círculo que es un }
-  \CommentTok{// vector poligonal }
+  \CommentTok{//  {-}Usando el método return especificamos que el buffer (circulo) con los }
+  \CommentTok{//  dos nuevos atributos será el resultado de esta función. }
   \ControlFlowTok{return}\NormalTok{ circulo}\OperatorTok{;}
 \NormalTok{\}}\OperatorTok{;}
 
@@ -2927,11 +3019,9 @@ También, se puede usar una colección de vectores para reducir la información 
 \begin{itemize}
 \tightlist
 \item
-  Filtramos las cuencas con un rectángulo sobre Puerto Rico.
+  Filtramos las cuencas de Puerto Rico.
 \item
-  Usando el método \texttt{.reduceRegions} declaramos que usaremos un reductor espacial en el área de las cuencas de Puerto Rico.
-\item
-  Con \texttt{ee.Reducer.sum} especificamos que se desea obtener la la suma de los valores de los atributos de todos los píxeles que caigan en cada vector.
+  Obtener la suma de los valores de todos los píxeles que caigan en cada cuenca
 \end{itemize}
 
 Ejercicio 23
@@ -2941,10 +3031,15 @@ Ejercicio 23
 \CommentTok{// Importar una imagen de clima de WorldClim}
 \KeywordTok{var}\NormalTok{ clima }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Image}\NormalTok{(}\StringTok{"WORLDCLIM/V1/BIO"}\NormalTok{)}\OperatorTok{;}
 
-\CommentTok{// Importar una capa de cuencas filtrada a Puerto Rico}
+\CommentTok{//  Importar una capa de cuencas y filtramos las cuencas con un rectángulo }
+\CommentTok{//  sobre Puerto Rico.}
 \KeywordTok{var}\NormalTok{ cuencasPuertorRico }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(}\StringTok{\textquotesingle{}USGS/WBD/2017/HUC06\textquotesingle{}}\NormalTok{)}
   \OperatorTok{.}\FunctionTok{filterBounds}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{79.906}\OperatorTok{,} \FloatTok{25.196}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{59.6}\OperatorTok{,} \FloatTok{9.776}\NormalTok{))}\OperatorTok{;}
-
+\CommentTok{//  Usando el método \textasciigrave{}.reduceRegions\textasciigrave{} declaramos que usaremos un reductor }
+\CommentTok{//  espacial en el área de las cuencas de Puerto Rico.}
+\CommentTok{//    {-}Con \textasciigrave{}ee.Reducer.sum\textasciigrave{} especificamos que se desea obtener la la suma}
+\CommentTok{//    de los valores de los atributos de todos los píxeles que caigan en }
+\CommentTok{//    cada vector.}
 \KeywordTok{var}\NormalTok{ cuencaClima }\OperatorTok{=}\NormalTok{ clima}\OperatorTok{.}\FunctionTok{reduceRegions}\NormalTok{(cuencasPuertorRico}\OperatorTok{,}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{sum}\NormalTok{())}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -3127,6 +3222,15 @@ Ejercicio 26
 \end{Shaded}
 
 Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/boton_run} 
+
+}
+
+\caption{ubicacion del boton 'Run? para ejecutar las tareas en 'Task'.}\label{fig:unnamed-chunk-107}
+\end{figure}
 
 \newpage
 
@@ -3544,7 +3648,7 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña Tas
 \hypertarget{ejercicio-consulta-y-procesamiento-de-una-imagen-ejercicio-a}{%
 \subsubsection{Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A)}\label{ejercicio-consulta-y-procesamiento-de-una-imagen-ejercicio-a}}
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así (Fig. 8.1):
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así (Fig. 9.1):
 
 \begin{figure}[btp]
 
@@ -3552,10 +3656,10 @@ En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pu
 
 }
 
-\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-118}
+\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-126}
 \end{figure}
 
-Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 8.2).
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 9.2).
 
 \begin{figure}[btp]
 
@@ -3563,7 +3667,7 @@ Posteriormente se da clic sobre el primer resultado y debería abrirse la siguie
 
 }
 
-\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-119}
+\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-127}
 \end{figure}
 
 En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
@@ -3629,7 +3733,7 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevacio
 \end{Highlighting}
 \end{Shaded}
 
-Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 8.3).
+Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 9.3).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3655,7 +3759,7 @@ Por último, se generará un gráfico para obtener un histograma de los valores 
 
 }
 
-\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-127}
+\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-135}
 \end{figure}
 
 Por último, se puede exportar el resultado al Google Drive del usuario. En este caso se definirá un valor de \texttt{scale} de 9000 para acelerar el tiempo demorado en la exportación.
@@ -4082,7 +4186,9 @@ Ejercicio 28.12
 \hypertarget{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}{%
 \subsubsection{Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)}\label{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}}
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\texttt{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{BANDS} se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{IMAGE PROPERTIES} se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 9.1).
+Este ejercicio integra elementos de los ejercicios 28.4 28.5 28.6 y 28.7, de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
+
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\texttt{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{BANDS} se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{IMAGE PROPERTIES} se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 10.1).
 
 \begin{figure}[btp]
 
@@ -4090,7 +4196,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 
 }
 
-\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-147}
+\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-155}
 \end{figure}
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
@@ -4137,7 +4243,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 \item
   Después un clic a cualquier imagen (\texttt{Image}) .
 \item
-  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (Fig. 9.2).
+  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (Fig. 10.2).
 \end{itemize}
 
 \begin{figure}[btp]
@@ -4146,7 +4252,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 
 }
 
-\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-150}
+\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-158}
 \end{figure}
 
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de `CLOUD\_COVER\_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable \texttt{L8imgFirst}, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto \texttt{ee.Image}.
@@ -4160,7 +4266,7 @@ A continuación se ordena la colección de manera ascendente de acuerdo a la pro
 \end{Highlighting}
 \end{Shaded}
 
-Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (Fig. 9.3). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
+Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (Fig. 10.3). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4177,11 +4283,13 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 }
 
-\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-153}
+\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-161}
 \end{figure}
 
 \hypertarget{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}{%
 \subsubsection{Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C)}\label{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}}
+
+Este ejercicio integra elementos de los ejercicios 28.8 28.9 de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
@@ -4216,7 +4324,7 @@ Se define la función para calcular el NDVI de todas las imágenes.
 \end{Highlighting}
 \end{Shaded}
 
-Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa (Fig. 9.4).
+Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa (Fig. 10.4).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4233,7 +4341,7 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 
 }
 
-\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-157}
+\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-165}
 \end{figure}
 
 A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreescribir el objeto L8imgCol.
@@ -4248,7 +4356,7 @@ A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreesc
 \end{Highlighting}
 \end{Shaded}
 
-Se muestra la primera imagen sin nubes (Fig. 9.5).
+Se muestra la primera imagen sin nubes (Fig. 10.5).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4265,10 +4373,10 @@ Se muestra la primera imagen sin nubes (Fig. 9.5).
 
 }
 
-\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-160}
+\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-168}
 \end{figure}
 
-En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 9.6).
+En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 10.6).
 
 \begin{figure}[btp]
 
@@ -4276,7 +4384,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 
 }
 
-\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-161}
+\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-169}
 \end{figure}
 
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método \texttt{.reduce}. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -4290,7 +4398,7 @@ Posteriormente, se reduce la colección de imágenes para formar una sola imagen
 \end{Highlighting}
 \end{Shaded}
 
-A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 9.7).
+A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 10.7).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4300,7 +4408,7 @@ A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 9.7).
 \end{Highlighting}
 \end{Shaded}
 
-El resultado se ve así (Fig. 9.8):
+El resultado se ve así (Fig. 10.8):
 
 \begin{figure}[btp]
 
@@ -4308,7 +4416,7 @@ El resultado se ve así (Fig. 9.8):
 
 }
 
-\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-164}
+\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-172}
 \end{figure}
 
 Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método \texttt{count}. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
@@ -4324,7 +4432,7 @@ Además, se puede conocer el número de observaciones sin enmascarar por píxel 
 \end{Highlighting}
 \end{Shaded}
 
-La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 9.9):
+La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 10.9):
 
 \begin{figure}[btp]
 
@@ -4332,7 +4440,7 @@ La imagen con el número de observaciones por píxel sin enmascarar se ve así (
 
 }
 
-\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-166}
+\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-174}
 \end{figure}
 
 \begin{bluebox2}
@@ -4407,7 +4515,7 @@ Después, se seleccionan únicamente las bandas de NDVI y se reduce la colecció
 \end{Highlighting}
 \end{Shaded}
 
-Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 9.10).
+Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 10.10).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4424,7 +4532,7 @@ Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 9.10).
 
 }
 
-\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-172}
+\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-180}
 \end{figure}
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
@@ -4444,126 +4552,6 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
 \NormalTok{\})}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
-
-\newpage
-
-\hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee}{%
-\chapter{Importación de información a GEE}\label{importaciuxf3n-de-informaciuxf3n-a-gee}}
-
-En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y folders (Fig. 10.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en \texttt{New} (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 10.2).
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/newAssets} 
-
-}
-
-\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-174}
-\end{figure}
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/Asset1} 
-
-}
-
-\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-175}
-\end{figure}
-
-Posteriormente se da clic en \texttt{Select} y se seleccionan los archivos que se quieren subir (Fig. 10.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
-
-\begin{bluebox2}
-
-\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (por ejemplo, sbx).
-
-\end{awesomeblock}
-
-\end{bluebox2}
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/Asset2} 
-
-}
-
-\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-176}
-\end{figure}
-
-Una vez que se haya dado clic en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks} (Fig. 10.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/Asset3} 
-
-}
-
-\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-177}
-\end{figure}
-
-\begin{bluebox2}
-
-\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Al igual que en la pestaña donde se organizan los repositorios y los códigos, en la pestaña de Assets se puede organizar la información en carpetas.
-
-\end{awesomeblock}
-
-\end{bluebox2}
-
-Para subir un nuevo archivo hay que dar clic en el botón \texttt{New}, seleccionar el tipo de archivo, y seguir las instrucciones:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Para los archivos ráster, sólo hace falta seleccionar el archivo correspondiente y dar clic en \texttt{Upload}.
-\item
-  Para los archivos tipo .shp es necesario subir los archivos auxiliares (dbf, prj, shx, cpg, fix, qix, sbn, y/o shp.xml) con el mismo nombre. Para los archivos .zip es necesario que contenga los archivos auxiliares.
-\item
-  Para los archivos .csv es necesario que exista una columna de longitud y otra de latitud, las coordenadas deben ser decimales y estar en EPSG:4326 (WGS 84). El nombre de esas columnas se debe indicar en \texttt{Advanced\ options} / x column - Y column. Además, se debe tener absoluta claridad del tipo de delimitador (ejemplo: coma: , punto y coma: ; u otro diferente) y este debe ser especificado en \texttt{Advanced\ options} / CSV delimiter.
-\end{enumerate}
-
-\begin{bluebox2}
-
-\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. De esta manera, el archivo compartido podrá ser consultado por los usuarios indicados. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; Fig. 10.5).
-
-\end{awesomeblock}
-
-\end{bluebox2}
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=0.3\linewidth]{Img/shareAssets} 
-
-}
-
-\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-178}
-\end{figure}
-
-Por último, para utilizar cualquier información importada a GEE en un código, se puede realizar de dos maneras. Lo primero que hay que hacer es darle clic a la información importada en la sección de Assets, tras lo cual aparecerá la siguiente ventana (Fig. 10.6).
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/Asset_ruta} 
-
-}
-
-\caption{Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.}\label{fig:unnamed-chunk-179}
-\end{figure}
-
-La primera manera de utilizar dicha información en un código consiste en copiar la ruta de la información y utilizar en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; Fig. 10.6).
-
-La segunda consiste en acceder al código en el que estamos interesados en utilizar la información. Buscar la información que se desea importar en la pestaña de Assets, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (Fig. 10.7). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=1\linewidth]{Img/Asset_ruta2} 
-
-}
-
-\caption{Ejemplo de la ventana de información importada en GEE y ubicación del botón para importar la misma a un código previamente abierto.}\label{fig:unnamed-chunk-180}
-\end{figure}
 
 \newpage
 
@@ -4664,6 +4652,12 @@ Este método interpola al píxel de interés un valor según cada uno de los pun
 \item
   La desviación estándar global de la variable.
 \end{itemize}
+
+El siguiente ejercicio tiene como objetivo interpolar valores de CH4 para el norte de México.
+La imagen Sentinel que se utilizara, no tiene los valores de CH4 completos, muchos de los pixeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área de estudio
+Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios dentro del norte de México, de una imagen satelital Sentinel.
+Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos)
+y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar.
 
 Ejercicio 30
 
@@ -5018,7 +5012,7 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 
 }
 
-\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-198}
+\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-199}
 \end{figure}
 
 Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (image), el nombre de la banda que contiene las categorías de la clasificación (classBand), el reductor que se va a utilizar para resumir los valores por clase (reducer), las regiones de las cuales se va a obtener esta información (region), las etiquetas de las clases (classLabels), la escala en m de trabajo para aplicar el reductor (scale) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de \texttt{.setOptions}). Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola (Fig. 12.2).
@@ -5061,7 +5055,7 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 
 }
 
-\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-200}
+\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-201}
 \end{figure}
 
 Una vez que se tiene la clasificación del área de interés, se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.
