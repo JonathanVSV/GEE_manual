@@ -20,6 +20,12 @@ Es importante aclarar que esta guía es solamente introductoria, por lo tanto, h
 
 Para aprender a usar GEE, como todos los programas de programación, se debe llevar a cabo un proceso de prueba y error, mediante el desarrollo de códigos propios. Los autores esperamos que esta herramienta ayude a los nuevos usuarios a comenzar a utilizar GEE y a alcanzar sus objetivos particulares de investigación.
 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Idealmente, para sacar el máximo provecho, los lectores de este manual deben contar con una formación mínima en programación básica, para comprender la aplicación de términos relacionados con el uso de variables, estructuras de datos como las listas, diccionarios, etc, que se usan en los ejemplos. De no tenerlo, sugerimos que paralelamente a la lectura del manual, se vayan instruyendo de bases de programación
+:::
+::::
+
 ## Organización del libro
 
 El manual está organizado en doce capítulos que cubren diferentes aspectos de esta API ("Application Programming Interface", o interfaz de programación de aplicaciones). El primer capítulo describe algunos aspectos generales de GEE. El siguiente capítulo detalla los pasos a seguir para poder usar GEE, así como los elementos básicos de dicha herramienta. Posteriormente, se presentan algunas funciones básicas para ayudar al usuario a interactuar con la API y las diferencias entre la programación del lado del servidor y del usuario. A continuación, en cinco capítulos, se describen los tipos de objetos más frecuentemente utilizados en GEE: geometrías, vectores, colecciones de vectores, imágenes y colecciones de imágenes, así como sus métodos. Posteriormente, se describe con detalle cómo subir información a GEE para poder utilizarla en GEE. Después, se describen algunos métodos más avanzados para utilizar en conjunto información vectorial y ráster. El último capítulo muestra el procedimiento para realizar una clasificación supervisada en la API. 
