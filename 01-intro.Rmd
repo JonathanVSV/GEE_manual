@@ -22,7 +22,7 @@ Para aprender a usar GEE, como todos los programas de programación, se debe lle
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Idealmente, para sacar el máximo provecho, los lectores de este manual deben contar con una formación mínima en programación básica, para comprender la aplicación de términos relacionados con el uso de variables, estructuras de datos como las listas, diccionarios, etc, que se usan en los ejemplos. De no tenerlo, sugerimos que paralelamente a la lectura del manual, se vayan instruyendo de bases de programación
+Idealmente, para sacar el máximo provecho, los lectores de este manual deben contar con una formación mínima en programación básica, para comprender la aplicación de términos relacionados con el uso de variables, estructuras de datos como las listas, diccionarios, etc, que se usan en los ejemplos. De no tenerlo, sugerimos que paralelamente a la lectura del manual, se vayan instruyendo de bases de programación.
 :::
 ::::
 
