@@ -13,9 +13,9 @@ En la mayoría de los casos se va a utilizar la programación del lado del servi
 knitr::include_graphics("Img/daigFunc.png")
 ```
 
-### Tipos de objetos del lado del cliente
+## Tipos de objetos del lado del cliente
 
-**Cadenas de texto**
+#### Cadenas de texto {-}
 
 Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo:
 
@@ -45,12 +45,16 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
+<<<<<<< Updated upstream
 ```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 0."}
 knitr::include_graphics("Img/ej0.png")
 ```
 
 
 **Números**
+=======
+#### Números {-}
+>>>>>>> Stashed changes
 
 Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
 
@@ -73,7 +77,7 @@ Para los objetos numéricos no se usan las comillas.
 :::
 ::::
 
-**Listas**
+#### Listas {-}
 
 Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo:
 
@@ -115,7 +119,7 @@ knitr::include_graphics("Img/ej2.png")
 ```
 
 
-**Diccionarios**
+#### Diccionarios {-}
 
 Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves `{}` donde se define cada clave seguida de dos puntos `:` y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
@@ -171,7 +175,7 @@ Para los diccionarios se recomienda utilizar la notación de `.` seguida del nom
 :::
 ::::
 
-**Funciones**
+#### Funciones {-}
 
 Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
@@ -205,7 +209,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 :::
 ::::
 
-### Tipo de objetos del lado del servidor
+## Tipo de objetos del lado del servidor
 
 Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
 
@@ -234,7 +238,7 @@ En `Client libraries` se indican cuáles argumentos acepta cada método o funci�
 knitr::include_graphics("Img/objetosServ2.png")
 ```
 
-**ee.String**
+#### ee.String {-}
 
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior).
 
@@ -251,7 +255,7 @@ var cadenaServ = ee.String(cadena2);
 knitr::include_graphics("Img/ej4.png")
 ```
 
-**ee.Number**
+#### ee.Number {-}
 
 Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior).
 
@@ -265,7 +269,7 @@ var numServ = ee.Number(1900);
 knitr::include_graphics("Img/ej5.png")
 ```
 
-**ee.List**
+#### ee.List {-}
 
 Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
 
@@ -295,7 +299,7 @@ print(listaServ.get(1));
 knitr::include_graphics("Img/ej6.png")
 ```
 
-**ee.Dictionary**
+#### ee.Dictionary {-}
 
 Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior).
 
@@ -346,7 +350,7 @@ print('valores',diccServ.values());
 knitr::include_graphics("Img/ej7.png")
 ```
 
-**ee.Date**
+#### ee.Date {-}
 
 Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior). Hay varias formas de construir una fecha específica:
 
@@ -398,55 +402,55 @@ Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX 
 knitr::include_graphics("Img/ej8.png")
 ```
 
-**ee.Image**
+#### ee.Image {-}
 
 La definición de objetos `ee.Image` (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.
 
-**ee.ImageCollection**
+#### ee.ImageCollection {-}
 
 Las colecciones de imágenes ("image collections") están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
 
-**ee.Feature**
+#### ee.Feature {-}
 
 Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos `ee.Feature`. Más adelante se explica este tipo de objeto con mayor detalle.
 
-**ee.FeatureCollection**
+#### ee.FeatureCollection {-}
 
 Las colecciones de vectores ("feature collections") están formadas por varios vectores (`ee.Feature`). Además, al definir un objeto como `ee.FeatureCollection` permite utilizar cualquier método definido para este tipo de objetos. Más adelante se explica estos objetos con mayor detalle.
 
-**ee.Algorithms**
+#### ee.Algorithms {-}
 
 Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, por ejemplo, `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes, por ejemplo, `ee.Algorithms.TemporalSegmentation.Ccdc`.
 
-**ee.Array**
+#### ee.Array {-}
 
 Este tipo de objetos corresponden a arreglos multidimensionales. Los arreglos se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, los cuales se pueden consultar bajo la biblioteca de `ee.Array` (ver liga anterior).
 
-**ee.Classifier**
+#### ee.Classifier {-}
 
 Este tipo de objetos corresponden a algoritmos de clasificación supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de random forest, disponible mediante la función `ee.Classifier.smileRandomForest` o MaxEnt, disponible mediante la función `ee.Classifier.amnhMaxent`, entre otros.
 
-**ee.Clusterer**
+#### ee.Clusterer {-}
 
 Este tipo de objetos corresponden a algoritmos de clasificación no supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de k-means, disponible mediante la función `ee.Clusterer.wekaKMeans` o Cobweb, disponible mediante la función `ee.Clusterer.wekaCobweb`.
 
-**ee.Filter**
+#### ee.Filter {-}
 
 Este tipo de objetos se utilizan para filtrar colecciones, ya sean de vectores o de imágenes. También permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (por ejemplo, metadatos). Por último, contienen métodos para combinar filtros.
 
-**ee.Geometry**
+#### ee.Geometry {-}
 
 Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, por ejemplo, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o `ee.Geometry.Polygon.area` para calcular el área de un polígono.
 
-**ee.Join**
+#### ee.Join {-}
 
 Este conjunto de métodos permite realizar uniones entre colecciones de vectores, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
 
-**ee.Reducer**
+#### ee.Reducer {-}
 
 Los reductores ("reducers") permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se aplique. Por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). También pueden reducirse datos con dimensión temporal (colección de imágenes de diferentes fechas), dimensión espacial, según las bandas de las imágenes o incluso según los atributos de los vectores.
 
-**ee.Terrain**
+#### ee.Terrain {-}
 
 Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
 

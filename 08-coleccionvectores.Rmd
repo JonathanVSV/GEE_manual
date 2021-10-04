@@ -82,9 +82,12 @@ knitr::include_graphics("Img/ej15.png")
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
 
 ```{js echo = T}
-//  Información adicional para el ejemplo, creación de distintos vectores (ee.Feature),
-//  cada cual con diferentes tipos de geometrías y distintos atributos.
-//  esto para mostrar que una ee.FeatureCollection, no requiere que todos sus elementos (ee.Feature)
+//  Información adicional para el ejemplo, creación de 
+// distintos vectores (ee.Feature),
+//  cada cual con diferentes tipos de geometrías y distintos
+// atributos.
+//  esto para mostrar que una ee.FeatureCollection, no 
+// requiere que todos sus elementos (ee.Feature)
 //  tengan los mismos atributos, ni geometrías
 
 
@@ -261,7 +264,7 @@ knitr::include_graphics("Img/ej17.png")
 
 ## Métodos comunes
 
-### Filtración de una colección de vectores
+### Filtración de una colección de vectores {-}
 
 Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se usa el método `.filterBounds`, el cual permite seleccionar todos los vectores de la colección que se intersecten con la geometría indicada por el usuario. En el ejercicio se va a filtrar espacialmente una colección de vectores que contiene las áreas protegidas del mundo para seleccionar únicamente las áreas que se intersecten con un rectángulo que abarca el país de Costa Rica.
 
@@ -310,7 +313,7 @@ var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI');
 
 El método para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara con mayor detalle más adelante en la sección 7.5.8).
 
-### Funciones de usuario
+### Funciones de usuario {-}
 
 En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado 'system:time_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
 
@@ -348,24 +351,25 @@ Ejercicio 18.3
 ```{js echo = T}
 // Se declara que se ejecutará un filtro
 var areasProMar = areasProtegidas.filter( 
-  // ee.Filter.and indica que se crea un filtro compuesto en donde se deben cumplir 
-  //TODAS las siguientes condiciones para seleccionar un vector
+  // ee.Filter.and indica que se crea un filtro compuesto en donde se 
+  // deben cumplir TODAS las siguientes condiciones para seleccionar un 
+  // vector
   ee.Filter.and(    
-  //  Un filtro donde se indica el atributo a utilizar ('MARINE'). Este es un un
-  //  atributo donde 1 es área costera, y 2 son áreas marinas.
-  //  Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se seleccionarán todas
-  //  las áreas con un valor de 1 o 2, que indican áreas que están protegiendo un 
-  //  área marina.
+  //  Un filtro donde se indica el atributo a utilizar ('MARINE'). Este 
+  // es un un atributo donde 1 es área costera, y 2 son áreas marinas.
+  //  Por lo tanto al llamar `ee.Filter.gte` con el valor 1, se 
+  // seleccionarán todas las áreas con un valor de 1 o 2, que indican
+  // áreas que están protegiendo un área marina.
   ee.Filter.gte('MARINE',1),   
-  //  Se filtran las áreas protegidas que en su atributo 'NAME' (el nombre del área
-  //  protegida), contengan la palabra manglar
-  //  es asi para seleccionar solo las áreas protegidas que en su nombre incluya la 
-  //  palabra manglar.
+  //  Se filtran las áreas protegidas que en su atributo 'NAME' (el 
+  // nombre del área protegida), contengan la  palabra manglar es así
+  // para seleccionar solo las áreas protegidas que en su nombre incluya 
+  // la palabra manglar.
   ee.Filter.stringContains('NAME', 'Manglar'),
-  //  'GIS_M_AREA' es un atributo de las áreas protegidas que indica el área marina 
-  //  protegida calculada con un SIG.	10 es el valor mínimo del rango de área marina 
-  //  que queremos filtrar. 100 es el valor máximo del rango de área marina que 
-  //  queremos filtrar.
+  //  'GIS_M_AREA' es un atributo de las áreas protegidas que indica el 
+  // área marina protegida calculada con un SIG.	10 es el valor mínimo 
+  // del rango de área marina que queremos filtrar. 100 es el valor 
+  // máximo del rango de área marina que queremos filtrar.
   ee.Filter.rangeContains('GIS_M_AREA', 10,100))); 
 ```
 ```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 18."}
@@ -373,7 +377,7 @@ knitr::include_graphics("Img/ej18.png")
 ```
 
 
-### Selección de atributos
+### Selección de atributos {-}
 
 Al igual que con los vectores, se puede utilizar el método `.select` para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar una única banda sólo se requiere indicar el nombre del atributo, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
 
@@ -381,7 +385,7 @@ Al igual que con los vectores, se puede utilizar el método `.select` para selec
 ee.FeatureCollection.select(['atributo']);
 ```
 
-### Creación de puntos aleatorios
+### Creación de puntos aleatorios {-}
 
 GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método `.randomPoints` luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados.
 
@@ -399,7 +403,7 @@ var puntos = ee.FeatureCollection.randomPoints(region,1000);
 knitr::include_graphics("Img/ej19.png")
 ```
 
-### Obtención del primer vector
+### Obtención del primer vector {-}
 
 En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (`ee.FeatureCollection`), el resultado devuelto será un vector (`ee.Feature`).
 
@@ -416,7 +420,7 @@ var CUENCAS_MUNDIAL = ee.FeatureCollection(
 var cuenca = ee.Feature(CUENCAS_MUNDIAL.first()); 
 ```
 
-### Extracción de metadatos de una colección de vectores
+### Extracción de metadatos de una colección de vectores {-}
 
 Para extraer los nombres de los metadatos de una colección de vectores se usa el método `.propertyNames`. Para extraer algún metadato en particular de una colección de vectores se debe utilizar el método de `.get`, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer. 
 
@@ -435,7 +439,7 @@ var IDcoleccion = CUENCAS_MUNDIAL.get('system:id')
 var metadatosCOL = CUENCAS_MUNDIAL.propertyNames()
 ```
 
-### Extracción de listas con atributos de vectores
+### Extracción de listas con atributos de vectores {-}
 
 Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
 
@@ -467,7 +471,7 @@ var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
 knitr::include_graphics("Img/ej20.png")
 ```
 
-### Ejecución de una función sobre todos los vectores una colección
+### Ejecución de una función sobre todos los vectores una colección {-}
 
 Para aplicar una operación en todos los vectores de una colección se usa el método `.map`.
 
@@ -486,45 +490,40 @@ En el siguiente ejercicio se realizarán los siguientes pasos:
 
 * Llamamos a una colección con los límites políticos de los países.
 *	Seleccionamos a 'Peru'.
-*	Generamos 100 puntos aleatorios en Peru 
+*	Generamos 100 puntos aleatorios en Perú. 
 * Le añadimos a cada punto un nuevo atributo llamado 'aleatorio'.
-*	Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio
+*	Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio.
 *	Ejecutamos la función sobre todos los puntos aleatorios 
-
-
-
-
-
-*	usando el método `.map` ejecutamos la función `bufferAleatorio` sobre todos los puntos aleatorios 
+*	Usando el método `.map` ejecutamos la función `bufferAleatorio` sobre todos los puntos aleatorios.
 
 Ejercicio 21
 
 ```{js echo = T}
-// Se llama una tabla de GEE con colección de vectores de paises 
+// Se llama una tabla de GEE con colección de vectores de países 
 var paises = ee.FeatureCollection("USDOS/LSIB/2017"); 
 
-//  Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual ('equals')
-//  a 'Peru'.Filtrando asi solo a Perú 
+//  Seleccionamos el vector cuyo atributo 'COUNTRY_NAME' es igual 
+// ('equals') a 'Peru'.Filtrando así solo a Perú 
 var peru = paises.filterMetadata('COUNTRY_NA','equals','Peru'); 
 
 // Creamos una colección de vectores de 100 puntos aleatorios en Perú, y 
-// usando el método .randomColumn le asignamos a cada punto un nuevo atributo
-//  llamado 'aleatorio' cuyo valor es aleatorio (entre 0-1)
+// usando el método .randomColumn le asignamos a cada punto un nuevo 
+// atributo llamado 'aleatorio' cuyo valor es aleatorio (entre 0-1)
 var puntos =ee.FeatureCollection.randomPoints(peru, 100)
   .randomColumn('aleatorio');  
 
 //  Definimos una función del usuario (con el método `function`) llamada 
-//  'bufferAleatorio' en la que el dato de entrada (insumo) será un vector 
-//  (y el nombre genérico que le asignamos al insumo es (punto)):
-//    -Abrimos un diccionario donde especificaremos los procedimiento a 
-//    realizarle al vector (punto).
+//  'bufferAleatorio' en la que el dato de entrada (insumo) será un 
+//  vector (y el nombre genérico que le asignamos al insumo es (punto)):
+//  -Abrimos un diccionario donde especificaremos los procedimiento a 
+//  realizarle al vector (punto).
 var bufferAleatorio = function(punto){   
   //  -Extraemos el número aleatorio del vector que se encuentra en el 
   //  atributo 'aleatorio'.
   var numero = punto.get('aleatorio');  
  
-  //  -Convertimos el número extraído en el paso anterior en un `ee.Number`
-  //  del servidor.
+  //  -Convertimos el número extraído en el paso anterior en un 
+  // `ee.Number` del servidor.
     var NumServidor = ee.Number(numero);   
 
   //  -Multiplicamos ese `ee.Number` por 100 000.
@@ -534,24 +533,25 @@ var bufferAleatorio = function(punto){
   //  mayor o igual más cercano.
   var redondear = multiplicar.ceil(); 
   
-  //  -Creamos un buffer (area) alrededor del vector de entrada de longitud
-  //  definida según el número redondeado (redondear).
+  //  -Creamos un buffer (area) alrededor del vector de entrada de 
+  // longitud definida según el número redondeado (redondear).
   var area = punto.buffer(redondear);
 
-  //  -Le asignamos al buffer (area) un nuevo atributo llamado 'radio del 
-  //  buffer' con el número redondeado (metros usados para calcular el buffer).
+  //  -Le asignamos al buffer (area) un nuevo atributo llamado 'radio del
+  //  buffer' con el número redondeado (metros usados para calcular el 
+  // buffer).
   var tamaño = area.set('radio del buffer',redondear);  
 
-  //  -Le asignamos al buffer (tamaño) otro atributo llamado 'area', en donde
-  //  calculamos el área del buffer usando el método `.area`.
+  //  -Le asignamos al buffer (tamaño) otro atributo llamado 'area', en 
+  // donde calculamos el área del buffer usando el método `.area`.
   var circulo = tamaño.set('area',tamaño.area());  
 
-  //  -Usando el método return especificamos que el buffer (circulo) con los 
-  //  dos nuevos atributos será el resultado de esta función. 
+  //  Usando el método return especificamos que el buffer (circulo) con 
+  // los dos nuevos atributos será el resultado de esta función. 
   return circulo;
 };
 
-// Ejecutamos la función 'bufferAleatorio' sobre todos los vectores de la 
+// Ejecutamos la función 'bufferAleatorio' sobre todos los vectores de la
 // colección, cada punto de la colección entonces entrará como insumo de 
 // la función bufferAleatorio
 var circulos = puntos.map(bufferAleatorio); 
@@ -560,7 +560,7 @@ var circulos = puntos.map(bufferAleatorio);
 knitr::include_graphics("Img/ej21.png")
 ```
 
-### Reducción de una colección de vectores
+### Reducción de una colección de vectores {-}
 
 Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
 
@@ -630,7 +630,7 @@ var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
 knitr::include_graphics("Img/ej23.png")
 ```
 
-### Conversión de vector a imagen
+### Conversión de vector a imagen {-}
 
 Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar `.reduceToImage` indicamos el atributo que corresponderá al valor de los píxeles del raster como 'área'. Por último, con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel.
 
@@ -660,7 +660,7 @@ var areaGlaciar = hielo
 knitr::include_graphics("Img/ej24.png")
 ```
 
-### Unión de colecciones de vectores
+### Unión de colecciones de vectores {-}
 
 Para unir diferentes colecciones de vectores, mediante los valores de sus atributos, se usan las funciones de `ee.Join`. El resultado de estas funciones suele constar de una colección de vectores que contendrá los atributos de otra colección de vectores. Para determinar el tipo de relación entre los atributos de los vectores de ambas colecciones se utilizar un filtro (`.filter`).
 
@@ -715,7 +715,7 @@ var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
 knitr::include_graphics("Img/ej25.png")
 ```
 
-### Exportación de colecciones de vectores
+### Exportación de colecciones de vectores {-}
 
 GEE permite exportar vectores a la sección de Assets, al Google Drive o al GoogleCloud. Como GoogleCloud es un servicio de cobro no lo vamos a explicar. 
 

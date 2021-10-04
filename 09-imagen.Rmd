@@ -110,7 +110,7 @@ La información ráster en GEE se almacena en un esquema piramidal, es decir, qu
 
 ## Métodos comunes
 
-### Selección de bandas
+### Selección de bandas {-}
 
 Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar ciertas bandas mediante el método `.select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo:
 
@@ -124,7 +124,7 @@ var banda1 = CHM.select('1');
 var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 ```
 
-### Adición de nuevas propiedades o modificación de propiedades preexistentes
+### Adición de nuevas propiedades o modificación de propiedades preexistentes {-}
 
 Además, usando el método `.set` se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo.
 
@@ -148,7 +148,7 @@ Nótese que se puede sobreescribir la misma variable, pero hay que tener cuidado
 :::
 ::::
 
-### Sustitución de nombres de bandas
+### Sustitución de nombres de bandas {-}
 
 Por defecto, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `.rename`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, sino, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo:
 
@@ -160,7 +160,7 @@ banda1 = banda1.rename("chm");
 var landsat7imBandsRename = landsat7imBands.rename(['B','G','R','NIR']);
 ```
 
-### Realización de cortes
+### Realización de cortes {-}
 
 Para obtener el área de una imagen únicamente de una región de interés se puede realizar mediante el método `.clip`. Por ejemplo:
 
@@ -179,7 +179,7 @@ Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente neces
 :::
 ::::
 
-### Cálculo de operaciones matemáticas
+### Cálculo de operaciones matemáticas {-}
 
 Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply` para restar, sumar, dividir y multiplicar, respectivamente. 
 
@@ -217,7 +217,7 @@ Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por
 
 Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales(`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`), o if then else (`?:`).
 
-### Uso de operaciones relacionales, condicionales y booleanas
+### Uso de operaciones relacionales, condicionales y booleanas {-}
 
 Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que ("less than"), menor que o igual ("less than or equal"), mayor que ("greater than"), mayor que o igual ("greater than or equal"), igual ("equal2) o no igual ("not equal"), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
 
@@ -249,10 +249,15 @@ var qa = landsat7im.select('pixel_qa');
 // donde el bit 5 tenga valores iguales a cero
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 ```
+<<<<<<< Updated upstream
 ```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
 knitr::include_graphics("Img/ej278.png")
 ```
 ### Enmascaramiento
+=======
+
+### Enmascaramiento {-}
+>>>>>>> Stashed changes
 
 El método `.updateMask` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0).
 
@@ -276,7 +281,7 @@ Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se
 :::
 ::::
 
-### Adición de bandas
+### Adición de bandas {-}
 
 El usuario puede estar interesado en agregar una banda al conjunto de bandas que contiene por defecto una imagen. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Esto se puede lograr utilizando el método `.addBands`. Por ejemplo:
 
@@ -290,7 +295,7 @@ chmMx2Bands = chmMx.addBands(chmCmMx.rename('chmCm'));
 landsat7im = landsat7im.addBands(ndvi);
 ```
 
-### Conversión de imagen a vector
+### Conversión de imagen a vector {-}
 
 En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera:
 
@@ -318,7 +323,7 @@ En operaciones como la anterior, donde se debe indicar el tamaño del píxel par
 :::
 ::::
 
-### Exportación de una imagen
+### Exportación de una imagen {-}
 
 En GEE se pueden exportar imágenes a los Assets, al Google Drive o al GoogleCloud. Debido a que el servicio más común será el de drive es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: image (la imagen a exportar), description (el nombre con el que se desea guardar el archivo), folder (la carpeta donde se desea guardar la imagen), scale (la escala para exportar la imagen), maxPixels (el número máximo de píxeles permitido), format (el formato de imagen deseado), región (región que se desea exportar, suele corresponder al área de interés) y crs (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de Reference o en la pestaña de Docs, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región.
 
@@ -360,7 +365,7 @@ El sistema de coordenadas de referencia (CRS, por sus siglas en inglés) usado e
 
 Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
 
-#### Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A)
+#### Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A) {-}
 
 En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (`Search`) y escribir SRTM. Debería aparecer una ventana así (Fig. 9.1):
 

@@ -31,7 +31,7 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 :::
 ::::
 
-**Map.addLayer**
+#### Map.addLayer {-}
 
 `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
@@ -75,7 +75,7 @@ El código de los colores pasados al argumento de `palette` o `color` correspond
 :::
 ::::
 
-**Map.centerObject**
+#### Map.centerObject {-}
 
 Esta función permite centrar la pantalla de mapas en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
 
@@ -87,7 +87,7 @@ Map.setCenter(-39.86, 20.52, 5)
 
 Este grupo de funciones permiten realizar gráficos de diversos tipos. Sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la función principal `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
 
-**ui.Chart.feature**
+#### ui.Chart.feature {-}
 
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función `print`). Algunas de los métodos disponibles son: 
 
@@ -109,7 +109,7 @@ ui.Chart.feature.byProperty({
 
 ```
 
-**ui.Chart.image**
+#### ui.Chart.image {-}
 
 Este conjunto de funciones permiten obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles son: 
 
@@ -154,7 +154,7 @@ El nombre de las funciones para generar gráficos en GEE dan una idea del tipo d
 
 Este grupo de funciones permiten exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca `Export.` Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: ráster (`ee.Image`), vector (`ee.FeatureCollection`), mapa y vídeo.
 
-**Export.image**
+#### Export.image {-}
 
 En el caso de las imágenes (ráster, `ee.Image`), la función para exportarlas es `Export.image`. Dentro de GEE hay tres opciones para exportar los resultados de una imagen: 
 
@@ -201,7 +201,7 @@ En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000
 :::
 ::::
 
-**Export.table**
+#### Export.table {-}
 
 Por su parte, el formato vector (`ee.Feature`) permite exportar información vector y tablas sin información geográfica. De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato colección de vectores (`ee.FeatureCollection`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo vector: 
 
@@ -233,7 +233,7 @@ GEE permite exportar información en formato vector sólo en formato CSV, GeoJSO
 :::
 ::::
 
-**Export.video**
+#### Export.video {-}
 
 Esta opción permite exportar una colección de imágenes como vídeo ya sea al almacenamiento de la nube de Google o al Drive.
 

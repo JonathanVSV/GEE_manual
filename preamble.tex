@@ -10,7 +10,7 @@
 \usepackage{hyphenat}
 \usepackage{titlesec}
 % Para el control de viudas y huerfanos
-\usepackage[all]{nowidow}
+\usepackage[defaultlines=4,all]{nowidow}
 %\usepackage{float}
 %\floatplacement{figure}{h}
 \definecolor{lightblue}{RGB}{222,243,247}
@@ -18,10 +18,12 @@
 \definecolor{abvrulecolor}{RGB}{22,92,105}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\titlelabel{\thetitle\quad}
 \titleformat{\chapter}{\normalfont\LARGE\bfseries\color{darkblue}}{\thechapter}{1em}{}
 \titleformat*{\section}{\normalfont\Large\bfseries\color{darkblue}}
 \titleformat*{\subsection}{\normalfont\large\bfseries\color{darkblue}}
-\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titleformat*{\subsubsection}{\normalfont\normalsize\bfseries\color{darkblue}}
+\titlespacing*{\chapter}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
 \newtcolorbox{bluebox2}{
   colback=lightblue,
   colframe=darkblue,
@@ -37,5 +39,4 @@
 %\fancypagestyle{toc}{}
 %\fancypagestyle{main}{}
 %\fancypagestyle{contents}{}
-
 

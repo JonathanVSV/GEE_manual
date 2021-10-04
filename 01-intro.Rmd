@@ -34,7 +34,7 @@ El manual incluye ejemplos que ayudarán a entender la sintaxis y experimentar c
 
 ## Descripción general de Google Earth Engine
 
-### ¿Qué es Google Earth Engine?
+### ¿Qué es Google Earth Engine? {-}
 
 Google Earth Engine (GEE) es una plataforma desarrollada por Google que permite realizar procesamientos geoespaciales a gran escala, utilizando bases de datos con millones de datos. Uno de los principales intereses de esta plataforma es reducir el tiempo invertido en el pre-procesamiento y facilitar los análisis realizados con información geoespacial.
 
@@ -72,7 +72,7 @@ GEE ofrece dos APIs, una en JavaScript, la cual se accede vía internet, mediant
 4. Se pueden realizar fácilmente consultas de las colecciones de imágenes y sus metadatos, antes de decidir importarlos. La API de Python no permite realizar ese tipo de consultas fácilmente, de modo que hay que tener una absoluta claridad de las propiedades del conjunto de datos que se va a utilizar.
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al control de versiones de git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos.
 
-### Ejemplos de aplicaciones realizadas con GEE
+### Ejemplos de aplicaciones realizadas con GEE {-}
 
 GEE  se ha utilizado para diversos estudios enfocados en estudiar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo, Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 

@@ -44,7 +44,7 @@ var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
 var validAcc = validacion.accuracy();
 ```
 
-### Ejercicio: Clasificación (EjercicioE)
+### Ejercicio: Clasificación (Ejercicio E) {-}
 
 En este ejercicio se hará una clasificación supervisada utilizando el algoritmo Random Forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`ee.Feature`) y se le asigna la propiedad de 'clase' como número a través de un diccionario. Por último, se hace una colección de vectores.
 

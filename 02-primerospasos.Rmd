@@ -9,7 +9,7 @@ Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es 
 
 Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (inscribirse; Fig. 2.1). 
 
-```{r, echo = F, out.width="100%", fig.cap="Pantalla de incio en la página de registro de GEE."}
+```{r, echo = F, out.width="90%", fig.cap="Pantalla de incio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
 ```
 
@@ -21,7 +21,7 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 :::
 ::::
 
-```{r, echo = F, out.width="60%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
+```{r, echo = F, out.width="40%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
 knitr::include_graphics("Img/formulario.png")
 ```
 
@@ -49,7 +49,7 @@ knitr::include_graphics("Img/GEE_inicio_API2.png")
 
 Los elementos de la API se enlistan a continuación:
 
-**Scripts**
+#### Scripts {-}
 
 La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (Fig. 2.5):
 
@@ -79,7 +79,7 @@ El usuario puede compartir repositorios con otros usuarios de GEE como lector o 
 knitr::include_graphics("Img/engranaje.png")
 ```
 
-**Docs**
+#### Docs {-}
 
 Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (Fig. 2.8). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (Fig. 2.9). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
@@ -91,7 +91,7 @@ knitr::include_graphics("Img/docs.png")
 knitr::include_graphics("Img/doc_ejemplo.png")
 ```
 
-**Assets**
+#### Assets {-}
 
 La primera vez que se accede a la pestaña de Assets hay que crear una carpeta principal ("Home Folder") para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (Fig. 2.10).
 
@@ -109,7 +109,7 @@ knitr::include_graphics("Img/assets.png")
 knitr::include_graphics("Img/newAssets.png")
 ```
 
-**Pantalla de rutinas**
+#### Pantalla de rutinas {-}
 
 Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen (Fig. 2.14).
 
@@ -151,7 +151,7 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 :::
 ::::
 
-**Search**
+#### Search {-}
 
 Es una barra de búsqueda (Search) en la que se pueden buscar fuentes de datos o sitios (Fig. 2.17). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
@@ -159,7 +159,7 @@ Es una barra de búsqueda (Search) en la que se pueden buscar fuentes de datos o
 knitr::include_graphics("Img/search.png")
 ```
 
-**Pantalla de Mapa**
+#### Pantalla de Mapa {-}
 
 En esta pantalla de mapas se puede (Fig. 2.18):
 
@@ -171,7 +171,7 @@ En esta pantalla de mapas se puede (Fig. 2.18):
 knitr::include_graphics("Img/drawing.png")
 ```
 
-**Gestor de capas**
+#### Gestor de capas {-}
 
 El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (Fig. 2.19). Además, sirve para modificar las características de su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color, etc). Este menú aparece una vez que se cargan capas a la pantalla de mapas.
 
@@ -179,11 +179,11 @@ El gestor de capas permite prender y apagar las capas que se estén mostrando en
 knitr::include_graphics("Img/layer.png")
 ```
 
-**Pantalla de control**
+#### Pantalla de control {-}
 
 La pantalla de control contiene tres pestañas: console (consola), inspector (inspector) y de tasks (tareas). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
 
-**Console**
+#### Console {-}
 
 La consola consiste en la pantalla de comunicación con el servidor (Fig. 2.20). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
 
@@ -191,7 +191,7 @@ La consola consiste en la pantalla de comunicación con el servidor (Fig. 2.20).
 knitr::include_graphics("Img/rigthPanel.png")
 ```
 
-**Inspector**
+#### Inspector {-}
 
 Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés (Fig. 2.21).
 
@@ -199,7 +199,7 @@ Permite consultar los valores de las capas que se muestran en el mapa, al dar cl
 knitr::include_graphics("Img/inspector.png")
 ```
 
-**Tasks**
+#### Tasks {-}
 
 En esta pestaña se muestran las tareas que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; Fig. 2.22). Además, esta pestaña tiene otras funcionalidades:
 
@@ -217,7 +217,7 @@ knitr::include_graphics("Img/task.png")
 
 La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 4.
 
-### Simbología
+### Simbología {-}
 
 *	`‘ ’` : comillas simples.
 *	`“ ”` : comillas dobles.
@@ -228,7 +228,7 @@ La programación dentro de la API de GEE es una orientada a objetos, siguiendo l
 *	`_` : guion bajo.
 *	`,` : coma.
 
-### Lenguaje Javascript en GEE
+### Lenguaje Javascript en GEE {-}
 
 La sintaxis de Javascript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos (de igual forma iremos tocando la gramática del código a lo largo de los ejemplos):
 

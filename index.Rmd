@@ -15,6 +15,7 @@ pagestyle: empty
 openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
 toc-title: "Índice"
 toc: yes
+toc_depth: 3
 toccolor: black
 geometry: 
   - tmargin=3.5cm
