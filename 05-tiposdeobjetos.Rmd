@@ -17,7 +17,7 @@ knitr::include_graphics("Img/daigFunc.png")
 
 #### Cadenas de texto {-}
 
-Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo:
+Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (Fig. 5.2):
 
 Ejercicio 0
 
@@ -45,18 +45,13 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
-<<<<<<< Updated upstream
 ```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 0."}
 knitr::include_graphics("Img/ej0.png")
 ```
 
-
-**Números**
-=======
 #### Números {-}
->>>>>>> Stashed changes
 
-Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
+Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (Fig. 5.3):
 
 Ejercicio 1
 
@@ -79,7 +74,7 @@ Para los objetos numéricos no se usan las comillas.
 
 #### Listas {-}
 
-Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo:
+Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo (Fig. 5.4):
 
 Ejercicio 2
 
@@ -123,7 +118,7 @@ knitr::include_graphics("Img/ej2.png")
 
 Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves `{}` donde se define cada clave seguida de dos puntos `:` y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
-Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo `_` o la notación de "lowerCamelCase". Al hacer `print` se ordenarán alfabéticamente las claves.
+Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo `_` o la notación de "lowerCamelCase". Al hacer `print` se ordenarán alfabéticamente las claves (Fig. 5.5).
 
 Ejercicio 3 
 
@@ -219,7 +214,7 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 :::
 ::::
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.2).
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.6).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -240,7 +235,7 @@ knitr::include_graphics("Img/objetosServ2.png")
 
 #### ee.String {-}
 
-Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior).
+Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior; Fig. 5.7).
 
 Ejercicio 4:
 
@@ -257,7 +252,7 @@ knitr::include_graphics("Img/ej4.png")
 
 #### ee.Number {-}
 
-Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior).
+Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior; Fig. 5.8).
 
 Ejercicio 5:
 
@@ -271,7 +266,7 @@ knitr::include_graphics("Img/ej5.png")
 
 #### ee.List {-}
 
-Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior).
+Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior; Fig. 5.9).
 
 Ejercicio 6:
 
@@ -301,7 +296,7 @@ knitr::include_graphics("Img/ej6.png")
 
 #### ee.Dictionary {-}
 
-Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior).
+Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior; Fig. 5.10).
 
 Ejercicio 7
 
@@ -335,7 +330,7 @@ print(diccServ.get('lista_de_servidor'));
 print(diccServ.get('numero_de_usuario'));        
 ```
 
-Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista.
+Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista (Fig. 5.10).
 
 Ejercicio 7.2
 
@@ -352,7 +347,7 @@ knitr::include_graphics("Img/ej7.png")
 
 #### ee.Date {-}
 
-Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior). Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior; Fig. 5.11). Hay varias formas de construir una fecha específica:
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “YYYY-MM-DD”, esta fecha obligatoriamente debe:
   *	Usar la función `ee.Date`.

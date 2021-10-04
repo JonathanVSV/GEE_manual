@@ -6,7 +6,6 @@ documentclass: book  # tipo documento: book, article
 # biblio-style: apalike
 link-citations: yes
 subparagraph: true
-# description: "Meditaciones"
 papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
 fontfamily: times # palatino, helvet, utopia, times, pifont, courier, bookman, newcent y avant
@@ -18,13 +17,13 @@ toc: yes
 toc_depth: 3
 toccolor: black
 geometry: 
-  - tmargin=3.5cm
+  - tmargin=2.5cm
   - bmargin=2.5cm
   - lmargin=2.5cm
   - rmargin=2.5cm
-  - headheight=3cm,
-  - bottom=3cm,
-output: pdf_book
+  - headheight=2.5cm,
+  - bottom=2.5cm,
+# output: pdf_book
 language:
   ui:
     chapter_name: ''

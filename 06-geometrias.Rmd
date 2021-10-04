@@ -9,7 +9,7 @@ La información que contienen los objetos de tipo geometría corresponden a punt
 
 ## Creación de geometrías
 
-GEE utiliza el objeto `ee.Geometry` para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son: 
+GEE utiliza el objeto `ee.Geometry` para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son (Fig. 6.1): 
 
 *	Punto (`ee.Geometry.Point`): una coordenada en X & Y.
 *	Multipunto (`ee.Geometry.MultiPoint`): una lista de puntos. 
@@ -68,7 +68,7 @@ var perimetro = ee.Geometry.LinearRing([
   -109.468, 23.317]);
 ```
 
-También hay geometrías que tienen el componente de área, como son:
+También hay geometrías que tienen el componente de área, como son (Fig. 6.1):
 
 *	Rectángulo (`ee.Geometry.Rectangle`): un rectángulo.
 *	Polígono (`ee.Geometry.Polygon`): un polígono.
@@ -131,58 +131,59 @@ ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
      -67.64, 6.49,
      -62.11, 2.63]]);
 ```
-```{r, echo = F, out.width="30%", fig.cap="Resultado del ejercicio 9."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de los diferentes tipos de geometrías creadas."}
 knitr::include_graphics("Img/ej9.png")
 ```
 
-Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.1):
+Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.2):
 
 ```{r, echo = F, out.width="30%", fig.cap="Herramienta de geometrías en la pantalla de mapa."}
 knitr::include_graphics("Img/geometrias.png")
 ```
-Para crear puntos (Fig. 6.2): 
+Para crear puntos (Fig. 6.3): 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para crear puntos."}
 knitr::include_graphics("Img/punto.png")
 ```
-Para crear líneas (Fig. 6.3): 
+Para crear líneas (Fig. 6.4): 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para crear líneas."}
 knitr::include_graphics("Img/linea.png")
 ```
-Para crear polígonos (Fig. 6.4): 
+Para crear polígonos (Fig. 6.5): 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para crear polígonos."}
 knitr::include_graphics("Img/poligono.png")
 ```
-Para crear rectángulos (Fig. 6.5): 
+Para crear rectángulos (Fig. 6.6): 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para crear rectángulos."}
 knitr::include_graphics("Img/rec.png")
 ```
 
-Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.6):
+Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.7):
 
 ```{r, echo = F, out.width="50%", fig.cap="Visualización de la sección de Imports dentro de la pantalla de código."}
 knitr::include_graphics("Img/import.png")
 ```
 
 A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
-Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.7).
+Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.8).
 
 ```{r, echo = F, out.width="20%", fig.cap="Herramienta para desplazarse en la pantalla de mapas."}
 knitr::include_graphics("Img/mano.png")
 ```
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en `new layer`. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.8).
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en `new layer`. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.9).
 
 ```{r, echo = F, out.width="60%", fig.cap="Herramienta de geometrías en la pantalla de mapas."}
 knitr::include_graphics("Img/nuevaGeo.png")
 ```
 
-Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.9).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.10).
 
 ```{r, echo = F, out.width="40%", fig.cap="Ubicación de las herramientas de candado y engranaje."}
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada "Name" (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de "Import as" (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice "+ Property"; Fig. 6.10).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada "Name" (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de "Import as" (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice "+ Property"; Fig. 6.11).
 
 ```{r, echo = F, out.width="80%", fig.cap="Ejemplo de modificación de las propiedades de las geometrías."}
 knitr::include_graphics("Img/menuGeo.png")

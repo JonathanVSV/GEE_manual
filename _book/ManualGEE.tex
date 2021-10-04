@@ -48,7 +48,7 @@
   urlcolor=Blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage[tmargin=3.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=3cm,,bottom=3cm,]{geometry}
+\usepackage[tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=2.5cm,,bottom=2.5cm,]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -806,7 +806,7 @@ La función más sencilla de la interfaz es la de imprimir objetos en la consola
 
 \begin{figure}[btp]
 
-{\centering \includegraphics[width=0.3\linewidth]{Img/holaMundo} 
+{\centering \includegraphics[width=0.4\linewidth]{Img/holaMundo} 
 
 }
 
@@ -974,7 +974,7 @@ Este conjunto de funciones permiten obtener distintos tipos de gráficos a parti
   \texttt{ui.Chart.image.seriesByRegion}, entre otras.
 \end{itemize}
 
-Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion``. Este tipo de gráficos permiten graficar las series de tiempo de algunas áreas determinadas utilizando una colección de imágenes.
+Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función \texttt{ui.Chart.image.seriesByRegion}. Este tipo de gráficos permiten graficar las series de tiempo de algunas áreas determinadas utilizando una colección de imágenes (Fig. 3.4).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1000,6 +1000,15 @@ Por ejemplo, para graficar una serie de tiempo a partir de una colección de im�
 \NormalTok{  \})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/chartEjemplo} 
+
+}
+
+\caption{Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanenecia de bosque y permanencia de no bosque.}\label{fig:unnamed-chunk-33}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -1171,7 +1180,7 @@ En la sección de Assets, se pueden importar varios tipos de archivos a GEE para
 
 }
 
-\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-36}
+\caption{Opciones disponibles para importar datos en GEE.}\label{fig:unnamed-chunk-37}
 \end{figure}
 
 \begin{figure}[btp]
@@ -1180,7 +1189,7 @@ En la sección de Assets, se pueden importar varios tipos de archivos a GEE para
 
 }
 
-\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-37}
+\caption{Ubicación de la pestaña de importación de datos a GEE.}\label{fig:unnamed-chunk-38}
 \end{figure}
 
 Posteriormente se da clic en \texttt{Select} y se seleccionan los archivos que se quieren subir (Fig. 4.3). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en \texttt{Upload} (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recordar que para archivos shapefile sólo se aceptan archivos con las extensiones: shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
@@ -1200,7 +1209,7 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 
 }
 
-\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-38}
+\caption{Ejemplo de la ventana para importar un vector o tabla.}\label{fig:unnamed-chunk-39}
 \end{figure}
 
 Una vez que se haya dado clic en \texttt{Upload}, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de \texttt{Tasks} (Fig. 4.4). Una vez terminado, el archivo podrá ser accesado dentro de la pestaña de Assets. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de \texttt{New}.
@@ -1211,7 +1220,7 @@ Una vez que se haya dado clic en \texttt{Upload}, el progreso en la subida del a
 
 }
 
-\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-39}
+\caption{Ejemplo de una importación en proceso.}\label{fig:unnamed-chunk-40}
 \end{figure}
 
 \begin{bluebox2}
@@ -1251,7 +1260,7 @@ El usuario puede compartir sus archivos con otros usuarios de GEE como lector o 
 
 }
 
-\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-40}
+\caption{Ubicación del botón para compartir información importada en GEE.}\label{fig:unnamed-chunk-41}
 \end{figure}
 
 Por último, para utilizar cualquier información importada a GEE en un código, se puede realizar de dos maneras. Lo primero que hay que hacer es darle clic a la información importada en la sección de Assets, tras lo cual aparecerá la siguiente ventana (Fig. 4.6).
@@ -1262,7 +1271,7 @@ Por último, para utilizar cualquier información importada a GEE en un código,
 
 }
 
-\caption{Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.}\label{fig:unnamed-chunk-41}
+\caption{Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.}\label{fig:unnamed-chunk-42}
 \end{figure}
 
 La primera manera de utilizar dicha información en un código consiste en copiar la ruta de la información y utilizar en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; Fig. 4.6).
@@ -1275,7 +1284,7 @@ La segunda consiste en acceder al código en el que estamos interesados en utili
 
 }
 
-\caption{Ejemplo de la ventana de información importada en GEE y ubicación del botón para importar la misma a un código previamente abierto.}\label{fig:unnamed-chunk-42}
+\caption{Ejemplo de la ventana de información importada en GEE y ubicación del botón para importar la misma a un código previamente abierto.}\label{fig:unnamed-chunk-43}
 \end{figure}
 
 \newpage
@@ -1298,7 +1307,7 @@ En la mayoría de los casos se va a utilizar la programación del lado del servi
 
 }
 
-\caption{Representación de los dos lados de programación en GEE: del cliente y el servidor.}\label{fig:unnamed-chunk-43}
+\caption{Representación de los dos lados de programación en GEE: del cliente y el servidor.}\label{fig:unnamed-chunk-44}
 \end{figure}
 
 \hypertarget{tipos-de-objetos-del-lado-del-cliente}{%
@@ -1308,7 +1317,7 @@ En la mayoría de los casos se va a utilizar la programación del lado del servi
 \subsubsection*{Cadenas de texto}\label{cadenas-de-texto}}
 \addcontentsline{toc}{subsubsection}{Cadenas de texto}
 
-Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles \texttt{“\ ”} o sencillas \texttt{’\ ’}. Por ejemplo:
+Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles \texttt{“\ ”} o sencillas \texttt{’\ ’}. Por ejemplo (Fig. 5.2):
 
 Ejercicio 0
 
@@ -1343,11 +1352,20 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 
 \end{bluebox2}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej0} 
+
+}
+
+\caption{Resultado del ejercicio 0.}\label{fig:unnamed-chunk-47}
+\end{figure}
+
 \hypertarget{nuxfameros}{%
 \subsubsection*{Números}\label{nuxfameros}}
 \addcontentsline{toc}{subsubsection}{Números}
 
-Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
+Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (Fig. 5.3):
 
 Ejercicio 1
 
@@ -1360,6 +1378,15 @@ Ejercicio 1
 \KeywordTok{var}\NormalTok{ numero2 }\OperatorTok{=} \FloatTok{2.5}\OperatorTok{;}  
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej1} 
+
+}
+
+\caption{Resultado del ejercicio 1.}\label{fig:unnamed-chunk-49}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -1374,7 +1401,7 @@ Para los objetos numéricos no se usan las comillas.
 \subsubsection*{Listas}\label{listas}}
 \addcontentsline{toc}{subsubsection}{Listas}
 
-Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes \texttt{{[}{]}} y cada entrada es separada mediante una coma \texttt{,} . Por ejemplo:
+Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes \texttt{{[}{]}} y cada entrada es separada mediante una coma \texttt{,} . Por ejemplo (Fig. 5.4):
 
 Ejercicio 2
 
@@ -1414,13 +1441,22 @@ Ejercicio 2.1:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej2} 
+
+}
+
+\caption{Resultado del ejercicio 2.}\label{fig:unnamed-chunk-52}
+\end{figure}
+
 \hypertarget{diccionarios}{%
 \subsubsection*{Diccionarios}\label{diccionarios}}
 \addcontentsline{toc}{subsubsection}{Diccionarios}
 
 Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves \texttt{\{\}} donde se define cada clave seguida de dos puntos \texttt{:} y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
-Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo \texttt{\_} o la notación de ``lowerCamelCase''. Al hacer \texttt{print} se ordenarán alfabéticamente las claves.
+Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo \texttt{\_} o la notación de ``lowerCamelCase''. Al hacer \texttt{print} se ordenarán alfabéticamente las claves (Fig. 5.5).
 
 Ejercicio 3
 
@@ -1471,6 +1507,15 @@ Ejercicio 3.1
 \FunctionTok{print}\NormalTok{(dicc}\OperatorTok{.}\AttributeTok{clave2}\NormalTok{)}\OperatorTok{;}  
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej3} 
+
+}
+
+\caption{Resultado del ejercicio 3.}\label{fig:unnamed-chunk-55}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -1536,7 +1581,7 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 
 \end{bluebox2}
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.2).
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.6).
 
 \begin{bluebox2}
 
@@ -1563,14 +1608,14 @@ En \texttt{Client\ libraries} se indican cuáles argumentos acepta cada método 
 
 }
 
-\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-52}
+\caption{Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE.}\label{fig:unnamed-chunk-57}
 \end{figure}
 
 \hypertarget{ee.string}{%
 \subsubsection*{ee.String}\label{ee.string}}
 \addcontentsline{toc}{subsubsection}{ee.String}
 
-Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.String} en la API (ver liga anterior).
+Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.String} en la API (ver liga anterior; Fig. 5.7).
 
 Ejercicio 4:
 
@@ -1584,11 +1629,20 @@ Ejercicio 4:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej4} 
+
+}
+
+\caption{Resultado del ejercicio 4.}\label{fig:unnamed-chunk-59}
+\end{figure}
+
 \hypertarget{ee.number}{%
 \subsubsection*{ee.Number}\label{ee.number}}
 \addcontentsline{toc}{subsubsection}{ee.Number}
 
-Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Number} en la API (ver liga anterior).
+Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Number} en la API (ver liga anterior; Fig. 5.8).
 
 Ejercicio 5:
 
@@ -1599,11 +1653,20 @@ Ejercicio 5:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej5} 
+
+}
+
+\caption{Resultado del ejercicio 5.}\label{fig:unnamed-chunk-61}
+\end{figure}
+
 \hypertarget{ee.list}{%
 \subsubsection*{ee.List}\label{ee.list}}
 \addcontentsline{toc}{subsubsection}{ee.List}
 
-Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.List} (ver enlace anterior).
+Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.List} (ver enlace anterior; Fig. 5.9).
 
 Ejercicio 6:
 
@@ -1632,11 +1695,20 @@ Ejercicio 6.1:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej6} 
+
+}
+
+\caption{Resultado del ejercicio 6.}\label{fig:unnamed-chunk-64}
+\end{figure}
+
 \hypertarget{ee.dictionary}{%
 \subsubsection*{ee.Dictionary}\label{ee.dictionary}}
 \addcontentsline{toc}{subsubsection}{ee.Dictionary}
 
-Permite enviar un objeto como diccionario al servidor. La definición de objetos \texttt{ee.Dictionary} habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior).
+Permite enviar un objeto como diccionario al servidor. La definición de objetos \texttt{ee.Dictionary} habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior; Fig. 5.10).
 
 Ejercicio 7
 
@@ -1674,7 +1746,7 @@ Ejercicio 7.1
 \end{Highlighting}
 \end{Shaded}
 
-Por último, si se desea obtener las claves disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.keys}. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.values}, la cual devuelve una lista.
+Por último, si se desea obtener las claves disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.keys}. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.values}, la cual devuelve una lista (Fig. 5.10).
 
 Ejercicio 7.2
 
@@ -1688,11 +1760,20 @@ Ejercicio 7.2
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej7} 
+
+}
+
+\caption{Resultado del ejercicio 7.}\label{fig:unnamed-chunk-68}
+\end{figure}
+
 \hypertarget{ee.date}{%
 \subsubsection*{ee.Date}\label{ee.date}}
 \addcontentsline{toc}{subsubsection}{ee.Date}
 
-Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Date} (ver enlace anterior). Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Date} (ver enlace anterior; Fig. 5.11). Hay varias formas de construir una fecha específica:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1780,6 +1861,24 @@ Ejercicio 8:
 \KeywordTok{var}\NormalTok{ fecha3 }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Date}\OperatorTok{.}\FunctionTok{parse}\NormalTok{(}\StringTok{\textquotesingle{}DD\_YYYY/MMM\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}14\_1827/jul\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Vease en la siguiente figura
+
+\end{awesomeblock}
+
+\end{bluebox2}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/ej8} 
+
+}
+
+\caption{Resultado del ejercicio 8.}\label{fig:unnamed-chunk-70}
+\end{figure}
 
 \hypertarget{ee.image}{%
 \subsubsection*{ee.Image}\label{ee.image}}
@@ -1883,7 +1982,7 @@ La información que contienen los objetos de tipo geometría corresponden a punt
 \hypertarget{creaciuxf3n-de-geometruxedas}{%
 \section{Creación de geometrías}\label{creaciuxf3n-de-geometruxedas}}
 
-GEE utiliza el objeto \texttt{ee.Geometry} para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son:
+GEE utiliza el objeto \texttt{ee.Geometry} para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son (Fig. 6.1):
 
 \begin{itemize}
 \tightlist
@@ -1952,7 +2051,7 @@ Ejercicio 9
 \end{Highlighting}
 \end{Shaded}
 
-También hay geometrías que tienen el componente de área, como son:
+También hay geometrías que tienen el componente de área, como son (Fig. 6.1):
 
 \begin{itemize}
 \tightlist
@@ -2024,7 +2123,16 @@ Ejercicio 9.1
 \end{Highlighting}
 \end{Shaded}
 
-Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.1):
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej9} 
+
+}
+
+\caption{Visualización de los diferentes tipos de geometrías creadas.}\label{fig:unnamed-chunk-73}
+\end{figure}
+
+Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.2):
 
 \begin{figure}[btp]
 
@@ -2032,10 +2140,10 @@ Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor
 
 }
 
-\caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-63}
+\caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-74}
 \end{figure}
 
-Para crear puntos (Fig. 6.2):
+Para crear puntos (Fig. 6.3):
 
 \begin{figure}[btp]
 
@@ -2043,10 +2151,10 @@ Para crear puntos (Fig. 6.2):
 
 }
 
-\caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-64}
+\caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-75}
 \end{figure}
 
-Para crear líneas (Fig. 6.3):
+Para crear líneas (Fig. 6.4):
 
 \begin{figure}[btp]
 
@@ -2054,10 +2162,10 @@ Para crear líneas (Fig. 6.3):
 
 }
 
-\caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-65}
+\caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-76}
 \end{figure}
 
-Para crear polígonos (Fig. 6.4):
+Para crear polígonos (Fig. 6.5):
 
 \begin{figure}[btp]
 
@@ -2065,10 +2173,10 @@ Para crear polígonos (Fig. 6.4):
 
 }
 
-\caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-66}
+\caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-77}
 \end{figure}
 
-Para crear rectángulos (Fig. 6.5):
+Para crear rectángulos (Fig. 6.6):
 
 \begin{figure}[btp]
 
@@ -2076,10 +2184,10 @@ Para crear rectángulos (Fig. 6.5):
 
 }
 
-\caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-67}
+\caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-78}
 \end{figure}
 
-Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.6):
+Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.7):
 
 \begin{figure}[btp]
 
@@ -2087,11 +2195,11 @@ Todas las geometrías creadas con estas herramientas se importarán automáticam
 
 }
 
-\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-68}
+\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-79}
 \end{figure}
 
 A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
-Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.7).
+Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.8).
 
 \begin{figure}[btp]
 
@@ -2099,10 +2207,10 @@ Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.7).
 
 }
 
-\caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-69}
+\caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-80}
 \end{figure}
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.8).
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.9).
 
 \begin{figure}[btp]
 
@@ -2110,10 +2218,10 @@ Todas las geometrías dibujadas se importarán como una sola colección, pero si
 
 }
 
-\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-70}
+\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-81}
 \end{figure}
 
-Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.9).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.10).
 
 \begin{figure}[btp]
 
@@ -2121,10 +2229,10 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 
 }
 
-\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-71}
+\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-82}
 \end{figure}
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 6.10).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 6.11).
 
 \begin{figure}[btp]
 
@@ -2132,7 +2240,7 @@ Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombr
 
 }
 
-\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-72}
+\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-83}
 \end{figure}
 
 \begin{bluebox2}
@@ -2187,7 +2295,7 @@ Los cambios de los parámetros de visualización de los vectores no pueden hacer
 \hypertarget{creaciuxf3n-de-vectores}{%
 \section{Creación de Vectores}\label{creaciuxf3n-de-vectores}}
 
-Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo:
+Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (Fig. 7.1):
 
 Ejercicio 10:
 
@@ -2221,7 +2329,7 @@ Ejercicio 10:
 
 Una vez revisado los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método \texttt{.select}. Para seleccionar una única propiedad sólo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas.
 
-Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo:
+Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (Fig. 7.1):
 
 Ejercicio 10
 
@@ -2237,7 +2345,7 @@ Ejercicio 10
 \subsection*{Adición de nuevas propiedades o modificación de propiedades preexistentes}\label{adiciuxf3n-de-nuevas-propiedades-o-modificaciuxf3n-de-propiedades-preexistentes}}
 \addcontentsline{toc}{subsection}{Adición de nuevas propiedades o modificación de propiedades preexistentes}
 
-Usando el método \texttt{.set} se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo:
+Usando el método \texttt{.set} se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (Fig. 7.1):
 
 Ejercicio 10.1
 
@@ -2247,11 +2355,20 @@ Ejercicio 10.1
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej10} 
+
+}
+
+\caption{Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad.}\label{fig:unnamed-chunk-88}
+\end{figure}
+
 \hypertarget{extracciuxf3n-y-ediciuxf3n-de-propiedades-de-vectores}{%
 \subsection*{Extracción y edición de propiedades de vectores}\label{extracciuxf3n-y-ediciuxf3n-de-propiedades-de-vectores}}
 \addcontentsline{toc}{subsection}{Extracción y edición de propiedades de vectores}
 
-Para extraer ciertas propiedades de un vector se puede utilizar el método \texttt{.get}, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con \texttt{.first}) de una colección de vectores de cuencas (las colecciones de vectores se explican en el siguiente capítulo)
+Para extraer ciertas propiedades de un vector se puede utilizar el método \texttt{.get}, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con \texttt{.first}) de una colección de vectores de cuencas (las colecciones de vectores se explican en el siguiente capítulo; Fig. 7.2).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2290,11 +2407,20 @@ Ejercicio 11
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej11} 
+
+}
+
+\caption{Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades.}\label{fig:unnamed-chunk-90}
+\end{figure}
+
 \hypertarget{intersecciuxf3n-con-otros-vectores}{%
 \subsection*{Intersección con otros vectores}\label{intersecciuxf3n-con-otros-vectores}}
 \addcontentsline{toc}{subsection}{Intersección con otros vectores}
 
-Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método \texttt{.intersection}. Por ejemplo:
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método \texttt{.intersection}. Por ejemplo (Fig. 7.3):
 
 Ejercicio 12
 
@@ -2322,7 +2448,7 @@ Al realizar una intersección, el vector resultante heredará los atributos del 
 \subsection*{Creación de un buffer}\label{creaciuxf3n-de-un-buffer}}
 \addcontentsline{toc}{subsection}{Creación de un buffer}
 
-Para realizar un buffer a partir de un vector se utiliza el método \texttt{.buffer}, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado.
+Para realizar un buffer a partir de un vector se utiliza el método \texttt{.buffer}, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (Fig. 7.3).
 
 Ejercicio 12.1
 
@@ -2340,7 +2466,7 @@ Ejercicio 12.1
 \subsection*{Cálculo de área}\label{cuxe1lculo-de-uxe1rea}}
 \addcontentsline{toc}{subsection}{Cálculo de área}
 
-Para calcular el área de un vector se utiliza el método \texttt{.area}. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados.
+Para calcular el área de un vector se utiliza el método \texttt{.area}. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (Fig. 7.3).
 
 Ejercicio 12.2
 
@@ -2355,7 +2481,7 @@ Ejercicio 12.2
 \subsection*{Cálculo de perímetro}\label{cuxe1lculo-de-peruxedmetro}}
 \addcontentsline{toc}{subsection}{Cálculo de perímetro}
 
-Podemos calcular el perímetro de un vector usando el método \texttt{.perimeter}, que hace el cálculo en metros.
+Podemos calcular el perímetro de un vector usando el método \texttt{.perimeter}, que hace el cálculo en metros (Fig. 7.3).
 
 Ejercicio 12.3
 
@@ -2370,7 +2496,7 @@ Ejercicio 12.3
 \subsection*{Disolución de polígonos}\label{disoluciuxf3n-de-poluxedgonos}}
 \addcontentsline{toc}{subsection}{Disolución de polígonos}
 
-El método \texttt{.dissolve} une todas las geometrías que se intersectan de un vector en un solo polígono, y si no se intersectan genera un multipolígono.
+El método \texttt{.dissolve} une todas las geometrías que se intersectan de un vector en un solo polígono, y si no se intersectan genera un multipolígono (Fig. 7.3).
 
 Ejercicio 12.4
 
@@ -2412,7 +2538,7 @@ Ejercicio 12.4
 \subsection*{Unión de vectores}\label{uniuxf3n-de-vectores}}
 \addcontentsline{toc}{subsection}{Unión de vectores}
 
-El método \texttt{.union} permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo están se convertirán en un multi-polígono.
+El método \texttt{.union} permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo están se convertirán en un multi-polígono (Fig. 7.3).
 
 Ejercicio 12.5
 
@@ -2423,13 +2549,22 @@ Ejercicio 12.5
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej12} 
+
+}
+
+\caption{Visualización de la unión de diferentes geometrías.}\label{fig:unnamed-chunk-97}
+\end{figure}
+
 \newpage
 
 \hypertarget{ee.featurecollection-1}{%
 \chapter{ee.FeatureCollection}\label{ee.featurecollection-1}}
 
 Las colecciones de vectores (\texttt{ee.FeatureCollection}) son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
-Es importante recalcar que una \texttt{ee.FeatureCollection} es un conjunto de vectores, de modo que puede contener distintas \texttt{ee.Feature} con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono)
+Es importante recalcar que una \texttt{ee.FeatureCollection} es un conjunto de vectores, de modo que puede contener distintas \texttt{ee.Feature} con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono; Fig. 8.1).
 
 \begin{bluebox2}
 
@@ -2452,6 +2587,15 @@ Ejercicio 13
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej13} 
+
+}
+
+\caption{Visualización de la colección de vectores con los límites internacionales, así como su salida en la consola.}\label{fig:unnamed-chunk-99}
+\end{figure}
+
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
@@ -2469,7 +2613,7 @@ Las colecciones de vectores contienen los metadatos e información de todos los 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Al usar \texttt{print} con las colecciones de vectores, la consola puede mostrar máximo de 5000 vectores. En caso que uno necesite usar \texttt{print} en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método \texttt{.limit} el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean \textless= 5000).
+Al usar \texttt{print} con las colecciones de vectores, la consola puede mostrar máximo de 5000 vectores. En caso que uno necesite usar \texttt{print} en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método \texttt{.limit} el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean \textless= 5000; Fig. 8.2).
 
 \end{awesomeblock}
 
@@ -2499,10 +2643,19 @@ Ejercicio 14
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej14} 
+
+}
+
+\caption{Visualización de las primeras 1000 cuencas, así como su salida en la consola.}\label{fig:unnamed-chunk-101}
+\end{figure}
+
 \hypertarget{creaciuxf3n-de-colecciones-de-vectores}{%
 \section{Creación de colecciones de vectores}\label{creaciuxf3n-de-colecciones-de-vectores}}
 
-Una colección de vectores se define a partir del método \texttt{ee.FeatureCollection} y puede contener geometrías, vectores, o colección de vectores. Una colección de geometrías puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos.
+Una colección de vectores se define a partir del método \texttt{ee.FeatureCollection} y puede contener geometrías, vectores, o colección de vectores. Una colección de geometrías puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos (Fig. 8.3).
 
 Ejercicio 15
 
@@ -2512,6 +2665,15 @@ Ejercicio 15
 \KeywordTok{var}\NormalTok{ coleccion }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{FeatureCollection}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Point}\NormalTok{(}\FloatTok{16.37}\OperatorTok{,} \FloatTok{48.225}\NormalTok{))}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej15} 
+
+}
+
+\caption{Visualización de una colección de vectores con un único objeto de geometría de tipo punto.}\label{fig:unnamed-chunk-103}
+\end{figure}
 
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
 
@@ -2621,7 +2783,7 @@ Una colección de vectores puede construirse con vectores de geometrías diferen
 \end{Highlighting}
 \end{Shaded}
 
-Ejercicio 16
+Ejercicio 16 (Fig. 8.4)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2637,10 +2799,19 @@ Ejercicio 16
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej16} 
+
+}
+
+\caption{Visualización de una colección de vectores son objetos con diferentes geometríasm así como su salida en la consola.}\label{fig:unnamed-chunk-106}
+\end{figure}
+
 \hypertarget{visualizaciuxf3n-de-colecciones-de-vectores}{%
 \section{Visualización de colecciones de vectores}\label{visualizaciuxf3n-de-colecciones-de-vectores}}
 
-Al igual que los vectores, las colecciones de vectores se pueden agregar a la pantalla de mapas mediante la función \texttt{Map.addLayer}.
+Al igual que los vectores, las colecciones de vectores se pueden agregar a la pantalla de mapas mediante la función \texttt{Map.addLayer} (Fig. 8.5).
 
 Ejercicio 17
 
@@ -2654,7 +2825,7 @@ Ejercicio 17
 \end{Highlighting}
 \end{Shaded}
 
-Adicionalmente, sólo para las colecciones de vectores se pueden especificar parámetros adicionales con el método \texttt{.draw} (el cual transforma la colección de vectores en una imagen y permite así especificar tamaño del punto \texttt{pointRadius} y grosor \texttt{strokeWidth} de la línea). Esto se logra con el método \texttt{.draw}.
+Adicionalmente, sólo para las colecciones de vectores se pueden especificar parámetros adicionales con el método \texttt{.draw} (el cual transforma la colección de vectores en una imagen y permite así especificar tamaño del punto \texttt{pointRadius} y grosor \texttt{strokeWidth} de la línea). Esto se logra con el método \texttt{.draw} (Fig. 8.5).
 
 Ejercicio 17.1
 
@@ -2665,7 +2836,7 @@ Ejercicio 17.1
 \end{Highlighting}
 \end{Shaded}
 
-Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método \texttt{.paint} los contornos de los vectores sobre una imagen vacía (\texttt{ee.Image}), y luego proyecta esa imagen:
+Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método \texttt{.paint} los contornos de los vectores sobre una imagen vacía (\texttt{ee.Image}), y luego proyecta esa imagen (Fig. 8.5):
 
 Ejercicio 17.2
 
@@ -2700,6 +2871,15 @@ Ejercicio 17.2
   \DataTypeTok{max}\OperatorTok{:} \DecValTok{14}\NormalTok{\}}\OperatorTok{,} \StringTok{\textquotesingle{}bordes de colores\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej17} 
+
+}
+
+\caption{Diferentes formas de visualizar colecciones de vectores.}\label{fig:unnamed-chunk-110}
+\end{figure}
 
 \hypertarget{muxe9todos-comunes-2}{%
 \section{Métodos comunes}\label{muxe9todos-comunes-2}}
@@ -2758,7 +2938,7 @@ Para filtrar por atributos de los vectores se puede realizar mediante el método
 
 y finalmente el valor con el que se hará la comparación.
 
-En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo `ISO3' que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es `CRI'.
+En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo `ISO3' que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es `CRI' (Fig. 8.6).
 
 Ejercicio 18.1
 
@@ -2772,15 +2952,15 @@ Ejercicio 18.1
 \end{Highlighting}
 \end{Shaded}
 
-El método para filtrar por fecha es \texttt{.filterDate} ,sólo aplica en caso que los vectores tengan un atributo llamado `system:time\_start' y en ese atributo se encuentre la fecha en formato `AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a `system:time\_start' para ello se puede usar el método \texttt{.set} y el método \texttt{.map} (el método \texttt{.map} se explicara con mayor detalle más adelante en la sección 7.5.8).
+El método para filtrar por fecha es \texttt{.filterDate} ,sólo aplica en caso que los vectores tengan un atributo llamado `system:time\_start' y en ese atributo se encuentre la fecha en formato `AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a `system:time\_start' para ello se puede usar el método \texttt{.set} y el método \texttt{.map} (el método \texttt{.map} se explicará con mayor detalle más adelante en esta sección).
 
 \hypertarget{funciones-de-usuario}{%
 \subsection*{Funciones de usuario}\label{funciones-de-usuario}}
 \addcontentsline{toc}{subsection}{Funciones de usuario}
 
-En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo `STATUS\_YR', y guardarlo en un nuevo atributo llamado `system:time\_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
+En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo `STATUS\_YR', y guardarlo en un nuevo atributo llamado `system:time\_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021 (Fig. 8.6).
 
-Ejercicio 17.2
+Ejercicio 18.2
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2818,7 +2998,7 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la bibliot
 \item
   Después se usa otra coma para indicar otro filtro.
 \item
-  \texttt{ee.Filter.rangeContains} es para seleccionar todo lo que se encuentre en un rango de valores.
+  \texttt{ee.Filter.rangeContains} es para seleccionar todo lo que se encuentre en un rango de valores (Fig. 8.6).
 \end{enumerate}
 
 Ejercicio 18.3
@@ -2850,6 +3030,15 @@ Ejercicio 18.3
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej18} 
+
+}
+
+\caption{Visualización de los resultados de diferentes filtros sobre una colección de áreas protegidas.}\label{fig:unnamed-chunk-115}
+\end{figure}
+
 \hypertarget{selecciuxf3n-de-atributos}{%
 \subsection*{Selección de atributos}\label{selecciuxf3n-de-atributos}}
 \addcontentsline{toc}{subsection}{Selección de atributos}
@@ -2866,7 +3055,7 @@ Al igual que con los vectores, se puede utilizar el método \texttt{.select} par
 \subsection*{Creación de puntos aleatorios}\label{creaciuxf3n-de-puntos-aleatorios}}
 \addcontentsline{toc}{subsection}{Creación de puntos aleatorios}
 
-GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método \texttt{.randomPoints} luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados.
+GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método \texttt{.randomPoints} luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados (Fig. 8.7).
 
 Ejercicio 19
 
@@ -2881,11 +3070,20 @@ Ejercicio 19
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej19} 
+
+}
+
+\caption{Visualización de los puntos aleatorios creados dentro de un área de interés.}\label{fig:unnamed-chunk-118}
+\end{figure}
+
 \hypertarget{obtenciuxf3n-del-primer-vector}{%
 \subsection*{Obtención del primer vector}\label{obtenciuxf3n-del-primer-vector}}
 \addcontentsline{toc}{subsection}{Obtención del primer vector}
 
-En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método \texttt{.first} que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (\texttt{ee.FeatureCollection}), el resultado devuelto será un vector (\texttt{ee.Feature}).
+En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método \texttt{.first} que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (\texttt{ee.FeatureCollection}), el resultado devuelto será un vector (\texttt{ee.Feature}, Fig. 8.8).
 
 Ejercicio 20
 
@@ -2906,7 +3104,7 @@ Ejercicio 20
 \subsection*{Extracción de metadatos de una colección de vectores}\label{extracciuxf3n-de-metadatos-de-una-colecciuxf3n-de-vectores}}
 \addcontentsline{toc}{subsection}{Extracción de metadatos de una colección de vectores}
 
-Para extraer los nombres de los metadatos de una colección de vectores se usa el método \texttt{.propertyNames}. Para extraer algún metadato en particular de una colección de vectores se debe utilizar el método de \texttt{.get}, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer.
+Para extraer los nombres de los metadatos de una colección de vectores se usa el método \texttt{.propertyNames}. Para extraer algún metadato en particular de una colección de vectores se debe utilizar el método de \texttt{.get}, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer (Fig. 8.8).
 
 \begin{bluebox2}
 
@@ -2932,7 +3130,7 @@ Ejercicio 20.1
 \subsection*{Extracción de listas con atributos de vectores}\label{extracciuxf3n-de-listas-con-atributos-de-vectores}}
 \addcontentsline{toc}{subsection}{Extracción de listas con atributos de vectores}
 
-Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}).
+Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}; Fig. 8.8).
 
 Ejercicio 20.2
 
@@ -2960,6 +3158,15 @@ Ejercicio 20.2
 \OperatorTok{.}\FunctionTok{aggregate\_stats}\NormalTok{(}\StringTok{\textquotesingle{}UP\_AREA\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej20} 
+
+}
+
+\caption{Ejemplos de la salida en la consola de diferentes propiedades de los vectores que forman una colección de vectores de cuencas.}\label{fig:unnamed-chunk-122}
+\end{figure}
 
 \hypertarget{ejecuciuxf3n-de-una-funciuxf3n-sobre-todos-los-vectores-una-colecciuxf3n}{%
 \subsection*{Ejecución de una función sobre todos los vectores una colección}\label{ejecuciuxf3n-de-una-funciuxf3n-sobre-todos-los-vectores-una-colecciuxf3n}}
@@ -2990,7 +3197,7 @@ Para poder ejecutar el método \texttt{.map} es necesario antes definir una func
 
 \end{bluebox2}
 
-En el siguiente ejercicio se realizarán los siguientes pasos:
+En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.9):
 
 \begin{itemize}
 \tightlist
@@ -3005,7 +3212,7 @@ En el siguiente ejercicio se realizarán los siguientes pasos:
 \item
   Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio.
 \item
-  Ejecutamos la función sobre todos los puntos aleatorios
+  Ejecutamos la función sobre todos los puntos aleatorios.
 \item
   Usando el método \texttt{.map} ejecutamos la función \texttt{bufferAleatorio} sobre todos los puntos aleatorios.
 \end{itemize}
@@ -3073,11 +3280,20 @@ Ejercicio 21
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej21} 
+
+}
+
+\caption{Visualización de varios buffer, así como la salida de la consola..}\label{fig:unnamed-chunk-124}
+\end{figure}
+
 \hypertarget{reducciuxf3n-de-una-colecciuxf3n-de-vectores}{%
 \subsection*{Reducción de una colección de vectores}\label{reducciuxf3n-de-una-colecciuxf3n-de-vectores}}
 \addcontentsline{toc}{subsection}{Reducción de una colección de vectores}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
 
 \begin{itemize}
 \tightlist
@@ -3134,7 +3350,16 @@ Ejercicio 22
 \end{Highlighting}
 \end{Shaded}
 
-También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento:
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej22} 
+
+}
+
+\caption{Vista en la consola del error cuadrático medio calculado entre el área calculada en GEE y reportado.}\label{fig:unnamed-chunk-126}
+\end{figure}
+
+También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento (Fig. 8.11):
 
 \begin{itemize}
 \tightlist
@@ -3157,18 +3382,27 @@ Ejercicio 23
   \OperatorTok{.}\FunctionTok{filterBounds}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{79.906}\OperatorTok{,} \FloatTok{25.196}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{59.6}\OperatorTok{,} \FloatTok{9.776}\NormalTok{))}\OperatorTok{;}
 \CommentTok{//  Usando el método \textasciigrave{}.reduceRegions\textasciigrave{} declaramos que usaremos un reductor }
 \CommentTok{//  espacial en el área de las cuencas de Puerto Rico.}
-\CommentTok{//    {-}Con \textasciigrave{}ee.Reducer.sum\textasciigrave{} especificamos que se desea obtener la la suma}
+\CommentTok{//  Con \textasciigrave{}ee.Reducer.sum\textasciigrave{} especificamos que se desea obtener la la suma}
 \CommentTok{//    de los valores de los atributos de todos los píxeles que caigan en }
 \CommentTok{//    cada vector.}
 \KeywordTok{var}\NormalTok{ cuencaClima }\OperatorTok{=}\NormalTok{ clima}\OperatorTok{.}\FunctionTok{reduceRegions}\NormalTok{(cuencasPuertorRico}\OperatorTok{,}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Reducer}\OperatorTok{.}\FunctionTok{sum}\NormalTok{())}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej23} 
+
+}
+
+\caption{Visualización y salida de la consola de la consulta realizada sobre una imagen de variables climáticas utilizando la extensión espacial de una colección de vectores.}\label{fig:unnamed-chunk-128}
+\end{figure}
+
 \hypertarget{conversiuxf3n-de-vector-a-imagen}{%
 \subsection*{Conversión de vector a imagen}\label{conversiuxf3n-de-vector-a-imagen}}
 \addcontentsline{toc}{subsection}{Conversión de vector a imagen}
 
-Para rasterizar un vector se usa el método \texttt{.reduceToImage}. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar \texttt{.reduceToImage} indicamos el atributo que corresponderá al valor de los píxeles del raster como `área'. Por último, con el método \texttt{ee.Reducer.first} especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel.
+Para rasterizar un vector se usa el método \texttt{.reduceToImage}. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar \texttt{.reduceToImage} indicamos el atributo que corresponderá al valor de los píxeles del raster como `área'. Por último, con el método \texttt{ee.Reducer.first} especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel (Fig. 8.12).
 
 Ejercicio 24
 
@@ -3195,6 +3429,15 @@ Ejercicio 24
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej24} 
+
+}
+
+\caption{Visualización de la transformación de una colección de vectores a imagen.}\label{fig:unnamed-chunk-130}
+\end{figure}
+
 \hypertarget{uniuxf3n-de-colecciones-de-vectores}{%
 \subsection*{Unión de colecciones de vectores}\label{uniuxf3n-de-colecciones-de-vectores}}
 \addcontentsline{toc}{subsection}{Unión de colecciones de vectores}
@@ -3203,7 +3446,7 @@ Para unir diferentes colecciones de vectores, mediante los valores de sus atribu
 
 Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca \texttt{ee.Join}. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo \texttt{saveALL}, pero lo usaremos con dos filtros diferentes (uno de intersección y otro de distancia).
 
-En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
+En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites (Fig. 8.13).
 
 Ejercicio 25
 
@@ -3250,6 +3493,15 @@ Ejercicio 25
 \KeywordTok{var}\NormalTok{ AP\_dentro\_PE }\OperatorTok{=}\NormalTok{ Union}\OperatorTok{.}\FunctionTok{apply}\NormalTok{(APGuatemala}\OperatorTok{,}\NormalTok{ plantas}\OperatorTok{,}\NormalTok{ interFiltro)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej25} 
+
+}
+
+\caption{Visualización y salida de la consola del resultado de una unión de dos colecciones de vectores mediante sus propiedades.}\label{fig:unnamed-chunk-132}
+\end{figure}
 
 \hypertarget{exportaciuxf3n-de-colecciones-de-vectores}{%
 \subsection*{Exportación de colecciones de vectores}\label{exportaciuxf3n-de-colecciones-de-vectores}}
@@ -3303,7 +3555,7 @@ Los argumentos adicionales específicos para exportar a drive \texttt{Export.tab
   \end{itemize}
 \end{itemize}
 
-El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es `AssetID', que corresponde el nombre que le pondremos al nuevo archivo.
+El argumento adicional para exportar a los Assets \texttt{Export.table.toAssets} es `AssetID', que corresponde el nombre que le pondremos al nuevo archivo (Fig. 8.14).
 
 Ejercicio 26
 
@@ -3344,7 +3596,16 @@ Ejercicio 26
 \end{Highlighting}
 \end{Shaded}
 
-Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej26} 
+
+}
+
+\caption{Visualización de la información a exportar, así como su salida en la pestaña de Tasks (tareas)}\label{fig:unnamed-chunk-134}
+\end{figure}
+
+Es importante recordar que es necesario dar clic al botón de Run en la pestaña de Tasks (tareas) para que se lleva a cabo la exportación.
 
 \begin{figure}[btp]
 
@@ -3352,7 +3613,7 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña Tas
 
 }
 
-\caption{ubicacion del boton 'Run? para ejecutar las tareas en 'Task'.}\label{fig:unnamed-chunk-107}
+\caption{ubicacion del boton 'Run' para ejecutar una tarea de exportación.}\label{fig:unnamed-chunk-135}
 \end{figure}
 
 \newpage
@@ -3362,7 +3623,7 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña Tas
 
 Las imágenes (\texttt{ee.Image}) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya {[}2020{]} para una descripción más detallada de un ráster). Los metadatos de cada imagen se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite el manejo de imágenes donde cada banda puede tener una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos.
 
-Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005.
+Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005 (Fig. 9.1).
 
 Ejercicio 27
 
@@ -3373,6 +3634,15 @@ Ejercicio 27
 \KeywordTok{var}\NormalTok{ CHM }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Image}\NormalTok{(}\StringTok{"NASA/JPL/global\_forest\_canopy\_height\_2005"}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej271} 
+
+}
+
+\caption{Ejemplo de la  información desplegada en la consola al imprimir una imagen.}\label{fig:unnamed-chunk-137}
+\end{figure}
 
 \hypertarget{informaciuxf3n-adicional-para-los-ejemplos}{%
 \section{Información adicional para los ejemplos}\label{informaciuxf3n-adicional-para-los-ejemplos}}
@@ -3416,7 +3686,7 @@ Adicionalmente, se cargará la primera imagen de una colección de imágenes (La
 \hypertarget{informaciuxf3n-y-metadatos-3}{%
 \section{Información y metadatos}\label{informaciuxf3n-y-metadatos-3}}
 
-Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: \texttt{.propertyNames}. Otros comandos que facilitan la consulta de algunos elementos particulares son: \texttt{.bandNames}, \texttt{.projection}, \texttt{.projection().nominalScale}, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de píxel en m que presenta, respectivamente.
+Los metadatos de la imagen se encuentran como propiedades. Para consultarlas se puede utilizar el siguiente comando: \texttt{.propertyNames} (Fig. 9.2). Otros comandos que facilitan la consulta de algunos elementos particulares son: \texttt{.bandNames}, \texttt{.projection}, \texttt{.projection().nominalScale}, para conocer el nombre de las bandas de la imágenes, su proyección y el tamaño de píxel en m que presenta, respectivamente.
 
 Ejercicio 27.1
 
@@ -3427,6 +3697,15 @@ Ejercicio 27.1
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej272} 
+
+}
+
+\caption{Propiedades de una imagen desplegadas en la consola}\label{fig:unnamed-chunk-141}
+\end{figure}
+
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
@@ -3436,7 +3715,7 @@ El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:
 
 \end{bluebox2}
 
-Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método \texttt{.bandNames}.
+Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método \texttt{.bandNames} (Fig. 9.3).
 
 Ejercicio 27.2
 
@@ -3447,10 +3726,19 @@ Ejercicio 27.2
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/ej273} 
+
+}
+
+\caption{Nombre de las bandas de la imagen CHM.}\label{fig:unnamed-chunk-143}
+\end{figure}
+
 \hypertarget{visualizaciuxf3n-de-una-imagen}{%
 \section{Visualización de una imagen}\label{visualizaciuxf3n-de-una-imagen}}
 
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapas mediante la función \texttt{Map.addLayer}.
+De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapas mediante la función \texttt{Map.addLayer} (Fig. 9.4).
 
 Ejercicio 27.3
 
@@ -3466,6 +3754,15 @@ Ejercicio 27.3
   \StringTok{\textquotesingle{}primera imagen\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej274} 
+
+}
+
+\caption{Visualización de la capa de la altura del dosel.}\label{fig:unnamed-chunk-145}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -3483,7 +3780,7 @@ La información ráster en GEE se almacena en un esquema piramidal, es decir, qu
 \subsection*{Selección de bandas}\label{selecciuxf3n-de-bandas}}
 \addcontentsline{toc}{subsection}{Selección de bandas}
 
-Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar ciertas bandas mediante el método \texttt{.select}. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo:
+Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar ciertas bandas mediante el método \texttt{.select}. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo (Fig. 9.5):
 
 Ejercicio 27.4
 
@@ -3501,7 +3798,7 @@ Ejercicio 27.4
 \subsection*{Adición de nuevas propiedades o modificación de propiedades preexistentes}\label{adiciuxf3n-de-nuevas-propiedades-o-modificaciuxf3n-de-propiedades-preexistentes-1}}
 \addcontentsline{toc}{subsection}{Adición de nuevas propiedades o modificación de propiedades preexistentes}
 
-Además, usando el método \texttt{.set} se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo.
+Además, usando el método \texttt{.set} se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (Fig. 9.5).
 
 Ejercicio 27.5
 
@@ -3514,6 +3811,15 @@ Ejercicio 27.5
 \KeywordTok{var}\NormalTok{ CHMprop2 }\OperatorTok{=}\NormalTok{ CHM}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}title\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}miTítulo\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej275} 
+
+}
+
+\caption{Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades.}\label{fig:unnamed-chunk-148}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -3536,6 +3842,7 @@ Ejercicio 27.6
 \begin{Highlighting}[]
 \CommentTok{// Cambiar el nombre de la banda }
 \NormalTok{banda1 }\OperatorTok{=}\NormalTok{ banda1}\OperatorTok{.}\FunctionTok{rename}\NormalTok{(}\StringTok{"chm"}\NormalTok{)}\OperatorTok{;}
+
 \KeywordTok{var}\NormalTok{ landsat7imBandsRename }\OperatorTok{=}\NormalTok{ landsat7imBands}\OperatorTok{.}\FunctionTok{rename}\NormalTok{([}\StringTok{\textquotesingle{}B\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}G\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}R\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}NIR\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
@@ -3544,7 +3851,7 @@ Ejercicio 27.6
 \subsection*{Realización de cortes}\label{realizaciuxf3n-de-cortes}}
 \addcontentsline{toc}{subsection}{Realización de cortes}
 
-Para obtener el área de una imagen únicamente de una región de interés se puede realizar mediante el método \texttt{.clip}. Por ejemplo:
+Para obtener el área de una imagen únicamente de una región de interés se puede realizar mediante el método \texttt{.clip}. Por ejemplo (Fig. 9.6):
 
 Ejercicio 27.7
 
@@ -3570,7 +3877,7 @@ Se sugiere evitar el uso del método \texttt{.clip} a menos que sea estrictament
 \subsection*{Cálculo de operaciones matemáticas}\label{cuxe1lculo-de-operaciones-matemuxe1ticas}}
 \addcontentsline{toc}{subsection}{Cálculo de operaciones matemáticas}
 
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: \texttt{.subtract,\ .add,\ .divide,\ .multiply} para restar, sumar, dividir y multiplicar, respectivamente.
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: \texttt{.subtract,\ .add,\ .divide,\ .multiply} para restar, sumar, dividir y multiplicar, respectivamente (Fig. 9.6).
 
 Ejercicio 27.8
 
@@ -3580,6 +3887,15 @@ Ejercicio 27.8
 \KeywordTok{var}\NormalTok{ chmCmMx }\OperatorTok{=}\NormalTok{ chmMx}\OperatorTok{.}\FunctionTok{multiply}\NormalTok{(}\DecValTok{100}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej276} 
+
+}
+
+\caption{Visualización de la capa de altura del dosel en México.}\label{fig:unnamed-chunk-152}
+\end{figure}
 
 Además, GEE cuenta con un método de \texttt{.normalizedDifference} para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método \texttt{.expression}. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
 
@@ -3614,7 +3930,7 @@ Dentro de las fórmulas utilizadas dentro de \texttt{expression} se puede utiliz
 \subsection*{Uso de operaciones relacionales, condicionales y booleanas}\label{uso-de-operaciones-relacionales-condicionales-y-booleanas}}
 \addcontentsline{toc}{subsection}{Uso de operaciones relacionales, condicionales y booleanas}
 
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones \texttt{.lt}, \texttt{.lte}, \texttt{.gt}, \texttt{.gte}, \texttt{.eq}, \texttt{.neq}, que equivalen a menor que (``less than''), menor que o igual (``less than or equal''), mayor que (``greater than''), mayor que o igual (``greater than or equal''), igual (``equal2) o no igual (''not equal"), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante \texttt{.and} u \texttt{.or}, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0:
+Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones \texttt{.lt}, \texttt{.lte}, \texttt{.gt}, \texttt{.gte}, \texttt{.eq}, \texttt{.neq}, que equivalen a menor que (``less than''), menor que o igual (``less than or equal''), mayor que (``greater than''), mayor que o igual (``greater than or equal''), igual (``equal2) o no igual (''not equal"), respectivamente. Además se pueden utilizar operadores relacionales para unir dos condiciones mediante \texttt{.and} u \texttt{.or}, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (Fig. 9.7):
 
 Ejercicio 27.9
 
@@ -3627,7 +3943,16 @@ Ejercicio 27.9
 \end{Highlighting}
 \end{Shaded}
 
-Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda `pixel\_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda `pixel\_qa' para después evaluar una condición sobre ella. En este caso, se crea una máscara que tenga valores a conservar (1) en áreas donde el bit 5 sea 0; por el contrario, contendrá valores a eliminar (0) en áreas donde el bit 5 no sea 0.
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej277} 
+
+}
+
+\caption{Resultado de la máscara booleana de altura del dosel.}\label{fig:unnamed-chunk-155}
+\end{figure}
+
+Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda `pixel\_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda `pixel\_qa' para después evaluar una condición sobre ella. En este caso, se crea una máscara que tenga valores a conservar (1) en áreas donde el bit 5 sea 0; por el contrario, contendrá valores a eliminar (0) en áreas donde el bit 5 no sea 0 (Fig. 9.8).
 
 Ejercicio 27.10
 
@@ -3646,11 +3971,20 @@ Ejercicio 27.10
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej278} 
+
+}
+
+\caption{Visualización de la máscara de los pixeles que corresponden a nubes.}\label{fig:unnamed-chunk-157}
+\end{figure}
+
 \hypertarget{enmascaramiento}{%
 \subsection*{Enmascaramiento}\label{enmascaramiento}}
 \addcontentsline{toc}{subsection}{Enmascaramiento}
 
-El método \texttt{.updateMask} permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0).
+El método \texttt{.updateMask} permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.
 
 Ejercicio 27.11
 
@@ -3659,10 +3993,36 @@ Ejercicio 27.11
 \CommentTok{// Utilizar la máscara de valores que tienen alturas \textgreater{}= 20 y aplicarla a }
 \CommentTok{// la imagen con los valores de alturas}
 \KeywordTok{var}\NormalTok{ chmMxMayor20 }\OperatorTok{=}\NormalTok{ chmMx}\OperatorTok{.}\FunctionTok{updateMask}\NormalTok{(chmMXMask20)}\OperatorTok{;}
+
 \CommentTok{// Aplicar la máscara a la imagen original}
 \KeywordTok{var}\NormalTok{ landsat7imMask }\OperatorTok{=}\NormalTok{ landsat7im}\OperatorTok{.}\FunctionTok{updateMask}\NormalTok{(mask)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej279} 
+
+}
+
+\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-159}
+\end{figure}
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej270} 
+
+}
+
+\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-160}
+\end{figure}
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/ej27a} 
+
+}
+
+\caption{Imagen Landsat después del enmascaramiento de nubes.}\label{fig:unnamed-chunk-161}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -3695,7 +4055,7 @@ Ejercicio 27.12
 \subsection*{Conversión de imagen a vector}\label{conversiuxf3n-de-imagen-a-vector}}
 \addcontentsline{toc}{subsection}{Conversión de imagen a vector}
 
-En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es \texttt{.reduceToVectors} y se utiliza de la siguiente manera:
+En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es \texttt{.reduceToVectors} y se utiliza de la siguiente manera (Fig. 9.12):
 
 Ejercicio 27.13
 
@@ -3716,6 +4076,15 @@ Ejercicio 27.13
 \NormalTok{\})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.8\linewidth]{Img/mexicoVector} 
+
+}
+
+\caption{Visualización de la capa vector producida a partir de una imagen.}\label{fig:unnamed-chunk-164}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -3782,7 +4151,7 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña Tas
 \subsubsection*{Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A)}\label{ejercicio-consulta-y-procesamiento-de-una-imagen-ejercicio-a}}
 \addcontentsline{toc}{subsubsection}{Ejercicio: Consulta y procesamiento de una imagen (Ejercicio A)}
 
-En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así (Fig. 9.1):
+En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (\texttt{Search}) y escribir SRTM. Debería aparecer una ventana así (Fig. 9.13):
 
 \begin{figure}[btp]
 
@@ -3790,10 +4159,10 @@ En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pu
 
 }
 
-\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-126}
+\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-166}
 \end{figure}
 
-Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 9.2).
+Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 9.14).
 
 \begin{figure}[btp]
 
@@ -3801,7 +4170,7 @@ Posteriormente se da clic sobre el primer resultado y debería abrirse la siguie
 
 }
 
-\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-127}
+\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-167}
 \end{figure}
 
 En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
@@ -3867,7 +4236,7 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevacio
 \end{Highlighting}
 \end{Shaded}
 
-Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 9.3).
+Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 9.15).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3893,7 +4262,7 @@ Por último, se generará un gráfico para obtener un histograma de los valores 
 
 }
 
-\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-135}
+\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-175}
 \end{figure}
 
 Por último, se puede exportar el resultado al Google Drive del usuario. En este caso se definirá un valor de \texttt{scale} de 9000 para acelerar el tiempo demorado en la exportación.
@@ -3913,7 +4282,16 @@ Por último, se puede exportar el resultado al Google Drive del usuario. En este
 \end{Highlighting}
 \end{Shaded}
 
-Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic en Run y comenzar a exportar la imagen al Google Drive. A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en Run . Por último, el producto exportado aparecerá en la pestaña de Tasks con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al Drive, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al Drive (ver Fig. 2.22).
+Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic en Run (correr) y comenzar a exportar la imagen al Google Drive. A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en Run. Por último, el producto exportado aparecerá en la pestaña de Tasks con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al Drive, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al Drive (ver Fig. 2.22).
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=1\linewidth]{Img/exportCHMMX} 
+
+}
+
+\caption{Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación.}\label{fig:unnamed-chunk-177}
+\end{figure}
 
 \newpage
 
@@ -3950,16 +4328,25 @@ Como información adicional para este capítulo se definirá una geometría de u
 \hypertarget{informaciuxf3n-y-metadatos-4}{%
 \section{Información y metadatos}\label{informaciuxf3n-y-metadatos-4}}
 
-Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que contienen. De tal manera, se puede utilizar esta información para filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponde a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método \texttt{.propertyNames}.
+Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que contienen. De tal manera, se puede utilizar esta información para filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponde a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método \texttt{.propertyNames} (Fig. 10.1).
 
 Ejercicio 28.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Obtener las propiedades de la colección deimágenes}
+\CommentTok{// Obtener las propiedades de la colección de imágenes}
 \KeywordTok{var}\NormalTok{ S2Prop }\OperatorTok{=}\NormalTok{ S2}\OperatorTok{.}\FunctionTok{propertyNames}\NormalTok{()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/s2properties} 
+
+}
+
+\caption{Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-181}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -3973,7 +4360,7 @@ No se puede escribir o cambiar los objetos que se encuentran directamente hosped
 \hypertarget{creaciuxf3n-de-colecciones-de-imuxe1genes}{%
 \section{Creación de colecciones de imágenes}\label{creaciuxf3n-de-colecciones-de-imuxe1genes}}
 
-En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes, a partir de resultados generados dentro del mismo GEE. En este caso, se pueden crear nuevas colecciones de imágenes mediante el método \texttt{ee.ImageCollection.fromImages}, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección.
+En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes, a partir de resultados generados dentro del mismo GEE. En este caso, se pueden crear nuevas colecciones de imágenes mediante el método \texttt{ee.ImageCollection.fromImages}, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección (Fig. 10.2).
 
 Ejercicio 28.2
 
@@ -3997,10 +4384,19 @@ Ejercicio 28.2
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imcolmerge} 
+
+}
+
+\caption{Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes.}\label{fig:unnamed-chunk-183}
+\end{figure}
+
 \hypertarget{visualizaciuxf3n-de-colecciones-de-imuxe1genes}{%
 \section{Visualización de colecciones de imágenes}\label{visualizaciuxf3n-de-colecciones-de-imuxe1genes}}
 
-De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función \texttt{Map.addLayer}. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección.
+De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función \texttt{Map.addLayer}. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección (Fig. 10.3).
 
 Ejercicio 28.3
 
@@ -4017,6 +4413,15 @@ Ejercicio 28.3
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/visS2Mich} 
+
+}
+
+\caption{Visualización de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-185}
+\end{figure}
+
 \hypertarget{muxe9todos-comunes-4}{%
 \section{Métodos comunes}\label{muxe9todos-comunes-4}}
 
@@ -4024,7 +4429,7 @@ Ejercicio 28.3
 \subsection*{Filtración de colecciones de imágenes}\label{filtraciuxf3n-de-colecciones-de-imuxe1genes}}
 \addcontentsline{toc}{subsection}{Filtración de colecciones de imágenes}
 
-Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos \texttt{ee.Filter}. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar \texttt{.filterDate}:
+Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contiene. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos \texttt{ee.Filter}. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar \texttt{.filterDate} (Fig. 10.4):
 
 Ejercicio 28.4
 
@@ -4049,7 +4454,7 @@ Si se desea filtrar por alguna característica de los metadatos de las imágenes
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{// Obtener el nombre de las propiedades de una imágen de la colección de }
+\CommentTok{// Obtener el nombre de las propiedades de una imagen de la colección de }
 \CommentTok{// imágenes}
 \KeywordTok{var}\NormalTok{ imProperties }\OperatorTok{=}\NormalTok{ im1}\OperatorTok{.}\FunctionTok{propertyNames}\NormalTok{()}\OperatorTok{;}
 
@@ -4058,6 +4463,15 @@ Si se desea filtrar por alguna característica de los metadatos de las imágenes
 \NormalTok{imCol4 }\OperatorTok{=}\NormalTok{ imCol4}\OperatorTok{.}\FunctionTok{filterMetadata}\NormalTok{(}\StringTok{\textquotesingle{}CLOUD\_COVERAGE\_ASSESSMENT\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}less\_than\textquotesingle{}}\OperatorTok{,} \DecValTok{50}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/filtroEspacialTemporal} 
+
+}
+
+\caption{Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros.}\label{fig:unnamed-chunk-189}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -4090,7 +4504,7 @@ Para combinar varios filtros se utiliza \texttt{ee.Filter.and} o \texttt{ee.Filt
 \subsection*{Selección de bandas}\label{selecciuxf3n-de-bandas-1}}
 \addcontentsline{toc}{subsection}{Selección de bandas}
 
-Al igual que con las imágenes, se puede utilizar el método \texttt{.select} para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo:
+Al igual que con las imágenes, se puede utilizar el método \texttt{.select} para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que con las imágenes individuales, para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, éstas deben indicarse dentro de una lista. Por ejemplo (Fig. 10.5):
 
 Ejercicio 28.5
 
@@ -4105,6 +4519,15 @@ Ejercicio 28.5
 \KeywordTok{var}\NormalTok{ imCol5 }\OperatorTok{=}\NormalTok{ imCol4}\OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}B4\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imBandNames1} 
+
+}
+
+\caption{Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4,3 y 2.}\label{fig:unnamed-chunk-191}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -4132,11 +4555,20 @@ Ejercicio 28.6
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imcol5sortcloud} 
+
+}
+
+\caption{Visualización de la primera imagen de la colección.}\label{fig:unnamed-chunk-193}
+\end{figure}
+
 \hypertarget{obtenciuxf3n-de-la-primera-imagen}{%
 \subsection*{Obtención de la primera imagen}\label{obtenciuxf3n-de-la-primera-imagen}}
 \addcontentsline{toc}{subsection}{Obtención de la primera imagen}
 
-En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método \texttt{.first} que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle. Al utilizar el método \texttt{.first} sobre una colección de imágenes (\texttt{ee.ImageCollection}) el resultado corresponderá a una imagen (\texttt{ee.Image}).
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método \texttt{.first} que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle. Al utilizar el método \texttt{.first} sobre una colección de imágenes (\texttt{ee.ImageCollection}) el resultado corresponderá a una imagen (\texttt{ee.Image}; Fig. 10.6 y 10.7).
 
 Ejercicio 28.7
 
@@ -4147,11 +4579,20 @@ Ejercicio 28.7
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/primerIm} 
+
+}
+
+\caption{Salida de la consola indicando la primera imagen de la colección.}\label{fig:unnamed-chunk-195}
+\end{figure}
+
 \hypertarget{extracciuxf3n-de-listas-con-atributos-de-imuxe1genes}{%
 \subsection*{Extracción de listas con atributos de imágenes}\label{extracciuxf3n-de-listas-con-atributos-de-imuxe1genes}}
 \addcontentsline{toc}{subsection}{Extracción de listas con atributos de imágenes}
 
-Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}). Por ejemplo, para obtener una lista con la propiedad `CLOUD\_COVERAGE\_ASSESSMENT' de todas las imágenes contenidas en una colección de imágenes se puede realizar de la siguiente manera:
+Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método \texttt{.aggregate}. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (\texttt{.aggregate\_array}), extraer y calcular la media por propiedad (\texttt{.aggregate\_mean}), extraer y calcular un histograma (\texttt{.aggregte\_histogram}), o extraer y obtener estadísticas descriptivas de las propiedades (\texttt{.aggregate\_stats}). Por ejemplo, para obtener una lista con la propiedad `CLOUD\_COVERAGE\_ASSESSMENT' de todas las imágenes contenidas en una colección de imágenes se puede realizar de la siguiente manera (Fig. 10.8):
 
 Ejercicio 28.8
 
@@ -4163,11 +4604,20 @@ Ejercicio 28.8
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/cloudCoverList} 
+
+}
+
+\caption{Salida de la consola indicando la lista de propiedades de las imágenes.}\label{fig:unnamed-chunk-197}
+\end{figure}
+
 \hypertarget{conteo-de-observaciones-por-pixel}{%
 \subsection*{Conteo de observaciones por pixel}\label{conteo-de-observaciones-por-pixel}}
 \addcontentsline{toc}{subsection}{Conteo de observaciones por pixel}
 
-Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método \texttt{.count}. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel.
+Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método \texttt{.count}. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel (Fig. 10.9).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4176,6 +4626,15 @@ Para conocer el número de valores sin enmascarar por píxel en la colección de
 \KeywordTok{var}\NormalTok{ conteoImgs }\OperatorTok{=}\NormalTok{ imCol5}\OperatorTok{.}\FunctionTok{count}\NormalTok{()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/conteoim} 
+
+}
+
+\caption{Visualización de la imagen del conteo de observaciones.}\label{fig:unnamed-chunk-199}
+\end{figure}
 
 \hypertarget{conocer-tamauxf1o-de-la-colecciuxf3n}{%
 \subsection*{Conocer tamaño de la colección}\label{conocer-tamauxf1o-de-la-colecciuxf3n}}
@@ -4206,7 +4665,7 @@ Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las
 
 \end{bluebox2}
 
-La unión de una colección de Sentinel-2 se podría hacer de la siguiente manera:
+La unión de una colección de Sentinel-2 se podría hacer de la siguiente manera (Fig. 10.10):
 
 Ejercicio 28.9
 
@@ -4226,11 +4685,20 @@ Ejercicio 28.9
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/merge2colecciones} 
+
+}
+
+\caption{Salida de la consola indicando el número de elementos en cada coleccción, así como el número de elementos en la colección combinada.}\label{fig:unnamed-chunk-202}
+\end{figure}
+
 \hypertarget{ejecuciuxf3n-de-una-funciuxf3n-sobre-todas-las-imuxe1genes-de-una-colecciuxf3n}{%
 \subsection*{Ejecución de una función sobre todas las imágenes de una colección}\label{ejecuciuxf3n-de-una-funciuxf3n-sobre-todas-las-imuxe1genes-de-una-colecciuxf3n}}
 \addcontentsline{toc}{subsection}{Ejecución de una función sobre todas las imágenes de una colección}
 
-Para realizar alguna operación sobre todas las imágenes de una \texttt{ee.ImageCollection} se utiliza el método \texttt{.map}. Esto va a aplicar el procedimiento o función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera:
+Para realizar alguna operación sobre todas las imágenes de una \texttt{ee.ImageCollection} se utiliza el método \texttt{.map}. Esto va a aplicar el procedimiento o función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera (Fig. 10.11):
 
 Ejercicio 28.10
 
@@ -4248,6 +4716,15 @@ Ejercicio 28.10
 \KeywordTok{var}\NormalTok{ imCol9 }\OperatorTok{=}\NormalTok{ imCol4}\OperatorTok{.}\FunctionTok{map}\NormalTok{(ndviCalc)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imcol9} 
+
+}
+
+\caption{Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen.}\label{fig:unnamed-chunk-204}
+\end{figure}
 
 \begin{bluebox2}
 
@@ -4280,7 +4757,7 @@ El método \texttt{.map} requiere del uso de funciones del lado del servidor, as
 \subsection*{Reducción de una colección de imágenes}\label{reducciuxf3n-de-una-colecciuxf3n-de-imuxe1genes}}
 \addcontentsline{toc}{subsection}{Reducción de una colección de imágenes}
 
-Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Por ello, el resultado obtenido tras una redicción sobre una colección de imágenes (\texttt{ee.ImageCollection}) será una imagen (\texttt{ee.Image}). Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método \texttt{.reduce}, indicando la operación matemática a utilizar mediante un objeto tipo \texttt{ee.Reducer}. De tal manera, se puede indicar si el resultado corresponderá a la media \texttt{ee.Reducer.mean}, mediana, \texttt{ee.Reducer.median}, moda, \texttt{ee.Reducer.mode}, mínimo, \texttt{ee.Reducer.min}, máximo, \texttt{ee.Reducer.max} o inclusive la media de un intervalo determinado de observaciones, \texttt{ee.Reducer.intervalMean}. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de \texttt{.min,\ .max,\ .mean,\ .mode,\ .median}. Las siguientes dos líneas realizan exactamente el mismo proceso:
+Los reductores permiten crear un compuesto (una sola imagen), a partir de una colección de imágenes. Por ello, el resultado obtenido tras una redicción sobre una colección de imágenes (\texttt{ee.ImageCollection}) será una imagen (\texttt{ee.Image}). Estos son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método \texttt{.reduce}, indicando la operación matemática a utilizar mediante un objeto tipo \texttt{ee.Reducer}. De tal manera, se puede indicar si el resultado corresponderá a la media \texttt{ee.Reducer.mean}, mediana, \texttt{ee.Reducer.median}, moda, \texttt{ee.Reducer.mode}, mínimo, \texttt{ee.Reducer.min}, máximo, \texttt{ee.Reducer.max} o inclusive la media de un intervalo determinado de observaciones, \texttt{ee.Reducer.intervalMean}. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de \texttt{.min,\ .max,\ .mean,\ .mode,\ .median}. Las siguientes dos líneas realizan exactamente el mismo proceso (Fig. 10.12):
 
 Ejercicio 28.11
 
@@ -4296,6 +4773,15 @@ Ejercicio 28.11
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imredmean} 
+
+}
+
+\caption{Visualización de la imagen de la reflectancia promedio (compuesto RGB).}\label{fig:unnamed-chunk-206}
+\end{figure}
+
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
@@ -4309,7 +4795,7 @@ Al aplicar una reducción a una colección de imágenes mediante el método \tex
 \subsection*{Creación de compuestos y mosaicos}\label{creaciuxf3n-de-compuestos-y-mosaicos}}
 \addcontentsline{toc}{subsection}{Creación de compuestos y mosaicos}
 
-Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos métodos: \texttt{.mosaic} y \texttt{.qualityMosaic}. La principal diferencia entre estos dos procesos radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de \texttt{.qualityMosaic} permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de \texttt{.qualityMosaic} hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico.
+Si se desean hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos métodos: \texttt{.mosaic} y \texttt{.qualityMosaic}. La principal diferencia entre estos dos procesos radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de \texttt{.qualityMosaic} permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de \texttt{.qualityMosaic} hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico (Fig. 10.13).
 
 Ejercicio 28.12
 
@@ -4328,13 +4814,22 @@ Ejercicio 28.12
 \end{Highlighting}
 \end{Shaded}
 
+\begin{figure}[btp]
+
+{\centering \includegraphics[width=0.6\linewidth]{Img/imredmeanQM} 
+
+}
+
+\caption{Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB).}\label{fig:unnamed-chunk-208}
+\end{figure}
+
 \hypertarget{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}{%
 \subsubsection*{Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)}\label{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}}
 \addcontentsline{toc}{subsubsection}{Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B)}
 
 Este ejercicio integra elementos de los ejercicios 28.4 28.5 28.6 y 28.7, de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\texttt{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{BANDS} se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{IMAGE PROPERTIES} se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 10.1).
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (``tier 1'') por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su ``path'' y ``row'' se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\texttt{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{BANDS} se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{IMAGE PROPERTIES} se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 10.14).
 
 \begin{figure}[btp]
 
@@ -4342,7 +4837,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 
 }
 
-\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-155}
+\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-209}
 \end{figure}
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
@@ -4389,7 +4884,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 \item
   Después un clic a cualquier imagen (\texttt{Image}) .
 \item
-  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (Fig. 10.2).
+  Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (Fig. 10.15).
 \end{itemize}
 
 \begin{figure}[btp]
@@ -4398,7 +4893,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 
 }
 
-\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-158}
+\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-212}
 \end{figure}
 
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de `CLOUD\_COVER\_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable \texttt{L8imgFirst}, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto \texttt{ee.Image}.
@@ -4412,7 +4907,7 @@ A continuación se ordena la colección de manera ascendente de acuerdo a la pro
 \end{Highlighting}
 \end{Shaded}
 
-Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (Fig. 10.3). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
+Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (Fig. 10.16). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4429,7 +4924,7 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 }
 
-\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-161}
+\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-215}
 \end{figure}
 
 \hypertarget{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}{%
@@ -4471,7 +4966,7 @@ Se define la función para calcular el NDVI de todas las imágenes.
 \end{Highlighting}
 \end{Shaded}
 
-Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa (Fig. 10.4).
+Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nubes, primero se agregará la imagen con nubes a la pantalla de mapa (Fig. 10.17).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4488,7 +4983,7 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 
 }
 
-\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-165}
+\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-219}
 \end{figure}
 
 A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreescribir el objeto L8imgCol.
@@ -4503,7 +4998,7 @@ A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreesc
 \end{Highlighting}
 \end{Shaded}
 
-Se muestra la primera imagen sin nubes (Fig. 10.5).
+Se muestra la primera imagen sin nubes (Fig. 10.18).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4520,10 +5015,10 @@ Se muestra la primera imagen sin nubes (Fig. 10.5).
 
 }
 
-\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-168}
+\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-222}
 \end{figure}
 
-En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 10.6).
+En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 10.19).
 
 \begin{figure}[btp]
 
@@ -4531,7 +5026,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 
 }
 
-\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-169}
+\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-223}
 \end{figure}
 
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método \texttt{.reduce}. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -4545,7 +5040,7 @@ Posteriormente, se reduce la colección de imágenes para formar una sola imagen
 \end{Highlighting}
 \end{Shaded}
 
-A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 10.7).
+A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 10.20).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4555,7 +5050,7 @@ A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 10.7)
 \end{Highlighting}
 \end{Shaded}
 
-El resultado se ve así (Fig. 10.8):
+El resultado se ve así (Fig. 10.21):
 
 \begin{figure}[btp]
 
@@ -4563,7 +5058,7 @@ El resultado se ve así (Fig. 10.8):
 
 }
 
-\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-172}
+\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-226}
 \end{figure}
 
 Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método \texttt{count}. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
@@ -4579,7 +5074,7 @@ Además, se puede conocer el número de observaciones sin enmascarar por píxel 
 \end{Highlighting}
 \end{Shaded}
 
-La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 10.9):
+La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 10.22):
 
 \begin{figure}[btp]
 
@@ -4587,7 +5082,7 @@ La imagen con el número de observaciones por píxel sin enmascarar se ve así (
 
 }
 
-\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-174}
+\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-228}
 \end{figure}
 
 \begin{bluebox2}
@@ -4663,7 +5158,7 @@ Después, se seleccionan únicamente las bandas de NDVI y se reduce la colecció
 \end{Highlighting}
 \end{Shaded}
 
-Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 10.10).
+Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 10.23).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4680,7 +5175,7 @@ Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 10.10).
 
 }
 
-\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-180}
+\caption{Imagen de diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-234}
 \end{figure}
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
@@ -5055,8 +5550,6 @@ El siguiente paso consta de reducir la colección para generar una sola imagen c
   \OperatorTok{.}\FunctionTok{select}\NormalTok{([}\StringTok{\textquotesingle{}B1\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B2\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B3\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B5\_mean\textquotesingle{}}\OperatorTok{,}
   \StringTok{\textquotesingle{}B6\_mean\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B7\_mean\textquotesingle{}}\NormalTok{])}
   \OperatorTok{.}\FunctionTok{rename}\NormalTok{([}\StringTok{\textquotesingle{}CB\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}G\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}R\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}NIR\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}SWIR1\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}SWIR2\textquotesingle{}}\NormalTok{])}
-
-\FunctionTok{print}\NormalTok{(L8imgMean)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5165,7 +5658,7 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 
 }
 
-\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-199}
+\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-253}
 \end{figure}
 
 Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (image), el nombre de la banda que contiene las categorías de la clasificación (classBand), el reductor que se va a utilizar para resumir los valores por clase (reducer), las regiones de las cuales se va a obtener esta información (region), las etiquetas de las clases (classLabels), la escala en m de trabajo para aplicar el reductor (scale) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de \texttt{.setOptions}). Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola (Fig. 12.2).
@@ -5208,7 +5701,7 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 
 }
 
-\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-201}
+\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-255}
 \end{figure}
 
 Una vez que se tiene la clasificación del área de interés, se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.

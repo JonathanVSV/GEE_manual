@@ -113,8 +113,6 @@ var L8imgMean = L8imgCol.reduce(ee.Reducer.mean())
   .select(['B1_mean','B2_mean','B3_mean','B4_mean','B5_mean',
   'B6_mean','B7_mean'])
   .rename(['CB','B','G','R','NIR','SWIR1','SWIR2'])
-
-print(L8imgMean);
 ```
 
 Posteriormente se va a cortar la imagen para quedarnos únicamente con el área de interés. Para ello, primero se define  un área de interés y después se corta la imagen con ese objeto.

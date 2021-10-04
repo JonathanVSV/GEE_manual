@@ -2,7 +2,7 @@
 # ee.FeatureCollection
 
 Las colecciones de vectores (`ee.FeatureCollection`) son objetos de GEE que contienen un conjunto de vectores. La mayoría de los acervos de información vectorial disponibles en GEE van a ser definidos como colecciones de vectores. Para el manejo de varios vectores se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. Esto facilita ejecutar operaciones sobre todo el conjunto de vectores.
-Es importante recalcar que una `ee.FeatureCollection` es un conjunto de vectores, de modo que puede contener distintas `ee.Feature` con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono)
+Es importante recalcar que una `ee.FeatureCollection` es un conjunto de vectores, de modo que puede contener distintas `ee.Feature` con geometrias diferentes (polígono, línea, punto, multipunto, multipolígono; Fig. 8.1).
  
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -19,7 +19,7 @@ Ejercicio 13
 // políticas de los países del mundo  
 var países = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 13."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de la colección de vectores con los límites internacionales, así como su salida en la consola."}
 knitr::include_graphics("Img/ej13.png")
 ```
 
@@ -36,7 +36,7 @@ Las colecciones de vectores contienen los metadatos e información de todos los 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Al usar `print` con las colecciones de vectores, la consola puede mostrar máximo de 5000 vectores. En caso que uno necesite usar `print` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método `.limit` el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean <= 5000).
+Al usar `print` con las colecciones de vectores, la consola puede mostrar máximo de 5000 vectores. En caso que uno necesite usar `print` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método `.limit` el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean <= 5000; Fig. 8.2).
 :::
 ::::
 
@@ -61,13 +61,13 @@ Map.addLayer(cuencas,{},'todas las cuencas');
 // rápido (Noroccidente de áfrica)
 Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas');
 ``` 
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 14."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de las primeras 1000 cuencas, así como su salida en la consola."}
 knitr::include_graphics("Img/ej14.png")
 ```
 
 ## Creación de colecciones de vectores
 
-Una colección de vectores se define a partir del método `ee.FeatureCollection` y puede contener geometrías, vectores, o colección de vectores. Una colección de geometrías  puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos. 
+Una colección de vectores se define a partir del método `ee.FeatureCollection` y puede contener geometrías, vectores, o colección de vectores. Una colección de geometrías  puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos (Fig. 8.3). 
 
 Ejercicio 15
 
@@ -75,7 +75,7 @@ Ejercicio 15
 // Crear una colección de vectores con un solo punto, sin atributos 
 var coleccion = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 15."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de una colección de vectores con un único objeto de geometría de tipo punto."}
 knitr::include_graphics("Img/ej15.png")
 ```
 
@@ -185,7 +185,7 @@ var Multipoligono = ee.Feature(ee.Geometry.MultiPolygon([
     		  'Roseau']});
 ```
 
-Ejercicio 16
+Ejercicio 16 (Fig. 8.4)
 
 ```{js echo = T}
 // Crear una lista que incluya todos los vectores
@@ -198,13 +198,14 @@ var coleccionVectores = ee.FeatureCollection([Multipoligono,
   Multipunto,
   Punto]);
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 16."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de una colección de vectores son objetos con diferentes geometríasm así como su salida en la consola."}
 knitr::include_graphics("Img/ej16.png")
 ```
 
 ## Visualización de colecciones de vectores
 
-Al igual que los vectores, las colecciones de vectores se pueden agregar a la pantalla de mapas mediante la función `Map.addLayer`.
+Al igual que los vectores, las colecciones de vectores se pueden agregar a la pantalla de mapas mediante la función `Map.addLayer` (Fig. 8.5).
 
 Ejercicio 17
 
@@ -216,7 +217,7 @@ Map.addLayer(ecoregiones, {}, 'capa por default');
 Map.addLayer(ecoregiones, {color: '2AF116'}, 'capa color verde');
 ```
 
-Adicionalmente, sólo para las colecciones de vectores se pueden especificar parámetros adicionales con el método `.draw` (el cual transforma la colección de vectores en una imagen y permite así especificar tamaño del punto `pointRadius` y grosor `strokeWidth` de la línea). Esto se logra con el método `.draw`.
+Adicionalmente, sólo para las colecciones de vectores se pueden especificar parámetros adicionales con el método `.draw` (el cual transforma la colección de vectores en una imagen y permite así especificar tamaño del punto `pointRadius` y grosor `strokeWidth` de la línea). Esto se logra con el método `.draw` (Fig. 8.5).
 
 Ejercicio 17.1
 
@@ -225,7 +226,7 @@ Map.addLayer(ecoregiones.draw({color: 'FF6969', strokeWidth:10 }), {},
   'capa color rosa, y linea gruesa');
 ```
 
-Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía (`ee.Image`), y luego proyecta esa imagen: 
+Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía (`ee.Image`), y luego proyecta esa imagen (Fig. 8.5): 
 
 Ejercicio 17.2
 
@@ -258,7 +259,8 @@ Map.addLayer(contornos, {palette: '6e00ff', max: 14},
 Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], 
   max: 14}, 'bordes de colores'); 
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 17."}
+
+```{r, echo = F, out.width="80%", fig.cap="Diferentes formas de visualizar colecciones de vectores."}
 knitr::include_graphics("Img/ej17.png")
 ```
 
@@ -299,7 +301,7 @@ Para filtrar por atributos de los vectores se puede realizar mediante el método
 
 y finalmente el valor con el que se hará la comparación.
 
-En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo 'ISO3' que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es 'CRI'.
+En el siguiente ejercicio vamos a filtrar la colección de áreas protegidas según el atributo 'ISO3' que es un código de 3 letras para cada país del mundo, en el caso de Costa Rica su código es 'CRI' (Fig. 8.6).
 
 Ejercicio 18.1
 
@@ -311,11 +313,11 @@ Ejercicio 18.1
 var AreasProCRI = areasProtegidas.filterMetadata('ISO3','equals','CRI'); 
 ```
 
-El método para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicara con mayor detalle más adelante en la sección 7.5.8).
+El método para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los vectores tengan un atributo llamado 'system:time_start' y en ese atributo se encuentre la fecha en formato 'AAAA-MM-DD'. En caso que los vectores no tengan ese atributo pero sí tengan un atributo de fecha, entonces será necesario renombrar dicho atributo de fecha a 'system:time_start' para ello se puede usar el método `.set` y el método `.map` (el método `.map` se explicará con mayor detalle más adelante en esta sección).
 
 ### Funciones de usuario {-}
 
-En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado 'system:time_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
+En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado 'system:time_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021 (Fig. 8.6).
 
 Ejercicio 18.2
 
@@ -343,7 +345,7 @@ Los filtros compuestos permiten combinar los filtros disponibles bajo la bibliot
 4.	Después se utiliza una coma para indicar otro filtro.
 5.	`ee.Filter.stringContains` es un filtro, para seleccionar basado en una cadena de texo que se encuentre dentro de un atributo
 6.	Después se usa otra coma para indicar otro filtro.
-7.	`ee.Filter.rangeContains` es para seleccionar todo lo que se encuentre en un rango de valores.
+7.	`ee.Filter.rangeContains` es para seleccionar todo lo que se encuentre en un rango de valores (Fig. 8.6).
     
 
 Ejercicio 18.3
@@ -372,7 +374,8 @@ var areasProMar = areasProtegidas.filter(
   // máximo del rango de área marina que queremos filtrar.
   ee.Filter.rangeContains('GIS_M_AREA', 10,100))); 
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 18."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de los resultados de diferentes filtros sobre una colección de áreas protegidas."}
 knitr::include_graphics("Img/ej18.png")
 ```
 
@@ -387,7 +390,7 @@ ee.FeatureCollection.select(['atributo']);
 
 ### Creación de puntos aleatorios {-}
 
-GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método `.randomPoints` luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados.
+GEE ofrece la herramienta para generar una colección de vectores, compuesta por puntos aleatorios en una región especificada. Para ello se utiliza el método `.randomPoints` luego se especifica un área donde dibujar los puntos, y la cantidad de puntos deseados (Fig. 8.7).
 
 Ejercicio 19
 
@@ -399,13 +402,13 @@ var region = ee.Geometry.Rectangle(-61.36, 31.2, -16.54, 1.93);
 // Crear 1000 puntos aleatorios en la región especificada
 var puntos = ee.FeatureCollection.randomPoints(region,1000);
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 19."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de los puntos aleatorios creados dentro de un área de interés."}
 knitr::include_graphics("Img/ej19.png")
 ```
 
 ### Obtención del primer vector {-}
 
-En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (`ee.FeatureCollection`), el resultado devuelto será un vector (`ee.Feature`).
+En algunas ocasiones resulta útil obtener el primer vector de una colección de vectores para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve el primer vector que se encuentra en la colección y permite agregarlo en la pantalla de mapas para analizarla más a detalle. Al usar este método sobre un colección de vectores (`ee.FeatureCollection`), el resultado devuelto será un vector (`ee.Feature`, Fig. 8.8).
 
 Ejercicio 20
 
@@ -422,7 +425,7 @@ var cuenca = ee.Feature(CUENCAS_MUNDIAL.first());
 
 ### Extracción de metadatos de una colección de vectores {-}
 
-Para extraer los nombres de los metadatos de una colección de vectores se usa el método `.propertyNames`. Para extraer algún metadato en particular de una colección de vectores se debe utilizar el método de `.get`, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer. 
+Para extraer los nombres de los metadatos de una colección de vectores se usa el método `.propertyNames`. Para extraer algún metadato en particular de una colección de vectores se debe utilizar el método de `.get`, indicando dentro de los paréntesis el nombre de la propiedad que se desea extraer (Fig. 8.8). 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -441,7 +444,7 @@ var metadatosCOL = CUENCAS_MUNDIAL.propertyNames()
 
 ### Extracción de listas con atributos de vectores {-}
 
-Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`).
+Para obtener una lista con los atributos de los vectores que conforman una colección de vectores se utiliza el método `.aggregate`. Este método tiene varias formas de obtener y resumir los atributos de una colección: extraer una propiedad de los vectores (`.aggregate_array`), extraer y calcular la media por propiedad (`.aggregate_mean`), extraer y calcular un histograma (`.aggregte_histogram`), o extraer y obtener estadísticas descriptivas de las propiedades (`.aggregate_stats`; Fig. 8.8).
 
 Ejercicio 20.2
 
@@ -467,7 +470,7 @@ var costaCana = CUENCAS_MUNDIAL.filterBounds(canaria)
 var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
 .aggregate_stats('UP_AREA'); 
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 20."}
+```{r, echo = F, out.width="80%", fig.cap="Ejemplos de la salida en la consola de diferentes propiedades de los vectores que forman una colección de vectores de cuencas."}
 knitr::include_graphics("Img/ej20.png")
 ```
 
@@ -486,14 +489,14 @@ Para poder ejecutar el método `.map` es necesario antes definir una función (d
 :::
 ::::
 
-En el siguiente ejercicio se realizarán los siguientes pasos: 
+En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.9): 
 
 * Llamamos a una colección con los límites políticos de los países.
 *	Seleccionamos a 'Peru'.
 *	Generamos 100 puntos aleatorios en Perú. 
 * Le añadimos a cada punto un nuevo atributo llamado 'aleatorio'.
 *	Definimos una función del usuario en la que para cada punto se genera un buffer con tamaño aleatorio.
-*	Ejecutamos la función sobre todos los puntos aleatorios 
+*	Ejecutamos la función sobre todos los puntos aleatorios. 
 *	Usando el método `.map` ejecutamos la función `bufferAleatorio` sobre todos los puntos aleatorios.
 
 Ejercicio 21
@@ -556,13 +559,14 @@ var bufferAleatorio = function(punto){
 // la función bufferAleatorio
 var circulos = puntos.map(bufferAleatorio); 
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 21."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de varios buffer, así como la salida de la consola.."}
 knitr::include_graphics("Img/ej21.png")
 ```
 
 ### Reducción de una colección de vectores {-}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos:
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
 
 *	Importamos una capa de cuencas, la filtramos con un rectángulo sobre Hawaii.
 *	Definimos una función del usuario (`function`) llamada 'areaDife' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
@@ -600,11 +604,11 @@ var RECM = ee.Number(
   .reduceColumns(ee.Reducer.mean(), ['diferencia'])
   .get('mean')).sqrt();
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 22."}
+```{r, echo = F, out.width="80%", fig.cap="Vista en la consola del error cuadrático medio calculado entre el área calculada en GEE y reportado."}
 knitr::include_graphics("Img/ej22.png")
 ```
 
-También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento:
+También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento (Fig. 8.11):
 
 *	Filtramos las cuencas de Puerto Rico.
 * Obtener la suma de los valores de todos los píxeles que caigan en cada cuenca
@@ -621,18 +625,18 @@ var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
   .filterBounds(ee.Geometry.Rectangle(-79.906, 25.196, -59.6, 9.776));
 //  Usando el método `.reduceRegions` declaramos que usaremos un reductor 
 //  espacial en el área de las cuencas de Puerto Rico.
-//    -Con `ee.Reducer.sum` especificamos que se desea obtener la la suma
+//  Con `ee.Reducer.sum` especificamos que se desea obtener la la suma
 //    de los valores de los atributos de todos los píxeles que caigan en 
 //    cada vector.
 var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 23."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización y salida de la consola de la consulta realizada sobre una imagen de variables climáticas utilizando la extensión espacial de una colección de vectores."}
 knitr::include_graphics("Img/ej23.png")
 ```
 
 ### Conversión de vector a imagen {-}
 
-Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar `.reduceToImage` indicamos el atributo que corresponderá al valor de los píxeles del raster como 'área'. Por último, con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel.
+Para rasterizar un vector se usa el método `.reduceToImage`. Este método asigna bajo cada vector los píxeles del valor del atributo especificado. Para usar `.reduceToImage` indicamos el atributo que corresponderá al valor de los píxeles del raster como 'área'. Por último, con el método `ee.Reducer.first` especificamos que el primer valor que encuentre en ese atributo sea asignado al valor del píxel (Fig. 8.12).
 
 Ejercicio 24
 
@@ -656,7 +660,8 @@ var areaGlaciar = hielo
     reducer: ee.Reducer.first()  
 	});
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 24."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de la transformación de una colección de vectores a imagen."}
 knitr::include_graphics("Img/ej24.png")
 ```
 
@@ -666,7 +671,7 @@ Para unir diferentes colecciones de vectores, mediante los valores de sus atribu
 
 Adicionalmente, se debe definir el tipo de unión a realizar entre los vectores. Los diferentes tipos de uniones se pueden consultar en la biblioteca `ee.Join`. En el siguiente ejercicio realizaremos un tipo de unión espacial de tipo `saveALL`, pero lo usaremos con dos filtros diferentes (uno de intersección y otro de distancia).
 
-En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites.
+En este ejercicio se busca encontrar cuáles áreas protegidas se encuentran a menos de 10 km de una planta de energía, y ver cuáles áreas protegidas tienen una planta de energía dentro de sus límites (Fig. 8.13).
 
 Ejercicio 25
 
@@ -711,7 +716,7 @@ var AP_cerca_PE = Union.apply(APGuatemala, plantas, distFiltro);
 // Ejecutar la unión por intersección
 var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 25."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización y salida de la consola del resultado de una unión de dos colecciones de vectores mediante sus propiedades."}
 knitr::include_graphics("Img/ej25.png")
 ```
 
@@ -743,7 +748,7 @@ Los argumentos adicionales específicos para exportar a drive `Export.table.toDr
     -	“SHP” ("shapefile"). Formato utilizado sobre todo por ESRI para almacenar vectores y tablas de atributos asociados a ellos.
     -	“TFRecord” ("tensorflow record). Formato utilizado por Tensorflow para almacenar datos tanto vectoriales como ráster. 
     
-El argumento adicional para exportar a los Assets `Export.table.toAssets` es 'AssetID', que corresponde el nombre que le pondremos al nuevo archivo.
+El argumento adicional para exportar a los Assets `Export.table.toAssets` es 'AssetID', que corresponde el nombre que le pondremos al nuevo archivo (Fig. 8.14).
 
 Ejercicio 26
 
@@ -781,11 +786,13 @@ Export.table.toDrive({
   fileFormat:'SHP'
 });
 ```
-```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 26."}
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de la información a exportar, así como su salida en la pestaña de Tasks (tareas)"}
 knitr::include_graphics("Img/ej26.png")
 ```
 
-Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.
-```{r, echo = F, out.width="100%", fig.cap="ubicacion del boton 'Run? para ejecutar las tareas en 'Task'."}
+Es importante recordar que es necesario dar clic al botón de Run en la pestaña de Tasks (tareas) para que se lleva a cabo la exportación.
+
+```{r, echo = F, out.width="100%", fig.cap="ubicacion del boton 'Run' para ejecutar una tarea de exportación."}
 knitr::include_graphics("Img/boton_run.png")
 ```
