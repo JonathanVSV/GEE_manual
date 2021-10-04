@@ -19,12 +19,16 @@ Ejercicio 13
 // políticas de los países del mundo  
 var países = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 13."}
+knitr::include_graphics("Img/ej13.png")
+```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 La búsqueda de información vectorial en los acervos de GEE es más difícil que la búsqueda de imágenes. Eso ocurre porque a pesar de que hay mucha información vectorial disponible (compartida por usuarios), sólo está indexada la información compartida por Google.
 :::
 ::::
+
 
 ## Información y metadatos
 
@@ -57,6 +61,9 @@ Map.addLayer(cuencas,{},'todas las cuencas');
 // rápido (Noroccidente de áfrica)
 Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas');
 ``` 
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 14."}
+knitr::include_graphics("Img/ej14.png")
+```
 
 ## Creación de colecciones de vectores
 
@@ -67,6 +74,9 @@ Ejercicio 15
 ```{js echo = T}
 // Crear una colección de vectores con un solo punto, sin atributos 
 var coleccion = ee.FeatureCollection(ee.Geometry.Point(16.37, 48.225));
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 15."}
+knitr::include_graphics("Img/ej15.png")
 ```
 
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
@@ -185,6 +195,9 @@ var coleccionVectores = ee.FeatureCollection([Multipoligono,
   Multipunto,
   Punto]);
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 16."}
+knitr::include_graphics("Img/ej16.png")
+```
 
 ## Visualización de colecciones de vectores
 
@@ -242,6 +255,9 @@ Map.addLayer(contornos, {palette: '6e00ff', max: 14},
 Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'], 
   max: 14}, 'bordes de colores'); 
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 17."}
+knitr::include_graphics("Img/ej17.png")
+```
 
 ## Métodos comunes
 
@@ -298,7 +314,7 @@ El método para filtrar por fecha es `.filterDate` ,sólo aplica en caso que los
 
 En el siguiente ejercicio vamos a crear una función para extraer de cada vector de la colección, el valor de año del atributo 'STATUS_YR', y guardarlo en un nuevo atributo llamado 'system:time_start'. Una vez estén todos los vectores listos. Procederemos a filtrar las áreas protegidas establecidas entre el 2020 y 2021.
 
-Ejercicio 17.2
+Ejercicio 18.2
 
 ```{js echo = T}
 // Map es un método que nos permite ejecutar una operación sobre todos 
@@ -352,6 +368,10 @@ var areasProMar = areasProtegidas.filter(
   //  queremos filtrar.
   ee.Filter.rangeContains('GIS_M_AREA', 10,100))); 
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 18."}
+knitr::include_graphics("Img/ej18.png")
+```
+
 
 ### Selección de atributos
 
@@ -374,6 +394,9 @@ var region = ee.Geometry.Rectangle(-61.36, 31.2, -16.54, 1.93);
 
 // Crear 1000 puntos aleatorios en la región especificada
 var puntos = ee.FeatureCollection.randomPoints(region,1000);
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 19."}
+knitr::include_graphics("Img/ej19.png")
 ```
 
 ### Obtención del primer vector
@@ -439,6 +462,9 @@ var costaCana = CUENCAS_MUNDIAL.filterBounds(canaria)
 // cuencas de la zona
 var estadisticas = CUENCAS_MUNDIAL.filterBounds(canaria)
 .aggregate_stats('UP_AREA'); 
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 20."}
+knitr::include_graphics("Img/ej20.png")
 ```
 
 ### Ejecución de una función sobre todos los vectores una colección
@@ -530,6 +556,9 @@ var bufferAleatorio = function(punto){
 // la función bufferAleatorio
 var circulos = puntos.map(bufferAleatorio); 
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 21."}
+knitr::include_graphics("Img/ej21.png")
+```
 
 ### Reducción de una colección de vectores
 
@@ -571,6 +600,9 @@ var RECM = ee.Number(
   .reduceColumns(ee.Reducer.mean(), ['diferencia'])
   .get('mean')).sqrt();
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 22."}
+knitr::include_graphics("Img/ej22.png")
+```
 
 También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento:
 
@@ -593,6 +625,9 @@ var cuencasPuertorRico = ee.FeatureCollection('USGS/WBD/2017/HUC06')
 //    de los valores de los atributos de todos los píxeles que caigan en 
 //    cada vector.
 var cuencaClima = clima.reduceRegions(cuencasPuertorRico, ee.Reducer.sum());
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 23."}
+knitr::include_graphics("Img/ej23.png")
 ```
 
 ### Conversión de vector a imagen
@@ -620,6 +655,9 @@ var areaGlaciar = hielo
     // Tomar el primer valor
     reducer: ee.Reducer.first()  
 	});
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 24."}
+knitr::include_graphics("Img/ej24.png")
 ```
 
 ### Unión de colecciones de vectores
@@ -672,6 +710,9 @@ var AP_cerca_PE = Union.apply(APGuatemala, plantas, distFiltro);
 
 // Ejecutar la unión por intersección
 var AP_dentro_PE = Union.apply(APGuatemala, plantas, interFiltro);
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 25."}
+knitr::include_graphics("Img/ej25.png")
 ```
 
 ### Exportación de colecciones de vectores
@@ -739,6 +780,9 @@ Export.table.toDrive({
   fileNamePrefix:'puntos_ejemplo',
   fileFormat:'SHP'
 });
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 26."}
+knitr::include_graphics("Img/ej26.png")
 ```
 
 Es importante recordar que es necesario dar clic a las tareas en la pestaña Tasks para que se lleva a cabo la exportación.

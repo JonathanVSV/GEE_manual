@@ -74,6 +74,9 @@ Ejercicio 10.1
 ```{js echo = T}
 var vector1 = vector.set('tamaño','neotropico');
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 10."}
+knitr::include_graphics("Img/ej10.png")
+```
 
 ### Extracción y edición de propiedades de vectores
 
@@ -104,6 +107,9 @@ var costa = cuenca.get('COAST');
 
 // Extraemos el atributo 'COAST' y lo renombramos como 'costa maritima'
 var renombre = cuenca.select(['COAST'],['costa maritima']);
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 11."}
+knitr::include_graphics("Img/ej11.png")
 ```
 
 ### Intersección con otros vectores 
@@ -210,4 +216,7 @@ Ejercicio 12.5
 ```{js echo = T}
 // Unir geometrías del buffer y un rectángulo 
 var union = rectangulo2.union(bufferPol)
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 12."}
+knitr::include_graphics("Img/ej12.png")
 ```

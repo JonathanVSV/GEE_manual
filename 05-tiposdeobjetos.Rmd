@@ -45,6 +45,11 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 0."}
+knitr::include_graphics("Img/ej0.png")
+```
+
+
 **Números**
 
 Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo:
@@ -57,6 +62,9 @@ var numero = 1;
  
 // Número decimal con punto decimal  
 var numero2 = 2.5;  
+```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 1."}
+knitr::include_graphics("Img/ej1.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -102,6 +110,10 @@ print(listaB[2]);
 // Lista completa con todos sus elementos
 print(listaC);    
 ```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 2."}
+knitr::include_graphics("Img/ej2.png")
+```
+
 
 **Diccionarios**
 
@@ -148,6 +160,9 @@ print(dicc.clave1);
 // Notación con punto, se mostrará en la consola la definición de 
 // "clave2", es decir la letra "A"
 print(dicc.clave2);  
+```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 3."}
+knitr::include_graphics("Img/ej3.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -232,6 +247,9 @@ var cadena2 = "Esto es una cadena de caracteres";
 // del lado del servidor
 var cadenaServ = ee.String(cadena2);                         
 ```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 4."}
+knitr::include_graphics("Img/ej4.png")
+```
 
 **ee.Number**
 
@@ -242,6 +260,9 @@ Ejercicio 5:
 ```{js, echo = T}
 // Se define un número como `ee.Number` del servidor
 var numServ = ee.Number(1900);                              
+```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 5."}
+knitr::include_graphics("Img/ej5.png")
 ```
 
 **ee.List**
@@ -269,6 +290,9 @@ print(listaServ.get(0));
 
 // Se llama solamente al segundo objeto de la ee.List del servidor
 print(listaServ.get(1)); 
+```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 6."}
+knitr::include_graphics("Img/ej6.png")
 ```
 
 **ee.Dictionary**
@@ -318,6 +342,9 @@ print('claves',diccServ.keys());
 // Muestra una lista con todos los valores del ee.Dictionary
 print('valores',diccServ.values());  
 ```
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 7."}
+knitr::include_graphics("Img/ej7.png")
+```
 
 **ee.Date**
 
@@ -342,6 +369,7 @@ Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este 
   *	El formato debe estar entre comillas.
   *	Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a `ee.Date` (entre el formato y el texto debe ir una coma).
 
+
 Ejercicio 8:
 
 ```{js, echo = T}
@@ -360,6 +388,14 @@ var fecha2 = ee.Date.fromYMD(2015,03,28);
 // año y mes, se especifica cada separador, y si se usan meses como texto
 // deben ser las 3 primeras iniciales del mes en inglés
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 
+```
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Vease en la siguiente figura
+:::
+::::
+```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 8."}
+knitr::include_graphics("Img/ej8.png")
 ```
 
 **ee.Image**

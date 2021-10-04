@@ -131,6 +131,9 @@ ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
      -67.64, 6.49,
      -62.11, 2.63]]);
 ```
+```{r, echo = F, out.width="30%", fig.cap="Resultado del ejercicio 9."}
+knitr::include_graphics("Img/ej9.png")
+```
 
 Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (Fig. 6.1):
 
