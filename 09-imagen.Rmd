@@ -12,6 +12,9 @@ Ejercicio 27
 // arbórea en el 2005
 var CHM = ee.Image("NASA/JPL/global_forest_canopy_height_2005");
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej271.png")
+```
 
 ## Información adicional para los ejemplos
 
@@ -57,6 +60,9 @@ Ejercicio 27.1
 // Obtener las propiedades de la imagen
 CHM.propertyNames();
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej272.png")
+```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -71,6 +77,9 @@ Ejercicio 27.2
 ```{js echo = T}
 // Obtener los nombres de las bandas de la imagen
 CHM.bandNames();
+```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej273.png")
 ```
 
 ## Visualización de una imagen
@@ -89,7 +98,9 @@ Map.addLayer(CHM,
   // de mapas
   'primera imagen');
 ```
-
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej274.png")
+```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -126,6 +137,10 @@ var CHMprop1 = CHM.set('miPropiedad','miImagen');
 // Modificar una propiedad preexistente
 var CHMprop2 = CHM.set('title','miTítulo');
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej275.png")
+```
+
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -174,6 +189,9 @@ Ejercicio 27.8
 // Multiplicar la imagen por 100 para obtener el valor en cm
 var chmCmMx = chmMx.multiply(100);
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej276.png")
+```
 
 Además, GEE cuenta con un método de `.normalizedDifference` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `.expression`. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
 
@@ -211,6 +229,9 @@ Ejercicio 27.9
 // Nótese que se utiliza la imagen con valores en m
 var chmMXMask20 = chmMx.gte(20);
 ```
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej277.png")
+```
 
 Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda 'pixel_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda 'pixel_qa' para después evaluar una condición sobre ella. En este caso, se crea una máscara que tenga valores a conservar (1) en áreas donde el bit 5 sea 0; por el contrario, contendrá valores a eliminar (0) en áreas donde el bit 5 no sea 0.
 
@@ -228,7 +249,9 @@ var qa = landsat7im.select('pixel_qa');
 // donde el bit 5 tenga valores iguales a cero
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 ```
-
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej278.png")
+```
 ### Enmascaramiento
 
 El método `.updateMask` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0).
@@ -242,7 +265,11 @@ var chmMxMayor20 = chmMx.updateMask(chmMXMask20);
 // Aplicar la máscara a la imagen original
 var landsat7imMask = landsat7im.updateMask(mask);
 ```
-
+```{r, echo = F, out.width="80%", fig.cap="Resultado ejercicio 27."}
+knitr::include_graphics("Img/ej279.png")
+knitr::include_graphics("Img/ej270.png")
+knitr::include_graphics("Img/ej27a.png")
+```
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. El método `.mask` simplemente sustituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva. Por ello, el usar `.updateMask` evita desenmascarar áreas que podrían no ser de interés para el usuario.
@@ -434,5 +461,6 @@ Export.image.toDrive({
   crs: 'EPSG:4326'
 });
 ```
+
 
 Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic en Run y comenzar a exportar la imagen al Google Drive. A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en Run . Por último, el producto exportado aparecerá en la pestaña de Tasks con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al Drive, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al Drive (ver Fig. 2.22).
