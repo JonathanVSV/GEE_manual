@@ -32,7 +32,7 @@ La búsqueda de información vectorial en los acervos de GEE es más difícil qu
 
 ## Información y metadatos
 
-Las colecciones de vectores contienen los metadatos e información de todos los vectores que contienen. Gracias a ello, se puede utilizar esta información para filtrar y utilizar únicamente los vectores que cumplen con ciertos criterios.
+Las colecciones de vectores contienen los metadatos e información de todos los vectores que contienen. Gracias a ello, se puede utilizar esta información para filtrar y utilizar únicamente los vectores que cumplen con ciertos criterios. Algunos de las métodos que permiten examinar una colección de vectores incluyen `.size` y `.limit` (Fig. 8.2).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -67,7 +67,7 @@ knitr::include_graphics("Img/ej14.png")
 
 ## Creación de colecciones de vectores
 
-Una colección de vectores se define a partir del método `ee.FeatureCollection` y puede contener geometrías, vectores, o colección de vectores. Una colección de geometrías  puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos (Fig. 8.3). 
+Una colección de vectores se define a partir del método `ee.FeatureCollection` y puede contener geometrías, vectores, o inclusive otra colección de vectores. Una colección de geometrías  puede contener un solo vector o una sola geometría. No es relevante si los elementos de la colección tienen o no atributos (Fig. 8.2). 
 
 Ejercicio 15
 
@@ -199,7 +199,7 @@ var coleccionVectores = ee.FeatureCollection([Multipoligono,
   Punto]);
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de una colección de vectores son objetos con diferentes geometríasm así como su salida en la consola."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de una colección de vectores son objetos con diferentes geometrías, así como su salida en la consola."}
 knitr::include_graphics("Img/ej16.png")
 ```
 
@@ -226,7 +226,7 @@ Map.addLayer(ecoregiones.draw({color: 'FF6969', strokeWidth:10 }), {},
   'capa color rosa, y linea gruesa');
 ```
 
-Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía (`ee.Image`), y luego proyecta esa imagen (Fig. 8.5): 
+Si queremos visualizar sólo los contornos de los vectores puede usar el siguiente código, el cual dibuja con el método `.paint` los contornos de los vectores sobre una imagen vacía (`ee.Image`), y luego se visualiza esa imagen (Fig. 8.5): 
 
 Ejercicio 17.2
 
@@ -268,7 +268,7 @@ knitr::include_graphics("Img/ej17.png")
 
 ### Filtración de una colección de vectores {-}
 
-Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se usa el método `.filterBounds`, el cual permite seleccionar todos los vectores de la colección que se intersecten con la geometría indicada por el usuario. En el ejercicio se va a filtrar espacialmente una colección de vectores que contiene las áreas protegidas del mundo para seleccionar únicamente las áreas que se intersecten con un rectángulo que abarca el país de Costa Rica.
+Filtrar una colección de vectores permite seleccionar los vectores deseados. Se puede filtrar por fecha o por localización, pero de todas formas si se necesitan filtros más avanzados se pueden configurar. Para filtrar por localización se usa el método `.filterBounds`, el cual permite seleccionar todos los vectores de la colección que se intersecten con la geometría indicada por el usuario. En el ejercicio se va a filtrar espacialmente una colección de vectores que contiene las áreas protegidas del mundo para seleccionar únicamente las áreas que se intersecten con un rectángulo que abarca el país de Costa Rica (Fig. 8.6).
 
 Ejercicio 18
 
@@ -560,13 +560,13 @@ var bufferAleatorio = function(punto){
 var circulos = puntos.map(bufferAleatorio); 
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de varios buffer, así como la salida de la consola.."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de varios buffers, así como la salida de la consola."}
 knitr::include_graphics("Img/ej21.png")
 ```
 
 ### Reducción de una colección de vectores {-}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir. Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir (reduce). Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
 
 *	Importamos una capa de cuencas, la filtramos con un rectángulo sobre Hawaii.
 *	Definimos una función del usuario (`function`) llamada 'areaDife' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
@@ -604,7 +604,7 @@ var RECM = ee.Number(
   .reduceColumns(ee.Reducer.mean(), ['diferencia'])
   .get('mean')).sqrt();
 ```
-```{r, echo = F, out.width="80%", fig.cap="Vista en la consola del error cuadrático medio calculado entre el área calculada en GEE y reportado."}
+```{r, echo = F, out.width="80%", fig.cap="Vista en la consola del error cuadrático medio calculado entre el área calculada directamente en GEE y el reportado por la fuente de datos utilizada."}
 knitr::include_graphics("Img/ej22.png")
 ```
 
@@ -738,11 +738,11 @@ Es importante recordar que no se podrán exportar vectores a los Assets sin geom
 Los argumentos adicionales específicos para exportar a drive `Export.table.toDrive` son: 
 
 *	Folder (carpeta): cadena de texto del usuario que será el nombre de la carpeta donde se guardará el vector dentro del drive. Si no se especifica este argumento, se guarda en el drive sin carpeta, aunque si se especifica un nombre de una carpeta que no existe, dicha carpeta se creará automáticamente.
-*	FileNamePrefix (prefijo del archivo): el nombre que le pondremos al vector guardado en drive.
+*	FileNamePrefix (prefijo del archivo): el prefijo a utilizar para nombrar al vector guardado en drive.
 *	FileFormat (formato del archivo): el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
 
-    -	“CSV”, valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este format es el más utilizado para exportar colecciones de vectores sin geometrías (es decir una simple tabla de atributos).
-    -	“GeoJSON” ("Geographic javaScript Object Notation"). Formato basado en el lenguaje JSON ("JavaScript Object Notation") para almacenar datos vectoriales y sus atributos.
+    -	“CSV”, valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este formato es el más utilizado para exportar colecciones de vectores sin geometrías (es decir una simple tabla de atributos).
+    -	“GeoJSON” ("Geographic JavaScript Object Notation"). Formato basado en el lenguaje JSON ("JavaScript Object Notation") para almacenar datos vectoriales y sus atributos.
     -	“KML” ("keyhole markup language"). Formato utilizado sobre todo por Google para almacenar datos espaciales y tablas de atributos asociados a ellos.
     -	“KMZ” ("kml zipped"). Formato que consta de de un KML comprimido. 
     -	“SHP” ("shapefile"). Formato utilizado sobre todo por ESRI para almacenar vectores y tablas de atributos asociados a ellos.
@@ -791,7 +791,7 @@ Export.table.toDrive({
 knitr::include_graphics("Img/ej26.png")
 ```
 
-Es importante recordar que es necesario dar clic al botón de Run en la pestaña de Tasks (tareas) para que se lleva a cabo la exportación.
+Es importante recordar que es necesario dar clic al botón de Run en la pestaña de Tasks (tareas) para que se lleva a cabo la exportación (Fig. 8.15).
 
 ```{r, echo = F, out.width="100%", fig.cap="ubicacion del boton 'Run' para ejecutar una tarea de exportación."}
 knitr::include_graphics("Img/boton_run.png")

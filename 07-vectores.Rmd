@@ -1,7 +1,8 @@
 \newpage
 # ee.Feature
 
-Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas (ver Olaya [2020] para una descripción
+más detallada de un vector).
 Es importante recalcar que una `ee.Feature` es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono)
 
 ## Información y metadatos
@@ -218,6 +219,6 @@ Ejercicio 12.5
 // Unir geometrías del buffer y un rectángulo 
 var union = rectangulo2.union(bufferPol)
 ```
-```{r, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados."}
 knitr::include_graphics("Img/ej12.png")
 ```

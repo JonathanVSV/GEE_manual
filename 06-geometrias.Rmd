@@ -132,7 +132,7 @@ ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
      -62.11, 2.63]]);
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de los diferentes tipos de geometrías creadas."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de los diferentes tipos de geometrías."}
 knitr::include_graphics("Img/ej9.png")
 ```
 

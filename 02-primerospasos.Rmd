@@ -27,7 +27,7 @@ knitr::include_graphics("Img/formulario.png")
 
 Una vez realizado el registro, hay que esperar un tiempo (puede ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API (Fig. 2.3).
 
-```{r, echo = F, out.width="60%", fig.cap="Ejemplo de correo de confirmación por parte de GEE para poder utilizar la API."}
+```{r, echo = F, out.width="60%", fig.cap="Ejemplo del correo de confirmación por parte de GEE para poder utilizar la API."}
 knitr::include_graphics("Img/correo.png")
 ```
 
@@ -215,7 +215,7 @@ knitr::include_graphics("Img/task.png")
 
 ## Programación en GEE
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 4.
+La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 5.
 
 ### Simbología {-}
 
@@ -236,12 +236,12 @@ La sintaxis de Javascript tiene algunas peculiaridades que deben cumplirse para 
 2.	Siempre se debe cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).
 3.	Comúnmente en Javascript se utiliza la notación "lowerCamelCase" para unir palabras (unir palabras sin espacio pero cada una comenzando con su respectiva mayúscula) , en lugar de guiones `-` o guión bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
 4.	Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
-5.	El operador `=`asigna un valor a una variable.
+5.	El operador `=` asigna un valor a una variable.
 6.	Los operadores matemáticos son: `+ - * /`.
 7.	Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.
 8.	Para realizar comentarios se puede utilizar `//` para comentarios de una línea, o también `/* … */` para comentarios de varias líneas.
 9.	Se suele utilizar el operador `.` (punto) para aplicar un método al objeto que lo precede. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador `.`  para evitar errores de sintaxis.
-10.	Son igualmente válidas las comillas sencillas `''` como las comillas dobles `""`, pero no deben mezclarse ambos tipos de comillas en una misma línea.
+10.	Son igualmente válidas las comillas sencillas (`' '`) como las comillas dobles (`" """`), pero no deben mezclarse ambos tipos de comillas en una misma línea.
 
 
 :::: {.bluebox2 data-latex=""}

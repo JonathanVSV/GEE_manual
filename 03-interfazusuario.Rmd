@@ -35,7 +35,7 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 4 para una descripción de lo que es un diccionario). Las bandas se deben agregar en el orden RGB, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul. Esta función también permite asignar colores mediante el argumento de `palette` (paleta de colores). Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas (Fig. 3.2):
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). Las bandas se deben agregar en el orden RGB, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul. Esta función también permite asignar colores mediante el argumento de `palette` (paleta de colores). Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas (Fig. 3.2):
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], 
@@ -85,11 +85,11 @@ Map.setCenter(-39.86, 20.52, 5)
 
 ## Creación de gráficos
 
-Este grupo de funciones permiten realizar gráficos de diversos tipos. Sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la función principal `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
+Este grupo de funciones permiten realizar gráficos de diversos tipos. Sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la biblioteca `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
 
 #### ui.Chart.feature {-}
 
-Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función `print`). Algunas de los métodos disponibles son: 
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función `print`). Algunas de las funciones disponibles son: 
 
 * `ui.Chart.feature.byFeature`.
 * `ui.Chart.feature.byProperty`.

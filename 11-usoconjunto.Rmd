@@ -7,7 +7,7 @@ Además de los métodos que existen en GEE para realizar operaciones sobre imág
 
 ### Muestreo por vector(es) {-}
 
-Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo.
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo (Fig. 11.1).
 
 Ejercicio 29
 
@@ -24,8 +24,10 @@ var muestreo = L8imgMean
     region: bosque1,
     scale:30
   });
+```
 
-print(muestreo, 'muestreo');
+```{r, echo = F, out.width="100%", fig.cap="Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample."}
+knitr::include_graphics("Img/sampleRegions.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -36,7 +38,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 
 ### Reducción de una imagen por región(es) {-}
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por un área de interés (geometry). En este caso, además hay que indicar el reducer (reductor) y el tamaño de píxel para realizar la operación (scale).
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por un área de interés (geometry). En este caso, además hay que indicar el reducer (reductor) y el tamaño de píxel para realizar la operación (scale; Fig. 11.2).
 
 ```{js echo = T}
 // Reducción por región
@@ -49,8 +51,10 @@ var reduccion = ee.Image(L8imgMean)
     // Tamaño de píxel
     scale: 30
   });
-  
-print(reduccion, 'reduccion');
+```
+
+```{r, echo = F, out.width="100%", fig.cap="Ejemplo de la salida de la consola del promedio obtenido mediante el método reduceRegion."}
+knitr::include_graphics("Img/reduccion11.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
@@ -65,18 +69,16 @@ Este procedimiento consiste en tomar los datos numéricos de un vector e interpo
 
 ### Ponderación de distancia inversa {-}
 
-Este método interpola al píxel de interés un valor según cada uno de los puntos más cercanos y los pondera según su distancia, generando un promedio de esos valores. Esto provoca que los píxeles más cercanos tendrán más influencia en el resultado de la interpolación que los píxeles alejados. Este método es descrito por Basso (et al. 1999). Esta interpolación se realiza con el método `.inverseDistance` donde hay que especificar al menos:
+Este método interpola al píxel de interés un valor según cada uno de los puntos más cercanos y los pondera según su distancia, generando un promedio de esos valores. Esto provoca que los píxeles más cercanos tendrán más influencia en el resultado de la interpolación que los píxeles alejados. Para consultar más detalles sobre el procedimiento de interpolación, revisar Basso et al. (1999). Esta interpolación se realiza con el método `.inverseDistance` donde hay que especificar al menos:
 
 *	El radio a interpolar alrededor de cada vector.
 *	El atributo (la propiedad) numérica del vector, que se interpolará.
 *	El promedio global de la variable.
 *	La desviación estándar global de la variable.
 
-El siguiente ejercicio tiene como objetivo interpolar valores de CH4 para el norte de México.
-La imagen Sentinel que se utilizara, no tiene los valores de CH4 completos, muchos de los pixeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área de estudio 
-Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios dentro del norte de México, de una imagen satelital Sentinel.
-Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos)
-y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar.
+El siguiente ejercicio tiene como objetivo interpolar valores de metano (CH4) para el norte de México.
+La imagen Sentinel-5 que se utilizará, no tiene los valores de CH4 para toda el área de estudio, sino que muchos de los píxeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área. Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios dentro del norte de México, de una imagen satelital Sentinel-5. Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos)
+y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar (Fig. 11.3).
 
 Ejercicio 30
 
@@ -138,9 +140,13 @@ var interpolado = muestras.inverseDistance({
   }); 
 ```
 
+```{r, echo = F, out.width="100%", fig.cap="Visualización de la capa inicial de CH4, puntos de muestreo e imagen interpolada."}
+knitr::include_graphics("Img/interpol.png")
+```
+
 ### Kriging {-}
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer). 
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer; Fig. 11.4). 
 
 Ejercicio 31
 
@@ -177,4 +183,8 @@ var interpolar = muestras.kriging({
   maxDistance: 100 * 1000,
   reducer: 'mean',
 });
+```
+
+```{r, echo = F, out.width="100%", fig.cap="Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada."}
+knitr::include_graphics("Img/kriging.png")
 ```

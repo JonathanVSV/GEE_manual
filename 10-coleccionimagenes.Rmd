@@ -1,7 +1,9 @@
 \newpage
 # ee.ImageCollection
 
-Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:  
+Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan varios ejercicios integradores de varios de los procedimientos revisados en este capítulo. 
+
+Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:  
 
 Ejercicio 28
 
@@ -9,8 +11,6 @@ Ejercicio 28
 // Cargar la colección de Sentinel-2 reflectancia de la superficie
 var S2 = ee.ImageCollection("COPERNICUS/S2_SR");
 ```
-
-## Información adicional para los ejemplos
 
 Como información adicional para este capítulo se definirá una geometría de un área de interés.
 
@@ -372,13 +372,13 @@ knitr::include_graphics("Img/imredmeanQM.png")
 
 Este ejercicio integra elementos de los ejercicios 28.4 28.5 28.6 y 28.7, de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (`Search`), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **BANDS** se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **IMAGE PROPERTIES** se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 10.14).
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (`Search`), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de BANDS se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de IMAGE PROPERTIES se pueden consultar los metadatos que contienen las imágenes de esta colección (Fig. 10.14).
 
 ```{r, echo = F, out.width="100%", fig.cap="Consulta de propiedades de las imágenes contenidas en una colección de imágenes."}
 knitr::include_graphics("Img/Ruta_coleccion.png")
 ```
 
-Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y  se especifican los filtros. En este caso, primero se filtra por fecha, en formato YYYY-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
+Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y  se especifican los filtros. En este caso, primero se filtra por fecha, en formato AAAA-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
 
 *	'CLOUD_COVER_LAND',
 *	'WRS_PATH', 
@@ -436,11 +436,11 @@ knitr::include_graphics("Img/RGBIm.png")
 
 #### Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C) {-}
 
-Este ejercicio integra elementos de los ejercicios 28.8 28.9 de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
+Este ejercicio integra elementos de los ejercicios 28.8 28.9 de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración.
 
 Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
 
-Para calcular el ndvi promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el ndvi de cada imagen contenida en la colección de imágenes. Para ello se utiliza el método `.normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método `.rename` para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método `.addBands` y se utiliza el método `.map` para aplicarla a cada una de las imágenes.
+Para calcular el NDVI promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el NDVI de cada imagen contenida en la colección de imágenes. Para ello se utiliza el método `.normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método `.rename` para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método `.addBands` y se utiliza el método `.map` para aplicarla a cada una de las imágenes.
 
 En este procedimiento, primero se define la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama 'pixel_qa'. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
 
@@ -509,7 +509,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 knitr::include_graphics("Img/imConNDVI.png")
 ```
 
-Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
+Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos. 
 
 ```{js, echo = T}
 // Seleccionar la banda ndvi y hacer dos reducciones
@@ -518,15 +518,13 @@ var L8imgMean = L8imgCol.reduce(ee.Reducer.mean());
 var L8imgSD = L8imgCol.reduce(ee.Reducer.stdDev());
 ```
 
-A continuación, agregamos los dos resultados a la pantalla de mapas (Fig. 10.20).
+A continuación, agregamos los dos resultados a la pantalla de mapas y visualizamos el compuesto de media (Fig. 10.20).
 
 ```{js, echo = T}
 // Visualizar las imágenes
 Map.addLayer(L8imgMean, {min:-0.14, max:0.15}, 'NDVI mean 2015 - 2016');
 Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 ```
-
-El resultado se ve así (Fig. 10.21):
 
 ```{r, echo = F, out.width="100%", fig.cap="Visualización de la imagen de NDVI promedio."}
 knitr::include_graphics("Img/imNDVI.png")
@@ -543,7 +541,7 @@ Map.addLayer(numObsPixel,
   'Número de observaciones sin enmascarar por píxel');
 ```
 
-La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 10.22):
+La imagen con el número de observaciones por píxel sin enmascarar se ve así (Fig. 10.21):
 
 ```{r, echo = F, out.width="100%", fig.cap="Visualización de la imagen con el número de observaciones sin enmascarar por píxel."}
 knitr::include_graphics("Img/imCount.png")
@@ -566,7 +564,7 @@ var geometry = ee.Geometry.Polygon(
           [-101.15171500947403, 19.836437094032178]]], null, false);
 ```
 
-Para después cortar las dos imágenes y mostrarlas en la pantalla de mapas.
+Para después cortar las dos imágenes y mostrarlas en la pantalla de mapas (Fig. 10.22).
 
 ```{js  echo = T}
 // Cortar la imágenes
@@ -576,6 +574,10 @@ L8imgSD = L8imgSD.clip(geometry);
 // Visualizarlas
 Map.addLayer(L8imgMean, {min:0.2, max:0.8}, 'NDVI mean 2015 - 2016 clip');
 Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
+```
+
+```{r, echo = F, out.width="80%", fig.cap="Visualización de los compuestos de media y desviación estándar cortados."}
+knitr::include_graphics("Img/meansdclip.png")
 ```
 
 #### Ejercicio: Cáculo de diferencia de dos imágenes y exportación de resultado.(Ejercicio D) {-}
@@ -618,7 +620,7 @@ Map.addLayer(imgDiff,{min:-0.3, max: 0.1,
   'Diferencia NDVI 2015 vs 2016');
 ```
 
-```{r, echo = F, out.width="100%", fig.cap="Imagen de diferencia de NDVI entre dos años."}
+```{r, echo = F, out.width="100%", fig.cap="Imagen de la diferencia de NDVI entre dos años."}
 knitr::include_graphics("Img/imDifNDVI.png")
 ```
 

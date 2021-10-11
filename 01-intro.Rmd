@@ -28,9 +28,9 @@ Idealmente, para sacar el máximo provecho, los lectores de este manual deben co
 
 ## Organización del libro
 
-El manual está organizado en doce capítulos que cubren diferentes aspectos de esta API ("Application Programming Interface", o interfaz de programación de aplicaciones). El primer capítulo describe algunos aspectos generales de GEE. El siguiente capítulo detalla los pasos a seguir para poder usar GEE, así como los elementos básicos de dicha herramienta. Posteriormente, se presentan algunas funciones básicas para ayudar al usuario a interactuar con la API y las diferencias entre la programación del lado del servidor y del usuario. A continuación, en cinco capítulos, se describen los tipos de objetos más frecuentemente utilizados en GEE: geometrías, vectores, colecciones de vectores, imágenes y colecciones de imágenes, así como sus métodos. Posteriormente, se describe con detalle cómo subir información a GEE para poder utilizarla en GEE. Después, se describen algunos métodos más avanzados para utilizar en conjunto información vectorial y ráster. El último capítulo muestra el procedimiento para realizar una clasificación supervisada en la API. 
+El manual está organizado en doce capítulos que cubren diferentes aspectos de esta API ("Application Programming Interface", o interfaz de programación de aplicaciones). El primer capítulo describe algunos aspectos generales de GEE. El siguiente capítulo detalla los pasos a seguir para poder usar GEE, así como los elementos básicos de dicha herramienta. Posteriormente, se presentan tres capítulos que muestran algunas funciones básicas para ayudar al usuario a interactuar con la API, cómo importar información a GEE y las diferencias entre la programación del lado del servidor y del usuario. A continuación, en cinco capítulos, se describen los tipos de objetos más frecuentemente utilizados en GEE: geometrías, vectores, colecciones de vectores, imágenes y colecciones de imágenes, así como sus métodos. Después, se describen algunos métodos más avanzados para utilizar en conjunto información vectorial y ráster. El último capítulo muestra el procedimiento para realizar una clasificación supervisada en la API. 
 
-El manual incluye ejemplos que ayudarán a entender la sintaxis y experimentar con distintos tipos de datos, provenientes de distintas fuentes. De manera particular, en los capítulos sobre imágenes y colecciones de imágenes se incluyen ejemplos más prácticos con aplicaciones reales que tratan de integrar varios de los métodos revisados. Por último, este manual cuenta con una serie de ejercicios complementarios y explicativos los cuales pueden ser implementados directamente en línea. El enlace para acceder a este material se encontrará más adelante.
+El manual incluye ejemplos que ayudarán a entender la sintaxis y experimentar con distintos tipos de datos, provenientes de diferentes fuentes. De manera particular, en los capítulos sobre imágenes y colecciones de imágenes se incluyen ejemplos más prácticos con aplicaciones reales que tratan de integrar varios de los métodos revisados. Por último, este manual cuenta con una serie de ejercicios complementarios y explicativos los cuales pueden ser implementados directamente en línea. El enlace para acceder a este material se encontrará más adelante.
 
 ## Descripción general de Google Earth Engine
 
@@ -72,13 +72,19 @@ GEE ofrece dos APIs, una en JavaScript, la cual se accede vía internet, mediant
 4. Se pueden realizar fácilmente consultas de las colecciones de imágenes y sus metadatos, antes de decidir importarlos. La API de Python no permite realizar ese tipo de consultas fácilmente, de modo que hay que tener una absoluta claridad de las propiedades del conjunto de datos que se va a utilizar.
 5. Otra gran ventaja de la plataforma radica en que los códigos se guardan en la sesión de cada usuario. Esto permite mantener un control de los códigos y automáticamente se genera un registro histórico (parecido al control de versiones de git), lo cual facilita el seguimiento y comparación de cambios entre las versiones (y permite revertir a versiones anteriores). Además, se pueden generar repositorios compartidos para generar proyectos colaborativos.
 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Git es un programa de distribución libre que permite llevar un control de diferentes versiones de un código.
+:::
+::::
+
 ### Ejemplos de aplicaciones realizadas con GEE {-}
 
 GEE  se ha utilizado para diversos estudios enfocados en estudiar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo, Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 
 * Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo et al., 2020; Hamunyela et al., 2020).
-* Evaluar los cambios de la cobertura boscosa global, en alta resolución, para periodos superiores a una década (Hansen et al., 2013).
-* Estimar de variables biofísicas de la superficie terrestre (Campos-Taberner et al., 2018).
+* Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen et al., 2013).
+* Estimar variables biofísicas de la superficie terrestre (Campos-Taberner et al., 2018).
 * Enmascarar nubes de imágenes (Mateo-García et al., 2018).
 * Monitorear asentamientos humanos (Trianni et al., 2014).
 * Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano et al., 2020a; Solórzano et al., 2020b).

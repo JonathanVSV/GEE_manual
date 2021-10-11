@@ -45,7 +45,7 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 0."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de objetos de tipo cadena de caracteres."}
 knitr::include_graphics("Img/ej0.png")
 ```
 
@@ -62,7 +62,7 @@ var numero = 1;
 // Número decimal con punto decimal  
 var numero2 = 2.5;  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 1."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de objetos de tipo número."}
 knitr::include_graphics("Img/ej1.png")
 ```
 
@@ -109,7 +109,7 @@ print(listaB[2]);
 // Lista completa con todos sus elementos
 print(listaC);    
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 2."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo lista."}
 knitr::include_graphics("Img/ej2.png")
 ```
 
@@ -160,7 +160,7 @@ print(dicc.clave1);
 // "clave2", es decir la letra "A"
 print(dicc.clave2);  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 3."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo diccionario."}
 knitr::include_graphics("Img/ej3.png")
 ```
 
@@ -206,7 +206,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 
 ## Tipo de objetos del lado del servidor
 
-Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargadas en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
+Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargados en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -246,7 +246,7 @@ var cadena2 = "Esto es una cadena de caracteres";
 // del lado del servidor
 var cadenaServ = ee.String(cadena2);                         
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 4."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor."}
 knitr::include_graphics("Img/ej4.png")
 ```
 
@@ -260,7 +260,7 @@ Ejercicio 5:
 // Se define un número como `ee.Number` del servidor
 var numServ = ee.Number(1900);                              
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 5."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo número del lado del servidor."}
 knitr::include_graphics("Img/ej5.png")
 ```
 
@@ -290,7 +290,7 @@ print(listaServ.get(0));
 // Se llama solamente al segundo objeto de la ee.List del servidor
 print(listaServ.get(1)); 
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 6."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo lista del lado del servidor."}
 knitr::include_graphics("Img/ej6.png")
 ```
 
@@ -341,7 +341,7 @@ print('claves',diccServ.keys());
 // Muestra una lista con todos los valores del ee.Dictionary
 print('valores',diccServ.values());  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 7."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo diccionario del lado del servidor."}
 knitr::include_graphics("Img/ej7.png")
 ```
 
@@ -349,24 +349,24 @@ knitr::include_graphics("Img/ej7.png")
 
 Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior; Fig. 5.11). Hay varias formas de construir una fecha específica:
 
-1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “YYYY-MM-DD”, esta fecha obligatoriamente debe:
-  *	Usar la función `ee.Date`.
-  *	Indicar la fecha en el orden de Año Mes Día (AAAA-MM-DD).
-  *	Usar guiones como separadores `-`.
-  *	Tener meses numéricos de dos dígitos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).
-  *	Tener días de dos dígitos (01, 02, 03 … 09, 10, 11 … 30).
-  *	Estar entre comillas, "1989-08-23".
+1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “AAAA-MM-DD”, esta fecha obligatoriamente debe:
+    *	Usar la función `ee.Date`.
+    *	Indicar la fecha en el orden de Año Mes Día (AAAA-MM-DD).
+    *	Usar guiones como separadores `-`.
+    *	Tener meses numéricos de dos dígitos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).
+    *	Tener días de dos dígitos (01, 02, 03 … 09, 10, 11 … 30).
+    *	Estar entre comillas, "1989-08-23".
 2.	Usar números de usuario, en este caso se debe:
-  *	Usar el método  `ee.DatefromYMD`.
-  *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas. `ee.Date.fromYMD(2015,03,28)`
+    *	Usar el método  `ee.DatefromYMD`.
+    *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas. `ee.Date.fromYMD(2015,03,28)`
 3.	Usar un texto de usuario especificando el formato, para esto se debe:
-  *	Usar el método `ee.Date.parse`.
-  *	Especificar el formato de la fecha con la siguiente clave (YYYY=año, MM=mes, D=día).
-  *	Especificar el tipo de separador.
-  *	Especificar el orden en el que se ingresará el texto.
-  *	Especificar la cantidad de dígitos esperada para cada ítem (año, mes y día).
-  *	El formato debe estar entre comillas.
-  *	Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a `ee.Date` (entre el formato y el texto debe ir una coma).
+    *	Usar el método `ee.Date.parse`.
+    *	Especificar el formato de la fecha con la siguiente clave (AAAA = año, MM = mes, D = día).
+    *	Especificar el tipo de separador.
+    *	Especificar el orden en el que se ingresará el texto.
+    *	Especificar la cantidad de dígitos esperada para cada ítem (año, mes y día).
+    *	El formato debe estar entre comillas.
+    *	Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a `ee.Date` (entre el formato y el texto debe ir una coma).
 
 
 Ejercicio 8:
@@ -390,10 +390,10 @@ var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul');
 ```
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Vease en la siguiente figura
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Vease en la Fig. 5.11.
 :::
 ::::
-```{r, echo = F, out.width="100%", fig.cap="Resultado del ejercicio 8."}
+```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo fecha del lado del servidor."}
 knitr::include_graphics("Img/ej8.png")
 ```
 
@@ -403,7 +403,7 @@ La definición de objetos `ee.Image` (imagen) habilita los métodos disponibles 
 
 #### ee.ImageCollection {-}
 
-Las colecciones de imágenes ("image collections") están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método para objetos de tipo `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
+Las colecciones de imágenes ("image collections") están formadas por imágenes individuales (`ee.Image`). Al definir un objeto de este tipo, se puede utilizar cualquier método indicado en la biblioteca de `ee.ImageCollection`. Más adelante se explica este tipo de objetos con mayor detalle.
 
 #### ee.Feature {-}
 
@@ -439,7 +439,7 @@ Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen
 
 #### ee.Join {-}
 
-Este conjunto de métodos permite realizar uniones entre colecciones de vectores, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
+Este conjunto de métodos permite realizar uniones entre colecciones de vectores o imágenes, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
 
 #### ee.Reducer {-}
 
@@ -451,6 +451,6 @@ Este conjunto de métodos permite calcular algunas operaciones topográficas, a 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Los argumentos de cualquier método del servidor se pasan como un diccionario (dentro de llaves `{}`).
+Los argumentos de cualquier método del servidor se pueden pasar de dos maneras: 1) siguiendo el orden por defecto de los argumentos del método y separando cada argumento por una coma, o 2) como un diccionario (dentro de llaves `{}`) indicando el nombre del argumento como la clave, seguido de dos puntos y el valor del argumento. En este último caso, también se separa cada argumento con una coma.
 :::
 ::::
