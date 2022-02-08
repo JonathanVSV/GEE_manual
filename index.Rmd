@@ -1,5 +1,5 @@
 ---
-title: "Cómo Usar Google Earth Engine y no Fallar en el Intento"
+title: "Cómo usar Google Earth Engine y no fallar en el intento"
 author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
 documentclass: book  # tipo documento: book, article
 # bibliography: [book.bib]  # para usar referencias bibliográficas

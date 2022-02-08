@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.1)  10 OCT 2021 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.1)  8 FEB 2022 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -107,17 +107,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 .sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
-(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifxe
-tex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/ifte
 x.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
-))
-(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iflu
-atex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc
 .sty
@@ -335,7 +327,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 49.
+Package hyperref Info: Option `colorlinks' set `true' on input line 53.
 
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geo
 metry.sty
@@ -1072,2096 +1064,2095 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 3.
+(Font)              <6> on input line 2.
 [3] [4])
 \tf@toc=\write6
 \openout6 = `ManualGEE.toc'.
 
-[5] [6
+[5]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+91.
 
-]
+(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [6]
 Cap\'{\i }tulo 1.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 210.
+nput line 223.
 
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome5
 /ufontawesomefree2.fd)
 Underfull \vbox (badness 5119) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 221.
-LaTeX Info: Redefining \% on input line 221.
+LaTeX Info: Redefining \. on input line 234.
+LaTeX Info: Redefining \% on input line 234.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.221 
+l.234 
        [1
 
+
 ]
-LaTeX Info: Redefining \. on input line 238.
-LaTeX Info: Redefining \% on input line 238.
-LaTeX Info: Redefining \. on input line 238.
-LaTeX Info: Redefining \% on input line 238.
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.238 
+l.251 
        [2]
-<Img/Datasets.png, id=310, 462.528pt x 217.2918pt>
+<Img/Datasets.png, id=317, 462.528pt x 217.2918pt>
 File: Img/Datasets.png Graphic file (type png)
 <use Img/Datasets.png>
-Package pdftex.def Info: Img/Datasets.png  used on input line 241.
+Package pdftex.def Info: Img/Datasets.png  used on input line 254.
 (pdftex.def)             Requested size: 462.54802pt x 217.30118pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
-LaTeX Info: Redefining \. on input line 266.
-LaTeX Info: Redefining \% on input line 266.
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.266 \end{bluebox2}
+l.279 \end{bluebox2}
                      [3pdfTeX warning (ext4): destination with the same identif
 ier (name{figure.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.266 \end{bluebox2}
+l.279 \end{bluebox2}
                      <./Img/Datasets.png>]
-LaTeX Info: Redefining \. on input line 285.
-LaTeX Info: Redefining \% on input line 285.
-LaTeX Info: Redefining \. on input line 285.
-LaTeX Info: Redefining \% on input line 285.
+LaTeX Info: Redefining \. on input line 298.
+LaTeX Info: Redefining \% on input line 298.
+LaTeX Info: Redefining \. on input line 298.
+LaTeX Info: Redefining \% on input line 298.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.285 \end{enumerate}
+l.298 \end{enumerate}
                       [4]
-LaTeX Info: Redefining \. on input line 341.
-LaTeX Info: Redefining \% on input line 341.
-LaTeX Info: Redefining \. on input line 341.
-LaTeX Info: Redefining \% on input line 341.
+LaTeX Info: Redefining \. on input line 354.
+LaTeX Info: Redefining \% on input line 354.
+LaTeX Info: Redefining \. on input line 354.
+LaTeX Info: Redefining \% on input line 354.
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.341 \newpage
+l.354 \newpage
                [5]
-LaTeX Info: Redefining \. on input line 344.
-LaTeX Info: Redefining \% on input line 344.
-LaTeX Info: Redefining \. on input line 344.
-LaTeX Info: Redefining \% on input line 344.
+LaTeX Info: Redefining \. on input line 357.
+LaTeX Info: Redefining \% on input line 357.
+LaTeX Info: Redefining \. on input line 357.
+LaTeX Info: Redefining \% on input line 357.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.344 ...er{Primeros pasos}\label{primeros-pasos}}
+l.357 ...er{Primeros pasos}\label{primeros-pasos}}
                                                    [6
 
 ]
 Cap\'{\i }tulo 2.
-<Img/Signup.png, id=337, 772.78812pt x 480.1304pt>
+<Img/Signup.png, id=344, 772.78812pt x 480.1304pt>
 File: Img/Signup.png Graphic file (type png)
 <use Img/Signup.png>
-Package pdftex.def Info: Img/Signup.png  used on input line 357.
+Package pdftex.def Info: Img/Signup.png  used on input line 370.
 (pdftex.def)             Requested size: 424.82253pt x 263.94066pt.
-<Img/formulario.png, id=338, 400.63771pt x 523.7166pt>
+<Img/formulario.png, id=345, 400.63771pt x 523.7166pt>
 File: Img/formulario.png Graphic file (type png)
 <use Img/formulario.png>
-Package pdftex.def Info: Img/formulario.png  used on input line 377.
+Package pdftex.def Info: Img/formulario.png  used on input line 390.
 (pdftex.def)             Requested size: 188.81325pt x 246.8181pt.
-<Img/correo.png, id=339, 409.73947pt x 307.1475pt>
+<Img/correo.png, id=346, 409.73947pt x 307.1475pt>
 File: Img/correo.png Graphic file (type png)
 <use Img/correo.png>
-Package pdftex.def Info: Img/correo.png  used on input line 388.
+Package pdftex.def Info: Img/correo.png  used on input line 401.
 (pdftex.def)             Requested size: 283.2332pt x 212.3163pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 \T1/lmr/m/n/12 en-lace: [][]$https : / / code . earthengine . google . com / ?a
 ccept _ repo = users / JonathanVSV / GEE _
  []
 
-<Img/GEE_inicio_API2.png, id=342, 1923.185pt x 902.37125pt>
+<Img/GEE_inicio_API2.png, id=349, 1923.185pt x 902.37125pt>
 File: Img/GEE_inicio_API2.png Graphic file (type png)
 <use Img/GEE_inicio_API2.png>
-Package pdftex.def Info: Img/GEE_inicio_API2.png  used on input line 410.
+Package pdftex.def Info: Img/GEE_inicio_API2.png  used on input line 423.
 (pdftex.def)             Requested size: 472.0208pt x 221.47531pt.
-<Img/repofolderfile.png, id=343, 542.30084pt x 531.26726pt>
+<Img/repofolderfile.png, id=350, 542.30084pt x 531.26726pt>
 File: Img/repofolderfile.png Graphic file (type png)
 <use Img/repofolderfile.png>
-Package pdftex.def Info: Img/repofolderfile.png  used on input line 427.
+Package pdftex.def Info: Img/repofolderfile.png  used on input line 440.
 (pdftex.def)             Requested size: 377.63858pt x 369.9552pt.
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
+LaTeX Info: Redefining \. on input line 445.
+LaTeX Info: Redefining \% on input line 445.
 [7]
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
+LaTeX Info: Redefining \. on input line 445.
+LaTeX Info: Redefining \% on input line 445.
+LaTeX Info: Redefining \. on input line 445.
+LaTeX Info: Redefining \% on input line 445.
 [8pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 \end{figure}
+l.445 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 \end{figure}
+l.445 \end{figure}
                    <./Img/Signup.png> <./Img/formulario.png>]
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
-LaTeX Info: Redefining \. on input line 432.
-LaTeX Info: Redefining \% on input line 432.
+LaTeX Info: Redefining \. on input line 445.
+LaTeX Info: Redefining \% on input line 445.
+LaTeX Info: Redefining \. on input line 445.
+LaTeX Info: Redefining \% on input line 445.
 [9pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 \end{figure}
+l.445 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.432 \end{figure}
+l.445 \end{figure}
                    <./Img/correo.png> <./Img/GEE_inicio_API2.png>]
-LaTeX Info: Redefining \. on input line 448.
-LaTeX Info: Redefining \% on input line 448.
-LaTeX Info: Redefining \. on input line 448.
-LaTeX Info: Redefining \% on input line 448.
+LaTeX Info: Redefining \. on input line 461.
+LaTeX Info: Redefining \% on input line 461.
+LaTeX Info: Redefining \. on input line 461.
+LaTeX Info: Redefining \% on input line 461.
 [10pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.448   \textbf
+l.461   \textbf
                {Archive} (Archivo): se pueden guardar archivos de c贸digo qu...
  <./Img/repofolderfile.png>]
-<Img/left_panel.png, id=378, 234.8775pt x 335.00156pt>
+<Img/left_panel.png, id=385, 234.8775pt x 335.00156pt>
 File: Img/left_panel.png Graphic file (type png)
 <use Img/left_panel.png>
-Package pdftex.def Info: Img/left_panel.png  used on input line 453.
+Package pdftex.def Info: Img/left_panel.png  used on input line 466.
 (pdftex.def)             Requested size: 188.80899pt x 269.29486pt.
-<Img/engranaje.png, id=379, 232.61906pt x 56.46094pt>
+<Img/engranaje.png, id=386, 232.61906pt x 56.46094pt>
 File: Img/engranaje.png Graphic file (type png)
 <use Img/engranaje.png>
-Package pdftex.def Info: Img/engranaje.png  used on input line 471.
+Package pdftex.def Info: Img/engranaje.png  used on input line 484.
 (pdftex.def)             Requested size: 188.81439pt x 45.82872pt.
-<Img/docs.png, id=380, 235.63031pt x 336.50719pt>
+<Img/docs.png, id=387, 235.63031pt x 336.50719pt>
 File: Img/docs.png Graphic file (type png)
 <use Img/docs.png>
-Package pdftex.def Info: Img/docs.png  used on input line 486.
+Package pdftex.def Info: Img/docs.png  used on input line 499.
 (pdftex.def)             Requested size: 188.8101pt x 269.64255pt.
-LaTeX Info: Redefining \. on input line 491.
-LaTeX Info: Redefining \% on input line 491.
-LaTeX Info: Redefining \. on input line 491.
-LaTeX Info: Redefining \% on input line 491.
+LaTeX Info: Redefining \. on input line 504.
+LaTeX Info: Redefining \% on input line 504.
+LaTeX Info: Redefining \. on input line 504.
+LaTeX Info: Redefining \% on input line 504.
 [11pdfTeX warning (ext4): destination with the same identifier (name{figure.2.6
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.491 \end{figure}
+l.504 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.2.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.491 \end{figure}
+l.504 \end{figure}
                    <./Img/left_panel.png> <./Img/engranaje.png>]
-<Img/doc_ejemplo.png, id=392, 240.9pt x 311.66437pt>
+<Img/doc_ejemplo.png, id=399, 240.9pt x 311.66437pt>
 File: Img/doc_ejemplo.png Graphic file (type png)
 <use Img/doc_ejemplo.png>
-Package pdftex.def Info: Img/doc_ejemplo.png  used on input line 495.
+Package pdftex.def Info: Img/doc_ejemplo.png  used on input line 508.
 (pdftex.def)             Requested size: 188.81284pt x 244.27661pt.
-<Img/homeFolder.png, id=393, 499.00714pt x 516.05296pt>
+<Img/homeFolder.png, id=400, 499.00714pt x 516.05296pt>
 File: Img/homeFolder.png Graphic file (type png)
 <use Img/homeFolder.png>
-Package pdftex.def Info: Img/homeFolder.png  used on input line 510.
+Package pdftex.def Info: Img/homeFolder.png  used on input line 523.
 (pdftex.def)             Requested size: 283.21875pt x 292.89336pt.
-<Img/assets.png, id=394, 234.8775pt x 337.26pt>
+<Img/assets.png, id=401, 234.8775pt x 337.26pt>
 File: Img/assets.png Graphic file (type png)
 <use Img/assets.png>
-Package pdftex.def Info: Img/assets.png  used on input line 521.
+Package pdftex.def Info: Img/assets.png  used on input line 534.
 (pdftex.def)             Requested size: 188.80899pt x 271.11034pt.
-<Img/newAssets.png, id=395, 1353.55687pt x 895.84688pt>
+<Img/newAssets.png, id=402, 1353.55687pt x 895.84688pt>
 File: Img/newAssets.png Graphic file (type png)
 <use Img/newAssets.png>
-Package pdftex.def Info: Img/newAssets.png  used on input line 530.
+Package pdftex.def Info: Img/newAssets.png  used on input line 543.
 (pdftex.def)             Requested size: 472.03775pt x 312.41653pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-41.
+54.
 
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<Img/editor.png, id=396, 467.49657pt x 362.10281pt>
+<Img/editor.png, id=403, 467.49657pt x 362.10281pt>
 File: Img/editor.png Graphic file (type png)
 <use Img/editor.png>
-Package pdftex.def Info: Img/editor.png  used on input line 545.
+Package pdftex.def Info: Img/editor.png  used on input line 558.
 (pdftex.def)             Requested size: 236.01613pt x 182.80797pt.
 
 Underfull \vbox (badness 1881) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
 [12pdfTeX warning (ext4): destination with the same identifier (name{figure.2.8
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.550 \end{figure}
+l.563 \end{figure}
                    <./Img/docs.png>]
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
 [13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.550 \end{figure}
+l.563 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.2.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.550 \end{figure}
+l.563 \end{figure}
                    <./Img/doc_ejemplo.png> <./Img/homeFolder.png>]
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
+LaTeX Info: Redefining \. on input line 563.
+LaTeX Info: Redefining \% on input line 563.
 [14pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.550 \end{figure}
+l.563 \end{figure}
                   pdfTeX warning (ext4): destination with the same identifier (
 name{figure.2.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.550 \end{figure}
+l.563 \end{figure}
                    <./Img/assets.png> <./Img/newAssets.png>]
-<Img/links.png, id=422, 185.94469pt x 83.5622pt>
+<Img/links.png, id=429, 185.94469pt x 83.5622pt>
 File: Img/links.png Graphic file (type png)
 <use Img/links.png>
-Package pdftex.def Info: Img/links.png  used on input line 554.
+Package pdftex.def Info: Img/links.png  used on input line 567.
 (pdftex.def)             Requested size: 141.61449pt x 63.64052pt.
-<Img/save.png, id=423, 170.13562pt x 82.80937pt>
+<Img/save.png, id=430, 170.13562pt x 82.80937pt>
 File: Img/save.png Graphic file (type png)
 <use Img/save.png>
-Package pdftex.def Info: Img/save.png  used on input line 565.
+Package pdftex.def Info: Img/save.png  used on input line 578.
 (pdftex.def)             Requested size: 141.6175pt x 68.92886pt.
-<Img/run.png, id=424, 189.70876pt x 38.39343pt>
+<Img/run.png, id=431, 189.70876pt x 38.39343pt>
 File: Img/run.png Graphic file (type png)
 <use Img/run.png>
-Package pdftex.def Info: Img/run.png  used on input line 576.
+Package pdftex.def Info: Img/run.png  used on input line 589.
 (pdftex.def)             Requested size: 141.61252pt x 28.65965pt.
-LaTeX Info: Redefining \. on input line 585.
-LaTeX Info: Redefining \% on input line 585.
-LaTeX Info: Redefining \. on input line 585.
-LaTeX Info: Redefining \% on input line 585.
+LaTeX Info: Redefining \. on input line 598.
+LaTeX Info: Redefining \% on input line 598.
+LaTeX Info: Redefining \. on input line 598.
+LaTeX Info: Redefining \% on input line 598.
 [15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.585 D
+l.598 D
        espu茅s se encuentra el bot贸n de \texttt{Apps} que sirve para crear ...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.585 D
+l.598 D
        espu茅s se encuentra el bot贸n de \texttt{Apps} que sirve para crear ...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.585 D
+l.598 D
        espu茅s se encuentra el bot贸n de \texttt{Apps} que sirve para crear ...
  <./Img/editor.png> <./Img/links.png> <./Img/save.png>]
-<Img/search.png, id=437, 428.35031pt x 86.57344pt>
+<Img/search.png, id=444, 428.35031pt x 86.57344pt>
 File: Img/search.png Graphic file (type png)
 <use Img/search.png>
-Package pdftex.def Info: Img/search.png  used on input line 615.
+Package pdftex.def Info: Img/search.png  used on input line 628.
 (pdftex.def)             Requested size: 377.62918pt x 76.32222pt.
-LaTeX Info: Redefining \. on input line 634.
-LaTeX Info: Redefining \% on input line 634.
-LaTeX Info: Redefining \. on input line 634.
-LaTeX Info: Redefining \% on input line 634.
+LaTeX Info: Redefining \. on input line 647.
+LaTeX Info: Redefining \% on input line 647.
+LaTeX Info: Redefining \. on input line 647.
+LaTeX Info: Redefining \% on input line 647.
 [16pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.634   M
+l.647   M
          ostrar la informaci贸n que se haya indicado mediante la funci贸n \t...
  <./Img/run.png>]
-<Img/drawing.png, id=446, 379.4175pt x 280.04625pt>
+<Img/drawing.png, id=453, 379.4175pt x 280.04625pt>
 File: Img/drawing.png Graphic file (type png)
 <use Img/drawing.png>
-Package pdftex.def Info: Img/drawing.png  used on input line 641.
+Package pdftex.def Info: Img/drawing.png  used on input line 654.
 (pdftex.def)             Requested size: 377.6334pt x 278.7294pt.
-<Img/layer.png, id=447, 529.22719pt x 306.39468pt>
+<Img/layer.png, id=454, 529.22719pt x 306.39468pt>
 File: Img/layer.png Graphic file (type png)
 <use Img/layer.png>
-Package pdftex.def Info: Img/layer.png  used on input line 656.
+Package pdftex.def Info: Img/layer.png  used on input line 669.
 (pdftex.def)             Requested size: 377.62741pt x 218.62639pt.
-LaTeX Info: Redefining \. on input line 670.
-LaTeX Info: Redefining \% on input line 670.
-LaTeX Info: Redefining \. on input line 670.
-LaTeX Info: Redefining \% on input line 670.
+LaTeX Info: Redefining \. on input line 683.
+LaTeX Info: Redefining \% on input line 683.
+LaTeX Info: Redefining \. on input line 683.
+LaTeX Info: Redefining \% on input line 683.
 [17pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.670 \subsubsection*{Console}\label{console}}
+l.683 \subsubsection*{Console}\label{console}}
                                               pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.2.18}) has been already used, duplicate
  ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.670 \subsubsection*{Console}\label{console}}
+l.683 \subsubsection*{Console}\label{console}}
                                                <./Img/search.png> <./Img/drawin
 g.png>]
-<Img/rigthPanel.png, id=461, 410.2828pt x 268.75406pt>
+<Img/rigthPanel.png, id=468, 410.2828pt x 268.75406pt>
 File: Img/rigthPanel.png Graphic file (type png)
 <use Img/rigthPanel.png>
-Package pdftex.def Info: Img/rigthPanel.png  used on input line 677.
+Package pdftex.def Info: Img/rigthPanel.png  used on input line 690.
 (pdftex.def)             Requested size: 377.62126pt x 247.35925pt.
-<Img/inspector.png, id=462, 300.3722pt x 217.5628pt>
+<Img/inspector.png, id=469, 300.3722pt x 217.5628pt>
 File: Img/inspector.png Graphic file (type png)
 <use Img/inspector.png>
-Package pdftex.def Info: Img/inspector.png  used on input line 692.
+Package pdftex.def Info: Img/inspector.png  used on input line 705.
 (pdftex.def)             Requested size: 300.38977pt x 217.57555pt.
-LaTeX Info: Redefining \. on input line 713.
-LaTeX Info: Redefining \% on input line 713.
-LaTeX Info: Redefining \. on input line 713.
-LaTeX Info: Redefining \% on input line 713.
+LaTeX Info: Redefining \. on input line 726.
+LaTeX Info: Redefining \% on input line 726.
+LaTeX Info: Redefining \. on input line 726.
+LaTeX Info: Redefining \% on input line 726.
 [18pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1
 9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.713   S
+l.726   S
          e帽alar el tiempo demorado en el trabajo. <./Img/layer.png>]
-LaTeX Info: Redefining \. on input line 713.
-LaTeX Info: Redefining \% on input line 713.
-LaTeX Info: Redefining \. on input line 713.
-LaTeX Info: Redefining \% on input line 713.
+LaTeX Info: Redefining \. on input line 726.
+LaTeX Info: Redefining \% on input line 726.
+LaTeX Info: Redefining \. on input line 726.
+LaTeX Info: Redefining \% on input line 726.
 [19pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
 0}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.713   S
+l.726   S
          e帽alar el tiempo demorado en el trabajo.pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.2.21}) has been already used, dupli
 cate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.713   S
+l.726   S
          e帽alar el tiempo demorado en el trabajo. <./Img/rigthPanel.png> <./Im
 g/inspector.png>]
-<Img/task.png, id=482, 660.21657pt x 308.65312pt>
+<Img/task.png, id=490, 660.21657pt x 308.65312pt>
 File: Img/task.png Graphic file (type png)
 <use Img/task.png>
-Package pdftex.def Info: Img/task.png  used on input line 722.
+Package pdftex.def Info: Img/task.png  used on input line 735.
 (pdftex.def)             Requested size: 377.63698pt x 176.54636pt.
-LaTeX Info: Redefining \. on input line 756.
-LaTeX Info: Redefining \% on input line 756.
-LaTeX Info: Redefining \. on input line 756.
-LaTeX Info: Redefining \% on input line 756.
+LaTeX Info: Redefining \. on input line 769.
+LaTeX Info: Redefining \% on input line 769.
+LaTeX Info: Redefining \. on input line 769.
+LaTeX Info: Redefining \% on input line 769.
 [20pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
 2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.756 \end{itemize}
+l.769 \end{itemize}
                     <./Img/task.png>]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-786.
+799.
 
 (c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.f
 d
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \. on input line 798.
-LaTeX Info: Redefining \% on input line 798.
-LaTeX Info: Redefining \. on input line 798.
-LaTeX Info: Redefining \% on input line 798.
+LaTeX Info: Redefining \. on input line 811.
+LaTeX Info: Redefining \% on input line 811.
+LaTeX Info: Redefining \. on input line 811.
+LaTeX Info: Redefining \% on input line 811.
 [21]
-LaTeX Info: Redefining \. on input line 801.
-LaTeX Info: Redefining \% on input line 801.
-LaTeX Info: Redefining \. on input line 801.
-LaTeX Info: Redefining \% on input line 801.
+LaTeX Info: Redefining \. on input line 814.
+LaTeX Info: Redefining \% on input line 814.
+LaTeX Info: Redefining \. on input line 814.
+LaTeX Info: Redefining \% on input line 814.
 [22
 
 ]
 Cap\'{\i }tulo 3.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 812.
-<Img/holaMundo.png, id=517, 138.2766pt x 63.8385pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 825.
+<Img/holaMundo.png, id=524, 138.2766pt x 63.8385pt>
 File: Img/holaMundo.png Graphic file (type png)
 <use Img/holaMundo.png>
-Package pdftex.def Info: Img/holaMundo.png  used on input line 818.
+Package pdftex.def Info: Img/holaMundo.png  used on input line 831.
 (pdftex.def)             Requested size: 138.28046pt x 63.84027pt.
-LaTeX Info: Redefining \. on input line 846.
-LaTeX Info: Redefining \% on input line 846.
+LaTeX Info: Redefining \. on input line 859.
+LaTeX Info: Redefining \% on input line 859.
 [23pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.846 \end{bluebox2}
+l.859 \end{bluebox2}
                      <./Img/holaMundo.png>]
-<Img/LTerminos.png, id=528, 462.528pt x 133.4586pt>
+<Img/LTerminos.png, id=535, 462.528pt x 133.4586pt>
 File: Img/LTerminos.png Graphic file (type png)
 <use Img/LTerminos.png>
-Package pdftex.def Info: Img/LTerminos.png  used on input line 866.
+Package pdftex.def Info: Img/LTerminos.png  used on input line 879.
 (pdftex.def)             Requested size: 462.54097pt x 133.46233pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 881.
-LaTeX Info: Redefining \% on input line 881.
-LaTeX Info: Redefining \. on input line 881.
-LaTeX Info: Redefining \% on input line 881.
+LaTeX Info: Redefining \. on input line 894.
+LaTeX Info: Redefining \% on input line 894.
+LaTeX Info: Redefining \. on input line 894.
+LaTeX Info: Redefining \% on input line 894.
 [24]
-<Img/SAmerica.png, id=536, 462.528pt x 133.4586pt>
+<Img/SAmerica.png, id=543, 462.528pt x 133.4586pt>
 File: Img/SAmerica.png Graphic file (type png)
 <use Img/SAmerica.png>
-Package pdftex.def Info: Img/SAmerica.png  used on input line 901.
+Package pdftex.def Info: Img/SAmerica.png  used on input line 914.
 (pdftex.def)             Requested size: 462.54097pt x 133.46233pt.
-LaTeX Info: Redefining \. on input line 923.
-LaTeX Info: Redefining \% on input line 923.
-LaTeX Info: Redefining \. on input line 923.
-LaTeX Info: Redefining \% on input line 923.
+LaTeX Info: Redefining \. on input line 936.
+LaTeX Info: Redefining \% on input line 936.
+LaTeX Info: Redefining \. on input line 936.
+LaTeX Info: Redefining \% on input line 936.
 [25pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.923 \begin{Shaded}
+l.936 \begin{Shaded}
                      <./Img/LTerminos.png>]
-LaTeX Info: Redefining \. on input line 954.
-LaTeX Info: Redefining \% on input line 954.
-LaTeX Info: Redefining \. on input line 954.
-LaTeX Info: Redefining \% on input line 954.
+LaTeX Info: Redefining \. on input line 967.
+LaTeX Info: Redefining \% on input line 967.
+LaTeX Info: Redefining \. on input line 967.
+LaTeX Info: Redefining \% on input line 967.
 [26pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.954 \begin{Shaded}
+l.967 \begin{Shaded}
                      <./Img/SAmerica.png>]
-<Img/chartEjemplo.png, id=555, 1501.61pt x 658.46pt>
+<Img/chartEjemplo.png, id=562, 1501.61pt x 658.46pt>
 File: Img/chartEjemplo.png Graphic file (type png)
 <use Img/chartEjemplo.png>
-Package pdftex.def Info: Img/chartEjemplo.png  used on input line 1015.
+Package pdftex.def Info: Img/chartEjemplo.png  used on input line 1028.
 (pdftex.def)             Requested size: 472.02441pt x 206.98396pt.
-LaTeX Info: Redefining \. on input line 1030.
-LaTeX Info: Redefining \% on input line 1030.
-LaTeX Info: Redefining \. on input line 1030.
-LaTeX Info: Redefining \% on input line 1030.
+LaTeX Info: Redefining \. on input line 1043.
+LaTeX Info: Redefining \% on input line 1043.
+LaTeX Info: Redefining \. on input line 1043.
+LaTeX Info: Redefining \% on input line 1043.
 [27]
-LaTeX Info: Redefining \. on input line 1053.
-LaTeX Info: Redefining \% on input line 1053.
-LaTeX Info: Redefining \. on input line 1053.
-LaTeX Info: Redefining \% on input line 1053.
+LaTeX Info: Redefining \. on input line 1066.
+LaTeX Info: Redefining \% on input line 1066.
+LaTeX Info: Redefining \. on input line 1066.
+LaTeX Info: Redefining \% on input line 1066.
 [28pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1053 
+l.1066 
         <./Img/chartEjemplo.png>]
-LaTeX Info: Redefining \. on input line 1101.
-LaTeX Info: Redefining \% on input line 1101.
-LaTeX Info: Redefining \. on input line 1101.
-LaTeX Info: Redefining \% on input line 1101.
+LaTeX Info: Redefining \. on input line 1114.
+LaTeX Info: Redefining \% on input line 1114.
+LaTeX Info: Redefining \. on input line 1114.
+LaTeX Info: Redefining \% on input line 1114.
 [29]
-LaTeX Info: Redefining \. on input line 1146.
-LaTeX Info: Redefining \% on input line 1146.
-LaTeX Info: Redefining \. on input line 1146.
-LaTeX Info: Redefining \% on input line 1146.
+LaTeX Info: Redefining \. on input line 1159.
+LaTeX Info: Redefining \% on input line 1159.
+LaTeX Info: Redefining \. on input line 1159.
+LaTeX Info: Redefining \% on input line 1159.
 [30]
-LaTeX Info: Redefining \. on input line 1179.
-LaTeX Info: Redefining \% on input line 1179.
-LaTeX Info: Redefining \. on input line 1179.
-LaTeX Info: Redefining \% on input line 1179.
+LaTeX Info: Redefining \. on input line 1192.
+LaTeX Info: Redefining \% on input line 1192.
+LaTeX Info: Redefining \. on input line 1192.
+LaTeX Info: Redefining \% on input line 1192.
 [31]
-LaTeX Info: Redefining \. on input line 1182.
-LaTeX Info: Redefining \% on input line 1182.
-LaTeX Info: Redefining \. on input line 1182.
-LaTeX Info: Redefining \% on input line 1182.
+LaTeX Info: Redefining \. on input line 1195.
+LaTeX Info: Redefining \% on input line 1195.
+LaTeX Info: Redefining \. on input line 1195.
+LaTeX Info: Redefining \% on input line 1195.
 [32
 
 ]
 Cap\'{\i }tulo 4.
 File: Img/newAssets.png Graphic file (type png)
 <use Img/newAssets.png>
-Package pdftex.def Info: Img/newAssets.png  used on input line 1188.
+Package pdftex.def Info: Img/newAssets.png  used on input line 1201.
 (pdftex.def)             Requested size: 472.03775pt x 312.41653pt.
-<Img/Asset1.png, id=590, 462.528pt x 216.5691pt>
+<Img/Asset1.png, id=597, 462.528pt x 216.5691pt>
 File: Img/Asset1.png Graphic file (type png)
 <use Img/Asset1.png>
-Package pdftex.def Info: Img/Asset1.png  used on input line 1197.
+Package pdftex.def Info: Img/Asset1.png  used on input line 1210.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/Asset2.png, id=591, 462.528pt x 216.5691pt>
+<Img/Asset2.png, id=598, 462.528pt x 216.5691pt>
 File: Img/Asset2.png Graphic file (type png)
 <use Img/Asset2.png>
-Package pdftex.def Info: Img/Asset2.png  used on input line 1217.
+Package pdftex.def Info: Img/Asset2.png  used on input line 1230.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/Asset3.png, id=592, 462.528pt x 216.5691pt>
+<Img/Asset3.png, id=599, 462.528pt x 216.5691pt>
 File: Img/Asset3.png Graphic file (type png)
 <use Img/Asset3.png>
-Package pdftex.def Info: Img/Asset3.png  used on input line 1228.
+Package pdftex.def Info: Img/Asset3.png  used on input line 1241.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 1255.
-LaTeX Info: Redefining \% on input line 1255.
+LaTeX Info: Redefining \. on input line 1268.
+LaTeX Info: Redefining \% on input line 1268.
 [33]
-LaTeX Info: Redefining \. on input line 1255.
-LaTeX Info: Redefining \% on input line 1255.
+LaTeX Info: Redefining \. on input line 1268.
+LaTeX Info: Redefining \% on input line 1268.
 [34pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1255 \end{enumerate}
+l.1268 \end{enumerate}
                       pdfTeX warning (ext4): destination with the same identifi
 er (name{figure.4.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1255 \end{enumerate}
+l.1268 \end{enumerate}
                        <./Img/Asset1.png>]
-LaTeX Info: Redefining \. on input line 1255.
-LaTeX Info: Redefining \% on input line 1255.
+LaTeX Info: Redefining \. on input line 1268.
+LaTeX Info: Redefining \% on input line 1268.
 [35pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1255 \end{enumerate}
+l.1268 \end{enumerate}
                       pdfTeX warning (ext4): destination with the same identifi
 er (name{figure.4.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1255 \end{enumerate}
+l.1268 \end{enumerate}
                        <./Img/Asset2.png> <./Img/Asset3.png>]
-<Img/shareAssets.png, id=614, 216.05719pt x 70.76437pt>
+<Img/shareAssets.png, id=622, 216.05719pt x 70.76437pt>
 File: Img/shareAssets.png Graphic file (type png)
 <use Img/shareAssets.png>
-Package pdftex.def Info: Img/shareAssets.png  used on input line 1268.
+Package pdftex.def Info: Img/shareAssets.png  used on input line 1281.
 (pdftex.def)             Requested size: 141.61574pt x 46.38284pt.
-<Img/Asset_ruta.png, id=615, 462.528pt x 216.5691pt>
+<Img/Asset_ruta.png, id=623, 462.528pt x 216.5691pt>
 File: Img/Asset_ruta.png Graphic file (type png)
 <use Img/Asset_ruta.png>
-Package pdftex.def Info: Img/Asset_ruta.png  used on input line 1279.
+Package pdftex.def Info: Img/Asset_ruta.png  used on input line 1292.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/Asset_ruta2.png, id=616, 462.528pt x 216.5691pt>
+<Img/Asset_ruta2.png, id=624, 462.528pt x 216.5691pt>
 File: Img/Asset_ruta2.png Graphic file (type png)
 <use Img/Asset_ruta2.png>
-Package pdftex.def Info: Img/Asset_ruta2.png  used on input line 1292.
+Package pdftex.def Info: Img/Asset_ruta2.png  used on input line 1305.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 1297.
-LaTeX Info: Redefining \% on input line 1297.
+LaTeX Info: Redefining \. on input line 1310.
+LaTeX Info: Redefining \% on input line 1310.
 [36pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1297 \end{figure}
+l.1310 \end{figure}
                    pdfTeX warning (ext4): destination with the same identifier 
 (name{figure.4.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1297 \end{figure}
+l.1310 \end{figure}
                     <./Img/shareAssets.png> <./Img/Asset_ruta.png>]
-LaTeX Info: Redefining \. on input line 1299.
-LaTeX Info: Redefining \% on input line 1299.
+LaTeX Info: Redefining \. on input line 1312.
+LaTeX Info: Redefining \% on input line 1312.
 [37pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1299 \newpage
+l.1312 \newpage
                 <./Img/Asset_ruta2.png>]
-LaTeX Info: Redefining \. on input line 1302.
-LaTeX Info: Redefining \% on input line 1302.
+LaTeX Info: Redefining \. on input line 1315.
+LaTeX Info: Redefining \% on input line 1315.
 [38
 
 ]
 Cap\'{\i }tulo 5.
-<Img/daigFunc.png, id=639, 940.9554pt x 476.5002pt>
+<Img/daigFunc.png, id=646, 940.9554pt x 476.5002pt>
 File: Img/daigFunc.png Graphic file (type png)
 <use Img/daigFunc.png>
-Package pdftex.def Info: Img/daigFunc.png  used on input line 1315.
+Package pdftex.def Info: Img/daigFunc.png  used on input line 1328.
 (pdftex.def)             Requested size: 472.02718pt x 239.03474pt.
-LaTeX Info: Redefining \. on input line 1344.
-LaTeX Info: Redefining \% on input line 1344.
+LaTeX Info: Redefining \. on input line 1357.
+LaTeX Info: Redefining \% on input line 1357.
 [39]
-<Img/ej0.png, id=647, 426.84468pt x 232.61906pt>
+<Img/ej0.png, id=654, 426.84468pt x 232.61906pt>
 File: Img/ej0.png Graphic file (type png)
 <use Img/ej0.png>
-Package pdftex.def Info: Img/ej0.png  used on input line 1366.
+Package pdftex.def Info: Img/ej0.png  used on input line 1379.
 (pdftex.def)             Requested size: 426.85666pt x 232.62558pt.
-LaTeX Info: Redefining \. on input line 1381.
-LaTeX Info: Redefining \% on input line 1381.
-LaTeX Info: Redefining \. on input line 1381.
-LaTeX Info: Redefining \% on input line 1381.
+LaTeX Info: Redefining \. on input line 1394.
+LaTeX Info: Redefining \% on input line 1394.
+LaTeX Info: Redefining \. on input line 1394.
+LaTeX Info: Redefining \% on input line 1394.
 [40pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1381 \begin{Shaded}
+l.1394 \begin{Shaded}
                       <./Img/daigFunc.png>]
-<Img/ej1.png, id=655, 354.57469pt x 154.32657pt>
+<Img/ej1.png, id=662, 354.57469pt x 154.32657pt>
 File: Img/ej1.png Graphic file (type png)
 <use Img/ej1.png>
-Package pdftex.def Info: Img/ej1.png  used on input line 1393.
+Package pdftex.def Info: Img/ej1.png  used on input line 1406.
 (pdftex.def)             Requested size: 354.60086pt x 154.33794pt.
-LaTeX Info: Redefining \. on input line 1415.
-LaTeX Info: Redefining \% on input line 1415.
-LaTeX Info: Redefining \. on input line 1415.
-LaTeX Info: Redefining \% on input line 1415.
+LaTeX Info: Redefining \. on input line 1428.
+LaTeX Info: Redefining \% on input line 1428.
+LaTeX Info: Redefining \. on input line 1428.
+LaTeX Info: Redefining \% on input line 1428.
 [41pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1415 E
+l.1428 E
         jercicio 2pdfTeX warning (ext4): destination with the same identifier (
 name{figure.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1415 E
+l.1428 E
         jercicio 2 <./Img/ej0.png> <./Img/ej1.png>]
-<Img/ej2.png, id=663, 351.56343pt x 429.85594pt>
+<Img/ej2.png, id=670, 351.56343pt x 429.85594pt>
 File: Img/ej2.png Graphic file (type png)
 <use Img/ej2.png>
-Package pdftex.def Info: Img/ej2.png  used on input line 1455.
+Package pdftex.def Info: Img/ej2.png  used on input line 1468.
 (pdftex.def)             Requested size: 351.56792pt x 429.86143pt.
-LaTeX Info: Redefining \. on input line 1470.
-LaTeX Info: Redefining \% on input line 1470.
-LaTeX Info: Redefining \. on input line 1470.
-LaTeX Info: Redefining \% on input line 1470.
+LaTeX Info: Redefining \. on input line 1483.
+LaTeX Info: Redefining \% on input line 1483.
+LaTeX Info: Redefining \. on input line 1483.
+LaTeX Info: Redefining \% on input line 1483.
 [42]
-LaTeX Info: Redefining \. on input line 1470.
-LaTeX Info: Redefining \% on input line 1470.
-LaTeX Info: Redefining \. on input line 1470.
-LaTeX Info: Redefining \% on input line 1470.
+LaTeX Info: Redefining \. on input line 1483.
+LaTeX Info: Redefining \% on input line 1483.
+LaTeX Info: Redefining \. on input line 1483.
+LaTeX Info: Redefining \% on input line 1483.
 [43pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1470 E
+l.1483 E
         jercicio 3 <./Img/ej2.png>]
-<Img/ej3.png, id=675, 351.56343pt x 282.30469pt>
+<Img/ej3.png, id=682, 351.56343pt x 282.30469pt>
 File: Img/ej3.png Graphic file (type png)
 <use Img/ej3.png>
-Package pdftex.def Info: Img/ej3.png  used on input line 1522.
+Package pdftex.def Info: Img/ej3.png  used on input line 1535.
 (pdftex.def)             Requested size: 351.58937pt x 282.32552pt.
-LaTeX Info: Redefining \. on input line 1544.
-LaTeX Info: Redefining \% on input line 1544.
-LaTeX Info: Redefining \. on input line 1544.
-LaTeX Info: Redefining \% on input line 1544.
+LaTeX Info: Redefining \. on input line 1557.
+LaTeX Info: Redefining \% on input line 1557.
+LaTeX Info: Redefining \. on input line 1557.
+LaTeX Info: Redefining \% on input line 1557.
 [44]
-LaTeX Info: Redefining \. on input line 1566.
-LaTeX Info: Redefining \% on input line 1566.
-LaTeX Info: Redefining \. on input line 1566.
-LaTeX Info: Redefining \% on input line 1566.
+LaTeX Info: Redefining \. on input line 1579.
+LaTeX Info: Redefining \% on input line 1579.
+LaTeX Info: Redefining \. on input line 1579.
+LaTeX Info: Redefining \% on input line 1579.
 [45pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1566 \end{Shaded}
+l.1579 \end{Shaded}
                     <./Img/ej3.png>]
 Underfull \vbox (badness 8038) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1603.
-LaTeX Info: Redefining \% on input line 1603.
-LaTeX Info: Redefining \. on input line 1603.
-LaTeX Info: Redefining \% on input line 1603.
+LaTeX Info: Redefining \. on input line 1616.
+LaTeX Info: Redefining \% on input line 1616.
+LaTeX Info: Redefining \. on input line 1616.
+LaTeX Info: Redefining \% on input line 1616.
 [46]
-<Img/objetosServ2.png, id=692, 411.55283pt x 510.85512pt>
+<Img/objetosServ2.png, id=699, 411.55283pt x 510.85512pt>
 File: Img/objetosServ2.png Graphic file (type png)
 <use Img/objetosServ2.png>
-Package pdftex.def Info: Img/objetosServ2.png  used on input line 1616.
+Package pdftex.def Info: Img/objetosServ2.png  used on input line 1629.
 (pdftex.def)             Requested size: 411.55809pt x 510.86165pt.
-<Img/ej4.png, id=693, 356.0803pt x 143.78719pt>
+<Img/ej4.png, id=700, 356.0803pt x 143.78719pt>
 File: Img/ej4.png Graphic file (type png)
 <use Img/ej4.png>
-Package pdftex.def Info: Img/ej4.png  used on input line 1643.
+Package pdftex.def Info: Img/ej4.png  used on input line 1656.
 (pdftex.def)             Requested size: 356.0903pt x 143.79121pt.
-<Img/ej5.png, id=694, 354.57469pt x 112.16907pt>
+<Img/ej5.png, id=701, 354.57469pt x 112.16907pt>
 File: Img/ej5.png Graphic file (type png)
 <use Img/ej5.png>
-Package pdftex.def Info: Img/ej5.png  used on input line 1667.
+Package pdftex.def Info: Img/ej5.png  used on input line 1680.
 (pdftex.def)             Requested size: 354.58464pt x 112.1722pt.
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
+LaTeX Info: Redefining \. on input line 1693.
+LaTeX Info: Redefining \% on input line 1693.
+LaTeX Info: Redefining \. on input line 1693.
+LaTeX Info: Redefining \% on input line 1693.
 [47]
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
+LaTeX Info: Redefining \. on input line 1693.
+LaTeX Info: Redefining \% on input line 1693.
+LaTeX Info: Redefining \. on input line 1693.
+LaTeX Info: Redefining \% on input line 1693.
 [48pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1680 E
+l.1693 E
         jercicio 6: <./Img/objetosServ2.png>]
-LaTeX Info: Redefining \. on input line 1705.
-LaTeX Info: Redefining \% on input line 1705.
-LaTeX Info: Redefining \. on input line 1705.
-LaTeX Info: Redefining \% on input line 1705.
+LaTeX Info: Redefining \. on input line 1718.
+LaTeX Info: Redefining \% on input line 1718.
+LaTeX Info: Redefining \. on input line 1718.
+LaTeX Info: Redefining \% on input line 1718.
 [49pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1705 \end{Shaded}
+l.1718 \end{Shaded}
                    pdfTeX warning (ext4): destination with the same identifier 
 (name{figure.5.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1705 \end{Shaded}
+l.1718 \end{Shaded}
                     <./Img/ej4.png> <./Img/ej5.png>]
-<Img/ej6.png, id=717, 354.57469pt x 277.78781pt>
+<Img/ej6.png, id=724, 354.57469pt x 277.78781pt>
 File: Img/ej6.png Graphic file (type png)
 <use Img/ej6.png>
-Package pdftex.def Info: Img/ej6.png  used on input line 1709.
+Package pdftex.def Info: Img/ej6.png  used on input line 1722.
 (pdftex.def)             Requested size: 354.57922pt x 277.79134pt.
 
-Underfull \hbox (badness 2894) in paragraph at lines 1720--1721
+Underfull \hbox (badness 2894) in paragraph at lines 1733--1734
 []\T1/lmr/m/n/12 Permite en-viar un ob-je-to co-mo dic-cionario al servi-dor. L
 a defini-ci髇 de ob-je-tos
  []
 
 
-Underfull \hbox (badness 1097) in paragraph at lines 1720--1721
+Underfull \hbox (badness 1097) in paragraph at lines 1733--1734
 \T1/lmtt/m/n/12 ee.Dictionary \T1/lmr/m/n/12 ha-bili-ta los m閠o-dos disponible
 s en GEE para este tipo de ob-je-tos
  []
 
-LaTeX Info: Redefining \. on input line 1742.
-LaTeX Info: Redefining \% on input line 1742.
-LaTeX Info: Redefining \. on input line 1742.
-LaTeX Info: Redefining \% on input line 1742.
+LaTeX Info: Redefining \. on input line 1755.
+LaTeX Info: Redefining \% on input line 1755.
+LaTeX Info: Redefining \. on input line 1755.
+LaTeX Info: Redefining \% on input line 1755.
 [50pdfTeX warning (ext4): destination with the same identifier (name{figure.5.9
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1742 \end{Shaded}
+l.1755 \end{Shaded}
                     <./Img/ej6.png>]
-<Img/ej7.png, id=724, 517.18219pt x 685.05937pt>
+<Img/ej7.png, id=731, 517.18219pt x 685.05937pt>
 File: Img/ej7.png Graphic file (type png)
 <use Img/ej7.png>
-Package pdftex.def Info: Img/ej7.png  used on input line 1774.
+Package pdftex.def Info: Img/ej7.png  used on input line 1787.
 (pdftex.def)             Requested size: 472.04912pt x 625.27612pt.
-LaTeX Info: Redefining \. on input line 1816.
-LaTeX Info: Redefining \% on input line 1816.
-LaTeX Info: Redefining \. on input line 1816.
-LaTeX Info: Redefining \% on input line 1816.
+LaTeX Info: Redefining \. on input line 1829.
+LaTeX Info: Redefining \% on input line 1829.
+LaTeX Info: Redefining \. on input line 1829.
+LaTeX Info: Redefining \% on input line 1829.
 [51]
-LaTeX Info: Redefining \. on input line 1816.
-LaTeX Info: Redefining \% on input line 1816.
-LaTeX Info: Redefining \. on input line 1816.
-LaTeX Info: Redefining \% on input line 1816.
+LaTeX Info: Redefining \. on input line 1829.
+LaTeX Info: Redefining \% on input line 1829.
+LaTeX Info: Redefining \. on input line 1829.
+LaTeX Info: Redefining \% on input line 1829.
 [52pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1
 0}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1816     I
+l.1829     I
             ngresar dentro del par茅ntesis el a帽o, el mes y el d铆a (en ese...
  <./Img/ej7.png>]
-<Img/ej8.png, id=736, 503.63156pt x 295.85532pt>
+<Img/ej8.png, id=743, 503.63156pt x 295.85532pt>
 File: Img/ej8.png Graphic file (type png)
 <use Img/ej8.png>
-Package pdftex.def Info: Img/ej8.png  used on input line 1873.
+Package pdftex.def Info: Img/ej8.png  used on input line 1886.
 (pdftex.def)             Requested size: 472.03047pt x 277.29143pt.
-LaTeX Info: Redefining \. on input line 1887.
-LaTeX Info: Redefining \% on input line 1887.
-LaTeX Info: Redefining \. on input line 1887.
-LaTeX Info: Redefining \% on input line 1887.
+LaTeX Info: Redefining \. on input line 1900.
+LaTeX Info: Redefining \% on input line 1900.
+LaTeX Info: Redefining \. on input line 1900.
+LaTeX Info: Redefining \% on input line 1900.
 [53]
-LaTeX Info: Redefining \. on input line 1905.
-LaTeX Info: Redefining \% on input line 1905.
-LaTeX Info: Redefining \. on input line 1905.
-LaTeX Info: Redefining \% on input line 1905.
+LaTeX Info: Redefining \. on input line 1918.
+LaTeX Info: Redefining \% on input line 1918.
+LaTeX Info: Redefining \. on input line 1918.
+LaTeX Info: Redefining \% on input line 1918.
 [54pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1905 ...on*{ee.Algorithms}\label{ee.algorithms}}
+l.1918 ...on*{ee.Algorithms}\label{ee.algorithms}}
                                                    <./Img/ej8.png>]
-LaTeX Info: Redefining \. on input line 1941.
-LaTeX Info: Redefining \% on input line 1941.
-LaTeX Info: Redefining \. on input line 1941.
-LaTeX Info: Redefining \% on input line 1941.
+LaTeX Info: Redefining \. on input line 1954.
+LaTeX Info: Redefining \% on input line 1954.
+LaTeX Info: Redefining \. on input line 1954.
+LaTeX Info: Redefining \% on input line 1954.
 [55]
-LaTeX Info: Redefining \. on input line 1967.
-LaTeX Info: Redefining \% on input line 1967.
-LaTeX Info: Redefining \. on input line 1967.
-LaTeX Info: Redefining \% on input line 1967.
+LaTeX Info: Redefining \. on input line 1980.
+LaTeX Info: Redefining \% on input line 1980.
+LaTeX Info: Redefining \. on input line 1980.
+LaTeX Info: Redefining \% on input line 1980.
 [56]
 Cap\'{\i }tulo 6.
-LaTeX Info: Redefining \. on input line 2049.
-LaTeX Info: Redefining \% on input line 2049.
+LaTeX Info: Redefining \. on input line 2062.
+LaTeX Info: Redefining \% on input line 2062.
 [57
 
 ]
-LaTeX Info: Redefining \. on input line 2065.
-LaTeX Info: Redefining \% on input line 2065.
-LaTeX Info: Redefining \. on input line 2065.
-LaTeX Info: Redefining \% on input line 2065.
+LaTeX Info: Redefining \. on input line 2078.
+LaTeX Info: Redefining \% on input line 2078.
+LaTeX Info: Redefining \. on input line 2078.
+LaTeX Info: Redefining \% on input line 2078.
 [58]
-Underfull \vbox (badness 10000) detected at line 2121
+Underfull \vbox (badness 10000) detected at line 2134
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2121
+Underfull \vbox (badness 10000) detected at line 2134
  []
 
-LaTeX Info: Redefining \. on input line 2121.
-LaTeX Info: Redefining \% on input line 2121.
-LaTeX Info: Redefining \. on input line 2121.
-LaTeX Info: Redefining \% on input line 2121.
+LaTeX Info: Redefining \. on input line 2134.
+LaTeX Info: Redefining \% on input line 2134.
+LaTeX Info: Redefining \. on input line 2134.
+LaTeX Info: Redefining \% on input line 2134.
 [59]
-<Img/ej9.png, id=786, 777.65532pt x 410.2828pt>
+<Img/ej9.png, id=793, 777.65532pt x 410.2828pt>
 File: Img/ej9.png Graphic file (type png)
 <use Img/ej9.png>
-Package pdftex.def Info: Img/ej9.png  used on input line 2125.
+Package pdftex.def Info: Img/ej9.png  used on input line 2138.
 (pdftex.def)             Requested size: 377.63702pt x 199.23734pt.
-<Img/geometrias.png, id=787, 173.14688pt x 152.82094pt>
+<Img/geometrias.png, id=794, 173.14688pt x 152.82094pt>
 File: Img/geometrias.png Graphic file (type png)
 <use Img/geometrias.png>
-Package pdftex.def Info: Img/geometrias.png  used on input line 2136.
+Package pdftex.def Info: Img/geometrias.png  used on input line 2149.
 (pdftex.def)             Requested size: 141.61412pt x 124.98982pt.
-<Img/punto.png, id=788, 117.43875pt x 27.85406pt>
+<Img/punto.png, id=795, 117.43875pt x 27.85406pt>
 File: Img/punto.png Graphic file (type png)
 <use Img/punto.png>
-Package pdftex.def Info: Img/punto.png  used on input line 2147.
+Package pdftex.def Info: Img/punto.png  used on input line 2160.
 (pdftex.def)             Requested size: 94.40448pt x 22.3908pt.
-<Img/linea.png, id=789, 117.43875pt x 27.85406pt>
+<Img/linea.png, id=796, 117.43875pt x 27.85406pt>
 File: Img/linea.png Graphic file (type png)
 <use Img/linea.png>
-Package pdftex.def Info: Img/linea.png  used on input line 2158.
+Package pdftex.def Info: Img/linea.png  used on input line 2171.
 (pdftex.def)             Requested size: 94.40448pt x 22.3908pt.
-<Img/poligono.png, id=790, 117.43875pt x 27.85406pt>
+<Img/poligono.png, id=797, 117.43875pt x 27.85406pt>
 File: Img/poligono.png Graphic file (type png)
 <use Img/poligono.png>
-Package pdftex.def Info: Img/poligono.png  used on input line 2169.
+Package pdftex.def Info: Img/poligono.png  used on input line 2182.
 (pdftex.def)             Requested size: 94.40448pt x 22.3908pt.
-LaTeX Info: Redefining \. on input line 2174.
-LaTeX Info: Redefining \% on input line 2174.
-LaTeX Info: Redefining \. on input line 2174.
-LaTeX Info: Redefining \% on input line 2174.
+LaTeX Info: Redefining \. on input line 2187.
+LaTeX Info: Redefining \% on input line 2187.
+LaTeX Info: Redefining \. on input line 2187.
+LaTeX Info: Redefining \% on input line 2187.
 [60pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2174 \end{figure}
+l.2187 \end{figure}
                    pdfTeX warning (ext4): destination with the same identifier 
 (name{figure.6.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2174 \end{figure}
+l.2187 \end{figure}
                     <./Img/ej9.png> <./Img/geometrias.png>]
-<Img/rec.png, id=797, 117.43875pt x 27.85406pt>
+<Img/rec.png, id=804, 117.43875pt x 27.85406pt>
 File: Img/rec.png Graphic file (type png)
 <use Img/rec.png>
-Package pdftex.def Info: Img/rec.png  used on input line 2180.
+Package pdftex.def Info: Img/rec.png  used on input line 2193.
 (pdftex.def)             Requested size: 94.40448pt x 22.3908pt.
-<Img/import.png, id=798, 273.27094pt x 186.6975pt>
+<Img/import.png, id=805, 273.27094pt x 186.6975pt>
 File: Img/import.png Graphic file (type png)
 <use Img/import.png>
-Package pdftex.def Info: Img/import.png  used on input line 2191.
+Package pdftex.def Info: Img/import.png  used on input line 2204.
 (pdftex.def)             Requested size: 236.01749pt x 161.24611pt.
-<Img/mano.png, id=799, 102.3825pt x 29.35968pt>
+<Img/mano.png, id=806, 102.3825pt x 29.35968pt>
 File: Img/mano.png Graphic file (type png)
 <use Img/mano.png>
-Package pdftex.def Info: Img/mano.png  used on input line 2203.
+Package pdftex.def Info: Img/mano.png  used on input line 2216.
 (pdftex.def)             Requested size: 94.41019pt x 27.07349pt.
-<Img/nuevaGeo.png, id=800, 310.91156pt x 125.71968pt>
+<Img/nuevaGeo.png, id=807, 310.91156pt x 125.71968pt>
 File: Img/nuevaGeo.png Graphic file (type png)
 <use Img/nuevaGeo.png>
-Package pdftex.def Info: Img/nuevaGeo.png  used on input line 2214.
+Package pdftex.def Info: Img/nuevaGeo.png  used on input line 2227.
 (pdftex.def)             Requested size: 283.22408pt x 114.524pt.
-<Img/dibujarGeo.png, id=801, 207.02344pt x 102.3825pt>
+<Img/dibujarGeo.png, id=808, 207.02344pt x 102.3825pt>
 File: Img/dibujarGeo.png Graphic file (type png)
 <use Img/dibujarGeo.png>
-Package pdftex.def Info: Img/dibujarGeo.png  used on input line 2225.
+Package pdftex.def Info: Img/dibujarGeo.png  used on input line 2238.
 (pdftex.def)             Requested size: 188.8149pt x 93.37755pt.
-<Img/menuGeo.png, id=802, 380.17032pt x 271.76532pt>
+<Img/menuGeo.png, id=809, 380.17032pt x 271.76532pt>
 File: Img/menuGeo.png Graphic file (type png)
 <use Img/menuGeo.png>
-Package pdftex.def Info: Img/menuGeo.png  used on input line 2236.
+Package pdftex.def Info: Img/menuGeo.png  used on input line 2249.
 (pdftex.def)             Requested size: 377.63437pt x 269.95248pt.
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
 [61pdfTeX warning (ext4): destination with the same identifier (name{figure.6.3
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                 <./Img/punto.png> <./Img/linea.png> <./Img/poligono.png>]
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
 [62pdfTeX warning (ext4): destination with the same identifier (name{figure.6.6
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.6.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                 <./Img/rec.png> <./Img/import.png> <./Img/mano.png> <./Img/nuev
 aGeo.png> <./Img/dibujarGeo.png>]
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
-LaTeX Info: Redefining \. on input line 2257.
-LaTeX Info: Redefining \% on input line 2257.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
+LaTeX Info: Redefining \. on input line 2270.
+LaTeX Info: Redefining \% on input line 2270.
 [63pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2257 \newpage
+l.2270 \newpage
                 <./Img/menuGeo.png>]
-LaTeX Info: Redefining \. on input line 2260.
-LaTeX Info: Redefining \% on input line 2260.
-LaTeX Info: Redefining \. on input line 2260.
-LaTeX Info: Redefining \% on input line 2260.
+LaTeX Info: Redefining \. on input line 2273.
+LaTeX Info: Redefining \% on input line 2273.
+LaTeX Info: Redefining \. on input line 2273.
+LaTeX Info: Redefining \% on input line 2273.
 [64
 
 ]
 Cap\'{\i }tulo 7.
-LaTeX Info: Redefining \. on input line 2300.
-LaTeX Info: Redefining \% on input line 2300.
+LaTeX Info: Redefining \. on input line 2313.
+LaTeX Info: Redefining \% on input line 2313.
 [65]
-LaTeX Info: Redefining \. on input line 2350.
-LaTeX Info: Redefining \% on input line 2350.
-LaTeX Info: Redefining \. on input line 2350.
-LaTeX Info: Redefining \% on input line 2350.
+LaTeX Info: Redefining \. on input line 2363.
+LaTeX Info: Redefining \% on input line 2363.
+LaTeX Info: Redefining \. on input line 2363.
+LaTeX Info: Redefining \% on input line 2363.
 [66]
-<Img/ej10.png, id=851, 904.88063pt x 712.16063pt>
+<Img/ej10.png, id=858, 904.88063pt x 712.16063pt>
 File: Img/ej10.png Graphic file (type png)
 <use Img/ej10.png>
-Package pdftex.def Info: Img/ej10.png  used on input line 2358.
+Package pdftex.def Info: Img/ej10.png  used on input line 2371.
 (pdftex.def)             Requested size: 377.61719pt x 297.19289pt.
-LaTeX Info: Redefining \. on input line 2386.
-LaTeX Info: Redefining \% on input line 2386.
-LaTeX Info: Redefining \. on input line 2386.
-LaTeX Info: Redefining \% on input line 2386.
+LaTeX Info: Redefining \. on input line 2399.
+LaTeX Info: Redefining \% on input line 2399.
+LaTeX Info: Redefining \. on input line 2399.
+LaTeX Info: Redefining \% on input line 2399.
 [67pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2386 \begin{Shaded}
+l.2399 \begin{Shaded}
                       <./Img/ej10.png>]
-<Img/ej11.png, id=863, 770.12718pt x 535.2497pt>
+<Img/ej11.png, id=870, 770.12718pt x 535.2497pt>
 File: Img/ej11.png Graphic file (type png)
 <use Img/ej11.png>
-Package pdftex.def Info: Img/ej11.png  used on input line 2410.
+Package pdftex.def Info: Img/ej11.png  used on input line 2423.
 (pdftex.def)             Requested size: 377.62415pt x 262.45432pt.
-LaTeX Info: Redefining \. on input line 2423.
-LaTeX Info: Redefining \% on input line 2423.
-LaTeX Info: Redefining \. on input line 2423.
-LaTeX Info: Redefining \% on input line 2423.
+LaTeX Info: Redefining \. on input line 2436.
+LaTeX Info: Redefining \% on input line 2436.
+LaTeX Info: Redefining \. on input line 2436.
+LaTeX Info: Redefining \% on input line 2436.
 [68pdfTeX warning (ext4): destination with the same identifier (name{figure.7.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2423 E
+l.2436 E
         jercicio 12 <./Img/ej11.png>]
-LaTeX Info: Redefining \. on input line 2484.
-LaTeX Info: Redefining \% on input line 2484.
-LaTeX Info: Redefining \. on input line 2484.
-LaTeX Info: Redefining \% on input line 2484.
+LaTeX Info: Redefining \. on input line 2497.
+LaTeX Info: Redefining \% on input line 2497.
+LaTeX Info: Redefining \. on input line 2497.
+LaTeX Info: Redefining \% on input line 2497.
 [69]
-LaTeX Info: Redefining \. on input line 2533.
-LaTeX Info: Redefining \% on input line 2533.
-LaTeX Info: Redefining \. on input line 2533.
-LaTeX Info: Redefining \% on input line 2533.
+LaTeX Info: Redefining \. on input line 2546.
+LaTeX Info: Redefining \% on input line 2546.
+LaTeX Info: Redefining \. on input line 2546.
+LaTeX Info: Redefining \% on input line 2546.
 [70]
-<Img/ej12.png, id=882, 982.42032pt x 596.98032pt>
+<Img/ej12.png, id=890, 982.42032pt x 596.98032pt>
 File: Img/ej12.png Graphic file (type png)
 <use Img/ej12.png>
-Package pdftex.def Info: Img/ej12.png  used on input line 2552.
+Package pdftex.def Info: Img/ej12.png  used on input line 2565.
 (pdftex.def)             Requested size: 377.62589pt x 229.46921pt.
-LaTeX Info: Redefining \. on input line 2559.
-LaTeX Info: Redefining \% on input line 2559.
-LaTeX Info: Redefining \. on input line 2559.
-LaTeX Info: Redefining \% on input line 2559.
+LaTeX Info: Redefining \. on input line 2572.
+LaTeX Info: Redefining \% on input line 2572.
+LaTeX Info: Redefining \. on input line 2572.
+LaTeX Info: Redefining \% on input line 2572.
 [71pdfTeX warning (ext4): destination with the same identifier (name{figure.7.3
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2559 \newpage
+l.2572 \newpage
                 <./Img/ej12.png>]
-LaTeX Info: Redefining \. on input line 2562.
-LaTeX Info: Redefining \% on input line 2562.
-LaTeX Info: Redefining \. on input line 2562.
-LaTeX Info: Redefining \% on input line 2562.
+LaTeX Info: Redefining \. on input line 2575.
+LaTeX Info: Redefining \% on input line 2575.
+LaTeX Info: Redefining \. on input line 2575.
+LaTeX Info: Redefining \% on input line 2575.
 [72
 
 ]
 Cap\'{\i }tulo 8.
-<Img/ej13.png, id=895, 723.45282pt x 429.85594pt>
+<Img/ej13.png, id=902, 723.45282pt x 429.85594pt>
 File: Img/ej13.png Graphic file (type png)
 <use Img/ej13.png>
-Package pdftex.def Info: Img/ej13.png  used on input line 2590.
+Package pdftex.def Info: Img/ej13.png  used on input line 2603.
 (pdftex.def)             Requested size: 377.6327pt x 224.37904pt.
-LaTeX Info: Redefining \. on input line 2619.
-LaTeX Info: Redefining \% on input line 2619.
+LaTeX Info: Redefining \. on input line 2632.
+LaTeX Info: Redefining \% on input line 2632.
 [73]
-Overfull \vbox (0.34439pt too high) detected at line 2642
+Overfull \vbox (0.34439pt too high) detected at line 2655
  []
 
-LaTeX Info: Redefining \. on input line 2642.
-LaTeX Info: Redefining \% on input line 2642.
-LaTeX Info: Redefining \. on input line 2642.
-LaTeX Info: Redefining \% on input line 2642.
+LaTeX Info: Redefining \. on input line 2655.
+LaTeX Info: Redefining \% on input line 2655.
+LaTeX Info: Redefining \. on input line 2655.
+LaTeX Info: Redefining \% on input line 2655.
 [74pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2642 \end{Shaded}
+l.2655 \end{Shaded}
                     <./Img/ej13.png>]
-<Img/ej14.png, id=907, 512.66531pt x 432.86719pt>
+<Img/ej14.png, id=914, 512.66531pt x 432.86719pt>
 File: Img/ej14.png Graphic file (type png)
 <use Img/ej14.png>
-Package pdftex.def Info: Img/ej14.png  used on input line 2646.
+Package pdftex.def Info: Img/ej14.png  used on input line 2659.
 (pdftex.def)             Requested size: 377.62976pt x 318.85039pt.
-<Img/ej15.png, id=908, 339.51843pt x 417.81094pt>
+<Img/ej15.png, id=915, 339.51843pt x 417.81094pt>
 File: Img/ej15.png Graphic file (type png)
 <use Img/ej15.png>
-Package pdftex.def Info: Img/ej15.png  used on input line 2669.
+Package pdftex.def Info: Img/ej15.png  used on input line 2682.
 (pdftex.def)             Requested size: 339.53831pt x 417.83542pt.
-LaTeX Info: Redefining \. on input line 2678.
-LaTeX Info: Redefining \% on input line 2678.
-LaTeX Info: Redefining \. on input line 2678.
-LaTeX Info: Redefining \% on input line 2678.
+LaTeX Info: Redefining \. on input line 2691.
+LaTeX Info: Redefining \% on input line 2691.
+LaTeX Info: Redefining \. on input line 2691.
+LaTeX Info: Redefining \% on input line 2691.
 [75pdfTeX warning (ext4): destination with the same identifier (name{figure.8.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2678 \begin{Shaded}
+l.2691 \begin{Shaded}
                       <./Img/ej14.png>]
-LaTeX Info: Redefining \. on input line 2678.
-LaTeX Info: Redefining \% on input line 2678.
-LaTeX Info: Redefining \. on input line 2678.
-LaTeX Info: Redefining \% on input line 2678.
+LaTeX Info: Redefining \. on input line 2691.
+LaTeX Info: Redefining \% on input line 2691.
+LaTeX Info: Redefining \. on input line 2691.
+LaTeX Info: Redefining \% on input line 2691.
 [76pdfTeX warning (ext4): destination with the same identifier (name{figure.8.3
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2678 \begin{Shaded}
+l.2691 \begin{Shaded}
                       <./Img/ej15.png>]
-LaTeX Info: Redefining \. on input line 2782.
-LaTeX Info: Redefining \% on input line 2782.
-LaTeX Info: Redefining \. on input line 2782.
-LaTeX Info: Redefining \% on input line 2782.
+LaTeX Info: Redefining \. on input line 2795.
+LaTeX Info: Redefining \% on input line 2795.
+LaTeX Info: Redefining \. on input line 2795.
+LaTeX Info: Redefining \% on input line 2795.
 [77]
-Underfull \vbox (badness 10000) detected at line 2782
+Underfull \vbox (badness 10000) detected at line 2795
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2782
+Underfull \vbox (badness 10000) detected at line 2795
  []
 
-LaTeX Info: Redefining \. on input line 2782.
-LaTeX Info: Redefining \% on input line 2782.
-LaTeX Info: Redefining \. on input line 2782.
-LaTeX Info: Redefining \% on input line 2782.
+LaTeX Info: Redefining \. on input line 2795.
+LaTeX Info: Redefining \% on input line 2795.
+LaTeX Info: Redefining \. on input line 2795.
+LaTeX Info: Redefining \% on input line 2795.
 [78]
-<Img/ej16.png, id=928, 1210.5225pt x 520.94624pt>
+<Img/ej16.png, id=935, 1210.5225pt x 520.94624pt>
 File: Img/ej16.png Graphic file (type png)
 <use Img/ej16.png>
-Package pdftex.def Info: Img/ej16.png  used on input line 2802.
+Package pdftex.def Info: Img/ej16.png  used on input line 2815.
 (pdftex.def)             Requested size: 377.62239pt x 162.50914pt.
-LaTeX Info: Redefining \. on input line 2814.
-LaTeX Info: Redefining \% on input line 2814.
-LaTeX Info: Redefining \. on input line 2814.
-LaTeX Info: Redefining \% on input line 2814.
+LaTeX Info: Redefining \. on input line 2827.
+LaTeX Info: Redefining \% on input line 2827.
+LaTeX Info: Redefining \. on input line 2827.
+LaTeX Info: Redefining \% on input line 2827.
 [79pdfTeX warning (ext4): destination with the same identifier (name{figure.8.4
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2814 E
+l.2827 E
         jercicio 17 <./Img/ej16.png>]
-LaTeX Info: Redefining \. on input line 2871.
-LaTeX Info: Redefining \% on input line 2871.
-LaTeX Info: Redefining \. on input line 2871.
-LaTeX Info: Redefining \% on input line 2871.
+LaTeX Info: Redefining \. on input line 2884.
+LaTeX Info: Redefining \% on input line 2884.
+LaTeX Info: Redefining \. on input line 2884.
+LaTeX Info: Redefining \% on input line 2884.
 [80]
-<Img/ej17.png, id=940, 621.07031pt x 573.64313pt>
+<Img/ej17.png, id=947, 621.07031pt x 573.64313pt>
 File: Img/ej17.png Graphic file (type png)
 <use Img/ej17.png>
-Package pdftex.def Info: Img/ej17.png  used on input line 2875.
+Package pdftex.def Info: Img/ej17.png  used on input line 2888.
 (pdftex.def)             Requested size: 377.62984pt x 348.79265pt.
-LaTeX Info: Redefining \. on input line 2891.
-LaTeX Info: Redefining \% on input line 2891.
-LaTeX Info: Redefining \. on input line 2891.
-LaTeX Info: Redefining \% on input line 2891.
+LaTeX Info: Redefining \. on input line 2904.
+LaTeX Info: Redefining \% on input line 2904.
+LaTeX Info: Redefining \. on input line 2904.
+LaTeX Info: Redefining \% on input line 2904.
 [81pdfTeX warning (ext4): destination with the same identifier (name{figure.8.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2891 E
+l.2904 E
         jercicio 18 <./Img/ej17.png>]
-Underfull \hbox (badness 2653) in paragraph at lines 2907--2908
+Underfull \hbox (badness 2653) in paragraph at lines 2920--2921
 []\T1/lmr/m/n/12 Para fil-trar por atrib-u-tos de los vec-tores se puede re-ali
 zar me-di-ante el m閠o-do
  []
 
-LaTeX Info: Redefining \. on input line 2943.
-LaTeX Info: Redefining \% on input line 2943.
-LaTeX Info: Redefining \. on input line 2943.
-LaTeX Info: Redefining \% on input line 2943.
+LaTeX Info: Redefining \. on input line 2956.
+LaTeX Info: Redefining \% on input line 2956.
+LaTeX Info: Redefining \. on input line 2956.
+LaTeX Info: Redefining \% on input line 2956.
 [82]
-LaTeX Info: Redefining \. on input line 2991.
-LaTeX Info: Redefining \% on input line 2991.
-LaTeX Info: Redefining \. on input line 2991.
-LaTeX Info: Redefining \% on input line 2991.
+LaTeX Info: Redefining \. on input line 3004.
+LaTeX Info: Redefining \% on input line 3004.
+LaTeX Info: Redefining \. on input line 3004.
+LaTeX Info: Redefining \% on input line 3004.
 [83]
-<Img/ej18.png, id=957, 550.30594pt x 476.53032pt>
+<Img/ej18.png, id=964, 550.30594pt x 476.53032pt>
 File: Img/ej18.png Graphic file (type png)
 <use Img/ej18.png>
-Package pdftex.def Info: Img/ej18.png  used on input line 3033.
+Package pdftex.def Info: Img/ej18.png  used on input line 3046.
 (pdftex.def)             Requested size: 377.63745pt x 327.01027pt.
-LaTeX Info: Redefining \. on input line 3046.
-LaTeX Info: Redefining \% on input line 3046.
-LaTeX Info: Redefining \. on input line 3046.
-LaTeX Info: Redefining \% on input line 3046.
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
 [84]
-LaTeX Info: Redefining \. on input line 3046.
-LaTeX Info: Redefining \% on input line 3046.
-LaTeX Info: Redefining \. on input line 3046.
-LaTeX Info: Redefining \% on input line 3046.
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
+LaTeX Info: Redefining \. on input line 3059.
+LaTeX Info: Redefining \% on input line 3059.
 [85pdfTeX warning (ext4): destination with the same identifier (name{figure.8.6
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3046 \begin{Shaded}
+l.3059 \begin{Shaded}
                       <./Img/ej18.png>]
-<Img/ej19.png, id=976, 449.42906pt x 395.97937pt>
+<Img/ej19.png, id=983, 449.42906pt x 395.97937pt>
 File: Img/ej19.png Graphic file (type png)
 <use Img/ej19.png>
-Package pdftex.def Info: Img/ej19.png  used on input line 3073.
+Package pdftex.def Info: Img/ej19.png  used on input line 3086.
 (pdftex.def)             Requested size: 377.64127pt x 332.72917pt.
-LaTeX Info: Redefining \. on input line 3086.
-LaTeX Info: Redefining \% on input line 3086.
-LaTeX Info: Redefining \. on input line 3086.
-LaTeX Info: Redefining \% on input line 3086.
+LaTeX Info: Redefining \. on input line 3099.
+LaTeX Info: Redefining \% on input line 3099.
+LaTeX Info: Redefining \. on input line 3099.
+LaTeX Info: Redefining \% on input line 3099.
 [86pdfTeX warning (ext4): destination with the same identifier (name{figure.8.7
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3086 E
+l.3099 E
         jercicio 20 <./Img/ej19.png>]
 Underfull \vbox (badness 1748) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3133.
-LaTeX Info: Redefining \% on input line 3133.
-LaTeX Info: Redefining \. on input line 3133.
-LaTeX Info: Redefining \% on input line 3133.
+LaTeX Info: Redefining \. on input line 3146.
+LaTeX Info: Redefining \% on input line 3146.
+LaTeX Info: Redefining \. on input line 3146.
+LaTeX Info: Redefining \% on input line 3146.
 [87]
-<Img/ej20.png, id=990, 930.47626pt x 715.17188pt>
+<Img/ej20.png, id=997, 930.47626pt x 715.17188pt>
 File: Img/ej20.png Graphic file (type png)
 <use Img/ej20.png>
-Package pdftex.def Info: Img/ej20.png  used on input line 3162.
+Package pdftex.def Info: Img/ej20.png  used on input line 3175.
 (pdftex.def)             Requested size: 377.6217pt x 290.24321pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3197.
-LaTeX Info: Redefining \% on input line 3197.
-LaTeX Info: Redefining \. on input line 3197.
-LaTeX Info: Redefining \% on input line 3197.
+LaTeX Info: Redefining \. on input line 3210.
+LaTeX Info: Redefining \% on input line 3210.
+LaTeX Info: Redefining \. on input line 3210.
+LaTeX Info: Redefining \% on input line 3210.
 [88]
-LaTeX Info: Redefining \. on input line 3197.
-LaTeX Info: Redefining \% on input line 3197.
-LaTeX Info: Redefining \. on input line 3197.
-LaTeX Info: Redefining \% on input line 3197.
+LaTeX Info: Redefining \. on input line 3210.
+LaTeX Info: Redefining \% on input line 3210.
+LaTeX Info: Redefining \. on input line 3210.
+LaTeX Info: Redefining \% on input line 3210.
 [89pdfTeX warning (ext4): destination with the same identifier (name{figure.8.8
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3197 
+l.3210 
         <./Img/ej20.png>]
-LaTeX Info: Redefining \. on input line 3279.
-LaTeX Info: Redefining \% on input line 3279.
-LaTeX Info: Redefining \. on input line 3279.
-LaTeX Info: Redefining \% on input line 3279.
+LaTeX Info: Redefining \. on input line 3292.
+LaTeX Info: Redefining \% on input line 3292.
+LaTeX Info: Redefining \. on input line 3292.
+LaTeX Info: Redefining \% on input line 3292.
 [90]
-<Img/ej21.png, id=1009, 458.46281pt x 472.01344pt>
+<Img/ej21.png, id=1017, 458.46281pt x 472.01344pt>
 File: Img/ej21.png Graphic file (type png)
 <use Img/ej21.png>
-Package pdftex.def Info: Img/ej21.png  used on input line 3283.
+Package pdftex.def Info: Img/ej21.png  used on input line 3296.
 (pdftex.def)             Requested size: 377.64186pt x 388.8037pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3299.
-LaTeX Info: Redefining \% on input line 3299.
-LaTeX Info: Redefining \. on input line 3299.
-LaTeX Info: Redefining \% on input line 3299.
+LaTeX Info: Redefining \. on input line 3312.
+LaTeX Info: Redefining \% on input line 3312.
+LaTeX Info: Redefining \. on input line 3312.
+LaTeX Info: Redefining \% on input line 3312.
 [91]
-LaTeX Info: Redefining \. on input line 3299.
-LaTeX Info: Redefining \% on input line 3299.
-LaTeX Info: Redefining \. on input line 3299.
-LaTeX Info: Redefining \% on input line 3299.
+LaTeX Info: Redefining \. on input line 3312.
+LaTeX Info: Redefining \% on input line 3312.
+LaTeX Info: Redefining \. on input line 3312.
+LaTeX Info: Redefining \% on input line 3312.
 [92pdfTeX warning (ext4): destination with the same identifier (name{figure.8.9
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3299   I
+l.3312   I
           mportamos una capa de cuencas, la filtramos con un rect谩ngulo sob...
  <./Img/ej21.png>]
-LaTeX Info: Redefining \. on input line 3349.
-LaTeX Info: Redefining \% on input line 3349.
-LaTeX Info: Redefining \. on input line 3349.
-LaTeX Info: Redefining \% on input line 3349.
+LaTeX Info: Redefining \. on input line 3362.
+LaTeX Info: Redefining \% on input line 3362.
+LaTeX Info: Redefining \. on input line 3362.
+LaTeX Info: Redefining \% on input line 3362.
 [93]
-<Img/ej22.png, id=1026, 259.7203pt x 134.75343pt>
+<Img/ej22.png, id=1033, 259.7203pt x 134.75343pt>
 File: Img/ej22.png Graphic file (type png)
 <use Img/ej22.png>
-Package pdftex.def Info: Img/ej22.png  used on input line 3353.
+Package pdftex.def Info: Img/ej22.png  used on input line 3366.
 (pdftex.def)             Requested size: 259.72362pt x 134.75514pt.
-LaTeX Info: Redefining \. on input line 3388.
-LaTeX Info: Redefining \% on input line 3388.
-LaTeX Info: Redefining \. on input line 3388.
-LaTeX Info: Redefining \% on input line 3388.
+LaTeX Info: Redefining \. on input line 3401.
+LaTeX Info: Redefining \% on input line 3401.
+LaTeX Info: Redefining \. on input line 3401.
+LaTeX Info: Redefining \% on input line 3401.
 [94pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1
 0}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3388 \end{Shaded}
+l.3401 \end{Shaded}
                     <./Img/ej22.png>]
-<Img/ej23.png, id=1032, 1044.90375pt x 523.9575pt>
+<Img/ej23.png, id=1039, 1044.90375pt x 523.9575pt>
 File: Img/ej23.png Graphic file (type png)
 <use Img/ej23.png>
-Package pdftex.def Info: Img/ej23.png  used on input line 3392.
+Package pdftex.def Info: Img/ej23.png  used on input line 3405.
 (pdftex.def)             Requested size: 377.6319pt x 189.36009pt.
-LaTeX Info: Redefining \. on input line 3428.
-LaTeX Info: Redefining \% on input line 3428.
-LaTeX Info: Redefining \. on input line 3428.
-LaTeX Info: Redefining \% on input line 3428.
+LaTeX Info: Redefining \. on input line 3441.
+LaTeX Info: Redefining \% on input line 3441.
+LaTeX Info: Redefining \. on input line 3441.
+LaTeX Info: Redefining \% on input line 3441.
 [95pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3428 \end{Shaded}
+l.3441 \end{Shaded}
                     <./Img/ej23.png>]
-<Img/ej24.png, id=1039, 410.2828pt x 252.19218pt>
+<Img/ej24.png, id=1046, 410.2828pt x 252.19218pt>
 File: Img/ej24.png Graphic file (type png)
 <use Img/ej24.png>
-Package pdftex.def Info: Img/ej24.png  used on input line 3432.
+Package pdftex.def Info: Img/ej24.png  used on input line 3445.
 (pdftex.def)             Requested size: 377.62126pt x 232.11581pt.
-LaTeX Info: Redefining \. on input line 3451.
-LaTeX Info: Redefining \% on input line 3451.
-LaTeX Info: Redefining \. on input line 3451.
-LaTeX Info: Redefining \% on input line 3451.
+LaTeX Info: Redefining \. on input line 3464.
+LaTeX Info: Redefining \% on input line 3464.
+LaTeX Info: Redefining \. on input line 3464.
+LaTeX Info: Redefining \% on input line 3464.
 [96pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1
 2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3451 \begin{Shaded}
+l.3464 \begin{Shaded}
                       <./Img/ej24.png>]
-<Img/ej25.png, id=1046, 639.13782pt x 762.59906pt>
+<Img/ej25.png, id=1053, 639.13782pt x 762.59906pt>
 File: Img/ej25.png Graphic file (type png)
 <use Img/ej25.png>
-Package pdftex.def Info: Img/ej25.png  used on input line 3497.
+Package pdftex.def Info: Img/ej25.png  used on input line 3510.
 (pdftex.def)             Requested size: 377.62444pt x 450.56955pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3510.
-LaTeX Info: Redefining \% on input line 3510.
-LaTeX Info: Redefining \. on input line 3510.
-LaTeX Info: Redefining \% on input line 3510.
+LaTeX Info: Redefining \. on input line 3523.
+LaTeX Info: Redefining \% on input line 3523.
+LaTeX Info: Redefining \. on input line 3523.
+LaTeX Info: Redefining \% on input line 3523.
 [97]
-LaTeX Info: Redefining \. on input line 3510.
-LaTeX Info: Redefining \% on input line 3510.
-LaTeX Info: Redefining \. on input line 3510.
-LaTeX Info: Redefining \% on input line 3510.
+LaTeX Info: Redefining \. on input line 3523.
+LaTeX Info: Redefining \% on input line 3523.
+LaTeX Info: Redefining \. on input line 3523.
+LaTeX Info: Redefining \% on input line 3523.
 [98pdfTeX warning (ext4): destination with the same identifier (name{figure.8.1
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3510 P
+l.3523 P
         ara exportar vectores es necesario usar la funci贸n \texttt{Export.t...
  <./Img/ej25.png>]
-Overfull \hbox (15.4593pt too wide) in paragraph at lines 3515--3517
+Overfull \hbox (15.4593pt too wide) in paragraph at lines 3528--3530
 []\T1/lmr/m/n/12 Collection (colec-ci髇): obli-ga-to-ri-a-mente una colec-ci髇 
 de vec-tores \T1/lmtt/m/n/12 ee.FeatureCollection\T1/lmr/m/n/12 .
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-542.
-
-(c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Info: Redefining \. on input line 3553.
-LaTeX Info: Redefining \% on input line 3553.
-LaTeX Info: Redefining \. on input line 3553.
-LaTeX Info: Redefining \% on input line 3553.
+LaTeX Info: Redefining \. on input line 3566.
+LaTeX Info: Redefining \% on input line 3566.
+LaTeX Info: Redefining \. on input line 3566.
+LaTeX Info: Redefining \% on input line 3566.
 [99]
-<Img/ej26.png, id=1063, 482.55281pt x 405.76593pt>
+<Img/ej26.png, id=1069, 482.55281pt x 405.76593pt>
 File: Img/ej26.png Graphic file (type png)
 <use Img/ej26.png>
-Package pdftex.def Info: Img/ej26.png  used on input line 3599.
+Package pdftex.def Info: Img/ej26.png  used on input line 3612.
 (pdftex.def)             Requested size: 377.6414pt x 317.5487pt.
-<Img/boton_run.png, id=1064, 212.29312pt x 89.58469pt>
+<Img/boton_run.png, id=1070, 212.29312pt x 89.58469pt>
 File: Img/boton_run.png Graphic file (type png)
 <use Img/boton_run.png>
-Package pdftex.def Info: Img/boton_run.png  used on input line 3610.
+Package pdftex.def Info: Img/boton_run.png  used on input line 3623.
 (pdftex.def)             Requested size: 212.30556pt x 89.58992pt.
-LaTeX Info: Redefining \. on input line 3617.
-LaTeX Info: Redefining \% on input line 3617.
-LaTeX Info: Redefining \. on input line 3617.
-LaTeX Info: Redefining \% on input line 3617.
+LaTeX Info: Redefining \. on input line 3630.
+LaTeX Info: Redefining \% on input line 3630.
+LaTeX Info: Redefining \. on input line 3630.
+LaTeX Info: Redefining \% on input line 3630.
 [100]
-LaTeX Info: Redefining \. on input line 3617.
-LaTeX Info: Redefining \% on input line 3617.
-LaTeX Info: Redefining \. on input line 3617.
-LaTeX Info: Redefining \% on input line 3617.
+LaTeX Info: Redefining \. on input line 3630.
+LaTeX Info: Redefining \% on input line 3630.
+LaTeX Info: Redefining \. on input line 3630.
+LaTeX Info: Redefining \% on input line 3630.
 [101pdfTeX warning (ext4): destination with the same identifier (name{figure.8.
 14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3617 \newpage
+l.3630 \newpage
                pdfTeX warning (ext4): destination with the same identifier (nam
 e{figure.8.15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3617 \newpage
+l.3630 \newpage
                 <./Img/ej26.png> <./Img/boton_run.png>]
-LaTeX Info: Redefining \. on input line 3620.
-LaTeX Info: Redefining \% on input line 3620.
-LaTeX Info: Redefining \. on input line 3620.
-LaTeX Info: Redefining \% on input line 3620.
+LaTeX Info: Redefining \. on input line 3633.
+LaTeX Info: Redefining \% on input line 3633.
+LaTeX Info: Redefining \. on input line 3633.
+LaTeX Info: Redefining \% on input line 3633.
 [102
 
 ]
 Cap\'{\i }tulo 9.
-<Img/ej271.png, id=1080, 444.91219pt x 164.86594pt>
+<Img/ej271.png, id=1086, 444.91219pt x 164.86594pt>
 File: Img/ej271.png Graphic file (type png)
 <use Img/ej271.png>
-Package pdftex.def Info: Img/ej271.png  used on input line 3638.
+Package pdftex.def Info: Img/ej271.png  used on input line 3651.
 (pdftex.def)             Requested size: 377.62724pt x 139.9329pt.
-LaTeX Info: Redefining \. on input line 3647.
-LaTeX Info: Redefining \% on input line 3647.
+LaTeX Info: Redefining \. on input line 3660.
+LaTeX Info: Redefining \% on input line 3660.
 [103pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3647 \begin{Shaded}
+l.3660 \begin{Shaded}
                       <./Img/ej271.png>]
-Underfull \hbox (badness 1163) in paragraph at lines 3684--3685
+Underfull \hbox (badness 1163) in paragraph at lines 3697--3698
 []\T1/lmr/m/n/12 Los metadatos de la im-a-gen se en-cuen-tran co-mo propiedades
 . Para con-sul-tar-las se
  []
 
-LaTeX Info: Redefining \. on input line 3693.
-LaTeX Info: Redefining \% on input line 3693.
-LaTeX Info: Redefining \. on input line 3693.
-LaTeX Info: Redefining \% on input line 3693.
+LaTeX Info: Redefining \. on input line 3706.
+LaTeX Info: Redefining \% on input line 3706.
+LaTeX Info: Redefining \. on input line 3706.
+LaTeX Info: Redefining \% on input line 3706.
 [104]
-<Img/ej272.png, id=1092, 300.3722pt x 470.50781pt>
+<Img/ej272.png, id=1098, 300.3722pt x 470.50781pt>
 File: Img/ej272.png Graphic file (type png)
 <use Img/ej272.png>
-Package pdftex.def Info: Img/ej272.png  used on input line 3697.
+Package pdftex.def Info: Img/ej272.png  used on input line 3710.
 (pdftex.def)             Requested size: 300.37144pt x 470.50665pt.
-<Img/ej273.png, id=1093, 194.97844pt x 82.05656pt>
+<Img/ej273.png, id=1099, 194.97844pt x 82.05656pt>
 File: Img/ej273.png Graphic file (type png)
 <use Img/ej273.png>
-Package pdftex.def Info: Img/ej273.png  used on input line 3726.
+Package pdftex.def Info: Img/ej273.png  used on input line 3739.
 (pdftex.def)             Requested size: 194.98091pt x 82.0576pt.
-<Img/ej274.png, id=1094, 1028.34187pt x 578.16pt>
+<Img/ej274.png, id=1100, 1028.34187pt x 578.16pt>
 File: Img/ej274.png Graphic file (type png)
 <use Img/ej274.png>
-Package pdftex.def Info: Img/ej274.png  used on input line 3755.
+Package pdftex.def Info: Img/ej274.png  used on input line 3768.
 (pdftex.def)             Requested size: 377.62474pt x 212.31024pt.
 
 Underfull \vbox (badness 5036) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3770.
-LaTeX Info: Redefining \% on input line 3770.
-LaTeX Info: Redefining \. on input line 3770.
-LaTeX Info: Redefining \% on input line 3770.
+LaTeX Info: Redefining \. on input line 3783.
+LaTeX Info: Redefining \% on input line 3783.
+LaTeX Info: Redefining \. on input line 3783.
+LaTeX Info: Redefining \% on input line 3783.
 [105]
-LaTeX Info: Redefining \. on input line 3770.
-LaTeX Info: Redefining \% on input line 3770.
-LaTeX Info: Redefining \. on input line 3770.
-LaTeX Info: Redefining \% on input line 3770.
+LaTeX Info: Redefining \. on input line 3783.
+LaTeX Info: Redefining \% on input line 3783.
+LaTeX Info: Redefining \. on input line 3783.
+LaTeX Info: Redefining \% on input line 3783.
 [106pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3770 
+l.3783 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .9.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3770 
+l.3783 
         <./Img/ej272.png> <./Img/ej273.png>]
-LaTeX Info: Redefining \. on input line 3790.
-LaTeX Info: Redefining \% on input line 3790.
-LaTeX Info: Redefining \. on input line 3790.
-LaTeX Info: Redefining \% on input line 3790.
+LaTeX Info: Redefining \. on input line 3803.
+LaTeX Info: Redefining \% on input line 3803.
+LaTeX Info: Redefining \. on input line 3803.
+LaTeX Info: Redefining \% on input line 3803.
 [107pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3790 \end{Shaded}
+l.3803 \end{Shaded}
                     <./Img/ej274.png>]
-<Img/ej275.png, id=1114, 405.76593pt x 606.01407pt>
+<Img/ej275.png, id=1120, 405.76593pt x 606.01407pt>
 File: Img/ej275.png Graphic file (type png)
 <use Img/ej275.png>
-Package pdftex.def Info: Img/ej275.png  used on input line 3812.
+Package pdftex.def Info: Img/ej275.png  used on input line 3825.
 (pdftex.def)             Requested size: 377.63702pt x 564.00337pt.
-LaTeX Info: Redefining \. on input line 3851.
-LaTeX Info: Redefining \% on input line 3851.
-LaTeX Info: Redefining \. on input line 3851.
-LaTeX Info: Redefining \% on input line 3851.
+LaTeX Info: Redefining \. on input line 3864.
+LaTeX Info: Redefining \% on input line 3864.
+LaTeX Info: Redefining \. on input line 3864.
+LaTeX Info: Redefining \% on input line 3864.
 [108]
-LaTeX Info: Redefining \. on input line 3851.
-LaTeX Info: Redefining \% on input line 3851.
-LaTeX Info: Redefining \. on input line 3851.
-LaTeX Info: Redefining \% on input line 3851.
+LaTeX Info: Redefining \. on input line 3864.
+LaTeX Info: Redefining \% on input line 3864.
+LaTeX Info: Redefining \. on input line 3864.
+LaTeX Info: Redefining \% on input line 3864.
 [109pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3851 E
+l.3864 E
         jercicio 27.7 <./Img/ej275.png>]
-<Img/ej276.png, id=1128, 733.99219pt x 506.6428pt>
+<Img/ej276.png, id=1134, 733.99219pt x 506.6428pt>
 File: Img/ej276.png Graphic file (type png)
 <use Img/ej276.png>
-Package pdftex.def Info: Img/ej276.png  used on input line 3888.
+Package pdftex.def Info: Img/ej276.png  used on input line 3901.
 (pdftex.def)             Requested size: 377.635pt x 260.66498pt.
-LaTeX Info: Redefining \. on input line 3911.
-LaTeX Info: Redefining \% on input line 3911.
-LaTeX Info: Redefining \. on input line 3911.
-LaTeX Info: Redefining \% on input line 3911.
+LaTeX Info: Redefining \. on input line 3924.
+LaTeX Info: Redefining \% on input line 3924.
+LaTeX Info: Redefining \. on input line 3924.
+LaTeX Info: Redefining \% on input line 3924.
 [110]
-Underfull \hbox (badness 10000) in paragraph at lines 3916--3917
+Underfull \hbox (badness 10000) in paragraph at lines 3929--3930
 []|\T1/lmr/m/n/12 Si no se cam-bia el nom-bre de la ban-da pro-duci-da por
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3929.
-LaTeX Info: Redefining \% on input line 3929.
-LaTeX Info: Redefining \. on input line 3929.
-LaTeX Info: Redefining \% on input line 3929.
+LaTeX Info: Redefining \. on input line 3942.
+LaTeX Info: Redefining \% on input line 3942.
+LaTeX Info: Redefining \. on input line 3942.
+LaTeX Info: Redefining \% on input line 3942.
 [111pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3929 
+l.3942 
         <./Img/ej276.png>]
-<Img/ej277.png, id=1140, 573.64313pt x 691.08188pt>
+<Img/ej277.png, id=1146, 573.64313pt x 691.08188pt>
 File: Img/ej277.png Graphic file (type png)
 <use Img/ej277.png>
-Package pdftex.def Info: Img/ej277.png  used on input line 3943.
+Package pdftex.def Info: Img/ej277.png  used on input line 3956.
 (pdftex.def)             Requested size: 377.63403pt x 454.94495pt.
-<Img/ej278.png, id=1141, 669.2503pt x 431.36156pt>
+<Img/ej278.png, id=1147, 669.2503pt x 431.36156pt>
 File: Img/ej278.png Graphic file (type png)
 <use Img/ej278.png>
-Package pdftex.def Info: Img/ej278.png  used on input line 3971.
+Package pdftex.def Info: Img/ej278.png  used on input line 3984.
 (pdftex.def)             Requested size: 377.63695pt x 243.4038pt.
 
 Underfull \vbox (badness 1019) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 3984.
-LaTeX Info: Redefining \% on input line 3984.
-LaTeX Info: Redefining \. on input line 3984.
-LaTeX Info: Redefining \% on input line 3984.
+LaTeX Info: Redefining \. on input line 3997.
+LaTeX Info: Redefining \% on input line 3997.
+LaTeX Info: Redefining \. on input line 3997.
+LaTeX Info: Redefining \% on input line 3997.
 [112]
-LaTeX Info: Redefining \. on input line 3984.
-LaTeX Info: Redefining \% on input line 3984.
-LaTeX Info: Redefining \. on input line 3984.
-LaTeX Info: Redefining \% on input line 3984.
+LaTeX Info: Redefining \. on input line 3997.
+LaTeX Info: Redefining \% on input line 3997.
+LaTeX Info: Redefining \. on input line 3997.
+LaTeX Info: Redefining \% on input line 3997.
 [113pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.3984 E
+l.3997 E
         jercicio 27.11 <./Img/ej277.png>]
-<Img/ej279.png, id=1153, 1028.34187pt x 578.16pt>
+<Img/ej279.png, id=1159, 1028.34187pt x 578.16pt>
 File: Img/ej279.png Graphic file (type png)
 <use Img/ej279.png>
-Package pdftex.def Info: Img/ej279.png  used on input line 3999.
+Package pdftex.def Info: Img/ej279.png  used on input line 4012.
 (pdftex.def)             Requested size: 377.62474pt x 212.31024pt.
-<Img/ej270.png, id=1154, 590.95781pt x 405.01312pt>
+<Img/ej270.png, id=1160, 590.95781pt x 405.01312pt>
 File: Img/ej270.png Graphic file (type png)
 <use Img/ej270.png>
-Package pdftex.def Info: Img/ej270.png  used on input line 4008.
+Package pdftex.def Info: Img/ej270.png  used on input line 4021.
 (pdftex.def)             Requested size: 377.6346pt x 258.81198pt.
-<Img/ej27a.png, id=1155, 627.09282pt x 404.26031pt>
+<Img/ej27a.png, id=1161, 627.09282pt x 404.26031pt>
 File: Img/ej27a.png Graphic file (type png)
 <use Img/ej27a.png>
-Package pdftex.def Info: Img/ej27a.png  used on input line 4017.
+Package pdftex.def Info: Img/ej27a.png  used on input line 4030.
 (pdftex.def)             Requested size: 377.63647pt x 243.44632pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4032.
-LaTeX Info: Redefining \% on input line 4032.
-LaTeX Info: Redefining \. on input line 4032.
-LaTeX Info: Redefining \% on input line 4032.
+LaTeX Info: Redefining \. on input line 4045.
+LaTeX Info: Redefining \% on input line 4045.
+LaTeX Info: Redefining \. on input line 4045.
+LaTeX Info: Redefining \% on input line 4045.
 [114pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4032 
+l.4045 
         <./Img/ej278.png>]
-LaTeX Info: Redefining \. on input line 4032.
-LaTeX Info: Redefining \% on input line 4032.
-LaTeX Info: Redefining \. on input line 4032.
-LaTeX Info: Redefining \% on input line 4032.
+LaTeX Info: Redefining \. on input line 4045.
+LaTeX Info: Redefining \% on input line 4045.
+LaTeX Info: Redefining \. on input line 4045.
+LaTeX Info: Redefining \% on input line 4045.
 [115pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4032 
+l.4045 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .9.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4032 
+l.4045 
         <./Img/ej279.png> <./Img/ej270.png>]
-LaTeX Info: Redefining \. on input line 4057.
-LaTeX Info: Redefining \% on input line 4057.
-LaTeX Info: Redefining \. on input line 4057.
-LaTeX Info: Redefining \% on input line 4057.
+LaTeX Info: Redefining \. on input line 4070.
+LaTeX Info: Redefining \% on input line 4070.
+LaTeX Info: Redefining \. on input line 4070.
+LaTeX Info: Redefining \% on input line 4070.
 [116pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4057 E
+l.4070 E
         jercicio 27.13 <./Img/ej27a.png>]
-<Img/mexicoVector.png, id=1175, 351.56343pt x 282.30469pt>
+<Img/mexicoVector.png, id=1181, 351.56343pt x 282.30469pt>
 File: Img/mexicoVector.png Graphic file (type png)
 <use Img/mexicoVector.png>
-Package pdftex.def Info: Img/mexicoVector.png  used on input line 4079.
+Package pdftex.def Info: Img/mexicoVector.png  used on input line 4092.
 (pdftex.def)             Requested size: 351.58937pt x 282.32552pt.
 
 Underfull \vbox (badness 1127) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4094.
-LaTeX Info: Redefining \% on input line 4094.
-LaTeX Info: Redefining \. on input line 4094.
-LaTeX Info: Redefining \% on input line 4094.
+LaTeX Info: Redefining \. on input line 4107.
+LaTeX Info: Redefining \% on input line 4107.
+LaTeX Info: Redefining \. on input line 4107.
+LaTeX Info: Redefining \% on input line 4107.
 [117pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4094 
+l.4107 
         <./Img/mexicoVector.png>]
-LaTeX Info: Redefining \. on input line 4135.
-LaTeX Info: Redefining \% on input line 4135.
-LaTeX Info: Redefining \. on input line 4135.
-LaTeX Info: Redefining \% on input line 4135.
+LaTeX Info: Redefining \. on input line 4148.
+LaTeX Info: Redefining \% on input line 4148.
+LaTeX Info: Redefining \. on input line 4148.
+LaTeX Info: Redefining \% on input line 4148.
 [118]
-<Img/SRTM.png, id=1188, 462.528pt x 216.5691pt>
+<Img/SRTM.png, id=1194, 462.528pt x 216.5691pt>
 File: Img/SRTM.png Graphic file (type png)
 <use Img/SRTM.png>
-Package pdftex.def Info: Img/SRTM.png  used on input line 4155.
+Package pdftex.def Info: Img/SRTM.png  used on input line 4168.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/SRTM_prop.png, id=1189, 462.528pt x 216.5691pt>
+<Img/SRTM_prop.png, id=1195, 462.528pt x 216.5691pt>
 File: Img/SRTM_prop.png Graphic file (type png)
 <use Img/SRTM_prop.png>
-Package pdftex.def Info: Img/SRTM_prop.png  used on input line 4166.
+Package pdftex.def Info: Img/SRTM_prop.png  used on input line 4179.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 4184.
-LaTeX Info: Redefining \% on input line 4184.
-LaTeX Info: Redefining \. on input line 4184.
-LaTeX Info: Redefining \% on input line 4184.
+LaTeX Info: Redefining \. on input line 4197.
+LaTeX Info: Redefining \% on input line 4197.
+LaTeX Info: Redefining \. on input line 4197.
+LaTeX Info: Redefining \% on input line 4197.
 [119]
-LaTeX Info: Redefining \. on input line 4184.
-LaTeX Info: Redefining \% on input line 4184.
-LaTeX Info: Redefining \. on input line 4184.
-LaTeX Info: Redefining \% on input line 4184.
+LaTeX Info: Redefining \. on input line 4197.
+LaTeX Info: Redefining \% on input line 4197.
+LaTeX Info: Redefining \. on input line 4197.
+LaTeX Info: Redefining \% on input line 4197.
 [120pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4184 \begin{Shaded}
+l.4197 \begin{Shaded}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.9.14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4184 \begin{Shaded}
+l.4197 \begin{Shaded}
                       <./Img/SRTM.png> <./Img/SRTM_prop.png>]
-<Img/ejercicioAMaps.png, id=1203, 544.1931pt x 132.495pt>
+<Img/ejercicioAMaps.png, id=1209, 544.1931pt x 132.495pt>
 File: Img/ejercicioAMaps.png Graphic file (type png)
 <use Img/ejercicioAMaps.png>
-Package pdftex.def Info: Img/ejercicioAMaps.png  used on input line 4238.
+Package pdftex.def Info: Img/ejercicioAMaps.png  used on input line 4251.
 (pdftex.def)             Requested size: 472.03253pt x 114.92601pt.
-LaTeX Info: Redefining \. on input line 4263.
-LaTeX Info: Redefining \% on input line 4263.
-LaTeX Info: Redefining \. on input line 4263.
-LaTeX Info: Redefining \% on input line 4263.
+LaTeX Info: Redefining \. on input line 4276.
+LaTeX Info: Redefining \% on input line 4276.
+LaTeX Info: Redefining \. on input line 4276.
+LaTeX Info: Redefining \% on input line 4276.
 [121]
-<Img/histElevacion.png, id=1209, 1501.61pt x 600.2425pt>
+<Img/histElevacion.png, id=1215, 1501.61pt x 600.2425pt>
 File: Img/histElevacion.png Graphic file (type png)
 <use Img/histElevacion.png>
-Package pdftex.def Info: Img/histElevacion.png  used on input line 4267.
+Package pdftex.def Info: Img/histElevacion.png  used on input line 4280.
 (pdftex.def)             Requested size: 472.02441pt x 188.68355pt.
-LaTeX Info: Redefining \. on input line 4276.
-LaTeX Info: Redefining \% on input line 4276.
-LaTeX Info: Redefining \. on input line 4276.
-LaTeX Info: Redefining \% on input line 4276.
+LaTeX Info: Redefining \. on input line 4289.
+LaTeX Info: Redefining \% on input line 4289.
+LaTeX Info: Redefining \. on input line 4289.
+LaTeX Info: Redefining \% on input line 4289.
 [122pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4276 \begin{Shaded}
+l.4289 \begin{Shaded}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.9.16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4276 \begin{Shaded}
+l.4289 \begin{Shaded}
                       <./Img/ejercicioAMaps.png> <./Img/histElevacion.png>]
-<Img/exportCHMMX.png, id=1218, 496.85625pt x 161.10187pt>
+<Img/exportCHMMX.png, id=1224, 496.85625pt x 161.10187pt>
 File: Img/exportCHMMX.png Graphic file (type png)
 <use Img/exportCHMMX.png>
-Package pdftex.def Info: Img/exportCHMMX.png  used on input line 4295.
+Package pdftex.def Info: Img/exportCHMMX.png  used on input line 4308.
 (pdftex.def)             Requested size: 472.04108pt x 153.05573pt.
-LaTeX Info: Redefining \. on input line 4302.
-LaTeX Info: Redefining \% on input line 4302.
-LaTeX Info: Redefining \. on input line 4302.
-LaTeX Info: Redefining \% on input line 4302.
+LaTeX Info: Redefining \. on input line 4315.
+LaTeX Info: Redefining \% on input line 4315.
+LaTeX Info: Redefining \. on input line 4315.
+LaTeX Info: Redefining \% on input line 4315.
 [123pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4302 \newpage
+l.4315 \newpage
                 <./Img/exportCHMMX.png>]
-LaTeX Info: Redefining \. on input line 4305.
-LaTeX Info: Redefining \% on input line 4305.
-LaTeX Info: Redefining \. on input line 4305.
-LaTeX Info: Redefining \% on input line 4305.
+LaTeX Info: Redefining \. on input line 4318.
+LaTeX Info: Redefining \% on input line 4318.
+LaTeX Info: Redefining \. on input line 4318.
+LaTeX Info: Redefining \% on input line 4318.
 [124
 
 ]
 Cap\'{\i }tulo 10.
-<Img/s2properties.png, id=1230, 490.83376pt x 405.01312pt>
+<Img/s2properties.png, id=1236, 490.83376pt x 405.01312pt>
 File: Img/s2properties.png Graphic file (type png)
 <use Img/s2properties.png>
-Package pdftex.def Info: Img/s2properties.png  used on input line 4349.
+Package pdftex.def Info: Img/s2properties.png  used on input line 4362.
 (pdftex.def)             Requested size: 283.2308pt x 233.70885pt.
-LaTeX Info: Redefining \. on input line 4364.
-LaTeX Info: Redefining \% on input line 4364.
+LaTeX Info: Redefining \. on input line 4377.
+LaTeX Info: Redefining \% on input line 4377.
 [125]
-LaTeX Info: Redefining \. on input line 4390.
-LaTeX Info: Redefining \% on input line 4390.
-LaTeX Info: Redefining \. on input line 4390.
-LaTeX Info: Redefining \% on input line 4390.
+LaTeX Info: Redefining \. on input line 4403.
+LaTeX Info: Redefining \% on input line 4403.
+LaTeX Info: Redefining \. on input line 4403.
+LaTeX Info: Redefining \% on input line 4403.
 [126pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4390 \end{Shaded}
+l.4403 \end{Shaded}
                     <./Img/s2properties.png>]
-<Img/imcolmerge.png, id=1243, 422.32782pt x 426.84468pt>
+<Img/imcolmerge.png, id=1249, 422.32782pt x 426.84468pt>
 File: Img/imcolmerge.png Graphic file (type png)
 <use Img/imcolmerge.png>
-Package pdftex.def Info: Img/imcolmerge.png  used on input line 4394.
+Package pdftex.def Info: Img/imcolmerge.png  used on input line 4407.
 (pdftex.def)             Requested size: 283.22882pt x 286.258pt.
-LaTeX Info: Redefining \. on input line 4408.
-LaTeX Info: Redefining \% on input line 4408.
-LaTeX Info: Redefining \. on input line 4408.
-LaTeX Info: Redefining \% on input line 4408.
+LaTeX Info: Redefining \. on input line 4421.
+LaTeX Info: Redefining \% on input line 4421.
+LaTeX Info: Redefining \. on input line 4421.
+LaTeX Info: Redefining \% on input line 4421.
 [127pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4408 \begin{Shaded}
+l.4421 \begin{Shaded}
                       <./Img/imcolmerge.png>]
-<Img/visS2Mich.png, id=1252, 422.32782pt x 426.84468pt>
+<Img/visS2Mich.png, id=1258, 422.32782pt x 426.84468pt>
 File: Img/visS2Mich.png Graphic file (type png)
 <use Img/visS2Mich.png>
-Package pdftex.def Info: Img/visS2Mich.png  used on input line 4423.
+Package pdftex.def Info: Img/visS2Mich.png  used on input line 4436.
 (pdftex.def)             Requested size: 283.22882pt x 286.258pt.
-LaTeX Info: Redefining \. on input line 4441.
-LaTeX Info: Redefining \% on input line 4441.
-LaTeX Info: Redefining \. on input line 4441.
-LaTeX Info: Redefining \% on input line 4441.
+LaTeX Info: Redefining \. on input line 4454.
+LaTeX Info: Redefining \% on input line 4454.
+LaTeX Info: Redefining \. on input line 4454.
+LaTeX Info: Redefining \% on input line 4454.
 [128pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4441 \begin{Shaded}
+l.4454 \begin{Shaded}
                       <./Img/visS2Mich.png>]
-<Img/filtroEspacialTemporal.png, id=1261, 546.54187pt x 532.99126pt>
+<Img/filtroEspacialTemporal.png, id=1267, 546.54187pt x 532.99126pt>
 File: Img/filtroEspacialTemporal.png Graphic file (type png)
 <use Img/filtroEspacialTemporal.png>
-Package pdftex.def Info: Img/filtroEspacialTemporal.png  used on input line 447
-4.
+Package pdftex.def Info: Img/filtroEspacialTemporal.png  used on input line 448
+7.
 (pdftex.def)             Requested size: 283.21933pt x 276.19739pt.
-LaTeX Info: Redefining \. on input line 4514.
-LaTeX Info: Redefining \% on input line 4514.
-LaTeX Info: Redefining \. on input line 4514.
-LaTeX Info: Redefining \% on input line 4514.
+LaTeX Info: Redefining \. on input line 4527.
+LaTeX Info: Redefining \% on input line 4527.
+LaTeX Info: Redefining \. on input line 4527.
+LaTeX Info: Redefining \% on input line 4527.
 [129]
-<Img/imBandNames1.png, id=1267, 548.0475pt x 602.25pt>
+<Img/imBandNames1.png, id=1273, 548.0475pt x 602.25pt>
 File: Img/imBandNames1.png Graphic file (type png)
 <use Img/imBandNames1.png>
-Package pdftex.def Info: Img/imBandNames1.png  used on input line 4530.
+Package pdftex.def Info: Img/imBandNames1.png  used on input line 4543.
 (pdftex.def)             Requested size: 283.22185pt x 311.23279pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4545.
-LaTeX Info: Redefining \% on input line 4545.
-LaTeX Info: Redefining \. on input line 4545.
-LaTeX Info: Redefining \% on input line 4545.
+LaTeX Info: Redefining \. on input line 4558.
+LaTeX Info: Redefining \% on input line 4558.
+LaTeX Info: Redefining \. on input line 4558.
+LaTeX Info: Redefining \% on input line 4558.
 [130pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4545 
+l.4558 
         <./Img/filtroEspacialTemporal.png>]
-LaTeX Info: Redefining \. on input line 4545.
-LaTeX Info: Redefining \% on input line 4545.
-LaTeX Info: Redefining \. on input line 4545.
-LaTeX Info: Redefining \% on input line 4545.
+LaTeX Info: Redefining \. on input line 4558.
+LaTeX Info: Redefining \% on input line 4558.
+LaTeX Info: Redefining \. on input line 4558.
+LaTeX Info: Redefining \% on input line 4558.
 [131pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4545 
+l.4558 
         <./Img/imBandNames1.png>]
-<Img/imcol5sortcloud.png, id=1280, 463.7325pt x 408.02437pt>
+<Img/imcol5sortcloud.png, id=1286, 463.7325pt x 408.02437pt>
 File: Img/imcol5sortcloud.png Graphic file (type png)
 <use Img/imcol5sortcloud.png>
-Package pdftex.def Info: Img/imcol5sortcloud.png  used on input line 4565.
+Package pdftex.def Info: Img/imcol5sortcloud.png  used on input line 4578.
 (pdftex.def)             Requested size: 283.22313pt x 249.19957pt.
-LaTeX Info: Redefining \. on input line 4578.
-LaTeX Info: Redefining \% on input line 4578.
-LaTeX Info: Redefining \. on input line 4578.
-LaTeX Info: Redefining \% on input line 4578.
+LaTeX Info: Redefining \. on input line 4591.
+LaTeX Info: Redefining \% on input line 4591.
+LaTeX Info: Redefining \. on input line 4591.
+LaTeX Info: Redefining \% on input line 4591.
 [132pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4578 E
+l.4591 E
         jercicio 28.7 <./Img/imcol5sortcloud.png>]
-<Img/primerIm.png, id=1289, 549.55313pt x 483.30562pt>
+<Img/primerIm.png, id=1295, 549.55313pt x 483.30562pt>
 File: Img/primerIm.png Graphic file (type png)
 <use Img/primerIm.png>
-Package pdftex.def Info: Img/primerIm.png  used on input line 4589.
+Package pdftex.def Info: Img/primerIm.png  used on input line 4602.
 (pdftex.def)             Requested size: 283.22847pt x 249.08585pt.
-LaTeX Info: Redefining \. on input line 4604.
-LaTeX Info: Redefining \% on input line 4604.
-LaTeX Info: Redefining \. on input line 4604.
-LaTeX Info: Redefining \% on input line 4604.
+LaTeX Info: Redefining \. on input line 4617.
+LaTeX Info: Redefining \% on input line 4617.
+LaTeX Info: Redefining \. on input line 4617.
+LaTeX Info: Redefining \% on input line 4617.
 [133pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4604 \begin{Shaded}
+l.4617 \begin{Shaded}
                       <./Img/primerIm.png>]
-<Img/cloudCoverList.png, id=1298, 549.55313pt x 539.01375pt>
+<Img/cloudCoverList.png, id=1305, 549.55313pt x 539.01375pt>
 File: Img/cloudCoverList.png Graphic file (type png)
 <use Img/cloudCoverList.png>
-Package pdftex.def Info: Img/cloudCoverList.png  used on input line 4614.
+Package pdftex.def Info: Img/cloudCoverList.png  used on input line 4627.
 (pdftex.def)             Requested size: 283.22847pt x 277.79668pt.
-<Img/conteoim.png, id=1299, 456.20438pt x 408.02437pt>
+<Img/conteoim.png, id=1306, 456.20438pt x 408.02437pt>
 File: Img/conteoim.png Graphic file (type png)
 <use Img/conteoim.png>
-Package pdftex.def Info: Img/conteoim.png  used on input line 4637.
+Package pdftex.def Info: Img/conteoim.png  used on input line 4650.
 (pdftex.def)             Requested size: 283.22664pt x 253.31493pt.
-LaTeX Info: Redefining \. on input line 4650.
-LaTeX Info: Redefining \% on input line 4650.
-LaTeX Info: Redefining \. on input line 4650.
-LaTeX Info: Redefining \% on input line 4650.
+LaTeX Info: Redefining \. on input line 4663.
+LaTeX Info: Redefining \% on input line 4663.
+LaTeX Info: Redefining \. on input line 4663.
+LaTeX Info: Redefining \% on input line 4663.
 [134pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4650 \begin{Shaded}
+l.4663 \begin{Shaded}
                       <./Img/cloudCoverList.png>]
-LaTeX Info: Redefining \. on input line 4677.
-LaTeX Info: Redefining \% on input line 4677.
-LaTeX Info: Redefining \. on input line 4677.
-LaTeX Info: Redefining \% on input line 4677.
+LaTeX Info: Redefining \. on input line 4690.
+LaTeX Info: Redefining \% on input line 4690.
+LaTeX Info: Redefining \. on input line 4690.
+LaTeX Info: Redefining \% on input line 4690.
 [135pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4677 \begin{Shaded}
+l.4690 \begin{Shaded}
                       <./Img/conteoim.png>]
-<Img/merge2colecciones.png, id=1316, 456.20438pt x 418.56375pt>
+<Img/merge2colecciones.png, id=1322, 456.20438pt x 418.56375pt>
 File: Img/merge2colecciones.png Graphic file (type png)
 <use Img/merge2colecciones.png>
-Package pdftex.def Info: Img/merge2colecciones.png  used on input line 4695.
+Package pdftex.def Info: Img/merge2colecciones.png  used on input line 4708.
 (pdftex.def)             Requested size: 283.22664pt x 259.85811pt.
-LaTeX Info: Redefining \. on input line 4710.
-LaTeX Info: Redefining \% on input line 4710.
-LaTeX Info: Redefining \. on input line 4710.
-LaTeX Info: Redefining \% on input line 4710.
+LaTeX Info: Redefining \. on input line 4723.
+LaTeX Info: Redefining \% on input line 4723.
+LaTeX Info: Redefining \. on input line 4723.
+LaTeX Info: Redefining \% on input line 4723.
 [136pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4710 \begin{Shaded}
+l.4723 \begin{Shaded}
                       <./Img/merge2colecciones.png>]
-<Img/imcol9.png, id=1324, 489.32813pt x 566.115pt>
+<Img/imcol9.png, id=1330, 489.32813pt x 566.115pt>
 File: Img/imcol9.png Graphic file (type png)
 <use Img/imcol9.png>
-Package pdftex.def Info: Img/imcol9.png  used on input line 4727.
+Package pdftex.def Info: Img/imcol9.png  used on input line 4740.
 (pdftex.def)             Requested size: 283.22812pt x 327.67314pt.
-LaTeX Info: Redefining \. on input line 4751.
-LaTeX Info: Redefining \% on input line 4751.
-LaTeX Info: Redefining \. on input line 4751.
-LaTeX Info: Redefining \% on input line 4751.
+LaTeX Info: Redefining \. on input line 4764.
+LaTeX Info: Redefining \% on input line 4764.
+LaTeX Info: Redefining \. on input line 4764.
+LaTeX Info: Redefining \% on input line 4764.
 [137pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .11}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4751 
+l.4764 
         <./Img/imcol9.png>]
-<Img/imredmean.png, id=1331, 435.12563pt x 379.4175pt>
+<Img/imredmean.png, id=1337, 435.12563pt x 379.4175pt>
 File: Img/imredmean.png Graphic file (type png)
 <use Img/imredmean.png>
-Package pdftex.def Info: Img/imredmean.png  used on input line 4783.
+Package pdftex.def Info: Img/imredmean.png  used on input line 4796.
 (pdftex.def)             Requested size: 283.23994pt x 246.97739pt.
-LaTeX Info: Redefining \. on input line 4800.
-LaTeX Info: Redefining \% on input line 4800.
-LaTeX Info: Redefining \. on input line 4800.
-LaTeX Info: Redefining \% on input line 4800.
+LaTeX Info: Redefining \. on input line 4813.
+LaTeX Info: Redefining \% on input line 4813.
+LaTeX Info: Redefining \. on input line 4813.
+LaTeX Info: Redefining \% on input line 4813.
 [138]
-<Img/imredmeanQM.png, id=1338, 435.12563pt x 379.4175pt>
+<Img/imredmeanQM.png, id=1344, 435.12563pt x 379.4175pt>
 File: Img/imredmeanQM.png Graphic file (type png)
 <use Img/imredmeanQM.png>
-Package pdftex.def Info: Img/imredmeanQM.png  used on input line 4824.
+Package pdftex.def Info: Img/imredmeanQM.png  used on input line 4837.
 (pdftex.def)             Requested size: 283.23994pt x 246.97739pt.
-LaTeX Info: Redefining \. on input line 4837.
-LaTeX Info: Redefining \% on input line 4837.
-LaTeX Info: Redefining \. on input line 4837.
-LaTeX Info: Redefining \% on input line 4837.
+LaTeX Info: Redefining \. on input line 4850.
+LaTeX Info: Redefining \% on input line 4850.
+LaTeX Info: Redefining \. on input line 4850.
+LaTeX Info: Redefining \% on input line 4850.
 [139pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4837 P
+l.4850 P
         ara filtrar la colecci贸n de reflectancia de la superficie de im谩ge...
  <./Img/imredmean.png>]
-<Img/Ruta_coleccion.png, id=1347, 462.2871pt x 199.947pt>
+<Img/Ruta_coleccion.png, id=1353, 462.2871pt x 199.947pt>
 File: Img/Ruta_coleccion.png Graphic file (type png)
 <use Img/Ruta_coleccion.png>
-Package pdftex.def Info: Img/Ruta_coleccion.png  used on input line 4841.
+Package pdftex.def Info: Img/Ruta_coleccion.png  used on input line 4854.
 (pdftex.def)             Requested size: 462.30005pt x 199.95259pt.
 
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 4862.
-LaTeX Info: Redefining \% on input line 4862.
-LaTeX Info: Redefining \. on input line 4862.
-LaTeX Info: Redefining \% on input line 4862.
+LaTeX Info: Redefining \. on input line 4875.
+LaTeX Info: Redefining \% on input line 4875.
+LaTeX Info: Redefining \. on input line 4875.
+LaTeX Info: Redefining \% on input line 4875.
 [140pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .13}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4862 \begin{Shaded}
+l.4875 \begin{Shaded}
                       <./Img/imredmeanQM.png>]
-LaTeX Info: Redefining \. on input line 4893.
-LaTeX Info: Redefining \% on input line 4893.
-LaTeX Info: Redefining \. on input line 4893.
-LaTeX Info: Redefining \% on input line 4893.
+LaTeX Info: Redefining \. on input line 4906.
+LaTeX Info: Redefining \% on input line 4906.
+LaTeX Info: Redefining \. on input line 4906.
+LaTeX Info: Redefining \% on input line 4906.
 [141pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .14}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4893 \end{itemize}
+l.4906 \end{itemize}
                      <./Img/Ruta_coleccion.png>]
-<Img/CamposImgCol.png, id=1360, 462.528pt x 216.5691pt>
+<Img/CamposImgCol.png, id=1366, 462.528pt x 216.5691pt>
 File: Img/CamposImgCol.png Graphic file (type png)
 <use Img/CamposImgCol.png>
-Package pdftex.def Info: Img/CamposImgCol.png  used on input line 4897.
+Package pdftex.def Info: Img/CamposImgCol.png  used on input line 4910.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/RGBIm.png, id=1361, 462.528pt x 216.5691pt>
+<Img/RGBIm.png, id=1367, 462.528pt x 216.5691pt>
 File: Img/RGBIm.png Graphic file (type png)
 <use Img/RGBIm.png>
-Package pdftex.def Info: Img/RGBIm.png  used on input line 4928.
+Package pdftex.def Info: Img/RGBIm.png  used on input line 4941.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 4941.
-LaTeX Info: Redefining \% on input line 4941.
-LaTeX Info: Redefining \. on input line 4941.
-LaTeX Info: Redefining \% on input line 4941.
+LaTeX Info: Redefining \. on input line 4954.
+LaTeX Info: Redefining \% on input line 4954.
+LaTeX Info: Redefining \. on input line 4954.
+LaTeX Info: Redefining \% on input line 4954.
 [142pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .15}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4941 U
+l.4954 U
         tilizando la colecci贸n que ya se filtr贸 en el ejercicio anterior s...
  <./Img/CamposImgCol.png>]
-LaTeX Info: Redefining \. on input line 4947.
-LaTeX Info: Redefining \% on input line 4947.
-LaTeX Info: Redefining \. on input line 4947.
-LaTeX Info: Redefining \% on input line 4947.
+LaTeX Info: Redefining \. on input line 4960.
+LaTeX Info: Redefining \% on input line 4960.
+LaTeX Info: Redefining \. on input line 4960.
+LaTeX Info: Redefining \% on input line 4960.
 [143pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .16}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.4947 \begin{Shaded}
+l.4960 \begin{Shaded}
                       <./Img/RGBIm.png>]
-<Img/imNubes.png, id=1375, 462.528pt x 216.5691pt>
+<Img/imNubes.png, id=1381, 462.528pt x 216.5691pt>
 File: Img/imNubes.png Graphic file (type png)
 <use Img/imNubes.png>
-Package pdftex.def Info: Img/imNubes.png  used on input line 4987.
+Package pdftex.def Info: Img/imNubes.png  used on input line 5000.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/imSinNubes.png, id=1376, 462.528pt x 216.5691pt>
+<Img/imSinNubes.png, id=1382, 462.528pt x 216.5691pt>
 File: Img/imSinNubes.png Graphic file (type png)
 <use Img/imSinNubes.png>
-Package pdftex.def Info: Img/imSinNubes.png  used on input line 5019.
+Package pdftex.def Info: Img/imSinNubes.png  used on input line 5032.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-<Img/imConNDVI.png, id=1377, 462.528pt x 216.5691pt>
+<Img/imConNDVI.png, id=1383, 462.528pt x 216.5691pt>
 File: Img/imConNDVI.png Graphic file (type png)
 <use Img/imConNDVI.png>
-Package pdftex.def Info: Img/imConNDVI.png  used on input line 5030.
+Package pdftex.def Info: Img/imConNDVI.png  used on input line 5043.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 5039.
-LaTeX Info: Redefining \% on input line 5039.
-LaTeX Info: Redefining \. on input line 5039.
-LaTeX Info: Redefining \% on input line 5039.
+LaTeX Info: Redefining \. on input line 5052.
+LaTeX Info: Redefining \% on input line 5052.
+LaTeX Info: Redefining \. on input line 5052.
+LaTeX Info: Redefining \% on input line 5052.
 [144]
-LaTeX Info: Redefining \. on input line 5039.
-LaTeX Info: Redefining \% on input line 5039.
-LaTeX Info: Redefining \. on input line 5039.
-LaTeX Info: Redefining \% on input line 5039.
+LaTeX Info: Redefining \. on input line 5052.
+LaTeX Info: Redefining \% on input line 5052.
+LaTeX Info: Redefining \. on input line 5052.
+LaTeX Info: Redefining \% on input line 5052.
 [145pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .17}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5039 \begin{Shaded}
+l.5052 \begin{Shaded}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.10.18}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5039 \begin{Shaded}
+l.5052 \begin{Shaded}
                       <./Img/imNubes.png> <./Img/imSinNubes.png>]
-<Img/imNDVI.png, id=1391, 462.528pt x 216.5691pt>
+<Img/imNDVI.png, id=1397, 462.528pt x 216.5691pt>
 File: Img/imNDVI.png Graphic file (type png)
 <use Img/imNDVI.png>
-Package pdftex.def Info: Img/imNDVI.png  used on input line 5060.
+Package pdftex.def Info: Img/imNDVI.png  used on input line 5073.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 5069.
-LaTeX Info: Redefining \% on input line 5069.
-LaTeX Info: Redefining \. on input line 5069.
-LaTeX Info: Redefining \% on input line 5069.
+LaTeX Info: Redefining \. on input line 5082.
+LaTeX Info: Redefining \% on input line 5082.
+LaTeX Info: Redefining \. on input line 5082.
+LaTeX Info: Redefining \% on input line 5082.
 [146pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .19}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5069 \begin{Shaded}
+l.5082 \begin{Shaded}
                       <./Img/imConNDVI.png>]
-<Img/imCount.png, id=1398, 462.528pt x 216.5691pt>
+<Img/imCount.png, id=1404, 462.528pt x 216.5691pt>
 File: Img/imCount.png Graphic file (type png)
 <use Img/imCount.png>
-Package pdftex.def Info: Img/imCount.png  used on input line 5084.
+Package pdftex.def Info: Img/imCount.png  used on input line 5097.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 5115.
-LaTeX Info: Redefining \% on input line 5115.
-LaTeX Info: Redefining \. on input line 5115.
-LaTeX Info: Redefining \% on input line 5115.
+LaTeX Info: Redefining \. on input line 5128.
+LaTeX Info: Redefining \% on input line 5128.
+LaTeX Info: Redefining \. on input line 5128.
+LaTeX Info: Redefining \% on input line 5128.
 [147pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .20}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5115 \begin{Shaded}
+l.5128 \begin{Shaded}
                       <./Img/imNDVI.png>]
-<Img/meansdclip.png, id=1405, 261.6174pt x 94.9146pt>
+<Img/meansdclip.png, id=1411, 261.6174pt x 94.9146pt>
 File: Img/meansdclip.png Graphic file (type png)
 <use Img/meansdclip.png>
-Package pdftex.def Info: Img/meansdclip.png  used on input line 5129.
+Package pdftex.def Info: Img/meansdclip.png  used on input line 5142.
 (pdftex.def)             Requested size: 261.61674pt x 94.91435pt.
-LaTeX Info: Redefining \. on input line 5142.
-LaTeX Info: Redefining \% on input line 5142.
-LaTeX Info: Redefining \. on input line 5142.
-LaTeX Info: Redefining \% on input line 5142.
+LaTeX Info: Redefining \. on input line 5155.
+LaTeX Info: Redefining \% on input line 5155.
+LaTeX Info: Redefining \. on input line 5155.
+LaTeX Info: Redefining \% on input line 5155.
 [148pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .21}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5142 \begin{Shaded}
+l.5155 \begin{Shaded}
                      pdfTeX warning (ext4): destination with the same identifie
 r (name{figure.10.22}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5142 \begin{Shaded}
+l.5155 \begin{Shaded}
                       <./Img/ImCount.png> <./Img/meansdclip.png>]
-<Img/imDifNDVI.png, id=1415, 462.528pt x 216.5691pt>
+<Img/imDifNDVI.png, id=1421, 462.528pt x 216.5691pt>
 File: Img/imDifNDVI.png Graphic file (type png)
 <use Img/imDifNDVI.png>
-Package pdftex.def Info: Img/imDifNDVI.png  used on input line 5186.
+Package pdftex.def Info: Img/imDifNDVI.png  used on input line 5199.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 5209.
-LaTeX Info: Redefining \% on input line 5209.
-LaTeX Info: Redefining \. on input line 5209.
-LaTeX Info: Redefining \% on input line 5209.
+LaTeX Info: Redefining \. on input line 5222.
+LaTeX Info: Redefining \% on input line 5222.
+LaTeX Info: Redefining \. on input line 5222.
+LaTeX Info: Redefining \% on input line 5222.
 [149]
-LaTeX Info: Redefining \. on input line 5211.
-LaTeX Info: Redefining \% on input line 5211.
-LaTeX Info: Redefining \. on input line 5211.
-LaTeX Info: Redefining \% on input line 5211.
+LaTeX Info: Redefining \. on input line 5224.
+LaTeX Info: Redefining \% on input line 5224.
+LaTeX Info: Redefining \. on input line 5224.
+LaTeX Info: Redefining \% on input line 5224.
 [150pdfTeX warning (ext4): destination with the same identifier (name{figure.10
 .23}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5211 \newpage
+l.5224 \newpage
                 <./Img/imDifNDVI.png>]
 Cap\'{\i }tulo 11.
-<Img/sampleRegions.png, id=1426, 624.83438pt x 341.02406pt>
+<Img/sampleRegions.png, id=1432, 624.83438pt x 341.02406pt>
 File: Img/sampleRegions.png Graphic file (type png)
 <use Img/sampleRegions.png>
-Package pdftex.def Info: Img/sampleRegions.png  used on input line 5250.
+Package pdftex.def Info: Img/sampleRegions.png  used on input line 5263.
 (pdftex.def)             Requested size: 472.03787pt x 257.6303pt.
-LaTeX Info: Redefining \. on input line 5267.
-LaTeX Info: Redefining \% on input line 5267.
+LaTeX Info: Redefining \. on input line 5280.
+LaTeX Info: Redefining \% on input line 5280.
 [151
 
 ]
-<Img/reduccion11.png, id=1436, 621.82312pt x 67.75313pt>
+<Img/reduccion11.png, id=1442, 621.82312pt x 67.75313pt>
 File: Img/reduccion11.png Graphic file (type png)
 <use Img/reduccion11.png>
-Package pdftex.def Info: Img/reduccion11.png  used on input line 5289.
+Package pdftex.def Info: Img/reduccion11.png  used on input line 5302.
 (pdftex.def)             Requested size: 472.03067pt x 51.4319pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 5299--5300
+Underfull \hbox (badness 10000) in paragraph at lines 5312--5313
 []|\T1/lmr/m/n/12 En al-gu-nas oca-siones, los pro-ce-sos de \T1/lmtt/m/n/12 .r
 educeRegions \T1/lmr/m/n/12 o
  []
@@ -3169,236 +3160,236 @@ educeRegions \T1/lmr/m/n/12 o
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5304.
-LaTeX Info: Redefining \% on input line 5304.
-LaTeX Info: Redefining \. on input line 5304.
-LaTeX Info: Redefining \% on input line 5304.
+LaTeX Info: Redefining \. on input line 5317.
+LaTeX Info: Redefining \% on input line 5317.
+LaTeX Info: Redefining \. on input line 5317.
+LaTeX Info: Redefining \% on input line 5317.
 [152pdfTeX warning (ext4): destination with the same identifier (name{figure.11
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5304 
+l.5317 
         <./Img/sampleRegions.png>]
-LaTeX Info: Redefining \. on input line 5332.
-LaTeX Info: Redefining \% on input line 5332.
-LaTeX Info: Redefining \. on input line 5332.
-LaTeX Info: Redefining \% on input line 5332.
+LaTeX Info: Redefining \. on input line 5345.
+LaTeX Info: Redefining \% on input line 5345.
+LaTeX Info: Redefining \. on input line 5345.
+LaTeX Info: Redefining \% on input line 5345.
 [153pdfTeX warning (ext4): destination with the same identifier (name{figure.11
 .2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5332 E
+l.5345 E
         jercicio 30 <./Img/reduccion11.png>]
-LaTeX Info: Redefining \. on input line 5392.
-LaTeX Info: Redefining \% on input line 5392.
-LaTeX Info: Redefining \. on input line 5392.
-LaTeX Info: Redefining \% on input line 5392.
+LaTeX Info: Redefining \. on input line 5405.
+LaTeX Info: Redefining \% on input line 5405.
+LaTeX Info: Redefining \. on input line 5405.
+LaTeX Info: Redefining \% on input line 5405.
 [154]
-<Img/interpol.png, id=1455, 609.9588pt x 105.5142pt>
+<Img/interpol.png, id=1462, 609.9588pt x 105.5142pt>
 File: Img/interpol.png Graphic file (type png)
 <use Img/interpol.png>
-Package pdftex.def Info: Img/interpol.png  used on input line 5396.
+Package pdftex.def Info: Img/interpol.png  used on input line 5409.
 (pdftex.def)             Requested size: 472.04308pt x 81.65674pt.
-LaTeX Info: Redefining \. on input line 5446.
-LaTeX Info: Redefining \% on input line 5446.
-LaTeX Info: Redefining \. on input line 5446.
-LaTeX Info: Redefining \% on input line 5446.
+LaTeX Info: Redefining \. on input line 5459.
+LaTeX Info: Redefining \% on input line 5459.
+LaTeX Info: Redefining \. on input line 5459.
+LaTeX Info: Redefining \% on input line 5459.
 [155pdfTeX warning (ext4): destination with the same identifier (name{figure.11
 .3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5446 \end{Shaded}
+l.5459 \end{Shaded}
                     <./Img/interpol.png>]
-<Img/kriging.png, id=1464, 583.2189pt x 95.3964pt>
+<Img/kriging.png, id=1470, 583.2189pt x 95.3964pt>
 File: Img/kriging.png Graphic file (type png)
 <use Img/kriging.png>
-Package pdftex.def Info: Img/kriging.png  used on input line 5450.
+Package pdftex.def Info: Img/kriging.png  used on input line 5463.
 (pdftex.def)             Requested size: 472.04877pt x 77.2124pt.
-LaTeX Info: Redefining \. on input line 5457.
-LaTeX Info: Redefining \% on input line 5457.
-LaTeX Info: Redefining \. on input line 5457.
-LaTeX Info: Redefining \% on input line 5457.
+LaTeX Info: Redefining \. on input line 5470.
+LaTeX Info: Redefining \% on input line 5470.
+LaTeX Info: Redefining \. on input line 5470.
+LaTeX Info: Redefining \% on input line 5470.
 [156pdfTeX warning (ext4): destination with the same identifier (name{figure.11
 .4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5457 \newpage
+l.5470 \newpage
                 <./Img/kriging.png>]
 Cap\'{\i }tulo 12.
-LaTeX Info: Redefining \. on input line 5473.
-LaTeX Info: Redefining \% on input line 5473.
+LaTeX Info: Redefining \. on input line 5486.
+LaTeX Info: Redefining \% on input line 5486.
 [157
 
 ]
-Underfull \hbox (badness 1275) in paragraph at lines 5494--5496
+Underfull \hbox (badness 1275) in paragraph at lines 5507--5509
 []\T1/lmr/m/n/12 Multiprobability (mul-ti-prob-a-bil-i-dad): de-vuelve un ar-re
 g-lo de
  []
 
-LaTeX Info: Redefining \. on input line 5522.
-LaTeX Info: Redefining \% on input line 5522.
-LaTeX Info: Redefining \. on input line 5522.
-LaTeX Info: Redefining \% on input line 5522.
+LaTeX Info: Redefining \. on input line 5535.
+LaTeX Info: Redefining \% on input line 5535.
+LaTeX Info: Redefining \. on input line 5535.
+LaTeX Info: Redefining \% on input line 5535.
 [158]
-LaTeX Info: Redefining \. on input line 5582.
-LaTeX Info: Redefining \% on input line 5582.
-LaTeX Info: Redefining \. on input line 5582.
-LaTeX Info: Redefining \% on input line 5582.
+LaTeX Info: Redefining \. on input line 5595.
+LaTeX Info: Redefining \% on input line 5595.
+LaTeX Info: Redefining \. on input line 5595.
+LaTeX Info: Redefining \% on input line 5595.
 [159]
-<Img/polyTrain.png, id=1490, 627.84563pt x 397.485pt>
+<Img/polyTrain.png, id=1496, 627.84563pt x 397.485pt>
 File: Img/polyTrain.png Graphic file (type png)
 <use Img/polyTrain.png>
-Package pdftex.def Info: Img/polyTrain.png  used on input line 5586.
+Package pdftex.def Info: Img/polyTrain.png  used on input line 5599.
 (pdftex.def)             Requested size: 283.21768pt x 179.30328pt.
-LaTeX Info: Redefining \. on input line 5607.
-LaTeX Info: Redefining \% on input line 5607.
-LaTeX Info: Redefining \. on input line 5607.
-LaTeX Info: Redefining \% on input line 5607.
+LaTeX Info: Redefining \. on input line 5620.
+LaTeX Info: Redefining \% on input line 5620.
+LaTeX Info: Redefining \. on input line 5620.
+LaTeX Info: Redefining \% on input line 5620.
 [160pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5607 \end{Shaded}
+l.5620 \end{Shaded}
                     <./Img/polyTrain.png>]
-LaTeX Info: Redefining \. on input line 5651.
-LaTeX Info: Redefining \% on input line 5651.
-LaTeX Info: Redefining \. on input line 5651.
-LaTeX Info: Redefining \% on input line 5651.
+LaTeX Info: Redefining \. on input line 5664.
+LaTeX Info: Redefining \% on input line 5664.
+LaTeX Info: Redefining \. on input line 5664.
+LaTeX Info: Redefining \% on input line 5664.
 [161]
-<Img/polyTrainConsole.png, id=1501, 1108.8928pt x 482.55281pt>
+<Img/polyTrainConsole.png, id=1507, 1108.8928pt x 482.55281pt>
 File: Img/polyTrainConsole.png Graphic file (type png)
 <use Img/polyTrainConsole.png>
-Package pdftex.def Info: Img/polyTrainConsole.png  used on input line 5685.
+Package pdftex.def Info: Img/polyTrainConsole.png  used on input line 5698.
 (pdftex.def)             Requested size: 377.6277pt x 164.33086pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 5700.
-LaTeX Info: Redefining \% on input line 5700.
-LaTeX Info: Redefining \. on input line 5700.
-LaTeX Info: Redefining \% on input line 5700.
+LaTeX Info: Redefining \. on input line 5713.
+LaTeX Info: Redefining \% on input line 5713.
+LaTeX Info: Redefining \. on input line 5713.
+LaTeX Info: Redefining \% on input line 5713.
 [162]
-<Img/RFClass.png, id=1506, 462.528pt x 216.5691pt>
+<Img/RFClass.png, id=1512, 462.528pt x 216.5691pt>
 File: Img/RFClass.png Graphic file (type png)
 <use Img/RFClass.png>
-Package pdftex.def Info: Img/RFClass.png  used on input line 5717.
+Package pdftex.def Info: Img/RFClass.png  used on input line 5730.
 (pdftex.def)             Requested size: 462.5339pt x 216.57187pt.
-LaTeX Info: Redefining \. on input line 5725.
-LaTeX Info: Redefining \% on input line 5725.
-LaTeX Info: Redefining \. on input line 5725.
-LaTeX Info: Redefining \% on input line 5725.
+LaTeX Info: Redefining \. on input line 5738.
+LaTeX Info: Redefining \% on input line 5738.
+LaTeX Info: Redefining \. on input line 5738.
+LaTeX Info: Redefining \% on input line 5738.
 [163pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 .2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5725 
+l.5738 
         <./Img/polyTrainConsole.png>]
-Overfull \vbox (1.39903pt too high) detected at line 5756
+Overfull \vbox (1.39903pt too high) detected at line 5769
  []
 
-LaTeX Info: Redefining \. on input line 5756.
-LaTeX Info: Redefining \% on input line 5756.
-LaTeX Info: Redefining \. on input line 5756.
-LaTeX Info: Redefining \% on input line 5756.
+LaTeX Info: Redefining \. on input line 5769.
+LaTeX Info: Redefining \% on input line 5769.
+LaTeX Info: Redefining \. on input line 5769.
+LaTeX Info: Redefining \% on input line 5769.
 [164pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 .3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5756 \end{Shaded}
+l.5769 \end{Shaded}
                     <./Img/RFClass.png>]
-<Img/SpectralSignClass.png, id=1520, 1501.61pt x 658.46pt>
+<Img/SpectralSignClass.png, id=1526, 1501.61pt x 658.46pt>
 File: Img/SpectralSignClass.png Graphic file (type png)
 <use Img/SpectralSignClass.png>
-Package pdftex.def Info: Img/SpectralSignClass.png  used on input line 5760.
+Package pdftex.def Info: Img/SpectralSignClass.png  used on input line 5773.
 (pdftex.def)             Requested size: 472.02441pt x 206.98396pt.
-LaTeX Info: Redefining \. on input line 5789.
-LaTeX Info: Redefining \% on input line 5789.
-LaTeX Info: Redefining \. on input line 5789.
-LaTeX Info: Redefining \% on input line 5789.
+LaTeX Info: Redefining \. on input line 5802.
+LaTeX Info: Redefining \% on input line 5802.
+LaTeX Info: Redefining \. on input line 5802.
+LaTeX Info: Redefining \% on input line 5802.
 [165pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 .4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5789 \end{Shaded}
+l.5802 \end{Shaded}
                     <./Img/SpectralSignClass.png>]
-<Img/matrizError.png, id=1527, 557.83406pt x 580.41844pt>
+<Img/matrizError.png, id=1533, 557.83406pt x 580.41844pt>
 File: Img/matrizError.png Graphic file (type png)
 <use Img/matrizError.png>
-Package pdftex.def Info: Img/matrizError.png  used on input line 5820.
+Package pdftex.def Info: Img/matrizError.png  used on input line 5833.
 (pdftex.def)             Requested size: 283.23184pt x 294.69873pt.
-LaTeX Info: Redefining \. on input line 5838.
-LaTeX Info: Redefining \% on input line 5838.
-LaTeX Info: Redefining \. on input line 5838.
-LaTeX Info: Redefining \% on input line 5838.
+LaTeX Info: Redefining \. on input line 5851.
+LaTeX Info: Redefining \% on input line 5851.
+LaTeX Info: Redefining \. on input line 5851.
+LaTeX Info: Redefining \% on input line 5851.
 [166]
-LaTeX Info: Redefining \. on input line 5838.
-LaTeX Info: Redefining \% on input line 5838.
-LaTeX Info: Redefining \. on input line 5838.
-LaTeX Info: Redefining \% on input line 5838.
+LaTeX Info: Redefining \. on input line 5851.
+LaTeX Info: Redefining \% on input line 5851.
+LaTeX Info: Redefining \. on input line 5851.
+LaTeX Info: Redefining \% on input line 5851.
 [167pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 .5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.5838 \begin{Shaded}
+l.5851 \begin{Shaded}
                       <./Img/matrizError.png>]
-LaTeX Info: Redefining \. on input line 5871.
-LaTeX Info: Redefining \% on input line 5871.
-LaTeX Info: Redefining \. on input line 5871.
-LaTeX Info: Redefining \% on input line 5871.
+LaTeX Info: Redefining \. on input line 5884.
+LaTeX Info: Redefining \% on input line 5884.
+LaTeX Info: Redefining \. on input line 5884.
+LaTeX Info: Redefining \% on input line 5884.
 [168]
 Cap\'{\i }tulo 13.
-LaTeX Info: Redefining \. on input line 5880.
-LaTeX Info: Redefining \% on input line 5880.
+LaTeX Info: Redefining \. on input line 5893.
+LaTeX Info: Redefining \% on input line 5893.
 [169
 
 ]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 5884.
+(hyperref)                be the same. Added a new anchor on input line 5897.
 
-LaTeX Info: Redefining \. on input line 5890.
-LaTeX Info: Redefining \% on input line 5890.
+LaTeX Info: Redefining \. on input line 5903.
+LaTeX Info: Redefining \% on input line 5903.
 [170]
-LaTeX Info: Redefining \. on input line 5922.
-LaTeX Info: Redefining \% on input line 5922.
+LaTeX Info: Redefining \. on input line 5935.
+LaTeX Info: Redefining \% on input line 5935.
 [171
 
 
 ]
-Underfull \hbox (badness 3019) in paragraph at lines 5922--5923
+Underfull \hbox (badness 3019) in paragraph at lines 5935--5936
 []\T1/lmr/m/n/12 Hansen, M. C., Potapov, P. V, Moore, R., Tu-rubano-va, S. A., 
 Tyukav-ina, A.,
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 5922--5923
+Underfull \hbox (badness 1194) in paragraph at lines 5935--5936
 \T1/lmr/m/n/12 Thau, D., ... Town-shend, J. R. G. (2013). High-Resolution Glob-
 al Maps of 21st-
  []
 
 
-Underfull \hbox (badness 5939) in paragraph at lines 5922--5923
+Underfull \hbox (badness 5939) in paragraph at lines 5935--5936
 \T1/lmr/m/n/12 Century For-est Cov-er Change. Sci-ence, 342(6160), 850--853. []
 []$https : / / doi . org / http :
  []
 
-LaTeX Info: Redefining \. on input line 5948.
-LaTeX Info: Redefining \% on input line 5948.
+LaTeX Info: Redefining \. on input line 5961.
+LaTeX Info: Redefining \% on input line 5961.
 [172]
-LaTeX Info: Redefining \. on input line 5960.
-LaTeX Info: Redefining \% on input line 5960.
+LaTeX Info: Redefining \. on input line 5973.
+LaTeX Info: Redefining \% on input line 5973.
 [173] (./ManualGEE.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `ManualGEE.out' has not changed.
-(rerunfilecheck)             Checksum: C29AC2E5FD21117333FC0EA6C40B6BCC;9469.
+(rerunfilecheck)             Checksum: F25BDE6029DE490AA9563E18A80B1843;9649.
  ) 
 Here is how much of TeX's memory you used:
- 27829 strings out of 480559
- 516114 string characters out of 5901276
- 794538 words of memory out of 5000000
- 44307 multiletter control sequences out of 15000+600000
+ 28240 strings out of 480559
+ 522585 string characters out of 5901276
+ 821808 words of memory out of 5000000
+ 44721 multiletter control sequences out of 15000+600000
  458970 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,12n,83p,1471b,688s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3414,10 +3405,10 @@ type1/public/lm/lmr17.pfb><c:/Users/JonathanVSV/AppData/Roaming/TinyTeX/texmf-d
 ist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/JonathanVSV/AppData/Roaming/Tiny
 TeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/JonathanVSV/AppData/R
 oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on ManualGEE.pdf (179 pages, 29001459 bytes).
+Output written on ManualGEE.pdf (179 pages, 29003709 bytes).
 PDF statistics:
- 1763 PDF objects out of 2073 (max. 8388607)
- 1351 compressed objects within 14 object streams
- 547 named destinations out of 1000 (max. 500000)
- 1039 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1769 PDF objects out of 2073 (max. 8388607)
+ 1357 compressed objects within 14 object streams
+ 549 named destinations out of 1000 (max. 500000)
+ 1047 words of extra memory for PDF output out of 10000 (max. 10000000)
 

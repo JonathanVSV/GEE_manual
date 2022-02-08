@@ -1,16 +1,20 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
   12pt,
   letterpaper,
   twoside]{book}
+\title{Cómo usar Google Earth Engine y no fallar en el intento}
+\author{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez}
+\date{}
+
 \usepackage{amsmath,amssymb}
 \usepackage[]{times}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -39,13 +43,13 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Manual de Google Earth Engine},
+  pdftitle={Cómo usar Google Earth Engine y no fallar en el intento},
   pdfauthor={Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez},
   colorlinks=true,
-  linkcolor=Maroon,
-  filecolor=Maroon,
-  citecolor=Blue,
-  urlcolor=Blue,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
 \usepackage[tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=2.5cm,,bottom=2.5cm,]{geometry}
@@ -159,13 +163,9 @@
 %\fancypagestyle{main}{}
 %\fancypagestyle{contents}{}
 
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-
-\title{Manual de Google Earth Engine}
-\author{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez}
-\date{}
 
 \begin{document}
 \maketitle
@@ -181,6 +181,19 @@
 \setlength{\aweboxvskip}{1mm}
 \setlength{\aweboxrulewidth}{5pt}
 
+\newpage
+
+\hypertarget{declaracion-de-afiliaciuxf3n}{%
+\section{Declaracion de afiliación}\label{declaracion-de-afiliaciuxf3n}}
+
+Google, Google Earth Enigne, Google Drive, Google Cloud o cualquier otra marca comercial de Google que sea mencionada o referenciada a lo largo del presente documento, son marcas comerciales propiedad de Google LLC, y no nuestra. El presente libro por lo tanto no es un producto oficial de Google ni se encuentra afiliado, o respaldado de ninguna manera con Google.
+A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es importante recalcar que dichos productos y nombres son propiedad de Google, de modo que acá declaramos los nombres correctos de cada una de dichas marcas comerciales:
+- Google Cloud™ enterprise services
+- Google Drive™ online storage service
+- Google Earth Engine™ analytics platform
+- Google Earth™ mapping service
+- Google Maps™ mapping service
+- TensorFlow™ open-source software library
 \newpage
 \mainmatter
 
@@ -3549,7 +3562,7 @@ Los argumentos adicionales específicos para exportar a drive \texttt{Export.tab
   \item
     ``SHP'' (``shapefile''). Formato utilizado sobre todo por ESRI para almacenar vectores y tablas de atributos asociados a ellos.
   \item
-    ``TFRecord'' ("tensorflow record). Formato utilizado por Tensorflow para almacenar datos tanto vectoriales como ráster.
+    ``TFRecord'' (``tensorflow record). Formato utilizado por Tensorflow para almacenar datos tanto vectoriales como ráster.
   \end{itemize}
 \end{itemize}
 
