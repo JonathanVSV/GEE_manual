@@ -8,7 +8,7 @@ A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es i
 - Google Earth™ mapping service
 - Google Maps™ mapping service
 - TensorFlow™ open-source software library
-
+\newpage
 \mainmatter
 ```{=latex}
 \renewcommand\headrulewidth{1pt}
