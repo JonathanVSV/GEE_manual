@@ -1,6 +1,6 @@
 \newpage
 ## Declaracion de afiliación
-Google, Google Earth Enigne, Google Drive, Google Cloud o cualquier otra marca comercial de Google que sea mencionada o referenciada a lo largo del presente documento, son marcas comerciales propiedad de Google LLC, y no nuestra. El presente libro por lo tanto no es un producto oficial de Google ni se encuentra afiliado, o respaldado de ninguna manera con Google.
+Google, Google Earth Engine, Google Drive, Google Cloud o cualquier otra marca comercial de Google que sea mencionada o referenciada a lo largo del presente documento son marcas comerciales propiedad de Google LLC y no nuestra. Por lo tanto, el presente libro no es un producto oficial de Google ni se encuentra afiliado, o respaldado de ninguna manera por Google.
 A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es importante recalcar que dichos productos y nombres son propiedad de Google, de modo que acá declaramos los nombres correctos de cada una de dichas marcas comerciales:
 - Google Cloud™ enterprise services
 - Google Drive™ online storage service
