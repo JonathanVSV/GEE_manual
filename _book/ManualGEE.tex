@@ -245,9 +245,9 @@ Google Earth Engine (GEE) es una plataforma desarrollada por Google que permite 
 
 Desde hace varios años existen distintas misiones espaciales que registran datos de la Tierra a través de satélites, los cuales se almacenan en acervos de imágenes. Aunque esta información ha sido muy útil para el desarrollo científico, siempre ha existido el problema de la ``Big-Data'' (bases de datos enormes). Es decir, que dichos acervos de imágenes cuentan con millones de imágenes disponibles que resultan imposibles de procesar y analizar en su totalidad utilizando una computadora personal. Esta situación evitaba la posibilidad de aprovechar el potencial total de esta información.
 
-GEE nace de la necesidad de aprovechar esa ``Big-Data'', ofreciendo una herramienta que pueda lidiar tecnológicamente con el manejo de enromes volúmenes de información, permitiendo entonces que los usuarios se concentren en la generación de resultados y nuevos desarrollos científicos. Para lograr este objetivo, se creó una infraestructura con tres elementos claves, que son los que permiten el funcionamiento de GEE: el catálogo de información, la capacidad computacional y las APIs.
+GEE nace de la necesidad de aprovechar esa ``Big-Data'', ofreciendo una herramienta que pueda lidiar tecnológicamente con el manejo de enormes volúmenes de información, permitiendo entonces que los usuarios se concentren en la generación de resultados y nuevos desarrollos científicos. Para lograr este objetivo, se creó una infraestructura con tres elementos claves, que son los que permiten el funcionamiento de GEE: el catálogo de información, la capacidad computacional y las APIs.
 
-GEE recopiló la información geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio ``datacenter'' logrando así almacenar más de 20 petabytes (20 000 000 de gigabytes) de información en un solo lugar. El programa ofrece un amplio repositorio de información geográfica global que ya se encuentra cargada en su catálogo, lo cual facilita el acceso a diferentes fuentes de datos (Fig. 1.1). Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-8), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
+GEE recopiló la información geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio ``datacenter'' logrando así almacenar más de 20 petabytes (20 000 000 de gigabytes) de información en un solo lugar. El programa ofrece un amplio repositorio de información geográfica global que ya se encuentra cargada en su catálogo, lo cual facilita el acceso a diferentes fuentes de datos (Fig. 1.1). Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-9), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas (polygons)), densidad poblacional (GPWv411: Population Density (Gridded Population of the World Version 4.11)), cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM, 3 Arc-Seconds), entre otras.
 
 \begin{figure}[btp]
 
@@ -359,7 +359,7 @@ GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga r
 \hypertarget{registro-para-el-uso-de-gee-javascript-api}{%
 \section{Registro para el uso de GEE Javascript API}\label{registro-para-el-uso-de-gee-javascript-api}}
 
-Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
+Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:
 
 \textbf{\url{https://earthengine.google.com/}}
 
@@ -424,7 +424,7 @@ Una vez abierta la API de Javascript, se observan cuatro pantallas (Fig. 2.4): l
 
 }
 
-\caption{Vistazo inicial de la API de GEE.}\label{fig:unnamed-chunk-5}
+\caption{Vista inicial de la API de GEE.}\label{fig:unnamed-chunk-5}
 \end{figure}
 
 Los elementos de la API se enlistan a continuación:
@@ -535,7 +535,7 @@ En este apartado el usuario puede subir y guardar su propia información para se
 
 }
 
-\caption{Vistazo de la sección de información del usuario.}\label{fig:unnamed-chunk-12}
+\caption{Vista de la sección de información del usuario.}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 \begin{figure}[btp]
@@ -559,7 +559,7 @@ Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En 
 
 }
 
-\caption{Vistazo de la pantalla de rutinas o scripts.}\label{fig:unnamed-chunk-14}
+\caption{Vista de la pantalla de rutinas o scripts.}\label{fig:unnamed-chunk-14}
 \end{figure}
 
 \begin{figure}[btp]
@@ -571,7 +571,7 @@ Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En 
 \caption{Ubicación del botón para obtener enlaces para compartir rutinas.}\label{fig:unnamed-chunk-15}
 \end{figure}
 
-A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción \texttt{Save} as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción \texttt{Save\ as} para crear una copia del código con otro nombre.
 
 \begin{figure}[btp]
 
@@ -582,7 +582,7 @@ A su derecha se encuentra el botón de \texttt{Save} el cual permite guardar el 
 \caption{Ubicación del botón para guardar el código.}\label{fig:unnamed-chunk-16}
 \end{figure}
 
-A continuación está el botón\texttt{Run} que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación, está el botón\texttt{Run} que sirve para correr,de principio a fin, el código que se muestra en la pantalla de rutinas (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
 \begin{figure}[btp]
 
@@ -742,7 +742,7 @@ En esta pestaña se muestran las tareas que se hayan exportado mediante la funci
 \hypertarget{programaciuxf3n-en-gee}{%
 \section{Programación en GEE}\label{programaciuxf3n-en-gee}}
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 5.
+En la API de GEE, la programación es orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones, los cuales se revisan en el capítulo 5.
 
 \hypertarget{simbologuxeda}{%
 \subsection*{Simbología}\label{simbologuxeda}}
@@ -818,7 +818,7 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 \hypertarget{impresiuxf3n-en-consola}{%
 \section{Impresión en consola}\label{impresiuxf3n-en-consola}}
 
-La función más sencilla de la interfaz es la de imprimir objetos en la consola. Esto se realiza mediante la función \texttt{print} (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (``bugs'') en los códigos. El resultado de la siguiente línea de código se puede apreciar en la Fig. 3.1.
+La función más sencilla de la interfaz es la de imprimir objetos en la consola. Esto se realiza mediante la función \texttt{print} (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (bugs) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la Fig. 3.1.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -864,7 +864,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 \texttt{Map.addLayer} permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (\texttt{ee.Feature}) o imagen (\texttt{ee.Image}; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función \texttt{Map.addLayer} incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar \texttt{Map.addLayer} sobre una imagen se pueden indicar los siguientes argumentos: \texttt{bands} (bandas), \texttt{min} y \texttt{max} (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves \texttt{\{\}} como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). Las bandas se deben agregar en el orden RGB, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul. Esta función también permite asignar colores mediante el argumento de \texttt{palette} (paleta de colores). Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas (Fig. 3.2):
+Al utilizar \texttt{Map.addLayer} sobre una imagen se pueden indicar los siguientes argumentos: \texttt{bands} (bandas), \texttt{min} y \texttt{max} (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves \texttt{\{\}} como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o compuesto RGB (del inglés Red, Green,
+Blue). En el caso de optar por la primera, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en la segunda, se deben agregar las bandas en orden, es decir, primero la
+banda que corresponde al canal rojo, seguida del verde y del azul (Fig. 3.2).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -996,7 +998,7 @@ Este conjunto de funciones permiten obtener distintos tipos de gráficos a parti
   \texttt{ui.Chart.image.seriesByRegion}, entre otras.
 \end{itemize}
 
-Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función \texttt{ui.Chart.image.seriesByRegion}. Este tipo de gráficos permiten graficar las series de tiempo de algunas áreas determinadas utilizando una colección de imágenes (Fig. 3.4).
+Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función \texttt{ui.Chart.image.seriesByRegion} (Fig. 3.4).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1194,7 +1196,7 @@ Esta función puede resultar atractiva para observar los cambios de un área de 
 \hypertarget{importaciuxf3n-de-informaciuxf3n-a-gee}{%
 \chapter{Importación de información a GEE}\label{importaciuxf3n-de-informaciuxf3n-a-gee}}
 
-En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y carpetdas (folders; Fig. 4.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en \texttt{New} (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 4.2).
+En la sección de Assets, se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y carpetas (folders; Fig. 4.1). Para importar cualquier de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de Assets en el panel izquierdo y después dar clic en \texttt{New} (nuevo) e indicar el archivo que se quiere importar a GEE (Fig. 4.2).
 
 \begin{figure}[btp]
 
@@ -2153,51 +2155,18 @@ Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor
 \caption{Herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-74}
 \end{figure}
 
-Para crear puntos (Fig. 6.3):
+A continuación se describe cada función de las herramientas de geometrías de izquierda a derecha (Fig. 6.3). La primera, con el símbolo de una mano, permite moverse por el mapa. Las demás herramientas permiten crear geometrías de diferente tipo: la segunda, de tipo punto, la tercera, de tipo línea, la cuarta, de tipo polígono y la quinta, también de tipo polígono, pero se enfoca en crear rectángulos a partir de dos vértices.
 
 \begin{figure}[btp]
 
-{\centering \includegraphics[width=0.2\linewidth]{Img/punto} 
+{\centering \includegraphics[width=0.5\linewidth]{Img/herrams} 
 
 }
 
-\caption{Herramienta para crear puntos.}\label{fig:unnamed-chunk-75}
+\caption{Acercamiento a las herramienta de geometrías en la pantalla de mapa.}\label{fig:unnamed-chunk-75}
 \end{figure}
 
-Para crear líneas (Fig. 6.4):
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=0.2\linewidth]{Img/linea} 
-
-}
-
-\caption{Herramienta para crear líneas.}\label{fig:unnamed-chunk-76}
-\end{figure}
-
-Para crear polígonos (Fig. 6.5):
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=0.2\linewidth]{Img/poligono} 
-
-}
-
-\caption{Herramienta para crear polígonos.}\label{fig:unnamed-chunk-77}
-\end{figure}
-
-Para crear rectángulos (Fig. 6.6):
-
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=0.2\linewidth]{Img/rec} 
-
-}
-
-\caption{Herramienta para crear rectángulos.}\label{fig:unnamed-chunk-78}
-\end{figure}
-
-Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.7):
+Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (Fig. 6.4):
 
 \begin{figure}[btp]
 
@@ -2205,22 +2174,12 @@ Todas las geometrías creadas con estas herramientas se importarán automáticam
 
 }
 
-\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-79}
+\caption{Visualización de la sección de Imports dentro de la pantalla de código.}\label{fig:unnamed-chunk-76}
 \end{figure}
 
-A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada.
-Usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.8).
+A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada. Además, usando la mano se pueden mover y modificar las geometrías dibujadas (Fig. 6.3).
 
-\begin{figure}[btp]
-
-{\centering \includegraphics[width=0.2\linewidth]{Img/mano} 
-
-}
-
-\caption{Herramienta para desplazarse en la pantalla de mapas.}\label{fig:unnamed-chunk-80}
-\end{figure}
-
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.9).
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en \texttt{new\ layer}. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (Fig. 6.6).
 
 \begin{figure}[btp]
 
@@ -2228,10 +2187,10 @@ Todas las geometrías dibujadas se importarán como una sola colección, pero si
 
 }
 
-\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-81}
+\caption{Herramienta de geometrías en la pantalla de mapas.}\label{fig:unnamed-chunk-77}
 \end{figure}
 
-Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.10).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; Fig. 6.7).
 
 \begin{figure}[btp]
 
@@ -2239,10 +2198,10 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 
 }
 
-\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-82}
+\caption{Ubicación de las herramientas de candado y engranaje.}\label{fig:unnamed-chunk-78}
 \end{figure}
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 6.11).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada ``Name'' (por defecto es `geometry'), elegir el tipo de geometría en el recuadro de ``Import as'' (geometría \texttt{ee.Geometry}, vector \texttt{ee.Feature} o colección de vectores \texttt{ee.FeatureCollection}), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice ``+ Property''; Fig. 6.8).
 
 \begin{figure}[btp]
 
@@ -2250,7 +2209,7 @@ Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombr
 
 }
 
-\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-83}
+\caption{Ejemplo de modificación de las propiedades de las geometrías.}\label{fig:unnamed-chunk-79}
 \end{figure}
 
 \begin{bluebox2}
@@ -2372,14 +2331,14 @@ Ejercicio 10.1
 
 }
 
-\caption{Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad.}\label{fig:unnamed-chunk-88}
+\caption{Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad.}\label{fig:unnamed-chunk-84}
 \end{figure}
 
 \hypertarget{extracciuxf3n-y-ediciuxf3n-de-propiedades-de-vectores}{%
 \subsection*{Extracción y edición de propiedades de vectores}\label{extracciuxf3n-y-ediciuxf3n-de-propiedades-de-vectores}}
 \addcontentsline{toc}{subsection}{Extracción y edición de propiedades de vectores}
 
-Para extraer ciertas propiedades de un vector se puede utilizar el método \texttt{.get}, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con \texttt{.first}) de una colección de vectores de cuencas (las colecciones de vectores se explican en el siguiente capítulo; Fig. 7.2).
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos \texttt{ee.Feature}. Para ello, se extrae el primer vector de una colección de vectores utilizando el método \texttt{.first}. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2424,7 +2383,7 @@ Ejercicio 11
 
 }
 
-\caption{Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades.}\label{fig:unnamed-chunk-90}
+\caption{Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades.}\label{fig:unnamed-chunk-86}
 \end{figure}
 
 \hypertarget{intersecciuxf3n-con-otros-vectores}{%
@@ -2566,7 +2525,7 @@ Ejercicio 12.5
 
 }
 
-\caption{Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados.}\label{fig:unnamed-chunk-97}
+\caption{Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados.}\label{fig:unnamed-chunk-93}
 \end{figure}
 
 \newpage
@@ -2604,7 +2563,7 @@ Ejercicio 13
 
 }
 
-\caption{Visualización de la colección de vectores con los límites internacionales, así como su salida en la consola.}\label{fig:unnamed-chunk-99}
+\caption{Visualización de la colección de vectores con los límites internacionales, así como su salida en la consola.}\label{fig:unnamed-chunk-95}
 \end{figure}
 
 \begin{bluebox2}
@@ -2660,7 +2619,7 @@ Ejercicio 14
 
 }
 
-\caption{Visualización de las primeras 1000 cuencas, así como su salida en la consola.}\label{fig:unnamed-chunk-101}
+\caption{Visualización de las primeras 1000 cuencas, así como su salida en la consola.}\label{fig:unnamed-chunk-97}
 \end{figure}
 
 \hypertarget{creaciuxf3n-de-colecciones-de-vectores}{%
@@ -2683,7 +2642,7 @@ Ejercicio 15
 
 }
 
-\caption{Visualización de una colección de vectores con un único objeto de geometría de tipo punto.}\label{fig:unnamed-chunk-103}
+\caption{Visualización de una colección de vectores con un único objeto de geometría de tipo punto.}\label{fig:unnamed-chunk-99}
 \end{figure}
 
 Una colección de vectores puede construirse con vectores de geometrías diferentes. En el siguiente ejemplo se crearán diferentes vectores a partir de geometrías variadas y todos con una serie de atributos asociados:
@@ -2816,7 +2775,7 @@ Ejercicio 16 (Fig. 8.4)
 
 }
 
-\caption{Visualización de una colección de vectores son objetos con diferentes geometrías, así como su salida en la consola.}\label{fig:unnamed-chunk-106}
+\caption{Visualización de una colección de vectores son objetos con diferentes geometrías, así como su salida en la consola.}\label{fig:unnamed-chunk-102}
 \end{figure}
 
 \hypertarget{visualizaciuxf3n-de-colecciones-de-vectores}{%
@@ -2889,7 +2848,7 @@ Ejercicio 17.2
 
 }
 
-\caption{Diferentes formas de visualizar colecciones de vectores.}\label{fig:unnamed-chunk-110}
+\caption{Diferentes formas de visualizar colecciones de vectores.}\label{fig:unnamed-chunk-106}
 \end{figure}
 
 \hypertarget{muxe9todos-comunes-2}{%
@@ -3047,14 +3006,14 @@ Ejercicio 18.3
 
 }
 
-\caption{Visualización de los resultados de diferentes filtros sobre una colección de áreas protegidas.}\label{fig:unnamed-chunk-115}
+\caption{Visualización de los resultados de diferentes filtros sobre una colección de áreas protegidas.}\label{fig:unnamed-chunk-111}
 \end{figure}
 
 \hypertarget{selecciuxf3n-de-atributos}{%
 \subsection*{Selección de atributos}\label{selecciuxf3n-de-atributos}}
 \addcontentsline{toc}{subsection}{Selección de atributos}
 
-Al igual que con los vectores, se puede utilizar el método \texttt{.select} para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar una única banda sólo se requiere indicar el nombre del atributo, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
+Al igual que con los vectores, se puede utilizar el método \texttt{.select} para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar un único atributo sólo se requiere indicar su nombre, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3087,7 +3046,7 @@ Ejercicio 19
 
 }
 
-\caption{Visualización de los puntos aleatorios creados dentro de un área de interés.}\label{fig:unnamed-chunk-118}
+\caption{Visualización de los puntos aleatorios creados dentro de un área de interés.}\label{fig:unnamed-chunk-114}
 \end{figure}
 
 \hypertarget{obtenciuxf3n-del-primer-vector}{%
@@ -3176,7 +3135,7 @@ Ejercicio 20.2
 
 }
 
-\caption{Ejemplos de la salida en la consola de diferentes propiedades de los vectores que forman una colección de vectores de cuencas.}\label{fig:unnamed-chunk-122}
+\caption{Ejemplos de la salida en la consola de diferentes propiedades de los vectores que forman una colección de vectores de cuencas.}\label{fig:unnamed-chunk-118}
 \end{figure}
 
 \hypertarget{ejecuciuxf3n-de-una-funciuxf3n-sobre-todos-los-vectores-una-colecciuxf3n}{%
@@ -3208,7 +3167,7 @@ Para poder ejecutar el método \texttt{.map} es necesario antes definir una func
 
 \end{bluebox2}
 
-En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.9):
+En el siguiente ejercicio se mostrará cómo aplicar una función que permite crear un buffer sobre todos los vectores de una colección de vectores. En este ejercicio. se creará un conjunto de puntos aleatorios para Perú sobre los cuales se crearán los buffers y se agregarán algunos atributos. Para ello, se realizarán los siguientes pasos (Fig. 8.9):
 
 \begin{itemize}
 \tightlist
@@ -3248,18 +3207,18 @@ Ejercicio 21
 \CommentTok{//  Definimos una función del usuario (con el método \textasciigrave{}function\textasciigrave{}) llamada }
 \CommentTok{//  \textquotesingle{}bufferAleatorio\textquotesingle{} en la que el dato de entrada (insumo) será un }
 \CommentTok{//  vector (y el nombre genérico que le asignamos al insumo es (punto)):}
-\CommentTok{//  {-}Abrimos un diccionario donde especificaremos los procedimiento a }
+\CommentTok{//  Abrimos un diccionario donde especificaremos los procedimiento a }
 \CommentTok{//  realizarle al vector (punto).}
 \KeywordTok{var}\NormalTok{ bufferAleatorio }\OperatorTok{=} \KeywordTok{function}\NormalTok{(punto)\{   }
-  \CommentTok{//  {-}Extraemos el número aleatorio del vector que se encuentra en el }
+  \CommentTok{//  Extraemos el número aleatorio del vector que se encuentra en el }
   \CommentTok{//  atributo \textquotesingle{}aleatorio\textquotesingle{}.}
   \KeywordTok{var}\NormalTok{ numero }\OperatorTok{=}\NormalTok{ punto}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
  
-  \CommentTok{//  {-}Convertimos el número extraído en el paso anterior en un }
+  \CommentTok{//  Convertimos el número extraído en el paso anterior en un }
   \CommentTok{// \textasciigrave{}ee.Number\textasciigrave{} del servidor.}
     \KeywordTok{var}\NormalTok{ NumServidor }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Number}\NormalTok{(numero)}\OperatorTok{;}   
 
-  \CommentTok{//  {-}Multiplicamos ese \textasciigrave{}ee.Number\textasciigrave{} por 100 000.}
+  \CommentTok{//  Multiplicamos ese \textasciigrave{}ee.Number\textasciigrave{} por 100 000.}
   \KeywordTok{var}\NormalTok{ multiplicar }\OperatorTok{=}\NormalTok{ NumServidor}\OperatorTok{.}\FunctionTok{multiply}\NormalTok{(}\DecValTok{100000}\NormalTok{)}\OperatorTok{;} 
  
   \CommentTok{//  {-}Redondeamos el resultado de la multiplicación en el número entero }
@@ -3275,7 +3234,7 @@ Ejercicio 21
   \CommentTok{// buffer).}
   \KeywordTok{var}\NormalTok{ tamaño }\OperatorTok{=}\NormalTok{ area}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}radio del buffer\textquotesingle{}}\OperatorTok{,}\NormalTok{redondear)}\OperatorTok{;}  
 
-  \CommentTok{//  {-}Le asignamos al buffer (tamaño) otro atributo llamado \textquotesingle{}area\textquotesingle{}, en }
+  \CommentTok{//  Le asignamos al buffer (tamaño) otro atributo llamado \textquotesingle{}area\textquotesingle{}, en }
   \CommentTok{// donde calculamos el área del buffer usando el método \textasciigrave{}.area\textasciigrave{}.}
   \KeywordTok{var}\NormalTok{ circulo }\OperatorTok{=}\NormalTok{ tamaño}\OperatorTok{.}\FunctionTok{set}\NormalTok{(}\StringTok{\textquotesingle{}area\textquotesingle{}}\OperatorTok{,}\NormalTok{tamaño}\OperatorTok{.}\FunctionTok{area}\NormalTok{())}\OperatorTok{;}  
 
@@ -3297,14 +3256,14 @@ Ejercicio 21
 
 }
 
-\caption{Visualización de varios buffers, así como la salida de la consola.}\label{fig:unnamed-chunk-124}
+\caption{Visualización de varios buffers, así como la salida de la consola.}\label{fig:unnamed-chunk-120}
 \end{figure}
 
 \hypertarget{reducciuxf3n-de-una-colecciuxf3n-de-vectores}{%
 \subsection*{Reducción de una colección de vectores}\label{reducciuxf3n-de-una-colecciuxf3n-de-vectores}}
 \addcontentsline{toc}{subsection}{Reducción de una colección de vectores}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir (reduce). Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir (reduce). Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende del usuario escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se calculará el área de un conjunto de cuencas en Hawaii y se comparará con el área reportada para cada cuenca de acuerdo a la USGS (United States Geological Survey). Por último, se calculará el error cuadrático medio de la diferencia para la colección de vectores. Para ello, se realizarán los siguientes pasos (Fig. 8.10):
 
 \begin{itemize}
 \tightlist
@@ -3367,10 +3326,10 @@ Ejercicio 22
 
 }
 
-\caption{Vista en la consola del error cuadrático medio calculado entre el área calculada directamente en GEE y el reportado por la fuente de datos utilizada.}\label{fig:unnamed-chunk-126}
+\caption{Vista en la consola del error cuadrático medio calculado entre el área calculada directamente en GEE y el reportado por la fuente de datos utilizada.}\label{fig:unnamed-chunk-122}
 \end{figure}
 
-También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento (Fig. 8.11):
+También, se puede usar una colección de vectores para reducir la información de una imagen. Este procedimiento se revisa con mayor detalle en el capítulo 11. Sin embargo, por el momento se ejemplifica cómo obtener el valor de la suma de algunas variables climáticas (datos de WorldClim) en formato ráster para dos cuencas en Puerto Rico (objetos de tipo vector). En este caso se realizará el siguiente procedimiento (Fig. 8.11):
 
 \begin{itemize}
 \tightlist
@@ -3406,7 +3365,7 @@ Ejercicio 23
 
 }
 
-\caption{Visualización y salida de la consola de la consulta realizada sobre una imagen de variables climáticas utilizando la extensión espacial de una colección de vectores.}\label{fig:unnamed-chunk-128}
+\caption{Visualización y salida de la consola de la consulta realizada sobre una imagen de variables climáticas utilizando la extensión espacial de una colección de vectores.}\label{fig:unnamed-chunk-124}
 \end{figure}
 
 \hypertarget{conversiuxf3n-de-vector-a-imagen}{%
@@ -3446,7 +3405,7 @@ Ejercicio 24
 
 }
 
-\caption{Visualización de la transformación de una colección de vectores a imagen.}\label{fig:unnamed-chunk-130}
+\caption{Visualización de la transformación de una colección de vectores a imagen.}\label{fig:unnamed-chunk-126}
 \end{figure}
 
 \hypertarget{uniuxf3n-de-colecciones-de-vectores}{%
@@ -3511,7 +3470,7 @@ Ejercicio 25
 
 }
 
-\caption{Visualización y salida de la consola del resultado de una unión de dos colecciones de vectores mediante sus propiedades.}\label{fig:unnamed-chunk-132}
+\caption{Visualización y salida de la consola del resultado de una unión de dos colecciones de vectores mediante sus propiedades.}\label{fig:unnamed-chunk-128}
 \end{figure}
 
 \hypertarget{exportaciuxf3n-de-colecciones-de-vectores}{%
@@ -3613,7 +3572,7 @@ Ejercicio 26
 
 }
 
-\caption{Visualización de la información a exportar, así como su salida en la pestaña de Tasks (tareas)}\label{fig:unnamed-chunk-134}
+\caption{Visualización de la información a exportar, así como su salida en la pestaña de Tasks (tareas)}\label{fig:unnamed-chunk-130}
 \end{figure}
 
 Es importante recordar que es necesario dar clic al botón de Run en la pestaña de Tasks (tareas) para que se lleva a cabo la exportación (Fig. 8.15).
@@ -3624,7 +3583,7 @@ Es importante recordar que es necesario dar clic al botón de Run en la pestaña
 
 }
 
-\caption{ubicacion del boton 'Run' para ejecutar una tarea de exportación.}\label{fig:unnamed-chunk-135}
+\caption{ubicacion del boton 'Run' para ejecutar una tarea de exportación.}\label{fig:unnamed-chunk-131}
 \end{figure}
 
 \newpage
@@ -3652,7 +3611,7 @@ Ejercicio 27
 
 }
 
-\caption{Ejemplo de la  información desplegada en la consola al imprimir una imagen.}\label{fig:unnamed-chunk-137}
+\caption{Ejemplo de la  información desplegada en la consola al imprimir una imagen.}\label{fig:unnamed-chunk-133}
 \end{figure}
 
 Para realizar los ejercicios de este apartado, se cargarán dos fuentes de información adicionales para aplicar algunos de los métodos disponibles para imágenes. La primera consta de una simple geometría de una región de interés, mientras que la segunda, es un vector que contiene el polígono de la superficie de México.
@@ -3711,7 +3670,7 @@ Ejercicio 27.1
 
 }
 
-\caption{Propiedades de una imagen desplegadas en la consola.}\label{fig:unnamed-chunk-141}
+\caption{Propiedades de una imagen desplegadas en la consola.}\label{fig:unnamed-chunk-137}
 \end{figure}
 
 \begin{bluebox2}
@@ -3740,7 +3699,7 @@ Ejercicio 27.2
 
 }
 
-\caption{Nombre de las bandas de la imagen CHM.}\label{fig:unnamed-chunk-143}
+\caption{Nombre de las bandas de la imagen CHM.}\label{fig:unnamed-chunk-139}
 \end{figure}
 
 \hypertarget{visualizaciuxf3n-de-una-imagen}{%
@@ -3769,7 +3728,7 @@ Ejercicio 27.3
 
 }
 
-\caption{Visualización de la capa de la altura del dosel.}\label{fig:unnamed-chunk-145}
+\caption{Visualización de la capa de la altura del dosel.}\label{fig:unnamed-chunk-141}
 \end{figure}
 
 \begin{bluebox2}
@@ -3826,7 +3785,7 @@ Ejercicio 27.5
 
 }
 
-\caption{Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótese los valores en las entradas de bands y properties.}\label{fig:unnamed-chunk-148}
+\caption{Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótese los valores en las entradas de bands y properties.}\label{fig:unnamed-chunk-144}
 \end{figure}
 
 \begin{bluebox2}
@@ -3902,7 +3861,7 @@ Ejercicio 27.8
 
 }
 
-\caption{Visualización de la capa de altura del dosel en México.}\label{fig:unnamed-chunk-152}
+\caption{Visualización de la capa de altura del dosel en México.}\label{fig:unnamed-chunk-148}
 \end{figure}
 
 Además, GEE cuenta con un método de \texttt{.normalizedDifference} para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el NDVI primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método \texttt{.expression}. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
@@ -3957,7 +3916,7 @@ Ejercicio 27.9
 
 }
 
-\caption{Resultado de la máscara booleana de altura del dosel.}\label{fig:unnamed-chunk-155}
+\caption{Resultado de la máscara booleana de altura del dosel.}\label{fig:unnamed-chunk-151}
 \end{figure}
 
 Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda `pixel\_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda `pixel\_qa' para después evaluar una condición sobre ella. En este caso, se crea una máscara que tenga valores a conservar (1) en áreas donde el bit 5 sea 0; por el contrario, contendrá valores a eliminar (0) en áreas donde el bit 5 no sea 0 (Fig. 9.8).
@@ -3985,7 +3944,7 @@ Ejercicio 27.10
 
 }
 
-\caption{Visualización de la máscara de Landsat 8 indicando pixeles con nubes y sin nubes.}\label{fig:unnamed-chunk-157}
+\caption{Visualización de la máscara de Landsat 8 indicando pixeles con nubes y sin nubes.}\label{fig:unnamed-chunk-153}
 \end{figure}
 
 \hypertarget{enmascaramiento}{%
@@ -4013,7 +3972,7 @@ Ejercicio 27.11
 
 }
 
-\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-159}
+\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-155}
 \end{figure}
 
 \begin{figure}[btp]
@@ -4022,7 +3981,7 @@ Ejercicio 27.11
 
 }
 
-\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-160}
+\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-156}
 \end{figure}
 
 \begin{figure}[btp]
@@ -4031,7 +3990,7 @@ Ejercicio 27.11
 
 }
 
-\caption{Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes.}\label{fig:unnamed-chunk-161}
+\caption{Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes.}\label{fig:unnamed-chunk-157}
 \end{figure}
 
 \begin{bluebox2}
@@ -4093,7 +4052,7 @@ Ejercicio 27.13
 
 }
 
-\caption{Visualización de la capa vector producida a partir de una imagen.}\label{fig:unnamed-chunk-164}
+\caption{Visualización de la capa vector producida a partir de una imagen.}\label{fig:unnamed-chunk-160}
 \end{figure}
 
 \begin{bluebox2}
@@ -4169,7 +4128,7 @@ En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pu
 
 }
 
-\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-166}
+\caption{Ejemplo de búsqueda de información en la barra de búsqueda.}\label{fig:unnamed-chunk-162}
 \end{figure}
 
 Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (Fig. 9.14).
@@ -4180,7 +4139,7 @@ Posteriormente se da clic sobre el primer resultado y debería abrirse la siguie
 
 }
 
-\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-167}
+\caption{Consulta de información de una imagen del repositorio de GEE.}\label{fig:unnamed-chunk-163}
 \end{figure}
 
 En dicha ventana, se puede copiar la ubicación de la imagen del DEM de SRTM en los servidores de Google. Posteriormente, en la pantalla de rutinas se puede escribir la siguiente línea para guardar la imagen SRTM en un objeto nuevo llamado dem.
@@ -4252,7 +4211,7 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevacio
 
 }
 
-\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-174}
+\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-170}
 \end{figure}
 
 Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (Fig. 9.16).
@@ -4281,7 +4240,7 @@ Por último, se generará un gráfico para obtener un histograma de los valores 
 
 }
 
-\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-176}
+\caption{Histograma de valores del DEM.}\label{fig:unnamed-chunk-172}
 \end{figure}
 
 Por último, se puede exportar el resultado al Google Drive del usuario. En este caso se definirá un valor de \texttt{scale} de 9000 para acelerar el tiempo demorado en la exportación.
@@ -4309,7 +4268,7 @@ Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic 
 
 }
 
-\caption{Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación.}\label{fig:unnamed-chunk-178}
+\caption{Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación.}\label{fig:unnamed-chunk-174}
 \end{figure}
 
 \newpage
@@ -4317,7 +4276,7 @@ Una vez corrido el código, hay que irse a la pestaña de Tasks para darle clic 
 \hypertarget{ee.imagecollection-1}{%
 \chapter{ee.ImageCollection}\label{ee.imagecollection-1}}
 
-Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan varios ejercicios integradores de varios de los procedimientos revisados en este capítulo.
+Las colecciones de imágenes (\texttt{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan varios ejercicios integradores de varios de los procedimientos revisados en este capítulo.
 
 Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:
 
@@ -4363,7 +4322,7 @@ Ejercicio 28.1
 
 }
 
-\caption{Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-182}
+\caption{Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-178}
 \end{figure}
 
 \begin{bluebox2}
@@ -4408,7 +4367,7 @@ Ejercicio 28.2
 
 }
 
-\caption{Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes.}\label{fig:unnamed-chunk-184}
+\caption{Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes.}\label{fig:unnamed-chunk-180}
 \end{figure}
 
 \hypertarget{visualizaciuxf3n-de-colecciones-de-imuxe1genes}{%
@@ -4437,7 +4396,7 @@ Ejercicio 28.3
 
 }
 
-\caption{Visualización de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-186}
+\caption{Visualización de la colección de imágenes de Sentinel-2 2A.}\label{fig:unnamed-chunk-182}
 \end{figure}
 
 \hypertarget{muxe9todos-comunes-4}{%
@@ -4468,7 +4427,7 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 \end{Highlighting}
 \end{Shaded}
 
-Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante \texttt{.filter} y después definiendo el filtro del metadato con \texttt{ee.Filter}. Otra forma de realizar este proceso es mediante \texttt{.filterMetadata}. Las siguientes dos líneas son equivalentes ya qye obtienen el mismo resultado.
+Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante \texttt{.filter} y después definiendo el filtro del metadato con \texttt{ee.Filter}. Otra forma de realizar este proceso es mediante \texttt{.filterMetadata}. Las siguientes dos líneas son equivalentes ya que obtienen el mismo resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4488,7 +4447,7 @@ Si se desea filtrar por alguna característica de los metadatos de las imágenes
 
 }
 
-\caption{Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros.}\label{fig:unnamed-chunk-190}
+\caption{Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros.}\label{fig:unnamed-chunk-186}
 \end{figure}
 
 \begin{bluebox2}
@@ -4544,7 +4503,7 @@ Ejercicio 28.5
 
 }
 
-\caption{Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4,3 y 2.}\label{fig:unnamed-chunk-192}
+\caption{Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4,3 y 2.}\label{fig:unnamed-chunk-188}
 \end{figure}
 
 \begin{bluebox2}
@@ -4579,7 +4538,7 @@ Ejercicio 28.6
 
 }
 
-\caption{Visualización de la primera imagen de la colección.}\label{fig:unnamed-chunk-194}
+\caption{Visualización de la primera imagen de la colección.}\label{fig:unnamed-chunk-190}
 \end{figure}
 
 \hypertarget{obtenciuxf3n-de-la-primera-imagen}{%
@@ -4603,7 +4562,7 @@ Ejercicio 28.7
 
 }
 
-\caption{Salida de la consola indicando la primera imagen de la colección.}\label{fig:unnamed-chunk-196}
+\caption{Salida de la consola indicando la primera imagen de la colección.}\label{fig:unnamed-chunk-192}
 \end{figure}
 
 \hypertarget{extracciuxf3n-de-listas-con-atributos-de-imuxe1genes}{%
@@ -4628,7 +4587,7 @@ Ejercicio 28.8
 
 }
 
-\caption{Salida de la consola indicando la lista de propiedades de las imágenes.}\label{fig:unnamed-chunk-198}
+\caption{Salida de la consola indicando la lista de propiedades de las imágenes.}\label{fig:unnamed-chunk-194}
 \end{figure}
 
 \hypertarget{conteo-de-observaciones-por-pixel}{%
@@ -4651,7 +4610,7 @@ Para conocer el número de valores sin enmascarar por píxel en la colección de
 
 }
 
-\caption{Visualización de la imagen del conteo de observaciones.}\label{fig:unnamed-chunk-200}
+\caption{Visualización de la imagen del conteo de observaciones.}\label{fig:unnamed-chunk-196}
 \end{figure}
 
 \hypertarget{conocer-tamauxf1o-de-la-colecciuxf3n}{%
@@ -4709,7 +4668,7 @@ Ejercicio 28.9
 
 }
 
-\caption{Salida de la consola indicando el número de elementos en cada coleccción, así como el número de elementos en la colección combinada.}\label{fig:unnamed-chunk-203}
+\caption{Salida de la consola indicando el número de elementos en cada coleccción, así como el número de elementos en la colección combinada.}\label{fig:unnamed-chunk-199}
 \end{figure}
 
 \hypertarget{ejecuciuxf3n-de-una-funciuxf3n-sobre-todas-las-imuxe1genes-de-una-colecciuxf3n}{%
@@ -4741,7 +4700,7 @@ Ejercicio 28.10
 
 }
 
-\caption{Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen.}\label{fig:unnamed-chunk-205}
+\caption{Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen.}\label{fig:unnamed-chunk-201}
 \end{figure}
 
 \begin{bluebox2}
@@ -4797,7 +4756,7 @@ Ejercicio 28.11
 
 }
 
-\caption{Visualización de la imagen de la reflectancia promedio (compuesto RGB).}\label{fig:unnamed-chunk-207}
+\caption{Visualización de la imagen de la reflectancia promedio (compuesto RGB).}\label{fig:unnamed-chunk-203}
 \end{figure}
 
 \begin{bluebox2}
@@ -4838,7 +4797,7 @@ Ejercicio 28.12
 
 }
 
-\caption{Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB).}\label{fig:unnamed-chunk-209}
+\caption{Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB).}\label{fig:unnamed-chunk-205}
 \end{figure}
 
 \hypertarget{ejercicio-filtro-de-colecciuxf3n-de-imuxe1genes-y-visualizaciuxf3n-ejercicio-b}{%
@@ -4855,7 +4814,7 @@ Para filtrar la colección de reflectancia de la superficie de imágenes de Land
 
 }
 
-\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-210}
+\caption{Consulta de propiedades de las imágenes contenidas en una colección de imágenes.}\label{fig:unnamed-chunk-206}
 \end{figure}
 
 Una vez que se conoce la ruta de la colección de interés, se llama dicha colección y se especifican los filtros. En este caso, primero se filtra por fecha, en formato AAAA-MM-DD (año, mes, día), seguido de filtros de los metadatos de las imágenes:
@@ -4911,7 +4870,7 @@ Una vez pasado el comando anterior, en la consola se puede consultar cuántas im
 
 }
 
-\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-213}
+\caption{Ejemplo de una consulta de información de la colección de imágenes en la consola.}\label{fig:unnamed-chunk-209}
 \end{figure}
 
 A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de `CLOUD\_COVER\_LAND'. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso al definir la variable \texttt{L8imgFirst}, ya únicamente seleccionamos una sola imagen, por lo tanto, éste va a ser un objeto \texttt{ee.Image}.
@@ -4942,7 +4901,7 @@ Además, se puede agregar esta imagen a la ventana de mapas para visualizar su i
 
 }
 
-\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-216}
+\caption{Visualización de la primera imagen de la colección de imágenes.}\label{fig:unnamed-chunk-212}
 \end{figure}
 
 \hypertarget{ejercicio-enmascaramiento-de-nubes-cuxe1lculo-de-uxedndices-y-reducciuxf3n-ejercicio-c}{%
@@ -5001,7 +4960,7 @@ Para ver una muestra de cómo se ve la primer imagen con y sin la máscara de nu
 
 }
 
-\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-220}
+\caption{Ejemplo de una imagen con nubes.}\label{fig:unnamed-chunk-216}
 \end{figure}
 
 A continuación se aplican las dos funciones utilizando \texttt{.map} y sobreescribir el objeto L8imgCol.
@@ -5033,7 +4992,7 @@ Se muestra la primera imagen sin nubes (Fig. 10.18).
 
 }
 
-\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-223}
+\caption{Ejemplo de una imagen donde se enmascararon las nubes.}\label{fig:unnamed-chunk-219}
 \end{figure}
 
 En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada `ndvi' (Fig. 10.19).
@@ -5044,7 +5003,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 
 }
 
-\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-224}
+\caption{Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.}\label{fig:unnamed-chunk-220}
 \end{figure}
 
 Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método \texttt{.reduce}. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
@@ -5074,7 +5033,7 @@ A continuación, agregamos los dos resultados a la pantalla de mapas y visualiza
 
 }
 
-\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-227}
+\caption{Visualización de la imagen de NDVI promedio.}\label{fig:unnamed-chunk-223}
 \end{figure}
 
 Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método \texttt{count}. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
@@ -5098,7 +5057,7 @@ La imagen con el número de observaciones por píxel sin enmascarar se ve así (
 
 }
 
-\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-229}
+\caption{Visualización de la imagen con el número de observaciones sin enmascarar por píxel.}\label{fig:unnamed-chunk-225}
 \end{figure}
 
 \begin{bluebox2}
@@ -5143,7 +5102,7 @@ Para después cortar las dos imágenes y mostrarlas en la pantalla de mapas (Fig
 
 }
 
-\caption{Visualización de los compuestos de media y desviación estándar cortados.}\label{fig:unnamed-chunk-232}
+\caption{Visualización de los compuestos de media y desviación estándar cortados.}\label{fig:unnamed-chunk-228}
 \end{figure}
 
 \hypertarget{ejercicio-cuxe1culo-de-diferencia-de-dos-imuxe1genes-y-exportaciuxf3n-de-resultado.ejercicio-d}{%
@@ -5200,7 +5159,7 @@ Posteriormente se agrega el resultado a la pantalla de mapas (Fig. 10.23).
 
 }
 
-\caption{Imagen de la diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-236}
+\caption{Imagen de la diferencia de NDVI entre dos años.}\label{fig:unnamed-chunk-232}
 \end{figure}
 
 Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
@@ -5264,7 +5223,7 @@ Ejercicio 29
 
 }
 
-\caption{Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample.}\label{fig:unnamed-chunk-240}
+\caption{Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample.}\label{fig:unnamed-chunk-236}
 \end{figure}
 
 \begin{bluebox2}
@@ -5303,7 +5262,7 @@ Este tipo de operaciones normalmente se utilizan para resumir los valores de alg
 
 }
 
-\caption{Ejemplo de la salida de la consola del promedio obtenido mediante el método reduceRegion.}\label{fig:unnamed-chunk-242}
+\caption{Ejemplo de la salida de la consola del promedio obtenido mediante el método reduceRegion.}\label{fig:unnamed-chunk-238}
 \end{figure}
 
 \begin{bluebox2}
@@ -5410,14 +5369,14 @@ Ejercicio 30
 
 }
 
-\caption{Visualización de la capa inicial de CH4, puntos de muestreo e imagen interpolada.}\label{fig:unnamed-chunk-244}
+\caption{Visualización de la capa inicial de CH4, puntos de muestreo e imagen interpolada.}\label{fig:unnamed-chunk-240}
 \end{figure}
 
 \hypertarget{kriging}{%
 \subsection*{Kriging}\label{kriging}}
 \addcontentsline{toc}{subsection}{Kriging}
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer; Fig. 11.4).
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer). Este ejercicio mostrará cómo interpolar la información de la temperatura superficial del mar (imagen), a partir de un muestreo de puntos (vectores; Fig. 11.4).
 
 Ejercicio 31
 
@@ -5464,7 +5423,7 @@ Ejercicio 31
 
 }
 
-\caption{Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada.}\label{fig:unnamed-chunk-246}
+\caption{Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada.}\label{fig:unnamed-chunk-242}
 \end{figure}
 
 \newpage
@@ -5519,7 +5478,7 @@ Usando al final el método \texttt{.setOutputMode} sobre un clasificador se pued
 \hypertarget{realizaciuxf3n-de-la-fase-de-entrenamiento}{%
 \section{Realización de la fase de entrenamiento}\label{realizaciuxf3n-de-la-fase-de-entrenamiento}}
 
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método \texttt{.train}. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (features), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (classProperty), así como las bandas a utilizar de la imagen (inputProperties).
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método \texttt{.train} para entrenarlo utilizando las muestras provistas. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (features), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (classProperty), así como las bandas a utilizar de la imagen (inputProperties).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5600,7 +5559,7 @@ En este ejercicio se hará una clasificación supervisada utilizando el algoritm
 
 }
 
-\caption{Visualización de los sitios de entrenamiento.}\label{fig:unnamed-chunk-252}
+\caption{Visualización de los sitios de entrenamiento.}\label{fig:unnamed-chunk-248}
 \end{figure}
 
 Antes de pasar al filtrado de la colección de Landsat 8 y enmascarar las nubes, habrá que volver a definir la función \texttt{maskL8sr}, que es la misma que se definió en la sección 9.5.11.2. Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C), como:
@@ -5699,7 +5658,7 @@ El siguiente paso es entrenar al clasificador utilizando la colección de vector
 
 }
 
-\caption{Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran sólo los primeros veinte para ejemplificar el tipo de salida.}\label{fig:unnamed-chunk-259}
+\caption{Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran sólo los primeros veinte para ejemplificar el tipo de salida.}\label{fig:unnamed-chunk-255}
 \end{figure}
 
 \begin{bluebox2}
@@ -5731,7 +5690,7 @@ Una vez entrenado el clasificador, se puede clasificar la imagen completa utiliz
 
 }
 
-\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-261}
+\caption{Visualización de la clasificación.}\label{fig:unnamed-chunk-257}
 \end{figure}
 
 Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (\texttt{L8imgMean}). Después, se utiliza la función \texttt{ui.Chart.image.byClass} para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (image), el nombre de la banda que contiene las categorías de la clasificación (classBand), el reductor que se va a utilizar para resumir los valores por clase (reducer), las regiones de las cuales se va a obtener esta información (region), las etiquetas de las clases (classLabels), la escala en m de trabajo para aplicar el reductor (scale) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de \texttt{.setOptions}). Por último, hay que imprimir el gráfico con la función de \texttt{print} y el gráfico aparecerá en la consola (Fig. 12.4).
@@ -5774,7 +5733,7 @@ Posteriormente, se puede hacer un gráfico para analizar el perfil espectral de 
 
 }
 
-\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-263}
+\caption{Perfil espectral promedio por clase.}\label{fig:unnamed-chunk-259}
 \end{figure}
 
 Una vez que se tiene la clasificación del área de interés, se van a cargar los datos de verificación para calcular la matriz de error y la precisión total de la clasificación. Primero se carga la información de los polígonos de verificación.
@@ -5815,7 +5774,7 @@ El siguiente paso es extraer la información de la imagen clasificada, de acuerd
 \end{Highlighting}
 \end{Shaded}
 
-A continuación, se calcula la matriz de error mediante el método \texttt{.errorMatrix} indicando en primer lugar el campo de la clase de referencia (`clase') y en segundo lugar el campo de la predicción (`classification'). En segundo lugar, se calcula la precisión total de la precisión. Después, se van a mostrar estos dos objetos en la consola mediante \texttt{print} para inspeccionar su contenido (Fig. 12.5).
+A continuación, se calcula la matriz de error mediante el método \texttt{.errorMatrix} indicando en primer lugar, el campo de la clase de referencia (`clase') y en segundo lugar, el campo de la predicción (`classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante \texttt{print} para inspeccionar su contenido (Fig. 12.5).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5834,7 +5793,7 @@ A continuación, se calcula la matriz de error mediante el método \texttt{.erro
 
 }
 
-\caption{Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290 puntos, pero se muestran sólo los primeros diez para ejemplificar el tipo de salida.}\label{fig:unnamed-chunk-267}
+\caption{Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290 puntos, pero se muestran sólo los primeros diez para ejemplificar el tipo de salida.}\label{fig:unnamed-chunk-263}
 \end{figure}
 
 \begin{bluebox2}
@@ -5886,7 +5845,7 @@ Posteriormente se define una función para exportar (\texttt{ExportTable}) y se 
 \hypertarget{cierre}{%
 \chapter{Cierre}\label{cierre}}
 
-Seguramente el aprendizaje de la programación en GEE será lenta en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida lo lógica y sintaxis básica del programa, el avance será mucho más rápido. Esperamos que esta manual haya motivado a los usuarios a adentrarse en el uso de GEE, brindado herramientas para entender las cuestiones básicas sobre el funcionamiento de GEE, así como ofrecido ejemplos de diferentes funciones y métodos disponibles en la API que puedan ser utilizadas en los futuros proyectos de nuestros lectores.
+Seguramente el aprendizaje de la programación en GEE será lenta en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida la lógica y sintaxis básica del programa, el avance será mucho más rápido. Esperamos que esta manual haya motivado a los usuarios a adentrarse en el uso de GEE, brindado herramientas para entender las cuestiones básicas sobre el funcionamiento de GEE, así como ofrecido ejemplos de diferentes funciones y métodos disponibles en la API que puedan ser utilizadas en los futuros proyectos de nuestros lectores.
 
 A pesar de que GEE es una herramienta muy poderosa para realizar análisis geomáticos, hay que tener presente que como cualquier otro programa tiene sus propias limitaciones. Por lo tanto, habrá procesos para los cuales resulte muy conveniente realizarlos en GEE, pero otros que no. Por ejemplo, a pesar de que GEE permite crear mapas (inclusive con leyendas), consideramos que sus capacidades son bastante limitadas. Por ello, consideramos que se pueden obtener resultados personalizados de manera más sencilla en otros Sistemas de Información Geográfica (SIG). Este ejemplo, sirve para mostrar que no todos los procesos se podrán realizar más fácilmente ni rápidamente en GEE. Sin embargo, con la práctica el usuario podrá aprender qué procesos resultan más conveniente realizarlos en GEE y cuáles no.
 
@@ -5922,23 +5881,23 @@ Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G.
 
 Chuvieco, E. (1995). Fundamentos de Teledetección Espacial. Segunda edición. Ediciones RIALP, Madrid, España.
 
-Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273--297.
+Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273--297.
 
 Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., \ldots{} Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142--154. \url{https://doi.org/10.1016/j.rse.2016.02.016}
 
-Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics, 1189--1232.
+Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics 29, 1189--1232.
 
-Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., \& Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202(2016), 18--27. \url{https://doi.org/10.1016/j.rse.2017.06.031}
+Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., \& Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202, 18--27. \url{https://doi.org/10.1016/j.rse.2017.06.031}
 
 Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., \& Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. \url{https://doi.org/10.3390/rs12182953}
 
-Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., \ldots{} Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342(6160), 850--853. \url{https://doi.org/http://doi.org/10.1126/science.1244693}
+Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., \ldots{} Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342, 850--853. \url{https://doi.org/http://doi.org/10.1126/science.1244693}
 
 Kumar, L., Mutanga, O., Kumar, L., \& Mutanga, O. (2018). Google Earth Engine Applications Since Inception: Usage, Trends, and Potential. Remote Sensing, 10, 1509. \url{https://doi.org/10.3390/rs10101509}
 
 Lee, J. S. H., Wich, S., Widayati, A., \& Koh, L. P. (2016). Detecting industrial oil palm plantations on Landsat images with Google Earth Engine. Remote Sensing Applications: Society and Environment, 4, 219--224. \url{https://doi.org/10.1016/j.rsase.2016.11.003}
 
-Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., \& Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10(7), 1079. \url{https://doi.org/10.3390/rs10071079}
+Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., \& Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10, 1079. \url{https://doi.org/10.3390/rs10071079}
 
 Olaya, V. (2020). Sistemas de Información Geográfica. CreateSpace Independent Publishing Platform, España. \url{https://volaya.github.io/libro-sig/}
 
@@ -5948,9 +5907,9 @@ Perilla, G. A., \& Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa he
 
 Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p.~83).
 
-Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1(1), 81--106. \url{https://doi.org/10.1023/A:1022643204877}
+Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1, 81--106. \url{https://doi.org/10.1023/A:1022643204877}
 
-Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9(11), 1--24. \url{https://doi.org/10.3390/land9110402}
+Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9, 1--24. \url{https://doi.org/10.3390/land9110402}
 
 Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., \& Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. \url{http://dx.doi.org/10.3390/rs10091488}
 

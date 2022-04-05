@@ -146,7 +146,7 @@ knitr::include_graphics("Img/interpol.png")
 
 ### Kriging {-}
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer; Fig. 11.4). 
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer). Este ejercicio mostrará cómo interpolar la información de la temperatura superficial del mar (imagen), a partir de un muestreo de puntos (vectores; Fig. 11.4). 
 
 Ejercicio 31
 

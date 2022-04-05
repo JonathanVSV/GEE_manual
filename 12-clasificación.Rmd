@@ -31,7 +31,7 @@ Usando al final el método `.setOutputMode` sobre un clasificador se puede cambi
 
 ## Realización de la fase de entrenamiento
 
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, para entrenar al clasificador se utiliza el método `.train`. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (features), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (classProperty), así como las bandas a utilizar de la imagen (inputProperties).
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método `.train` para entrenarlo utilizando las muestras provistas. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (features), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (classProperty), así como las bandas a utilizar de la imagen (inputProperties).
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -272,7 +272,7 @@ var validating = classifiedImg
 });
 ```
 
-A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando en primer lugar el campo de la clase de referencia ('clase') y en segundo lugar el campo de la predicción ('classification'). En segundo lugar, se calcula la precisión total de la precisión. Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido (Fig. 12.5).
+A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando en primer lugar, el campo de la clase de referencia ('clase') y en segundo lugar, el campo de la predicción ('classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido (Fig. 12.5).
 
 ```{js echo = T}
 // Obtener matriz de confusión y precisión

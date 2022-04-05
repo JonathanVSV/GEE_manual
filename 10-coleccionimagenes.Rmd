@@ -1,7 +1,7 @@
 \newpage
 # ee.ImageCollection
 
-Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-8, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan varios ejercicios integradores de varios de los procedimientos revisados en este capítulo. 
+Las colecciones de imágenes (`ee.ImageCollection`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan varios ejercicios integradores de varios de los procedimientos revisados en este capítulo. 
 
 Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:  
 
@@ -114,7 +114,7 @@ Por otro lado para filtrar espacialmente con la extensión de un polígono se pu
 imCol4 = imCol4.filterBounds(roi);
 ```
 
-Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante `.filter` y después definiendo el filtro del metadato con `ee.Filter`. Otra forma de realizar este proceso es mediante `.filterMetadata`. Las siguientes dos líneas son equivalentes ya qye obtienen el mismo resultado.
+Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante `.filter` y después definiendo el filtro del metadato con `ee.Filter`. Otra forma de realizar este proceso es mediante `.filterMetadata`. Las siguientes dos líneas son equivalentes ya que obtienen el mismo resultado.
 
 ```{js, echo = T}
 // Obtener el nombre de las propiedades de una imagen de la colección de 

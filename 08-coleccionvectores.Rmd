@@ -382,7 +382,7 @@ knitr::include_graphics("Img/ej18.png")
 
 ### Selección de atributos {-}
 
-Al igual que con los vectores, se puede utilizar el método `.select` para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar una única banda sólo se requiere indicar el nombre del atributo, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
+Al igual que con los vectores, se puede utilizar el método `.select` para seleccionar un conjunto de atributos de los vectores en la colección. De igual manera que con los vectores individuales, para seleccionar un único atributo sólo se requiere indicar su nombre, mientras que si se desea seleccionar varios atributos, éstos deben indicarse dentro de una lista. Por ejemplo:
 
 ```{js echo = T}
 ee.FeatureCollection.select(['atributo']);
@@ -489,7 +489,7 @@ Para poder ejecutar el método `.map` es necesario antes definir una función (d
 :::
 ::::
 
-En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.9): 
+En el siguiente ejercicio se mostrará cómo aplicar una función que permite crear un buffer sobre todos los vectores de una colección de vectores. En este ejercicio. se creará un conjunto de puntos aleatorios para Perú sobre los cuales se crearán los buffers y se agregarán algunos atributos. Para ello, se realizarán los siguientes pasos (Fig. 8.9): 
 
 * Llamamos a una colección con los límites políticos de los países.
 *	Seleccionamos a 'Peru'.
@@ -518,18 +518,18 @@ var puntos =ee.FeatureCollection.randomPoints(peru, 100)
 //  Definimos una función del usuario (con el método `function`) llamada 
 //  'bufferAleatorio' en la que el dato de entrada (insumo) será un 
 //  vector (y el nombre genérico que le asignamos al insumo es (punto)):
-//  -Abrimos un diccionario donde especificaremos los procedimiento a 
+//  Abrimos un diccionario donde especificaremos los procedimiento a 
 //  realizarle al vector (punto).
 var bufferAleatorio = function(punto){   
-  //  -Extraemos el número aleatorio del vector que se encuentra en el 
+  //  Extraemos el número aleatorio del vector que se encuentra en el 
   //  atributo 'aleatorio'.
   var numero = punto.get('aleatorio');  
  
-  //  -Convertimos el número extraído en el paso anterior en un 
+  //  Convertimos el número extraído en el paso anterior en un 
   // `ee.Number` del servidor.
     var NumServidor = ee.Number(numero);   
 
-  //  -Multiplicamos ese `ee.Number` por 100 000.
+  //  Multiplicamos ese `ee.Number` por 100 000.
   var multiplicar = NumServidor.multiply(100000); 
  
   //  -Redondeamos el resultado de la multiplicación en el número entero 
@@ -545,7 +545,7 @@ var bufferAleatorio = function(punto){
   // buffer).
   var tamaño = area.set('radio del buffer',redondear);  
 
-  //  -Le asignamos al buffer (tamaño) otro atributo llamado 'area', en 
+  //  Le asignamos al buffer (tamaño) otro atributo llamado 'area', en 
   // donde calculamos el área del buffer usando el método `.area`.
   var circulo = tamaño.set('area',tamaño.area());  
 
@@ -566,7 +566,7 @@ knitr::include_graphics("Img/ej21.png")
 
 ### Reducción de una colección de vectores {-}
 
-Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir (reduce). Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende el usuario, escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se realizarán los siguientes pasos (Fig. 8.10):
+Las colecciones también permiten agregar atributos de sus vectores en los metadatos de la colección, esta agregación se llama Reducir (reduce). Los reductores de atributos, tomarán el valor del atributo de todos los vectores y los convertirán en un solo valor para toda la colección. Depende del usuario escoger la operación matemática que se utilizará para la reducción ya sea promedio, mínimo, máximo, mediana, entre otros. Estos reductores entregarán como resultado un diccionario. En el siguiente ejercicio se calculará el área de un conjunto de cuencas en Hawaii y se comparará con el área reportada para cada cuenca de acuerdo a la USGS (United States Geological Survey). Por último, se calculará el error cuadrático medio de la diferencia para la colección de vectores. Para ello, se realizarán los siguientes pasos (Fig. 8.10):
 
 *	Importamos una capa de cuencas, la filtramos con un rectángulo sobre Hawaii.
 *	Definimos una función del usuario (`function`) llamada 'areaDife' en la que el dato de entrada (insumo) será un vector (y el nombre genérico que le asignamos al insumo es (cuenca)).
@@ -608,7 +608,7 @@ var RECM = ee.Number(
 knitr::include_graphics("Img/ej22.png")
 ```
 
-También, se puede usar una colección de vectores para reducir la información ráster de una imagen. Por ejemplo, se puede tomar una imagen de precipitación y ver cuál es el valor de diferentes variables climáticas, para cada vector. Este procedimiento se revisa con mayor detalle en el capítulo 11. En este caso se realizará el siguiente procedimiento (Fig. 8.11):
+También, se puede usar una colección de vectores para reducir la información de una imagen. Este procedimiento se revisa con mayor detalle en el capítulo 11. Sin embargo, por el momento se ejemplifica cómo obtener el valor de la suma de algunas variables climáticas (datos de WorldClim) en formato ráster para dos cuencas en Puerto Rico (objetos de tipo vector). En este caso se realizará el siguiente procedimiento (Fig. 8.11):
 
 *	Filtramos las cuencas de Puerto Rico.
 * Obtener la suma de los valores de todos los píxeles que caigan en cada cuenca

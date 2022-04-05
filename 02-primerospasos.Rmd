@@ -3,7 +3,7 @@
 
 ## Registro para el uso de GEE Javascript API
 
-Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es ingresar a su sitio web para registrarse como usuario. Para ello, hay que acceder a la siguiente liga:
+Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:
 
 **https://earthengine.google.com/**
 
@@ -43,7 +43,7 @@ Una vez registrados, se podrá acceder al material de todos los ejercicios entra
 
 Una vez abierta la API de Javascript, se observan cuatro pantallas (Fig. 2.4): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.
 
-```{r, echo = F, out.width="100%", fig.cap="Vistazo inicial de la API de GEE."}
+```{r, echo = F, out.width="100%", fig.cap="Vista inicial de la API de GEE."}
 knitr::include_graphics("Img/GEE_inicio_API2.png")
 ```
 
@@ -101,7 +101,7 @@ knitr::include_graphics("Img/homeFolder.png")
 
 En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (Fig. 2.11). Se pueden subir archivos en formato ráster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas, únicamente (Fig. 2.12).
 
-```{r, echo = F, out.width="40%", fig.cap="Vistazo de la sección de información del usuario."}
+```{r, echo = F, out.width="40%", fig.cap="Vista de la sección de información del usuario."}
 knitr::include_graphics("Img/assets.png")
 ```
 
@@ -113,7 +113,7 @@ knitr::include_graphics("Img/newAssets.png")
 
 Esta ventana es donde se va a escribir el código en JavaScript (Fig. 2.13). En la parte superior de esta pantalla se encuentran varios botones. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opcion `Manage Links`) se puede hacer un manejo de las ligas que se tengan activas, así como borrar ligas que ya no se utilicen (Fig. 2.14).
 
-```{r, echo = F, out.width="50%", fig.cap="Vistazo de la pantalla de rutinas o scripts."}
+```{r, echo = F, out.width="50%", fig.cap="Vista de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
 ```
 
@@ -121,13 +121,13 @@ knitr::include_graphics("Img/editor.png")
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción `Save` as para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando (Fig. 2.15). Además, al darle clic en la flecha de despliegue se puede usar la opción `Save as` para crear una copia del código con otro nombre.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
-A continuación está el botón`Run` que sirve para correr el código que se muestra en la pantalla de rutinas, de principio a fin (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación, está el botón`Run` que sirve para correr,de principio a fin, el código que se muestra en la pantalla de rutinas (Fig. 2.16). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
 ```{r, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
@@ -215,7 +215,7 @@ knitr::include_graphics("Img/task.png")
 
 ## Programación en GEE
 
-La programación dentro de la API de GEE es una orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones. Estos se revisan en el capítulo 5.
+En la API de GEE, la programación es orientada a objetos, siguiendo la sintaxis del lenguaje de programación Javascript. Los objetos se pueden interpretar como contenedores de información sobre los cuales se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobreescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones, los cuales se revisan en el capítulo 5.
 
 ### Simbología {-}
 

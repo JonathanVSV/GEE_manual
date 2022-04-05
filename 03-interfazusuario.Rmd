@@ -5,7 +5,7 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 
 ## Impresión en consola
 
-La función más sencilla de la interfaz es la de imprimir objetos en la consola. Esto se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación ("bugs") en los códigos. El resultado de la siguiente línea de código se puede apreciar en la Fig. 3.1.
+La función más sencilla de la interfaz es la de imprimir objetos en la consola. Esto se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (bugs) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la Fig. 3.1.
 
 ```{js, echo = T}
 print('Hola Mundo');
@@ -35,7 +35,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). Las bandas se deben agregar en el orden RGB, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul. Esta función también permite asignar colores mediante el argumento de `palette` (paleta de colores). Dependiendo de las bandas que se elija mostrar se puede mostrar únicamente una banda en tonos de gris o un compuesto RGB. Por ejemplo, para cargar una imagen a la pantalla de mapas (Fig. 3.2):
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o compuesto RGB (del inglés Red, Green,
+Blue). En el caso de optar por la primera, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en la segunda, se deben agregar las bandas en orden, es decir, primero la
+banda que corresponde al canal rojo, seguida del verde y del azul (Fig. 3.2). 
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], 
@@ -119,7 +121,7 @@ Este conjunto de funciones permiten obtener distintos tipos de gráficos a parti
 *	`ui.Chart.image.histogram`
 *	`ui.Chart.image.seriesByRegion`, entre otras.
 
-Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion`. Este tipo de gráficos permiten graficar las series de tiempo de algunas áreas determinadas utilizando una colección de imágenes (Fig. 3.4).
+Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función `ui.Chart.image.seriesByRegion` (Fig. 3.4).
 
 ```{js, echo = T}
 ui.Chart.image.seriesByRegion({

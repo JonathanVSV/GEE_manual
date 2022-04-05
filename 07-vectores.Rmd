@@ -82,7 +82,7 @@ knitr::include_graphics("Img/ej10.png")
 
 ### Extracción y edición de propiedades de vectores {-}
 
-Para extraer ciertas propiedades de un vector se puede utilizar el método `.get`, especificando la propiedad deseada. En este ejercicio seleccionamos el primer vector (con `.first`) de una colección de vectores de cuencas (las colecciones de vectores se explican en el siguiente capítulo; Fig. 7.2).
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `ee.Feature`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `.first`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado. 
 
 1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
 2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
