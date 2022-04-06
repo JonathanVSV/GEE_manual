@@ -27,7 +27,7 @@ Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
 
 ## Creación de Vectores
 
-Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (Fig. 7.1):
+Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
 Ejercicio 10:
 
@@ -56,7 +56,7 @@ var vector = ee.Feature(
 
 Una vez revisado los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `.select`. Para seleccionar una única propiedad sólo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
 
-Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (Fig. 7.1):
+Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
 Ejercicio 10
 
@@ -68,7 +68,7 @@ print(vector.select(['anno','tamaño'],['year','southamerica']));
 
 ### Adición de nuevas propiedades o modificación de propiedades preexistentes {-}
 
-Usando el método `.set` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (Fig. 7.1):
+Usando el método `.set` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
 Ejercicio 10.1
 
@@ -76,13 +76,13 @@ Ejercicio 10.1
 var vector1 = vector.set('tamaño','neotropico');
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad."}
+```{r f71, echo = F, out.width="80%", fig.cap="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad."}
 knitr::include_graphics("Img/ej10.png")
 ```
 
 ### Extracción y edición de propiedades de vectores {-}
 
-En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `ee.Feature`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `.first`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado. 
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `ee.Feature`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `.first`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (`r colorize("Fig.")` \@ref(fig:f72)). 
 
 1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
 2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
@@ -110,13 +110,13 @@ var costa = cuenca.get('COAST');
 // Extraemos el atributo 'COAST' y lo renombramos como 'costa maritima'
 var renombre = cuenca.select(['COAST'],['costa maritima']);
 ```
-```{r, echo = F, out.width="80%", fig.cap="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades."}
+```{r f72, echo = F, out.width="80%", fig.cap="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades."}
 knitr::include_graphics("Img/ej11.png")
 ```
 
 ### Intersección con otros vectores {-}
 
-Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método `.intersection`. Por ejemplo (Fig. 7.3):
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método `.intersection`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f73)):
 
 Ejercicio 12
 
@@ -137,7 +137,7 @@ Al realizar una intersección, el vector resultante heredará los atributos del 
 
 ### Creación de un buffer {-}
 
-Para realizar un buffer a partir de un vector se utiliza el método `.buffer`, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (Fig. 7.3).
+Para realizar un buffer a partir de un vector se utiliza el método `.buffer`, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (`r colorize("Fig.")` \@ref(fig:f73)).
 
 Ejercicio 12.1
 
@@ -151,7 +151,7 @@ var bufferPol = punto.buffer(500000, 0.1);
 
 ### Cálculo de área {-}
 
-Para calcular el área de un vector se utiliza el método `.area`. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (Fig. 7.3).
+Para calcular el área de un vector se utiliza el método `.area`. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (`r colorize("Fig.")` \@ref(fig:f73)).
 
 Ejercicio 12.2
 
@@ -162,23 +162,23 @@ var area = bufferPol.area(0.1);
 
 ### Cálculo de perímetro {-}
 
-Podemos calcular el perímetro de un vector usando el método `.perimeter`, que hace el cálculo en metros (Fig. 7.3).
+Podemos calcular el perímetro de un vector usando el método `.perimeter`, que hace el cálculo en metros (`r colorize("Fig.")` \@ref(fig:f73)).
 
 Ejercicio 12.3
 
 ```{js echo = T}
-// Calcular el perimetro del buffer
+// Calcular el perímetro del buffer
 var perimetro = interseccion.perimeter();
 ```
 
 ### Disolución de polígonos {-}
 
-El método `.dissolve` une todas las geometrías que se intersectan de un vector en un solo polígono, y si no se intersectan genera un multipolígono (Fig. 7.3).
+El método `.dissolve` une todas las geometrías que se intersectan de un vector en un solo polígono, y si no se intersectan genera un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
 
 Ejercicio 12.4
 
 ```{js echo = T}
-// Crear un vector de multipoligono
+// Crear un vector de multipolígono
 var multi = ee.Feature(ee.Geometry.MultiPolygon(
             [[[[-137, 20],
                [-128, 9],
@@ -211,7 +211,7 @@ var disuelto = ee.Feature(multi.dissolve(0.1));
 
 ### Unión de vectores {-}
 
-El método `.union` permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo están se convertirán en un multi-polígono (Fig. 7.3).
+El método `.union` permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo están se convertirán en un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
 
 Ejercicio 12.5
 
@@ -219,6 +219,6 @@ Ejercicio 12.5
 // Unir geometrías del buffer y un rectángulo 
 var union = rectangulo2.union(bufferPol)
 ```
-```{r, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados."}
+```{r f73, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados."}
 knitr::include_graphics("Img/ej12.png")
 ```

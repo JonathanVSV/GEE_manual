@@ -1,10 +1,16 @@
 ---
 title: "Cómo usar Google Earth Engine y no fallar en el intento"
 author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
-documentclass: book  # tipo documento: book, article
+# tipo documento: book, article
+documentclass: book
+output: 
+  bookdown::pdf_book2:
+  fig_caption: yes
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
 link-citations: yes
+linkcolor: darkblue
+urlcolor: darkblue
 subparagraph: true
 papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
@@ -41,7 +47,19 @@ knitr::opts_chunk$set(out.width = "80%",
                       dpi = 150,
                       tidy.opts=list(width.cutoff=80),
                       tidy=TRUE,
-                      fig.pos = "btp")
+                      fig.pos = "H",
+                      fig.show = "hold")
+
+# Function to color
+colorize <- function(x) {
+  color <- "darkblue"
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
 ```
 
 ```{=latex}

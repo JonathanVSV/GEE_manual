@@ -1,3 +1,15 @@
+% Taken from Geocomputation with R
+% https://github.com/Robinlovelace/geocompr/blob/main/style/preamble.tex
+%\usepackage{booktabs}
+%\usepackage{longtable}
+%\usepackage[bf,singlelinecheck=off]{caption}
+%\usepackage[scale=.7]{sourcecodepro}
+
+% not in https://github.com/yihui/bookdown-crc/blob/master/latex/preamble.tex
+%\usepackage{tabu}
+\usepackage{graphicx}
+%%%
+
 %\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
@@ -11,8 +23,9 @@
 \usepackage{titlesec}
 % Para el control de viudas y huerfanos
 \usepackage[defaultlines=4,all]{nowidow}
+%\usepackage{flafter}
 \usepackage{float}
-\floatplacement{figure}{btp}
+%\floatplacement{figure}{btp}
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
@@ -39,4 +52,9 @@
 %\fancypagestyle{toc}{}
 %\fancypagestyle{main}{}
 %\fancypagestyle{contents}{}
+\renewcommand{\topfraction}{.8}
+\renewcommand{\bottomfraction}{.8}
+\renewcommand{\textfraction}{.05}
+\renewcommand{\floatpagefraction}{.75}
+
 

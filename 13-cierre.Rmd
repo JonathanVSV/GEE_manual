@@ -8,6 +8,6 @@ A pesar de que GEE es una herramienta muy poderosa para realizar análisis geom�
 \newpage
 ## Agradecimientos {-}
 
-Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina y Xanat Antonio Némiga por sus comentarios para mejorar este manual.
+Agradecemos a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina y Xanat Antonio Némiga y a dos revisores anónimos por sus comentarios para mejorar este manual.
 
 También agradecemos al Proyecto PE117519 – Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza, PAPIME, UNAM.

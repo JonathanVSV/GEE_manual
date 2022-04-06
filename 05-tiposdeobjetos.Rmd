@@ -1,15 +1,15 @@
 \newpage
 # Tipos de objetos
 
-Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, objetos de tipo numérico, listas, cadenas de caracteres, entre otras. Sin embargo, esta variedad de tipos de objetos se puede agrupar en dos grandes rubros: en objetos del lado del cliente y en objetos del servidor, de acuerdo al lado donde se va a llevar a cabo el procedimiento deseado.
+Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, objetos de tipo numérico, listas, cadenas de caracteres, entre otras. Sin embargo, esta variedad de objetos se puede agrupar en dos grandes rubros: en objetos del lado del cliente y en objetos del servidor, de acuerdo al lado donde se va a llevar a cabo el procedimiento deseado.
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (Fig. 5.1). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (`r colorize("Fig.")` \@ref(fig:f51)). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `“cadena”`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String(“cadena”)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
 
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo (ya sea un ráster, un vector o una tabla) `ee.Export...`, agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo `ee.Export` (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
-```{r, echo = F, out.width="100%", fig.cap="Representación de los dos lados de programación en GEE: del cliente y el servidor."}
+```{r f51, echo = F, out.width="80%", fig.cap="Representación de los dos lados de programación en GEE: del cliente y el servidor."}
 knitr::include_graphics("Img/daigFunc.png")
 ```
 
@@ -17,9 +17,9 @@ knitr::include_graphics("Img/daigFunc.png")
 
 #### Cadenas de texto {-}
 
-Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (Fig. 5.2):
+Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f52)):
 
-Ejercicio 0
+Ejercicio 0 
 
 ```{js, echo = T}
 // Cadena de texto de solo letras
@@ -45,13 +45,13 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de objetos de tipo cadena de caracteres."}
+```{r f52, echo = F, out.width="80%", fig.cap="Salida de la consola de objetos de tipo cadena de caracteres."}
 knitr::include_graphics("Img/ej0.png")
 ```
 
 #### Números {-}
 
-Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (Fig. 5.3):
+Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f53)):
 
 Ejercicio 1
 
@@ -62,7 +62,7 @@ var numero = 1;
 // Número decimal con punto decimal  
 var numero2 = 2.5;  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de objetos de tipo número."}
+```{r f53, echo = F, out.width="80%", fig.cap="Salida de la consola de objetos de tipo número."}
 knitr::include_graphics("Img/ej1.png")
 ```
 
@@ -74,7 +74,7 @@ Para los objetos numéricos no se usan las comillas.
 
 #### Listas {-}
 
-Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo (Fig. 5.4):
+Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo (`r colorize("Fig.")` \@ref(fig:f54)):
 
 Ejercicio 2
 
@@ -109,16 +109,16 @@ print(listaB[2]);
 // Lista completa con todos sus elementos
 print(listaC);    
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo lista."}
+```{r f54, echo = F, out.width="40%", fig.cap="Salida de la consola de varios objetos de tipo lista."}
 knitr::include_graphics("Img/ej2.png")
 ```
 
 
 #### Diccionarios {-}
 
-Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se definen mediante el uso de llaves `{}` donde se define cada clave seguida de dos puntos `:` y la definición del valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
+Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se crean mediante el uso de llaves `{}` donde se indica cada clave seguida de dos puntos `:` y su definición, ya sea un valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
-Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guión bajo `_` o la notación de "lowerCamelCase". Al hacer `print` se ordenarán alfabéticamente las claves (Fig. 5.5).
+Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guion bajo (`_`) o la notación de "lowerCamelCase". Al hacer `print` se ordenarán alfabéticamente las claves (`r colorize("Fig.")` \@ref(fig:f55)).
 
 Ejercicio 3 
 
@@ -134,7 +134,7 @@ var dicc = {
       
 ```
 
-Para consultar los valores dentro de un diccionario se puede hacer de dos formas: 
+Para consultar los valores dentro de un diccionario se puede hacer de dos formas (Fig. 5.5): 
 
   * Llamar directamente el nombre de la clave deseada dentro de  comillas en un par de corchetes `[‘’]`.
   * Utilizar la notación de `.` seguida del nombre de la clave. 
@@ -160,10 +160,9 @@ print(dicc.clave1);
 // "clave2", es decir la letra "A"
 print(dicc.clave2);  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo diccionario."}
+```{r f55, echo = F, out.width="40%", fig.cap="Salida de la consola de varios objetos de tipo diccionario."}
 knitr::include_graphics("Img/ej3.png")
 ```
-
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave, ya que es la recomendada por GEE.
@@ -172,7 +171,7 @@ Para los diccionarios se recomienda utilizar la notación de `.` seguida del nom
 
 #### Funciones {-}
 
-Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis, y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
+Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la palabra `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
 // MaskIm es una nueva función, y su argumento de entrada es "objeto"
@@ -206,7 +205,7 @@ Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo
 
 ## Tipo de objetos del lado del servidor
 
-Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos pre cargados en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
+Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos precargados en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores. 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -214,7 +213,7 @@ Para saber cuáles objetos son del servidor, resulta útil recordar que todos el
 :::
 ::::
 
-Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (Fig. 5.6).
+Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (`r colorize("Fig.")` \@ref(fig:f56)).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -229,13 +228,13 @@ En `Client libraries` se indican cuáles argumentos acepta cada método o funci�
 :::
 ::::
 
-```{r, echo = F, out.width="100%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
+```{r f56, echo = F, out.width="80%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
 knitr::include_graphics("Img/objetosServ2.png")
 ```
 
 #### ee.String {-}
 
-Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior; Fig. 5.7).
+Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior; `r colorize("Fig.")` \@ref(fig:f57)).
 
 Ejercicio 4:
 
@@ -246,13 +245,13 @@ var cadena2 = "Esto es una cadena de caracteres";
 // del lado del servidor
 var cadenaServ = ee.String(cadena2);                         
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor."}
+```{r f57, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor."}
 knitr::include_graphics("Img/ej4.png")
 ```
 
 #### ee.Number {-}
 
-Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior; Fig. 5.8).
+Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior; `r colorize("Fig.")` \@ref(fig:f58)).
 
 Ejercicio 5:
 
@@ -260,13 +259,13 @@ Ejercicio 5:
 // Se define un número como `ee.Number` del servidor
 var numServ = ee.Number(1900);                              
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo número del lado del servidor."}
+```{r f58, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo número del lado del servidor."}
 knitr::include_graphics("Img/ej5.png")
 ```
 
 #### ee.List {-}
 
-Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior; Fig. 5.9).
+Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior; `r colorize("Fig.")` \@ref(fig:f59)).
 
 Ejercicio 6:
 
@@ -290,13 +289,13 @@ print(listaServ.get(0));
 // Se llama solamente al segundo objeto de la ee.List del servidor
 print(listaServ.get(1)); 
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo lista del lado del servidor."}
+```{r f59, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo lista del lado del servidor."}
 knitr::include_graphics("Img/ej6.png")
 ```
 
 #### ee.Dictionary {-}
 
-Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior; Fig. 5.10).
+Permite enviar un objeto como diccionario al servidor. La definición de objetos `ee.Dictionary` habilita los métodos disponibles en GEE para este tipo de objetos (ver liga anterior; `r colorize("Fig.")` \@ref(fig:f510)).
 
 Ejercicio 7
 
@@ -330,7 +329,7 @@ print(diccServ.get('lista_de_servidor'));
 print(diccServ.get('numero_de_usuario'));        
 ```
 
-Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista (Fig. 5.10).
+Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista (`r colorize("Fig.")` \@ref(fig:f510)).
 
 Ejercicio 7.2
 
@@ -341,13 +340,13 @@ print('claves',diccServ.keys());
 // Muestra una lista con todos los valores del ee.Dictionary
 print('valores',diccServ.values());  
 ```
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de varios objetos de tipo diccionario del lado del servidor."}
+```{r f510, echo = F, out.width="80%", fig.cap="Salida de la consola de varios objetos de tipo diccionario del lado del servidor."}
 knitr::include_graphics("Img/ej7.png")
 ```
 
 #### ee.Date {-}
 
-Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior; Fig. 5.11). Hay varias formas de construir una fecha específica:
+Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Date` (ver enlace anterior; `r colorize("Fig.")` \@ref(fig:f511)). Hay varias formas de construir una fecha específica:
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “AAAA-MM-DD”, esta fecha obligatoriamente debe:
     *	Usar la función `ee.Date`.
@@ -355,10 +354,10 @@ Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este 
     *	Usar guiones como separadores `-`.
     *	Tener meses numéricos de dos dígitos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).
     *	Tener días de dos dígitos (01, 02, 03 … 09, 10, 11 … 30).
-    *	Estar entre comillas, "1989-08-23".
+    *	Estar entre comillas.
 2.	Usar números de usuario, en este caso se debe:
     *	Usar el método  `ee.DatefromYMD`.
-    *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas. `ee.Date.fromYMD(2015,03,28)`
+    *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas.
 3.	Usar un texto de usuario especificando el formato, para esto se debe:
     *	Usar el método `ee.Date.parse`.
     *	Especificar el formato de la fecha con la siguiente clave (AAAA = año, MM = mes, D = día).
@@ -368,9 +367,7 @@ Esta es la forma en la que GEE trabaja con fechas. Al definir un objeto de este 
     *	El formato debe estar entre comillas.
     *	Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a `ee.Date` (entre el formato y el texto debe ir una coma).
 
-
-Ejercicio 8:
-
+Ejercicio 8
 ```{js, echo = T}
 // Fecha como un texto de cliente
 var fechaString = '2001-10';
@@ -378,7 +375,7 @@ var fechaString = '2001-10';
 // Convierte la fecha de texto de cliente a ee.Date del servidor    
 var fecha = ee.Date(fechaString);  
 
-// Crea una ee.Date a partir de definir año, mes y dia con números del 
+// Crea una ee.Date a partir de definir año, mes y día con números del 
 // cliente           
 var fecha2 = ee.Date.fromYMD(2015,03,28); 
    
@@ -390,10 +387,10 @@ var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul');
 ```
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Vease en la Fig. 5.11.
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.
 :::
 ::::
-```{r, echo = F, out.width="100%", fig.cap="Salida de la consola de un objeto de tipo fecha del lado del servidor."}
+```{r f511, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo fecha del lado del servidor."}
 knitr::include_graphics("Img/ej8.png")
 ```
 
