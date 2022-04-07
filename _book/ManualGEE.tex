@@ -13,6 +13,7 @@
 
 \usepackage{amsmath,amssymb}
 \usepackage[]{times}
+\usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -131,9 +132,9 @@
 % not in https://github.com/yihui/bookdown-crc/blob/master/latex/preamble.tex
 %\usepackage{tabu}
 \usepackage{graphicx}
+\usepackage{array}
 %%%
 
-%\usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \usepackage{awesomebox}
@@ -148,7 +149,11 @@
 \usepackage[defaultlines=4,all]{nowidow}
 %\usepackage{flafter}
 \usepackage{float}
+%\usepackage{caption}
+%\usepackage{makeidx}
+%\makeindex
 %\floatplacement{figure}{btp}
+
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
@@ -175,10 +180,13 @@
 %\fancypagestyle{toc}{}
 %\fancypagestyle{main}{}
 %\fancypagestyle{contents}{}
+
 \renewcommand{\topfraction}{.8}
 \renewcommand{\bottomfraction}{.8}
 \renewcommand{\textfraction}{.05}
 \renewcommand{\floatpagefraction}{.75}
+
+\renewcommand{\listtablename}{Lista de Ejercicios}
 
 
 \ifLuaTeX
@@ -194,6 +202,7 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\setstretch{1}
 \setlength{\aweboxleftmargin}{0.1\linewidth}
 \setlength{\aweboxcontentwidth}{0.85\linewidth}
 \setlength{\aweboxvskip}{1mm}
@@ -396,7 +405,7 @@ Después, le damos clic en la esquina superior derecha donde dice \textbf{Sign U
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.4\linewidth]{Img/Signup} 
+{\centering \includegraphics[width=0.6\linewidth]{Img/Signup} 
 
 }
 
@@ -1458,7 +1467,7 @@ Ejercicio 2
 
 Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Entonces se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella.
 
-Ejercicio 2.1:
+Ejercicio \label{tab:e2-1} 2.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1521,7 +1530,7 @@ Para consultar los valores dentro de un diccionario se puede hacer de dos formas
 
 Por ejemplo:
 
-Ejercicio 3.1
+Ejercicio \label{tab:e3-1} 3.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1652,7 +1661,7 @@ En \texttt{Client\ libraries} se indican cuáles argumentos acepta cada método 
 
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.String} en la API (ver liga anterior; \textcolor{darkblue}{Fig.} \ref{fig:f57}).
 
-Ejercicio 4:
+Ejercicio 4
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1679,7 +1688,7 @@ Ejercicio 4:
 
 Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo \texttt{ee.Number} en la API (ver liga anterior; \textcolor{darkblue}{Fig.} \ref{fig:f58}).
 
-Ejercicio 5:
+Ejercicio 5
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1703,7 +1712,7 @@ Ejercicio 5:
 
 Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos \texttt{ee.List} (ver enlace anterior; \textcolor{darkblue}{Fig.} \ref{fig:f59}).
 
-Ejercicio 6:
+Ejercicio 6
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1718,7 +1727,7 @@ Ejercicio 6:
 
 Para acceder a un elemento de tipo \texttt{ee.List} se utiliza el método \texttt{.get}.
 
-Ejercicio 6.1:
+Ejercicio \label{tab:e6-1} 6.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1769,7 +1778,7 @@ Ejercicio 7
 
 Se puede consultar utilizando también el método \texttt{.get} y el nombre de la clave.
 
-Ejercicio 7.1
+Ejercicio \label{tab:e7-1} 7.1
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1783,7 +1792,7 @@ Ejercicio 7.1
 
 Por último, si se desea obtener las claves disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.keys}. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un \texttt{ee.Dictionary} se utiliza el método \texttt{.values}, la cual devuelve una lista (\textcolor{darkblue}{Fig.} \ref{fig:f510}).
 
-Ejercicio 7.2
+Ejercicio \label{tab:e7-2} 7.2
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2235,7 +2244,7 @@ Recordar que las geometrías no pueden contener propiedades o atributos, así qu
 \hypertarget{muxe9todos-comunes}{%
 \section{Métodos comunes}\label{muxe9todos-comunes}}
 
-La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores en el siguiente capítulo.
+La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre los vectores, así que dichos métodos sólo se describirán en la sección de vectores en el siguiente capítulo.
 
 \newpage
 
@@ -3955,7 +3964,7 @@ Ejercicio 27.10
 
 }
 
-\caption{Visualización de la máscara de Landsat 8 indicando pixeles con nubes y sin nubes.}\label{fig:unnamed-chunk-76}
+\caption{Visualización de la máscara de Landsat 8 indicando pixeles con nubes y sin nubes.}\label{fig:unnamed-chunk-75}
 \end{figure}
 
 \hypertarget{enmascaramiento}{%
@@ -3983,7 +3992,7 @@ Ejercicio 27.11
 
 }
 
-\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-78}
+\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-77}
 \end{figure}
 
 \begin{figure}[H]
@@ -3992,7 +4001,7 @@ Ejercicio 27.11
 
 }
 
-\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-79}
+\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-78}
 \end{figure}
 
 \begin{figure}[H]
@@ -4222,7 +4231,7 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevacio
 
 }
 
-\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-89}
+\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-88}
 \end{figure}
 
 Por último, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \texttt{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Por último, se agrega este gráfico a la consola con un \texttt{print} (\textcolor{darkblue}{Fig.} \ref{fig:f914}).

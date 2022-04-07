@@ -19,7 +19,7 @@ knitr::include_graphics("Img/daigFunc.png")
 
 Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f52)):
 
-Ejercicio 0 
+Ejercicio 0
 
 ```{js, echo = T}
 // Cadena de texto de solo letras
@@ -94,7 +94,7 @@ var listaC = [lista, listaA, listaB];
 
 Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Entonces se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella. 
 
-Ejercicio 2.1:
+Ejercicio 2.1
 
 ```{js, echo = T}
 // Primer objeto de la lista llamada "lista"
@@ -236,7 +236,7 @@ knitr::include_graphics("Img/objetosServ2.png")
 
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.String` en la API (ver liga anterior; `r colorize("Fig.")` \@ref(fig:f57)).
 
-Ejercicio 4:
+Ejercicio 4
 
 ```{js, echo = T}
 // Esta es una cadena de texto del lado del cliente
@@ -253,7 +253,7 @@ knitr::include_graphics("Img/ej4.png")
 
 Permite enviar un número como objeto al servidor. Además, al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos de tipo `ee.Number` en la API (ver liga anterior; `r colorize("Fig.")` \@ref(fig:f58)).
 
-Ejercicio 5:
+Ejercicio 5
 
 ```{js, echo = T}
 // Se define un número como `ee.Number` del servidor
@@ -267,7 +267,7 @@ knitr::include_graphics("Img/ej5.png")
 
 Este tipo de objetos corresponden a listas del lado del servidor. Al definir un objeto de este tipo, se puede utilizar cualquier método indicado para objetos `ee.List` (ver enlace anterior; `r colorize("Fig.")` \@ref(fig:f59)).
 
-Ejercicio 6:
+Ejercicio 6
 
 ```{js, echo = T}
 // Se construye una nueva lista con diferentes tipos de objetos del lado 
@@ -280,7 +280,7 @@ var listaServ = ee.List(lista);
 
 Para acceder a un elemento de tipo `ee.List` se utiliza el método `.get`. 
 
-Ejercicio 6.1:
+Ejercicio 6.1
 
 ```{js, echo = T}
 // Se llama solamente al primero objeto de la ee.List del servidor

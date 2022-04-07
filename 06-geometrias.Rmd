@@ -180,4 +180,4 @@ Recordar que las geometrías no pueden contener propiedades o atributos, así qu
 
 ## Métodos comunes
 
-La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre vectores, así que dichos métodos sólo se describirán en la sección de vectores en el siguiente capítulo.
+La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre los vectores, así que dichos métodos sólo se describirán en la sección de vectores en el siguiente capítulo.

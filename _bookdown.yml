@@ -2,8 +2,9 @@ book_filename: "ManualGEE"
 language:
 #  label:
 #    fig: 'Figura '
-#    exr: 'Ejercicio '
+#    
   ui:
     chapter_name: ''
+    exr: 'Ejercicio '
  #   appendix_name: ''
 delete_merged_file: true

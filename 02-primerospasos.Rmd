@@ -10,7 +10,7 @@ Lo primero que hay que hacer para poder utilizar la API de Javascript de GEE es 
 
 Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (inscribirse; `r colorize("Fig.")` \@ref(fig:f21)).
 
-```{r f21, echo = F, out.width="40%", fig.cap="Pantalla de inicio en la página de registro de GEE."}
+```{r f21, echo = F, out.width="60%", fig.cap="Pantalla de inicio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
 ```
 

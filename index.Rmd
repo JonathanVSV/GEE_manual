@@ -4,24 +4,29 @@ author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
 # tipo documento: book, article
 documentclass: book
 output: 
-  bookdown::pdf_book2:
+  bookdown::pdf_document2:
   fig_caption: yes
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
 link-citations: yes
+linestretch: 1
 linkcolor: darkblue
 urlcolor: darkblue
+toccolor: black
 subparagraph: true
 papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
 fontfamily: times # palatino, helvet, utopia, times, pifont, courier, bookman, newcent y avant
-classoption: twoside # una cara
+classoption: twoside # dos caras
 pagestyle: empty
 openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
 toc-title: "Índice"
 toc: yes
 toc_depth: 3
-toccolor: black
+#lot_title: "Índice de Ejercicios"
+#lot: true
+#lof: true
+#lofcolor: black
 geometry: 
   - tmargin=2.5cm
   - bmargin=2.5cm
@@ -29,10 +34,6 @@ geometry:
   - rmargin=2.5cm
   - headheight=2.5cm,
   - bottom=2.5cm,
-# output: pdf_book
-language:
-  ui:
-    chapter_name: ''
 ---
 
 ```{r setup, include=FALSE, echo = F}
@@ -41,6 +42,7 @@ library(formatR)
 # para automatizar la referencia a las figuras
 library(captioner)
 fig_nums <- captioner()
+
 # Set global options for chunks
 knitr::opts_chunk$set(out.width = "80%",
                       fig.align = "center", 
@@ -60,6 +62,21 @@ colorize <- function(x) {
       x)
   } else x
 }
+
+# # Set Ejercicio as "language"
+# knitr::knit_engines$set(Ejercicio = function(options) {
+#   # the source code is in options$code; just do
+#   # whatever you want with it
+# })
+# 
+# def_list = list()
+# knitr::knit_hooks$set(engine = function(before, options) {
+#   if (before && options$engine == 'Ejercicio') {
+#     # collect Ejercicio terms from options$name
+#     def_list[[options$label]] <<- options$name
+#   }
+#   NULL
+# })
 ```
 
 ```{=latex}
@@ -68,3 +85,8 @@ colorize <- function(x) {
 \setlength{\aweboxvskip}{1mm}
 \setlength{\aweboxrulewidth}{5pt}
 ```
+
+<!-- # ```{r echo=FALSE, results='asis'} -->
+<!-- # def_list = unlist(def_list) -->
+<!-- # cat(sprintf('- \\@ref(def:%s) %s', names(def_list), def_list), sep = '\n') -->
+<!-- # ``` -->
