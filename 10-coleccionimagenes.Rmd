@@ -46,7 +46,7 @@ No se puede escribir o cambiar los objetos que se encuentran directamente hosped
 
 ## Creación de colecciones de imágenes
 
-En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes, a partir de resultados generados dentro del mismo GEE. En este caso, se pueden crear nuevas colecciones de imágenes mediante el método `ee.ImageCollection.fromImages`, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección (`r colorize("Fig.")` \@ref(fig:f102)).
+En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes, a partir de imágenes generadas dentro del mismo GEE. En este caso, se utiliza el método `ee.ImageCollection.fromImages`, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección (`r colorize("Fig.")` \@ref(fig:f102)).
 
 Ejercicio 28.2
 
@@ -69,12 +69,12 @@ var imColl = ee.ImageCollection.fromImages([im1, im2]);
 ```
 
 ```{r f102, echo = F, out.width="60%", fig.cap="Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes."}
-knitr::include_graphics("Img/imcolmerge.png")
+knitr::include_graphics("Img/imcolnew.png")
 ```
 
 ## Visualización de colecciones de imágenes
 
-De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función `Map.addLayer`. Usualmente, al agregar una colección de imágenes a la pantalla de mapas, se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección (`r colorize("Fig.")` \@ref(fig:f103)).
+De igual manera que los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapas mediante la función `Map.addLayer`. Usualmente, al agregar una colección de imágenes a la pantalla de mapas se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección (`r colorize("Fig.")` \@ref(fig:f103)).
 
 Ejercicio 28.3
 
@@ -171,13 +171,13 @@ knitr::include_graphics("Img/imBandNames1.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Recordar que para seleccionar ciertas bandas en una colección de imágenes, éstas corresponden a bandas de las imágenes, no de la colección. Esto es útil para revisar los nombres de las bandas.
+Recordar que para seleccionar ciertas bandas en una colección de imágenes, estas corresponden a bandas de las imágenes, no de la colección. Esto es útil para revisar los nombres de las bandas.
 :::
 ::::
 
 ### Ordenación de una colección {-}
 
-El método `.sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por defecto, el método `.sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica indicada. Sin embargo, si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
+El método `.sort` permite ordenar una colección de imágenes por alguna propiedad de las imágenes. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las ordene por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por defecto, el método `.sort` ordena la colección de imágenes en orden ascendente, de acuerdo al valor de la característica indicada. Si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento `ascending: false`. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.
 
 Ejercicio 28.6
 
@@ -194,7 +194,7 @@ knitr::include_graphics("Img/imcol5sortcloud.png")
 
 ### Obtención de la primera imagen {-}
 
-En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle. Al utilizar el método `.first` sobre una colección de imágenes (`ee.ImageCollection`) el resultado corresponderá a una imagen (`ee.Image`; `r colorize("Figs. ")` \@ref(fig:f107) y \@ref(fig:f108)).
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método `.first` que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapas para analizarla más a detalle. Al utilizar el método `.first` sobre una colección de imágenes (`ee.ImageCollection`) el resultado corresponderá a una imagen (`ee.Image`; `r colorize("Figs. ")` \@ref(fig:f107)).
 
 Ejercicio 28.7
 
@@ -253,7 +253,7 @@ Para unir una colección de imágenes con otra, se utiliza el método `.merge`. 
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul ("blue"), mientras que en Landsat 8, la banda 1 corresponde al azul de costa ("coastal blue"). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse que el nombre de las bandas a unir en una colección corresponda con las de la otra.
+Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul (*blue*), mientras que en Landsat 8, la banda 1 corresponde al azul de costa (*coastal blue*). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse que el nombre de las bandas a unir en una colección corresponda con las de la otra.
 :::
 ::::
 
@@ -281,7 +281,7 @@ knitr::include_graphics("Img/merge2colecciones.png")
 
 ### Ejecución de una función sobre todas las imágenes de una colección  {-}
 
-Para realizar alguna operación sobre todas las imágenes de una `ee.ImageCollection` se utiliza el método `.map`. Esto va a aplicar el procedimiento o función que se defina en el interior de ella a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f1011)):
+Para realizar alguna operación sobre todas las imágenes de una `ee.ImageCollection` se utiliza el método `.map`. Esto va a aplicar el procedimiento o función que se defina en el interior de ella, a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f1011)):
 
 Ejercicio 28.10
 
@@ -368,11 +368,11 @@ var imRedQualMosaic = imCol9.qualityMosaic('nd');
 knitr::include_graphics("Img/imredmeanQM.png")
 ```
 
-#### Ejercicio: Filtro de colección de imágenes y visualización (Ejercicio B) {-}
+#### Ejercicio B: Filtro de colección de imágenes y visualización {-}
 
-Este ejercicio integra elementos de los ejercicios 28.4 28.5 28.6 y 28.7, de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración
+Este ejercicio integra elementos de los ejercicios 28.4, 28.5, 28.6 y 28.7, de modo que puedan remitirse a estos ejercicios si se tienen dudas.
 
-Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad ("tier 1") por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su “path” y “row” se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (`Search`), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de BANDS se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de IMAGE PROPERTIES se pueden consultar los metadatos que contienen las imágenes de esta colección (`r colorize("Fig.")` \@ref(fig:f1014)).
+Para filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (*tier 1*) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su *path* y *row* se puede realizar en un solo paso aplicando múltiples filtros. En este caso, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (**Search**), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **BANDS** se puede consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **IMAGE PROPERTIES** se pueden consultar los metadatos que contienen las imágenes de esta colección (`r colorize("Fig.")` \@ref(fig:f1014)).
 
 ```{r f1014, echo = F, out.width="80%", fig.cap="Consulta de propiedades de las imágenes contenidas en una colección de imágenes."}
 knitr::include_graphics("Img/Ruta_coleccion.png")
@@ -384,7 +384,7 @@ Una vez que se conoce la ruta de la colección de interés, se llama dicha colec
 *	'WRS_PATH', 
 *	'WRS_ROW'. 
 
-Para realizar este filtro se deben escribir exactamente igual el nombre de las propiedades (por ejemplo, CLOUD_COVER_LAND) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (`eq`), distintos (`neq`), mayores (`gt`), menores (`lt`), mayores o igual (`gte`) o menores o iguales(`lte`).
+Para realizar este filtro se deben escribir exactamente igual el nombre de las propiedades (por ejemplo, 'CLOUD_COVER_LAND') y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (`.eq`), distintos (`.neq`), mayores (`.gt`), menores (`.lt`), mayores o igual (`.gte`) o menores o iguales(`.lte`).
 
 ```{js, echo = T}
 // Filtrado de la colección
@@ -404,9 +404,9 @@ print(L8imgCol);
 Una vez pasado el comando anterior, en la consola se puede consultar cuántas imágenes cumplieron con los filtros indicados. En este ejemplo, la colección filtrada incluye 17 imágenes. Después, se pueden consultar las características de las imágenes. Para ello, en la consola se le da:
 
 *	Un clic a la colección en la consola.
-*	Luego un clic a features.
+*	Luego un clic a **features**.
 *	Después un clic a cualquier imagen (`Image`).
-*	Por último a Properties. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (`r colorize("Fig.")` \@ref(fig:f1015)).
+*	Por último a **Properties**. Ahí se pueden ver los metadatos de cada imagen y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes, basado en los metadatos de las imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (`r colorize("Fig.")` \@ref(fig:f1015)).
 
 ```{r f1015, echo = F, out.width="80%", fig.cap="Ejemplo de una consulta de información de la colección de imágenes en la consola."}
 knitr::include_graphics("Img/CamposImgCol.png")
@@ -421,7 +421,7 @@ var L8imgFirst = L8imgCol.first();
 print(L8imgFirst);
 ```
 
-Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (`r colorize("Fig.")` \@ref(fig:f1016)). Esto se puede realizar de dos maneras. En el primer caso, se agrega la información sin pasar más argumentos. En el segundo caso, se indican las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
+Además, se puede agregar esta imagen a la ventana de mapas para visualizar su información (`r colorize("Fig.")` \@ref(fig:f1016)). Esto se puede realizar de dos maneras: 1) agregando la información sin pasar más argumentos, o 2) indicando las bandas y el orden que se desea cargar, así como los valores mínimos y máximos del histograma y un nombre para la capa.
 
 ```{js, echo = T}
 // Agregar a la pantalla de mapa
@@ -434,15 +434,13 @@ Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288},
 knitr::include_graphics("Img/RGBIm.png")
 ```
 
-#### Ejercicio: Enmascaramiento de nubes, cálculo de índices y reducción (Ejercicio C) {-}
+#### Ejercicio C: Enmascaramiento de nubes, cálculo de índices y reducción {-}
 
-Este ejercicio integra elementos de los ejercicios 28.8 28.9 de modo que puedan remitirse a estos ejercicios si necesitan mayor aclaración.
+Este ejercicio integra elementos de los ejercicios 28.8 y 28.9, de modo que pueden remitirse a estos ejercicios si necesitan de una mayor aclaración.
 
-Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016.
+Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el ndvi promedio entre 2015 y 2016. Para ello, lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el NDVI de cada imagen contenida en la colección de imágenes, utilizando el método `.normalizedDifference` e indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método `.rename` para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método `.addBands` y se utiliza el método `.map` para aplicarla a cada una de las imágenes.
 
-Para calcular el NDVI promedio lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el NDVI de cada imagen contenida en la colección de imágenes. Para ello se utiliza el método `.normalizedDifference`, indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método `.rename` para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método `.addBands` y se utiliza el método `.map` para aplicarla a cada una de las imágenes.
-
-En este procedimiento, primero se define la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3 respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama 'pixel_qa'. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
+En este procedimiento, primero se tiene que definir la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3, respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama 'pixel_qa'. Se selecciona esta banda y se evalúa que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (`.bitwiseAnd`) y que las dos evaluaciones deben de ser cero (`.and`). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (`.updateMask`).
 
 ```{js, echo = T}
 // Crear función para enmascarar nubes
@@ -480,7 +478,7 @@ Map.addLayer(L8imgCol.first(),
 knitr::include_graphics("Img/imNubes.png")
 ```
 
-A continuación se aplican las dos funciones utilizando `.map` y sobreescribir el objeto L8imgCol. 
+A continuación se aplican las dos funciones utilizando `.map` y se sobreescribe el objeto `L8imgCol`. 
 
 ```{js, echo = T}
 // Aplicar las dos funciones a la colección
@@ -509,7 +507,7 @@ En la consola se puede observar que todas las imágenes ahora contienen una nuev
 knitr::include_graphics("Img/imConNDVI.png")
 ```
 
-Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016). Para ello se utiliza el método `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos. 
+Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015 - 2016), usando el método `.reduce`. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos. 
 
 ```{js, echo = T}
 // Seleccionar la banda ndvi y hacer dos reducciones
@@ -530,7 +528,7 @@ Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 knitr::include_graphics("Img/imNDVI.png")
 ```
 
-Además, se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método `count`. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con del promedio y desviación estándar de NDVI.
+Se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método `count`. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con el promedio y desviación estándar de NDVI.
 
 ```{js, echo = T}
 // Obtener la imagen del número de observaciones por píxel sin enmascarar 
@@ -580,7 +578,7 @@ Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 knitr::include_graphics("Img/meansdclip.png")
 ```
 
-#### Ejercicio: Cálculo de diferencia de dos imágenes y exportación de resultado. (Ejercicio D) {-}
+#### Ejercicio D: Cálculo de diferencia de dos imágenes y exportación de resultado {-}
 
 Se utilizarán las funciones previamente definidas para generar un mosaico igual al ya generado, pero ahora con fechas de 2016-01-01 al 2017-01-01. Primero se filtra la colección de imágenes y se mapean las funciones para enmascarar las nubes y agregar el NDVI a las imágenes.
 
@@ -624,7 +622,7 @@ Map.addLayer(imgDiff,{min:-0.3, max: 0.1,
 knitr::include_graphics("Img/imDifNDVI.png")
 ```
 
-Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del Google Drive. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
+Por último, para exportar el resultado se ingresan varios parámetros a la función que incluyen: la imagen a exportar, el nombre para guardar el archivo, la escala de la imagen (tamaño de píxel en metros), formato a utilizar y si se desea guardar dentro de una carpeta del **Google Drive**. Estos argumentos, al igual que otras funciones en GEE se pasan dentro de un diccionario.
 
 ```{js echo = T}
 // Exportar imagen a Google Drive

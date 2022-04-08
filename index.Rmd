@@ -6,6 +6,8 @@ documentclass: book
 output: 
   bookdown::pdf_document2:
   fig_caption: yes
+  #number_sections: true
+  #global_numbering: true
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
 link-citations: yes

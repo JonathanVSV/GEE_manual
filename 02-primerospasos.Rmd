@@ -52,7 +52,7 @@ Los elementos de la API se enlistan a continuación:
 
 #### Scripts {.unnumbered}
 
-La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o scripts (en inglés) del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (`r colorize("Fig.")` \@ref(fig:f25)):
+La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o *scripts* del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (`r colorize("Fig.")` \@ref(fig:f25)):
 
 ```{r f25, echo = F, out.width="60%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
 knitr::include_graphics("Img/repofolderfile.png")
@@ -94,9 +94,9 @@ knitr::include_graphics("Img/doc_ejemplo.png")
 
 #### Assets {.unnumbered}
 
-La primera vez que se accede a la pestaña de Assets hay que crear una carpeta principal ("Home Folder") para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (`r colorize("Fig.")` \@ref(fig:f210)).
+La primera vez que se accede a la pestaña de **Assets** hay que crear una carpeta principal (**Home Folder**) para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (`r colorize("Fig.")` \@ref(fig:f210)).
 
-```{r f210, echo = F, out.width="60%", fig.cap="Folder de inicio dentro de la API."}
+```{r f210, echo = F, out.width="60%", fig.cap="Carpeta de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
 ```
 
@@ -108,7 +108,7 @@ knitr::include_graphics("Img/assets.png")
 
 #### Pantalla de rutinas {.unnumbered}
 
-Esta ventana es donde se va a escribir el código en JavaScript (`r colorize("Fig.")` \@ref(fig:f212)) y cuenta con varios botones en la parte superior. El primero, `Get link` sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opción `Manage Links`) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen (`r colorize("Fig.")` \@ref(fig:f213)).
+Esta ventana es donde se va a escribir el código en JavaScript (`r colorize("Fig.")` \@ref(fig:f212)) y cuenta con varios botones en la parte superior. El primero, **Get link** sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opción **Manage Links**) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen (`r colorize("Fig.")` \@ref(fig:f213)).
 
 ```{r f212, echo = F, out.width="50%", fig.cap="Vista de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
@@ -118,27 +118,27 @@ knitr::include_graphics("Img/editor.png")
 knitr::include_graphics("Img/links.png")
 ```
 
-A su derecha se encuentra el botón de `Save` el cual permite guardar el código con el que se esté trabajando (`r colorize("Fig.")` \@ref(fig:f214)). Además, al darle clic en la flecha de despliegue se puede usar la opción `Save as` para crear una copia del código con otro nombre.
+A su derecha se encuentra el botón de **Save** el cual permite guardar el código con el que se esté trabajando (`r colorize("Fig.")` \@ref(fig:f214)). Además, al darle clic en la flecha de despliegue se puede usar la opción **Save as** para crear una copia del código con otro nombre.
 
 ```{r f214, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
-A continuación, está el botón `Run` que sirve para correr, de principio a fin, el código que se muestra en la pantalla de rutinas (`r colorize("Fig.")` \@ref(fig:f215)). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
+A continuación, está el botón **Run** que sirve para correr, de principio a fin, el código que se muestra en la pantalla de rutinas (`r colorize("Fig.")` \@ref(fig:f215)). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
 ```{r f215, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
 ```
 
-A su derecha se encuentra el botón de `Reset`, el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
+A su derecha se encuentra el botón de **Reset**, el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.
 
-Después se encuentra el botón de `Apps` que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: <https://www.earthengine.app/>
+Después se encuentra el botón de **Apps** que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: <https://www.earthengine.app/>
 
 Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como `’`, `"`, `(` y `{`.
 
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
-Cuando se corre un código en la consola con el botón de `Run`, este no corre directamente en los servidores de Google, sino que se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
+Cuando se corre un código en la consola con el botón de **Run**, este no corre directamente en los servidores de Google, sino que se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
 :::
 :::
 
@@ -150,7 +150,7 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 
 #### Search {.unnumbered}
 
-Es una barra de búsqueda (Search) en la que se pueden buscar fuentes de datos o sitios (`r colorize("Fig.")` \@ref(fig:f216)). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
+Es una barra de búsqueda (**Search**) en la que se pueden buscar fuentes de datos o sitios (`r colorize("Fig.")` \@ref(fig:f216)). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
 ```{r f216, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
@@ -178,13 +178,13 @@ knitr::include_graphics("Img/layer.png")
 
 #### Pantalla de control {.unnumbered}
 
-La pantalla de control contiene tres pestañas: console (consola), inspector (inspector) y de tasks (tareas). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
+La pantalla de control contiene tres pestañas: **Console** (consola), **Inspector** (inspector) y **Tasks** (tareas). Esta pantalla le va a permitir al usuario hacer algunas consultas de la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.
 
 #### Console {.unnumbered}
 
 La consola consiste en la pantalla de comunicación con el servidor (`r colorize("Fig.")` \@ref(fig:f219)). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
 
-```{r f219, echo = F, out.width="80%", fig.cap="Vista de la consola en GEE."}
+```{r f219, echo = F, out.width="60%", fig.cap="Vista de la consola en GEE."}
 knitr::include_graphics("Img/rigthPanel.png")
 ```
 
@@ -200,7 +200,7 @@ knitr::include_graphics("Img/inspector.png")
 
 En esta pestaña se muestran las tareas que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; `r colorize("Fig.")` \@ref(fig:f221)). Además, esta pestaña tiene otras funcionalidades:
 
-1.  Mostrar las tareas para ejecutar (con el botón de `Run`, el cual permite especificar detalles de la exportación).
+1.  Mostrar las tareas para ejecutar (con el botón de **Run**, el cual permite especificar detalles de la exportación).
 2.  Presentar las tareas en ejecución (color gris).
 3.  Señalar el tiempo demorado en el trabajo.
 4.  Indicar cuándo se ha finalizado algún trabajo (color azul).
@@ -231,7 +231,7 @@ La sintaxis de Javascript tiene algunas peculiaridades que deben cumplirse para 
 
 1.  Es un lenguaje sensible a las mayúsculas y minúsculas. De tal manera que puede haber dos objetos diferentes, uno llamado `a` y otro llamado `A`.
 2.  Se recomienda cerrar cualquier comando con un `;` (aunque de no hacerlo el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).
-3.  Comúnmente en Javascript se utiliza la notación "lowerCamelCase" para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones `-` o guion bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
+3.  Comúnmente en Javascript se utiliza la notación *lowerCamelCase* para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones `-` o guion bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
 4.  Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
 5.  El operador `=` asigna un valor a una variable.
 6.  Los operadores matemáticos son: `+ - * /`.
@@ -242,6 +242,6 @@ La sintaxis de Javascript tiene algunas peculiaridades que deben cumplirse para 
 
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
-El término correcto para llamar a los procesos aplicados con el operador `.` es el de método ("method"), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, el método `updateMask` es uno ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
+El término correcto para llamar a los procesos aplicados con el operador `.` es el de método (*method*), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, el método `updateMask` es uno ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
 :::
 :::

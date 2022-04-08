@@ -1,11 +1,11 @@
 \newpage
 # ee.Geometry
 
-Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas geométricas asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.
+Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas geométricas, asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.
 
 ## Información y metadatos
 
-La información que contienen los objetos de tipo geometría corresponden a puntos, líneas o polígonos definidos por una lista de coordenadas geográficas. Por lo tanto, dependiendo del tipo de geometría, se pueden consultar algunas características de estos como el área de un polígono mediante `.area`, el tipo de la geometría, mediante `.type` o las coordenadas mediante `.coordinates`. 
+Dependiendo del tipo de geometría, se pueden consultar algunas características de estos como el área de un polígono mediante `.area`, el tipo de la geometría mediante `.type` o las coordenadas mediante `.coordinates`. 
 
 ## Creación de geometrías
 
@@ -154,7 +154,7 @@ knitr::include_graphics("Img/import.png")
 
 A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada. Además, usando la mano se pueden mover y modificar las geometrías dibujadas (`r colorize("Fig.")` \@ref(fig:f63)).
 
-Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en `new layer`. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (`r colorize("Fig.")` \@ref(fig:f65)).
+Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en **new layer**. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (`r colorize("Fig.")` \@ref(fig:f65)).
 
 ```{r f65, echo = F, out.width="60%", fig.cap="Herramienta de geometrías en la pantalla de mapas."}
 knitr::include_graphics("Img/nuevaGeo.png")
@@ -166,7 +166,7 @@ Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrí
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada "Name" (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de "Import as" (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada Color o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice "+ Property"; `r colorize("Fig.")` \@ref(fig:f67)).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada **Name** (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de **Import as** (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada **Color** o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice **+ Property**; `r colorize("Fig.")` \@ref(fig:f67)).
 
 ```{r f67, echo = F, out.width="80%", fig.cap="Ejemplo de modificación de las propiedades de las geometrías."}
 knitr::include_graphics("Img/menuGeo.png")

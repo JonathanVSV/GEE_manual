@@ -11,28 +11,41 @@
 \usepackage{array}
 %%%
 
+% Para numeración de páginas
 \usepackage{fancyhdr}
+% Para cuadros de tips
 \usepackage{tcolorbox}
 \usepackage{awesomebox}
 %\usepackage{titling}
+% Para fonts, encoding e idioma
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish, mexico]{babel}
+% Agregar guión a palabras que no quepan
 \usepackage{hyphenat}
+% Título secundario
 \usepackage{titlesec}
 % Para el control de viudas y huerfanos
 \usepackage[defaultlines=4,all]{nowidow}
 %\usepackage{flafter}
+% Para poner figuras en floats
 \usepackage{float}
-%\usepackage{caption}
+
 %\usepackage{makeidx}
 %\makeindex
 %\floatplacement{figure}{btp}
 
+% Definir colores
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
+
+% Captions de figuras
+% Cambiar el color para los títulos de figuras
+\usepackage[labelfont={color=darkblue,bf},singlelinecheck=off,center]{caption}
+
+% Re definir títulos y formato
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \titlelabel{\thetitle\quad}
@@ -41,6 +54,8 @@
 \titleformat*{\subsection}{\normalfont\large\bfseries\color{darkblue}}
 \titleformat*{\subsubsection}{\normalfont\normalsize\bfseries\color{darkblue}}
 \titlespacing*{\chapter}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+
+% Definir cajas de color
 \newtcolorbox{bluebox2}{
   colback=lightblue,
   colframe=darkblue,
@@ -49,6 +64,7 @@
   arc=0pt
 }
 \renewcommand\headrulewidth{0pt}
+%
 \pagestyle{empty}
   \fancyhf{}
 \fancypagestyle{plain}{}
@@ -57,11 +73,16 @@
 %\fancypagestyle{main}{}
 %\fancypagestyle{contents}{}
 
+% Para ayudar a que el float sea menos agresivo
 \renewcommand{\topfraction}{.8}
 \renewcommand{\bottomfraction}{.8}
 \renewcommand{\textfraction}{.05}
 \renewcommand{\floatpagefraction}{.75}
 
-\renewcommand{\listtablename}{Lista de Ejercicios}
+% Tratar de cambiar lista de tablas a ejercicios
+%\renewcommand{\listtablename}{Lista de Ejercicios}
+
+%\renewcommand{\familydefault}{\rmdefault}
+%\renewcommand{\ttdefault}{\ttdefault}
 
 

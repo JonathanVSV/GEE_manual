@@ -5,7 +5,7 @@ Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos
 
 ## Impresión en consola
 
-La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación ("bugs") en los códigos. El resultado de la siguiente línea de código se puede apreciar en la `r colorize("Fig.")` \@ref(fig:f31).
+La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (*bugs*) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la `r colorize("Fig.")` \@ref(fig:f31).
 
 ```{js, echo = T}
 print('Hola Mundo');
@@ -168,7 +168,7 @@ En el caso de las imágenes (ráster, `ee.Image`), la función para exportarlas 
 *	`Export.image.toDrive` 
 *	`Export.image.toCloudStorage`
 
-El primero permite exportar la imagen (ráster) a la sección de Assets, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. Para exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizar la información, cuyo nombre se define en el argumento de `folder`.
+El primero permite exportar la imagen (ráster) a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. Para exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizar la información, cuyo nombre se define en el argumento de `folder`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}

@@ -7,7 +7,7 @@ Además de los métodos que existen en GEE para realizar operaciones sobre imág
 
 ### Muestreo por vector(es) {-}
 
-Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, `.sample` o para un rectángulo `.sampleRectangle` o para varias regiones `.sampleRegions`. Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo (`r colorize("Fig.")` \@ref(fig:fc111)).
+Este tipo de operaciones normalmente se utilizan para muestrear los datos de una imagen y obtener, por ejemplo, muestras por clases de coberturas para después entrenar un clasificador o para obtener los valores de un ráster en formato de vector (como puntos). En GEE, existen tres métodos para hacer este proceso, para un ráster completo, (`.sample`) o para un rectángulo (`.sampleRectangle`) o para varias regiones (`.sampleRegions`). Por ejemplo, el método `.sample` toma como argumentos el vector utilizado para determinar el área de muestreo, así como la escala a la que se desea realizar el muestreo. En este ejemplo, primero se define una geometría y después se hace el muestreo (`r colorize("Fig.")` \@ref(fig:fc111)).
 
 Ejercicio 29
 
@@ -38,7 +38,7 @@ Si se desea obtener la información de un muestreo de una imagen con su correspo
 
 ### Reducción de una imagen por región(es) {-}
 
-Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster por áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región `.reduceRegion` o para varias regiones `.reduceRegions`. Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por un área de interés (geometry). En este caso, además hay que indicar el reductor (reducer) y el tamaño de píxel para realizar la operación (scale; `r colorize("Fig.")` \@ref(fig:fc112)).
+Este tipo de operaciones normalmente se utilizan para resumir los valores de algún ráster en ciertas áreas de interés. En GEE, existen dos métodos para realizar este proceso, para una única región (`.reduceRegion`) o para varias regiones (`.reduceRegions`). Por ejemplo, el método `.reduceRegion` permite obtener estadísticas de la imagen en la extensión indicada por un área de interés (`geometry`). En este caso, además hay que indicar el reductor (`reducer`) y el tamaño de píxel para realizar la operación (`scale`; `r colorize("Fig.")` \@ref(fig:fc112)).
 
 ```{js echo = T}
 // Reducción por región
@@ -59,17 +59,17 @@ knitr::include_graphics("Img/reduccion11.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunas ocasiones, los procesos de `.reduceRegions` o `.sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de 'computation timed out'. En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para lograr que este corra. `Scale` permite aumentar el tamaño de píxel al que se va a resumir la información, por lo cual permite reducir los costos computacionales. De igual manera, `tileScale` permite definir un factor de escalamiento que permite reducir la carga computacional de un proceso.
+En algunas ocasiones, los procesos de `.reduceRegions` o `.sampleRegions` pueden demandar muchos recursos computacionales y arrojar un error de 'computation timed out'. En estos casos, se pueden utilizar los argumentos de `scale` o `tileScale` para evitarlo, ya que ambos argumentos permiten reducir los costos computacionales del proceso. `Scale` permite aumentar el tamaño de píxel al que se va a resumir la información, mientras que `tileScale` permite definir un factor de escalamiento.
 :::
 ::::
 
 ## Interpolación de vector a Imagen
 
-Este procedimiento consiste en tomar los datos numéricos de un vector e interpolarlos a áreas fuera de los vectores. Lo cual resulta en una imagen con el valor numérico interpolado del vector.
+Este procedimiento consiste en tomar los datos numéricos de un vector e interpolarlos a áreas fuera de los vectores, lo cual resulta en una imagen con valores en toda el área de interés.
 
 ### Ponderación de distancia inversa {-}
 
-Este método interpola al píxel de interés un valor según cada uno de los puntos más cercanos y los pondera según su distancia, generando un promedio de esos valores. Esto provoca que los píxeles más cercanos tendrán más influencia en el resultado de la interpolación que los píxeles alejados. Para consultar más detalles sobre el procedimiento de interpolación, revisar Basso et al. (1999). Esta interpolación se realiza con el método `.inverseDistance` donde hay que especificar al menos:
+Este método interpola un valor para los píxeles de una imagen de acuerdo a los puntos con información y los pondera según su distancia, generando un promedio de esos valores. Esto provoca que los píxeles más cercanos tendrán más influencia sobre el resultado de la interpolación que los píxeles más alejados. Para consultar más detalles sobre el procedimiento de interpolación, revisar Basso et al. (1999). Esta interpolación se realiza con el método `.inverseDistance` donde hay que especificar al menos:
 
 *	El radio a interpolar alrededor de cada vector.
 *	El atributo (la propiedad) numérica del vector, que se interpolará.
@@ -77,8 +77,7 @@ Este método interpola al píxel de interés un valor según cada uno de los pun
 *	La desviación estándar global de la variable.
 
 El siguiente ejercicio tiene como objetivo interpolar valores de metano (CH4) para el norte de México.
-La imagen Sentinel-5 que se utilizará, no tiene los valores de CH4 para toda el área de estudio, sino que muchos de los píxeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área. Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios dentro del norte de México, de una imagen satelital Sentinel-5. Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos)
-y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar (`r colorize("Fig.")` \@ref(fig:fc113)).
+La imagen Sentinel-5 que se utilizará, no tiene los valores de CH4 para toda el área de estudio, sino que muchos de los píxeles se encuentran sin valores o enmascarados, es por ello que queremos interpolar la imagen, para poder tener valores continuos en toda el área. Para ello se generarán 10000 muestras (puntos), que consisten en el valor de CH4 de 10000 píxeles aleatorios. Con la ayuda de unos reductores extraemos el promedio y la desviación estándar de todas las muestras (puntos) y finalmente interpolamos las muestras en buffers de 70 km, usando como argumento el promedio y la desviación estándar (`r colorize("Fig.")` \@ref(fig:fc113)).
 
 Ejercicio 30
 
@@ -146,7 +145,7 @@ knitr::include_graphics("Img/interpol.png")
 
 ### Kriging {-}
 
-Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos. Algunos de estos parámetros incluyen el intervalo de la varianza (range), la meseta (sill), el valor del efecto pepita (nugget), la distancia máxima a analizar (maxDistance) y la función a utilizar como reductor (reducer). Este ejercicio mostrará cómo interpolar la información de la temperatura superficial del mar (imagen), a partir de un muestreo de puntos (vectores; `r colorize("Fig.")` \@ref(fig:fc114)). 
+Es un método de interpolación que utiliza un estimado de la semivarianza, para crear una imagen de valores interpolados que sea una combinación óptima de los datos conocidos. En este método hay que especificar algunos parámetros que describen la forma de la función de semivarianza ajustada a los datos conocidos, los cuales incluyen: el intervalo de la varianza (`range`), la meseta (`sill`), el valor del efecto pepita (`nugget`), la distancia máxima a analizar (`maxDistance`) y la función a utilizar como reductor (`reducer`). Este ejercicio mostrará cómo interpolar la información de la temperatura superficial del mar (imagen), a partir de un muestreo de puntos (vectores; `r colorize("Fig.")` \@ref(fig:fc114)). 
 
 Ejercicio 31
 
