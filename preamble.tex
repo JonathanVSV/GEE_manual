@@ -1,16 +1,7 @@
-% Taken from Geocomputation with R
-% https://github.com/Robinlovelace/geocompr/blob/main/style/preamble.tex
-%\usepackage{booktabs}
-%\usepackage{longtable}
-%\usepackage[bf,singlelinecheck=off]{caption}
-%\usepackage[scale=.7]{sourcecodepro}
-
-% not in https://github.com/yihui/bookdown-crc/blob/master/latex/preamble.tex
-%\usepackage{tabu}
 \usepackage{graphicx}
 \usepackage{array}
 %%%
-
+%\usepackage{makeidx}
 % Para numeración de páginas
 \usepackage{fancyhdr}
 % Para cuadros de tips
@@ -32,7 +23,9 @@
 % Para poner figuras en floats
 \usepackage{float}
 
-%\usepackage{makeidx}
+\usepackage{tocloft}
+
+\usepackage{makeidx}
 %\makeindex
 %\floatplacement{figure}{btp}
 
@@ -63,6 +56,8 @@
   boxsep=0pt,
   arc=0pt
 }
+
+% Formato de página
 \renewcommand\headrulewidth{0pt}
 %
 \pagestyle{empty}
@@ -85,4 +80,18 @@
 %\renewcommand{\familydefault}{\rmdefault}
 %\renewcommand{\ttdefault}{\ttdefault}
 
+\advance\cftsecnumwidth 0.5em\relax
+\advance\cftsubsecindent 0.5em\relax
+\advance\cftsubsecnumwidth 0.5em\relax
 
+%\renewcommand\headrulewidth{1pt}
+%\pagestyle{fancy} 
+%  \fancyfoot{}
+%  \fancyfoot[LE,RO]{\thepage}
+%  \fancyhead{}
+%  \fancyhead[LE,RO]{\leftmark}
+%  \fancyhead[LO,RE]{\rightmark}
+%\fancypagestyle{plain}{}
+\makeindex
+%\indexsetup
+%\renewcommand{\indexsetup}{firstpagestyle=fancy}

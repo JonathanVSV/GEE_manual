@@ -11,8 +11,9 @@
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
-    #after_body: postamble.tex
+    after_body: postamble.tex
   keep_tex: yes
   split_by: section
+#  template: template.tex
 # bookdown::epub_book: default
 # bookdown::bs4_book: default

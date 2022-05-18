@@ -50,7 +50,7 @@ knitr::include_graphics("Img/GEE_inicio_API2.png")
 
 Los elementos de la API se enlistan a continuación:
 
-#### Scripts {.unnumbered}
+#### Scripts {.unnumbered} 
 
 La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o *scripts* del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (`r colorize("Fig.")` \@ref(fig:f25)):
 

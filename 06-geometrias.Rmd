@@ -1,10 +1,12 @@
 \newpage
 # ee.Geometry
-
+\index{ee.Geometry}
 Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas geométricas, asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.
 
 ## Información y metadatos
-
+\index{area}
+\index{type}
+\index{coordinates}
 Dependiendo del tipo de geometría, se pueden consultar algunas características de estos como el área de un polígono mediante `.area`, el tipo de la geometría mediante `.type` o las coordenadas mediante `.coordinates`. 
 
 ## Creación de geometrías

@@ -1,6 +1,6 @@
 \newpage
 # ee.Image
-
+\index{ee.Image}
 Las imágenes (`ee.Image`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster). 
 Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite que cada banda tenga una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos. Al final de este capítulo se presenta un ejercicio integrador de varios de los procedimientos revisados en este capítulo.
 
@@ -51,7 +51,8 @@ var landsat7im = ee.ImageCollection("LANDSAT/LE07/C01/T1_SR")
 ```
 
 ## Información y metadatos
-
+\index{propertyNames}
+\index{projection}
 Para consultar las propiedades de una imagen (metadatos) se puede utilizar el siguiente comando: `.propertyNames` (`r colorize("Fig.")` \@ref(fig:f92)). Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames`, `.projection`, `.projection().nominalScale`, para conocer el nombre de las bandas de la imagen, su proyección y el tamaño de píxel en m que presenta, respectivamente.
 
 Ejercicio 27.1
@@ -70,7 +71,7 @@ knitr::include_graphics("Img/ej272.png")
 El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
 :::
 ::::
-
+\index{bandNames}
 Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `.bandNames` (`r colorize("Fig.")` \@ref(fig:f93)). 
 
 Ejercicio 27.2
@@ -85,7 +86,7 @@ knitr::include_graphics("Img/ej273.png")
 ```
 
 ## Visualización de una imagen
-
+\index{Map.addLayer}
 De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapas mediante la función `Map.addLayer` (`r colorize("Fig.")` \@ref(fig:f94)).
 
 Ejercicio 27.3
@@ -113,7 +114,7 @@ La información ráster en GEE se almacena en un esquema piramidal, es decir, qu
 ## Métodos comunes
 
 ### Selección de bandas {-}
-
+\index{select}
 Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método `.select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
 Ejercicio 27.4
@@ -127,7 +128,7 @@ var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 ```
 
 ### Adición de nuevas propiedades o modificación de propiedades preexistentes {-}
-
+\index{set}
 Usando el método `.set` se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
 Ejercicio 27.5
@@ -152,7 +153,7 @@ Nótese que se puede sobreescribir la misma variable, pero hay que tener cuidado
 ::::
 
 ### Sustitución de nombres de bandas {-}
-
+\index{rename}
 Por defecto, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `.rename`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
 Ejercicio 27.6
@@ -165,7 +166,7 @@ var landsat7imBandsRename = landsat7imBands.rename(['B','G','R','NIR']);
 ```
 
 ### Realización de cortes {-}
-
+\index{clip}
 Para obtener el área de una imagen únicamente de una región de interés se puede realizar mediante el método `.clip`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f96)):
 
 Ejercicio 27.7
@@ -184,7 +185,10 @@ Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente neces
 ::::
 
 ### Cálculo de operaciones matemáticas {-}
-
+\index{subtract}
+\index{add}
+\index{divide}
+\index{multiply}
 Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply` para restar, sumar, dividir y multiplicar, respectivamente (`r colorize("Fig.")` \@ref(fig:f96)). 
 
 Ejercicio 27.8
@@ -199,7 +203,8 @@ knitr::include_graphics("Img/ej276.png")
 ```
 
 Además, GEE cuenta con un método de `.normalizedDifference` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el índice de vegetación de diferencia normalizada (NDVI, por sus siglas en inglés), primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `.expression`. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato de cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
-
+\index{normalizedDifference}
+\index{expression}
 ```{js, echo = T}
 // Calcular el ndvi con la imagen de landsat 7 obtenida previamente
 var ndvi= landsat7imBands.expression( '(NIR - R) / (NIR + R)', {
@@ -223,7 +228,12 @@ Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por
 Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales(`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`), o if then else (`?:`).
 
 ### Uso de operaciones relacionales, condicionales y booleanas {-}
-
+\index{lt}
+\index{lte}
+\index{gt}
+\index{gte}
+\index{eq}
+\index{neq}
 Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (`r colorize("Fig.")` \@ref(fig:f97)):
 
 Ejercicio 27.9
@@ -240,7 +250,7 @@ knitr::include_graphics("Img/ej277.png")
 ```
 
 Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda 'pixel_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda 'pixel_qa' para evaluar qué píxeles tienen un valor de 0 en el bit 5 (valores a conservar) y cuáles no (valores a eliminar; `r colorize("Fig.")` \@ref(fig:f98)).
-
+\index{bitwiseAnd}
 Ejercicio 27.10
 
 ```{js, echo = T}
@@ -261,7 +271,7 @@ knitr::include_graphics("Img/ej278.png")
 ```
 
 ### Enmascaramiento {-}
-
+\index{updateMask}
 El método `.updateMask` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.
 
 Ejercicio 27.11
@@ -286,7 +296,7 @@ knitr::include_graphics("Img/ej270.png")
 ```{r f98, echo = F, out.width="80%", fig.cap="Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes."}
 knitr::include_graphics("Img/ej27a.png")
 ```
-
+\index{mask}
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. El método `.mask` simplemente sustituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.
@@ -294,7 +304,7 @@ Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se
 ::::
 
 ### Adición de bandas {-}
-
+\index{addBands}
 El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen, utilizando el método `.addBands`. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:
 
 Ejercicio 27.12
@@ -308,7 +318,7 @@ landsat7im = landsat7im.addBands(ndvi);
 ```
 
 ### Conversión de imagen a vector {-}
-
+\index{reduceToVectors}
 En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f99)):
 
 Ejercicio 27.13
@@ -340,7 +350,7 @@ En operaciones como la conversión de ráster a vector, donde se debe indicar el
 ::::
 
 ### Exportación de una imagen {-}
-
+\index{Export}
 En GEE se pueden exportar imágenes a los **Assets**, al **Google Drive** o al **GoogleCloud**. Debido a que el servicio más común será el de **Drive** es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: `image` (la imagen a exportar), `description` (el nombre con el que se desea guardar el archivo), `folder` (la carpeta donde se desea guardar la imagen), `scale` (la escala para exportar la imagen), `maxPixels` (el número máximo de píxeles permitido), `format` (el formato de imagen deseado), `region` (región que se desea exportar, suele corresponder al área de interés) y `crs` (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de **Reference** o en la pestaña de **Docs**, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a **Assets** se el argumento más importante es `assetId`, que corresponde al nombre con el que se guardará el archivo en la sección de **Assets**.
 
 Ejercicio 27.14
@@ -403,7 +413,8 @@ var dem = ee.Image("CGIAR/SRTM90_V4");
 ```
 
 Posteriormente, se corta el DEM a la extensión que nos interesa. En este caso se utilizará la colección con los límites políticos del mundo que se encuentra cargada en GEE. Esta se puede buscar de igual manera que la capa de SRTM, en la barra de búsqueda. Posteriormente, se puede consultar la información que contiene la capa en la pestaña de 'TABLE SCHEMA'. Por último, se aplica un filtro para seleccionar el país que nos interesa, en este caso México.
-
+\index{filter}
+\index{ee.Filter.eq}
 ```{js  echo = T}
 // Cargar la colección de atributos con polígonos de la superficie de los 
 // países
@@ -413,7 +424,7 @@ var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
 ```
 
 Y se corta la imagen a la extensión del polígono de interés.
-
+\index{clip}
 ```{js, echo = T}
 // Cortar el DEM con el polígono de México
 var demCortado = dem.clip(MX);
@@ -429,7 +440,10 @@ Map.addLayer(demCortado, {min: 0, max:4000}, 'demMX');
 ```
 
 Posteriormente, se define una máscara de todas las áreas que tengan una elevación menor o igual a 2500 m s.n.m. y mayor o igual a 1000 m s.n.m. Después, se aplica esta máscara al DEM cortado para mantener únicamente las áreas que cumplan con el criterio anterior.
-
+\index{lte}
+\index{and}
+\index{gte}
+\index{updateMask}
 ```{js, echo = T}
 // Crear máscara de zona de interés
 var mascara = demCortado.lte(2500).and(demCortado.gte(1000));
@@ -438,7 +452,7 @@ var imgEnmascarada = demCortado.updateMask(mascara);
 ```
 
 A continuación, se renombrará la banda de la imagen de 'elevation' a 'elevacion' y se agrega la imagen a la pantalla de mapas.
-
+\index{rename}
 ```{js, echo = T}
 // Cambiar el nombre de la banda de la imagen enmascarada a elevacion
 imgEnmascarada = imgEnmascarada.rename('elevacion');
@@ -452,7 +466,7 @@ knitr::include_graphics("Img/ejercicioAMaps.png")
 
 
 A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Después, se agrega este gráfico a la consola con un `print` (`r colorize("Fig.")` \@ref(fig:f914)).
-
+\index{ui.Chart.image.histogram}
 ```{js, echo = T}
 // Crear gráfico de histograma de los valores del DEM enmascarado
 var graficoHistograma = ui.Chart.image.histogram({
@@ -474,7 +488,7 @@ knitr::include_graphics("Img/histElevacion.png")
 ```
 
 Por último, se puede exportar el resultado al **Google Drive** del usuario. En este caso se definirá un valor de `scale` de 9000 para acelerar el tiempo demorado en la exportación.
-
+\index{Export.image.toDrive}
 ```{js, echo = T}
 Export.image.toDrive({
   image:imgEnmascarada, 

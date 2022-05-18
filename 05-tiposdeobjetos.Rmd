@@ -19,9 +19,12 @@ knitr::include_graphics("Img/daigFunc.png")
 
 Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f52)):
 
-Ejercicio 0
+<!-- \index{Ejercicio 5.1} -->
+
+<!-- ::: {.exercise} -->
 
 ```{js, echo = T}
+
 // Cadena de texto de solo letras
 var cadena = “Esto es una cadena de caracteres”;
 
@@ -31,6 +34,7 @@ var telefono= '1234567890';
 // Cadena de texto de letras, números y símbolos
 var direccion = 'calle cuarta casa # 16';
 ```
+<!-- ::: -->
 
 Ejercicio 0.1
 
@@ -170,7 +174,7 @@ Para los diccionarios se recomienda utilizar la notación de `.` seguida del nom
 ::::
 
 #### Funciones {-}
-
+\index{function}
 Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la palabra `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
@@ -228,12 +232,14 @@ En **Client libraries** se indican cuáles argumentos acepta cada método o func
 :::
 ::::
 
-```{r f56, echo = F, out.width="80%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE."}
+(ref:foo) https://developers.google.com/earth-engine/guides/objects_methods_overview. 
+
+```{r f56, echo = F, out.width="80%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de (ref:foo)"}
 knitr::include_graphics("Img/objetosServ2.png")
 ```
 
 #### ee.String {-}
-
+\index{ee.String}
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f57)):
 
 Ejercicio 4
@@ -250,7 +256,7 @@ knitr::include_graphics("Img/ej4.png")
 ```
 
 #### ee.Number {-}
-
+\index{ee.Number}
 Permite enviar un número como objeto al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f58)):
 
 Ejercicio 5
@@ -264,7 +270,7 @@ knitr::include_graphics("Img/ej5.png")
 ```
 
 #### ee.List {-}
-
+\index{ee.List}
 Este tipo de objetos corresponden a listas del lado del servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f59)):
 
 Ejercicio 6
@@ -294,7 +300,7 @@ knitr::include_graphics("Img/ej6.png")
 ```
 
 #### ee.Dictionary {-}
-
+\index{ee.Dictionary}
 Permite enviar un objeto como diccionario al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f510)):
 
 Ejercicio 7
@@ -345,7 +351,7 @@ knitr::include_graphics("Img/ej7.png")
 ```
 
 #### ee.Date {-}
-
+\index{ee.Date}
 Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construir una fecha específica (`r colorize("Fig.")` \@ref(fig:f511)):
 
 1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “AAAA-MM-DD”, esta fecha obligatoriamente debe:
@@ -395,55 +401,55 @@ knitr::include_graphics("Img/ej8.png")
 ```
 
 #### ee.Image {-}
-
+\index{ee.Image}
 La definición de objetos `ee.Image` (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.
 
 #### ee.ImageCollection {-}
-
+\index{ee.ImageCollection}
 Las colecciones de imágenes (*image collections*) están formadas por imágenes individuales (`ee.Image`). Más adelante se explica este tipo de objetos con mayor detalle.
 
 #### ee.Feature {-}
-
+\index{ee.Feature}
 Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explica este tipo de objeto con mayor detalle.
 
 #### ee.FeatureCollection {-}
-
+\index{ee.FeatureCollection}
 Las colecciones de vectores (*feature collections*) están formadas por varios vectores (`ee.Feature`). Más adelante se explica estos objetos con mayor detalle.
 
 #### ee.Algorithms {-}
-
+\index{ee.Algorithms}
 Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, por ejemplo, `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes, por ejemplo, `ee.Algorithms.TemporalSegmentation.Ccdc`.
 
 #### ee.Array {-}
-
+\index{ee.Array}
 Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de `ee.Array` (ver liga anterior).
 
 #### ee.Classifier {-}
-
+\index{ee.Classifier}
 Este tipo de objetos corresponden a algoritmos de clasificación supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de random forest, disponible mediante la función `ee.Classifier.smileRandomForest` o MaxEnt, disponible mediante la función `ee.Classifier.amnhMaxent`, entre otros.
 
 #### ee.Clusterer {-}
-
+\index{ee.Clusterer}
 Este tipo de objetos corresponden a algoritmos de clasificación no supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de k-means, disponible mediante la función `ee.Clusterer.wekaKMeans` o Cobweb, disponible mediante la función `ee.Clusterer.wekaCobweb`.
 
 #### ee.Filter {-}
-
+\index{ee.Filter}
 Este tipo de objetos se utilizan para filtrar colecciones, ya sean de vectores o de imágenes. También permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (por ejemplo, metadatos). Por último, contienen métodos para combinar filtros.
 
 #### ee.Geometry {-}
-
+\index{ee.Geometry}
 Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, por ejemplo, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o `ee.Geometry.Polygon.area` para calcular el área de un polígono.
 
 #### ee.Join {-}
-
+\index{ee.Join}
 Este conjunto de métodos permite realizar uniones entre colecciones de vectores o imágenes, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
 
 #### ee.Reducer {-}
-
+\index{ee.Reducer}
 Los reductores permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se desea aplicar, por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). Las reducciones se pueden realizar sobre las bandas de las imágenes o los atributos de los vectores.
 
 #### ee.Terrain {-}
-
+\index{ee.Terrain}
 Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
 
 :::: {.bluebox2 data-latex=""}

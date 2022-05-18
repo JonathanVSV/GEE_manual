@@ -1,5 +1,5 @@
 \newpage
-\backmatter
+
 # Referencias
 
 | Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., … Brisco, B. (2020). Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5326–5350. https://doi.org/10.1109/JSTARS.2020.3021052

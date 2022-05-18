@@ -4,7 +4,7 @@
 Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos y obtener información sobre sus características o propiedades. A este conjunto de funciones le llamaremos funciones de interfaz de usuario, ya que permiten obtener información sobre los objetos, visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen cuatro grupos de funciones que se detallan en las siguientes secciones.
 
 ## Impresión en consola
-
+\index{print}
 La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (*bugs*) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la `r colorize("Fig.")` \@ref(fig:f31).
 
 ```{js, echo = T}
@@ -32,7 +32,7 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 ::::
 
 #### Map.addLayer {-}
-
+\index{Map.addLayer}
 `Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
 
 Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o compuesto RGB (del inglés Red, Green,
@@ -78,7 +78,7 @@ El código de los colores pasados al argumento de `palette` o `color` correspond
 ::::
 
 #### Map.centerObject {-}
-
+\index{Map.centerObject}
 Esta función permite centrar la pantalla de mapas en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
 
 ```{js, echo = T}
@@ -90,7 +90,7 @@ Map.setCenter(-39.86, 20.52, 5)
 Este grupo de funciones permiten realizar gráficos de diversos tipos; sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la biblioteca `ui.Chart`. Los objetos básicos que permite graficar GEE son: vectores (`ee.Feature`), colecciones de vectores (`ee.FeatureCollection`), imágenes (`ee.Image`), colecciones de imágenes (`ee.ImageCollection`), arreglos (`ee.Array`) y listas (`ee.List`). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método `.setOptions` sobre el objeto de tipo gráfico.
 
 #### ui.Chart.feature {-}
-
+\index{ui.Chart.feature}
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función `print`). Algunas de las funciones disponibles son: 
 
 * `ui.Chart.feature.byFeature`.
@@ -112,7 +112,7 @@ ui.Chart.feature.byProperty({
 ```
 
 #### ui.Chart.image {-}
-
+\index{ui.Chart.image}
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles son: 
 
 *	`ui.Chart.image.byClass`
@@ -161,7 +161,7 @@ El nombre de las funciones para generar gráficos en GEE dan una idea del tipo d
 Este grupo de funciones permiten exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca `Export.` Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: ráster (`ee.Image`), vector (`ee.FeatureCollection`), mapa y vídeo.
 
 #### Export.image {-}
-
+\index{Export.image}
 En el caso de las imágenes (ráster, `ee.Image`), la función para exportarlas es `Export.image`. Dentro de GEE hay tres opciones para exportar los resultados de una imagen: 
 
 *	`Export.image.toAsset`
@@ -208,7 +208,7 @@ En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000
 ::::
 
 #### Export.table {-}
-
+\index{Export.table}
 Por su parte, el formato vector (`ee.Feature`) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (`ee.FeatureCollection`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo vector: 
 
 *	`Export.table.toAsset`.
@@ -240,7 +240,7 @@ GEE permite exportar información en formato vector sólo en formato CSV, GeoJSO
 ::::
 
 #### Export.video {-}
-
+\index{Export.video}
 Esta opción permite exportar una colección de imágenes como vídeo, ya sea al almacenamiento de la nube de Google o al Drive.
 
 *	`Export.video.toCloudStorage`.

@@ -25,8 +25,9 @@ openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
 toc-title: "Índice"
 toc: yes
 toc_depth: 3
-#lot_title: "Índice de Ejercicios"
-#lot: true
+number_sections: true
+# lot_title: "Índice de Ejercicios"
+# lot: true
 #lof: true
 #lofcolor: black
 geometry: 
