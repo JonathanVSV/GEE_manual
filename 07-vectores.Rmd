@@ -2,7 +2,7 @@
 # ee.Feature
 \index{ee.Feature}
 Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
-Es importante recalcar que una `ee.Feature` es un vector individual, de modo que sólo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono)
+Es importante recalcar que una `ee.Feature` es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).
 
 ## Información y metadatos
 
@@ -14,7 +14,7 @@ Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa, sólo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: https://htmlcolorcodes.com/es/
+Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa, solo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: https://htmlcolorcodes.com/es/
 :::
 ::::
 
@@ -24,7 +24,7 @@ Map.addLayer(vector , {}, 'capa por default');
 Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
 ```
 
-## Creación de Vectores
+## Creación de vectores
 
 Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
@@ -53,7 +53,7 @@ var vector = ee.Feature(
 
 ### Selección de propiedades {-}
 \index{select}
-Una vez revisado los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `.select`. Para seleccionar una única propiedad sólo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
+Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `.select`. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
 
 Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
@@ -87,7 +87,7 @@ knitr::include_graphics("Img/ej10.png")
 En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `ee.Feature`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `.first`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (`r colorize("Fig.")` \@ref(fig:f72)). 
 
 1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
-2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos(claves) y sus valores del vector.
+2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos (claves) y sus valores del vector.
 3.	Usamos el método `.get` para obtener el valor del atributo 'COAST' del vector.
 4.	Usando el método `.select` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
 
@@ -97,7 +97,7 @@ Ejercicio 11
 // Llamamos una capa de cuencas de alta resolución de GEE
 // y se selecciona el primer vector de la colección
 var cuenca = ee.Feature(
-  ee.FeatureCollection("WWF/HydroSHEDS/v1/Basins/hybas_12")
+  ee.FeatureCollection('WWF/HydroSHEDS/v1/Basins/hybas_12')
   .first());
 
 // Extraemos los nombres de los atributos del vector como una lista
@@ -221,6 +221,6 @@ Ejercicio 12.5
 // Unir geometrías del buffer y un rectángulo 
 var union = rectangulo2.union(bufferPol)
 ```
-```{r f73, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, area y perímetro calculados."}
+```{r f73, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados."}
 knitr::include_graphics("Img/ej12.png")
 ```

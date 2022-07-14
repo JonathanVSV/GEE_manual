@@ -12,11 +12,11 @@
 
 | Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.
 
-| Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). Classification and regression trees. Wadsworth, Belmont, EUA.
+| Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). *Classification and Regression Trees*. Wadsworth, Belmont, EUA.
 
 | Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., & Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. https://doi.org/10.3390/rs10081167
 
-| Chuvieco, E. (1995). Fundamentos de Teledetección Espacial. Segunda edición. Ediciones RIALP, Madrid, España.
+| Chuvieco, E. (1995). *Fundamentos de Teledetección Espacial*. Segunda edición. Ediciones RIALP, Madrid, España.
 
 | Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273–297.
 

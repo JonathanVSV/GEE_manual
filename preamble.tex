@@ -46,7 +46,10 @@
 \titleformat*{\section}{\normalfont\Large\bfseries\color{darkblue}}
 \titleformat*{\subsection}{\normalfont\large\bfseries\color{darkblue}}
 \titleformat*{\subsubsection}{\normalfont\normalsize\bfseries\color{darkblue}}
+
+% title spacings
 \titlespacing*{\chapter}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing{\title}{0pt}{\parskip}{-\parskip}
 
 % Definir cajas de color
 \newtcolorbox{bluebox2}{
@@ -95,3 +98,6 @@
 \makeindex
 %\indexsetup
 %\renewcommand{\indexsetup}{firstpagestyle=fancy}
+
+% Try to fix the problem of text being moved to occupy whole page
+\raggedbottom

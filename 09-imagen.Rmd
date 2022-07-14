@@ -2,7 +2,7 @@
 # ee.Image
 \index{ee.Image}
 Las imágenes (`ee.Image`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster). 
-Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A diferencia de las imágenes a las que posiblemente el usuario esté acostumbrado a manejar, GEE permite que cada banda tenga una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante a considerar para exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos. Al final de este capítulo se presenta un ejercicio integrador de varios de los procedimientos revisados en este capítulo.
+Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A diferencia de las imágenes que posiblemente el usuario esté acostumbrado a manejar, GEE permite que cada banda tenga una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante considerarlo si se van a exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos. Al final de este capítulo se presenta un ejercicio integrador de varios de los procedimientos revisados aquí.
 
 Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005 (`r colorize("Fig.")` \@ref(fig:f91)).
 
@@ -11,14 +11,14 @@ Ejercicio 27
 ```{js echo = T}
 // Cargar la imagen global de la altura del dosel para áreas con cobertura 
 // arbórea en el 2005
-var CHM = ee.Image("NASA/JPL/global_forest_canopy_height_2005");
+var CHM = ee.Image('NASA/JPL/global_forest_canopy_height_2005');
 ```
 
 ```{r f91, echo = F, out.width="80%", fig.cap="Ejemplo de la  información desplegada en la consola al imprimir una imagen."}
 knitr::include_graphics("Img/ej271.png")
 ```
 
-Para realizar los ejercicios de este apartado, se cargarán dos fuentes de información adicionales para aplicar algunos de los métodos disponibles para imágenes. La primera consta de una simple geometría de una región de interés, mientras que la segunda, es un vector que contiene el polígono de la superficie de México.
+Para realizar los ejercicios de este apartado, se cargarán dos fuentes de información adicionales para aplicar algunos de los métodos disponibles para imágenes. La primera consta de una simple geometría de una región de interés, mientras que la segunda es un vector que contiene el polígono de la superficie de México.
 
 ```{js echo = T}
 // Cargar un polígono con el área de interés
@@ -30,20 +30,20 @@ var roi1 = ee.Geometry.Polygon(
 
 // Cargar la colección de atributos de los polígonos de la superficie de 
 // los países
-var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+var MX = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
   // Filtrar por la propiedad country_co para elegir México
   .filter(ee.Filter.eq('country_co','MX'));
 ```
 
-Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método `.first` permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (`ee.Image`). Ya que las imágenes multiespectrales sólo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.
+Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método `.first` permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (`ee.Image`). Ya que las imágenes multiespectrales solo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.
 
 ```{js echo = T}
 // Obtener la primera imagen Landsat 7 de una colección de imágenes.
 // Cargar colección de imágenes de Landsat 7          
-var landsat7im = ee.ImageCollection("LANDSAT/LE07/C01/T1_SR")
+var landsat7im = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')
   // Filtrar por fecha
   .filterDate('2020-01-01','2020-02-01')
-  // Filtrar imágenes para mantener únicamente las que se sobrelapen con 
+  // Filtrar imágenes para mantener únicamente las que se sobrepongan con 
   // el área de interés
   .filterBounds(roi1)
   // Obtener la primera imagen de la colección
@@ -68,7 +68,7 @@ knitr::include_graphics("Img/ej272.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda utilizarla, a menos que sea estrictamente necesario.
+El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda hacerlo, a menos que sea estrictamente necesario.
 :::
 ::::
 \index{bandNames}
@@ -87,18 +87,18 @@ knitr::include_graphics("Img/ej273.png")
 
 ## Visualización de una imagen
 \index{Map.addLayer}
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapas mediante la función `Map.addLayer` (`r colorize("Fig.")` \@ref(fig:f94)).
+De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapa mediante la función `Map.addLayer` (`r colorize("Fig.")` \@ref(fig:f94)).
 
 Ejercicio 27.3
 
 ```{js echo = T}
-// Cargar la imagen a la pantalla de mapas
+// Cargar la imagen a la pantalla de mapa
 Map.addLayer(CHM, 
   // Definir los valores mínimos y máximos de la imagen para su 
   // visualización
   {min: 0, max: 32}, 
   // Definir el nombre con el que se desea cargar la imagen a la pantalla 
-  // de mapas
+  // de mapa
   'primera imagen');
 ```
 ```{r f94, echo = F, out.width="80%", fig.cap="Visualización de la capa de la altura del dosel."}
@@ -107,7 +107,7 @@ knitr::include_graphics("Img/ej274.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-La información ráster en GEE se almacena en un esquema piramidal, es decir, que existen varias copias de la imagen, en la que cada una corresponde a una escala distinta. Al visualizar una imagen en la pantalla de mapas, la imagen mostrada será la de la escala que se encuentre más cercana al nivel del zoom de la pantalla de mapas. Por ello, en algunas ocasiones al usar el Inspector y mover el zoom, el valor de un píxel puede cambiar, ya que se están consultando valores de distintas imágenes (cada una asociada a una escala distinta). Para mayores detalles visitar: https://developers.google.com/earth-engine/guides/scale
+La información ráster en GEE se almacena en un esquema piramidal, es decir, que existen varias copias de la imagen, en la que cada una corresponde a una escala distinta. Al visualizar una imagen en la pantalla de mapa, la imagen mostrada será la de la escala que se encuentre más cercana al nivel del zoom de la pantalla de mapa. Por ello, en algunas ocasiones al usar el Inspector y mover el zoom, el valor de un píxel puede cambiar, ya que se están consultando valores de distintas imágenes (cada una asociada a una escala distinta). Para mayores detalles visitar: https://developers.google.com/earth-engine/guides/scale
 :::
 ::::
 
@@ -115,7 +115,7 @@ La información ráster en GEE se almacena en un esquema piramidal, es decir, qu
 
 ### Selección de bandas {-}
 \index{select}
-Una vez revisado los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método `.select`. Para seleccionar una única banda sólo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
+Una vez revisados los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método `.select`. Para seleccionar una única banda solo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
 Ejercicio 27.4
 
@@ -123,7 +123,7 @@ Ejercicio 27.4
 // Seleccionar la banda 1 de la imagen (que es la única)
 var banda1 = CHM.select('1');
 
-// Seleccionar sólo las primeras cuatro bandas de la imagen
+// Seleccionar solo las primeras cuatro bandas de la imagen
 var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 ```
 
@@ -141,7 +141,10 @@ var CHMprop1 = CHM.set('miPropiedad','miImagen');
 var CHMprop2 = CHM.set('title','miTítulo');
 ```
 
-```{r f95, echo = F, out.width="60%", fig.cap="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótese los valores en las entradas de 'bands' y 'properties'."}
+(ref:sub2) `bands`
+(ref:sub3) `properties`
+
+```{r f95, echo = F, out.width="60%", fig.cap="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3)."}
 knitr::include_graphics("Img/ej275.png")
 ```
 
@@ -154,20 +157,20 @@ Nótese que se puede sobreescribir la misma variable, pero hay que tener cuidado
 
 ### Sustitución de nombres de bandas {-}
 \index{rename}
-Por defecto, el nombre de las bandas de las imágenes suelen corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2','B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `.rename`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
+Por defecto, el nombre de las bandas de las imágenes suele corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2', 'B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `.rename`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
 Ejercicio 27.6
 
 ```{js, echo = T}
 // Cambiar el nombre de la banda 
-banda1 = banda1.rename("chm");
+banda1 = banda1.rename('chm');
 
 var landsat7imBandsRename = landsat7imBands.rename(['B','G','R','NIR']);
 ```
 
 ### Realización de cortes {-}
 \index{clip}
-Para obtener el área de una imagen únicamente de una región de interés se puede realizar mediante el método `.clip`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f96)):
+Para obtener el área de una imagen únicamente de una región de interés se puede utilizar el método `.clip`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f96)):
 
 Ejercicio 27.7
 
@@ -189,7 +192,7 @@ Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente neces
 \index{add}
 \index{divide}
 \index{multiply}
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract, .add, .divide, .multiply` para restar, sumar, dividir y multiplicar, respectivamente (`r colorize("Fig.")` \@ref(fig:f96)). 
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract`, `.add`, `.divide`, `.multiply` para restar, sumar, dividir y multiplicar, respectivamente (`r colorize("Fig.")` \@ref(fig:f96)). 
 
 Ejercicio 27.8
 
@@ -221,11 +224,11 @@ var ndvi2 = landsat7imBands.normalizedDifference('B4','B3')
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por defecto, ésta va a recibir el nombre de 'nd'.
+Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por defecto, esta va a recibir el nombre de 'nd'.
 :::
 ::::
 
-Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales(`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`), o if then else (`?:`).
+Para las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales (`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`) o if then else (`?:`).
 
 ### Uso de operaciones relacionales, condicionales y booleanas {-}
 \index{lt}
@@ -234,7 +237,7 @@ Dentro de las fórmulas utilizadas dentro de `expression` se puede utilizar la n
 \index{gte}
 \index{eq}
 \index{neq}
-Se pueden utilizar operadores relacionales, condicionales, booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (`r colorize("Fig.")` \@ref(fig:f97)):
+Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones: `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (`r colorize("Fig.")` \@ref(fig:f97)):
 
 Ejercicio 27.9
  
@@ -254,7 +257,7 @@ Otra forma de crear máscaras es indicando valores por bits. En este caso, se in
 Ejercicio 27.10
 
 ```{js, echo = T}
-// Definir la regla en bits de la imagen de los valores que se desean 
+// Definir la regla en bits de la imagen de los valores que se desea 
 // enmascarar
 var nubesBit = (1 << 5);
 
@@ -266,7 +269,7 @@ var qa = landsat7im.select('pixel_qa');
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de la máscara de Landsat 8 indicando pixeles con nubes y sin nubes."}
+```{r, echo = F, out.width="80%", fig.cap="Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes."}
 knitr::include_graphics("Img/ej278.png")
 ```
 
@@ -305,7 +308,7 @@ Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se
 
 ### Adición de bandas {-}
 \index{addBands}
-El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen, utilizando el método `.addBands`. Por ejemplo, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:
+El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen utilizando el método `.addBands`. Así, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:
 
 Ejercicio 27.12
 
@@ -317,9 +320,9 @@ chmMx2Bands = chmMx.addBands(chmCmMx.rename('chmCm'));
 landsat7im = landsat7im.addBands(ndvi);
 ```
 
-### Conversión de imagen a vector {-}
+### Conversión de una imagen en un vector {-}
 \index{reduceToVectors}
-En algunos casos puede ser conveniente transformar una imagen a un vector, o parte de una imagen a un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f99)):
+En algunos casos puede ser conveniente transformar una imagen en un vector, o parte de una imagen en un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f99)):
 
 Ejercicio 27.13
 
@@ -351,7 +354,7 @@ En operaciones como la conversión de ráster a vector, donde se debe indicar el
 
 ### Exportación de una imagen {-}
 \index{Export}
-En GEE se pueden exportar imágenes a los **Assets**, al **Google Drive** o al **GoogleCloud**. Debido a que el servicio más común será el de **Drive** es el que se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: `image` (la imagen a exportar), `description` (el nombre con el que se desea guardar el archivo), `folder` (la carpeta donde se desea guardar la imagen), `scale` (la escala para exportar la imagen), `maxPixels` (el número máximo de píxeles permitido), `format` (el formato de imagen deseado), `region` (región que se desea exportar, suele corresponder al área de interés) y `crs` (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de **Reference** o en la pestaña de **Docs**, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a **Assets** se el argumento más importante es `assetId`, que corresponde al nombre con el que se guardará el archivo en la sección de **Assets**.
+En GEE se pueden exportar imágenes a los **Assets**, al **Google Drive** o al **GoogleCloud**. Debido a que el servicio más común será el de **Drive** este es el se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: `image` (la imagen a exportar), `description` (el nombre con el que se desea guardar el archivo), `folder` (la carpeta donde se desea guardar la imagen), `scale` (la escala para exportar la imagen), `maxPixels` (el número máximo de píxeles permitido), `format` (el formato de imagen deseado), `region` (región que se desea exportar, suele corresponder al área de interés) y `crs` (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de **Reference** o en la pestaña de **Docs**, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a **Assets** el argumento más importante es `assetId`, que corresponde al nombre con el que se guardará el archivo en la sección de **Assets**.
 
 Ejercicio 27.14
 
@@ -362,7 +365,7 @@ Export.image.toDrive({
   image:chmMx, 
   // Nombre con el que se va a guardar la imagen en el drive
   description:'CanopyHeightModelMX',
-  // Folder dentro del drive en el cual se va a exportar la imagen
+  // Carpeta dentro del drive en el cual se va a exportar la imagen
   folder:'carpeta_clase_GEE',
   // Tamaño en m del píxel de la imagen a exportar
   scale: 30,
@@ -379,17 +382,17 @@ Export.image.toDrive({
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En experiencia de los autores el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un uno seguido de trece ceros.
+En la experiencia de los autores, el valor máximo de píxeles que permite exportar GEE es 1e13, es decir, un uno seguido de trece ceros.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El sistema de coordenadas de referencia (CRS, por sus siglas en inglés) usado en el ejemplo anterior se definió de acuerdo a un código EPSG. Estos pueden consultarse en el siguiente enlace: https://epsg.io/. Por defecto, el sistema de coordenadas de referencia de la información almacenada en GEE corresponde a coordenadas geográficas WGS84 (EPSG:4326) con un tamaño de píxel de un grado. Recordar que para mostrar la información en la pantalla de mapas, esta se proyecta a un CRS con la clave EPSG:3857, sin embargo, dicha proyección únicamente se hace para desplegar la información, mas no transforma la información con la que el usuario está trabajando. Por lo tanto, puede haber pequeñas diferencias entra la información visualizada en la pantalla de mapas y la información exportada.
+El sistema de coordenadas de referencia (CRS, por sus siglas en inglés) usado en el ejemplo anterior se definió de acuerdo a un código EPSG. Estos pueden consultarse en el siguiente enlace: https://epsg.io/. Por defecto, el sistema de coordenadas de referencia de la información almacenada en GEE corresponde a coordenadas geográficas WGS84 (EPSG:4326) con un tamaño de píxel de un grado. Recuerde que para mostrar la información en la pantalla de mapa, esta se proyecta a un CRS con la clave EPSG:3857, sin embargo, dicha proyección únicamente se hace para desplegar la información, mas no transforma la información con la que el usuario está trabajando. Por lo tanto, puede haber pequeñas diferencias entre la información visualizada en la pantalla de mapa y la información exportada.
 :::
 ::::
 
-Es importante recordar que es necesario dar clic a las tareas en la pestaña **Tasks** para que se lleva a cabo la exportación.
+Es importante recordar que es necesario dar clic a las tareas en la pestaña **Tasks** para que se lleve a cabo la exportación.
 
 #### Ejercicio A: Consulta y procesamiento de una imagen {-}
 
@@ -409,16 +412,16 @@ Aquí, se puede copiar la ubicación de la imagen del DEM de SRTM en los servido
 
 ```{js, echo = T}
 // Cargar la imagen con el DEM de SRTM
-var dem = ee.Image("CGIAR/SRTM90_V4");
+var dem = ee.Image('CGIAR/SRTM90_V4');
 ```
 
-Posteriormente, se corta el DEM a la extensión que nos interesa. En este caso se utilizará la colección con los límites políticos del mundo que se encuentra cargada en GEE. Esta se puede buscar de igual manera que la capa de SRTM, en la barra de búsqueda. Posteriormente, se puede consultar la información que contiene la capa en la pestaña de 'TABLE SCHEMA'. Por último, se aplica un filtro para seleccionar el país que nos interesa, en este caso México.
+Posteriormente, se corta el DEM a la extensión que nos interesa. En este caso se utilizará la colección con los límites políticos del mundo que se encuentra cargada en GEE. Esta se puede buscar de igual manera que la capa de SRTM, en la barra de búsqueda. Posteriormente, se puede consultar la información que contiene la capa en la pestaña de **TABLE SCHEMA**. Por último, se aplica un filtro para seleccionar el país que nos interesa, en este caso México.
 \index{filter}
 \index{ee.Filter.eq}
 ```{js  echo = T}
 // Cargar la colección de atributos con polígonos de la superficie de los 
 // países
-var MX = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+var MX = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
    // Filtrar para seleccionar únicamente México
   .filter(ee.Filter.eq('country_co','MX'));
 ```
@@ -433,7 +436,7 @@ var demCortado = dem.clip(MX);
 Para comparar el DEM antes y después de cortar la imagen a la extensión del polígono de interés, se cargan los dos objetos: `dem` y `demCortado`.
 
 ```{js, echo = T}
-// Cargar el DEM global y el cortado (sólo MX), indicando valores máximos 
+// Cargar el DEM global y el cortado (solo MX), indicando valores máximos 
 // y mínimos en m
 Map.addLayer(dem, {min: 0, max:4000}, 'dem');
 Map.addLayer(demCortado, {min: 0, max:4000}, 'demMX');
@@ -451,12 +454,12 @@ var mascara = demCortado.lte(2500).and(demCortado.gte(1000));
 var imgEnmascarada = demCortado.updateMask(mascara);
 ```
 
-A continuación, se renombrará la banda de la imagen de 'elevation' a 'elevacion' y se agrega la imagen a la pantalla de mapas.
+A continuación, se renombrará la banda de la imagen de 'elevation' a 'elevacion' y se agrega la imagen a la pantalla de mapa.
 \index{rename}
 ```{js, echo = T}
 // Cambiar el nombre de la banda de la imagen enmascarada a elevacion
 imgEnmascarada = imgEnmascarada.rename('elevacion');
-// Agregar imagen enmascarada a la pantalla de mapas
+// Agregar imagen enmascarada a la pantalla de mapa
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 ```
 
@@ -487,7 +490,7 @@ print(graficoHistograma,'gráfico Histograma');
 knitr::include_graphics("Img/histElevacion.png")
 ```
 
-Por último, se puede exportar el resultado al **Google Drive** del usuario. En este caso se definirá un valor de `scale` de 9000 para acelerar el tiempo demorado en la exportación.
+Por último, se puede exportar el resultado al **Google Drive** del usuario. En este caso se definirá un valor de `scale` de 9000 para acelerar el tiempo que requiere la exportación.
 \index{Export.image.toDrive}
 ```{js, echo = T}
 Export.image.toDrive({
@@ -505,7 +508,7 @@ Export.image.toDrive({
 
 Una vez corrido el código, hay que irse a la pestaña de **Tasks** para darle clic en **Run** (correr) y comenzar a exportar la imagen al **Google Drive** (`r colorize("Fig.")` \@ref(fig:f915)). A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en **Run**. Por último, el producto exportado aparecerá en la pestaña de **Tasks** con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al **Drive**, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al **Drive** (ver Fig. 2.22).
 
-```{r f915, echo = F, out.width="80%", fig.cap="Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación."}
+```{r f915, echo = F, out.width="80%", fig.cap="Vista de la pestaña de (ref:sub5) (tareas) para correr el trabajo de exportación."}
 knitr::include_graphics("Img/exportCHMMX.png")
 ```
 

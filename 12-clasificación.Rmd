@@ -1,13 +1,13 @@
 \newpage
 # Clasificación supervisada
 
-Una clasificación supervisada se refiere al proceso en el cual se obtiene un mapa temático a partir de imágenes satelitales u otro tipo de información generada mediante sensores remotos. Este tipo de procedimiento tiene el objetivo de asociarle una etiqueta a cada píxel de una imagen, que puede constar de por ejemplo, una clase de tipo de vegetación o uso de suelo (Chuvieco, 1995). Las clasificaciones se pueden ver como una interpretación de la reflectancia de una imagen en un sistema de clases de interés y normalmente constan de procedimientos en los cuales se entrena un algoritmo a reconocer estas clases, a partir de muestras otorgadas por el usuario (Chuvieco, 1995). Generalmente, el proceso de una clasificación supervisada implica los siguientes pasos: 1) obtención de los datos de entrenamiento, 2) selección del clasificador, 3) entrenamiento del clasificador basado en los datos de entrenamiento, 4) obtención de la clasificación, 5) registro de los datos de verificación y 6) verificación de la clasificación. En este capítulo, primero se describirá cada uno de estos pasos junto con las funciones y métodos utilizadas y al final se integrarán dichos pasos en un ejercicio práctico.
+Una clasificación supervisada se refiere al proceso en el cual se obtiene un mapa temático a partir de imágenes satelitales u otro tipo de información generada mediante sensores remotos. Este tipo de procedimiento tiene el objetivo de asociarle una etiqueta a cada píxel de una imagen, que puede constar de, por ejemplo, una clase de tipo de vegetación o uso de suelo (Chuvieco, 1995). Las clasificaciones se pueden ver como una interpretación de la reflectancia de una imagen en un sistema de clases de interés y normalmente constan de procedimientos en los cuales se entrena un algoritmo a reconocer estas clases, a partir de muestras otorgadas por el usuario (Chuvieco, 1995). Generalmente, el proceso de una clasificación supervisada implica los siguientes pasos: 1) obtención de los datos de entrenamiento, 2) selección del clasificador, 3) entrenamiento del clasificador basado en los datos de entrenamiento, 4) obtención de la clasificación, 5) registro de los datos de verificación y 6) verificación de la clasificación. En este capítulo, primero se describirá cada uno de estos pasos junto con las funciones y métodos utilizados y al final se integrarán dichos pasos en un ejercicio práctico.
 
-Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman et al., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik 1995), MaxEnt (Maximum Entropy; Phillips et al., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE tienen su propio tipo de objetos del servidor.
+Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman et al., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik, 1995), MaxEnt (Maximum Entropy; Phillips et al., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE, tienen su propio tipo de objetos del servidor.
 
 ## Clasificadores
 \index{ee.Classifier}
-Los objetos `ee.Classifier` son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `ee.Classifier.smileCART, ee.Classifier.smileRandomForest, ee.Classifier.amnhMaxent`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (**Reference**) en el apartado de bibliotecas del cliente (**Client libraries**), o también en la pestaña **Docs** bajo `ee.Classifier`. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (`numberOfTrees`), las variables utilizadas por árbol aleatorio (`variablesPerSplit`), la población mínima de hoja (`minLeafPopulation`), la fracción de los datos de entrada para entrenar y verificar el algoritmo (`bagFraction`), el número máximo de nodos (`maxNodes`) y el un número para hacer replicables los resultados (`seed`). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
+Los objetos `ee.Classifier` son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `ee.Classifier.smileCART`, `ee.Classifier.smileRandomForest`, `ee.Classifier.amnhMaxent`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (**Reference**) en el apartado de bibliotecas del cliente (**Client libraries**), o también en la pestaña **Docs** bajo `ee.Classifier`. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (`numberOfTrees`), las variables utilizadas por árbol aleatorio (`variablesPerSplit`), la población mínima de hoja (`minLeafPopulation`), la fracción de los datos de entrada para entrenar y verificar el algoritmo (`bagFraction`), el número máximo de nodos (`maxNodes`) y el número para hacer replicables los resultados (`seed`). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
 
 Ejercicio 32
 
@@ -17,15 +17,15 @@ var rfClassif = ee.Classifier.smileRandomForest(500);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Usando al final el método `.setOutputMode` sobre un clasificador se puede cambiar la forma que el clasificador entrega los resultados para ello dentro de los paréntesis del método hay que escribir cualquiera de las siguientes opciones:
+Usando al final el método `.setOutputMode` sobre un clasificador se puede cambiar la forma en la que el clasificador entrega los resultados. Para ello, dentro de los paréntesis del método hay que escribir cualquiera de las siguientes opciones:
 
   *	'Classification' (clasificación, por defecto): devuelve una variable nominal (clases).
   *	'Regresion' (regresión): devuelve una variable numérica.
   *	'Probability' (probabilidad): devuelve la probabilidad de que la clasificación sea correcta.
   *	'Multiprobability' (multiprobabilidad): devuelve un arreglo de probabilidades para cada una de las clases.
   *	'Raw' (crudo): devuelve un arreglo con la representación interna del proceso de clasificación. Por ejemplo, los votos crudos de un modelo de múltiples árboles de decisión como random forests.
-  *	'Raw_regression' (regresión cruda): devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las predicciones crudas de los múltiples arboles de regresión.
-  Resulta importante recordar que dependiendo del clasificador, algunas de estas opciones de resultado estarán disponibles o no.
+  *	'Raw_regression' (regresión cruda): devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las predicciones crudas de los múltiples árboles de regresión.
+  Resulta importante recordar que, dependiendo del clasificador, algunas de estas opciones de resultado estarán disponibles o no.
 :::
 ::::
 
@@ -52,7 +52,7 @@ var classifiedImg = imagen.classify(trainedClassifier);
 ## Evaluación de la clasificación
 \index{errorMatrix}
 \index{accuracy}
-La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido utilizado en la fase de entrenamiento. A estos datos se les conoce como los datos de validación o verificación. Para evaluar una clasificación, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmente, se utiliza una matriz de confusión para realizar dicha evaluación, la cual se puede obtener mediante el método `.errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza el método `.accuracy`. Por ejemplo:
+La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido empleado en la fase de entrenamiento. A estos datos se les conoce como los datos de validación o verificación. Para evaluar una clasificación, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmente, se utiliza una matriz de confusión para realizar dicha evaluación, la cual se puede obtener mediante el método `.errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza el método `.accuracy`. Por ejemplo:
 
 ```{js echo = T}
 var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
@@ -113,19 +113,19 @@ function maskL8sr(image) {
 }
 ```
 
-A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso se usa el método `.filterBounds` que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
+A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso se usa el método `.filterBounds`, que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
 \index{filterBounds}
 \index{map}
 ```{js echo = T}
 // Filtrar colección y aplicar máscara de nubes
-var L8imgCol = ee.ImageCollection("LANDSAT/LC08/C01/T1_SR")
+var L8imgCol = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
   .filterBounds(poligonos)
   .filterDate('2015-01-01','2016-01-01')
   .filter(ee.Filter.lte('CLOUD_COVER_LAND',50))
   .map(maskL8sr);
 ```
 
-El siguiente paso consta de reducir la colección para generar una sola imagen con el valor promedio para todas las bandas. Ya que no se van a utilizar todas las bandas de la imagen para la clasificación, se indica el nombre de las bandas que se van a utilizar dentro de una lista. Por último, se van a renombrar las bandas para recordar más fácilmente el espectro de cada banda.
+El siguiente paso consiste en reducir la colección para generar una sola imagen con el valor promedio para todas las bandas. Ya que no se van a utilizar todas las bandas de la imagen para la clasificación, se indica el nombre de las bandas que se van a utilizar dentro de una lista. Por último, se van a renombrar las bandas para recordar más fácilmente el espectro de cada una.
 \index{reduce}
 \index{ee.Reducer.mean}
 ```{js echo = T}
@@ -150,7 +150,7 @@ var geometry = ee.Geometry.Polygon(
 L8imgMean = L8imgMean.clip(geometry)
 ```
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `.sampleRegions`. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual, cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada (`r colorize("Fig.")` \@ref(fig:fc122)).
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `.sampleRegions`. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada (`r colorize("Fig.")` \@ref(fig:fc122)).
 \index{sampleRegions}
 ```{js echo = T}
 // Muestrear regiones 
@@ -158,14 +158,14 @@ var training = L8imgMean
   .sampleRegions({
     // colección de vectores a utilizar
     collection: poligonos,
-    // propiedad que se desea mantener los vectores de la colección
+    // propiedad que se desea mantener en los vectores de la colección
     properties: ['clase'],
     // tamaño de píxel
     scale: 30
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo random forests (Breiman, 2001), el cual se llama utilizando `ee.Classifier.smileRandomForest`. En este ejercicio se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de **Reference** o en la pestaña de **Docs** e incluyen parámetros como el número de variables a utilizar por división, el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train` y pasando algunos argumentos adicionales dentro de un diccionario como: la colección de vectores a utilizar para el entrenamiento (`features`), el nombre de la clase objetivo (`classProperty`) y el nombre de las propiedades de la imagen (`inputProperties`), es decir, el nombre de las bandas (`r colorize("Fig.")` \@ref(fig:fc122)).
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo random forests (Breiman, 2001), el cual se llama utilizando `ee.Classifier.smileRandomForest`. En este ejercicio se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de **Reference** o en la pestaña de **Docs** e incluyen parámetros como el número de variables a utilizar por división y el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train` y se pasan algunos argumentos adicionales dentro de un diccionario, como: la colección de vectores a utilizar para el entrenamiento (`features`), el nombre de la clase objetivo (`classProperty`) y el nombre de las propiedades de la imagen (`inputProperties`), es decir, el nombre de las bandas (`r colorize("Fig.")` \@ref(fig:fc122)).
 \index{ee.Classifier.smileRandomForest}
 \index{train}
 ```{js echo = T}
@@ -180,7 +180,7 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
 });
 ```
 
-```{r fc122, echo = F, out.width="80%", fig.cap="Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran sólo los primeros veinte para ejemplificar el tipo de salida."}
+```{r fc122, echo = F, out.width="80%", fig.cap="Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran solo los primeros 20 para ejemplificar el tipo de salida."}
 knitr::include_graphics("Img/polyTrainConsole.png")
 ```
 
@@ -276,7 +276,7 @@ var validating = classifiedImg
 });
 ```
 
-A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando en primer lugar, el campo de la clase de referencia ('clase') y en segundo lugar, el campo de la predicción ('classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido (`r colorize("Fig.")` \@ref(fig:fc125)).
+A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando, en primer lugar, el campo de la clase de referencia ('clase') y, en segundo lugar, el campo de la predicción ('classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido (`r colorize("Fig.")` \@ref(fig:fc125)).
 \index{errorMatrix}
 \index{accuracy}
 ```{js echo = T}
@@ -288,17 +288,17 @@ print('Validation error matrix: ', validErrMat);
 print('Validation overall accuracy: ', validAcc);
 ```
 
-```{r fc125, echo = F, out.width="60%", fig.cap="Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290 puntos, pero se muestran sólo los primeros diez para ejemplificar el tipo de salida."}
+```{r fc125, echo = F, out.width="60%", fig.cap="Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290, pero se muestran solo los primeros diez para ejemplificar el tipo de salida."}
 knitr::include_graphics("Img/matrizError.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Por defecto la imagen que se obtiene de un método `.classify` obtiene el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama 'classification'.
+Por defecto, la imagen que se obtiene de un método `.classify` lleva el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama 'classification'.
 :::
 ::::
 
-Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear un vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desean exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante el método `.array`. 
+Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear un vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desea exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante el método `.array`. 
 
 ```{js echo = T}
 // Transformarlos en vectores
@@ -306,7 +306,7 @@ var expConfMatrix =  ee.Feature(null, {matrix: validErrMat.array()});
 var expAccuracy = ee.Feature(null, ee.Dictionary({Accuracy: validAcc}));
 ```
 
-Posteriormente, se define una función (`ExportTable`) para exportar la matriz de error y el valor de la precisión total. Esta función toma dos argumentos, el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `Export.table.toDrive` sólo permite exportar objetos de tipo `ee.FeatureCollection`, se debe meter a los objetos de tipo `ee.Feature` en un contenedor `ee.FeatureCollection`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar la carpeta dentro del que se quiere guardar la tabla exportada.
+Posteriormente, se define una función (`ExportTable`) para exportar la matriz de error y el valor de la precisión total. Esta función toma dos argumentos: el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `Export.table.toDrive` solo permite exportar objetos de tipo `ee.FeatureCollection`, se debe meter a los objetos de tipo `ee.Feature` en un contenedor `ee.FeatureCollection`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar la carpeta dentro de la que se quiere guardar la tabla exportada.
 \index{Export.table.toDrive}
 ```{js echo = T}
 // Definir función de exportación

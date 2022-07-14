@@ -1,11 +1,11 @@
 \newpage
 # Interfaz de usuario
 
-Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos y obtener información sobre sus características o propiedades. A este conjunto de funciones le llamaremos funciones de interfaz de usuario, ya que permiten obtener información sobre los objetos, visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen cuatro grupos de funciones que se detallan en las siguientes secciones.
+Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos, y obtener información sobre sus características o propiedades, y visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. A este conjunto de funciones le llamaremos funciones de interfaz de usuario. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como para verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen, a continuación, cuatro grupos de funciones.
 
 ## Impresión en consola
 \index{print}
-La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, éste se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (*bugs*) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la `r colorize("Fig.")` \@ref(fig:f31).
+La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función `print` (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, este se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (*bugs*) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la `r colorize("Fig.")` \@ref(fig:f31).
 
 ```{js, echo = T}
 print('Hola Mundo');
@@ -21,9 +21,9 @@ Se recomienda utilizar varias impresiones en la consola (mediante `print`), por 
 :::
 ::::
 
-## Interacción con la pantalla de mapas
+## Interacción con la pantalla de mapa
 
-Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapas, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapas se encuentran dentro de la biblioteca `Map`.
+Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapa, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapa se encuentran dentro de la biblioteca `Map`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -33,11 +33,9 @@ Para revisar todas las funciones disponibles para la interfaz del usuario, ver l
 
 #### Map.addLayer {-}
 \index{Map.addLayer}
-`Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapas, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapas.
+`Map.addLayer` permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (`ee.Feature`) o imagen (`ee.Image`; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función `Map.addLayer` incluyen el objeto a añadir a la pantalla de mapa, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapa.
 
-Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos de para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o compuesto RGB (del inglés Red, Green,
-Blue). En el caso de optar por la primera, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en la segunda, se deben agregar las bandas en orden, es decir, primero la
-banda que corresponde al canal rojo, seguida del verde y del azul (`r colorize("Fig.")` \@ref(fig:f32)). 
+Al utilizar `Map.addLayer` sobre una imagen se pueden indicar los siguientes argumentos: `bands` (bandas), `min` y `max` (valores mínimos y máximos para visualizar la información). Estos se deben pasar dentro de un par de llaves `{}` como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o en compuesto RGB (del inglés Red, Green, Blue). En el caso de optar por el primero, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en el segundo se deben agregar las bandas en orden, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul (`r colorize("Fig.")` \@ref(fig:f32)). 
 
 ```{js, echo = T}
 Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], 
@@ -51,13 +49,13 @@ knitr::include_graphics("Img/LTerminos.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunas ocasiones, al intentar cargar objetos en la pantalla de mapas, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o del límite de memoria disponible. En estos casos, se sugiere exportar el resultado, en lugar de tratar de cargarlo en la pantalla de mapas y después visualizarlo de manera local en algún SIG o software similar (por ejemplo, QGIS).
+En algunas ocasiones, al intentar cargar objetos en la pantalla de mapa, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o el límite de memoria disponible. En estos casos, se sugiere exportar el resultado en lugar de tratar de cargarlo en la pantalla de mapa y después visualizarlo de manera local en algún SIG o *software* similar (por ejemplo, QGIS).
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-La proyección por defecto para mostrar la información en la pantalla de mapas corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: https://epsg.io/. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.
+La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: https://epsg.io/. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.
 :::
 ::::
 
@@ -79,7 +77,7 @@ El código de los colores pasados al argumento de `palette` o `color` correspond
 
 #### Map.centerObject {-}
 \index{Map.centerObject}
-Esta función permite centrar la pantalla de mapas en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
+Esta función permite centrar la pantalla de mapa en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.
 
 ```{js, echo = T}
 Map.setCenter(-39.86, 20.52, 5)
@@ -152,13 +150,13 @@ knitr::include_graphics("Img/chartEjemplo.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El nombre de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
+Los nombres de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.
 :::
 ::::
                                               
 ## Exportación de objetos fuera de GEE
 
-Este grupo de funciones permiten exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca `Export.` Sin embargo, sólo existen cuatro formatos válidos para exportar desde GEE: ráster (`ee.Image`), vector (`ee.FeatureCollection`), mapa y vídeo.
+Este grupo de funciones permite exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca `Export.` Sin embargo, solo existen cuatro formatos válidos para exportar desde GEE: ráster (`ee.Image`), vector (`ee.FeatureCollection`), mapa y video.
 
 #### Export.image {-}
 \index{Export.image}
@@ -168,11 +166,11 @@ En el caso de las imágenes (ráster, `ee.Image`), la función para exportarlas 
 *	`Export.image.toDrive` 
 *	`Export.image.toCloudStorage`
 
-El primero permite exportar la imagen (ráster) a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil para cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarlo al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que creemos es más común para cualquier usuario será la de `Export.image.toDrive`. Para exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizar la información, cuyo nombre se define en el argumento de `folder`.
+La primera permite exportar la imagen (ráster) a la sección de **Assets**, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarla al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que consideramos es más común para cualquier usuario será la de `Export.image.toDrive`. Al exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizarla y definir su nombre en el argumento de `folder`.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Sólo se pueden exportar imágenes en formato `ee.Image`. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (`ee.Image`) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TFRecord (tensores), siendo la primera la opción por defecto.
+Solo se pueden exportar imágenes en formato `ee.Image`. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (`ee.Array`), tras lo cual hay que volver a convertir la información a formato de imagen (`ee.Image`) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TFRecord (tensores), siendo la primera la opción por defecto.
 :::
 ::::
 
@@ -209,7 +207,7 @@ En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000
 
 #### Export.table {-}
 \index{Export.table}
-Por su parte, el formato vector (`ee.Feature`) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (`ee.FeatureCollection`). Al igual que en el caso de las imágenes, dentro de GEE hay 3 opciones para exportar objetos de tipo vector: 
+Por su parte, el formato vector (`ee.Feature`) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (`ee.FeatureCollection`). Al igual que en el caso de las imágenes, dentro de GEE hay tres opciones para exportar objetos de tipo vector: 
 
 *	`Export.table.toAsset`.
 *	`Export.table.toDrive`.
@@ -235,27 +233,27 @@ Export.table.toDrive({
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-GEE permite exportar información en formato vector sólo en formato CSV, GeoJSON, KML, KMZ, SHP, o TFRecord. El primer formato es el formato predeterminado. 
+GEE permite exportar información en formato vector solo en formato CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado. 
 :::
 ::::
 
 #### Export.video {-}
 \index{Export.video}
-Esta opción permite exportar una colección de imágenes como vídeo, ya sea al almacenamiento de la nube de Google o al Drive.
+Esta opción permite exportar una colección de imágenes como video, ya sea al almacenamiento de la nube de Google o al Drive.
 
 *	`Export.video.toCloudStorage`.
 *	`Export.video.toDrive`.
 
-Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. A continuación se muestra cómo exportar una colección de imágenes en vídeo:
+Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. A continuación se muestra cómo exportar una colección de imágenes en video:
 
 ```{js echo = T}
 Export.video.toDrive({
   // Definir la colección de imágenes a exportar
   collection: coleccionImgs,
-  // Especificar el nombre con el que se va a guardar el vídeo
+  // Especificar el nombre con el que se va a guardar el video
   // en el Google Drive
   description: 'videoTimelapse',
-  // Definir la carpeta donde se va a exportar el vídeo
+  // Definir la carpeta donde se va a exportar el video
   folder: 'mifolder',
   // Determinar el número de cuadros por segundo
   framesPerSecond: 24

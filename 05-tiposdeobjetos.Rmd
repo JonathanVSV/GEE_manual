@@ -1,13 +1,13 @@
 \newpage
 # Tipos de objetos
 
-Dentro de GEE existe una diversidad amplia de tipos de objetos, por ejemplo, objetos de tipo numérico, listas, cadenas de caracteres, entre otras. Sin embargo, esta variedad de objetos se puede agrupar en dos grandes rubros: en objetos del lado del cliente y en objetos del servidor, de acuerdo al lado donde se va a llevar a cabo el procedimiento deseado.
+Dentro de GEE existe una amplia diversidad de tipos de objetos, por ejemplo: objetos de tipo numérico, listas, cadenas de caracteres, entre otros. Sin embargo, esta variedad de objetos se puede agrupar en dos grandes rubros: objetos del lado del cliente y objetos del servidor, según el lado donde se va a llevar a cabo el procedimiento deseado.
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (`r colorize("Fig.")` \@ref(fig:f51)). De tal manera, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `'cadena'`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String('cadena')`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (`r colorize("Fig.")` \@ref(fig:f51)). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `'cadena'`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String('cadena')`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
 
-En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones sólo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo `ee.Export` (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
+En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `ee.Algorithms.If`. Sin embargo, cabe aclarar que algunas funciones solo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo `ee.Export` (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa `Map.addLayer` o crear gráficos, así como imprimir información en la consola `print`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
 ```{r f51, echo = F, out.width="80%", fig.cap="Representación de los dos lados de programación en GEE: del cliente y el servidor."}
 knitr::include_graphics("Img/daigFunc.png")
@@ -15,9 +15,9 @@ knitr::include_graphics("Img/daigFunc.png")
 
 ## Tipos de objetos del lado del cliente
 
-#### Cadenas de texto {-}
+### Cadenas de texto {-}
 
-Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas bien sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f52)):
+Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas ya sean dobles `“ ”` o sencillas `’ ’`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f52)):
 
 <!-- \index{Ejercicio 5.1} -->
 
@@ -53,7 +53,7 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 knitr::include_graphics("Img/ej0.png")
 ```
 
-#### Números {-}
+### Números {-}
 
 Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f53)):
 
@@ -76,7 +76,7 @@ Para los objetos numéricos no se usan las comillas.
 :::
 ::::
 
-#### Listas {-}
+### Listas {-}
 
 Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes `[]` y cada entrada es separada mediante una coma `,` . Por ejemplo (`r colorize("Fig.")` \@ref(fig:f54)):
 
@@ -101,13 +101,13 @@ Todas las listas automáticamente asignan, en orden, un número a cada elemento 
 Ejercicio 2.1
 
 ```{js, echo = T}
-// Primer objeto de la lista llamada "lista"
+// Primer objeto de la lista llamada 'lista'
 print(lista[0]); 
 
-// Segundo objeto de la lista llamada "listaA"
+// Segundo objeto de la lista llamada 'listaA'
 print(listaA[1]);
 
-// Tercer objeto de la lista llamada "listaB"
+// Tercer objeto de la lista llamada 'listaB'
 print(listaB[2]);
 
 // Lista completa con todos sus elementos
@@ -118,18 +118,18 @@ knitr::include_graphics("Img/ej2.png")
 ```
 
 
-#### Diccionarios {-}
+### Diccionarios {-}
 
-Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se crean mediante el uso de llaves `{}` donde se indica cada clave seguida de dos puntos `:` y su definición, ya sea un valor, cadena de caracteres, o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
+Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se crean mediante el uso de llaves `{}` donde se indica cada clave seguida de dos puntos `:` y su definición, ya sea un valor, cadena de caracteres o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.
 
-Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no tengan espacios dentro de ellas, en su lugar se recomienda usar guion bajo (`_`) o la notación de *lowerCamelCase*. Al hacer `print` se ordenarán alfabéticamente las claves (`r colorize("Fig.")` \@ref(fig:f55)).
+Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no haya espacios dentro de ellas, en su lugar se aconseja usar guion bajo (`_`) o la notación de *lowerCamelCase*. Al hacer `print` se ordenarán alfabéticamente las claves (`r colorize("Fig.")` \@ref(fig:f55)).
 
 Ejercicio 3 
 
 ```{js, echo = T}
 // Se declara un nuevo diccionario.
-// La primera entrada es el texto "clave1" que está definido con el valor
-// de 1 (tipo número) la segunda entrada es el texto "clave2", y su 
+// La primera entrada es el texto 'clave1' que está definido con el valor
+// de 1 (tipo número) la segunda entrada es el texto 'clave2', y su 
 // definición es la letra 'A' (tipo cadena de texto)
 var dicc = {   
   clave1: 1,      
@@ -138,7 +138,7 @@ var dicc = {
       
 ```
 
-Para consultar los valores dentro de un diccionario se puede hacer de dos formas (Fig. 5.5): 
+Hay dos formas de consultar los valores dentro de un diccionario (Fig. 5.5): 
 
   * Llamar directamente el nombre de la clave deseada dentro de  comillas en un par de corchetes `['']`.
   * Utilizar la notación de `.` seguida del nombre de la clave. 
@@ -173,15 +173,15 @@ Para los diccionarios se recomienda utilizar la notación de `.` seguida del nom
 :::
 ::::
 
-#### Funciones {-}
+### Funciones {-}
 \index{function}
 Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la palabra `function` (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función `return`. Por ejemplo:
 
 ```{js, echo = T}
-// MaskIm es una nueva función, y su argumento de entrada es "objeto"
+// MaskIm es una nueva función, y su argumento de entrada es objeto
 var maskIm = function(objeto){ 
 
-// Se define qué "objeto" es una imagen ráster y se guarda en la 
+// Se define qué objeto es una imagen ráster y se guarda en la 
 // variable image
 var image = ee.Image(objeto)     
  
@@ -203,7 +203,7 @@ Aunque las funciones son propiamente objetos del lado del cliente, deben contene
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Las funciones que se ejecuten sobre una colección de imágenes o vectores sólo funcionan si regresan un objeto de tipo `ee.Feature`, `ee.FeatureCollection`, `ee.Image` o `ee.ImageCollection`, por lo cual, a veces, se deben realizar ciertas conversiones para evitar un error.
+Las funciones que se ejecuten sobre una colección de imágenes o vectores solo funcionan si regresan un objeto de tipo `ee.Feature`, `ee.FeatureCollection`, `ee.Image` o `ee.ImageCollection`, por lo cual, a veces, se deben realizar ciertas conversiones para evitar un error.
 :::
 ::::
 
@@ -221,14 +221,13 @@ Los objetos del lado del servidor se pueden conceptualizar como contenedores que
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo, al usar, en casos particulares, los métodos `.first` ó `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `“...is not a function”`.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo, al usar, en casos particulares, los métodos `.first` o `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `“...is not a function”`.
 :::
 ::::
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para revisar todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se pueden consultar la sección de **Client libraries** en el siguiente enlace: https://developers.google.com/earth-engine/apidocs 
-En **Client libraries** se indican cuáles argumentos acepta cada método o función, así como el tipo de objeto de la salida.
+Todos los métodos disponibles en GEE clasificados por tipo de objeto del servidor se pueden consultar en la sección de **Client libraries** en el siguiente enlace: https://developers.google.com/earth-engine/apidocs. En **Client libraries** se indican cuáles argumentos acepta cada método o función, así como el tipo de objeto de la salida.
 :::
 ::::
 
@@ -238,7 +237,7 @@ En **Client libraries** se indican cuáles argumentos acepta cada método o func
 knitr::include_graphics("Img/objetosServ2.png")
 ```
 
-#### ee.String {-}
+### ee.String {-}
 \index{ee.String}
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f57)):
 
@@ -255,21 +254,21 @@ var cadenaServ = ee.String(cadena2);
 knitr::include_graphics("Img/ej4.png")
 ```
 
-#### ee.Number {-}
+### ee.Number {-}
 \index{ee.Number}
 Permite enviar un número como objeto al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f58)):
 
 Ejercicio 5
 
 ```{js, echo = T}
-// Se define un número como `ee.Number` del servidor
+// Se define un número como ee.Number del servidor
 var numServ = ee.Number(1900);                              
 ```
 ```{r f58, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo número del lado del servidor."}
 knitr::include_graphics("Img/ej5.png")
 ```
 
-#### ee.List {-}
+### ee.List {-}
 \index{ee.List}
 Este tipo de objetos corresponden a listas del lado del servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f59)):
 
@@ -284,12 +283,12 @@ var lista = ['hola','12','5%', ee.String('servidor'), ee.Number(64), 8.32];
 var listaServ = ee.List(lista);             
 ```
 
-Para acceder a un elemento de tipo `ee.List` se utiliza el método `.get` (`r colorize("Fig.")` \@ref(fig:f59). 
+Para acceder a un elemento de tipo `ee.List` se utiliza el método `.get` (`r colorize("Fig.")` \@ref(fig:f59)). 
 
 Ejercicio 6.1
 
 ```{js, echo = T}
-// Se llama solamente al primero objeto de la ee.List del servidor
+// Se llama solamente al primer objeto de la ee.List del servidor
 print(listaServ.get(0));   
 
 // Se llama solamente al segundo objeto de la ee.List del servidor
@@ -299,9 +298,9 @@ print(listaServ.get(1));
 knitr::include_graphics("Img/ej6.png")
 ```
 
-#### ee.Dictionary {-}
+### ee.Dictionary {-}
 \index{ee.Dictionary}
-Permite enviar un objeto como diccionario al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f510)):
+Permite enviar un objeto como diccionario al servidor. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f510)).
 
 Ejercicio 7
 
@@ -335,7 +334,7 @@ print(diccServ.get('lista_de_servidor'));
 print(diccServ.get('numero_de_usuario'));        
 ```
 
-Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, la cual devuelve una lista (`r colorize("Fig.")` \@ref(fig:f510)).
+Por último, si se desea obtener las claves disponibles en un `ee.Dictionary` se utiliza el método `.keys`. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un `ee.Dictionary` se utiliza el método `.values`, el cual devuelve una lista (`r colorize("Fig.")` \@ref(fig:f510)).
 
 Ejercicio 7.2
 
@@ -350,7 +349,7 @@ print('valores',diccServ.values());
 knitr::include_graphics("Img/ej7.png")
 ```
 
-#### ee.Date {-}
+### ee.Date {-}
 \index{ee.Date}
 Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construir una fecha específica (`r colorize("Fig.")` \@ref(fig:f511)):
 
@@ -393,62 +392,62 @@ var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul');
 ```
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX: que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX, que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.
 :::
 ::::
 ```{r f511, echo = F, out.width="80%", fig.cap="Salida de la consola de un objeto de tipo fecha del lado del servidor."}
 knitr::include_graphics("Img/ej8.png")
 ```
 
-#### ee.Image {-}
+### ee.Image {-}
 \index{ee.Image}
 La definición de objetos `ee.Image` (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.
 
-#### ee.ImageCollection {-}
+### ee.ImageCollection {-}
 \index{ee.ImageCollection}
 Las colecciones de imágenes (*image collections*) están formadas por imágenes individuales (`ee.Image`). Más adelante se explica este tipo de objetos con mayor detalle.
 
-#### ee.Feature {-}
+### ee.Feature {-}
 \index{ee.Feature}
 Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vector o tabla. Más adelante se explica este tipo de objeto con mayor detalle.
 
-#### ee.FeatureCollection {-}
+### ee.FeatureCollection {-}
 \index{ee.FeatureCollection}
-Las colecciones de vectores (*feature collections*) están formadas por varios vectores (`ee.Feature`). Más adelante se explica estos objetos con mayor detalle.
+Las colecciones de vectores (*feature collections*) están formadas por varios vectores (`ee.Feature`). Más adelante se explican estos objetos con mayor detalle.
 
-#### ee.Algorithms {-}
+### ee.Algorithms {-}
 \index{ee.Algorithms}
 Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, por ejemplo, `ee.Algorithms.If`, hasta algoritmos de segmentación temporal de una serie de imágenes, por ejemplo, `ee.Algorithms.TemporalSegmentation.Ccdc`.
 
-#### ee.Array {-}
+### ee.Array {-}
 \index{ee.Array}
 Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de `ee.Array` (ver liga anterior).
 
-#### ee.Classifier {-}
+### ee.Classifier {-}
 \index{ee.Classifier}
 Este tipo de objetos corresponden a algoritmos de clasificación supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de random forest, disponible mediante la función `ee.Classifier.smileRandomForest` o MaxEnt, disponible mediante la función `ee.Classifier.amnhMaxent`, entre otros.
 
-#### ee.Clusterer {-}
+### ee.Clusterer {-}
 \index{ee.Clusterer}
 Este tipo de objetos corresponden a algoritmos de clasificación no supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de k-means, disponible mediante la función `ee.Clusterer.wekaKMeans` o Cobweb, disponible mediante la función `ee.Clusterer.wekaCobweb`.
 
-#### ee.Filter {-}
+### ee.Filter {-}
 \index{ee.Filter}
 Este tipo de objetos se utilizan para filtrar colecciones, ya sean de vectores o de imágenes. También permiten definir filtros de distintos tipos, ya sean espaciales, temporales o en función de características de las imágenes o vectores (por ejemplo, metadatos). Por último, contienen métodos para combinar filtros.
 
-#### ee.Geometry {-}
+### ee.Geometry {-}
 \index{ee.Geometry}
-Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, por ejemplo, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o `ee.Geometry.Polygon.area` para calcular el área de un polígono.
+Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, `ee.Geometry.MultiPolygon.Simplify` para simplificar polígonos múltiples o `ee.Geometry.Polygon.area` para calcular el área de un polígono, por ejemplo.
 
-#### ee.Join {-}
+### ee.Join {-}
 \index{ee.Join}
 Este conjunto de métodos permite realizar uniones entre colecciones de vectores o imágenes, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante `ee.Join.merge` o unir los campos de una primera colección con los de una segunda mediante `ee.Join.inner`.
 
-#### ee.Reducer {-}
+### ee.Reducer {-}
 \index{ee.Reducer}
 Los reductores permiten agregar datos basados en una regla o utilizando una operación matemática determinada. Este tipo de métodos son los utilizados para generar, por ejemplo, una sola imagen a partir de varias imágenes que comparten una misma extensión espacial. El tipo de reductor define el tipo de agregación que se desea aplicar, por ejemplo, se puede reducir con una sencilla estadística (mínimo, máximo, media, moda, mediana, etc.) o con reductores más complejos (histogramas, enlistar, regresión lineal). Las reducciones se pueden realizar sobre las bandas de las imágenes o los atributos de los vectores.
 
-#### ee.Terrain {-}
+### ee.Terrain {-}
 \index{ee.Terrain}
 Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos `ee.Terrain.aspect` para calcular el aspecto o `ee.Terrain.slope` para calcular la pendiente.
 

@@ -7,7 +7,7 @@ Las geometrías (`ee.Geometry`) son objetos que permiten leer y manejar formas g
 \index{area}
 \index{type}
 \index{coordinates}
-Dependiendo del tipo de geometría, se pueden consultar algunas características de estos como el área de un polígono mediante `.area`, el tipo de la geometría mediante `.type` o las coordenadas mediante `.coordinates`. 
+Dependiendo del tipo de geometría, se pueden consultar algunas características de la información y los metadatos, como el área de un polígono mediante `.area`, el tipo de la geometría mediante `.type` o las coordenadas mediante `.coordinates`. 
 
 ## Creación de geometrías
 
@@ -142,7 +142,7 @@ Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor
 knitr::include_graphics("Img/geometrias.png")
 ```
 
-A continuación se describe cada función de las herramientas de geometrías de izquierda a derecha (`r colorize("Fig.")` \@ref(fig:f63)). La primera, con el símbolo de una mano, permite moverse por el mapa. Las demás herramientas permiten crear geometrías de diferente tipo: la segunda, de tipo punto, la tercera, de tipo línea, la cuarta, de tipo polígono y la quinta, también de tipo polígono, pero se enfoca en crear rectángulos a partir de dos vértices.
+A continuación se describe cada función de las herramientas de geometrías de izquierda a derecha (`r colorize("Fig.")` \@ref(fig:f63)). La primera, con el símbolo de una mano, permite moverse por el mapa. Las demás herramientas permiten crear geometrías de diferente tipo: la segunda, de tipo punto; la tercera, de tipo línea; la cuarta, de tipo polígono y la quinta, también de tipo polígono, pero se enfoca en crear rectángulos a partir de dos vértices.
 
 ```{r f63, echo = F, out.width="50%", fig.cap="Acercamiento a las herramientas de geometrías en la pantalla de mapa."}
 knitr::include_graphics("Img/herrams.png")
@@ -162,13 +162,13 @@ Todas las geometrías dibujadas se importarán como una sola colección, pero si
 knitr::include_graphics("Img/nuevaGeo.png")
 ```
 
-Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado), o cambiar la configuración (en el engranaje; `r colorize("Fig.")` \@ref(fig:f66)).
+Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado) o cambiar la configuración (en el engranaje; `r colorize("Fig.")` \@ref(fig:f66)).
 
 ```{r f66, echo = F, out.width="40%", fig.cap="Ubicación de las herramientas de candado y engranaje."}
 knitr::include_graphics("Img/dibujarGeo.png")
 ```
 
-Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada **Name** (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de **Import as** (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), cambiar el color de la geometría dibujada eliminar la geometría (al ingresar el código hexadecimal en la caja nombrada **Color** o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice **+ Property**; `r colorize("Fig.")` \@ref(fig:f67)).
+Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada **Name** (por defecto es 'geometry'), elegir el tipo de geometría en el recuadro de **Import as** (geometría `ee.Geometry`, vector `ee.Feature` o colección de vectores `ee.FeatureCollection`), eliminar la geometría o cambiar el color de la geometría dibujada (al ingresar el código hexadecimal en la caja nombrada **Color** o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice **+ Property**; `r colorize("Fig.")` \@ref(fig:f67)).
 
 ```{r f67, echo = F, out.width="80%", fig.cap="Ejemplo de modificación de las propiedades de las geometrías."}
 knitr::include_graphics("Img/menuGeo.png")
@@ -176,10 +176,10 @@ knitr::include_graphics("Img/menuGeo.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Recordar que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (`ee.Feature`) o colecciones de vectores (`ee.FeatureCollection`)
+Recuerde que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (`ee.Feature`) o colecciones de vectores (`ee.FeatureCollection`)
 :::
 ::::
 
 ## Métodos comunes
 
-La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre los vectores, así que dichos métodos sólo se describirán en la sección de vectores en el siguiente capítulo.
+La mayoría de los métodos que se pueden utilizar sobre una geometría suelen ser los mismos que sobre los vectores, así que dichos métodos solo se describirán en la sección de vectores en el siguiente capítulo.
