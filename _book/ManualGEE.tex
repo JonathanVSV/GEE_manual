@@ -1413,7 +1413,7 @@ Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se def
 \begin{Highlighting}[]
 
 \CommentTok{// Cadena de texto de solo letras}
-\KeywordTok{var}\NormalTok{ cadena }\OperatorTok{=}\NormalTok{ “Esto es una cadena de caracteres”}\OperatorTok{;}
+\KeywordTok{var}\NormalTok{ cadena }\OperatorTok{=} \StringTok{\textquotesingle{}Esto es una cadena de caracteres\textquotesingle{}}\OperatorTok{;}
 
 \CommentTok{// Cadena de texto de solo números}
 \KeywordTok{var}\NormalTok{ telefono}\OperatorTok{=} \StringTok{\textquotesingle{}1234567890\textquotesingle{}}\OperatorTok{;}  
@@ -1500,10 +1500,10 @@ Ejercicio 2
 \KeywordTok{var}\NormalTok{ lista }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\OperatorTok{,} \DecValTok{2}\OperatorTok{,} \DecValTok{3}\OperatorTok{,} \DecValTok{4}\OperatorTok{,} \DecValTok{5}\OperatorTok{,} \DecValTok{6}\OperatorTok{,} \DecValTok{7}\OperatorTok{,} \DecValTok{8}\NormalTok{]}\OperatorTok{;}   
   
 \CommentTok{// Lista de texto            }
-\KeywordTok{var}\NormalTok{ listaA }\OperatorTok{=}\NormalTok{ [“primero”}\OperatorTok{,}\NormalTok{ “segundo”}\OperatorTok{,}\NormalTok{ “tercero”]}\OperatorTok{;} 
+\KeywordTok{var}\NormalTok{ listaA }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}primero\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}segundo\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}tercero\textquotesingle{}}\NormalTok{]}\OperatorTok{;} 
    
 \CommentTok{// Lista de texto y números  }
-\KeywordTok{var}\NormalTok{ listaB }\OperatorTok{=}\NormalTok{ [“primero”}\OperatorTok{,}\NormalTok{ “segundo”}\OperatorTok{,}\NormalTok{ “tercero”}\OperatorTok{,} \DecValTok{4}\NormalTok{]}\OperatorTok{;} 
+\KeywordTok{var}\NormalTok{ listaB }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}primero\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}segundo\textquotesingle{}}\OperatorTok{,} \StringTok{\textquotesingle{}tercero\textquotesingle{}}\OperatorTok{,} \DecValTok{4}\NormalTok{]}\OperatorTok{;} 
 
 \CommentTok{// Lista de listas  }
 \KeywordTok{var}\NormalTok{ listaC }\OperatorTok{=}\NormalTok{ [lista}\OperatorTok{,}\NormalTok{ listaA}\OperatorTok{,}\NormalTok{ listaB]}\OperatorTok{;} 
@@ -1676,7 +1676,7 @@ Los objetos del lado del servidor se pueden conceptualizar como contenedores que
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, \texttt{ee.Object}) como por ejemplo, al usar, en casos particulares, los métodos \texttt{.first} o \texttt{.get}, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error \texttt{“...is\ not\ a\ function”}.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, \texttt{ee.Object}) como por ejemplo, al usar, en casos particulares, los métodos \texttt{.first} o \texttt{.get}, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error \texttt{...is\ not\ a\ function}.
 
 \end{awesomeblock}
 
@@ -1875,7 +1875,7 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Se puede usar un texto de usuario indicando la fecha en el siguiente formato: ``AAAA-MM-DD'', esta fecha obligatoriamente debe:
+  Se puede usar un texto de usuario indicando la fecha en el siguiente formato: `AAAA-MM-DD', esta fecha obligatoriamente debe:
 
   \begin{itemize}
   \tightlist
@@ -3666,7 +3666,7 @@ Los argumentos específicos para exportar a drive \texttt{Export.table.toDrive} 
   \item
     `CSV', valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este formato es el más utilizado para exportar colecciones de vectores sin geometrías (es decir, una simple tabla de atributos).
   \item
-    `GeoJSON' (\emph{Geographic JavaScript Object Notation}). Formato basado en el lenguaje JSON (``JavaScript Object Notation'') para almacenar datos vectoriales y sus atributos.
+    `GeoJSON' (\emph{Geographic JavaScript Object Notation}). Formato basado en el lenguaje JSON (\emph{JavaScript Object Notation}) para almacenar datos vectoriales y sus atributos.
   \item
     `KML' (\emph{Keyhole Markup Language}). Formato utilizado sobre todo por Google para almacenar datos espaciales y tablas de atributos asociados a ellos.
   \item
@@ -4179,11 +4179,15 @@ Ejercicio 27.11
 \end{figure}
 
 \index{mask}
-:::: \{.bluebox2 data-latex=````\}
-::: \{.awesomeblock data-latex=''\{5pt\}\{\faLightbulb\}\{darkblue\}``\}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
 Aunque en GEE existe el método \texttt{.mask} para enmascarar áreas de una imagen, se sugiere siempre utilizar \texttt{.updateMask}. El método \texttt{.mask} simplemente sustituye la máscara original de la imagen, mientras que \texttt{.updateMask} combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.
-:::
-::::
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 \hypertarget{adiciuxf3n-de-bandas}{%
 \subsection*{Adición de bandas}\label{adiciuxf3n-de-bandas}}
@@ -4673,11 +4677,15 @@ Para trabajar con una colección de imágenes se sugiere que primero se apliquen
 
 \index{and}
 \index{or}
-:::: \{.bluebox2 data-latex=````\}
-::: \{.awesomeblock data-latex=''\{5pt\}\{\faLightbulb\}\{darkblue\}``\}
+
+\begin{bluebox2}
+
+\begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
 Para combinar varios filtros se utiliza \texttt{ee.Filter.and} o \texttt{ee.Filter.or} dependiendo de si se desea que se cumplan todas las condiciones indicadas (\texttt{and}) o alguna de ellas (\texttt{or}).
-:::
-::::
+
+\end{awesomeblock}
+
+\end{bluebox2}
 
 \hypertarget{selecciuxf3n-de-bandas-1}{%
 \subsection*{Selección de bandas}\label{selecciuxf3n-de-bandas-1}}

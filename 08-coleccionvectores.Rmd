@@ -767,7 +767,7 @@ Los argumentos específicos para exportar a drive `Export.table.toDrive` son:
 *	`FileFormat` (formato del archivo): el tipo de formato en el que se exportará la colección de archivos. GEE permite las siguientes opciones:
 
     -	'CSV', valor por defecto, vectores separados por comas. Este formato consta de valores separados por comas, en el que cada coma indica una columna distinta. Este formato es el más utilizado para exportar colecciones de vectores sin geometrías (es decir, una simple tabla de atributos).
-    -	'GeoJSON' (*Geographic JavaScript Object Notation*). Formato basado en el lenguaje JSON ("JavaScript Object Notation") para almacenar datos vectoriales y sus atributos.
+    -	'GeoJSON' (*Geographic JavaScript Object Notation*). Formato basado en el lenguaje JSON (*JavaScript Object Notation*) para almacenar datos vectoriales y sus atributos.
     -	'KML' (*Keyhole Markup Language*). Formato utilizado sobre todo por Google para almacenar datos espaciales y tablas de atributos asociados a ellos.
     -	'KMZ' (*KML zipped*). Formato que consta de un KML comprimido. 
     -	'SHP' (*Shapefile*). Formato utilizado por ESRI para almacenar vectores y tablas de atributos asociados a ellos.

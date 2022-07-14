@@ -144,6 +144,7 @@ Para trabajar con una colección de imágenes se sugiere que primero se apliquen
 ::::
 \index{and}
 \index{or}
+
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 Para combinar varios filtros se utiliza `ee.Filter.and` o `ee.Filter.or` dependiendo de si se desea que se cumplan todas las condiciones indicadas (`and`) o alguna de ellas (`or`).

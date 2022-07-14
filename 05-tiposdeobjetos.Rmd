@@ -26,7 +26,7 @@ Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se def
 ```{js, echo = T}
 
 // Cadena de texto de solo letras
-var cadena = “Esto es una cadena de caracteres”;
+var cadena = 'Esto es una cadena de caracteres';
 
 // Cadena de texto de solo números
 var telefono= '1234567890';  
@@ -87,10 +87,10 @@ Ejercicio 2
 var lista = [1, 2, 3, 4, 5, 6, 7, 8];   
   
 // Lista de texto            
-var listaA = [“primero”, “segundo”, “tercero”]; 
+var listaA = ['primero', 'segundo', 'tercero']; 
    
 // Lista de texto y números  
-var listaB = [“primero”, “segundo”, “tercero”, 4]; 
+var listaB = ['primero', 'segundo', 'tercero', 4]; 
 
 // Lista de listas  
 var listaC = [lista, listaA, listaB]; 
@@ -221,7 +221,7 @@ Los objetos del lado del servidor se pueden conceptualizar como contenedores que
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo, al usar, en casos particulares, los métodos `.first` o `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `“...is not a function”`.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo, al usar, en casos particulares, los métodos `.first` o `.get`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `...is not a function`.
 :::
 ::::
 
@@ -353,7 +353,7 @@ knitr::include_graphics("Img/ej7.png")
 \index{ee.Date}
 Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construir una fecha específica (`r colorize("Fig.")` \@ref(fig:f511)):
 
-1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: “AAAA-MM-DD”, esta fecha obligatoriamente debe:
+1.	Se puede usar un texto de usuario indicando la fecha en el siguiente formato: 'AAAA-MM-DD', esta fecha obligatoriamente debe:
     *	Usar la función `ee.Date`.
     *	Indicar la fecha en el orden de Año Mes Día (AAAA-MM-DD).
     *	Usar guiones como separadores `-`.
