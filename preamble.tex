@@ -15,17 +15,23 @@
 \usepackage[spanish, mexico]{babel}
 % Agregar guión a palabras que no quepan
 \usepackage{hyphenat}
-% Título secundario
+% Control de títulos en el texto
 \usepackage{titlesec}
+% Control de títulos en el table of contents
+% Mejor usar este en lugar de tocloft
+%\usepackage{titletoc}
 % Para el control de viudas y huerfanos
 \usepackage[defaultlines=4,all]{nowidow}
 %\usepackage{flafter}
 % Para poner figuras en floats
 \usepackage{float}
-
-\usepackage{tocloft}
-
+% Para manejo de índice
+\usepackage[titles]{tocloft}
 \usepackage{makeidx}
+
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
+\renewcommand{\cftdot}{}
+
 %\makeindex
 %\floatplacement{figure}{btp}
 
@@ -38,7 +44,7 @@
 % Cambiar el color para los títulos de figuras
 \usepackage[labelfont={color=darkblue,bf},singlelinecheck=off,center]{caption}
 
-% Re definir títulos y formato
+% Re definir títulos y formato con titlesec
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 \titlelabel{\thetitle\quad}
@@ -48,8 +54,24 @@
 \titleformat*{\subsubsection}{\normalfont\normalsize\bfseries\color{darkblue}}
 
 % title spacings
-\titlespacing*{\chapter}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing*{\chapter}{0pt}{2.5ex}{2.5ex}
 \titlespacing{\title}{0pt}{\parskip}{-\parskip}
+
+% Pa definir formato de los table of contents con titletoc
+% Capítulo, espacio de izquierda entre número y capítulo
+%\titlecontents{chapter}[1.4em]{\large\bfseries}
+% Numbered entry format
+%{\contentslabel[{\thecontentslabel}]{1.5em}}{}
+% Filter page format and below code in brackets
+%{\titlerule*[1pc]{}\contentspage}[\addvspace{6pt}]
+% Aumentar espacio entre número y letras de capítulos
+
+% Secciones
+% Name of section to edit, left spacing, vertical spacing
+%\titlecontents{section}[3.9 em]{\vspace{-0.3cm}}
+%{}{}
+%{\contentslabel[{\thecontentslabel}]{2.3em}}{}
+%{\titlerule*[0.7pc]{}\contentspage}[\addvspace{4pt}]
 
 % Definir cajas de color
 \newtcolorbox{bluebox2}{
@@ -77,15 +99,24 @@
 \renewcommand{\textfraction}{.05}
 \renewcommand{\floatpagefraction}{.75}
 
+% Para modificar los colores del table of contents to tocloft
+%\renewcommand{\cftchapfont}{\bfseries\color{darkblue}}% Chapter colour
+%\renewcommand{\cftsecfont}{\color{darkblue}}% Section colour
+%\renewcommand{\cftsubsecfont}{\color{black}}}% Subsection colour
+
+% Spacing using tocloft
+\advance\cftsecnumwidth 0.5em\relax
+\advance\cftsubsecindent 0.5em\relax
+\advance\cftsubsecnumwidth 0.5em\relax
+
+% Title TOC color
+\renewcommand{\cfttoctitlefont}{\normalfont\LARGE\bfseries\color{darkblue}}
+
 % Tratar de cambiar lista de tablas a ejercicios
 %\renewcommand{\listtablename}{Lista de Ejercicios}
 
 %\renewcommand{\familydefault}{\rmdefault}
 %\renewcommand{\ttdefault}{\ttdefault}
-
-\advance\cftsecnumwidth 0.5em\relax
-\advance\cftsubsecindent 0.5em\relax
-\advance\cftsubsecnumwidth 0.5em\relax
 
 %\renewcommand\headrulewidth{1pt}
 %\pagestyle{fancy} 
