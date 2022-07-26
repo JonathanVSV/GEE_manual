@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cierre.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+true
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="referencias" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Referencias<a href="referencias.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="line-block">Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., … Brisco, B. (2020). Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5326–5350. <a href="https://doi.org/10.1109/JSTARS.2020.3021052" class="uri">https://doi.org/10.1109/JSTARS.2020.3021052</a></div>
+<div class="line-block">Arévalo, P., Bullock, E. L., Woodcock, C. E., &amp; Olofsson, P. (2020). A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine. Frontiers in Climate, 2, 576740. <a href="https://doi.org/10.3389/fclim.2020.576740" class="uri">https://doi.org/10.3389/fclim.2020.576740</a></div>
+<div class="line-block">Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., &amp; Matricardi, E. A. T. (2021). An alternative approach for mapping burn scars using Landsat imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna. Remote Sensing Applications: Society and Environment, 22, 100472. <a href="https://doi.org/10.1016/j.rsase.2021.100472" class="uri">https://doi.org/10.1016/j.rsase.2021.100472</a></div>
+<div class="line-block">Basso, K., De Avila Zingano, P. R., &amp; Dal Sasso Freitas, C. M. (1999). Interpolation of scattered data: investigating alternatives for the modified Shepard method, XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), 39-47. <a href="https://doi.org/10.1109/SIBGRA.1999.805606" class="uri">https://doi.org/10.1109/SIBGRA.1999.805606</a>.</div>
+<div class="line-block">Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.</div>
+<div class="line-block">Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). <em>Classification and Regression Trees</em>. Wadsworth, Belmont, EUA.</div>
+<div class="line-block">Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., &amp; Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. <a href="https://doi.org/10.3390/rs10081167" class="uri">https://doi.org/10.3390/rs10081167</a></div>
+<div class="line-block">Chuvieco, E. (1995). <em>Fundamentos de Teledetección Espacial</em>. Segunda edición. Ediciones RIALP, Madrid, España.</div>
+<div class="line-block">Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273–297.</div>
+<div class="line-block">Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., … Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142–154. <a href="https://doi.org/10.1016/j.rse.2016.02.016" class="uri">https://doi.org/10.1016/j.rse.2016.02.016</a></div>
+<div class="line-block">Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics 29, 1189–1232.</div>
+<div class="line-block">Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., &amp; Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202, 18–27. <a href="https://doi.org/10.1016/j.rse.2017.06.031" class="uri">https://doi.org/10.1016/j.rse.2017.06.031</a></div>
+<div class="line-block">Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., &amp; Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. <a href="https://doi.org/10.3390/rs12182953" class="uri">https://doi.org/10.3390/rs12182953</a></div>
+<div class="line-block">Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., … Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342, 850–853. <a href="https://doi.org/http://doi.org/10.1126/science.1244693" class="uri">https://doi.org/http://doi.org/10.1126/science.1244693</a></div>
+<div class="line-block">Kumar, L., Mutanga, O., Kumar, L., &amp; Mutanga, O. (2018). Google Earth Engine Applications Since Inception: Usage, Trends, and Potential. Remote Sensing, 10, 1509. <a href="https://doi.org/10.3390/rs10101509" class="uri">https://doi.org/10.3390/rs10101509</a></div>
+<div class="line-block">Lee, J. S. H., Wich, S., Widayati, A., &amp; Koh, L. P. (2016). Detecting industrial oil palm plantations on Landsat images with Google Earth Engine. Remote Sensing Applications: Society and Environment, 4, 219–224. <a href="https://doi.org/10.1016/j.rsase.2016.11.003" class="uri">https://doi.org/10.1016/j.rsase.2016.11.003</a></div>
+<div class="line-block">Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., &amp; Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10, 1079. <a href="https://doi.org/10.3390/rs10071079" class="uri">https://doi.org/10.3390/rs10071079</a></div>
+<div class="line-block">Olaya, V. (2020). Sistemas de Información Geográfica. CreateSpace Independent Publishing Platform, España. <a href="https://volaya.github.io/libro-sig/" class="uri">https://volaya.github.io/libro-sig/</a></div>
+<div class="line-block">Oshiro, T. M., Perez, P. S., Baranauskas, J. A. (2012). How Many Trees in a Random Forest?. En: Perner, P. (eds) Machine Learning and Data Mining in Pattern Recognition. MLDM 2012. Lecture Notes in Computer Science, 7376. Springer, Berlin, Alemania. <a href="https://doi.org/10.1007/978-3-642-31537-4_13" class="uri">https://doi.org/10.1007/978-3-642-31537-4_13</a></div>
+<div class="line-block">Perilla, G. A., &amp; Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. <a href="https://doi.org/10.14350/rig.59929" class="uri">https://doi.org/10.14350/rig.59929</a></div>
+<div class="line-block">Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p. 83).</div>
+<div class="line-block">Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1, 81–106. <a href="https://doi.org/10.1023/A:1022643204877" class="uri">https://doi.org/10.1023/A:1022643204877</a></div>
+<div class="line-block">Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9, 1–24. <a href="https://doi.org/10.3390/land9110402" class="uri">https://doi.org/10.3390/land9110402</a></div>
+<div class="line-block">Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., &amp; Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. <a href="https://dx.doi.org/10.3390/rs10091488" class="uri">https://dx.doi.org/10.3390/rs10091488</a></div>
+<div class="line-block">Sazib, N., Mladenova, I., &amp; Bolten, J. (2018). Leveraging the google earth engine for drought assessment using global soil moisture data. Remote Sensing, 10, 1265. <a href="https://doi.org/10.3390/rs10081265" class="uri">https://doi.org/10.3390/rs10081265</a></div>
+<div class="line-block">Slagter, B., Tsendbazar, N.-E., Vollrath, A., &amp; Reiche, J. (2020). Mapping wetland characteristics using temporally dense Sentinel-1 and Sentinel-2 data: A case study in the St. Lucia wetlands, South Africa. International Journal of Applied Earth Observation and Geoinformation, 86, 102009. <a href="https://doi.org/10.1016/j.jag.2019.102009" class="uri">https://doi.org/10.1016/j.jag.2019.102009</a></div>
+<div class="line-block">Solórzano, J. V., Gallardo-Cruz, J. A., &amp; Peralta-Carreta, C. (2020). Potencial del acervo de imágenes Landsat disponible en Google Earth Engine para el estudio del territorio mexicano. Investigaciones Geográficas, 101, e59821. <a href="https://doi.org/10.14350/rig.59821" class="uri">https://doi.org/10.14350/rig.59821</a></div>
+<div class="line-block">Solórzano, J. V., Mas, J. F., Gao, Y., &amp; Gallardo-Cruz, J. A. (2020). Patrones espaciotemporales de las observaciones de Sentinel-2 a nivel de imagen y píxel sobre el territorio mexicano entre 2015 y 2019. Revista de Teledetección, 56(Número especial), 103–115. <a href="https://doi.org/10.4995/raet.2020.14044" class="uri">https://doi.org/10.4995/raet.2020.14044</a></div>
+<div class="line-block">Trianni, G., Angiuli, E., Lisini, G., &amp; Gamba, P. (2014). Human settlements from Landsat data using Google Earth Engine. Geoscience and Remote Sensing Symposium, 1473–1476. <a href="https://doi.org/10.1109/IGARSS.2014.6946715" class="uri">https://doi.org/10.1109/IGARSS.2014.6946715</a></div>
+<div class="line-block">Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., &amp; Lee, D. H. (2020). Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods. Applied Sciences, 10, 8083. <a href="https://doi.org/10.3390/app10228083" class="uri">https://doi.org/10.3390/app10228083</a></div>
+<div class="line-block">Webb, G. I. (2011). Naïve Bayes. En: Sammut, C., Webb, G. I. (eds) Encyclopedia of Machine Learning. Springer, Boston, EUA. <a href="https://doi.org/10.1007/978-0-387-30164-8_576" class="uri">https://doi.org/10.1007/978-0-387-30164-8_576</a></div>
+<div class="line-block">Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., … Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225–244. <a href="https://doi.org/10.1016/j.isprsjprs.2017.01.019" class="uri">https://doi.org/10.1016/j.isprsjprs.2017.01.019</a></div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cierre.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ManualGEE.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

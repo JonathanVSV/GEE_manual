@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 ee.Feature | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="7 ee.Feature | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 ee.Feature | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 ee.Feature | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ee.geometry-1.html"/>
+<link rel="next" href="ee.featurecollection-1.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+true
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ee.feature-1" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> ee.Feature<a href="ee.feature-1.html#ee.feature-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>
+Los vectores (<code>ee.Feature</code>) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Es importante recalcar que una <code>ee.Feature</code> es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).</p>
+<div id="información-y-metadatos-1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Información y metadatos<a href="ee.feature-1.html#información-y-metadatos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto <code>ee.Geometry</code>, mientras que para conocer características de las propiedades se puede utilizar el método <code>.propertyNames</code>.</p>
+</div>
+<div id="visualización-de-vectores" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Visualización de vectores<a href="ee.feature-1.html#visualización-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función <code>Map.addLayer</code>, como código hexadecimal.</p>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa, solo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: <a href="https://htmlcolorcodes.com/es/" class="uri">https://htmlcolorcodes.com/es/</a></p>
+</div>
+</div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb28-1"><a href="ee.feature-1.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Especificar el color de la capa </span></span>
+<span id="cb28-2"><a href="ee.feature-1.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(vector <span class="op">,</span> {}<span class="op">,</span> <span class="st">&#39;capa por default&#39;</span>)<span class="op">;</span></span>
+<span id="cb28-3"><a href="ee.feature-1.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(vector<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">&#39;2AF116&#39;</span>}<span class="op">,</span> <span class="st">&#39;capa color verde&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Especificar el color de la capa 
+Map.addLayer(vector , {}, 'capa por default');
+Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
+</script>
+</div>
+<div id="creación-de-vectores" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Creación de vectores<a href="ee.feature-1.html#creación-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f71">7.1</a>):</p>
+<p>Ejercicio 10</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb29-1"><a href="ee.feature-1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un polígono</span></span>
+<span id="cb29-2"><a href="ee.feature-1.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> poligono <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>([</span>
+<span id="cb29-3"><a href="ee.feature-1.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">119.24</span><span class="op">,</span> <span class="fl">32.73</span><span class="op">,</span></span>
+<span id="cb29-4"><a href="ee.feature-1.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">115.02</span><span class="op">,</span> <span class="op">-</span><span class="fl">3.29</span><span class="op">,</span></span>
+<span id="cb29-5"><a href="ee.feature-1.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">66.5</span><span class="op">,</span> <span class="op">-</span><span class="fl">3.29</span><span class="op">,</span></span>
+<span id="cb29-6"><a href="ee.feature-1.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">68.43</span><span class="op">,</span> <span class="fl">32.14</span></span>
+<span id="cb29-7"><a href="ee.feature-1.html#cb29-7" aria-hidden="true" tabindex="-1"></a>])<span class="op">;</span></span>
+<span id="cb29-8"><a href="ee.feature-1.html#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="ee.feature-1.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un vector a partir del polígono y un diccionario de atributos.</span></span>
+<span id="cb29-10"><a href="ee.feature-1.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vector <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(</span>
+<span id="cb29-11"><a href="ee.feature-1.html#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Polígono del vector</span></span>
+<span id="cb29-12"><a href="ee.feature-1.html#cb29-12" aria-hidden="true" tabindex="-1"></a>  poligono<span class="op">,</span>                      </span>
+<span id="cb29-13"><a href="ee.feature-1.html#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Diccionario de atributos con 3 atributos</span></span>
+<span id="cb29-14"><a href="ee.feature-1.html#cb29-14" aria-hidden="true" tabindex="-1"></a>  {<span class="dt">anno</span><span class="op">:</span> <span class="dv">1500</span><span class="op">,</span>                    </span>
+<span id="cb29-15"><a href="ee.feature-1.html#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">tamaño</span><span class="op">:</span> <span class="st">&#39;865 kilometros&#39;</span><span class="op">,</span></span>
+<span id="cb29-16"><a href="ee.feature-1.html#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">nombres</span><span class="op">:</span>[<span class="st">&#39;hugo&#39;</span><span class="op">,</span><span class="st">&#39;paco&#39;</span><span class="op">,</span><span class="st">&#39;luis&#39;</span>]})<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Crear un polígono
+var poligono = ee.Geometry.Polygon([
+  -119.24, 32.73,
+  -115.02, -3.29,
+  -66.5, -3.29,
+  -68.43, 32.14
+]);
+
+// Crear un vector a partir del polígono y un diccionario de atributos.
+var vector = ee.Feature(
+  // Polígono del vector
+  poligono,                      
+  // Diccionario de atributos con 3 atributos
+  {anno: 1500,                    
+  tamaño: '865 kilometros',
+  nombres:['hugo','paco','luis']});
+</script>
+</div>
+<div id="métodos-comunes-1" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Métodos comunes<a href="ee.feature-1.html#métodos-comunes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selección-de-propiedades" class="section level3 unnumbered hasAnchor">
+<h3>Selección de propiedades<a href="ee.feature-1.html#selección-de-propiedades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método <code>.select</code>. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas.</p>
+<p>Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f71">7.1</a>):</p>
+<p>Ejercicio 10</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb30-1"><a href="ee.feature-1.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span>]))<span class="op">;</span></span>
+<span id="cb30-2"><a href="ee.feature-1.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span><span class="op">,</span><span class="st">&#39;tamaño&#39;</span>]))<span class="op">;</span></span>
+<span id="cb30-3"><a href="ee.feature-1.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span><span class="op">,</span><span class="st">&#39;tamaño&#39;</span>]<span class="op">,</span>[<span class="st">&#39;year&#39;</span><span class="op">,</span><span class="st">&#39;southamerica&#39;</span>]))<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+print(vector.select(['anno']));
+print(vector.select(['anno','tamaño']));
+print(vector.select(['anno','tamaño'],['year','southamerica']));
+</script>
+</div>
+<div id="adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes" class="section level3 unnumbered hasAnchor">
+<h3>Adición de nuevas propiedades o modificación de propiedades preexistentes<a href="ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Usando el método <code>.set</code> se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f71">7.1</a>):</p>
+<p>Ejercicio 10.1</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb31-1"><a href="ee.feature-1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vector1 <span class="op">=</span> vector<span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;tamaño&#39;</span><span class="op">,</span><span class="st">&#39;neotropico&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+var vector1 = vector.set('tamaño','neotropico');
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f71"></span>
+<img src="Img/ej10.png" alt="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad." width="80%" />
+<p class="caption">
+Figure 7.1: Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad.
+</p>
+</div>
+</div>
+<div id="extracción-y-edición-de-propiedades-de-vectores" class="section level3 unnumbered hasAnchor">
+<h3>Extracción y edición de propiedades de vectores<a href="ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos <code>ee.Feature</code>. Para ello, se extrae el primer vector de una colección de vectores utilizando el método <code>.first</code>. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f72">7.2</a>).</p>
+<ol style="list-style-type: decimal">
+<li>Usamos el método <code>.propertyNames</code> para obtener una lista de los nombres de los atributos del vector.</li>
+<li>Usamos el método <code>.toDictionary</code> para generar un diccionario con todos los atributos (claves) y sus valores del vector.</li>
+<li>Usamos el método <code>.get</code> para obtener el valor del atributo ‘COAST’ del vector.</li>
+<li>Usando el método <code>.select</code> podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.</li>
+</ol>
+<p>Ejercicio 11</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a href="ee.feature-1.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Llamamos una capa de cuencas de alta resolución de GEE</span></span>
+<span id="cb32-2"><a href="ee.feature-1.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">// y se selecciona el primer vector de la colección</span></span>
+<span id="cb32-3"><a href="ee.feature-1.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cuenca <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(</span>
+<span id="cb32-4"><a href="ee.feature-1.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="fu">FeatureCollection</span>(<span class="st">&#39;WWF/HydroSHEDS/v1/Basins/hybas_12&#39;</span>)</span>
+<span id="cb32-5"><a href="ee.feature-1.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">first</span>())<span class="op">;</span></span>
+<span id="cb32-6"><a href="ee.feature-1.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="ee.feature-1.html#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Extraemos los nombres de los atributos del vector como una lista</span></span>
+<span id="cb32-8"><a href="ee.feature-1.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> propiedades <span class="op">=</span> cuenca<span class="op">.</span><span class="fu">propertyNames</span>()<span class="op">;</span></span>
+<span id="cb32-9"><a href="ee.feature-1.html#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="ee.feature-1.html#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Extraemos los atributos del vector como un diccionario</span></span>
+<span id="cb32-11"><a href="ee.feature-1.html#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> atributos <span class="op">=</span> cuenca<span class="op">.</span><span class="fu">toDictionary</span>()<span class="op">;</span></span>
+<span id="cb32-12"><a href="ee.feature-1.html#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="ee.feature-1.html#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Extraemos el atributo &#39;COAST&#39;</span></span>
+<span id="cb32-14"><a href="ee.feature-1.html#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> costa <span class="op">=</span> cuenca<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;COAST&#39;</span>)<span class="op">;</span></span>
+<span id="cb32-15"><a href="ee.feature-1.html#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-16"><a href="ee.feature-1.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Extraemos el atributo &#39;COAST&#39; y lo renombramos como &#39;costa maritima&#39;</span></span>
+<span id="cb32-17"><a href="ee.feature-1.html#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> renombre <span class="op">=</span> cuenca<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;COAST&#39;</span>]<span class="op">,</span>[<span class="st">&#39;costa maritima&#39;</span>])<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Llamamos una capa de cuencas de alta resolución de GEE
+// y se selecciona el primer vector de la colección
+var cuenca = ee.Feature(
+  ee.FeatureCollection('WWF/HydroSHEDS/v1/Basins/hybas_12')
+  .first());
+
+// Extraemos los nombres de los atributos del vector como una lista
+var propiedades = cuenca.propertyNames();
+
+// Extraemos los atributos del vector como un diccionario
+var atributos = cuenca.toDictionary();
+
+// Extraemos el atributo 'COAST'
+var costa = cuenca.get('COAST');
+
+// Extraemos el atributo 'COAST' y lo renombramos como 'costa maritima'
+var renombre = cuenca.select(['COAST'],['costa maritima']);
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f72"></span>
+<img src="Img/ej11.png" alt="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades." width="80%" />
+<p class="caption">
+Figure 7.2: Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades.
+</p>
+</div>
+</div>
+<div id="intersección-con-otros-vectores" class="section level3 unnumbered hasAnchor">
+<h3>Intersección con otros vectores<a href="ee.feature-1.html#intersección-con-otros-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método <code>.intersection</code>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>):</p>
+<p>Ejercicio 12</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb33-1"><a href="ee.feature-1.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear dos vectores rectangulares</span></span>
+<span id="cb33-2"><a href="ee.feature-1.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rectangulo1 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">92.0</span><span class="op">,</span><span class="fl">10.6</span><span class="op">,-</span><span class="fl">82.0</span><span class="op">,</span><span class="fl">20.7</span>))<span class="op">;</span></span>
+<span id="cb33-3"><a href="ee.feature-1.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rectangulo2 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">86.03</span><span class="op">,</span><span class="fl">15.6</span><span class="op">,-</span><span class="fl">100.0</span><span class="op">,</span><span class="fl">40.7</span>))<span class="op">;</span></span>
+<span id="cb33-4"><a href="ee.feature-1.html#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="ee.feature-1.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Intersección</span></span>
+<span id="cb33-6"><a href="ee.feature-1.html#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> interseccion <span class="op">=</span> rectangulo1<span class="op">.</span><span class="fu">intersection</span>(rectangulo2)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Crear dos vectores rectangulares
+var rectangulo1 = ee.Feature(ee.Geometry.Rectangle(-92.0,10.6,-82.0,20.7));
+var rectangulo2 = ee.Feature(ee.Geometry.Rectangle(-86.03,15.6,-100.0,40.7));
+
+// Intersección
+var interseccion = rectangulo1.intersection(rectangulo2);
+</script>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método <code>.intersection</code>).</p>
+</div>
+</div>
+</div>
+<div id="creación-de-un-buffer" class="section level3 unnumbered hasAnchor">
+<h3>Creación de un buffer<a href="ee.feature-1.html#creación-de-un-buffer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Para realizar un buffer a partir de un vector se utiliza el método <code>.buffer</code>, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p>Ejercicio 12.1</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb34-1"><a href="ee.feature-1.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un vector de un  punto</span></span>
+<span id="cb34-2"><a href="ee.feature-1.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> punto <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">105.24</span><span class="op">,</span> <span class="op">-</span><span class="fl">2.73</span>))<span class="op">;</span></span>
+<span id="cb34-3"><a href="ee.feature-1.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="ee.feature-1.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular un buffer de 500 km alrededor del punto</span></span>
+<span id="cb34-5"><a href="ee.feature-1.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bufferPol <span class="op">=</span> punto<span class="op">.</span><span class="fu">buffer</span>(<span class="dv">500000</span><span class="op">,</span> <span class="fl">0.1</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Crear un vector de un  punto
+var punto = ee.Feature(ee.Geometry.Point(-105.24, -2.73));
+
+// Calcular un buffer de 500 km alrededor del punto
+var bufferPol = punto.buffer(500000, 0.1);
+</script>
+</div>
+<div id="cálculo-de-área" class="section level3 unnumbered hasAnchor">
+<h3>Cálculo de área<a href="ee.feature-1.html#cálculo-de-área" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Para calcular el área de un vector se utiliza el método <code>.area</code>. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p>Ejercicio 12.2</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb35-1"><a href="ee.feature-1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el área del buffer</span></span>
+<span id="cb35-2"><a href="ee.feature-1.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> area <span class="op">=</span> bufferPol<span class="op">.</span><span class="fu">area</span>(<span class="fl">0.1</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Calcular el área del buffer
+var area = bufferPol.area(0.1);
+</script>
+</div>
+<div id="cálculo-de-perímetro" class="section level3 unnumbered hasAnchor">
+<h3>Cálculo de perímetro<a href="ee.feature-1.html#cálculo-de-perímetro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+Podemos calcular el perímetro de un vector usando el método <code>.perimeter</code>, que hace el cálculo en metros (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p>Ejercicio 12.3</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="ee.feature-1.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el perímetro del buffer</span></span>
+<span id="cb36-2"><a href="ee.feature-1.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> perimetro <span class="op">=</span> interseccion<span class="op">.</span><span class="fu">perimeter</span>()<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Calcular el perímetro del buffer
+var perimetro = interseccion.perimeter();
+</script>
+</div>
+<div id="disolución-de-polígonos" class="section level3 unnumbered hasAnchor">
+<h3>Disolución de polígonos<a href="ee.feature-1.html#disolución-de-polígonos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+El método <code>.dissolve</code> une todas las geometrías que se intersectan de un vector en un solo polígono y si no se intersectan, genera un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p>Ejercicio 12.4</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb37-1"><a href="ee.feature-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un vector de multipolígono</span></span>
+<span id="cb37-2"><a href="ee.feature-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> multi <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">MultiPolygon</span>(</span>
+<span id="cb37-3"><a href="ee.feature-1.html#cb37-3" aria-hidden="true" tabindex="-1"></a>            [[[[<span class="op">-</span><span class="dv">137</span><span class="op">,</span> <span class="dv">20</span>]<span class="op">,</span></span>
+<span id="cb37-4"><a href="ee.feature-1.html#cb37-4" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">128</span><span class="op">,</span> <span class="dv">9</span>]<span class="op">,</span></span>
+<span id="cb37-5"><a href="ee.feature-1.html#cb37-5" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">116</span><span class="op">,</span> <span class="dv">15</span>]<span class="op">,</span></span>
+<span id="cb37-6"><a href="ee.feature-1.html#cb37-6" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">124</span><span class="op">,</span> <span class="dv">25</span>]]]<span class="op">,</span></span>
+<span id="cb37-7"><a href="ee.feature-1.html#cb37-7" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">123</span><span class="op">,</span> <span class="dv">28</span>]<span class="op">,</span></span>
+<span id="cb37-8"><a href="ee.feature-1.html#cb37-8" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">129</span><span class="op">,</span> <span class="dv">30</span>]<span class="op">,</span></span>
+<span id="cb37-9"><a href="ee.feature-1.html#cb37-9" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">139</span><span class="op">,</span> <span class="dv">5</span>]]]<span class="op">,</span></span>
+<span id="cb37-10"><a href="ee.feature-1.html#cb37-10" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">113</span><span class="op">,</span> <span class="dv">19</span>]<span class="op">,</span></span>
+<span id="cb37-11"><a href="ee.feature-1.html#cb37-11" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">143</span><span class="op">,</span> <span class="dv">18</span>]<span class="op">,</span></span>
+<span id="cb37-12"><a href="ee.feature-1.html#cb37-12" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">123</span><span class="op">,</span> <span class="dv">4</span>]]]<span class="op">,</span></span>
+<span id="cb37-13"><a href="ee.feature-1.html#cb37-13" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">133</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb37-14"><a href="ee.feature-1.html#cb37-14" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">118</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span></span>
+<span id="cb37-15"><a href="ee.feature-1.html#cb37-15" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">116</span><span class="op">,</span> <span class="dv">24</span>]]]<span class="op">,</span></span>
+<span id="cb37-16"><a href="ee.feature-1.html#cb37-16" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">109</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span></span>
+<span id="cb37-17"><a href="ee.feature-1.html#cb37-17" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">103</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">,</span></span>
+<span id="cb37-18"><a href="ee.feature-1.html#cb37-18" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">147</span><span class="op">,</span> <span class="dv">9</span>]]]<span class="op">,</span></span>
+<span id="cb37-19"><a href="ee.feature-1.html#cb37-19" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">110</span><span class="op">,</span> <span class="dv">14</span>]<span class="op">,</span></span>
+<span id="cb37-20"><a href="ee.feature-1.html#cb37-20" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">160</span><span class="op">,</span> <span class="dv">12</span>]<span class="op">,</span></span>
+<span id="cb37-21"><a href="ee.feature-1.html#cb37-21" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">161</span><span class="op">,</span> <span class="dv">7</span>]]]<span class="op">,</span></span>
+<span id="cb37-22"><a href="ee.feature-1.html#cb37-22" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">117</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb37-23"><a href="ee.feature-1.html#cb37-23" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">117</span><span class="op">,</span> <span class="op">-</span><span class="dv">2</span>]<span class="op">,</span></span>
+<span id="cb37-24"><a href="ee.feature-1.html#cb37-24" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">136</span><span class="op">,</span> <span class="op">-</span><span class="dv">9</span>]]]<span class="op">,</span></span>
+<span id="cb37-25"><a href="ee.feature-1.html#cb37-25" aria-hidden="true" tabindex="-1"></a>             [[[<span class="op">-</span><span class="dv">121</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb37-26"><a href="ee.feature-1.html#cb37-26" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">123</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span>]<span class="op">,</span></span>
+<span id="cb37-27"><a href="ee.feature-1.html#cb37-27" aria-hidden="true" tabindex="-1"></a>               [<span class="op">-</span><span class="dv">126</span><span class="op">,</span> <span class="op">-</span><span class="dv">18</span>]]]]))<span class="op">;</span></span>
+<span id="cb37-28"><a href="ee.feature-1.html#cb37-28" aria-hidden="true" tabindex="-1"></a><span class="co">// Disolver sus geometrías</span></span>
+<span id="cb37-29"><a href="ee.feature-1.html#cb37-29" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> disuelto <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(multi<span class="op">.</span><span class="fu">dissolve</span>(<span class="fl">0.1</span>))<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Crear un vector de multipolígono
+var multi = ee.Feature(ee.Geometry.MultiPolygon(
+            [[[[-137, 20],
+               [-128, 9],
+               [-116, 15],
+               [-124, 25]]],
+             [[[-123, 28],
+               [-129, 30],
+               [-139, 5]]],
+             [[[-113, 19],
+               [-143, 18],
+               [-123, 4]]],
+             [[[-133, 1],
+               [-118, 2],
+               [-116, 24]]],
+             [[[-109, 5],
+               [-103, 10],
+               [-147, 9]]],
+             [[[-110, 14],
+               [-160, 12],
+               [-161, 7]]],
+             [[[-117, -1],
+               [-117, -2],
+               [-136, -9]]],
+             [[[-121, -1],
+               [-123, -1],
+               [-126, -18]]]]));
+// Disolver sus geometrías
+var disuelto = ee.Feature(multi.dissolve(0.1));
+</script>
+</div>
+<div id="unión-de-vectores" class="section level3 unnumbered hasAnchor">
+<h3>Unión de vectores<a href="ee.feature-1.html#unión-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>
+El método <code>.union</code> permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo estén se convertirán en un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p>Ejercicio 12.5</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb38-1"><a href="ee.feature-1.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Unir geometrías del buffer y un rectángulo </span></span>
+<span id="cb38-2"><a href="ee.feature-1.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> union <span class="op">=</span> rectangulo2<span class="op">.</span><span class="fu">union</span>(bufferPol)</span></code></pre></div>
+<script type="text/javascript">
+// Unir geometrías del buffer y un rectángulo 
+var union = rectangulo2.union(bufferPol)
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f73"></span>
+<img src="Img/ej12.png" alt="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados." width="80%" />
+<p class="caption">
+Figure 7.3: Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados.
+</p>
+</div>
+
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ee.geometry-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ee.featurecollection-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ManualGEE.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
