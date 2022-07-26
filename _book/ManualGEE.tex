@@ -136,7 +136,7 @@
 % Agregar guión a palabras que no quepan
 \usepackage{hyphenat}
 % Control de títulos en el texto
-\usepackage{titlesec}
+\usepackage[newparttoc]{titlesec}
 % Control de títulos en el table of contents
 % Mejor usar este en lugar de tocloft
 %\usepackage{titletoc}
@@ -220,17 +220,23 @@
 \renewcommand{\floatpagefraction}{.75}
 
 % Para modificar los colores del table of contents to tocloft
-%\renewcommand{\cftchapfont}{\bfseries\color{darkblue}}% Chapter colour
-%\renewcommand{\cftsecfont}{\color{darkblue}}% Section colour
-%\renewcommand{\cftsubsecfont}{\color{black}}}% Subsection colour
+% Title TOC color
+\renewcommand{\cfttoctitlefont}{\normalfont\LARGE\bfseries\color{darkblue}}
+\renewcommand{\cftpartfont}{\bfseries\color{darkblue}} % tocloft
+%\renewcommand{\cftchapfont}{\bfseries\color{darkblue}} % tocloft
+%\renewcommand{\cftchappagefont}{\color{darkblue}} % tocloft
+%\renewcommand{\cftchappresnum}{\bfseries\color{darkblue}} % tocloft
+%\renewcommand{\cftchapaftersnum}{\bfseries\color{darkblue}}
+%\renewcommand{\cftchapfont}{\bfseries\Color{darkblue}}% Chapter colour
+%\renewcommand{\cftsecfont}{\Color{black}}% Section colour
+%\renewcommand{\cftsubsecfont}{\Color{black}}% Subsection colour
 
 % Spacing using tocloft
 \advance\cftsecnumwidth 0.5em\relax
 \advance\cftsubsecindent 0.5em\relax
 \advance\cftsubsecnumwidth 0.5em\relax
 
-% Title TOC color
-\renewcommand{\cfttoctitlefont}{\normalfont\LARGE\bfseries\color{darkblue}}
+
 
 % Tratar de cambiar lista de tablas a ejercicios
 %\renewcommand{\listtablename}{Lista de Ejercicios}

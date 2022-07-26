@@ -14,6 +14,8 @@ bookdown::pdf_book:
     after_body: postamble.tex
   keep_tex: yes
   split_by: section
+# bookdown::gitbook:
+  # css: toc.css
 #  template: template.tex
 # bookdown::epub_book: default
 # bookdown::bs4_book: default
