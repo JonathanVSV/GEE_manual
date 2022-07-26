@@ -1,0 +1,67 @@
+\newpage
+
+# Referencias
+
+| Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., … Brisco, B. (2020). Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5326–5350. https://doi.org/10.1109/JSTARS.2020.3021052
+
+| Arévalo, P., Bullock, E. L., Woodcock, C. E., & Olofsson, P. (2020). A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine. Frontiers in Climate, 2, 576740. https://doi.org/10.3389/fclim.2020.576740
+
+| Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., & Matricardi, E. A. T. (2021). An alternative approach for mapping burn scars using Landsat imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna. Remote Sensing Applications: Society and Environment, 22, 100472. https://doi.org/10.1016/j.rsase.2021.100472
+
+| Basso, K., De Avila Zingano, P. R., & Dal Sasso Freitas, C. M. (1999). Interpolation of scattered data: investigating alternatives for the modified Shepard method, XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), 39-47. https://doi.org/10.1109/SIBGRA.1999.805606.
+
+| Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.
+
+| Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). *Classification and Regression Trees*. Wadsworth, Belmont, EUA.
+
+| Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., & Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. https://doi.org/10.3390/rs10081167
+
+| Chuvieco, E. (1995). *Fundamentos de Teledetección Espacial*. Segunda edición. Ediciones RIALP, Madrid, España.
+
+| Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273–297.
+
+| Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., … Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142–154. https://doi.org/10.1016/j.rse.2016.02.016
+
+| Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics 29, 1189–1232.
+
+| Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., & Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202, 18–27. https://doi.org/10.1016/j.rse.2017.06.031
+
+| Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., & Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. https://doi.org/10.3390/rs12182953
+
+| Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., … Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342, 850–853. https://doi.org/http://doi.org/10.1126/science.1244693
+
+| Kumar, L., Mutanga, O., Kumar, L., & Mutanga, O. (2018). Google Earth Engine Applications Since Inception: Usage, Trends, and Potential. Remote Sensing, 10, 1509. https://doi.org/10.3390/rs10101509
+
+| Lee, J. S. H., Wich, S., Widayati, A., & Koh, L. P. (2016). Detecting industrial oil palm plantations on Landsat images with Google Earth Engine. Remote Sensing Applications: Society and Environment, 4, 219–224. https://doi.org/10.1016/j.rsase.2016.11.003
+
+| Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., & Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10, 1079. https://doi.org/10.3390/rs10071079
+
+| Olaya, V. (2020). Sistemas de Información Geográfica. CreateSpace Independent Publishing Platform, España. https://volaya.github.io/libro-sig/
+
+| Oshiro, T. M., Perez, P. S., Baranauskas, J. A. (2012). How Many Trees in a Random Forest?. En: Perner, P. (eds) Machine Learning and Data Mining in Pattern Recognition. MLDM 2012. Lecture Notes in Computer Science, 7376. Springer, Berlin, Alemania. https://doi.org/10.1007/978-3-642-31537-4_13
+
+| Perilla, G. A., & Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. https://doi.org/10.14350/rig.59929
+
+| Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p. 83).
+
+| Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1, 81–106. https://doi.org/10.1023/A:1022643204877
+
+| Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9, 1–24. https://doi.org/10.3390/land9110402
+
+| Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., & Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. https://dx.doi.org/10.3390/rs10091488
+
+| Sazib, N., Mladenova, I., & Bolten, J. (2018). Leveraging the google earth engine for drought assessment using global soil moisture data. Remote Sensing, 10, 1265. https://doi.org/10.3390/rs10081265
+
+| Slagter, B., Tsendbazar, N.-E., Vollrath, A., & Reiche, J. (2020). Mapping wetland characteristics using temporally dense Sentinel-1 and Sentinel-2 data: A case study in the St. Lucia wetlands, South Africa. International Journal of Applied Earth Observation and Geoinformation, 86, 102009. https://doi.org/10.1016/j.jag.2019.102009
+
+| Solórzano, J. V., Gallardo-Cruz, J. A., & Peralta-Carreta, C. (2020). Potencial del acervo de imágenes Landsat disponible en Google Earth Engine para el estudio del territorio mexicano. Investigaciones Geográficas, 101, e59821. https://doi.org/10.14350/rig.59821
+
+| Solórzano, J. V., Mas, J. F., Gao, Y., & Gallardo-Cruz, J. A. (2020). Patrones espaciotemporales de las observaciones de Sentinel-2 a nivel de imagen y píxel sobre el territorio mexicano entre 2015 y 2019. Revista de Teledetección, 56(Número especial), 103–115. https://doi.org/10.4995/raet.2020.14044
+
+| Trianni, G., Angiuli, E., Lisini, G., & Gamba, P. (2014). Human settlements from Landsat data using Google Earth Engine. Geoscience and Remote Sensing Symposium, 1473–1476. https://doi.org/10.1109/IGARSS.2014.6946715
+
+| Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., & Lee, D. H. (2020). Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods. Applied Sciences, 10, 8083. https://doi.org/10.3390/app10228083
+
+| Webb, G. I. (2011). Naïve Bayes. En: Sammut, C., Webb, G. I. (eds) Encyclopedia of Machine Learning. Springer, Boston, EUA. https://doi.org/10.1007/978-0-387-30164-8_576
+
+| Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., … Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225–244. https://doi.org/10.1016/j.isprsjprs.2017.01.019
