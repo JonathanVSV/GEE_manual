@@ -35,8 +35,8 @@ geometry:
   - bmargin=2.5cm
   - lmargin=2.5cm
   - rmargin=2.5cm
-  - headheight=2.5cm,
-  - bottom=2.5cm,
+  - headheight=2.5cm
+  - bottom=2.5cm
 ---
 
 ```{r setup, include=FALSE, echo = F}
@@ -88,8 +88,3 @@ colorize <- function(x) {
 \setlength{\aweboxvskip}{1mm}
 \setlength{\aweboxrulewidth}{5pt}
 ```
-
-<!-- # ```{r echo=FALSE, results='asis'} -->
-<!-- # def_list = unlist(def_list) -->
-<!-- # cat(sprintf('- \\@ref(def:%s) %s', names(def_list), def_list), sep = '\n') -->
-<!-- # ``` -->
