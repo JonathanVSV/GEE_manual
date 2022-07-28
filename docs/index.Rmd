@@ -58,11 +58,12 @@ knitr::opts_chunk$set(out.width = "80%",
 # Function to color
 colorize <- function(x) {
   color <- "darkblue"
-  if (knitr::is_latex_output()) {
-    sprintf("\\textcolor{%s}{%s}", color, x)
-  } else if (knitr::is_html_output()) {
-    paste("<span style='color: ", color,";'>",x,"</span>", sep = "")
-  } else x
+  # if (knitr::is_latex_output()) {
+  #   sprintf("\\textcolor{%s}{%s}", color, x)
+  # } else if (knitr::is_html_output()) {
+  #   paste("<span style='color: ", color,";'>",x,"</span>", sep = "")
+  # } else x
+  x
 }
 
 # # Set Ejercicio as "language"
