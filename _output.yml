@@ -14,7 +14,20 @@ bookdown::pdf_book:
     after_body: postamble.tex
   keep_tex: yes
   split_by: section
-# bookdown::gitbook:
+#bookdown::gitbook:
+#    split_by: chapter
+#    toc: true
+#    config:
+#    toolbar:
+#      position: static
+#    toc_depth: 3
+#    toc_float: true
+#bookdown::gitbook:
+#  lib_dir: assets
+  #split_by: section
+#  config:
+#    toolbar:
+#      position: static
   # css: toc.css
 #  template: template.tex
 # bookdown::epub_book: default

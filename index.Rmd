@@ -1,7 +1,6 @@
 ---
 title: "Cómo usar Google Earth Engine y no fallar en el intento"
 author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
-# tipo documento: book, article
 documentclass: book
 # output: 
 #  bookdown::pdf_document2:
