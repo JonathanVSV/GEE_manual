@@ -35,8 +35,8 @@ geometry:
   - bmargin=2.5cm
   - lmargin=2.5cm
   - rmargin=2.5cm
-  - headheight=2.5cm,
-  - bottom=2.5cm,
+  - headheight=2.5cm
+  - bottom=2.5cm
 ---
 
 ```{r setup, include=FALSE, echo = F}
@@ -61,7 +61,7 @@ colorize <- function(x) {
   if (knitr::is_latex_output()) {
     sprintf("\\textcolor{%s}{%s}", color, x)
   } else if (knitr::is_html_output()) {
-    sprintf("<span style='color: \%\s;'>\%\s</span>", color, x)
+    paste("<span style='color: ", color,";'>",x,"</span>", sep = "")
   } else x
 }
 
