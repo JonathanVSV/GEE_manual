@@ -15,9 +15,9 @@ linkcolor: darkblue
 urlcolor: darkblue
 toccolor: black
 # Líneas 18-20 comentarlas para exportar gitbook si no no sale toc
-# toc-title: "Índice"
-# toc: yes
-# toc_depth: 3
+toc-title: "Índice"
+toc: yes
+toc_depth: 3
 subparagraph: true
 papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
