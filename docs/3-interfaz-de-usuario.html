@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Interfaz de usuario | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="3 Interfaz de usuario | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Interfaz de usuario | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Interfaz de usuario | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="2-primeros-pasos.html"/>
+<link rel="next" href="4-importación-de-información-a-gee.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introducción.html"><a href="1-introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-introducción.html"><a href="1-introducción.html#propósito-del-libro"><i class="fa fa-check"></i><b>1.1</b> Propósito del libro</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introducción.html"><a href="1-introducción.html#organización-del-libro"><i class="fa fa-check"></i><b>1.2</b> Organización del libro</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#registro-para-el-uso-de-gee-javascript-api"><i class="fa fa-check"></i><b>2.1</b> Registro para el uso de GEE JavaScript API</a></li>
+<li class="chapter" data-level="2.2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#elementos-básicos-de-la-interfaz-gráfica"><i class="fa fa-check"></i><b>2.2</b> Elementos básicos de la interfaz gráfica</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-repositorios"><i class="fa fa-check"></i>Pantalla de repositorios</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-rutinas"><i class="fa fa-check"></i>Pantalla de rutinas</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#search"><i class="fa fa-check"></i>Search</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-mapa"><i class="fa fa-check"></i>Pantalla de Mapa</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-control"><i class="fa fa-check"></i>Pantalla de control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#programación-en-gee"><i class="fa fa-check"></i><b>2.3</b> Programación en GEE</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#simbología"><i class="fa fa-check"></i>Simbología</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#lenguaje-javascript-en-gee"><i class="fa fa-check"></i>Lenguaje JavaScript en GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html"><i class="fa fa-check"></i><b>3</b> Interfaz de usuario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#impresión-en-consola"><i class="fa fa-check"></i><b>3.1</b> Impresión en consola</a></li>
+<li class="chapter" data-level="3.2" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa"><i class="fa fa-check"></i><b>3.2</b> Interacción con la pantalla de mapa</a></li>
+<li class="chapter" data-level="3.3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#creación-de-gráficos"><i class="fa fa-check"></i><b>3.3</b> Creación de gráficos</a></li>
+<li class="chapter" data-level="3.4" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee"><i class="fa fa-check"></i><b>3.4</b> Exportación de objetos fuera de GEE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-importación-de-información-a-gee.html"><a href="4-importación-de-información-a-gee.html"><i class="fa fa-check"></i><b>4</b> Importación de información a GEE</a></li>
+<li class="chapter" data-level="5" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor"><i class="fa fa-check"></i><b>5.1</b> Objetos del cliente y del servidor</a></li>
+<li class="chapter" data-level="5.2" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipos-de-objetos-del-lado-del-cliente"><i class="fa fa-check"></i><b>5.2</b> Tipos de objetos del lado del cliente</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#cadenas-de-texto"><i class="fa fa-check"></i>Cadenas de texto</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#números"><i class="fa fa-check"></i>Números</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#diccionarios"><i class="fa fa-check"></i>Diccionarios</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipo-de-objetos-del-lado-del-servidor"><i class="fa fa-check"></i><b>5.3</b> Tipo de objetos del lado del servidor</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.string"><i class="fa fa-check"></i>ee.String</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.number"><i class="fa fa-check"></i>ee.Number</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.list"><i class="fa fa-check"></i>ee.List</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.dictionary"><i class="fa fa-check"></i>ee.Dictionary</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.date"><i class="fa fa-check"></i>ee.Date</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.image"><i class="fa fa-check"></i>ee.Image</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.imagecollection"><i class="fa fa-check"></i>ee.ImageCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.feature"><i class="fa fa-check"></i>ee.Feature</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.featurecollection"><i class="fa fa-check"></i>ee.FeatureCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.algorithms"><i class="fa fa-check"></i>ee.Algorithms</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.array"><i class="fa fa-check"></i>ee.Array</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.classifier"><i class="fa fa-check"></i>ee.Classifier</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.clusterer"><i class="fa fa-check"></i>ee.Clusterer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.filter"><i class="fa fa-check"></i>ee.Filter</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.geometry"><i class="fa fa-check"></i>ee.Geometry</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.join"><i class="fa fa-check"></i>ee.Join</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.reducer"><i class="fa fa-check"></i>ee.Reducer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.terrain"><i class="fa fa-check"></i>ee.Terrain</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html"><i class="fa fa-check"></i><b>6</b> ee.Geometry</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#información-y-metadatos"><i class="fa fa-check"></i><b>6.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#creación-de-geometrías"><i class="fa fa-check"></i><b>6.2</b> Creación de geometrías</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#métodos-comunes"><i class="fa fa-check"></i><b>6.3</b> Métodos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html"><i class="fa fa-check"></i><b>7</b> ee.Feature</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#información-y-metadatos-1"><i class="fa fa-check"></i><b>7.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#visualización-de-vectores"><i class="fa fa-check"></i><b>7.2</b> Visualización de vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-vectores"><i class="fa fa-check"></i><b>7.3</b> Creación de vectores</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#métodos-comunes-1"><i class="fa fa-check"></i><b>7.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#selección-de-propiedades"><i class="fa fa-check"></i>Selección de propiedades</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores"><i class="fa fa-check"></i>Extracción y edición de propiedades de vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#intersección-con-otros-vectores"><i class="fa fa-check"></i>Intersección con otros vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-un-buffer"><i class="fa fa-check"></i>Creación de un buffer</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-área"><i class="fa fa-check"></i>Cálculo de área</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-perímetro"><i class="fa fa-check"></i>Cálculo de perímetro</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#disolución-de-polígonos"><i class="fa fa-check"></i>Disolución de polígonos</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#unión-de-vectores"><i class="fa fa-check"></i>Unión de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html"><i class="fa fa-check"></i><b>8</b> ee.FeatureCollection</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#información-y-metadatos-2"><i class="fa fa-check"></i><b>8.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="8.2" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.2</b> Creación de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.3" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#visualización-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.3</b> Visualización de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.4" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#métodos-comunes-2"><i class="fa fa-check"></i><b>8.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#filtración-de-una-colección-de-vectores"><i class="fa fa-check"></i>Filtración de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#funciones-de-usuario"><i class="fa fa-check"></i>Funciones de usuario</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#selección-de-atributos"><i class="fa fa-check"></i>Selección de atributos</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-puntos-aleatorios"><i class="fa fa-check"></i>Creación de puntos aleatorios</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#obtención-del-primer-vector"><i class="fa fa-check"></i>Obtención del primer vector</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-metadatos-de-una-colección-de-vectores"><i class="fa fa-check"></i>Extracción de metadatos de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-listas-con-atributos-de-vectores"><i class="fa fa-check"></i>Extracción de listas con atributos de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#ejecución-de-una-función-sobre-todos-los-vectores-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todos los vectores de una colección</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#reducción-de-una-colección-de-vectores"><i class="fa fa-check"></i>Reducción de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#conversión-de-una-colección-de-vectores-en-una-imagen"><i class="fa fa-check"></i>Conversión de una colección de vectores en una imagen</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#unión-de-colecciones-de-vectores"><i class="fa fa-check"></i>Unión de colecciones de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#exportación-de-colecciones-de-vectores"><i class="fa fa-check"></i>Exportación de colecciones de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html"><i class="fa fa-check"></i><b>9</b> ee.Image</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#información-y-metadatos-3"><i class="fa fa-check"></i><b>9.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="9.2" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#visualización-de-una-imagen"><i class="fa fa-check"></i><b>9.2</b> Visualización de una imagen</a></li>
+<li class="chapter" data-level="9.3" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#métodos-comunes-3"><i class="fa fa-check"></i><b>9.3</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#selección-de-bandas"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#sustitución-de-nombres-de-bandas"><i class="fa fa-check"></i>Sustitución de nombres de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#realización-de-cortes"><i class="fa fa-check"></i>Realización de cortes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#cálculo-de-operaciones-matemáticas"><i class="fa fa-check"></i>Cálculo de operaciones matemáticas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#uso-de-operaciones-relacionales-condicionales-y-booleanas"><i class="fa fa-check"></i>Uso de operaciones relacionales, condicionales y booleanas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#enmascaramiento"><i class="fa fa-check"></i>Enmascaramiento</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-bandas"><i class="fa fa-check"></i>Adición de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#conversión-de-una-imagen-en-un-vector"><i class="fa fa-check"></i>Conversión de una imagen en un vector</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#exportación-de-una-imagen"><i class="fa fa-check"></i>Exportación de una imagen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html"><i class="fa fa-check"></i><b>10</b> ee.ImageCollection</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#información-y-metadatos-4"><i class="fa fa-check"></i><b>10.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="10.2" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.2</b> Creación de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.3" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#visualización-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.3</b> Visualización de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.4" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#métodos-comunes-4"><i class="fa fa-check"></i><b>10.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#filtración-de-colecciones-de-imágenes"><i class="fa fa-check"></i>Filtración de colecciones de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#selección-de-bandas-1"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ordenación-de-una-colección"><i class="fa fa-check"></i>Ordenación de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#obtención-de-la-primera-imagen"><i class="fa fa-check"></i>Obtención de la primera imagen</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#extracción-de-listas-con-atributos-de-imágenes"><i class="fa fa-check"></i>Extracción de listas con atributos de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conteo-de-observaciones-por-píxel"><i class="fa fa-check"></i>Conteo de observaciones por píxel</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conocer-el-tamaño-de-la-colección"><i class="fa fa-check"></i>Conocer el tamaño de la colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#unión-de-más-de-una-colección"><i class="fa fa-check"></i>Unión de más de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todas las imágenes de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#reducción-de-una-colección-de-imágenes"><i class="fa fa-check"></i>Reducción de una colección de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-compuestos-y-mosaicos"><i class="fa fa-check"></i>Creación de compuestos y mosaicos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html"><i class="fa fa-check"></i><b>11</b> Uso conjunto de vectores e imágenes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#métodos-comunes-5"><i class="fa fa-check"></i><b>11.1</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#muestreo-por-vectores"><i class="fa fa-check"></i>Muestreo por vector(es)</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#reducción-de-una-imagen-por-regiónes"><i class="fa fa-check"></i>Reducción de una imagen por región(es)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#interpolación-de-un-vector-a-una-imagen"><i class="fa fa-check"></i><b>11.2</b> Interpolación de un vector a una imagen</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#ponderación-de-distancia-inversa"><i class="fa fa-check"></i>Ponderación de distancia inversa</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#kriging"><i class="fa fa-check"></i>Kriging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html"><i class="fa fa-check"></i><b>12</b> Clasificación supervisada</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
+<li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
+<li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
+<ul>
+<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
+<ul>
+<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="interfaz-de-usuario" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Interfaz de usuario<a href="3-interfaz-de-usuario.html#interfaz-de-usuario" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dentro de GEE hay un grupo de funciones que permiten interactuar con los objetos, y obtener información sobre sus características o propiedades, y visualizarlos o exportarlos para trabajar con ellos en un entorno distinto a GEE. A este conjunto de funciones le llamaremos funciones de interfaz de usuario. Estas funciones resultan muy útiles para ayudar al usuario a entender los procesos que está programando, así como para verificar que los procesos realicen la tarea deseada. Dentro de este grupo de funciones se distinguen, a continuación, cuatro grupos de funciones.</p>
+<div id="impresión-en-consola" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Impresión en consola<a href="3-interfaz-de-usuario.html#impresión-en-consola" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>
+La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función <code>print</code> (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, este se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (<em>bugs</em>) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la <span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f31">3.1</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="3-interfaz-de-usuario.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Hola Mundo&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+print('Hola Mundo');
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f31"></span>
+<img src="Img/holaMundo.png" alt="Ejemplo del uso de la función print para imprimir en la consola." width="40%" />
+<p class="caption">
+Figure 3.1: Ejemplo del uso de la función print para imprimir en la consola.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Se recomienda utilizar varias impresiones en la consola (mediante <code>print</code>), por programa, para verificar el resultado de procesos intermedios.</p>
+</div>
+</div>
+</div>
+<div id="interacción-con-la-pantalla-de-mapa" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Interacción con la pantalla de mapa<a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapa, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapa se encuentran dentro de la biblioteca <code>Map</code>.</p>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de <strong>Code Editor</strong> en la siguiente liga: <a href="https://developers.google.com/earth-engine/apidocs" class="uri">https://developers.google.com/earth-engine/apidocs</a>. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.</p>
+</div>
+</div>
+<div id="map.addlayer" class="section level4 unnumbered hasAnchor">
+<h4>Map.addLayer<a href="3-interfaz-de-usuario.html#map.addlayer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+<code>Map.addLayer</code> permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (<code>ee.Feature</code>) o imagen (<code>ee.Image</code>; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función <code>Map.addLayer</code> incluyen el objeto a añadir a la pantalla de mapa, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapa.</p>
+<p>Al utilizar <code>Map.addLayer</code> sobre una imagen se pueden indicar los siguientes argumentos: <code>bands</code> (bandas), <code>min</code> y <code>max</code> (valores mínimos y máximos para visualizar la información). Estos se deben pasar dentro de un par de llaves <code>{}</code> como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o en compuesto RGB (del inglés Red, Green, Blue). En el caso de optar por el primero, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en el segundo se deben agregar las bandas en orden, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f32">3.2</a>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="3-interfaz-de-usuario.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<span id="cb2-2"><a href="3-interfaz-de-usuario.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2000</span>}<span class="op">,</span> </span>
+<span id="cb2-3"><a href="3-interfaz-de-usuario.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&#39;RGB&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+Map.addLayer(image, {bands: ['B4', 'B3', 'B2'], 
+                      min: 0, max: 2000}, 
+                      'RGB');
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f32"></span>
+<img src="Img/LTerminos.png" alt="Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México." width="80%" />
+<p class="caption">
+Figure 3.2: Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>En algunas ocasiones, al intentar cargar objetos en la pantalla de mapa, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o el límite de memoria disponible. En estos casos, se sugiere exportar el resultado en lugar de tratar de cargarlo en la pantalla de mapa y después visualizarlo de manera local en algún SIG o <em>software</em> similar (por ejemplo, QGIS).</p>
+</div>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: <a href="https://epsg.io/" class="uri">https://epsg.io/</a>. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.</p>
+</div>
+</div>
+<p>Para el caso de los vectores (<code>ee.Feature</code>) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es <code>color</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f33">3.3</a>):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="3-interfaz-de-usuario.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(feature<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">&#39;FF0000&#39;</span>}<span class="op">,</span> <span class="st">&#39;featuresColored&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f33"></span>
+<img src="Img/SAmerica.png" alt="Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color." width="80%" />
+<p class="caption">
+Figure 3.3: Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>El código de los colores pasados al argumento de <code>palette</code> o <code>color</code> corresponden a códigos hexadecimales. Estos pueden ser consultados en el siguiente enlace: <a href="https://htmlcolorcodes.com/es/" class="uri">https://htmlcolorcodes.com/es/</a></p>
+</div>
+</div>
+</div>
+<div id="map.centerobject" class="section level4 unnumbered hasAnchor">
+<h4>Map.centerObject<a href="3-interfaz-de-usuario.html#map.centerobject" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+Esta función permite centrar la pantalla de mapa en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="3-interfaz-de-usuario.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">setCenter</span>(<span class="op">-</span><span class="fl">39.86</span><span class="op">,</span> <span class="fl">20.52</span><span class="op">,</span> <span class="dv">5</span>)</span></code></pre></div>
+<script type="text/javascript">
+Map.setCenter(-39.86, 20.52, 5)
+</script>
+</div>
+</div>
+<div id="creación-de-gráficos" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Creación de gráficos<a href="3-interfaz-de-usuario.html#creación-de-gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este grupo de funciones permiten realizar gráficos de diversos tipos; sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la biblioteca <code>ui.Chart</code>. Los objetos básicos que permite graficar GEE son: vectores (<code>ee.Feature</code>), colecciones de vectores (<code>ee.FeatureCollection</code>), imágenes (<code>ee.Image</code>), colecciones de imágenes (<code>ee.ImageCollection</code>), arreglos (<code>ee.Array</code>) y listas (<code>ee.List</code>). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método <code>.setOptions</code> sobre el objeto de tipo gráfico.</p>
+<div id="ui.chart.feature" class="section level4 unnumbered hasAnchor">
+<h4>ui.Chart.feature<a href="3-interfaz-de-usuario.html#ui.chart.feature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función <code>print</code>). Algunas de las funciones disponibles son:</p>
+<ul>
+<li><code>ui.Chart.feature.byFeature</code>.</li>
+<li><code>ui.Chart.feature.byProperty</code>.</li>
+<li><code>ui.Chart.feature.groups</code>.</li>
+<li><code>ui.Chart.feature.histogram</code>.</li>
+</ul>
+<p>Por ejemplo:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="3-interfaz-de-usuario.html#cb5-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byProperty</span>({</span>
+<span id="cb5-2"><a href="3-interfaz-de-usuario.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Indicar el vector o colección de atributos a partir del cual se </span></span>
+<span id="cb5-3"><a href="3-interfaz-de-usuario.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// va a hacer el gráfico</span></span>
+<span id="cb5-4"><a href="3-interfaz-de-usuario.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">feature</span><span class="op">:</span> coleccionAtributos<span class="op">,</span> </span>
+<span id="cb5-5"><a href="3-interfaz-de-usuario.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// La propiedad a colocar en el eje de las x</span></span>
+<span id="cb5-6"><a href="3-interfaz-de-usuario.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xProperties</span><span class="op">:</span> <span class="st">&#39;Clase&#39;</span><span class="op">,</span></span>
+<span id="cb5-7"><a href="3-interfaz-de-usuario.html#cb5-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<script type="text/javascript">
+ui.Chart.feature.byProperty({
+  // Indicar el vector o colección de atributos a partir del cual se 
+  // va a hacer el gráfico
+  feature: coleccionAtributos, 
+  // La propiedad a colocar en el eje de las x
+  xProperties: 'Clase',
+})
+
+</script>
+</div>
+<div id="ui.chart.image" class="section level4 unnumbered hasAnchor">
+<h4>ui.Chart.image<a href="3-interfaz-de-usuario.html#ui.chart.image" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles son:</p>
+<ul>
+<li><code>ui.Chart.image.byClass</code></li>
+<li><code>ui.Chart.image.byRegion</code></li>
+<li><code>ui.Chart.image.doySeries</code></li>
+<li><code>ui.Chart.image.histogram</code></li>
+<li><code>ui.Chart.image.seriesByRegion</code>, entre otras.</li>
+</ul>
+<p>Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función <code>ui.Chart.image.seriesByRegion</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f34">3.4</a>).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="3-interfaz-de-usuario.html#cb6-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">seriesByRegion</span>({</span>
+<span id="cb6-2"><a href="3-interfaz-de-usuario.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de imágenes a graficar</span></span>
+<span id="cb6-3"><a href="3-interfaz-de-usuario.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">imageCollection</span><span class="op">:</span> coleccionImagenes<span class="op">,</span> </span>
+<span id="cb6-4"><a href="3-interfaz-de-usuario.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir las regiones sobre las cuales se va a extraer la</span></span>
+<span id="cb6-5"><a href="3-interfaz-de-usuario.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// información para el gráfico</span></span>
+<span id="cb6-6"><a href="3-interfaz-de-usuario.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">regions</span><span class="op">:</span> areas<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">&#39;Tipo&#39;</span><span class="op">,</span><span class="st">&#39;Bosque&#39;</span>))<span class="op">,</span></span>
+<span id="cb6-7"><a href="3-interfaz-de-usuario.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// El reductor a utilizar para resumir la información de la</span></span>
+<span id="cb6-8"><a href="3-interfaz-de-usuario.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// colección de imágenes en las regiones indicadas</span></span>
+<span id="cb6-9"><a href="3-interfaz-de-usuario.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> </span>
+<span id="cb6-10"><a href="3-interfaz-de-usuario.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// La banda sobre la cual se quiere construir el gráfico</span></span>
+<span id="cb6-11"><a href="3-interfaz-de-usuario.html#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">band</span><span class="op">:</span> <span class="st">&#39;NDVI&#39;</span><span class="op">,</span> </span>
+<span id="cb6-12"><a href="3-interfaz-de-usuario.html#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Tamaño en m del píxel para obtener la información</span></span>
+<span id="cb6-13"><a href="3-interfaz-de-usuario.html#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> </span>
+<span id="cb6-14"><a href="3-interfaz-de-usuario.html#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Propiedad para nombrar a cada serie</span></span>
+<span id="cb6-15"><a href="3-interfaz-de-usuario.html#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">seriesProperty</span><span class="op">:</span> <span class="st">&#39;Tipo&#39;</span></span>
+<span id="cb6-16"><a href="3-interfaz-de-usuario.html#cb6-16" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb6-17"><a href="3-interfaz-de-usuario.html#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">setOptions</span>({</span>
+<span id="cb6-18"><a href="3-interfaz-de-usuario.html#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Bosque&#39;</span><span class="op">,</span></span>
+<span id="cb6-19"><a href="3-interfaz-de-usuario.html#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">colors</span><span class="op">:</span> [<span class="st">&#39;#EE3A19&#39;</span>]</span>
+<span id="cb6-20"><a href="3-interfaz-de-usuario.html#cb6-20" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+ui.Chart.image.seriesByRegion({
+  // Definir la colección de imágenes a graficar
+  imageCollection: coleccionImagenes, 
+  // Definir las regiones sobre las cuales se va a extraer la
+  // información para el gráfico
+  regions: areas.filter(ee.Filter.eq('Tipo','Bosque')),
+  // El reductor a utilizar para resumir la información de la
+  // colección de imágenes en las regiones indicadas
+  reducer: ee.Reducer.mean(), 
+  // La banda sobre la cual se quiere construir el gráfico
+  band: 'NDVI', 
+  // Tamaño en m del píxel para obtener la información
+  scale: 30, 
+  // Propiedad para nombrar a cada serie
+  seriesProperty: 'Tipo'
+})
+  .setOptions({
+    title: 'Bosque',
+    colors: ['#EE3A19']
+  });
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f34"></span>
+<img src="Img/chartEjemplo.png" alt="Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanencia de bosque y permanencia de no bosque." width="80%" />
+<p class="caption">
+Figure 3.4: Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanencia de bosque y permanencia de no bosque.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Los nombres de las funciones para generar gráficos en GEE dan una idea del tipo de gráfica que se puede generar con dicha función y el tipo de insumos que requiere cada tipo de gráfico.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="exportación-de-objetos-fuera-de-gee" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Exportación de objetos fuera de GEE<a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este grupo de funciones permite exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca <code>Export.</code> Sin embargo, solo existen cuatro formatos válidos para exportar desde GEE: ráster (<code>ee.Image</code>), vector (<code>ee.FeatureCollection</code>), mapa y video.</p>
+<div id="export.image" class="section level4 unnumbered hasAnchor">
+<h4>Export.image<a href="3-interfaz-de-usuario.html#export.image" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+En el caso de las imágenes (ráster, <code>ee.Image</code>), la función para exportarlas es <code>Export.image</code>. Dentro de GEE hay tres opciones para exportar los resultados de una imagen:</p>
+<ul>
+<li><code>Export.image.toAsset</code></li>
+<li><code>Export.image.toDrive</code></li>
+<li><code>Export.image.toCloudStorage</code></li>
+</ul>
+<p>La primera permite exportar la imagen (ráster) a la sección de <strong>Assets</strong>, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarla al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que consideramos es más común para cualquier usuario será la de <code>Export.image.toDrive</code>. Al exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizarla y definir su nombre en el argumento de <code>folder</code>.</p>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Solo se pueden exportar imágenes en formato <code>ee.Image</code>. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (<code>ee.Array</code>), tras lo cual hay que volver a convertir la información a formato de imagen (<code>ee.Image</code>) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TFRecord (tensores), siendo la primera la opción por defecto.</p>
+</div>
+</div>
+<p>Un ejemplo de cómo exportar una imagen se presenta a continuación.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="3-interfaz-de-usuario.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb7-2"><a href="3-interfaz-de-usuario.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la imagen a exportar</span></span>
+<span id="cb7-3"><a href="3-interfaz-de-usuario.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">image</span><span class="op">:</span> imgDiff<span class="op">,</span></span>
+<span id="cb7-4"><a href="3-interfaz-de-usuario.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el cual se va a guardar la imagen en</span></span>
+<span id="cb7-5"><a href="3-interfaz-de-usuario.html#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// el Google Drive</span></span>
+<span id="cb7-6"><a href="3-interfaz-de-usuario.html#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;DiferenciaNDVI_2016-2017&#39;</span><span class="op">,</span></span>
+<span id="cb7-7"><a href="3-interfaz-de-usuario.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Determinar el tamaño del píxel en m de la imagen a exportar</span></span>
+<span id="cb7-8"><a href="3-interfaz-de-usuario.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb7-9"><a href="3-interfaz-de-usuario.html#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Exportar la imagen en formato GeoTIFF</span></span>
+<span id="cb7-10"><a href="3-interfaz-de-usuario.html#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fileFormat</span><span class="op">:</span> <span class="st">&#39;GeoTIFF&#39;</span><span class="op">,</span></span>
+<span id="cb7-11"><a href="3-interfaz-de-usuario.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la carpeta del Google Drive en la que se va a exportar</span></span>
+<span id="cb7-12"><a href="3-interfaz-de-usuario.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// la imagen</span></span>
+<span id="cb7-13"><a href="3-interfaz-de-usuario.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">folder</span><span class="op">:</span> <span class="st">&#39;DiferenciaNDVIL8&#39;</span></span>
+<span id="cb7-14"><a href="3-interfaz-de-usuario.html#cb7-14" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> </span></code></pre></div>
+<script type="text/javascript">
+Export.image.toDrive({
+  // Definir la imagen a exportar
+  image: imgDiff,
+  // Especificar el nombre con el cual se va a guardar la imagen en
+  // el Google Drive
+  description: 'DiferenciaNDVI_2016-2017',
+  // Determinar el tamaño del píxel en m de la imagen a exportar
+  scale: 30,
+  // Exportar la imagen en formato GeoTIFF
+  fileFormat: 'GeoTIFF',
+  // Definir la carpeta del Google Drive en la que se va a exportar
+  // la imagen
+  folder: 'DiferenciaNDVIL8'
+}); 
+</script>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>En GEE muchas operaciones utilizan el término de <code>scale</code>, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.</p>
+</div>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento <code>maxPixels</code> dentro del diccionario que se pasa a <code>Export.image.toDrive</code>. Por ejemplo, <code>maxPixels: 1e10</code>, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.</p>
+</div>
+</div>
+</div>
+<div id="export.table" class="section level4 unnumbered hasAnchor">
+<h4>Export.table<a href="3-interfaz-de-usuario.html#export.table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+Por su parte, el formato vector (<code>ee.Feature</code>) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (<code>ee.FeatureCollection</code>). Al igual que en el caso de las imágenes, dentro de GEE hay tres opciones para exportar objetos de tipo vector:</p>
+<ul>
+<li><code>Export.table.toAsset</code>.</li>
+<li><code>Export.table.toDrive</code>.</li>
+<li><code>Export.table.toCloudStorage</code>.</li>
+</ul>
+<p>Para el caso de las tablas sin información geográfica asociada, se debe definir el objeto como un objeto vector sin geometría (es decir, <code>null</code>) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="3-interfaz-de-usuario.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb8-2"><a href="3-interfaz-de-usuario.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de vectores a exportar</span></span>
+<span id="cb8-3"><a href="3-interfaz-de-usuario.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> feature<span class="op">,</span></span>
+<span id="cb8-4"><a href="3-interfaz-de-usuario.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el que se va a guardar el </span></span>
+<span id="cb8-5"><a href="3-interfaz-de-usuario.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// archivo en el Google Drive</span></span>
+<span id="cb8-6"><a href="3-interfaz-de-usuario.html#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;nombreArchivo&#39;</span><span class="op">,</span></span>
+<span id="cb8-7"><a href="3-interfaz-de-usuario.html#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Determinar la carpeta dentro de Google Drive donde</span></span>
+<span id="cb8-8"><a href="3-interfaz-de-usuario.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// se va a guardar el archivo</span></span>
+<span id="cb8-9"><a href="3-interfaz-de-usuario.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">folder</span><span class="op">:</span> <span class="st">&#39;mifolder&#39;</span><span class="op">,</span></span>
+<span id="cb8-10"><a href="3-interfaz-de-usuario.html#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Exportar la información en formato csv (valores </span></span>
+<span id="cb8-11"><a href="3-interfaz-de-usuario.html#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// delimitados por comas)</span></span>
+<span id="cb8-12"><a href="3-interfaz-de-usuario.html#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">fileFormat</span><span class="op">:</span> <span class="st">&#39;CSV&#39;</span></span>
+<span id="cb8-13"><a href="3-interfaz-de-usuario.html#cb8-13" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+Export.table.toDrive({
+  // Definir la colección de vectores a exportar
+  collection: feature,
+  // Especificar el nombre con el que se va a guardar el 
+  // archivo en el Google Drive
+  description: 'nombreArchivo',
+  // Determinar la carpeta dentro de Google Drive donde
+  // se va a guardar el archivo
+  folder: 'mifolder',
+  // Exportar la información en formato csv (valores 
+  // delimitados por comas)
+  fileFormat: 'CSV'
+});
+</script>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>GEE permite exportar información en formato vector solo en formato CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado.</p>
+</div>
+</div>
+</div>
+<div id="export.video" class="section level4 unnumbered hasAnchor">
+<h4>Export.video<a href="3-interfaz-de-usuario.html#export.video" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>
+Esta opción permite exportar una colección de imágenes como video, ya sea al almacenamiento de la nube de Google o al Drive.</p>
+<ul>
+<li><code>Export.video.toCloudStorage</code>.</li>
+<li><code>Export.video.toDrive</code>.</li>
+</ul>
+<p>Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. A continuación se muestra cómo exportar una colección de imágenes en video:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="3-interfaz-de-usuario.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">video</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<span id="cb9-2"><a href="3-interfaz-de-usuario.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de imágenes a exportar</span></span>
+<span id="cb9-3"><a href="3-interfaz-de-usuario.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> coleccionImgs<span class="op">,</span></span>
+<span id="cb9-4"><a href="3-interfaz-de-usuario.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el que se va a guardar el video</span></span>
+<span id="cb9-5"><a href="3-interfaz-de-usuario.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// en el Google Drive</span></span>
+<span id="cb9-6"><a href="3-interfaz-de-usuario.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;videoTimelapse&#39;</span><span class="op">,</span></span>
+<span id="cb9-7"><a href="3-interfaz-de-usuario.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la carpeta donde se va a exportar el video</span></span>
+<span id="cb9-8"><a href="3-interfaz-de-usuario.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">folder</span><span class="op">:</span> <span class="st">&#39;mifolder&#39;</span><span class="op">,</span></span>
+<span id="cb9-9"><a href="3-interfaz-de-usuario.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Determinar el número de cuadros por segundo</span></span>
+<span id="cb9-10"><a href="3-interfaz-de-usuario.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">framesPerSecond</span><span class="op">:</span> <span class="dv">24</span></span>
+<span id="cb9-11"><a href="3-interfaz-de-usuario.html#cb9-11" aria-hidden="true" tabindex="-1"></a> })<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+Export.video.toDrive({
+  // Definir la colección de imágenes a exportar
+  collection: coleccionImgs,
+  // Especificar el nombre con el que se va a guardar el video
+  // en el Google Drive
+  description: 'videoTimelapse',
+  // Definir la carpeta donde se va a exportar el video
+  folder: 'mifolder',
+  // Determinar el número de cuadros por segundo
+  framesPerSecond: 24
+ });
+</script>
+
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="2-primeros-pasos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-importación-de-información-a-gee.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "chapter",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

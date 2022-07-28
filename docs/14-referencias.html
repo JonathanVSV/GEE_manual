@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 Referencias | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="13-cierre.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introducción.html"><a href="1-introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-introducción.html"><a href="1-introducción.html#propósito-del-libro"><i class="fa fa-check"></i><b>1.1</b> Propósito del libro</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introducción.html"><a href="1-introducción.html#organización-del-libro"><i class="fa fa-check"></i><b>1.2</b> Organización del libro</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#registro-para-el-uso-de-gee-javascript-api"><i class="fa fa-check"></i><b>2.1</b> Registro para el uso de GEE JavaScript API</a></li>
+<li class="chapter" data-level="2.2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#elementos-básicos-de-la-interfaz-gráfica"><i class="fa fa-check"></i><b>2.2</b> Elementos básicos de la interfaz gráfica</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-repositorios"><i class="fa fa-check"></i>Pantalla de repositorios</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-rutinas"><i class="fa fa-check"></i>Pantalla de rutinas</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#search"><i class="fa fa-check"></i>Search</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-mapa"><i class="fa fa-check"></i>Pantalla de Mapa</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-control"><i class="fa fa-check"></i>Pantalla de control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#programación-en-gee"><i class="fa fa-check"></i><b>2.3</b> Programación en GEE</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#simbología"><i class="fa fa-check"></i>Simbología</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#lenguaje-javascript-en-gee"><i class="fa fa-check"></i>Lenguaje JavaScript en GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html"><i class="fa fa-check"></i><b>3</b> Interfaz de usuario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#impresión-en-consola"><i class="fa fa-check"></i><b>3.1</b> Impresión en consola</a></li>
+<li class="chapter" data-level="3.2" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa"><i class="fa fa-check"></i><b>3.2</b> Interacción con la pantalla de mapa</a></li>
+<li class="chapter" data-level="3.3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#creación-de-gráficos"><i class="fa fa-check"></i><b>3.3</b> Creación de gráficos</a></li>
+<li class="chapter" data-level="3.4" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee"><i class="fa fa-check"></i><b>3.4</b> Exportación de objetos fuera de GEE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-importación-de-información-a-gee.html"><a href="4-importación-de-información-a-gee.html"><i class="fa fa-check"></i><b>4</b> Importación de información a GEE</a></li>
+<li class="chapter" data-level="5" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor"><i class="fa fa-check"></i><b>5.1</b> Objetos del cliente y del servidor</a></li>
+<li class="chapter" data-level="5.2" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipos-de-objetos-del-lado-del-cliente"><i class="fa fa-check"></i><b>5.2</b> Tipos de objetos del lado del cliente</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#cadenas-de-texto"><i class="fa fa-check"></i>Cadenas de texto</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#números"><i class="fa fa-check"></i>Números</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#diccionarios"><i class="fa fa-check"></i>Diccionarios</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipo-de-objetos-del-lado-del-servidor"><i class="fa fa-check"></i><b>5.3</b> Tipo de objetos del lado del servidor</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.string"><i class="fa fa-check"></i>ee.String</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.number"><i class="fa fa-check"></i>ee.Number</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.list"><i class="fa fa-check"></i>ee.List</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.dictionary"><i class="fa fa-check"></i>ee.Dictionary</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.date"><i class="fa fa-check"></i>ee.Date</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.image"><i class="fa fa-check"></i>ee.Image</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.imagecollection"><i class="fa fa-check"></i>ee.ImageCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.feature"><i class="fa fa-check"></i>ee.Feature</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.featurecollection"><i class="fa fa-check"></i>ee.FeatureCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.algorithms"><i class="fa fa-check"></i>ee.Algorithms</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.array"><i class="fa fa-check"></i>ee.Array</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.classifier"><i class="fa fa-check"></i>ee.Classifier</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.clusterer"><i class="fa fa-check"></i>ee.Clusterer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.filter"><i class="fa fa-check"></i>ee.Filter</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.geometry"><i class="fa fa-check"></i>ee.Geometry</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.join"><i class="fa fa-check"></i>ee.Join</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.reducer"><i class="fa fa-check"></i>ee.Reducer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.terrain"><i class="fa fa-check"></i>ee.Terrain</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html"><i class="fa fa-check"></i><b>6</b> ee.Geometry</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#información-y-metadatos"><i class="fa fa-check"></i><b>6.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#creación-de-geometrías"><i class="fa fa-check"></i><b>6.2</b> Creación de geometrías</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#métodos-comunes"><i class="fa fa-check"></i><b>6.3</b> Métodos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html"><i class="fa fa-check"></i><b>7</b> ee.Feature</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#información-y-metadatos-1"><i class="fa fa-check"></i><b>7.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#visualización-de-vectores"><i class="fa fa-check"></i><b>7.2</b> Visualización de vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-vectores"><i class="fa fa-check"></i><b>7.3</b> Creación de vectores</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#métodos-comunes-1"><i class="fa fa-check"></i><b>7.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#selección-de-propiedades"><i class="fa fa-check"></i>Selección de propiedades</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores"><i class="fa fa-check"></i>Extracción y edición de propiedades de vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#intersección-con-otros-vectores"><i class="fa fa-check"></i>Intersección con otros vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-un-buffer"><i class="fa fa-check"></i>Creación de un buffer</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-área"><i class="fa fa-check"></i>Cálculo de área</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-perímetro"><i class="fa fa-check"></i>Cálculo de perímetro</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#disolución-de-polígonos"><i class="fa fa-check"></i>Disolución de polígonos</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#unión-de-vectores"><i class="fa fa-check"></i>Unión de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html"><i class="fa fa-check"></i><b>8</b> ee.FeatureCollection</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#información-y-metadatos-2"><i class="fa fa-check"></i><b>8.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="8.2" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.2</b> Creación de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.3" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#visualización-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.3</b> Visualización de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.4" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#métodos-comunes-2"><i class="fa fa-check"></i><b>8.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#filtración-de-una-colección-de-vectores"><i class="fa fa-check"></i>Filtración de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#funciones-de-usuario"><i class="fa fa-check"></i>Funciones de usuario</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#selección-de-atributos"><i class="fa fa-check"></i>Selección de atributos</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-puntos-aleatorios"><i class="fa fa-check"></i>Creación de puntos aleatorios</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#obtención-del-primer-vector"><i class="fa fa-check"></i>Obtención del primer vector</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-metadatos-de-una-colección-de-vectores"><i class="fa fa-check"></i>Extracción de metadatos de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-listas-con-atributos-de-vectores"><i class="fa fa-check"></i>Extracción de listas con atributos de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#ejecución-de-una-función-sobre-todos-los-vectores-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todos los vectores de una colección</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#reducción-de-una-colección-de-vectores"><i class="fa fa-check"></i>Reducción de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#conversión-de-una-colección-de-vectores-en-una-imagen"><i class="fa fa-check"></i>Conversión de una colección de vectores en una imagen</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#unión-de-colecciones-de-vectores"><i class="fa fa-check"></i>Unión de colecciones de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#exportación-de-colecciones-de-vectores"><i class="fa fa-check"></i>Exportación de colecciones de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html"><i class="fa fa-check"></i><b>9</b> ee.Image</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#información-y-metadatos-3"><i class="fa fa-check"></i><b>9.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="9.2" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#visualización-de-una-imagen"><i class="fa fa-check"></i><b>9.2</b> Visualización de una imagen</a></li>
+<li class="chapter" data-level="9.3" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#métodos-comunes-3"><i class="fa fa-check"></i><b>9.3</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#selección-de-bandas"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#sustitución-de-nombres-de-bandas"><i class="fa fa-check"></i>Sustitución de nombres de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#realización-de-cortes"><i class="fa fa-check"></i>Realización de cortes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#cálculo-de-operaciones-matemáticas"><i class="fa fa-check"></i>Cálculo de operaciones matemáticas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#uso-de-operaciones-relacionales-condicionales-y-booleanas"><i class="fa fa-check"></i>Uso de operaciones relacionales, condicionales y booleanas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#enmascaramiento"><i class="fa fa-check"></i>Enmascaramiento</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-bandas"><i class="fa fa-check"></i>Adición de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#conversión-de-una-imagen-en-un-vector"><i class="fa fa-check"></i>Conversión de una imagen en un vector</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#exportación-de-una-imagen"><i class="fa fa-check"></i>Exportación de una imagen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html"><i class="fa fa-check"></i><b>10</b> ee.ImageCollection</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#información-y-metadatos-4"><i class="fa fa-check"></i><b>10.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="10.2" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.2</b> Creación de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.3" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#visualización-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.3</b> Visualización de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.4" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#métodos-comunes-4"><i class="fa fa-check"></i><b>10.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#filtración-de-colecciones-de-imágenes"><i class="fa fa-check"></i>Filtración de colecciones de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#selección-de-bandas-1"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ordenación-de-una-colección"><i class="fa fa-check"></i>Ordenación de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#obtención-de-la-primera-imagen"><i class="fa fa-check"></i>Obtención de la primera imagen</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#extracción-de-listas-con-atributos-de-imágenes"><i class="fa fa-check"></i>Extracción de listas con atributos de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conteo-de-observaciones-por-píxel"><i class="fa fa-check"></i>Conteo de observaciones por píxel</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conocer-el-tamaño-de-la-colección"><i class="fa fa-check"></i>Conocer el tamaño de la colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#unión-de-más-de-una-colección"><i class="fa fa-check"></i>Unión de más de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todas las imágenes de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#reducción-de-una-colección-de-imágenes"><i class="fa fa-check"></i>Reducción de una colección de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-compuestos-y-mosaicos"><i class="fa fa-check"></i>Creación de compuestos y mosaicos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html"><i class="fa fa-check"></i><b>11</b> Uso conjunto de vectores e imágenes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#métodos-comunes-5"><i class="fa fa-check"></i><b>11.1</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#muestreo-por-vectores"><i class="fa fa-check"></i>Muestreo por vector(es)</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#reducción-de-una-imagen-por-regiónes"><i class="fa fa-check"></i>Reducción de una imagen por región(es)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#interpolación-de-un-vector-a-una-imagen"><i class="fa fa-check"></i><b>11.2</b> Interpolación de un vector a una imagen</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#ponderación-de-distancia-inversa"><i class="fa fa-check"></i>Ponderación de distancia inversa</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#kriging"><i class="fa fa-check"></i>Kriging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html"><i class="fa fa-check"></i><b>12</b> Clasificación supervisada</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
+<li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
+<li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
+<ul>
+<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
+<ul>
+<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="referencias" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Referencias<a href="14-referencias.html#referencias" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="line-block">Amani, M., Ghorbanian, A., Ahmadi, S. A., Moghaddam, A., Mahdavi, S., Ghahremanloo, M., … Brisco, B. (2020). Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications : A Comprehensive Review. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 13, 5326–5350. <a href="https://doi.org/10.1109/JSTARS.2020.3021052" class="uri">https://doi.org/10.1109/JSTARS.2020.3021052</a></div>
+<div class="line-block">Arévalo, P., Bullock, E. L., Woodcock, C. E., &amp; Olofsson, P. (2020). A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine. Frontiers in Climate, 2, 576740. <a href="https://doi.org/10.3389/fclim.2020.576740" class="uri">https://doi.org/10.3389/fclim.2020.576740</a></div>
+<div class="line-block">Arruda, V. L. S., Piontekowski, V. J., Alencar, A., Pereira, R. S., &amp; Matricardi, E. A. T. (2021). An alternative approach for mapping burn scars using Landsat imagery, Google Earth Engine, and Deep Learning in the Brazilian Savanna. Remote Sensing Applications: Society and Environment, 22, 100472. <a href="https://doi.org/10.1016/j.rsase.2021.100472" class="uri">https://doi.org/10.1016/j.rsase.2021.100472</a></div>
+<div class="line-block">Basso, K., De Avila Zingano, P. R., &amp; Dal Sasso Freitas, C. M. (1999). Interpolation of scattered data: investigating alternatives for the modified Shepard method, XII Brazilian Symposium on Computer Graphics and Image Processing (Cat. No.PR00481), 39-47. <a href="https://doi.org/10.1109/SIBGRA.1999.805606" class="uri">https://doi.org/10.1109/SIBGRA.1999.805606</a>.</div>
+<div class="line-block">Breiman, L. (2001). Random Forests. Machine Learning, 45, 5-32.</div>
+<div class="line-block">Breiman, L., Friedman, J. H., Olshen, R. A., Stone, C. J. (1984). <em>Classification and Regression Trees</em>. Wadsworth, Belmont, EUA.</div>
+<div class="line-block">Campos-Taberner, M., Moreno-Martínez, Á., García-Haro, F. J., Camps-Valls, G., Robinson, N. P., Kattge, J., &amp; Running, S. W. (2018). Global estimation of biophysical variables from Google Earth Engine platform. Remote Sensing, 10, 1167. <a href="https://doi.org/10.3390/rs10081167" class="uri">https://doi.org/10.3390/rs10081167</a></div>
+<div class="line-block">Chuvieco, E. (1995). <em>Fundamentos de Teledetección Espacial</em>. Segunda edición. Ediciones RIALP, Madrid, España.</div>
+<div class="line-block">Cortes, C., Vapnik, V. (1995). Support-vector networks. Machine Learning, 20, 273–297.</div>
+<div class="line-block">Dong, J., Xiao, X., Menarguez, M. A., Zhang, G., Qin, Y., Thau, D., … Moore, B. (2016). Mapping paddy rice planting area in northeastern Asia with Landsat 8 images, phenology-based algorithm and Google Earth Engine. Remote Sensing of Environment, 185, 142–154. <a href="https://doi.org/10.1016/j.rse.2016.02.016" class="uri">https://doi.org/10.1016/j.rse.2016.02.016</a></div>
+<div class="line-block">Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics 29, 1189–1232.</div>
+<div class="line-block">Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., &amp; Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202, 18–27. <a href="https://doi.org/10.1016/j.rse.2017.06.031" class="uri">https://doi.org/10.1016/j.rse.2017.06.031</a></div>
+<div class="line-block">Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., &amp; Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. <a href="https://doi.org/10.3390/rs12182953" class="uri">https://doi.org/10.3390/rs12182953</a></div>
+<div class="line-block">Hansen, M. C., Potapov, P. V, Moore, R., Turubanova, S. A., Tyukavina, A., Thau, D., … Townshend, J. R. G. (2013). High-Resolution Global Maps of 21st-Century Forest Cover Change. Science, 342, 850–853. <a href="https://doi.org/http://doi.org/10.1126/science.1244693" class="uri">https://doi.org/http://doi.org/10.1126/science.1244693</a></div>
+<div class="line-block">Kumar, L., Mutanga, O., Kumar, L., &amp; Mutanga, O. (2018). Google Earth Engine Applications Since Inception: Usage, Trends, and Potential. Remote Sensing, 10, 1509. <a href="https://doi.org/10.3390/rs10101509" class="uri">https://doi.org/10.3390/rs10101509</a></div>
+<div class="line-block">Lee, J. S. H., Wich, S., Widayati, A., &amp; Koh, L. P. (2016). Detecting industrial oil palm plantations on Landsat images with Google Earth Engine. Remote Sensing Applications: Society and Environment, 4, 219–224. <a href="https://doi.org/10.1016/j.rsase.2016.11.003" class="uri">https://doi.org/10.1016/j.rsase.2016.11.003</a></div>
+<div class="line-block">Mateo-García, G., Gómez-Chova, L., Amorós-López, J., Muñoz-Marí, J., &amp; Camps-Valls, G. (2018). Multitemporal cloud masking in the Google Earth Engine. Remote Sensing, 10, 1079. <a href="https://doi.org/10.3390/rs10071079" class="uri">https://doi.org/10.3390/rs10071079</a></div>
+<div class="line-block">Olaya, V. (2020). Sistemas de Información Geográfica. CreateSpace Independent Publishing Platform, España. <a href="https://volaya.github.io/libro-sig/" class="uri">https://volaya.github.io/libro-sig/</a></div>
+<div class="line-block">Oshiro, T. M., Perez, P. S., Baranauskas, J. A. (2012). How Many Trees in a Random Forest?. En: Perner, P. (eds) Machine Learning and Data Mining in Pattern Recognition. MLDM 2012. Lecture Notes in Computer Science, 7376. Springer, Berlin, Alemania. <a href="https://doi.org/10.1007/978-3-642-31537-4_13" class="uri">https://doi.org/10.1007/978-3-642-31537-4_13</a></div>
+<div class="line-block">Perilla, G. A., &amp; Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. <a href="https://doi.org/10.14350/rig.59929" class="uri">https://doi.org/10.14350/rig.59929</a></div>
+<div class="line-block">Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p. 83).</div>
+<div class="line-block">Quinlan, J. R. (1986). Induction of Decision Trees. Machine Learning 1, 81–106. <a href="https://doi.org/10.1023/A:1022643204877" class="uri">https://doi.org/10.1023/A:1022643204877</a></div>
+<div class="line-block">Radočaj, D., Obhođaš, J., Jurišić, M., Gašparović, M. (2020). Global open data remote sensing satellite missions for land monitoring and conservation: A review. Land, 9, 1–24. <a href="https://doi.org/10.3390/land9110402" class="uri">https://doi.org/10.3390/land9110402</a></div>
+<div class="line-block">Ravanelli, R., Nascetti, A., Cirigliano, R., Di Rico, C., Leuzzi, G., Monti, P., &amp; Crespi, M. (2018). Monitoring the Impact of Land Cover Change on Surface Urban Heat Island through Google Earth Engine: Proposal of a Global Methodology, First Applications and Problems. Remote Sensing, 10, 1488. <a href="https://dx.doi.org/10.3390/rs10091488" class="uri">https://dx.doi.org/10.3390/rs10091488</a></div>
+<div class="line-block">Sazib, N., Mladenova, I., &amp; Bolten, J. (2018). Leveraging the google earth engine for drought assessment using global soil moisture data. Remote Sensing, 10, 1265. <a href="https://doi.org/10.3390/rs10081265" class="uri">https://doi.org/10.3390/rs10081265</a></div>
+<div class="line-block">Slagter, B., Tsendbazar, N.-E., Vollrath, A., &amp; Reiche, J. (2020). Mapping wetland characteristics using temporally dense Sentinel-1 and Sentinel-2 data: A case study in the St. Lucia wetlands, South Africa. International Journal of Applied Earth Observation and Geoinformation, 86, 102009. <a href="https://doi.org/10.1016/j.jag.2019.102009" class="uri">https://doi.org/10.1016/j.jag.2019.102009</a></div>
+<div class="line-block">Solórzano, J. V., Gallardo-Cruz, J. A., &amp; Peralta-Carreta, C. (2020). Potencial del acervo de imágenes Landsat disponible en Google Earth Engine para el estudio del territorio mexicano. Investigaciones Geográficas, 101, e59821. <a href="https://doi.org/10.14350/rig.59821" class="uri">https://doi.org/10.14350/rig.59821</a></div>
+<div class="line-block">Solórzano, J. V., Mas, J. F., Gao, Y., &amp; Gallardo-Cruz, J. A. (2020). Patrones espaciotemporales de las observaciones de Sentinel-2 a nivel de imagen y píxel sobre el territorio mexicano entre 2015 y 2019. Revista de Teledetección, 56(Número especial), 103–115. <a href="https://doi.org/10.4995/raet.2020.14044" class="uri">https://doi.org/10.4995/raet.2020.14044</a></div>
+<div class="line-block">Trianni, G., Angiuli, E., Lisini, G., &amp; Gamba, P. (2014). Human settlements from Landsat data using Google Earth Engine. Geoscience and Remote Sensing Symposium, 1473–1476. <a href="https://doi.org/10.1109/IGARSS.2014.6946715" class="uri">https://doi.org/10.1109/IGARSS.2014.6946715</a></div>
+<div class="line-block">Wagle, N., Acharya, T. D., Kolluru, V., Huang, H., &amp; Lee, D. H. (2020). Multi-Temporal Land Cover Change Mapping Using Google Earth Engine and Ensemble Learning Methods. Applied Sciences, 10, 8083. <a href="https://doi.org/10.3390/app10228083" class="uri">https://doi.org/10.3390/app10228083</a></div>
+<div class="line-block">Webb, G. I. (2011). Naïve Bayes. En: Sammut, C., Webb, G. I. (eds) Encyclopedia of Machine Learning. Springer, Boston, EUA. <a href="https://doi.org/10.1007/978-0-387-30164-8_576" class="uri">https://doi.org/10.1007/978-0-387-30164-8_576</a></div>
+<div class="line-block">Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., … Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225–244. <a href="https://doi.org/10.1016/j.isprsjprs.2017.01.019" class="uri">https://doi.org/10.1016/j.isprsjprs.2017.01.019</a></div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="13-cierre.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "chapter",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

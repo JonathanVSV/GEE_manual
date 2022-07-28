@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Primeros pasos | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="2 Primeros pasos | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Primeros pasos | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Primeros pasos | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="1-introducción.html"/>
+<link rel="next" href="3-interfaz-de-usuario.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introducción.html"><a href="1-introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-introducción.html"><a href="1-introducción.html#propósito-del-libro"><i class="fa fa-check"></i><b>1.1</b> Propósito del libro</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introducción.html"><a href="1-introducción.html#organización-del-libro"><i class="fa fa-check"></i><b>1.2</b> Organización del libro</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#registro-para-el-uso-de-gee-javascript-api"><i class="fa fa-check"></i><b>2.1</b> Registro para el uso de GEE JavaScript API</a></li>
+<li class="chapter" data-level="2.2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#elementos-básicos-de-la-interfaz-gráfica"><i class="fa fa-check"></i><b>2.2</b> Elementos básicos de la interfaz gráfica</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-repositorios"><i class="fa fa-check"></i>Pantalla de repositorios</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-rutinas"><i class="fa fa-check"></i>Pantalla de rutinas</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#search"><i class="fa fa-check"></i>Search</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-mapa"><i class="fa fa-check"></i>Pantalla de Mapa</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-control"><i class="fa fa-check"></i>Pantalla de control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#programación-en-gee"><i class="fa fa-check"></i><b>2.3</b> Programación en GEE</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#simbología"><i class="fa fa-check"></i>Simbología</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#lenguaje-javascript-en-gee"><i class="fa fa-check"></i>Lenguaje JavaScript en GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html"><i class="fa fa-check"></i><b>3</b> Interfaz de usuario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#impresión-en-consola"><i class="fa fa-check"></i><b>3.1</b> Impresión en consola</a></li>
+<li class="chapter" data-level="3.2" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa"><i class="fa fa-check"></i><b>3.2</b> Interacción con la pantalla de mapa</a></li>
+<li class="chapter" data-level="3.3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#creación-de-gráficos"><i class="fa fa-check"></i><b>3.3</b> Creación de gráficos</a></li>
+<li class="chapter" data-level="3.4" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee"><i class="fa fa-check"></i><b>3.4</b> Exportación de objetos fuera de GEE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-importación-de-información-a-gee.html"><a href="4-importación-de-información-a-gee.html"><i class="fa fa-check"></i><b>4</b> Importación de información a GEE</a></li>
+<li class="chapter" data-level="5" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor"><i class="fa fa-check"></i><b>5.1</b> Objetos del cliente y del servidor</a></li>
+<li class="chapter" data-level="5.2" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipos-de-objetos-del-lado-del-cliente"><i class="fa fa-check"></i><b>5.2</b> Tipos de objetos del lado del cliente</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#cadenas-de-texto"><i class="fa fa-check"></i>Cadenas de texto</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#números"><i class="fa fa-check"></i>Números</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#diccionarios"><i class="fa fa-check"></i>Diccionarios</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipo-de-objetos-del-lado-del-servidor"><i class="fa fa-check"></i><b>5.3</b> Tipo de objetos del lado del servidor</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.string"><i class="fa fa-check"></i>ee.String</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.number"><i class="fa fa-check"></i>ee.Number</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.list"><i class="fa fa-check"></i>ee.List</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.dictionary"><i class="fa fa-check"></i>ee.Dictionary</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.date"><i class="fa fa-check"></i>ee.Date</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.image"><i class="fa fa-check"></i>ee.Image</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.imagecollection"><i class="fa fa-check"></i>ee.ImageCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.feature"><i class="fa fa-check"></i>ee.Feature</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.featurecollection"><i class="fa fa-check"></i>ee.FeatureCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.algorithms"><i class="fa fa-check"></i>ee.Algorithms</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.array"><i class="fa fa-check"></i>ee.Array</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.classifier"><i class="fa fa-check"></i>ee.Classifier</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.clusterer"><i class="fa fa-check"></i>ee.Clusterer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.filter"><i class="fa fa-check"></i>ee.Filter</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.geometry"><i class="fa fa-check"></i>ee.Geometry</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.join"><i class="fa fa-check"></i>ee.Join</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.reducer"><i class="fa fa-check"></i>ee.Reducer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.terrain"><i class="fa fa-check"></i>ee.Terrain</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html"><i class="fa fa-check"></i><b>6</b> ee.Geometry</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#información-y-metadatos"><i class="fa fa-check"></i><b>6.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#creación-de-geometrías"><i class="fa fa-check"></i><b>6.2</b> Creación de geometrías</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#métodos-comunes"><i class="fa fa-check"></i><b>6.3</b> Métodos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html"><i class="fa fa-check"></i><b>7</b> ee.Feature</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#información-y-metadatos-1"><i class="fa fa-check"></i><b>7.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#visualización-de-vectores"><i class="fa fa-check"></i><b>7.2</b> Visualización de vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-vectores"><i class="fa fa-check"></i><b>7.3</b> Creación de vectores</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#métodos-comunes-1"><i class="fa fa-check"></i><b>7.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#selección-de-propiedades"><i class="fa fa-check"></i>Selección de propiedades</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores"><i class="fa fa-check"></i>Extracción y edición de propiedades de vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#intersección-con-otros-vectores"><i class="fa fa-check"></i>Intersección con otros vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-un-buffer"><i class="fa fa-check"></i>Creación de un buffer</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-área"><i class="fa fa-check"></i>Cálculo de área</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-perímetro"><i class="fa fa-check"></i>Cálculo de perímetro</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#disolución-de-polígonos"><i class="fa fa-check"></i>Disolución de polígonos</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#unión-de-vectores"><i class="fa fa-check"></i>Unión de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html"><i class="fa fa-check"></i><b>8</b> ee.FeatureCollection</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#información-y-metadatos-2"><i class="fa fa-check"></i><b>8.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="8.2" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.2</b> Creación de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.3" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#visualización-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.3</b> Visualización de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.4" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#métodos-comunes-2"><i class="fa fa-check"></i><b>8.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#filtración-de-una-colección-de-vectores"><i class="fa fa-check"></i>Filtración de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#funciones-de-usuario"><i class="fa fa-check"></i>Funciones de usuario</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#selección-de-atributos"><i class="fa fa-check"></i>Selección de atributos</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-puntos-aleatorios"><i class="fa fa-check"></i>Creación de puntos aleatorios</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#obtención-del-primer-vector"><i class="fa fa-check"></i>Obtención del primer vector</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-metadatos-de-una-colección-de-vectores"><i class="fa fa-check"></i>Extracción de metadatos de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-listas-con-atributos-de-vectores"><i class="fa fa-check"></i>Extracción de listas con atributos de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#ejecución-de-una-función-sobre-todos-los-vectores-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todos los vectores de una colección</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#reducción-de-una-colección-de-vectores"><i class="fa fa-check"></i>Reducción de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#conversión-de-una-colección-de-vectores-en-una-imagen"><i class="fa fa-check"></i>Conversión de una colección de vectores en una imagen</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#unión-de-colecciones-de-vectores"><i class="fa fa-check"></i>Unión de colecciones de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#exportación-de-colecciones-de-vectores"><i class="fa fa-check"></i>Exportación de colecciones de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html"><i class="fa fa-check"></i><b>9</b> ee.Image</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#información-y-metadatos-3"><i class="fa fa-check"></i><b>9.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="9.2" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#visualización-de-una-imagen"><i class="fa fa-check"></i><b>9.2</b> Visualización de una imagen</a></li>
+<li class="chapter" data-level="9.3" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#métodos-comunes-3"><i class="fa fa-check"></i><b>9.3</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#selección-de-bandas"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#sustitución-de-nombres-de-bandas"><i class="fa fa-check"></i>Sustitución de nombres de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#realización-de-cortes"><i class="fa fa-check"></i>Realización de cortes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#cálculo-de-operaciones-matemáticas"><i class="fa fa-check"></i>Cálculo de operaciones matemáticas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#uso-de-operaciones-relacionales-condicionales-y-booleanas"><i class="fa fa-check"></i>Uso de operaciones relacionales, condicionales y booleanas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#enmascaramiento"><i class="fa fa-check"></i>Enmascaramiento</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-bandas"><i class="fa fa-check"></i>Adición de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#conversión-de-una-imagen-en-un-vector"><i class="fa fa-check"></i>Conversión de una imagen en un vector</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#exportación-de-una-imagen"><i class="fa fa-check"></i>Exportación de una imagen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html"><i class="fa fa-check"></i><b>10</b> ee.ImageCollection</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#información-y-metadatos-4"><i class="fa fa-check"></i><b>10.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="10.2" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.2</b> Creación de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.3" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#visualización-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.3</b> Visualización de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.4" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#métodos-comunes-4"><i class="fa fa-check"></i><b>10.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#filtración-de-colecciones-de-imágenes"><i class="fa fa-check"></i>Filtración de colecciones de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#selección-de-bandas-1"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ordenación-de-una-colección"><i class="fa fa-check"></i>Ordenación de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#obtención-de-la-primera-imagen"><i class="fa fa-check"></i>Obtención de la primera imagen</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#extracción-de-listas-con-atributos-de-imágenes"><i class="fa fa-check"></i>Extracción de listas con atributos de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conteo-de-observaciones-por-píxel"><i class="fa fa-check"></i>Conteo de observaciones por píxel</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conocer-el-tamaño-de-la-colección"><i class="fa fa-check"></i>Conocer el tamaño de la colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#unión-de-más-de-una-colección"><i class="fa fa-check"></i>Unión de más de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todas las imágenes de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#reducción-de-una-colección-de-imágenes"><i class="fa fa-check"></i>Reducción de una colección de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-compuestos-y-mosaicos"><i class="fa fa-check"></i>Creación de compuestos y mosaicos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html"><i class="fa fa-check"></i><b>11</b> Uso conjunto de vectores e imágenes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#métodos-comunes-5"><i class="fa fa-check"></i><b>11.1</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#muestreo-por-vectores"><i class="fa fa-check"></i>Muestreo por vector(es)</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#reducción-de-una-imagen-por-regiónes"><i class="fa fa-check"></i>Reducción de una imagen por región(es)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#interpolación-de-un-vector-a-una-imagen"><i class="fa fa-check"></i><b>11.2</b> Interpolación de un vector a una imagen</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#ponderación-de-distancia-inversa"><i class="fa fa-check"></i>Ponderación de distancia inversa</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#kriging"><i class="fa fa-check"></i>Kriging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html"><i class="fa fa-check"></i><b>12</b> Clasificación supervisada</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
+<li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
+<li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
+<ul>
+<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
+<ul>
+<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="primeros-pasos" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Primeros pasos<a href="2-primeros-pasos.html#primeros-pasos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="registro-para-el-uso-de-gee-javascript-api" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Registro para el uso de GEE JavaScript API<a href="2-primeros-pasos.html#registro-para-el-uso-de-gee-javascript-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:</p>
+<p><a href="https://earthengine.google.com/" class="uri"><strong>https://earthengine.google.com/</strong></a></p>
+<p>Después, le damos clic en la esquina superior derecha donde dice <strong>Sign Up</strong> (inscribirse; <span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f21">2.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f21"></span>
+<img src="Img/Signup.png" alt="Pantalla de inicio en la página de registro de GEE." width="60%" />
+<p class="caption">
+Figure 2.1: Pantalla de inicio en la página de registro de GEE.
+</p>
+</div>
+<p>Luego se ingresan todos los datos que pide el formulario. Recuerde que para utilizar GEE se requiere de una cuenta de Google (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f22">2.2</a>).</p>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible en Google Drive, ya que será la forma más fácil de exportar los resultados generados en GEE.</p>
+</div>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f22"></span>
+<img src="Img/formulario.png" alt="Formulario de datos a llenar para registrarse en GEE." width="40%" />
+<p class="caption">
+Figure 2.2: Formulario de datos a llenar para registrarse en GEE.
+</p>
+</div>
+<p>Una vez realizado el registro, hay que esperar un tiempo (pueden ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f23">2.3</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f23"></span>
+<img src="Img/correo.png" alt="Ejemplo del correo de confirmación por parte de GEE para poder utilizar la API." width="40%" />
+<p class="caption">
+Figure 2.3: Ejemplo del correo de confirmación por parte de GEE para poder utilizar la API.
+</p>
+</div>
+<p>Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace:</p>
+<p><a href="https://code.earthengine.google.com/" class="uri">https://code.earthengine.google.com/</a></p>
+<p>y se accede con la cuenta de Google con la que nos registramos.</p>
+<p>Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: <a href="https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual" class="uri">https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual</a></p>
+</div>
+<div id="elementos-básicos-de-la-interfaz-gráfica" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Elementos básicos de la interfaz gráfica<a href="2-primeros-pasos.html#elementos-básicos-de-la-interfaz-gráfica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una vez abierta la API de JavaScript, se observan cuatro pantallas (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f24">2.4</a>): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f24"></span>
+<img src="Img/GEE_inicio_API2.png" alt="Vista inicial de la API de GEE." width="80%" />
+<p class="caption">
+Figure 2.4: Vista inicial de la API de GEE.
+</p>
+</div>
+<p>Los elementos de la API se enlistan a continuación:</p>
+<div id="pantalla-de-repositorios" class="section level3 unnumbered hasAnchor">
+<h3>Pantalla de repositorios<a href="2-primeros-pasos.html#pantalla-de-repositorios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scripts" class="section level4 unnumbered hasAnchor">
+<h4>Scripts<a href="2-primeros-pasos.html#scripts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o <em>scripts</em> del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f25">2.5</a>):</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f25"></span>
+<img src="Img/repofolderfile.png" alt="Opciones disponibles dentro de la pestaña de Nuevo." width="60%" />
+<p class="caption">
+Figure 2.5: Opciones disponibles dentro de la pestaña de Nuevo.
+</p>
+</div>
+<p>Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f26">2.6</a>):</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f26"></span>
+<img src="Img/left_panel.png" alt="Vista del panel de repositorios dentro de GEE." width="40%" />
+<p class="caption">
+Figure 2.6: Vista del panel de repositorios dentro de GEE.
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><strong>Owner</strong> (Propietario): en esta sección se guardan los códigos creados por el mismo usuario.</li>
+<li><strong>Writer</strong> (Editor): en este apartado se guardan códigos que pueden ser creados por otros usuarios, pero que estamos autorizados a modificar.</li>
+<li><strong>Reader</strong> (Lector): en esta parte aparecen códigos que otros usuarios nos han compartido, pero no estamos autorizados a modificar.</li>
+<li><strong>Examples</strong> (Ejemplos): se pueden consultar ejemplos de código para hacer algunas tareas específicas. Por ejemplo, existe un apartado específico para consultar las distintas maneras de enmascarar nubes utilizando diferentes colecciones de imágenes (por ejemplo: Landsat 4-7, Landsat 8-9, Sentinel-2, MODIS).</li>
+<li><strong>Archive</strong> (Archivo): se pueden guardar archivos de código que ya no se utilicen, pero que no se desea eliminar.</li>
+</ol>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al dar clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; <span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f27">2.7</a>).</p>
+</div>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f27"></span>
+<img src="Img/engranaje.png" alt="Vista del espacio de propietario." width="40%" />
+<p class="caption">
+Figure 2.7: Vista del espacio de propietario.
+</p>
+</div>
+</div>
+<div id="docs" class="section level4 unnumbered hasAnchor">
+<h4>Docs<a href="2-primeros-pasos.html#docs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f28">2.8</a>). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f29">2.9</a>). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f28"></span>
+<img src="Img/docs.png" alt="Ejemplo de la pestaña de documentación dentro de GEE." width="40%" />
+<p class="caption">
+Figure 2.8: Ejemplo de la pestaña de documentación dentro de GEE.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f29"></span>
+<img src="Img/doc_ejemplo.png" alt="Ejemplo de consulta de un método dentro de la sección de documentación." width="40%" />
+<p class="caption">
+Figure 2.9: Ejemplo de consulta de un método dentro de la sección de documentación.
+</p>
+</div>
+</div>
+<div id="assets" class="section level4 unnumbered hasAnchor">
+<h4>Assets<a href="2-primeros-pasos.html#assets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La primera vez que se accede a la pestaña de <strong>Assets</strong> hay que crear una carpeta principal (<strong>Home Folder</strong>) para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f210">2.10</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f210"></span>
+<img src="Img/homeFolder.png" alt="Carpeta de inicio dentro de la API." width="60%" />
+<p class="caption">
+Figure 2.10: Carpeta de inicio dentro de la API.
+</p>
+</div>
+<p>En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f211">2.11</a>). Se pueden subir únicamente archivos en formato ráster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas (ver sección 4 para consultar los detalles para realizar este proceso).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f211"></span>
+<img src="Img/assets.png" alt="Vista de la sección de información del usuario." width="40%" />
+<p class="caption">
+Figure 2.11: Vista de la sección de información del usuario.
+</p>
+</div>
+</div>
+</div>
+<div id="pantalla-de-rutinas" class="section level3 unnumbered hasAnchor">
+<h3>Pantalla de rutinas<a href="2-primeros-pasos.html#pantalla-de-rutinas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Esta ventana es donde se va a escribir el código en JavaScript (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f212">2.12</a>) y cuenta con varios botones en la parte superior. El primero, <strong>Get Link</strong>, sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opción <strong>Manage Links</strong>) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f213">2.13</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f212"></span>
+<img src="Img/editor.png" alt="Vista de la pantalla de rutinas o scripts." width="50%" />
+<p class="caption">
+Figure 2.12: Vista de la pantalla de rutinas o scripts.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f213"></span>
+<img src="Img/links.png" alt="Ubicación del botón para obtener enlaces para compartir rutinas." width="30%" />
+<p class="caption">
+Figure 2.13: Ubicación del botón para obtener enlaces para compartir rutinas.
+</p>
+</div>
+<p>A su derecha se encuentra el botón de <strong>Save</strong>, el cual permite guardar el código con el que se esté trabajando (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f214">2.14</a>). Además, al darle clic en la flecha de despliegue se puede usar la opción <strong>Save as</strong> para crear una copia del código con otro nombre.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f214"></span>
+<img src="Img/save.png" alt="Ubicación del botón para guardar el código." width="30%" />
+<p class="caption">
+Figure 2.14: Ubicación del botón para guardar el código.
+</p>
+</div>
+<p>A continuación, está el botón <strong>Run</strong>, que sirve para correr, de principio a fin, el código que se muestra en la pantalla de rutinas (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f215">2.15</a>). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f215"></span>
+<img src="Img/run.png" alt="Ubicación del botón para correr el código." width="30%" />
+<p class="caption">
+Figure 2.15: Ubicación del botón para correr el código.
+</p>
+</div>
+<p>A su derecha se encuentra el botón de <strong>Reset</strong>, el cual sirve para borrar todo el código que se tenga escrito en la pantalla de rutinas.</p>
+<p>Después se encuentra el botón de <strong>Apps</strong>, que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: <a href="https://www.earthengine.app/" class="uri">https://www.earthengine.app/</a></p>
+<p>Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como <code>’</code>, <code>"</code>, <code>(</code> y <code>{</code>.</p>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Cuando se corre un código en la consola con el botón de <strong>Run</strong>, este no corre directamente en los servidores de Google, sino que se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.</p>
+</div>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Para buscar un texto específico dentro del código, se debe dar clic en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el cual facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.</p>
+</div>
+</div>
+</div>
+<div id="search" class="section level3 unnumbered hasAnchor">
+<h3>Search<a href="2-primeros-pasos.html#search" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Es una barra de búsqueda (<strong>Search</strong>) en la que se puede tratar de localizar fuentes de datos o sitios (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f216">2.16</a>). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f216"></span>
+<img src="Img/search.png" alt="Vista de la barra de búsqueda." width="80%" />
+<p class="caption">
+Figure 2.16: Vista de la barra de búsqueda.
+</p>
+</div>
+</div>
+<div id="pantalla-de-mapa" class="section level3 unnumbered hasAnchor">
+<h3>Pantalla de Mapa<a href="2-primeros-pasos.html#pantalla-de-mapa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En esta pantalla se puede (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f217">2.17</a>):</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f217"></span>
+<img src="Img/drawing.png" alt="Vista de la pantalla de mapa, indicando las diferentes herramientas que se pueden utilizar en ella." width="80%" />
+<p class="caption">
+Figure 2.17: Vista de la pantalla de mapa, indicando las diferentes herramientas que se pueden utilizar en ella.
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Dibujar y visualizar puntos, polígonos, líneas o rectángulos.</li>
+<li>Mostrar la información que se haya indicado mediante la función <code>Map.addLayer</code>.</li>
+<li>Añadir un mapa base (Google maps o Google earth).</li>
+</ol>
+<div id="gestor-de-capas" class="section level4 unnumbered hasAnchor">
+<h4>Gestor de capas<a href="2-primeros-pasos.html#gestor-de-capas" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f218">2.18</a>). Además, sirve para modificar las características de su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color). Este menú aparece una vez que se cargan capas a la pantalla de mapa.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f218"></span>
+<img src="Img/layer.png" alt="Ejemplo del uso del administrador de capas." width="80%" />
+<p class="caption">
+Figure 2.18: Ejemplo del uso del administrador de capas.
+</p>
+</div>
+</div>
+</div>
+<div id="pantalla-de-control" class="section level3 unnumbered hasAnchor">
+<h3>Pantalla de control<a href="2-primeros-pasos.html#pantalla-de-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La pantalla de control contiene tres pestañas: <strong>Console</strong> (consola), <strong>Inspector</strong> (inspector) y <strong>Tasks</strong> (tareas). Esta pantalla le permite al usuario hacer algunas consultas sobre la información con la que se está trabajando o finalizar tareas de exportación de información. A continuación se describe cada una de estas pestañas.</p>
+<div id="console" class="section level4 unnumbered hasAnchor">
+<h4>Console<a href="2-primeros-pasos.html#console" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La consola consiste en la pantalla de comunicación con el servidor (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f219">2.19</a>). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función <code>print</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f219"></span>
+<img src="Img/rigthPanel.png" alt="Vista de la consola en GEE." width="60%" />
+<p class="caption">
+Figure 2.19: Vista de la consola en GEE.
+</p>
+</div>
+</div>
+<div id="inspector" class="section level4 unnumbered hasAnchor">
+<h4>Inspector<a href="2-primeros-pasos.html#inspector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés (<span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f220">2.20</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f220"></span>
+<img src="Img/inspector.png" alt="Vista de la pestaña de la herramienta de Inspector." width="80%" />
+<p class="caption">
+Figure 2.20: Vista de la pestaña de la herramienta de Inspector.
+</p>
+</div>
+</div>
+<div id="tasks" class="section level4 unnumbered hasAnchor">
+<h4>Tasks<a href="2-primeros-pasos.html#tasks" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En esta pestaña se muestran las tareas que se hayan exportado mediante la función <code>Export</code> y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; <span style="color: darkblue;">Fig.</span> <a href="2-primeros-pasos.html#fig:f221">2.21</a>). Además, esta pestaña tiene otras funcionalidades:</p>
+<ol style="list-style-type: decimal">
+<li>Mostrar las tareas para ejecutar (con el botón de <strong>Run</strong>, el cual permite especificar detalles de la exportación).</li>
+<li>Presentar las tareas en ejecución (color gris).</li>
+<li>Señalar el tiempo que tomó realizar en el trabajo.</li>
+<li>Indicar cuándo se ha finalizado algún trabajo (color azul).</li>
+<li>Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo. Por último, al dar clic sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información sobre este, como la ubicación del archivo exportado o más información sobre el error que arrojó el servidor al tratar de realizar una exportación.</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f221"></span>
+<img src="Img/task.png" alt="Vista de la pestaña de tareas dentro de GEE." width="80%" />
+<p class="caption">
+Figure 2.21: Vista de la pestaña de tareas dentro de GEE.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="programación-en-gee" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Programación en GEE<a href="2-primeros-pasos.html#programación-en-gee" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la API de GEE, la programación sigue la sintaxis del lenguaje JavaScript y es orientada a objetos. Estos objetos se pueden interpretar como contenedores de información sobre los que se van a aplicar diferentes funciones o métodos para crear nuevos objetos o sobrescribir objetos preexistentes. Cada tipo de objeto tiene una serie de métodos propios que le permiten realizar diferentes tipos de operaciones, los cuales se revisan en el capítulo 5.</p>
+<div id="simbología" class="section level3 unnumbered hasAnchor">
+<h3>Simbología<a href="2-primeros-pasos.html#simbología" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><code>‘ ’</code> : comillas simples.</li>
+<li><code>“ ”</code> : comillas dobles.</li>
+<li><code>[ ]</code> : corchetes.</li>
+<li><code>{ }</code> : llaves.</li>
+<li><code>( )</code> : paréntesis.</li>
+<li><code>-</code> : guion.</li>
+<li><code>_</code> : guion bajo.</li>
+<li><code>,</code> : coma.</li>
+</ul>
+</div>
+<div id="lenguaje-javascript-en-gee" class="section level3 unnumbered hasAnchor">
+<h3>Lenguaje JavaScript en GEE<a href="2-primeros-pasos.html#lenguaje-javascript-en-gee" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para que se pueda correr el código sin problemas. Entre la sintaxis básica se pueden considerar los siguientes puntos (de igual forma iremos tocando la gramática del código a lo largo de los ejemplos):</p>
+<ol style="list-style-type: decimal">
+<li>Es un lenguaje sensible a las mayúsculas y minúsculas, de tal manera que puede haber dos objetos diferentes, uno llamado <code>a</code> y otro llamado <code>A</code>.</li>
+<li>Se recomienda cerrar cualquier comando con un <code>;</code> (de no hacerlo, el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).</li>
+<li>Comúnmente en JavaScript se utiliza la notación <em>lowerCamelCase</em> para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones <code>-</code> o guion bajo <code>_</code>. Por ejemplo: <code>intervalMean</code> o <code>updateMask</code>.</li>
+<li>Todas las variables, funciones y objetos deben ser definidos mediante la función <code>var</code>.</li>
+<li>El operador <code>=</code> asigna un valor a una variable.</li>
+<li>Los operadores matemáticos son: <code>+ - * /</code>.</li>
+<li>Para concatenar dos cadenas de caracteres se utiliza el símbolo <code>+</code>.</li>
+<li>Para realizar comentarios se puede utilizar <code>//</code> para comentarios de una línea, o también <code>/* … */</code> para comentarios de varias líneas.</li>
+<li>Se suele utilizar el operador <code>.</code> (punto) para aplicar un método al objeto que lo precede. En este manual, todos los métodos aplicados a algún objeto se escribirán precedidos por el operador <code>.</code> para evitar errores de sintaxis.</li>
+<li>Son igualmente válidas tanto las comillas sencillas (<code>' '</code>) como las comillas dobles (<code>" """</code>), pero no deben mezclarse ambos tipos de comillas en una misma línea.</li>
+</ol>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>El término correcto para llamar a los procesos aplicados con el operador <code>.</code> es el de método (<em>method</em>), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en <code>ee.Image.updateMask</code>, el método <code>updateMask</code> es uno ligado a un objeto de tipo imagen (<code>ee.Image</code>). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: <code>function(objeto){}</code>. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.</p>
+</div>
+</div>
+
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="1-introducción.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="3-interfaz-de-usuario.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "chapter",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>

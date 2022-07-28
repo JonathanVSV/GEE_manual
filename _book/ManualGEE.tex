@@ -37,19 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={Cómo usar Google Earth Engine y no fallar en el intento},
-  pdfauthor={Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez},
-  colorlinks=true,
-  linkcolor={darkblue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={darkblue},
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
-\usepackage[tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=2.5cm,,bottom=2.5cm,]{geometry}
+\usepackage[tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm,headheight=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -261,6 +249,18 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Cómo usar Google Earth Engine y no fallar en el intento},
+  pdfauthor={Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez},
+  colorlinks=true,
+  linkcolor={darkblue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={darkblue},
+  pdfcreator={LaTeX via pandoc}}
 
 \title{Cómo usar Google Earth Engine y no fallar en el intento}
 \author{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez}

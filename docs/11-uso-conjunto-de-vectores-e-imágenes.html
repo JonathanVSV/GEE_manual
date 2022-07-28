@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Uso conjunto de vectores e imágenes | Cómo usar Google Earth Engine y no fallar en el intento</title>
+  <meta name="description" content="11 Uso conjunto de vectores e imágenes | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Uso conjunto de vectores e imágenes | Cómo usar Google Earth Engine y no fallar en el intento" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Uso conjunto de vectores e imágenes | Cómo usar Google Earth Engine y no fallar en el intento" />
+  
+  
+  
+
+<meta name="author" content="Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="10-ee.imagecollection-1.html"/>
+<link rel="next" href="12-clasificación-supervisada.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="1-introducción.html"><a href="1-introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1-introducción.html"><a href="1-introducción.html#propósito-del-libro"><i class="fa fa-check"></i><b>1.1</b> Propósito del libro</a></li>
+<li class="chapter" data-level="1.2" data-path="1-introducción.html"><a href="1-introducción.html#organización-del-libro"><i class="fa fa-check"></i><b>1.2</b> Organización del libro</a></li>
+<li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#registro-para-el-uso-de-gee-javascript-api"><i class="fa fa-check"></i><b>2.1</b> Registro para el uso de GEE JavaScript API</a></li>
+<li class="chapter" data-level="2.2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#elementos-básicos-de-la-interfaz-gráfica"><i class="fa fa-check"></i><b>2.2</b> Elementos básicos de la interfaz gráfica</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-repositorios"><i class="fa fa-check"></i>Pantalla de repositorios</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-rutinas"><i class="fa fa-check"></i>Pantalla de rutinas</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#search"><i class="fa fa-check"></i>Search</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-mapa"><i class="fa fa-check"></i>Pantalla de Mapa</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#pantalla-de-control"><i class="fa fa-check"></i>Pantalla de control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#programación-en-gee"><i class="fa fa-check"></i><b>2.3</b> Programación en GEE</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#simbología"><i class="fa fa-check"></i>Simbología</a></li>
+<li class="chapter" data-level="" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html#lenguaje-javascript-en-gee"><i class="fa fa-check"></i>Lenguaje JavaScript en GEE</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html"><i class="fa fa-check"></i><b>3</b> Interfaz de usuario</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#impresión-en-consola"><i class="fa fa-check"></i><b>3.1</b> Impresión en consola</a></li>
+<li class="chapter" data-level="3.2" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa"><i class="fa fa-check"></i><b>3.2</b> Interacción con la pantalla de mapa</a></li>
+<li class="chapter" data-level="3.3" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#creación-de-gráficos"><i class="fa fa-check"></i><b>3.3</b> Creación de gráficos</a></li>
+<li class="chapter" data-level="3.4" data-path="3-interfaz-de-usuario.html"><a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee"><i class="fa fa-check"></i><b>3.4</b> Exportación de objetos fuera de GEE</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-importación-de-información-a-gee.html"><a href="4-importación-de-información-a-gee.html"><i class="fa fa-check"></i><b>4</b> Importación de información a GEE</a></li>
+<li class="chapter" data-level="5" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html"><i class="fa fa-check"></i><b>5</b> Tipos de objetos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor"><i class="fa fa-check"></i><b>5.1</b> Objetos del cliente y del servidor</a></li>
+<li class="chapter" data-level="5.2" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipos-de-objetos-del-lado-del-cliente"><i class="fa fa-check"></i><b>5.2</b> Tipos de objetos del lado del cliente</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#cadenas-de-texto"><i class="fa fa-check"></i>Cadenas de texto</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#números"><i class="fa fa-check"></i>Números</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#listas"><i class="fa fa-check"></i>Listas</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#diccionarios"><i class="fa fa-check"></i>Diccionarios</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#funciones"><i class="fa fa-check"></i>Funciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#tipo-de-objetos-del-lado-del-servidor"><i class="fa fa-check"></i><b>5.3</b> Tipo de objetos del lado del servidor</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.string"><i class="fa fa-check"></i>ee.String</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.number"><i class="fa fa-check"></i>ee.Number</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.list"><i class="fa fa-check"></i>ee.List</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.dictionary"><i class="fa fa-check"></i>ee.Dictionary</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.date"><i class="fa fa-check"></i>ee.Date</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.image"><i class="fa fa-check"></i>ee.Image</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.imagecollection"><i class="fa fa-check"></i>ee.ImageCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.feature"><i class="fa fa-check"></i>ee.Feature</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.featurecollection"><i class="fa fa-check"></i>ee.FeatureCollection</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.algorithms"><i class="fa fa-check"></i>ee.Algorithms</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.array"><i class="fa fa-check"></i>ee.Array</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.classifier"><i class="fa fa-check"></i>ee.Classifier</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.clusterer"><i class="fa fa-check"></i>ee.Clusterer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.filter"><i class="fa fa-check"></i>ee.Filter</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.geometry"><i class="fa fa-check"></i>ee.Geometry</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.join"><i class="fa fa-check"></i>ee.Join</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.reducer"><i class="fa fa-check"></i>ee.Reducer</a></li>
+<li class="chapter" data-level="" data-path="5-tipos-de-objetos.html"><a href="5-tipos-de-objetos.html#ee.terrain"><i class="fa fa-check"></i>ee.Terrain</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html"><i class="fa fa-check"></i><b>6</b> ee.Geometry</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#información-y-metadatos"><i class="fa fa-check"></i><b>6.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="6.2" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#creación-de-geometrías"><i class="fa fa-check"></i><b>6.2</b> Creación de geometrías</a></li>
+<li class="chapter" data-level="6.3" data-path="6-ee.geometry-1.html"><a href="6-ee.geometry-1.html#métodos-comunes"><i class="fa fa-check"></i><b>6.3</b> Métodos comunes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html"><i class="fa fa-check"></i><b>7</b> ee.Feature</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#información-y-metadatos-1"><i class="fa fa-check"></i><b>7.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="7.2" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#visualización-de-vectores"><i class="fa fa-check"></i><b>7.2</b> Visualización de vectores</a></li>
+<li class="chapter" data-level="7.3" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-vectores"><i class="fa fa-check"></i><b>7.3</b> Creación de vectores</a></li>
+<li class="chapter" data-level="7.4" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#métodos-comunes-1"><i class="fa fa-check"></i><b>7.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#selección-de-propiedades"><i class="fa fa-check"></i>Selección de propiedades</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores"><i class="fa fa-check"></i>Extracción y edición de propiedades de vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#intersección-con-otros-vectores"><i class="fa fa-check"></i>Intersección con otros vectores</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#creación-de-un-buffer"><i class="fa fa-check"></i>Creación de un buffer</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-área"><i class="fa fa-check"></i>Cálculo de área</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#cálculo-de-perímetro"><i class="fa fa-check"></i>Cálculo de perímetro</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#disolución-de-polígonos"><i class="fa fa-check"></i>Disolución de polígonos</a></li>
+<li class="chapter" data-level="" data-path="7-ee.feature-1.html"><a href="7-ee.feature-1.html#unión-de-vectores"><i class="fa fa-check"></i>Unión de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html"><i class="fa fa-check"></i><b>8</b> ee.FeatureCollection</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#información-y-metadatos-2"><i class="fa fa-check"></i><b>8.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="8.2" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.2</b> Creación de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.3" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#visualización-de-colecciones-de-vectores"><i class="fa fa-check"></i><b>8.3</b> Visualización de colecciones de vectores</a></li>
+<li class="chapter" data-level="8.4" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#métodos-comunes-2"><i class="fa fa-check"></i><b>8.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#filtración-de-una-colección-de-vectores"><i class="fa fa-check"></i>Filtración de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#funciones-de-usuario"><i class="fa fa-check"></i>Funciones de usuario</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#selección-de-atributos"><i class="fa fa-check"></i>Selección de atributos</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#creación-de-puntos-aleatorios"><i class="fa fa-check"></i>Creación de puntos aleatorios</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#obtención-del-primer-vector"><i class="fa fa-check"></i>Obtención del primer vector</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-metadatos-de-una-colección-de-vectores"><i class="fa fa-check"></i>Extracción de metadatos de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#extracción-de-listas-con-atributos-de-vectores"><i class="fa fa-check"></i>Extracción de listas con atributos de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#ejecución-de-una-función-sobre-todos-los-vectores-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todos los vectores de una colección</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#reducción-de-una-colección-de-vectores"><i class="fa fa-check"></i>Reducción de una colección de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#conversión-de-una-colección-de-vectores-en-una-imagen"><i class="fa fa-check"></i>Conversión de una colección de vectores en una imagen</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#unión-de-colecciones-de-vectores"><i class="fa fa-check"></i>Unión de colecciones de vectores</a></li>
+<li class="chapter" data-level="" data-path="8-ee.featurecollection-1.html"><a href="8-ee.featurecollection-1.html#exportación-de-colecciones-de-vectores"><i class="fa fa-check"></i>Exportación de colecciones de vectores</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html"><i class="fa fa-check"></i><b>9</b> ee.Image</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#información-y-metadatos-3"><i class="fa fa-check"></i><b>9.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="9.2" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#visualización-de-una-imagen"><i class="fa fa-check"></i><b>9.2</b> Visualización de una imagen</a></li>
+<li class="chapter" data-level="9.3" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#métodos-comunes-3"><i class="fa fa-check"></i><b>9.3</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#selección-de-bandas"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1"><i class="fa fa-check"></i>Adición de nuevas propiedades o modificación de propiedades preexistentes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#sustitución-de-nombres-de-bandas"><i class="fa fa-check"></i>Sustitución de nombres de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#realización-de-cortes"><i class="fa fa-check"></i>Realización de cortes</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#cálculo-de-operaciones-matemáticas"><i class="fa fa-check"></i>Cálculo de operaciones matemáticas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#uso-de-operaciones-relacionales-condicionales-y-booleanas"><i class="fa fa-check"></i>Uso de operaciones relacionales, condicionales y booleanas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#enmascaramiento"><i class="fa fa-check"></i>Enmascaramiento</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#adición-de-bandas"><i class="fa fa-check"></i>Adición de bandas</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#conversión-de-una-imagen-en-un-vector"><i class="fa fa-check"></i>Conversión de una imagen en un vector</a></li>
+<li class="chapter" data-level="" data-path="9-ee.image-1.html"><a href="9-ee.image-1.html#exportación-de-una-imagen"><i class="fa fa-check"></i>Exportación de una imagen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html"><i class="fa fa-check"></i><b>10</b> ee.ImageCollection</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#información-y-metadatos-4"><i class="fa fa-check"></i><b>10.1</b> Información y metadatos</a></li>
+<li class="chapter" data-level="10.2" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.2</b> Creación de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.3" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#visualización-de-colecciones-de-imágenes"><i class="fa fa-check"></i><b>10.3</b> Visualización de colecciones de imágenes</a></li>
+<li class="chapter" data-level="10.4" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#métodos-comunes-4"><i class="fa fa-check"></i><b>10.4</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#filtración-de-colecciones-de-imágenes"><i class="fa fa-check"></i>Filtración de colecciones de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#selección-de-bandas-1"><i class="fa fa-check"></i>Selección de bandas</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ordenación-de-una-colección"><i class="fa fa-check"></i>Ordenación de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#obtención-de-la-primera-imagen"><i class="fa fa-check"></i>Obtención de la primera imagen</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#extracción-de-listas-con-atributos-de-imágenes"><i class="fa fa-check"></i>Extracción de listas con atributos de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conteo-de-observaciones-por-píxel"><i class="fa fa-check"></i>Conteo de observaciones por píxel</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#conocer-el-tamaño-de-la-colección"><i class="fa fa-check"></i>Conocer el tamaño de la colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#unión-de-más-de-una-colección"><i class="fa fa-check"></i>Unión de más de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección"><i class="fa fa-check"></i>Ejecución de una función sobre todas las imágenes de una colección</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#reducción-de-una-colección-de-imágenes"><i class="fa fa-check"></i>Reducción de una colección de imágenes</a></li>
+<li class="chapter" data-level="" data-path="10-ee.imagecollection-1.html"><a href="10-ee.imagecollection-1.html#creación-de-compuestos-y-mosaicos"><i class="fa fa-check"></i>Creación de compuestos y mosaicos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html"><i class="fa fa-check"></i><b>11</b> Uso conjunto de vectores e imágenes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#métodos-comunes-5"><i class="fa fa-check"></i><b>11.1</b> Métodos comunes</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#muestreo-por-vectores"><i class="fa fa-check"></i>Muestreo por vector(es)</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#reducción-de-una-imagen-por-regiónes"><i class="fa fa-check"></i>Reducción de una imagen por región(es)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#interpolación-de-un-vector-a-una-imagen"><i class="fa fa-check"></i><b>11.2</b> Interpolación de un vector a una imagen</a>
+<ul>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#ponderación-de-distancia-inversa"><i class="fa fa-check"></i>Ponderación de distancia inversa</a></li>
+<li class="chapter" data-level="" data-path="11-uso-conjunto-de-vectores-e-imágenes.html"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#kriging"><i class="fa fa-check"></i>Kriging</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html"><i class="fa fa-check"></i><b>12</b> Clasificación supervisada</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
+<li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
+<li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
+<ul>
+<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
+<ul>
+<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="uso-conjunto-de-vectores-e-imágenes" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Uso conjunto de vectores e imágenes<a href="11-uso-conjunto-de-vectores-e-imágenes.html#uso-conjunto-de-vectores-e-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Además de los métodos que existen en GEE para realizar operaciones sobre
+imágenes, colecciones de imágenes, vectores o colecciones de vectores,
+existen algunos métodos que permiten combinar estos dos tipos de
+información para realizar ciertos procesos. Los dos tipos de procesos
+más comúnmente utilizados son el muestreo de una imagen por vectores y
+la reducción de una imagen por vectores.</p>
+<div id="métodos-comunes-5" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Métodos comunes<a href="11-uso-conjunto-de-vectores-e-imágenes.html#métodos-comunes-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="muestreo-por-vectores" class="section level3 unnumbered hasAnchor">
+<h3>Muestreo por vector(es)<a href="11-uso-conjunto-de-vectores-e-imágenes.html#muestreo-por-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p> Este tipo
+de operaciones normalmente se utilizan para muestrear los datos de una
+imagen y obtener, por ejemplo, muestras por clases de coberturas para
+después entrenar un clasificador o para obtener los valores de un ráster
+en formato de vector (como puntos). En GEE, existen tres métodos para
+hacer este proceso: para un ráster completo (<code>.sample</code>), para un
+rectángulo (<code>.sampleRectangle</code>) o para varias regiones
+(<code>.sampleRegions</code>). Por ejemplo, el método <code>.sample</code> toma como
+argumentos el vector utilizado para determinar el área de muestreo, así
+como la escala a la que se desea realizar el muestreo. En este ejemplo,
+primero se define una geometría y después se hace el muestreo
+(<span style="color: darkblue;">Fig.</span> <a href="11-uso-conjunto-de-vectores-e-imágenes.html#fig:fc111">11.1</a>).</p>
+<p>Ejercicio 29</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb124-1"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Definir región a muestrear</span></span>
+<span id="cb124-2"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> bosque1 <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">101.53892</span><span class="op">,</span> <span class="fl">19.74148</span><span class="op">,</span> </span>
+<span id="cb124-3"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">101.51906</span><span class="op">,</span><span class="fl">19.72362</span>)<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Definir región a muestrear
+var bosque1 = ee.Geometry.Rectangle(-101.53892, 19.74148, 
+  -101.51906,19.72362);
+</script>
+<div class="sourceCode" id="cb125"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb125-1"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestrear imagen</span></span>
+<span id="cb125-2"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> muestreo <span class="op">=</span> L8imgMean</span>
+<span id="cb125-3"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sample</span>({</span>
+<span id="cb125-4"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">region</span><span class="op">:</span> bosque1<span class="op">,</span></span>
+<span id="cb125-5"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scale</span><span class="op">:</span><span class="dv">30</span></span>
+<span id="cb125-6"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb125-6" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Muestrear imagen
+var muestreo = L8imgMean
+  .sample({
+    region: bosque1,
+    scale:30
+  });
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fc111"></span>
+<img src="Img/sampleRegions.png" alt="Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample." width="80%" />
+<p class="caption">
+Figure 11.1: Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Si se desea obtener la información de un muestreo de una imagen con su
+correspondiente información espacial, se puede utilizar el argumento
+<code>geometries: true</code>. Esto dará como resultado una tabla con la misma
+información, pero con las coordenadas geográficas de los centros de los
+píxeles de la imagen muestreada.</p>
+</div>
+</div>
+</div>
+<div id="reducción-de-una-imagen-por-regiónes" class="section level3 unnumbered hasAnchor">
+<h3>Reducción de una imagen por región(es)<a href="11-uso-conjunto-de-vectores-e-imágenes.html#reducción-de-una-imagen-por-regiónes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p> Este tipo de operaciones
+normalmente se utilizan para resumir los valores de algún ráster en
+ciertas áreas de interés. En GEE, existen dos métodos para realizar este
+proceso: para una única región (<code>.reduceRegion</code>) o para varias regiones
+(<code>.reduceRegions</code>). Por ejemplo, el método <code>.reduceRegion</code> permite
+obtener estadísticas de la imagen en la extensión indicada por un área
+de interés (<code>geometry</code>). En este caso, además hay que indicar el
+reductor (<code>reducer</code>) y el tamaño de píxel para realizar la operación
+(<code>scale</code>; <span style="color: darkblue;">Fig.</span> <a href="11-uso-conjunto-de-vectores-e-imágenes.html#fig:fc112">11.2</a>).</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb126-1"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Reducción por región</span></span>
+<span id="cb126-2"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> reduccion <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(L8imgMean)</span>
+<span id="cb126-3"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">reduceRegion</span>({</span>
+<span id="cb126-4"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Reductor a utilizar</span></span>
+<span id="cb126-5"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span></span>
+<span id="cb126-6"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Definir el área de interés a resumir</span></span>
+<span id="cb126-7"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">geometry</span><span class="op">:</span> bosque1<span class="op">,</span></span>
+<span id="cb126-8"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Tamaño de píxel</span></span>
+<span id="cb126-9"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scale</span><span class="op">:</span> <span class="dv">30</span></span>
+<span id="cb126-10"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb126-10" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Reducción por región
+var reduccion = ee.Image(L8imgMean)
+  .reduceRegion({
+    // Reductor a utilizar
+    reducer: ee.Reducer.mean(),
+    // Definir el área de interés a resumir
+    geometry: bosque1,
+    // Tamaño de píxel
+    scale: 30
+  });
+</script>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fc112"></span>
+<img src="Img/reduccion11.png" alt="Ejemplo de la salida de la consola del promedio obtenido mediante el método .reduceRegion." width="80%" />
+<p class="caption">
+Figure 11.2: Ejemplo de la salida de la consola del promedio obtenido mediante el método <code>.reduceRegion</code>.
+</p>
+</div>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>En algunas ocasiones, los procesos de <code>.reduceRegions</code> o
+<code>.sampleRegions</code> pueden demandar muchos recursos computacionales y
+arrojar un error de ‘computation timed out’. Para evitarlo, se pueden
+utilizar los argumentos de <code>scale</code> o <code>tileScale</code>, ya que ambos
+argumentos permiten reducir los costos computacionales del proceso.
+<code>Scale</code> permite aumentar el tamaño de píxel al que se va a resumir la
+información, mientras que <code>tileScale</code> permite definir un factor de
+escalamiento.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="interpolación-de-un-vector-a-una-imagen" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Interpolación de un vector a una imagen<a href="11-uso-conjunto-de-vectores-e-imágenes.html#interpolación-de-un-vector-a-una-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este procedimiento consiste en tomar los datos numéricos de un vector e
+interpolarlos a áreas fuera de los vectores, lo cual resulta en una
+imagen con valores en toda el área de interés.</p>
+<div id="ponderación-de-distancia-inversa" class="section level3 unnumbered hasAnchor">
+<h3>Ponderación de distancia inversa<a href="11-uso-conjunto-de-vectores-e-imágenes.html#ponderación-de-distancia-inversa" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p> Este método interpola un valor para los píxeles
+de una imagen de acuerdo a los puntos con información y los pondera
+según su distancia, generando un promedio de esos valores. Esto provoca
+que los píxeles más cercanos tengan más influencia sobre el resultado de
+la interpolación que los píxeles más alejados. Para consultar más
+detalles sobre el procedimiento de interpolación, revisar Basso et al.
+(1999). Esta interpolación se realiza con el método <code>.inverseDistance</code>,
+donde hay que especificar al menos:</p>
+<ul>
+<li>El radio a interpolar alrededor de cada vector.</li>
+<li>El atributo (la propiedad) numérica del vector, que se interpolará.</li>
+<li>El promedio global de la variable.</li>
+<li>La desviación estándar global de la variable.</li>
+</ul>
+<p>El siguiente ejercicio tiene como objetivo interpolar valores de metano
+(CH<sub>4</sub>) para el norte de México. La imagen Sentinel-5 que se utilizará
+no tiene los valores de CH<sub>4</sub> para toda el área de estudio, sino que
+muchos de los píxeles se encuentran sin valores o enmascarados, es por
+ello que queremos interpolar la imagen, para poder tener valores
+continuos en toda el área. Para ello se generarán 10000 muestras
+(puntos), que consisten en el valor de CH<sub>4</sub> de 10000 píxeles
+aleatorios. Con la ayuda de unos reductores extraemos el promedio y la
+desviación estándar de todas las muestras (puntos) y finalmente
+interpolamos las muestras en buffers de 70 km, usando como argumento el
+promedio y la desviación estándar (<span style="color: darkblue;">Fig.</span>
+<a href="11-uso-conjunto-de-vectores-e-imágenes.html#fig:fc113">11.3</a>).</p>
+<p>Ejercicio 30</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb127-1"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Importamos datos de metano de 5 días, los filtramos y sacamos el </span></span>
+<span id="cb127-2"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="co">// promedio.</span></span>
+<span id="cb127-3"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ch4 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;COPERNICUS/S5P/OFFL/L3_CH4&#39;</span>)</span>
+<span id="cb127-4"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;CH4_column_volume_mixing_ratio_dry_air&#39;</span>)</span>
+<span id="cb127-5"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2020-01-01&#39;</span><span class="op">,</span> <span class="st">&#39;2020-01-05&#39;</span>)</span>
+<span id="cb127-6"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">mean</span>()</span>
+<span id="cb127-7"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">rename</span>(<span class="st">&#39;ch4&#39;</span>)<span class="op">;</span></span>
+<span id="cb127-8"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-9"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Definimos un rectángulo de área de estudio al norte de México.</span></span>
+<span id="cb127-10"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> norteMex <span class="op">=</span></span>
+<span id="cb127-11"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-11" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">117.33</span><span class="op">,</span> <span class="fl">32.753</span><span class="op">,</span> <span class="op">-</span><span class="fl">97.773</span><span class="op">,</span> <span class="fl">22.634</span>)<span class="op">;</span></span>
+<span id="cb127-12"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-13"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear una colección de vectores para interpolar.</span></span>
+<span id="cb127-14"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Se crean dos bandas adicionales para la imagen indicando la </span></span>
+<span id="cb127-15"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-15" aria-hidden="true" tabindex="-1"></a><span class="co">// longitud y latitud de cada píxel</span></span>
+<span id="cb127-16"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-16" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> muestras <span class="op">=</span> ch4<span class="op">.</span><span class="fu">addBands</span>(ee<span class="op">.</span><span class="at">Image</span><span class="op">.</span><span class="fu">pixelLonLat</span>()) </span>
+<span id="cb127-17"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se crea una colección </span></span>
+<span id="cb127-18"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// de vectores (sin geometría) en la región norteMex y aproximadamente </span></span>
+<span id="cb127-19"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">// cuántos puntos generar</span></span>
+<span id="cb127-20"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sample</span>({<span class="dt">region</span><span class="op">:</span> norteMex<span class="op">,</span> <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">10000</span><span class="op">,</span> </span>
+<span id="cb127-21"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// resolución de la imagen en metros por píxel</span></span>
+<span id="cb127-22"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">scale</span><span class="op">:</span><span class="dv">1000</span>}) </span>
+<span id="cb127-23"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Función para cada punto generado</span></span>
+<span id="cb127-24"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(sample) { </span>
+<span id="cb127-25"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Tomar el valor del punto de latitud</span></span>
+<span id="cb127-26"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> lat <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;latitude&#39;</span>)<span class="op">;</span> </span>
+<span id="cb127-27"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Tomar el valor del punto de Longitud</span></span>
+<span id="cb127-28"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> lon <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;longitude&#39;</span>)<span class="op">;</span> </span>
+<span id="cb127-29"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Tomar el valor del punto de metano</span></span>
+<span id="cb127-30"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> ch4 <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;ch4&#39;</span>)<span class="op">;</span> </span>
+<span id="cb127-31"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Crear una geometría para el vector asignándole el valor de metano</span></span>
+<span id="cb127-32"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([lon<span class="op">,</span> lat])<span class="op">,</span> {<span class="dt">ch4</span><span class="op">:</span> ch4})<span class="op">;</span></span>
+<span id="cb127-33"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-33" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb127-34"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-35"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-35" aria-hidden="true" tabindex="-1"></a><span class="co">// Combinar un reductor de promedio y desviación estándar</span></span>
+<span id="cb127-36"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-36" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> Reductores <span class="op">=</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">.</span><span class="fu">combine</span>({</span>
+<span id="cb127-37"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer2</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">stdDev</span>()<span class="op">,</span></span>
+<span id="cb127-38"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-38" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sharedInputs</span><span class="op">:</span> <span class="kw">true</span>})<span class="op">;</span></span>
+<span id="cb127-39"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-40"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-40" aria-hidden="true" tabindex="-1"></a><span class="co">// Estimar el promedio y la desviación estándar de metano de los puntos.</span></span>
+<span id="cb127-41"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-41" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> stats <span class="op">=</span> muestras<span class="op">.</span><span class="fu">reduceColumns</span>({</span>
+<span id="cb127-42"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-42" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> Reductores<span class="op">,</span></span>
+<span id="cb127-43"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-43" aria-hidden="true" tabindex="-1"></a>  <span class="dt">selectors</span><span class="op">:</span> [<span class="st">&#39;ch4&#39;</span>]})<span class="op">;</span></span>
+<span id="cb127-44"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-45"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-45" aria-hidden="true" tabindex="-1"></a><span class="co">// Interpolar para 70 km.</span></span>
+<span id="cb127-46"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-46" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> interpolado <span class="op">=</span> muestras<span class="op">.</span><span class="fu">inverseDistance</span>({</span>
+<span id="cb127-47"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-47" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Rango de interpolación para cada punto</span></span>
+<span id="cb127-48"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-48" aria-hidden="true" tabindex="-1"></a>  <span class="dt">range</span><span class="op">:</span> <span class="dv">70000</span><span class="op">,</span> </span>
+<span id="cb127-49"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Atributo numérico a interpolar</span></span>
+<span id="cb127-50"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-50" aria-hidden="true" tabindex="-1"></a>  <span class="dt">propertyName</span><span class="op">:</span> <span class="st">&#39;ch4&#39;</span><span class="op">,</span> </span>
+<span id="cb127-51"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-51" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Promedio (parámetro para el método)</span></span>
+<span id="cb127-52"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-52" aria-hidden="true" tabindex="-1"></a>  <span class="dt">mean</span><span class="op">:</span> stats<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;mean&#39;</span>)<span class="op">,</span> </span>
+<span id="cb127-53"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-53" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Desviación estándar (parámetro para la método)</span></span>
+<span id="cb127-54"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-54" aria-hidden="true" tabindex="-1"></a>  <span class="dt">stdDev</span><span class="op">:</span> stats<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;stdDev&#39;</span>)<span class="op">,</span> </span>
+<span id="cb127-55"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb127-55" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span> </span></code></pre></div>
+<script type="text/javascript">
+// Importamos datos de metano de 5 días, los filtramos y sacamos el 
+// promedio.
+var ch4 = ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_CH4')
+  .select('CH4_column_volume_mixing_ratio_dry_air')
+  .filterDate('2020-01-01', '2020-01-05')
+  .mean()
+  .rename('ch4');
+
+// Definimos un rectángulo de área de estudio al norte de México.
+var norteMex =
+  ee.Geometry.Rectangle(-117.33, 32.753, -97.773, 22.634);
+
+// Crear una colección de vectores para interpolar.
+// Se crean dos bandas adicionales para la imagen indicando la 
+// longitud y latitud de cada píxel
+var muestras = ch4.addBands(ee.Image.pixelLonLat()) 
+  // Se crea una colección 
+  // de vectores (sin geometría) en la región norteMex y aproximadamente 
+  // cuántos puntos generar
+  .sample({region: norteMex, numPixels: 10000, 
+    // resolución de la imagen en metros por píxel
+    scale:1000}) 
+  // Función para cada punto generado
+  .map(function(sample) { 
+    // Tomar el valor del punto de latitud
+    var lat = sample.get('latitude'); 
+    // Tomar el valor del punto de Longitud
+    var lon = sample.get('longitude'); 
+    // Tomar el valor del punto de metano
+    var ch4 = sample.get('ch4'); 
+    // Crear una geometría para el vector asignándole el valor de metano
+    return ee.Feature(ee.Geometry.Point([lon, lat]), {ch4: ch4});
+  });
+
+// Combinar un reductor de promedio y desviación estándar
+var Reductores = ee.Reducer.mean().combine({
+  reducer2: ee.Reducer.stdDev(),
+  sharedInputs: true});
+
+// Estimar el promedio y la desviación estándar de metano de los puntos.
+var stats = muestras.reduceColumns({
+  reducer: Reductores,
+  selectors: ['ch4']});
+
+// Interpolar para 70 km.
+var interpolado = muestras.inverseDistance({
+  // Rango de interpolación para cada punto
+  range: 70000, 
+  // Atributo numérico a interpolar
+  propertyName: 'ch4', 
+  // Promedio (parámetro para el método)
+  mean: stats.get('mean'), 
+  // Desviación estándar (parámetro para la método)
+  stdDev: stats.get('stdDev'), 
+  }); 
+</script>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fc113"></span>
+<img src="Img/interpol.png" alt="Visualización de la capa inicial de CH4, puntos de muestreo e imagen interpolada." width="80%" />
+<p class="caption">
+Figure 11.3: Visualización de la capa inicial de CH<sub>4</sub>, puntos de muestreo e imagen interpolada.
+</p>
+</div>
+</div>
+<div id="kriging" class="section level3 unnumbered hasAnchor">
+<h3>Kriging<a href="11-uso-conjunto-de-vectores-e-imágenes.html#kriging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p> Es un método de interpolación que utiliza un estimado de
+la semivarianza para crear una imagen de valores interpolados que sea
+una combinación óptima de los datos conocidos. En este método hay que
+especificar algunos parámetros que describen la forma de la función de
+semivarianza ajustada a los datos conocidos, los cuales incluyen: el
+intervalo de la varianza (<code>range</code>), la meseta (<code>sill</code>), el valor del
+efecto pepita (<code>nugget</code>), la distancia máxima a analizar (<code>maxDistance</code>)
+y la función a utilizar como reductor (<code>reducer</code>). Este ejercicio
+mostrará cómo interpolar la información de la temperatura superficial
+del mar (imagen), a partir de un muestreo de puntos (vectores;
+<span style="color: darkblue;">Fig.</span> <a href="11-uso-conjunto-de-vectores-e-imágenes.html#fig:fc114">11.4</a>).</p>
+<p>Ejercicio 31</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb128-1"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Importar una imagen de temperatura marina superficial</span></span>
+<span id="cb128-2"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> temperatura <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">&#39;NOAA/AVHRR_Pathfinder_V52_L3/20120802025048&#39;</span>)</span>
+<span id="cb128-3"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;sea_surface_temperature&#39;</span>)</span>
+<span id="cb128-4"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">rename</span>(<span class="st">&#39;temperatura&#39;</span>)</span>
+<span id="cb128-5"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">divide</span>(<span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb128-6"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-7"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Definir una geometría donde muestrear puntos</span></span>
+<span id="cb128-8"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> geometria <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>([<span class="op">-</span><span class="fl">65.60</span><span class="op">,</span> <span class="fl">31.75</span><span class="op">,</span> <span class="op">-</span><span class="fl">52.18</span><span class="op">,</span> <span class="fl">43.12</span>])<span class="op">;</span></span>
+<span id="cb128-9"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-10"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestrear las temperaturas en 1000 localizaciones aleatorias.</span></span>
+<span id="cb128-11"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> muestras <span class="op">=</span> temperatura<span class="op">.</span><span class="fu">addBands</span>(ee<span class="op">.</span><span class="at">Image</span><span class="op">.</span><span class="fu">pixelLonLat</span>())</span>
+<span id="cb128-12"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">sample</span>({<span class="dt">region</span><span class="op">:</span> geometria<span class="op">,</span> <span class="dt">numPixels</span><span class="op">:</span> <span class="dv">1000</span>})</span>
+<span id="cb128-13"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span>(sample) {</span>
+<span id="cb128-14"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> lat <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;latitude&#39;</span>)<span class="op">;</span></span>
+<span id="cb128-15"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> lon <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;longitude&#39;</span>)<span class="op">;</span></span>
+<span id="cb128-16"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> temperatura1 <span class="op">=</span> sample<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;temperatura&#39;</span>)<span class="op">;</span></span>
+<span id="cb128-17"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>([lon<span class="op">,</span> lat])<span class="op">,</span> </span>
+<span id="cb128-18"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-18" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">temperaturaMarina</span><span class="op">:</span> temperatura1})<span class="op">;</span></span>
+<span id="cb128-19"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-19" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb128-20"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-21"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Interpolar a partir de las muestras</span></span>
+<span id="cb128-22"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-22" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> interpolar <span class="op">=</span> muestras<span class="op">.</span><span class="fu">kriging</span>({</span>
+<span id="cb128-23"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">propertyName</span><span class="op">:</span> <span class="st">&#39;temperaturaMarina&#39;</span><span class="op">,</span></span>
+<span id="cb128-24"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-24" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Forma de la función de la varianza de los datos</span></span>
+<span id="cb128-25"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-25" aria-hidden="true" tabindex="-1"></a>  <span class="dt">shape</span><span class="op">:</span> <span class="st">&#39;exponential&#39;</span><span class="op">,</span> </span>
+<span id="cb128-26"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Rango de la varianza</span></span>
+<span id="cb128-27"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">range</span><span class="op">:</span> <span class="dv">100</span> <span class="op">*</span> <span class="dv">1000</span><span class="op">,</span> </span>
+<span id="cb128-28"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sill</span><span class="op">:</span> <span class="fl">1.0</span><span class="op">,</span></span>
+<span id="cb128-29"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">nugget</span><span class="op">:</span> <span class="fl">0.1</span><span class="op">,</span></span>
+<span id="cb128-30"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-30" aria-hidden="true" tabindex="-1"></a>  <span class="dt">maxDistance</span><span class="op">:</span> <span class="dv">100</span> <span class="op">*</span> <span class="dv">1000</span><span class="op">,</span></span>
+<span id="cb128-31"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-31" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> <span class="st">&#39;mean&#39;</span><span class="op">,</span></span>
+<span id="cb128-32"><a href="11-uso-conjunto-de-vectores-e-imágenes.html#cb128-32" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<script type="text/javascript">
+// Importar una imagen de temperatura marina superficial
+var temperatura = ee.Image('NOAA/AVHRR_Pathfinder_V52_L3/20120802025048')
+  .select('sea_surface_temperature')
+  .rename('temperatura')
+  .divide(100);
+
+// Definir una geometría donde muestrear puntos
+var geometria = ee.Geometry.Rectangle([-65.60, 31.75, -52.18, 43.12]);
+
+// Muestrear las temperaturas en 1000 localizaciones aleatorias.
+var muestras = temperatura.addBands(ee.Image.pixelLonLat())
+  .sample({region: geometria, numPixels: 1000})
+  .map(function(sample) {
+    var lat = sample.get('latitude');
+    var lon = sample.get('longitude');
+    var temperatura1 = sample.get('temperatura');
+    return ee.Feature(ee.Geometry.Point([lon, lat]), 
+    {temperaturaMarina: temperatura1});
+  });
+
+// Interpolar a partir de las muestras
+var interpolar = muestras.kriging({
+  propertyName: 'temperaturaMarina',
+  // Forma de la función de la varianza de los datos
+  shape: 'exponential', 
+  // Rango de la varianza
+  range: 100 * 1000, 
+  sill: 1.0,
+  nugget: 0.1,
+  maxDistance: 100 * 1000,
+  reducer: 'mean',
+});
+</script>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fc114"></span>
+<img src="Img/kriging.png" alt="Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada." width="80%" />
+<p class="caption">
+Figure 11.4: Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada.
+</p>
+</div>
+
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="10-ee.imagecollection-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="12-clasificación-supervisada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "chapter",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+</body>
+
+</html>
