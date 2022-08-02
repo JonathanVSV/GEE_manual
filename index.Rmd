@@ -2,11 +2,11 @@
 title: "Cómo usar Google Earth Engine y no fallar en el intento"
 author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
 documentclass: book
-output:
- bookdown::pdf_document2:
- fig_caption: yes
-  #number_sections: true
-  #global_numbering: true
+# output:
+#  bookdown::pdf_document2:
+#     fig_caption: yes
+#     number_sections: true
+#     global_numbering: true
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
 link-citations: yes
@@ -14,10 +14,7 @@ linestretch: 1
 linkcolor: darkblue
 urlcolor: darkblue
 toccolor: black
-# Líneas 18-20 comentarlas para exportar gitbook si no no sale toc
 toc-title: "Índice"
-toc: yes
-toc_depth: 3
 subparagraph: true
 papersize: letter
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
@@ -28,8 +25,8 @@ openright: yes # los capitulos siempren empiezan a la derecha en pag nueva
 number_sections: true
 # lot_title: "Índice de Ejercicios"
 # lot: true
-#lof: true
-#lofcolor: black
+# lof: true
+# lofcolor: black
 geometry: 
   - tmargin=2.5cm
   - bmargin=2.5cm
