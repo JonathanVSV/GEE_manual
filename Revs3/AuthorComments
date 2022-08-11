@@ -1,0 +1,45 @@
+Ejercicio ([0-9]+\.[0-9]+|[0-9]+)
+`r colorize("Ejercicio \1")`
+
+out.width="80%"
+out.width="90%"
+
+¿Por qué los comentarios largos son líneas de comentario en línea 
+//
+
+y no comentarios multilínea 
+
+/**/
+
+?
+
+Por simpleza para escribir // en lugar de /* y */.
+
+A partir de ES6 de JS se prefiere a veces usar let o const antes de var. Está bien usar var, pero se prefirió por alguna razón?
+
+GEE nunca usa let o const para declarar variables, sólo var, por eso se respetó dicha notación
+
+Falta lo de functino pag 89
+
+3. Añadir interlineado (line spacing/ linespread) al texto en las partes donde no aparece código. Debe ser separado en 1.5 o 2 puntos
+
+4. El CIGA haría la portada y página legal
+
+Ya tenemo una propuesta
+
+pandoc --print-highlight-style tango > C:\Users\Jonathan\Documents\GitHub\GEE_manual\my.theme
+
+
+ff_colors <- list(
+  black = "#000000",
+  gray = "#f8f8f8",
+  red = "#e14c39",
+  purple = "#7a21a6",
+  green = "#6f9300",
+  blue = "#4987ee"
+)
+
+
+`([a-z]+\.[A-z]+\.[a-z]+\.[a-z]+|[a-z]+\.[A-z]+\.[a-z]+|[a-z]+\.[A-z]+|[a-z]+|\.[a-z]+)`
+
+`r colorize2("\1")`

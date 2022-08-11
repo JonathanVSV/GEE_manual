@@ -18,15 +18,15 @@ de operaciones normalmente se utilizan para muestrear los datos de una
 imagen y obtener, por ejemplo, muestras por clases de coberturas para
 después entrenar un clasificador o para obtener los valores de un ráster
 en formato de vector (como puntos). En GEE, existen tres métodos para
-hacer este proceso: para un ráster completo (`.sample`), para un
-rectángulo (`.sampleRectangle`) o para varias regiones
-(`.sampleRegions`). Por ejemplo, el método `.sample` toma como
+hacer este proceso: para un ráster completo (`r colorize2(".sample")`), para un
+rectángulo (`r colorize2(".sampleRectangle")`) o para varias regiones
+(`r colorize2(".sampleRegions")`). Por ejemplo, el método `r colorize2(".sample")` toma como
 argumentos el vector utilizado para determinar el área de muestreo, así
 como la escala a la que se desea realizar el muestreo. En este ejemplo,
 primero se define una geometría y después se hace el muestreo
 (`r colorize("Fig.")` \@ref(fig:fc111)).
 
-Ejercicio 29
+`r colorize("Ejercicio 29")`
 
 ```{js echo = T}
 // Definir región a muestrear
@@ -43,7 +43,7 @@ var muestreo = L8imgMean
   });
 ```
 
-```{r fc111, echo = F, out.width="80%", fig.cap="Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample."}
+```{r fc111, echo = F, out.width="95%", fig.cap="Ejemplo de la salida de la consola de una colección de vectores obtenida mediante el método sample."}
 knitr::include_graphics("Img/sampleRegions.png")
 ```
 
@@ -62,8 +62,8 @@ píxeles de la imagen muestreada.
 \index{reduceRegion} \index{reduceRegions} Este tipo de operaciones
 normalmente se utilizan para resumir los valores de algún ráster en
 ciertas áreas de interés. En GEE, existen dos métodos para realizar este
-proceso: para una única región (`.reduceRegion`) o para varias regiones
-(`.reduceRegions`). Por ejemplo, el método `.reduceRegion` permite
+proceso: para una única región (`r colorize2(".reduceRegion")`) o para varias regiones
+(`r colorize2(".reduceRegions")`). Por ejemplo, el método `r colorize2(".reduceRegion")` permite
 obtener estadísticas de la imagen en la extensión indicada por un área
 de interés (`geometry`). En este caso, además hay que indicar el
 reductor (`reducer`) y el tamaño de píxel para realizar la operación
@@ -84,14 +84,14 @@ var reduccion = ee.Image(L8imgMean)
 
 (ref:sub6) `.reduceRegion`
 
-```{r fc112, echo = F, out.width="80%", fig.cap="Ejemplo de la salida de la consola del promedio obtenido mediante el método (ref:sub6)."}
+```{r fc112, echo = F, out.width="95%", fig.cap="Ejemplo de la salida de la consola del promedio obtenido mediante el método (ref:sub6)."}
 knitr::include_graphics("Img/reduccion11.png")
 ```
 
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
-En algunas ocasiones, los procesos de `.reduceRegions` o
-`.sampleRegions` pueden demandar muchos recursos computacionales y
+En algunas ocasiones, los procesos de `r colorize2(".reduceRegions")` o
+`r colorize2(".sampleRegions")` pueden demandar muchos recursos computacionales y
 arrojar un error de 'computation timed out'. Para evitarlo, se pueden
 utilizar los argumentos de `scale` o `tileScale`, ya que ambos
 argumentos permiten reducir los costos computacionales del proceso.
@@ -115,7 +115,7 @@ según su distancia, generando un promedio de esos valores. Esto provoca
 que los píxeles más cercanos tengan más influencia sobre el resultado de
 la interpolación que los píxeles más alejados. Para consultar más
 detalles sobre el procedimiento de interpolación, revisar Basso et al.
-(1999). Esta interpolación se realiza con el método `.inverseDistance`,
+(1999). Esta interpolación se realiza con el método `r colorize2(".inverseDistance")`,
 donde hay que especificar al menos:
 
 -   El radio a interpolar alrededor de cada vector.
@@ -136,7 +136,7 @@ interpolamos las muestras en buffers de 70 km, usando como argumento el
 promedio y la desviación estándar (`r colorize("Fig.")`
 \@ref(fig:fc113)).
 
-Ejercicio 30
+`r colorize("Ejercicio 30")`
 
 ```{js echo = T}
 // Importamos datos de metano de 5 días, los filtramos y sacamos el 
@@ -191,13 +191,13 @@ var interpolado = muestras.inverseDistance({
   propertyName: 'ch4', 
   // Promedio (parámetro para el método)
   mean: stats.get('mean'), 
-  // Desviación estándar (parámetro para la método)
+  // Desviación estándar (parámetro para el método)
   stdDev: stats.get('stdDev'), 
   }); 
 ```
 (ref:sub1) CH~4~
 
-```{r fc113, echo = F, out.width="80%", fig.cap="Visualización de la capa inicial de (ref:sub1), puntos de muestreo e imagen interpolada."}
+```{r fc113, echo = F, out.width="95%", fig.cap="Visualización de la capa inicial de (ref:sub1), puntos de muestreo e imagen interpolada."}
 knitr::include_graphics("Img/interpol.png")
 ```
 
@@ -215,7 +215,7 @@ mostrará cómo interpolar la información de la temperatura superficial
 del mar (imagen), a partir de un muestreo de puntos (vectores;
 `r colorize("Fig.")` \@ref(fig:fc114)).
 
-Ejercicio 31
+`r colorize("Ejercicio 31")`
 
 ```{js echo = T}
 // Importar una imagen de temperatura marina superficial
@@ -252,6 +252,6 @@ var interpolar = muestras.kriging({
 });
 ```
 
-```{r fc114, echo = F, out.width="80%", fig.cap="Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada."}
+```{r fc114, echo = F, out.width="95%", fig.cap="Visualización de la capa inicial de temperatura de la superficie marina, puntos de muestreo y capa interpolada."}
 knitr::include_graphics("Img/kriging.png")
 ```

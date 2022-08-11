@@ -1,4 +1,29 @@
 \newpage
+## Agradecimientos {- .unnumbered .unlisted}
+
+La presente publicación recibió apoyo financiero del Fondo Sectorial de Investigación para la Educación SEP-CONACyT (PE117519 – Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM). 
+
+Este libro se elaboró con el apoyo de la Universidad Nacional Autónoma de México, México, puntualmente:
+
+* El Centro de Investigaciones en Geografía Ambiental (CIGA).
+* La editorial del CIGA.
+
+Y el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt, Colombia, puntualmente:
+
+* La oficina Jurídica.
+* La oficina de Comunicaciones.
+* La línea 13, Análisis y Modelamiento, de la Subdirección de Investigaciones.
+
+Agradecemos a Jean François Mas por concebir la idea inicial de este manual e invitar a los autores a participar en dicho proyecto. 
+
+De igual manera, damos las gracias a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina, Xanat Antonio Némiga y a dos revisores anónimos por su minuciosa revisión del manuscrito y sus valiosos comentarios que ayudaron a mejorar la calidad de este documento.
+
+Agradecemos también a los desarrolladores de la API de libre acceso y uso gratuito (para propósitos educativos y de investigación sin fines de lucro) que se presenta en este libro (Google Earth Engine) y a los creadores de los programas de código abierto que se usaron para la elaboración de esta obra (R y LaTeX), así como algunos de sus paquetes (Rmarkdown, knitr, bookdown).
+
+La imagen de la portada fue adaptada por Laura Perilla, a partir de la imagen Sentinel-2 “20181227T151659_20181227T151707_T19PBN”.
+
+
+\newpage
 # Declaración de afiliación {- .unnumbered .unlisted}
 Google, Google Earth Engine, Google Drive, Google Cloud o cualquier otra marca comercial de Google que sea mencionada o referenciada a lo largo del presente documento son marcas comerciales propiedad de Google LLC y no nuestra. Por lo tanto, el presente libro no es un producto oficial de Google ni se encuentra afiliado, o respaldado de ninguna manera por Google.
 A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es importante recalcar que dichos productos y nombres son propiedad de Google, de modo que a continuación declaramos los nombres correctos de cada una de dichas marcas comerciales:
@@ -10,23 +35,33 @@ A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es i
 - Google Maps™ mapping service.
 - TensorFlow™ open-source software library.
 
+# Advertencia sobre los enlaces {- .unnumbered .unlisted}
+
+Este libro contiene múltiples enlaces (hipervínculos) a páginas web de terceros, de modo que en un futuro, dichos enlaces podrían caducar, cambiar de dirección o simplemente no contar con una actualización. De la misma manera, en su labor de mejorar y actualizar sus herramientas, Google puede cambiar algunas funciones o los ID de sus productos en sus catálogos. Estas circunstancias podrían impedir que algunos de los ejemplos aquí mostrados puedan ser ejecutados al pie de la letra. Por lo tanto, se recomienda a cualquier lector estar al tanto de posibles futuros cambios en los enlaces incluidos, en las actualizaciones de Google Earth Engine o de su catálogo.
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Existe un grupo virtual, Google Groups, dedicado a las discusiones y las dudas de todos los usuarios de Google Earth Engine. Si tiene alguna duda de cómo usar la herramienta siempre puede acceder, preguntar, contestar y consultar en ese grupo en el siguiente enlace: https://groups.google.com/g/google-earth-engine-developers 
+:::
+::::
+
 \newpage
 \mainmatter
 ```{=latex}
 \renewcommand\headrulewidth{1pt}
 \pagestyle{fancy} 
-  \fancyfoot{}
-  \fancyfoot[LE,RO]{\thepage}
-  \fancyhead{}
-  \fancyhead[LE,RO]{\leftmark}
-  \fancyhead[LO,RE]{\rightmark}
+ \fancyfoot{}
+ \fancyfoot[LE,RO]{\thepage}
+ \fancyhead{}
+ \fancyhead[LE,RO]{\leftmark}
+ \fancyhead[LO,RE]{\rightmark}
 \fancypagestyle{plain}{}
 ```
 # Introducción
 
 ## Propósito del libro
 
-Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios  a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick et al., 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes. 
+Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick et al., 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes. 
 
 Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, los análisis de series de tiempo o la creación de aplicaciones). Además, debido a su carácter introductorio, este manual está dirigido a usuarios con y sin conocimientos previos de programación. GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos buscar información adicional sobre las actualizaciones de GEE, así como revisar su documentación oficial.
 
@@ -56,7 +91,7 @@ GEE nace de la necesidad de aprovechar esa *big data* al ofrecer una herramienta
 
 GEE recopiló la información geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio *data center*, logrando así almacenar más de 20 petabytes (20 000 000 de gigabytes) de información en un solo lugar. El programa ofrece un amplio repositorio de información geográfica global que ya se encuentra cargada en su catálogo, lo cual facilita el acceso a diferentes fuentes de datos (`r colorize("Fig.")` \@ref(fig:f11)). Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-9), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy Height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas), densidad poblacional (GPWv411: Population Density —Gridded Population of the World Version 4.11—) y cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM), entre otras.
 
-```{r f11, echo = F, out.width="80%", fig.cap="Algunos ejemplos de fuentes de información disponibles en GEE."}
+```{r f11, echo = F, out.width="95%", fig.cap="Algunos ejemplos de fuentes de información disponibles en GEE."}
 knitr::include_graphics("Img/Datasets.png")
 ```
 
@@ -92,7 +127,7 @@ Git es un programa de distribución libre que permite llevar un control de difer
 
 ### Ejemplos de aplicaciones realizadas con GEE {-}
 
-GEE  se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
+GEE se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 
 * Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo et al., 2020; Hamunyela et al., 2020).
 * Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen et al., 2013).

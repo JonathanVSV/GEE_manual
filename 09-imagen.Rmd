@@ -1,12 +1,12 @@
 \newpage
 # ee.Image
 \index{ee.Image}
-Las imágenes (`ee.Image`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster). 
+Las imágenes (`r colorize2("ee.Image")`) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster). 
 Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A diferencia de las imágenes que posiblemente el usuario esté acostumbrado a manejar, GEE permite que cada banda tenga una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante considerarlo si se van a exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos. Al final de este capítulo se presenta un ejercicio integrador de varios de los procedimientos revisados aquí.
 
 Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005 (`r colorize("Fig.")` \@ref(fig:f91)).
 
-Ejercicio 27
+`r colorize("Ejercicio 27")`
 
 ```{js echo = T}
 // Cargar la imagen global de la altura del dosel para áreas con cobertura 
@@ -14,7 +14,7 @@ Ejercicio 27
 var CHM = ee.Image('NASA/JPL/global_forest_canopy_height_2005');
 ```
 
-```{r f91, echo = F, out.width="80%", fig.cap="Ejemplo de la  información desplegada en la consola al imprimir una imagen."}
+```{r f91, echo = F, out.width="95%", fig.cap="Ejemplo de la  información desplegada en la consola al imprimir una imagen."}
 knitr::include_graphics("Img/ej271.png")
 ```
 
@@ -35,7 +35,7 @@ var MX = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
   .filter(ee.Filter.eq('country_co','MX'));
 ```
 
-Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método `.first` permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (`ee.Image`). Ya que las imágenes multiespectrales solo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.
+Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método `r colorize2(".first")` permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (`r colorize2("ee.Image")`). Ya que las imágenes multiespectrales solo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.
 
 ```{js echo = T}
 // Obtener la primera imagen Landsat 7 de una colección de imágenes.
@@ -53,43 +53,43 @@ var landsat7im = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')
 ## Información y metadatos
 \index{propertyNames}
 \index{projection}
-Para consultar las propiedades de una imagen (metadatos) se puede utilizar el siguiente comando: `.propertyNames` (`r colorize("Fig.")` \@ref(fig:f92)). Otros comandos que facilitan la consulta de algunos elementos particulares son: `.bandNames`, `.projection`, `.projection().nominalScale`, para conocer el nombre de las bandas de la imagen, su proyección y el tamaño de píxel en m que presenta, respectivamente.
+Para consultar las propiedades de una imagen (metadatos) se puede utilizar el siguiente comando: `r colorize2(".propertyNames")` (`r colorize("Fig.")` \@ref(fig:f92)). Otros comandos que facilitan la consulta de algunos elementos particulares son: `r colorize2(".bandNames")`, `r colorize2(".projection")`, `r colorize2(".projection().nominalScale")`, para conocer el nombre de las bandas de la imagen, su proyección y el tamaño de píxel en m que presenta, respectivamente.
 
-Ejercicio 27.1
+`r colorize("Ejercicio 27.1")`
 
 ```{js echo = T}
 // Obtener las propiedades de la imagen
 CHM.propertyNames();
 ```
 
-```{r f92, echo = F, out.width="40%", fig.cap="Propiedades de una imagen desplegadas en la consola."}
+```{r f92, echo = F, out.width="60%", fig.cap="Propiedades de una imagen desplegadas en la consola."}
 knitr::include_graphics("Img/ej272.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `.reproject`, aunque no se recomienda hacerlo, a menos que sea estrictamente necesario.
+El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método `r colorize2(".reproject")`, aunque no se recomienda hacerlo, a menos que sea estrictamente necesario.
 :::
 ::::
 \index{bandNames}
-Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `.bandNames` (`r colorize("Fig.")` \@ref(fig:f93)). 
+Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `r colorize2(".bandNames")` (`r colorize("Fig.")` \@ref(fig:f93)). 
 
-Ejercicio 27.2
+`r colorize("Ejercicio 27.2")`
 
 ```{js echo = T}
 // Obtener los nombres de las bandas de la imagen
 CHM.bandNames();
 ```
 
-```{r f93, echo = F, out.width="60%", fig.cap="Nombre de las bandas de la imagen CHM."}
+```{r f93, echo = F, out.width="80%", fig.cap="Nombre de las bandas de la imagen CHM."}
 knitr::include_graphics("Img/ej273.png")
 ```
 
 ## Visualización de una imagen
 \index{Map.addLayer}
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapa mediante la función `Map.addLayer` (`r colorize("Fig.")` \@ref(fig:f94)).
+De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapa mediante la función `r colorize2("Map.addLayer")` (`r colorize("Fig.")` \@ref(fig:f94)).
 
-Ejercicio 27.3
+`r colorize("Ejercicio 27.3")`
 
 ```{js echo = T}
 // Cargar la imagen a la pantalla de mapa
@@ -101,7 +101,7 @@ Map.addLayer(CHM,
   // de mapa
   'primera imagen');
 ```
-```{r f94, echo = F, out.width="80%", fig.cap="Visualización de la capa de la altura del dosel."}
+```{r f94, echo = F, out.width="95%", fig.cap="Visualización de la capa de la altura del dosel."}
 knitr::include_graphics("Img/ej274.png")
 ```
 
@@ -115,9 +115,9 @@ La información ráster en GEE se almacena en un esquema piramidal, es decir, qu
 
 ### Selección de bandas {-}
 \index{select}
-Una vez revisados los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método `.select`. Para seleccionar una única banda solo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
+Una vez revisados los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método `r colorize2(".select")`. Para seleccionar una única banda solo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
-Ejercicio 27.4
+`r colorize("Ejercicio 27.4")`
 
 ```{js, echo = T}
 // Seleccionar la banda 1 de la imagen (que es la única)
@@ -129,9 +129,9 @@ var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 
 ### Adición de nuevas propiedades o modificación de propiedades preexistentes {-}
 \index{set}
-Usando el método `.set` se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
+Usando el método `r colorize2(".set")` se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
-Ejercicio 27.5
+`r colorize("Ejercicio 27.5")`
 
 ```{js, echo = T}
 // Agregar una nueva propiedad
@@ -144,7 +144,7 @@ var CHMprop2 = CHM.set('title','miTítulo');
 (ref:sub2) `bands`
 (ref:sub3) `properties`
 
-```{r f95, echo = F, out.width="60%", fig.cap="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3)."}
+```{r f95, echo = F, out.width="80%", fig.cap="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3)."}
 knitr::include_graphics("Img/ej275.png")
 ```
 
@@ -157,9 +157,9 @@ Nótese que se puede sobreescribir la misma variable, pero hay que tener cuidado
 
 ### Sustitución de nombres de bandas {-}
 \index{rename}
-Por defecto, el nombre de las bandas de las imágenes suele corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2', 'B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `.rename`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
+Por defecto, el nombre de las bandas de las imágenes suele corresponder a la letra 'B' más un número que indica el número de banda. Por ejemplo, 'B1', 'B2', 'B3', etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método `r colorize2(".rename")`. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f95)):
 
-Ejercicio 27.6
+`r colorize("Ejercicio 27.6")`
 
 ```{js, echo = T}
 // Cambiar el nombre de la banda 
@@ -170,9 +170,9 @@ var landsat7imBandsRename = landsat7imBands.rename(['B','G','R','NIR']);
 
 ### Realización de cortes {-}
 \index{clip}
-Para obtener el área de una imagen únicamente de una región de interés se puede utilizar el método `.clip`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f96)):
+Para obtener el área de una imagen únicamente de una región de interés se puede utilizar el método `r colorize2(".clip")`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f96)):
 
-Ejercicio 27.7
+`r colorize("Ejercicio 27.7")`
 
 ```{js, echo = T}
 // Cortar la imagen a la extensión del polígono de México
@@ -183,7 +183,7 @@ Esto permite trabajar únicamente con la región de interés (en el ejemplo ante
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento. En muchos casos se puede indicar el área de interés hasta el último paso del procesamiento, que suele implicar la exportación del resultado fuera de GEE (ver última sección de este capítulo: Exportación de una imagen).
+Se sugiere evitar el uso del método `r colorize2(".clip")` a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento. En muchos casos se puede indicar el área de interés hasta el último paso del procesamiento, que suele implicar la exportación del resultado fuera de GEE (ver última sección de este capítulo: Exportación de una imagen).
 :::
 ::::
 
@@ -192,20 +192,20 @@ Se sugiere evitar el uso del método `.clip` a menos que sea estrictamente neces
 \index{add}
 \index{divide}
 \index{multiply}
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `.subtract`, `.add`, `.divide`, `.multiply` para restar, sumar, dividir y multiplicar, respectivamente (`r colorize("Fig.")` \@ref(fig:f96)). 
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: `r colorize2(".subtract")`, `r colorize2(".add")`, `r colorize2(".divide")`, `r colorize2(".multiply")` para restar, sumar, dividir y multiplicar, respectivamente (`r colorize("Fig.")` \@ref(fig:f96)). 
 
-Ejercicio 27.8
+`r colorize("Ejercicio 27.8")`
 
 ```{js, echo = T}
 // Multiplicar la imagen por 100 para obtener el valor en cm
 var chmCmMx = chmMx.multiply(100);
 ```
 
-```{r f96, echo = F, out.width="80%", fig.cap="Visualización de la capa de altura del dosel en México."}
+```{r f96, echo = F, out.width="95%", fig.cap="Visualización de la capa de altura del dosel en México."}
 knitr::include_graphics("Img/ej276.png")
 ```
 
-Además, GEE cuenta con un método de `.normalizedDifference` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el índice de vegetación de diferencia normalizada (NDVI, por sus siglas en inglés), primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `.expression`. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato de cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
+Además, GEE cuenta con un método de `r colorize2(".normalizedDifference")` para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el índice de vegetación de diferencia normalizada (NDVI, por sus siglas en inglés), primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método `r colorize2(".expression")`. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato de cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
 \index{normalizedDifference}
 \index{expression}
 ```{js, echo = T}
@@ -224,11 +224,11 @@ var ndvi2 = landsat7imBands.normalizedDifference('B4','B3')
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Si no se cambia el nombre de la banda producida por `.normalizedDifference`, por defecto, esta va a recibir el nombre de 'nd'.
+Si no se cambia el nombre de la banda producida por `r colorize2(".normalizedDifference")`, por defecto, esta va a recibir el nombre de 'nd'.
 :::
 ::::
 
-Para las fórmulas utilizadas dentro de `expression` se puede utilizar la notación estándar matemática (`+`, `-`, `/`, `*`), módulo (`%`), exponente (`**`), relacionales (`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`) o if then else (`?:`).
+Dentro de `r colorize2("expression")` se puede utilizar operadores como la notación estándar matemática (`+`, `-`, `/`, `*`), el módulo (`%`), el exponente (`**`), así como los operadores relacionales (`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`) y ternarios _if then else_ (`?:`).
 
 ### Uso de operaciones relacionales, condicionales y booleanas {-}
 \index{lt}
@@ -237,9 +237,9 @@ Para las fórmulas utilizadas dentro de `expression` se puede utilizar la notaci
 \index{gte}
 \index{eq}
 \index{neq}
-Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones: `.lt`, `.lte`, `.gt`, `.gte`, `.eq`, `.neq`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante `.and` u `.or`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (`r colorize("Fig.")` \@ref(fig:f97)):
+Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones: `r colorize2(".lt")`, `r colorize2(".lte")`, `r colorize2(".gt")`, `r colorize2(".gte")`, `r colorize2(".eq")`, `r colorize2(".neq")`, que equivalen a menor que (*less than*), menor que o igual (*less than or equal*), mayor que (*greater than*), mayor que o igual (*greater than or equal*), igual (*equal*) o no igual (*not equal*), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante `r colorize2(".and")` u `r colorize2(".or")`, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (`r colorize("Fig.")` \@ref(fig:f97)):
 
-Ejercicio 27.9
+`r colorize("Ejercicio 27.9")`
  
 ```{js, echo = T}
 // Crear una imagen de los píxeles que cumplen con la condición de tener 
@@ -248,13 +248,14 @@ Ejercicio 27.9
 var chmMXMask20 = chmMx.gte(20);
 ```
 
-```{r f97, echo = F, out.width="80%", fig.cap="Resultado de la máscara booleana de altura del dosel."}
+```{r f97, echo = F, out.width="95%", fig.cap="Resultado de la máscara booleana de altura del dosel."}
 knitr::include_graphics("Img/ej277.png")
 ```
 
 Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda 'pixel_qa'. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda 'pixel_qa' para evaluar qué píxeles tienen un valor de 0 en el bit 5 (valores a conservar) y cuáles no (valores a eliminar; `r colorize("Fig.")` \@ref(fig:f98)).
 \index{bitwiseAnd}
-Ejercicio 27.10
+
+`r colorize("Ejercicio 27.10")`
 
 ```{js, echo = T}
 // Definir la regla en bits de la imagen de los valores que se desea 
@@ -269,15 +270,15 @@ var qa = landsat7im.select('pixel_qa');
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes."}
+```{r, echo = F, out.width="95%", fig.cap="Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes."}
 knitr::include_graphics("Img/ej278.png")
 ```
 
 ### Enmascaramiento {-}
 \index{updateMask}
-El método `.updateMask` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.
+El método `r colorize2(".updateMask")` permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.
 
-Ejercicio 27.11
+`r colorize("Ejercicio 27.11")`
 
 ```{js, echo = T}
 // Utilizar la máscara de valores que tienen alturas >= 20 y aplicarla a 
@@ -288,30 +289,30 @@ var chmMxMayor20 = chmMx.updateMask(chmMXMask20);
 var landsat7imMask = landsat7im.updateMask(mask);
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Resultado del enmascaramiento de la capa de altura del dosel."}
+```{r, echo = F, out.width="95%", fig.cap="Resultado del enmascaramiento de la capa de altura del dosel."}
 knitr::include_graphics("Img/ej279.png")
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Imagen Landsat antes del enmascaramiento de nubes."}
+```{r, echo = F, out.width="95%", fig.cap="Imagen Landsat antes del enmascaramiento de nubes."}
 knitr::include_graphics("Img/ej270.png")
 ```
 
-```{r f98, echo = F, out.width="80%", fig.cap="Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes."}
+```{r f98, echo = F, out.width="95%", fig.cap="Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes."}
 knitr::include_graphics("Img/ej27a.png")
 ```
 \index{mask}
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Aunque en GEE existe el método `.mask` para enmascarar áreas de una imagen, se sugiere siempre utilizar `.updateMask`. El método `.mask` simplemente sustituye la máscara original de la imagen, mientras que `.updateMask` combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.
+Aunque en GEE existe el método `r colorize2(".mask")` para enmascarar áreas de una imagen, se sugiere siempre utilizar `r colorize2(".updateMask")`. El método `r colorize2(".mask")` simplemente sustituye la máscara original de la imagen, mientras que `r colorize2(".updateMask")` combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.
 :::
 ::::
 
 ### Adición de bandas {-}
 \index{addBands}
-El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen utilizando el método `.addBands`. Así, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:
+El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen utilizando el método `r colorize2(".addBands")`. Así, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:
 
-Ejercicio 27.12
+`r colorize("Ejercicio 27.12")`
 
 ```{js, echo = T}
 // Agregar la banda de alturas en cm a la banda original en m
@@ -323,9 +324,9 @@ landsat7im = landsat7im.addBands(ndvi);
 
 ### Conversión de una imagen en un vector {-}
 \index{reduceToVectors}
-En algunos casos puede ser conveniente transformar una imagen en un vector, o parte de una imagen en un vector. El método para convertir una imagen en vector es `.reduceToVectors` y se utiliza de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f99)):
+En algunos casos puede ser conveniente transformar una imagen en un vector, o parte de una imagen en un vector. El método para convertir una imagen en vector es `r colorize2(".reduceToVectors")` y se utiliza de la siguiente manera (`r colorize("Fig.")` \@ref(fig:f99)):
 
-Ejercicio 27.13
+`r colorize("Ejercicio 27.13")`
 
 ```{js, echo = T}
 // Convertir la máscara de valores que tienen valores de altura >= 20 a 
@@ -343,7 +344,7 @@ var chmMxMayor20Vec = chmMXMask20.reduceToVectors({
 });
 ```
 
-```{r f99, echo = F, out.width="80%", fig.cap="Visualización de la capa vector producida a partir de una imagen."}
+```{r f99, echo = F, out.width="95%", fig.cap="Visualización de la capa vector producida a partir de una imagen."}
 knitr::include_graphics("Img/mexicoVector.png")
 ```
 
@@ -355,9 +356,9 @@ En operaciones como la conversión de ráster a vector, donde se debe indicar el
 
 ### Exportación de una imagen {-}
 \index{Export}
-En GEE se pueden exportar imágenes a los **Assets**, al **Google Drive** o al **GoogleCloud**. Debido a que el servicio más común será el de **Drive** este es el se explicará. La función para realizar dicha exportación es `Export.imageToDrive` (ver Sección 3.4). Los argumentos de esta función son: `image` (la imagen a exportar), `description` (el nombre con el que se desea guardar el archivo), `folder` (la carpeta donde se desea guardar la imagen), `scale` (la escala para exportar la imagen), `maxPixels` (el número máximo de píxeles permitido), `format` (el formato de imagen deseado), `region` (región que se desea exportar, suele corresponder al área de interés) y `crs` (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de **Reference** o en la pestaña de **Docs**, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a **Assets** el argumento más importante es `assetId`, que corresponde al nombre con el que se guardará el archivo en la sección de **Assets**.
+En GEE se pueden exportar imágenes a los **Assets**, al **Google Drive** o al **GoogleCloud**. Debido a que el servicio más común será el de **Drive** este es el que se explicará. La función para realizar dicha exportación es `r colorize2("Export.imageToDrive")` (ver Sección 3.4). Los argumentos de esta función son: `image` (la imagen a exportar), `description` (el nombre con el que se desea guardar el archivo), `folder` (la carpeta donde se desea guardar la imagen), `scale` (la escala para exportar la imagen), `maxPixels` (el número máximo de píxeles permitido), `format` (el formato de imagen deseado), `region` (región que se desea exportar, suele corresponder al área de interés) y `crs` (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de **Reference** o en la pestaña de **Docs**, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a **Assets** el argumento más importante es `assetId`, que corresponde al nombre con el que se guardará el archivo en la sección de **Assets**.
 
-Ejercicio 27.14
+`r colorize("Ejercicio 27.14")`
 
 ```{js, echo = T}
 // Exportación al drive personal
@@ -399,13 +400,13 @@ Es importante recordar que es necesario dar clic a las tareas en la pestaña **T
 
 En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (**Search**) y escribir SRTM. Debería aparecer una ventana así (`r colorize("Fig.")` \@ref(fig:f910)):
 
-```{r f910, echo = F, out.width="80%", fig.cap="Ejemplo de búsqueda de información en la barra de búsqueda."}
+```{r f910, echo = F, out.width="95%", fig.cap="Ejemplo de búsqueda de información en la barra de búsqueda."}
 knitr::include_graphics("Img/SRTM.png")
 ```
 
 Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (`r colorize("Fig.")` \@ref(fig:f911)).
 
-```{r f911, echo = F, out.width="80%", fig.cap="Consulta de información de una imagen del repositorio de GEE."}
+```{r f911, echo = F, out.width="95%", fig.cap="Consulta de información de una imagen del repositorio de GEE."}
 knitr::include_graphics("Img/SRTM_prop.png")
 ```
 
@@ -464,12 +465,12 @@ imgEnmascarada = imgEnmascarada.rename('elevacion');
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 ```
 
-```{r, echo = F, out.width="80%", fig.cap="Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada."}
+```{r, echo = F, out.width="95%", fig.cap="Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada."}
 knitr::include_graphics("Img/ejercicioAMaps.png")
 ```
 
 
-A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `ui.Chart.image.histogram` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Después, se agrega este gráfico a la consola con un `print` (`r colorize("Fig.")` \@ref(fig:f914)).
+A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función `r colorize2("ui.Chart.image.histogram")` y se indica la imagen de la cual se quiere obtener el histograma (`image`), la escala en metros a la que se quiere obtener los valores del histograma (`scale`) y el número máximo de clases (`maxBuckets`). Después, se agrega este gráfico a la consola con un `r colorize2("print")` (`r colorize("Fig.")` \@ref(fig:f914)).
 \index{ui.Chart.image.histogram}
 ```{js, echo = T}
 // Crear gráfico de histograma de los valores del DEM enmascarado
@@ -487,7 +488,7 @@ var graficoHistograma = ui.Chart.image.histogram({
 print(graficoHistograma,'gráfico Histograma');
 ```
 
-```{r f914, echo = F, out.width="80%", fig.cap="Histograma de valores del DEM."}
+```{r f914, echo = F, out.width="95%", fig.cap="Histograma de valores del DEM."}
 knitr::include_graphics("Img/histElevacion.png")
 ```
 
@@ -509,7 +510,7 @@ Export.image.toDrive({
 
 Una vez corrido el código, hay que irse a la pestaña de **Tasks** para darle clic en **Run** (correr) y comenzar a exportar la imagen al **Google Drive** (`r colorize("Fig.")` \@ref(fig:f915)). A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en **Run**. Por último, el producto exportado aparecerá en la pestaña de **Tasks** con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al **Drive**, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al **Drive** (ver Fig. 2.22).
 
-```{r f915, echo = F, out.width="80%", fig.cap="Vista de la pestaña de (ref:sub5) (tareas) para correr el trabajo de exportación."}
+```{r f915, echo = F, out.width="95%", fig.cap="Vista de la pestaña de (ref:sub5) (tareas) para correr el trabajo de exportación."}
 knitr::include_graphics("Img/exportCHMMX.png")
 ```
 

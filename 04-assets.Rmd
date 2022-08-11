@@ -3,15 +3,19 @@
 
 En la sección de **Assets** se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y carpetas (*folders*; `r colorize("Fig.")` \@ref(fig:f41)). Para importar cualquiera de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de **Assets** en el panel izquierdo y después dar clic en **New** (nuevo) e indicar el archivo que se quiere importar a GEE (`r colorize("Fig.")` \@ref(fig:f42)).
 
-```{r f41, echo = F, out.width="80%", fig.cap="Opciones disponibles para importar datos en GEE."}
+```{r f41, echo = F, out.width="95%", fig.cap="Opciones disponibles para importar datos en GEE."}
 knitr::include_graphics("Img/newAssets.png")
 ```
 
-```{r f42, echo = F, out.width="80%", fig.cap="Ubicación de la pestaña de importación de datos a GEE."}
+```{r f42, echo = F, out.width="95%", fig.cap="Ubicación de la pestaña de importación de datos a GEE."}
 knitr::include_graphics("Img/Asset1.png")
 ```
 
 Posteriormente se da clic en **Select** y se seleccionan los archivos que se quieren subir (`r colorize("Fig.")` \@ref(fig:f43)). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en **Upload** (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recuerde que para archivos shapefile solo se aceptan archivos con las extensiones shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.
+
+```{r f43, echo = F, out.width="95%", fig.cap="Ejemplo de una importación en proceso."}
+knitr::include_graphics("Img/Asset2.png")
+```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -19,9 +23,9 @@ Si se agrega algún otro archivo que tenga una extensión distinta a las aceptad
 :::
 ::::
 
-Tras haber dado clic en **Upload**, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de **Tasks** (`r colorize("Fig.")` \@ref(fig:f43)). Una vez terminado, se puede tener acceso al archivo dentro de la pestaña de **Assets**. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de **New**, que contiene un par de flechas formando un círculo.
+Tras haber dado clic en **Upload**, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de **Tasks** (`r colorize("Fig.")` \@ref(fig:f44)). Una vez terminado, se puede tener acceso al archivo dentro de la pestaña de **Assets**. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de **New**, que contiene un par de flechas formando un círculo.
 
-```{r f43, echo = F, out.width="80%", fig.cap="Ejemplo de una importación en proceso."}
+```{r f44, echo = F, out.width="95%", fig.cap="Ejemplo de una importación en proceso."}
 knitr::include_graphics("Img/Asset3.png")
 ```
 
@@ -39,24 +43,24 @@ Para subir un nuevo archivo hay que dar clic en el botón **New**, seleccionar e
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; `r colorize("Fig.")` \@ref(fig:f44)).
+El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; `r colorize("Fig.")` \@ref(fig:f45)).
 :::
 ::::
 
-```{r f44, echo = F, out.width="30%", fig.cap="Ubicación del botón para compartir información importada en GEE."}
+```{r f45, echo = F, out.width="50%", fig.cap="Ubicación del botón para compartir información importada en GEE."}
 knitr::include_graphics("Img/shareAssets.png")
 ```
 
-Por último, hay dos maneras de utilizar cualquier información importada a GEE, pero primero hay que darle clic a la información importada en la sección de **Assets**, tras lo cual aparecerá la siguiente ventana (`r colorize("Fig.")` \@ref(fig:f45)). 
+Por último, hay dos maneras de utilizar cualquier información importada a GEE, pero primero hay que darle clic a la información importada en la sección de **Assets**, tras lo cual aparecerá la siguiente ventana (`r colorize("Fig.")` \@ref(fig:f46)). 
 
-```{r f45, echo = F, out.width="80%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma."}
+```{r f46, echo = F, out.width="95%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma."}
 knitr::include_graphics("Img/Asset_ruta.png")
 ```
 
-La primera manera consiste en copiar la ruta de la información y utilizarla en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; `r colorize("Fig.")` \@ref(fig:f45)).
+La primera manera consiste en copiar la ruta de la información y utilizarla en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; `r colorize("Fig.")` \@ref(fig:f46)).
 
-La segunda consiste en acceder al código en el que estamos interesados en utilizar la información, buscar la información que se desea importar en la pestaña de **Assets**, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (`r colorize("Fig.")` \@ref(fig:f46)). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
+La segunda consiste en acceder al código en el que estamos interesados en utilizar la información, buscar la información que se desea importar en la pestaña de **Assets**, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (`r colorize("Fig.")` \@ref(fig:f47)). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.
 
-```{r f46, echo = F, out.width="80%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto."}
+```{r f47, echo = F, out.width="95%", fig.cap="Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto."}
 knitr::include_graphics("Img/Asset_ruta2.png")
 ```

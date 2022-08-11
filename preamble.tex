@@ -2,6 +2,7 @@
 \usepackage{array}
 %%%
 %\usepackage{makeidx}
+\usepackage{setspace}
 % Para numeración de páginas
 \usepackage{fancyhdr}
 % Para cuadros de tips
@@ -39,6 +40,7 @@
 \definecolor{lightblue}{RGB}{222,243,247}
 \definecolor{darkblue}{RGB}{29,77,86}
 \definecolor{abvrulecolor}{RGB}{22,92,105}
+\definecolor{darkpurple}{RGB}{123,31,162}
 
 % Captions de figuras
 % Cambiar el color para los títulos de figuras
@@ -116,7 +118,7 @@
 \advance\cftsubsecindent 0.5em\relax
 \advance\cftsubsecnumwidth 0.5em\relax
 
-
+\newcommand\boldpurple[1]{\textcolor{darkpurple}{\textbf{#1}}}
 
 % Tratar de cambiar lista de tablas a ejercicios
 %\renewcommand{\listtablename}{Lista de Ejercicios}

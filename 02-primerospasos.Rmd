@@ -10,7 +10,7 @@ Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es 
 
 Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (inscribirse; `r colorize("Fig.")` \@ref(fig:f21)).
 
-```{r f21, echo = F, out.width="60%", fig.cap="Pantalla de inicio en la página de registro de GEE."}
+```{r f21, echo = F, out.width="80%", fig.cap="Pantalla de inicio en la página de registro de GEE."}
 knitr::include_graphics("Img/Signup.png")
 ```
 
@@ -22,29 +22,29 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 :::
 :::
 
-```{r f22, echo = F, out.width="40%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
+```{r f22, echo = F, out.width="60%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
 knitr::include_graphics("Img/formulario.png")
 ```
 
 Una vez realizado el registro, hay que esperar un tiempo (pueden ser desde minutos a días) hasta que llegue una confirmación por parte de GEE a nuestro correo informando que ya se puede hacer uso de la API (`r colorize("Fig.")` \@ref(fig:f23)).
 
-```{r f23, echo = F, out.width="40%", fig.cap="Ejemplo del correo de confirmación por parte de GEE para poder utilizar la API."}
+```{r f23, echo = F, out.width="60%", fig.cap="Ejemplo del correo de confirmación por parte de GEE para poder utilizar la API."}
 knitr::include_graphics("Img/correo.png")
 ```
 
 Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace:
 
-<https://code.earthengine.google.com/>
+[**https://code.earthengine.google.com/**](https://code.earthengine.google.com/){.uri}
 
 y se accede con la cuenta de Google con la que nos registramos.
 
-Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: <https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual>
+Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: [**https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual**](https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual){.uri}
 
 ## Elementos básicos de la interfaz gráfica
 
 Una vez abierta la API de JavaScript, se observan cuatro pantallas (`r colorize("Fig.")` \@ref(fig:f24)): la pantalla de repositorios, la pantalla de rutinas, la pantalla de mapa y la pantalla de control.
 
-```{r f24, echo = F, out.width="80%", fig.cap="Vista inicial de la API de GEE."}
+```{r f24, echo = F, out.width="95%", fig.cap="Vista inicial de la API de GEE."}
 knitr::include_graphics("Img/GEE_inicio_API2.png")
 ```
 
@@ -56,13 +56,13 @@ Los elementos de la API se enlistan a continuación:
 
 La pantalla de repositorios es el espacio donde se guardan y ordenan las rutinas o *scripts* del usuario. En ella se pueden crear repositorios y carpetas para organizar los archivos de código, como se muestra a continuación (`r colorize("Fig.")` \@ref(fig:f25)):
 
-```{r f25, echo = F, out.width="60%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
+```{r f25, echo = F, out.width="80%", fig.cap="Opciones disponibles dentro de la pestaña de Nuevo."}
 knitr::include_graphics("Img/repofolderfile.png")
 ```
 
 Dentro de este espacio existen varias categorías. Las primeras tres se pueden utilizar para determinar distintos niveles de acceso para diversos usuarios (`r colorize("Fig.")` \@ref(fig:f26)):
 
-```{r f26, echo = F, out.width="40%", fig.cap="Vista del panel de repositorios dentro de GEE."}
+```{r f26, echo = F, out.width="60%", fig.cap="Vista del panel de repositorios dentro de GEE."}
 knitr::include_graphics("Img/left_panel.png")
 ```
 
@@ -78,7 +78,7 @@ El usuario puede compartir repositorios con otros usuarios de GEE como lector o 
 :::
 :::
 
-```{r f27, echo = F, out.width="40%", fig.cap="Vista del espacio de propietario."}
+```{r f27, echo = F, out.width="60%", fig.cap="Vista del espacio de propietario."}
 knitr::include_graphics("Img/engranaje.png")
 ```
 
@@ -86,11 +86,11 @@ knitr::include_graphics("Img/engranaje.png")
 
 Es un área donde se pueden consultar todos los métodos y algoritmos que se encuentran preprogramados y cargados en GEE (`r colorize("Fig.")` \@ref(fig:f28)). Además, para cada método se indica lo que hace, la entrada que requiere y el tipo de objeto que se obtiene como salida, así como los argumentos del método (`r colorize("Fig.")` \@ref(fig:f29)). Estos métodos se encuentran agrupados por objetos del servidor (los objetos se explican más adelante). Adicionalmente, tiene un buscador donde también se pueden consultar los métodos.
 
-```{r f28, echo = F, out.width="40%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE."}
+```{r f28, echo = F, out.width="60%", fig.cap="Ejemplo de la pestaña de documentación dentro de GEE."}
 knitr::include_graphics("Img/docs.png")
 ```
 
-```{r f29, echo = F, out.width="40%", fig.cap="Ejemplo de consulta de un método dentro de la sección de documentación."}
+```{r f29, echo = F, out.width="60%", fig.cap="Ejemplo de consulta de un método dentro de la sección de documentación."}
 knitr::include_graphics("Img/doc_ejemplo.png")
 ```
 
@@ -98,13 +98,13 @@ knitr::include_graphics("Img/doc_ejemplo.png")
 
 La primera vez que se accede a la pestaña de **Assets** hay que crear una carpeta principal (**Home Folder**) para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (`r colorize("Fig.")` \@ref(fig:f210)).
 
-```{r f210, echo = F, out.width="60%", fig.cap="Carpeta de inicio dentro de la API."}
+```{r f210, echo = F, out.width="80%", fig.cap="Carpeta de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
 ```
 
 En este apartado el usuario puede subir y guardar su propia información para ser utilizada dentro de GEE (`r colorize("Fig.")` \@ref(fig:f211)). Se pueden subir únicamente archivos en formato ráster, vector (.shp con sus archivos auxiliares, o un .zip) o separado por comas (ver sección 4 para consultar los detalles para realizar este proceso).
 
-```{r f211, echo = F, out.width="40%", fig.cap="Vista de la sección de información del usuario."}
+```{r f211, echo = F, out.width="60%", fig.cap="Vista de la sección de información del usuario."}
 knitr::include_graphics("Img/assets.png")
 ```
 
@@ -112,23 +112,23 @@ knitr::include_graphics("Img/assets.png")
 
 Esta ventana es donde se va a escribir el código en JavaScript (`r colorize("Fig.")` \@ref(fig:f212)) y cuenta con varios botones en la parte superior. El primero, **Get Link**, sirve para compartir el código que se tenga abierto mediante una liga. Además, al darle clic en la flecha de despliegue (en la opción **Manage Links**) se puede hacer un manejo de los enlaces que se tengan activos, así como borrar los que ya no se utilicen (`r colorize("Fig.")` \@ref(fig:f213)).
 
-```{r f212, echo = F, out.width="50%", fig.cap="Vista de la pantalla de rutinas o scripts."}
+```{r f212, echo = F, out.width="70%", fig.cap="Vista de la pantalla de rutinas o scripts."}
 knitr::include_graphics("Img/editor.png")
 ```
 
-```{r f213, echo = F, out.width="30%", fig.cap="Ubicación del botón para obtener enlaces para compartir rutinas."}
+```{r f213, echo = F, out.width="50%", fig.cap="Ubicación del botón para obtener enlaces para compartir rutinas."}
 knitr::include_graphics("Img/links.png")
 ```
 
 A su derecha se encuentra el botón de **Save**, el cual permite guardar el código con el que se esté trabajando (`r colorize("Fig.")` \@ref(fig:f214)). Además, al darle clic en la flecha de despliegue se puede usar la opción **Save as** para crear una copia del código con otro nombre.
 
-```{r f214, echo = F, out.width="30%", fig.cap="Ubicación del botón para guardar el código."}
+```{r f214, echo = F, out.width="50%", fig.cap="Ubicación del botón para guardar el código."}
 knitr::include_graphics("Img/save.png")
 ```
 
 A continuación, está el botón **Run**, que sirve para correr, de principio a fin, el código que se muestra en la pantalla de rutinas (`r colorize("Fig.")` \@ref(fig:f215)). Al darle clic a este botón se envía el código a los servidores de Google y se realiza el procedimiento indicado.
 
-```{r f215, echo = F, out.width="30%", fig.cap="Ubicación del botón para correr el código."}
+```{r f215, echo = F, out.width="50%", fig.cap="Ubicación del botón para correr el código."}
 knitr::include_graphics("Img/run.png")
 ```
 
@@ -154,7 +154,7 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 
 Es una barra de búsqueda (**Search**) en la que se puede tratar de localizar fuentes de datos o sitios (`r colorize("Fig.")` \@ref(fig:f216)). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
-```{r f216, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
+```{r f216, echo = F, out.width="95%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
 ```
 
@@ -162,19 +162,19 @@ knitr::include_graphics("Img/search.png")
 
 En esta pantalla se puede (`r colorize("Fig.")` \@ref(fig:f217)):
 
-```{r f217, echo = F, out.width="80%", fig.cap="Vista de la pantalla de mapa, indicando las diferentes herramientas que se pueden utilizar en ella."}
+```{r f217, echo = F, out.width="95%", fig.cap="Vista de la pantalla de mapa, indicando las diferentes herramientas que se pueden utilizar en ella."}
 knitr::include_graphics("Img/drawing.png")
 ```
 
 1.  Dibujar y visualizar puntos, polígonos, líneas o rectángulos.
-2.  Mostrar la información que se haya indicado mediante la función `Map.addLayer`.
+2.  Mostrar la información que se haya indicado mediante la función `r colorize2("Map.addLayer")`.
 3.  Añadir un mapa base (Google maps o Google earth).
 
 #### Gestor de capas {.unnumbered}
 
 El gestor de capas permite prender y apagar las capas que se estén mostrando en el área del mapa (`r colorize("Fig.")` \@ref(fig:f218)). Además, sirve para modificar las características de su visualización (por ejemplo, transparencia, color, distribución del histograma, compuesto de color). Este menú aparece una vez que se cargan capas a la pantalla de mapa.
 
-```{r f218, echo = F, out.width="80%", fig.cap="Ejemplo del uso del administrador de capas."}
+```{r f218, echo = F, out.width="95%", fig.cap="Ejemplo del uso del administrador de capas."}
 knitr::include_graphics("Img/layer.png")
 ```
 
@@ -184,9 +184,9 @@ La pantalla de control contiene tres pestañas: **Console** (consola), **Inspect
 
 #### Console {.unnumbered}
 
-La consola consiste en la pantalla de comunicación con el servidor (`r colorize("Fig.")` \@ref(fig:f219)). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `print`.
+La consola consiste en la pantalla de comunicación con el servidor (`r colorize("Fig.")` \@ref(fig:f219)). En ella se muestran los errores que se obtienen al correr un código o se puede mostrar la información indicada por la función `r colorize2("print")`.
 
-```{r f219, echo = F, out.width="60%", fig.cap="Vista de la consola en GEE."}
+```{r f219, echo = F, out.width="80%", fig.cap="Vista de la consola en GEE."}
 knitr::include_graphics("Img/rigthPanel.png")
 ```
 
@@ -194,13 +194,13 @@ knitr::include_graphics("Img/rigthPanel.png")
 
 Permite consultar los valores de las capas que se muestran en el mapa, al dar clic sobre el punto de interés (`r colorize("Fig.")` \@ref(fig:f220)).
 
-```{r f220, echo = F, out.width="80%", fig.cap="Vista de la pestaña de la herramienta de Inspector."}
+```{r f220, echo = F, out.width="95%", fig.cap="Vista de la pestaña de la herramienta de Inspector."}
 knitr::include_graphics("Img/inspector.png")
 ```
 
 #### Tasks {.unnumbered}
 
-En esta pestaña se muestran las tareas que se hayan exportado mediante la función `Export` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; `r colorize("Fig.")` \@ref(fig:f221)). Además, esta pestaña tiene otras funcionalidades:
+En esta pestaña se muestran las tareas que se hayan exportado mediante la función `r colorize2("Export")` y permite correr el trabajo de exportación al sitio donde el usuario le haya indicado (drive, assets; `r colorize("Fig.")` \@ref(fig:f221)). Además, esta pestaña tiene otras funcionalidades:
 
 1.  Mostrar las tareas para ejecutar (con el botón de **Run**, el cual permite especificar detalles de la exportación).
 2.  Presentar las tareas en ejecución (color gris).
@@ -208,7 +208,7 @@ En esta pestaña se muestran las tareas que se hayan exportado mediante la funci
 4.  Indicar cuándo se ha finalizado algún trabajo (color azul).
 5.  Cuando hay un error en algún objeto exportado, se verá el trabajo marcado en rojo. Por último, al dar clic sobre el signo de interrogación que aparece al colocar el cursor sobre algún trabajo, se puede obtener mayor información sobre este, como  la ubicación del archivo exportado o más información sobre el error que arrojó el servidor al tratar de realizar una exportación.
 
-```{r f221, echo = F, out.width="80%", fig.cap="Vista de la pestaña de tareas dentro de GEE."}
+```{r f221, echo = F, out.width="95%", fig.cap="Vista de la pestaña de tareas dentro de GEE."}
 knitr::include_graphics("Img/task.png")
 ```
 
@@ -233,7 +233,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 
 1.  Es un lenguaje sensible a las mayúsculas y minúsculas, de tal manera que puede haber dos objetos diferentes, uno llamado `a` y otro llamado `A`.
 2.  Se recomienda cerrar cualquier comando con un `;` (de no hacerlo, el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).
-3.  Comúnmente en JavaScript se utiliza la notación *lowerCamelCase* para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones `-` o guion bajo `_`. Por ejemplo: `intervalMean` o `updateMask`.
+3.  Comúnmente en JavaScript se utiliza la notación *lowerCamelCase* para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones `-` o guion bajo `_`. Por ejemplo: `r colorize2("intervalMean")` o `r colorize2("updateMask")`.
 4.  Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
 5.  El operador `=` asigna un valor a una variable.
 6.  Los operadores matemáticos son: `+ - * /`.
@@ -244,6 +244,6 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
-El término correcto para llamar a los procesos aplicados con el operador `.` es el de método (*method*), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en `ee.Image.updateMask`, el método `updateMask` es uno ligado a un objeto de tipo imagen (`ee.Image`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
+El término correcto para llamar a los procesos aplicados con el operador `.` es el de método (*method*), lo cual quiere decir que son procedimientos ligados a un tipo de objeto. Por ejemplo, en `r colorize2("ee.Image.updateMask")`, el método `r colorize2("updateMask")` es uno ligado a un objeto de tipo imagen (`r colorize2("ee.Image")`). Por el contrario, las funciones en un sentido estricto se aplican a un objeto mediante la sintaxis: `function(objeto){}`. Distintos tipos de objetos tienen diferentes métodos ligados a ellos.
 :::
 :::

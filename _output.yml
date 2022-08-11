@@ -16,6 +16,7 @@ bookdown::pdf_book:
     after_body: postamble.tex
   keep_tex: yes
   split_by: section
+  pandoc_args: "--highlight-style=my.theme"
 bookdown::gitbook:
   css: style.css
   split_by: chapter+number

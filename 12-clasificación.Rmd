@@ -7,9 +7,9 @@ Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmo
 
 ## Clasificadores
 \index{ee.Classifier}
-Los objetos `ee.Classifier` son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `ee.Classifier.smileCART`, `ee.Classifier.smileRandomForest`, `ee.Classifier.amnhMaxent`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (**Reference**) en el apartado de bibliotecas del cliente (**Client libraries**), o también en la pestaña **Docs** bajo `ee.Classifier`. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (`numberOfTrees`), las variables utilizadas por árbol aleatorio (`variablesPerSplit`), la población mínima de hoja (`minLeafPopulation`), la fracción de los datos de entrada para entrenar y verificar el algoritmo (`bagFraction`), el número máximo de nodos (`maxNodes`) y el número para hacer replicables los resultados (`seed`). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
+Los objetos `r colorize2("ee.Classifier")` son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: `r colorize2("ee.Classifier.smileCART")`, `r colorize2("ee.Classifier")``r colorize2(".smileRandomForest")`, `r colorize2("ee.Classifier.amnhMaxent")`, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (**Reference**) en el apartado de bibliotecas del cliente (**Client libraries**), o también en la pestaña **Docs** bajo `r colorize2("ee.Classifier")`. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (`numberOfTrees`), las variables utilizadas por árbol aleatorio (`variablesPerSplit`), la población mínima de hoja (`minLeafPopulation`), la fracción de los datos de entrada para entrenar y verificar el algoritmo (`bagFraction`), el número máximo de nodos (`maxNodes`) y el número para hacer replicables los resultados (`seed`). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
 
-Ejercicio 32
+`r colorize("Ejercicio 32")`
 
 ```{js echo = T}
 var rfClassif = ee.Classifier.smileRandomForest(500);
@@ -17,21 +17,21 @@ var rfClassif = ee.Classifier.smileRandomForest(500);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Usando al final el método `.setOutputMode` sobre un clasificador se puede cambiar la forma en la que el clasificador entrega los resultados. Para ello, dentro de los paréntesis del método hay que escribir cualquiera de las siguientes opciones:
+Usando al final el método `r colorize2(".setOutputMode")` sobre un clasificador se puede cambiar la forma en la que el clasificador entrega los resultados. Para ello, dentro de los paréntesis del método hay que escribir cualquiera de las siguientes opciones:
 
-  *	'Classification' (clasificación, por defecto): devuelve una variable nominal (clases).
-  *	'Regresion' (regresión): devuelve una variable numérica.
-  *	'Probability' (probabilidad): devuelve la probabilidad de que la clasificación sea correcta.
-  *	'Multiprobability' (multiprobabilidad): devuelve un arreglo de probabilidades para cada una de las clases.
-  *	'Raw' (crudo): devuelve un arreglo con la representación interna del proceso de clasificación. Por ejemplo, los votos crudos de un modelo de múltiples árboles de decisión como random forests.
-  *	'Raw_regression' (regresión cruda): devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las predicciones crudas de los múltiples árboles de regresión.
+  *	'CLASSIFICATION' (clasificación, por defecto): devuelve una variable nominal (clases).
+  *	'REGRESSION' (regresión): devuelve una variable numérica.
+  *	'PROBABILITY' (probabilidad): devuelve la probabilidad de que la clasificación sea correcta.
+  *	'MULTIPROBABILITY' (multiprobabilidad): devuelve un arreglo de probabilidades para cada una de las clases.
+  *	'RAW' (crudo): devuelve un arreglo con la representación interna del proceso de clasificación. Por ejemplo, los votos crudos de un modelo de múltiples árboles de decisión como random forests.
+  *	'RAW_REGRESSION' (regresión cruda): devuelve un arreglo con la representación interna del proceso de regresión. Por ejemplo, las predicciones crudas de los múltiples árboles de regresión.
   Resulta importante recordar que, dependiendo del clasificador, algunas de estas opciones de resultado estarán disponibles o no.
 :::
 ::::
 
 ## Realización de la fase de entrenamiento
 \index{train}
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método `.train` para entrenarlo, utilizando las muestras provistas. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (`features`), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (`classProperty`), así como las bandas a utilizar de la imagen (`inputProperties`).
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método `r colorize2(".train")` para entrenarlo, utilizando las muestras provistas. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (`features`), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (`classProperty`), así como las bandas a utilizar de la imagen (`inputProperties`).
 
 ```{js echo = T}
 var trainedClassifier = rfClassif.train({
@@ -43,7 +43,7 @@ var trainedClassifier = rfClassif.train({
 
 ## Obtención de la clasificación
 \index{classify}
-Una vez que se tiene entrenando el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interés. Para ello, se utiliza el método `.classify`, el cual permite hacer predicciones sobre la clase de cada píxel a partir de las predicciones realizadas por el algoritmo entrenado. Por ejemplo:
+Una vez que se tiene entrenando el clasificador, el siguiente paso consta de clasificar la imagen completa en las clases de interés. Para ello, se utiliza el método `r colorize2(".classify")`, el cual permite hacer predicciones sobre la clase de cada píxel a partir de las predicciones realizadas por el algoritmo entrenado. Por ejemplo:
 
 ```{js echo = T}
 var classifiedImg = imagen.classify(trainedClassifier);
@@ -52,7 +52,7 @@ var classifiedImg = imagen.classify(trainedClassifier);
 ## Evaluación de la clasificación
 \index{errorMatrix}
 \index{accuracy}
-La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido empleado en la fase de entrenamiento. A estos datos se les conoce como los datos de validación o verificación. Para evaluar una clasificación, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmente, se utiliza una matriz de confusión para realizar dicha evaluación, la cual se puede obtener mediante el método `.errorMatrix`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza el método `.accuracy`. Por ejemplo:
+La última fase de una clasificación consta de la evaluación de los resultados utilizando otro conjunto de datos que no haya sido empleado en la fase de entrenamiento. A estos datos se les conoce como los datos de validación o verificación. Para evaluar una clasificación, primero se extrae la información de las clases predichas para los datos de validación y después se compara con la información de referencia. Comúnmente, se utiliza una matriz de confusión para realizar dicha evaluación, la cual se puede obtener mediante el método `r colorize2(".errorMatrix")`. Además, para calcular la precisión total de la clasificación sobre los datos de validación se utiliza el método `r colorize2(".accuracy")`. Por ejemplo:
 
 ```{js echo = T}
 var validErrMat = validacion.errorMatrix('claseRef', 'clasePred');
@@ -61,7 +61,7 @@ var validAcc = validacion.accuracy();
 
 ### Ejercicio E: Clasificación {-}
 
-En este ejercicio se hará una clasificación supervisada utilizando el algoritmo random forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `ee.Geometry` de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`ee.Feature`) y se le asigna la propiedad de 'clase' como número a través de un diccionario. Por último, se hace una colección de vectores (`r colorize("Fig.")` \@ref(fig:fc121)).
+En este ejercicio se hará una clasificación supervisada utilizando el algoritmo random forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos `r colorize2("ee.Geometry")` de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (`r colorize2("ee.Feature")`) y se le asigna la propiedad de 'clase' como número a través de un diccionario. Por último, se hace una colección de vectores (`r colorize("Fig.")` \@ref(fig:fc121)).
 
 ```{js echo = T}
 // Definición de datos de entrenamiento
@@ -95,7 +95,7 @@ var poligonos = ee.FeatureCollection([
 Map.addLayer(poligonos, {}, 'polígonosEntrenamiento');
 ```
 
-```{r fc121, echo = F, out.width="60%", fig.cap="Visualización de los sitios de entrenamiento."}
+```{r fc121, echo = F, out.width="80%", fig.cap="Visualización de los sitios de entrenamiento."}
 knitr::include_graphics("Img/polyTrain.png")
 ```
 
@@ -113,7 +113,7 @@ function maskL8sr(image) {
 }
 ```
 
-A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso se usa el método `.filterBounds`, que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `.map`.
+A continuación se vuelve a filtrar la colección de Landsat 8 por fecha, porcentaje de nubosidad sobre la superficie terrestre y un filtro espacial. En este caso se usa el método `r colorize2(".filterBounds")`, que permite filtrar espacialmente la colección de acuerdo a la extensión del polígono de interés. Por último, se aplica la función para enmascarar nubes a todas las imágenes de la colección usando `r colorize2(".map")`.
 \index{filterBounds}
 \index{map}
 ```{js echo = T}
@@ -133,7 +133,7 @@ El siguiente paso consiste en reducir la colección para generar una sola imagen
 var L8imgMean = L8imgCol.reduce(ee.Reducer.mean())
   .select(['B1_mean','B2_mean','B3_mean','B4_mean','B5_mean',
   'B6_mean','B7_mean'])
-  .rename(['CB','B','G','R','NIR','SWIR1','SWIR2'])
+  .rename(['CB','B','G','R','NIR','SWIR1','SWIR2']);
 ```
 
 Posteriormente se corta la imagen para quedarnos únicamente con el área de interés. Para ello, primero se define  un área de interés y después se corta la imagen con ese objeto.
@@ -147,10 +147,10 @@ var geometry = ee.Geometry.Polygon(
           [-101.15171500947403, 19.836437094032178]]]);
           
 // Cortar la imagen a la geometría del área de interés
-L8imgMean = L8imgMean.clip(geometry)
+L8imgMean = L8imgMean.clip(geometry);
 ```
 
-Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `.sampleRegions`. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada (`r colorize("Fig.")` \@ref(fig:fc122)).
+Una vez que ya se tiene la imagen sobre la que se va a hacer la clasificación, se muestrean los valores de los píxeles que se encuentren dentro de cada polígono de los datos de entrenamiento utilizando el método `r colorize2(".sampleRegions")`. Para este proceso hay que indicar la colección de vectores que se va a utilizar, así como su propiedad que indica la clase y la escala a la que se van a muestrear los píxeles en metros. El resultado de este procedimiento corresponde a una colección de vectores, en la cual cada vector corresponde a un píxel dentro de un polígono de entrenamiento. De tal manera, para cada vector se indica la clase a la que pertenece, así como el valor en cada una de las bandas en la imagen muestreada (`r colorize("Fig.")` \@ref(fig:fc122)).
 \index{sampleRegions}
 ```{js echo = T}
 // Muestrear regiones 
@@ -165,7 +165,7 @@ var training = L8imgMean
   });
 ```
 
-El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo random forests (Breiman, 2001), el cual se llama utilizando `ee.Classifier.smileRandomForest`. En este ejercicio se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de **Reference** o en la pestaña de **Docs** e incluyen parámetros como el número de variables a utilizar por división y el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `.train` y se pasan algunos argumentos adicionales dentro de un diccionario, como: la colección de vectores a utilizar para el entrenamiento (`features`), el nombre de la clase objetivo (`classProperty`) y el nombre de las propiedades de la imagen (`inputProperties`), es decir, el nombre de las bandas (`r colorize("Fig.")` \@ref(fig:fc122)).
+El siguiente paso es entrenar al clasificador utilizando la colección de vectores anterior. En este caso, se va a utilizar el algoritmo random forests (Breiman, 2001), el cual se llama utilizando `r colorize2("ee.Classifier.smileRandomForest")`. En este ejercicio se utilizarán 30 árboles de clasificación, que es el único argumento obligatorio. Los demás argumentos opcionales pueden ser consultados en la sección de **Reference** o en la pestaña de **Docs** e incluyen parámetros como el número de variables a utilizar por división y el número máximo de nodos, entre otros.  Posteriormente, se entrena este algoritmo mediante el método `r colorize2(".train")` y se pasan algunos argumentos adicionales dentro de un diccionario, como: la colección de vectores a utilizar para el entrenamiento (`features`), el nombre de la clase objetivo (`classProperty`) y el nombre de las propiedades de la imagen (`inputProperties`), es decir, el nombre de las bandas (`r colorize("Fig.")` \@ref(fig:fc122)).
 \index{ee.Classifier.smileRandomForest}
 \index{train}
 ```{js echo = T}
@@ -180,7 +180,7 @@ var trainedClassifier = ee.Classifier.smileRandomForest(30).train({
 });
 ```
 
-```{r fc122, echo = F, out.width="80%", fig.cap="Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran solo los primeros 20 para ejemplificar el tipo de salida."}
+```{r fc122, echo = F, out.width="95%", fig.cap="Salida de la consola de los primeros veinte puntos de entrenamiento con la información del ráster, así como del clasificador entrenado. Nótese que el total de puntos de validación es de más de 5000 puntos, pero se muestran solo los primeros 20 para ejemplificar el tipo de salida."}
 knitr::include_graphics("Img/polyTrainConsole.png")
 ```
 
@@ -190,7 +190,7 @@ Generalmente se menciona que el utilizar un mayor número de árboles en el algo
 :::
 ::::
 
-Posteriormente, se puede clasificar la imagen completa utilizando el método `.classify` e indicando como argumento al algoritmo entrenado. El resultado de `.classify` va a ser un objeto de tipo `ee.Image` que contiene la clase predicha en la banda 'classification'. Por último, se visualiza el resultado en la pantalla de mapas (`r colorize("Fig.")` \@ref(fig:fc123)).
+Posteriormente, se puede clasificar la imagen completa utilizando el método `r colorize2(".classify")` e indicando como argumento al algoritmo entrenado. El resultado de `r colorize2(".classify")` va a ser un objeto de tipo `r colorize2("ee.Image")` que contiene la clase predicha en la banda 'classification'. Por último, se visualiza el resultado en la pantalla de mapas (`r colorize("Fig.")` \@ref(fig:fc123)).
 \index{classify}
 ```{js echo = T}
 // Usar el clasificador entrenado sobre toda la imagen
@@ -202,11 +202,11 @@ Map.addLayer(classifiedImg,{min:0, max:3,
   'Clasificación RF L8');
 ```
 
-```{r fc123, echo = F, out.width="80%", fig.cap="Visualización de la clasificación."}
+```{r fc123, echo = F, out.width="95%", fig.cap="Visualización de la clasificación."}
 knitr::include_graphics("Img/RFClass.png")
 ```
 
-Después, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `ui.Chart.image.byClass` para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (`image`), el nombre de la banda que contiene las categorías de la clasificación (`classBand`), el reductor que se va a utilizar para resumir los valores por clase (`reducer`), las regiones de las cuales se va a obtener esta información (`region`), las etiquetas de las clases (`classLabels`), la escala en m de trabajo para aplicar el reductor (`scale`) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de `.setOptions`). Por último, hay que imprimir el gráfico con la función de `print` y el gráfico aparecerá en la consola (`r colorize("Fig.")` \@ref(fig:fc124)).
+Después, se puede hacer un gráfico para analizar el perfil espectral de las clases de interés. Para hacer esto, primero se agrega la banda con la clasificación a la imagen que contiene la media de la reflectancia de la superficie (`L8imgMean`). Después, se utiliza la función `r colorize2("ui.Chart.image.byClass")` para crear un gráfico por clase. Como argumentos a esta función se indica la imagen a utilizar (`image`), el nombre de la banda que contiene las categorías de la clasificación (`classBand`), el reductor que se va a utilizar para resumir los valores por clase (`reducer`), las regiones de las cuales se va a obtener esta información (`region`), las etiquetas de las clases (`classLabels`), la escala en m de trabajo para aplicar el reductor (`scale`) y algunas opciones para ponerle título y asignar los colores al gráfico (argumentos dentro de `r colorize2(".setOptions")`). Por último, hay que imprimir el gráfico con la función de `r colorize2("print")` y el gráfico aparecerá en la consola (`r colorize("Fig.")` \@ref(fig:fc124)).
 \index{ui.Chart.image.byClass}
 ```{js echo = T}
 // Agregar clasificación como banda
@@ -238,7 +238,7 @@ var chartClassSpec = ui.Chart.image.byClass({
 print(chartClassSpec);
 ```
 
-```{r fc124, echo = F, out.width="80%", fig.cap="Perfil espectral promedio por clase."}
+```{r fc124, echo = F, out.width="95%", fig.cap="Perfil espectral promedio por clase."}
 knitr::include_graphics("Img/SpectralSignClass.png")
 ```
 
@@ -276,7 +276,7 @@ var validating = classifiedImg
 });
 ```
 
-A continuación, se calcula la matriz de error mediante el método `.errorMatrix` indicando, en primer lugar, el campo de la clase de referencia ('clase') y, en segundo lugar, el campo de la predicción ('classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante `print` para inspeccionar su contenido (`r colorize("Fig.")` \@ref(fig:fc125)).
+A continuación, se calcula la matriz de error mediante el método `r colorize2(".errorMatrix")` indicando, en primer lugar, el campo de la clase de referencia ('clase') y, en segundo lugar, el campo de la predicción ('classification'). Posteriormente, se calcula la precisión total de clasificación a partir de esta matriz de error. Después, se van a mostrar estos dos objetos en la consola mediante `r colorize2("print")` para inspeccionar su contenido (`r colorize("Fig.")` \@ref(fig:fc125)).
 \index{errorMatrix}
 \index{accuracy}
 ```{js echo = T}
@@ -288,17 +288,17 @@ print('Validation error matrix: ', validErrMat);
 print('Validation overall accuracy: ', validAcc);
 ```
 
-```{r fc125, echo = F, out.width="60%", fig.cap="Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290, pero se muestran solo los primeros diez para ejemplificar el tipo de salida."}
+```{r fc125, echo = F, out.width="80%", fig.cap="Salida de la consola de los primeros diez puntos de validación, matriz de error (error matrix) y precisión total (overall accuracy). Nótese que el total de puntos de validación es de 4290, pero se muestran solo los primeros diez para ejemplificar el tipo de salida."}
 knitr::include_graphics("Img/matrizError.png")
 ```
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Por defecto, la imagen que se obtiene de un método `.classify` lleva el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `.sampleRegions` y con la que se hace la matriz de error `.errorMatrix` se llama 'classification'.
+Por defecto, la imagen que se obtiene de un método `r colorize2(".classify")` lleva el nombre de 'classification', por eso la propiedad que se muestrea en el paso de `r colorize2(".sampleRegions")` y con la que se hace la matriz de error `r colorize2(".errorMatrix")` se llama 'classification'.
 :::
 ::::
 
-Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear un vector sin geometría (que es lo que indica el `null` en el primer campo del `ee.Feature`), seguido de un diccionario que contiene los datos que se desea exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante el método `.array`. 
+Para exportar estos resultados primero hay que pasar los datos a tipo vector. Para ello, se va a crear un vector sin geometría (que es lo que indica el `null` en el primer campo del `r colorize2("ee.Feature")`), seguido de un diccionario que contiene los datos que se desea exportar (que podrían interpretarse como una tabla de atributos). En el caso de la matriz de error, primero se debe convertir a un arreglo mediante el método `r colorize2(".array")`. 
 
 ```{js echo = T}
 // Transformarlos en vectores
@@ -306,7 +306,7 @@ var expConfMatrix =  ee.Feature(null, {matrix: validErrMat.array()});
 var expAccuracy = ee.Feature(null, ee.Dictionary({Accuracy: validAcc}));
 ```
 
-Posteriormente, se define una función (`ExportTable`) para exportar la matriz de error y el valor de la precisión total. Esta función toma dos argumentos: el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `Export.table.toDrive` solo permite exportar objetos de tipo `ee.FeatureCollection`, se debe meter a los objetos de tipo `ee.Feature` en un contenedor `ee.FeatureCollection`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar la carpeta dentro de la que se quiere guardar la tabla exportada.
+Posteriormente, se define una función (`ExportTable`) para exportar la matriz de error y el valor de la precisión total. Esta función toma dos argumentos: el objeto a exportar y el nombre que se le va a dar al archivo a exportar. Debido a que la función `r colorize2("Export.table.toDrive")` solo permite exportar objetos de tipo `r colorize2("ee.FeatureCollection")`, se debe meter a los objetos de tipo `r colorize2("ee.Feature")` en un contenedor `r colorize2("ee.FeatureCollection")`. Por último, se debe indicar que el formato para guardar el archivo es uno separado por comas (CSV) y se puede indicar la carpeta dentro de la que se quiere guardar la tabla exportada.
 \index{Export.table.toDrive}
 ```{js echo = T}
 // Definir función de exportación

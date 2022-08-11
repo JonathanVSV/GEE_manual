@@ -1,16 +1,16 @@
 \newpage
 # ee.Feature
 \index{ee.Feature}
-Los vectores (`ee.Feature`) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
-Es importante recalcar que una `ee.Feature` es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).
+Los vectores (`r colorize2("ee.Feature")`) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Es importante recalcar que una `r colorize2("ee.Feature")` es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).
 
 ## Información y metadatos
 
-Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto `ee.Geometry`, mientras que para conocer características de las propiedades se puede utilizar el método `.propertyNames`.
+Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto `r colorize2("ee.Geometry")`, mientras que para conocer características de las propiedades se puede utilizar el método `r colorize2(".propertyNames")`.
 
 ## Visualización de vectores
 \index{Map.addLayer}
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función `Map.addLayer`, como código hexadecimal.
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta  líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función `r colorize2("Map.addLayer")`, como código hexadecimal.
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
@@ -28,7 +28,7 @@ Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
 
 Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
-Ejercicio 10
+`r colorize("Ejercicio 10")`
 
 ```{js echo = T}
 // Crear un polígono
@@ -53,11 +53,11 @@ var vector = ee.Feature(
 
 ### Selección de propiedades {-}
 \index{select}
-Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `.select`. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
+Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `r colorize2(".select")`. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
 
 Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
-Ejercicio 10
+`r colorize("Ejercicio 10")`
 
 ```{js echo = T}
 print(vector.select(['anno']));
@@ -67,15 +67,15 @@ print(vector.select(['anno','tamaño'],['year','southamerica']));
 
 ### Adición de nuevas propiedades o modificación de propiedades preexistentes {-}
 \index{set}
-Usando el método `.set` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
+Usando el método `r colorize2(".set")` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
-Ejercicio 10.1
+`r colorize("Ejercicio 10.1")`
 
 ```{js echo = T}
 var vector1 = vector.set('tamaño','neotropico');
 ```
 
-```{r f71, echo = F, out.width="80%", fig.cap="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad."}
+```{r f71, echo = F, out.width="95%", fig.cap="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad."}
 knitr::include_graphics("Img/ej10.png")
 ```
 
@@ -84,14 +84,14 @@ knitr::include_graphics("Img/ej10.png")
 \index{select}
 \index{propertyNames}
 \index{toDictionary}
-En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `ee.Feature`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `.first`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (`r colorize("Fig.")` \@ref(fig:f72)). 
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos `r colorize2("ee.Feature")`. Para ello, se extrae el primer vector de una colección de vectores utilizando el método `r colorize2(".first")`. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (`r colorize("Fig.")` \@ref(fig:f72)). 
 
-1.	Usamos el método `.propertyNames` para obtener una lista de los nombres de los atributos del vector.
-2.	Usamos el método `.toDictionary` para generar un diccionario con todos los atributos (claves) y sus valores del vector.
-3.	Usamos el método `.get` para obtener el valor del atributo 'COAST' del vector.
-4.	Usando el método `.select` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
+1.	Usamos el método `r colorize2(".propertyNames")` para obtener una lista de los nombres de los atributos del vector.
+2.	Usamos el método `r colorize2(".toDictionary")` para generar un diccionario con todos los atributos (claves) y sus valores del vector.
+3.	Usamos el método `r colorize2(".get")` para obtener el valor del atributo 'COAST' del vector.
+4.	Usando el método `r colorize2(".select")` podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.
 
-Ejercicio 11
+`r colorize("Ejercicio 11")`
 
 ```{js echo = T}
 // Llamamos una capa de cuencas de alta resolución de GEE
@@ -112,15 +112,15 @@ var costa = cuenca.get('COAST');
 // Extraemos el atributo 'COAST' y lo renombramos como 'costa maritima'
 var renombre = cuenca.select(['COAST'],['costa maritima']);
 ```
-```{r f72, echo = F, out.width="80%", fig.cap="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades."}
+```{r f72, echo = F, out.width="95%", fig.cap="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades."}
 knitr::include_graphics("Img/ej11.png")
 ```
 
 ### Intersección con otros vectores {-}
 \index{intersection}
-Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método `.intersection`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f73)):
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método `r colorize2(".intersection")`. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f73)):
 
-Ejercicio 12
+`r colorize("Ejercicio 12")`
 
 ```{js echo = T}
 // Crear dos vectores rectangulares
@@ -133,15 +133,15 @@ var interseccion = rectangulo1.intersection(rectangulo2);
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método `.intersection`).
+Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método `r colorize2(".intersection")`).
 :::
 ::::
 
 ### Creación de un buffer {-}
 \index{buffer}
-Para realizar un buffer a partir de un vector se utiliza el método `.buffer`, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (`r colorize("Fig.")` \@ref(fig:f73)).
+Para realizar un buffer a partir de un vector se utiliza el método `r colorize2(".buffer")`, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (`r colorize("Fig.")` \@ref(fig:f73)).
 
-Ejercicio 12.1
+`r colorize("Ejercicio 12.1")`
 
 ```{js echo = T}
 // Crear un vector de un  punto
@@ -153,9 +153,9 @@ var bufferPol = punto.buffer(500000, 0.1);
 
 ### Cálculo de área {-}
 \index{area}
-Para calcular el área de un vector se utiliza el método `.area`. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (`r colorize("Fig.")` \@ref(fig:f73)).
+Para calcular el área de un vector se utiliza el método `r colorize2(".area")`. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (`r colorize("Fig.")` \@ref(fig:f73)).
 
-Ejercicio 12.2
+`r colorize("Ejercicio 12.2")`
 
 ```{js echo = T}
 // Calcular el área del buffer
@@ -164,9 +164,9 @@ var area = bufferPol.area(0.1);
 
 ### Cálculo de perímetro {-}
 \index{perimeter}
-Podemos calcular el perímetro de un vector usando el método `.perimeter`, que hace el cálculo en metros (`r colorize("Fig.")` \@ref(fig:f73)).
+Podemos calcular el perímetro de un vector usando el método `r colorize2(".perimeter")`, que hace el cálculo en metros (`r colorize("Fig.")` \@ref(fig:f73)).
 
-Ejercicio 12.3
+`r colorize("Ejercicio 12.3")`
 
 ```{js echo = T}
 // Calcular el perímetro del buffer
@@ -175,9 +175,9 @@ var perimetro = interseccion.perimeter();
 
 ### Disolución de polígonos {-}
 \index{dissolve}
-El método `.dissolve` une todas las geometrías que se intersectan de un vector en un solo polígono y si no se intersectan, genera un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
+El método `r colorize2(".dissolve")` une todas las geometrías que se intersectan de un vector en un solo polígono y si no se intersectan, genera un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
 
-Ejercicio 12.4
+`r colorize("Ejercicio 12.4")`
 
 ```{js echo = T}
 // Crear un vector de multipolígono
@@ -213,14 +213,14 @@ var disuelto = ee.Feature(multi.dissolve(0.1));
 
 ### Unión de vectores {-}
 \index{union}
-El método `.union` permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo estén se convertirán en un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
+El método `r colorize2(".union")` permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo estén se convertirán en un multipolígono (`r colorize("Fig.")` \@ref(fig:f73)).
 
-Ejercicio 12.5
+`r colorize("Ejercicio 12.5")`
 
 ```{js echo = T}
 // Unir geometrías del buffer y un rectángulo 
 var union = rectangulo2.union(bufferPol)
 ```
-```{r f73, echo = F, out.width="80%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados."}
+```{r f73, echo = F, out.width="95%", fig.cap="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados."}
 knitr::include_graphics("Img/ej12.png")
 ```

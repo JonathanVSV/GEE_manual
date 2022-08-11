@@ -10,7 +10,7 @@ documentclass: book
 # bibliography: [book.bib]  # para usar referencias bibliográficas
 # biblio-style: apalike
 link-citations: yes
-linestretch: 1
+linestretch: 1.1
 linkcolor: darkblue
 urlcolor: darkblue
 toccolor: black
@@ -63,6 +63,25 @@ colorize <- function(x) {
   } else x
 }
 
+colorize2 <- function(x) {
+  color <- "darkpurple"
+  if (knitr::is_latex_output()) {
+    sprintf("\\boldpurple{%s}", x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+
+colorize3 <- function(x) {
+  color <- "darkpurple"
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
 # # Set Ejercicio as "language"
 # knitr::knit_engines$set(Ejercicio = function(options) {
 #   # the source code is in options$code; just do
@@ -77,6 +96,7 @@ colorize <- function(x) {
 #   }
 #   NULL
 # })
+
 ```
 
 ```{=latex}
