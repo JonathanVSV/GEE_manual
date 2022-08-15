@@ -52,11 +52,11 @@ var linea = ee.Geometry.LineString([
 var MultiLinea = ee.Geometry.MultiLineString([ 
    ee.Geometry.LineString(                     
      [-76.017, 26.173, -76.017, 16.173]),      
-  ee.Geometry.LineString(                      
+   ee.Geometry.LineString(                      
     [-73.017, 26.173, -73.017, 16.173]),       
-  ee.Geometry.LineString(                      
+   ee.Geometry.LineString(                      
     [-78.434, 20.926, -70.04, 24.401]),
-  ee.Geometry.LineString(
+   ee.Geometry.LineString(
     [-78.434, 18.926, -70.04, 22.401])]);
 
 // Un perímetro definido a partir de una lista  de las coordenadas 
@@ -105,10 +105,10 @@ var poligono = ee.Geometry.Polygon(
 var Multipoligono = ee.Geometry.MultiPolygon([
     // El primer polígono está definido a partir de dos perímetros
     ee.Geometry.Polygon(  
-// El primer perímetro define el polígono                
+    // El primer perímetro define el polígono                
       [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.9, 8.93),    
       // El segundo perímetro define los huecos dentro del polígono
-ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
+    ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
     // El segundo polígono es una lista de coordenadas que forman un 
     // triángulo
     [-95.77, 17.2,

@@ -2239,11 +2239,11 @@ GEE utiliza el objeto \boldpurple{ee.Geometry} para leer y manejar formas geomé
 \KeywordTok{var}\NormalTok{ MultiLinea }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{MultiLineString}\NormalTok{([ }
 \NormalTok{   ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(                     }
 \NormalTok{     [}\OperatorTok{{-}}\FloatTok{76.017}\OperatorTok{,} \FloatTok{26.173}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{76.017}\OperatorTok{,} \FloatTok{16.173}\NormalTok{])}\OperatorTok{,}      
-\NormalTok{  ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(                      }
+\NormalTok{   ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(                      }
 \NormalTok{    [}\OperatorTok{{-}}\FloatTok{73.017}\OperatorTok{,} \FloatTok{26.173}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{73.017}\OperatorTok{,} \FloatTok{16.173}\NormalTok{])}\OperatorTok{,}       
-\NormalTok{  ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(                      }
+\NormalTok{   ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(                      }
 \NormalTok{    [}\OperatorTok{{-}}\FloatTok{78.434}\OperatorTok{,} \FloatTok{20.926}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{70.04}\OperatorTok{,} \FloatTok{24.401}\NormalTok{])}\OperatorTok{,}
-\NormalTok{  ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(}
+\NormalTok{   ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{(}
 \NormalTok{    [}\OperatorTok{{-}}\FloatTok{78.434}\OperatorTok{,} \FloatTok{18.926}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{70.04}\OperatorTok{,} \FloatTok{22.401}\NormalTok{])])}\OperatorTok{;}
 
 \CommentTok{// Un perímetro definido a partir de una lista  de las coordenadas }
@@ -2306,10 +2306,10 @@ También hay geometrías que tienen el componente de área, como son (\textcolor
 \KeywordTok{var}\NormalTok{ Multipoligono }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{MultiPolygon}\NormalTok{([}
     \CommentTok{// El primer polígono está definido a partir de dos perímetros}
 \NormalTok{    ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{(  }
-\CommentTok{// El primer perímetro define el polígono                }
+    \CommentTok{// El primer perímetro define el polígono                }
 \NormalTok{      [ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LinearRing}\NormalTok{(}\OperatorTok{{-}}\FloatTok{113.53}\OperatorTok{,} \FloatTok{18.81}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{101.66}\OperatorTok{,} \FloatTok{10.83}\OperatorTok{,{-}}\FloatTok{114.9}\OperatorTok{,} \FloatTok{8.93}\NormalTok{)}\OperatorTok{,}    
       \CommentTok{// El segundo perímetro define los huecos dentro del polígono}
-\NormalTok{ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LinearRing}\NormalTok{(}\OperatorTok{{-}}\FloatTok{111.15}\OperatorTok{,} \FloatTok{14.52}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{113.09}\OperatorTok{,} \FloatTok{11.61}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{115.7}\OperatorTok{,}\FloatTok{13.58}\NormalTok{)])}\OperatorTok{,}
+\NormalTok{    ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LinearRing}\NormalTok{(}\OperatorTok{{-}}\FloatTok{111.15}\OperatorTok{,} \FloatTok{14.52}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{113.09}\OperatorTok{,} \FloatTok{11.61}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{115.7}\OperatorTok{,}\FloatTok{13.58}\NormalTok{)])}\OperatorTok{,}
     \CommentTok{// El segundo polígono es una lista de coordenadas que forman un }
     \CommentTok{// triángulo}
 \NormalTok{    [}\OperatorTok{{-}}\FloatTok{95.77}\OperatorTok{,} \FloatTok{17.2}\OperatorTok{,}
