@@ -6,7 +6,7 @@
 
 Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:
 
-[**https://earthengine.google.com/**](https://earthengine.google.com/){.uri}
+<https://earthengine.google.com/>
 
 Después, le damos clic en la esquina superior derecha donde dice **Sign Up** (inscribirse; `r colorize("Fig.")` \@ref(fig:f21)).
 
@@ -34,11 +34,11 @@ knitr::include_graphics("Img/correo.png")
 
 Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace:
 
-[**https://code.earthengine.google.com/**](https://code.earthengine.google.com/){.uri}
+<https://code.earthengine.google.com/>
 
 y se accede con la cuenta de Google con la que nos registramos.
 
-Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: [**https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual**](https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual){.uri}
+Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: <https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual>
 
 ## Elementos básicos de la interfaz gráfica
 

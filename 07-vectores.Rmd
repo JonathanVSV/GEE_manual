@@ -56,8 +56,8 @@ var vector = ee.Feature(
 Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método `r colorize2(".select")`. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas. 
 
 Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
-
-`r colorize("Ejercicio 10")`
+\newpage
+`r colorize("Ejercicio 10.1")`
 
 ```{js echo = T}
 print(vector.select(['anno']));
@@ -69,7 +69,7 @@ print(vector.select(['anno','tamaño'],['year','southamerica']));
 \index{set}
 Usando el método `r colorize2(".set")` se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (`r colorize("Fig.")` \@ref(fig:f71)):
 
-`r colorize("Ejercicio 10.1")`
+`r colorize("Ejercicio 10.2")`
 
 ```{js echo = T}
 var vector1 = vector.set('tamaño','neotropico');

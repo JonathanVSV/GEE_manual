@@ -24,8 +24,7 @@ Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se def
 <!-- ::: {.exercise} -->
 `r colorize("Ejercicio 0")`
 
-```{js, echo = T, linestretch = 1,}
-
+```{js ej1, echo = T}
 // Cadena de texto de solo letras
 var cadena = 'Esto es una cadena de caracteres';
 
@@ -36,7 +35,7 @@ var telefono = '1234567890';
 var direccion = 'calle cuarta casa # 16';
 ```
 <!-- ::: -->
-
+\newpage
 `r colorize("Ejercicio 0.1")`
 
 ```{js, echo = T}
@@ -98,7 +97,7 @@ var listaC = [lista, listaA, listaB];
 ```
 
 Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella. 
-
+\newpage
 `r colorize("Ejercicio 2.1")`
 
 ```{js, echo = T}

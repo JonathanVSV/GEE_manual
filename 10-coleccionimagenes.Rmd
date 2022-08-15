@@ -1,7 +1,7 @@
 \newpage
 # ee.ImageCollection
 \index{ee.ImageCollection}
-Las colecciones de imágenes (`r colorize2("ee.ImageCollection")`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo. 
+Las colecciones de imágenes (`r colorize2("ee.ImageCollection")`) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick _et al_., 2017; Radočaj _et al_., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo. 
 
 Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:  
 
@@ -27,6 +27,7 @@ var roi = ee.Geometry.Polygon(
 \index{propertyNames}
 Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que incluyen, lo cual permite filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponden a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método `r colorize2(".propertyNames")` (`r colorize("Fig.")` \@ref(fig:f101)).
 
+\newpage
 `r colorize("Ejercicio 28.1")`
 
 ```{js, echo = T}
@@ -100,6 +101,7 @@ knitr::include_graphics("Img/visS2Mich.png")
 \index{filterDate}
 Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contienen. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos `r colorize2("ee.Filter")`. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar `r colorize2(".filterDate")` (`r colorize("Fig.")` \@ref(fig:f104)):
 
+\newpage
 `r colorize("Ejercicio 28.4")`
 
 ```{js, echo = T}
@@ -377,7 +379,7 @@ knitr::include_graphics("Img/imredmeanQM.png")
 
 Este ejercicio integra elementos de los ejercicios 28.4, 28.5, 28.6 y 28.7, de modo que sea posible remitirse a estos ejercicios si se tienen dudas.
 
-En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (*tier 1*) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su *path* y *row*. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (**Search**), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **BANDS** se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **IMAGE PROPERTIES** se pueden consultar los metadatos que contienen las imágenes de esta colección (`r colorize("Fig.")` \@ref(fig:f1014)).
+En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (*tier 1*) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su *path* y *row*. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (**Search**), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de **Bands** se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de **Image properties** se pueden consultar los metadatos que contienen las imágenes de esta colección (`r colorize("Fig.")` \@ref(fig:f1014)).
 
 ```{r f1014, echo = F, out.width="95%", fig.cap="Consulta de propiedades de las imágenes contenidas en una colección de imágenes."}
 knitr::include_graphics("Img/Ruta_coleccion.png")

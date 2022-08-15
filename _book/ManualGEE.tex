@@ -110,7 +110,6 @@
 \usepackage{array}
 %%%
 %\usepackage{makeidx}
-\usepackage{setspace}
 % Para numeración de páginas
 \usepackage{fancyhdr}
 % Para cuadros de tips
@@ -123,7 +122,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish, mexico]{babel}
 % Agregar guión a palabras que no quepan
-\usepackage{hyphenat}
+\usepackage[none]{hyphenat}
 % Control de títulos en el texto
 \usepackage[newparttoc]{titlesec}
 % Control de títulos en el table of contents
@@ -137,7 +136,8 @@
 % Para manejo de índice
 \usepackage[titles]{tocloft}
 \usepackage{makeidx}
-
+%\usepackage{pdfpages}
+%\usepackage{minipage}
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \renewcommand{\cftdot}{}
 
@@ -248,6 +248,10 @@
 
 % Try to fix the problem of text being moved to occupy whole page
 \raggedbottom
+
+% Para agregar páginas al principio
+%\let\oldmaketitle\maketitle
+%\AtBeginDocument{\let\maketitle\relax}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -376,7 +380,7 @@ Existe un grupo virtual, Google Groups, dedicado a las discusiones y las dudas d
 \hypertarget{propuxf3sito-del-libro}{%
 \section{Propósito del libro}\label{propuxf3sito-del-libro}}
 
-Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick et al., 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, {[}2020{]}). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes.
+Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick \emph{et al}., 2017; Amani \emph{et al}., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, {[}2020{]}). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes.
 
 Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, los análisis de series de tiempo o la creación de aplicaciones). Además, debido a su carácter introductorio, este manual está dirigido a usuarios con y sin conocimientos previos de programación. GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos buscar información adicional sobre las actualizaciones de GEE, así como revisar su documentación oficial.
 
@@ -479,37 +483,37 @@ GEE se ha utilizado para diversos estudios enfocados en analizar la superficie t
 \begin{itemize}
 \tightlist
 \item
-  Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo et al., 2020; Hamunyela et al., 2020).
+  Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo \emph{et al}., 2020; Hamunyela \emph{et al}., 2020).
 \item
-  Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen et al., 2013).
+  Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen \emph{et al}., 2013).
 \item
-  Estimar variables biofísicas de la superficie terrestre (Campos-Taberner et al., 2018).
+  Estimar variables biofísicas de la superficie terrestre (Campos-Taberner \emph{et al}., 2018).
 \item
-  Enmascarar nubes de imágenes (Mateo-García et al., 2018).
+  Enmascarar nubes de imágenes (Mateo-García \emph{et al}., 2018).
 \item
-  Monitorear asentamientos humanos (Trianni et al., 2014).
+  Monitorear asentamientos humanos (Trianni \emph{et al}., 2014).
 \item
-  Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano et al., 2020a; Solórzano et al., 2020b).
+  Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano \emph{et al}., 2020a; Solórzano \emph{et al}., 2020b).
 \item
-  Mapear campos de cultivo (Xiong et al., 2017; Dong et al., 2016).
+  Mapear campos de cultivo (Xiong \emph{et al}., 2017; Dong \emph{et al}., 2016).
 \item
-  Identificar plantaciones de palma de aceite (Lee et al., 2016).
+  Identificar plantaciones de palma de aceite (Lee \emph{et al}., 2016).
 \item
-  Mapear cicatrices de incendios (Arruda et al., 2021).
+  Mapear cicatrices de incendios (Arruda \emph{et al}., 2021).
 \item
-  Evaluar el grado de sequía de la superficie terrestre (Sazib et al., 2018).
+  Evaluar el grado de sequía de la superficie terrestre (Sazib \emph{et al}., 2018).
 \item
-  Mapear características de humedales (Slagter et al., 2018).
+  Mapear características de humedales (Slagter \emph{et al}., 2018).
 \item
-  Caracterizar islas de calor (Ravanelli et al., 2018), entre muchos otros.
+  Caracterizar islas de calor (Ravanelli \emph{et al}., 2018), entre muchos otros.
 \end{itemize}
 
-Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar et al., 2018).
+Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar \emph{et al}., 2018).
 
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick et al.~(2017).
+GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick \emph{et al}. (2017).
 
 \end{awesomeblock}
 
@@ -525,7 +529,7 @@ GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga r
 
 Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:
 
-\href{https://earthengine.google.com/}{\textbf{https://earthengine.google.com/}}
+\url{https://earthengine.google.com/}
 
 Después, le damos clic en la esquina superior derecha donde dice \textbf{Sign Up} (inscribirse; \textcolor{darkblue}{Fig.} \ref{fig:f21}).
 
@@ -571,11 +575,11 @@ Una vez realizado el registro, hay que esperar un tiempo (pueden ser desde minut
 
 Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace:
 
-\href{https://code.earthengine.google.com/}{\textbf{https://code.earthengine.google.com/}}
+\url{https://code.earthengine.google.com/}
 
 y se accede con la cuenta de Google con la que nos registramos.
 
-Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: \href{https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual}{\textbf{https://code.earthengine.google.com/?accept\_repo=users/JonathanVSV/GEE\_manual}}
+Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: \url{https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual}
 
 \hypertarget{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}{%
 \section{Elementos básicos de la interfaz gráfica}\label{elementos-buxe1sicos-de-la-interfaz-gruxe1fica}}
@@ -1512,7 +1516,6 @@ Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se def
 
 \begin{Shaded}
 \begin{Highlighting}[]
-
 \CommentTok{// Cadena de texto de solo letras}
 \KeywordTok{var}\NormalTok{ cadena }\OperatorTok{=} \StringTok{\textquotesingle{}Esto es una cadena de caracteres\textquotesingle{}}\OperatorTok{;}
 
@@ -1523,6 +1526,8 @@ Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se def
 \KeywordTok{var}\NormalTok{ direccion }\OperatorTok{=} \StringTok{\textquotesingle{}calle cuarta casa \# 16\textquotesingle{}}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
+
+\newpage
 
 \textcolor{darkblue}{Ejercicio 0.1}
 
@@ -1612,7 +1617,7 @@ Las listas se refieren a objetos que contienen varias entradas, las cuales puede
 \end{Shaded}
 
 Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella.
-
+\newpage
 \textcolor{darkblue}{Ejercicio 2.1}
 
 \begin{Shaded}
@@ -2491,8 +2496,8 @@ Para crear un vector desde cero es necesario definir una geometría y opcionalme
 Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método \boldpurple{.select}. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas.
 
 Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (\textcolor{darkblue}{Fig.} \ref{fig:f71}):
-
-\textcolor{darkblue}{Ejercicio 10}
+\newpage
+\textcolor{darkblue}{Ejercicio 10.1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2509,7 +2514,7 @@ Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se ins
 \index{set}
 Usando el método \boldpurple{.set} se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (\textcolor{darkblue}{Fig.} \ref{fig:f71}):
 
-\textcolor{darkblue}{Ejercicio 10.1}
+\textcolor{darkblue}{Ejercicio 10.2}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2870,25 +2875,25 @@ Una colección de vectores se define a partir del método \boldpurple{ee.Feature
                         \OperatorTok{{-}}\FloatTok{86.273}\OperatorTok{,} \FloatTok{12.115}
                         \OperatorTok{{-}}\FloatTok{84.097}\OperatorTok{,} \FloatTok{9.958}
                         \OperatorTok{{-}}\FloatTok{79.527}\OperatorTok{,} \FloatTok{8.983}\NormalTok{])}\OperatorTok{,}
-\NormalTok{    \{ }\DataTypeTok{pais}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}Guatemala\textquotesingle{}}\OperatorTok{,} 
+\NormalTok{    \{}\DataTypeTok{pais}\OperatorTok{:}\NormalTok{ [}\StringTok{\textquotesingle{}Guatemala\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}Belice\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}Honduras\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}El Salvador\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}Nicaragua\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}Costa Rica\textquotesingle{}}\OperatorTok{,} 
         \StringTok{\textquotesingle{}Panama\textquotesingle{}}\NormalTok{]}\OperatorTok{,}
-      \DataTypeTok{capital}\OperatorTok{:}\NormalTok{  [}\StringTok{\textquotesingle{}cdad. de Guatemala\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}Belmopan\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}Tegucigalpa\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}San Salvador\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}Managua\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}San Jose\textquotesingle{}}\OperatorTok{,} 
-            \StringTok{\textquotesingle{}cdad. de Panama\textquotesingle{}}\NormalTok{]\})}\OperatorTok{;}
+    \DataTypeTok{capital}\OperatorTok{:}\NormalTok{    [}\StringTok{\textquotesingle{}cdad. de Guatemala\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}Belmopan\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}Tegucigalpa\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}San Salvador\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}Managua\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}San Jose\textquotesingle{}}\OperatorTok{,} 
+        \StringTok{\textquotesingle{}cdad. de Panama\textquotesingle{}}\NormalTok{]\})}\OperatorTok{;}
 
 \KeywordTok{var}\NormalTok{ linea }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{([}\OperatorTok{{-}}\FloatTok{66.865}\OperatorTok{,} \FloatTok{10.479}\OperatorTok{,}                    
                             \OperatorTok{{-}}\FloatTok{74.072}\OperatorTok{,}\FloatTok{4.732}\NormalTok{])}\OperatorTok{,}
 \NormalTok{        \{}\DataTypeTok{pais}\OperatorTok{:} \StringTok{\textquotesingle{}Venezuela {-} Colombia\textquotesingle{}}\OperatorTok{,} 
-\DataTypeTok{capital}\OperatorTok{:} \StringTok{\textquotesingle{}Caracas {-} Bogota\textquotesingle{}}\NormalTok{\})}\OperatorTok{;} 
+      \DataTypeTok{capital}\OperatorTok{:} \StringTok{\textquotesingle{}Caracas {-} Bogota\textquotesingle{}}\NormalTok{\})}\OperatorTok{;} 
 
 \KeywordTok{var}\NormalTok{ Multilinea }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{MultiLineString}\NormalTok{([  }
 \NormalTok{    ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LineString}\NormalTok{([}\OperatorTok{{-}}\FloatTok{76.803}\OperatorTok{,} \FloatTok{18.021}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{82.362}\OperatorTok{,} \FloatTok{23.121}\NormalTok{])}\OperatorTok{,}      
@@ -2907,29 +2912,29 @@ Una colección de vectores se define a partir del método \boldpurple{ee.Feature
 \KeywordTok{var}\NormalTok{ perimetro }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{LinearRing}\NormalTok{([}\OperatorTok{{-}}\FloatTok{79.354}\OperatorTok{,}\FloatTok{27.32}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{79.332}\OperatorTok{,} \FloatTok{23.661}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{74.19}\OperatorTok{,} \FloatTok{21.161}\OperatorTok{,}
-                                   \OperatorTok{{-}}\FloatTok{72.235}\OperatorTok{,} \FloatTok{23.165}\OperatorTok{,}
+                                 \OperatorTok{{-}}\FloatTok{72.235}\OperatorTok{,} \FloatTok{23.165}\OperatorTok{,}
                                    \OperatorTok{{-}}\FloatTok{78.039}\OperatorTok{,} \FloatTok{27.859}\NormalTok{])}\OperatorTok{,}
 \NormalTok{        \{}\DataTypeTok{pais}\OperatorTok{:}\StringTok{\textquotesingle{}Bahamas\textquotesingle{}}\OperatorTok{,}
-\DataTypeTok{capital}\OperatorTok{:} \StringTok{\textquotesingle{}Nasau\textquotesingle{}}\NormalTok{\})}\OperatorTok{;}
+      \DataTypeTok{capital}\OperatorTok{:} \StringTok{\textquotesingle{}Nasau\textquotesingle{}}\NormalTok{\})}\OperatorTok{;}
 
 \KeywordTok{var}\NormalTok{ rectangulo }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Rectangle}\NormalTok{(}\OperatorTok{{-}}\FloatTok{127.97}\OperatorTok{,} \FloatTok{50.25}\OperatorTok{,}
                                   \OperatorTok{{-}}\FloatTok{68.2}\OperatorTok{,} \FloatTok{27.63}\NormalTok{)}\OperatorTok{,}
 \NormalTok{        \{}\DataTypeTok{pais}\OperatorTok{:}\StringTok{\textquotesingle{}eeuu\textquotesingle{}}\OperatorTok{,} 
-\DataTypeTok{capital}\OperatorTok{:}\StringTok{\textquotesingle{}Washington\textquotesingle{}}\NormalTok{\})}\OperatorTok{;} 
+      \DataTypeTok{capital}\OperatorTok{:}\StringTok{\textquotesingle{}Washington\textquotesingle{}}\NormalTok{\})}\OperatorTok{;} 
 
 \KeywordTok{var}\NormalTok{ poligono }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{(}\OperatorTok{{-}}\FloatTok{80.348}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{3.36}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{80.348}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{3.36}\OperatorTok{,}
-  \OperatorTok{{-}}                             \FloatTok{78.985}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{5.11}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{78.019}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{3.228}\OperatorTok{,}
+                  \OperatorTok{{-}}\FloatTok{78.985}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{5.11}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{78.019}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{3.228}\OperatorTok{,}
                                 \OperatorTok{{-}}\FloatTok{75.99}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{2.394}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{75.25}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{0.901}\OperatorTok{,}
-                                \OperatorTok{{-}}\FloatTok{75.865}\OperatorTok{,} \FloatTok{0.11}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{78.941}\OperatorTok{,} \FloatTok{1.428}\OperatorTok{,}
-                                \OperatorTok{{-}}\FloatTok{80.26}\OperatorTok{,} \FloatTok{0.725}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{80.919}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{1.911}\OperatorTok{,}
-                                \OperatorTok{{-}}\FloatTok{79.776}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{2.614}\NormalTok{)}\OperatorTok{,}
-\NormalTok{\{}\DataTypeTok{pais}\OperatorTok{:}\StringTok{\textquotesingle{}Ecuador\textquotesingle{}}\OperatorTok{,} 
-\DataTypeTok{capital}\OperatorTok{:}\StringTok{\textquotesingle{}Quito\textquotesingle{}}\NormalTok{\})}\OperatorTok{;}
+                              \OperatorTok{{-}}\FloatTok{75.865}\OperatorTok{,} \FloatTok{0.11}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{78.941}\OperatorTok{,} \FloatTok{1.428}\OperatorTok{,}
+                              \OperatorTok{{-}}\FloatTok{80.26}\OperatorTok{,} \FloatTok{0.725}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{80.919}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{1.911}\OperatorTok{,}
+                              \OperatorTok{{-}}\FloatTok{79.776}\OperatorTok{,} \OperatorTok{{-}}\FloatTok{2.614}\NormalTok{)}\OperatorTok{,}
+\NormalTok{              \{}\DataTypeTok{pais}\OperatorTok{:}\StringTok{\textquotesingle{}Ecuador\textquotesingle{}}\OperatorTok{,} 
+              \DataTypeTok{capital}\OperatorTok{:}\StringTok{\textquotesingle{}Quito\textquotesingle{}}\NormalTok{\})}\OperatorTok{;}
 
 \KeywordTok{var}\NormalTok{ Multipoligono }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\FunctionTok{Feature}\NormalTok{(ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{MultiPolygon}\NormalTok{([}
 \NormalTok{                ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{([}\OperatorTok{{-}}\FloatTok{61.955}\OperatorTok{,} \FloatTok{10.146}\OperatorTok{,}         
-                                        \OperatorTok{{-}}\FloatTok{61.713}\OperatorTok{,} \FloatTok{10.967}\OperatorTok{,}
-                                        \OperatorTok{{-}}\FloatTok{60.593}\OperatorTok{,} \FloatTok{10.881}\OperatorTok{,}
+                                       \OperatorTok{{-}}\FloatTok{61.713}\OperatorTok{,} \FloatTok{10.967}\OperatorTok{,}
+                                       \OperatorTok{{-}}\FloatTok{60.593}\OperatorTok{,} \FloatTok{10.881}\OperatorTok{,}
                                            \OperatorTok{{-}}\FloatTok{60.68}\OperatorTok{,} \FloatTok{10.081}\NormalTok{])}\OperatorTok{,}
 \NormalTok{                            ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{([}\OperatorTok{{-}}\FloatTok{61.779}\OperatorTok{,} \FloatTok{12.269}\OperatorTok{,}     
                                        \OperatorTok{{-}}\FloatTok{61.504}\OperatorTok{,} \FloatTok{12.205}\OperatorTok{,}
@@ -2943,14 +2948,14 @@ Una colección de vectores se define a partir del método \boldpurple{ee.Feature
                                        \OperatorTok{{-}}\FloatTok{61.087}\OperatorTok{,} \FloatTok{15.512}\OperatorTok{,}
                                        \OperatorTok{{-}}\FloatTok{61.274}\OperatorTok{,} \FloatTok{15.194}\OperatorTok{,}
                                        \OperatorTok{{-}}\FloatTok{61.438}\OperatorTok{,} \FloatTok{15.279}\NormalTok{])])}\OperatorTok{,}
-\NormalTok{        \{}\DataTypeTok{pais}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}Trinidad y Tobago\textquotesingle{}}\OperatorTok{,}
-            \StringTok{\textquotesingle{}Granada\textquotesingle{}}\OperatorTok{,}
-            \StringTok{\textquotesingle{}Barbados\textquotesingle{}}\OperatorTok{,}
-            \StringTok{\textquotesingle{}Dominica\textquotesingle{}}\NormalTok{]}\OperatorTok{,}
-        \DataTypeTok{capital}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}Puerto España\textquotesingle{}}\OperatorTok{,}
-              \StringTok{\textquotesingle{}Chantimelle\textquotesingle{}}\OperatorTok{,}
-              \StringTok{\textquotesingle{}Bridgetown\textquotesingle{}}\OperatorTok{,}
-              \StringTok{\textquotesingle{}Roseau\textquotesingle{}}\NormalTok{]\})}\OperatorTok{;}
+\NormalTok{                  \{}\DataTypeTok{pais}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}Trinidad y Tobago\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Granada\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Barbados\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Dominica\textquotesingle{}}\NormalTok{]}\OperatorTok{,}
+                  \DataTypeTok{capital}\OperatorTok{:}\NormalTok{[}\StringTok{\textquotesingle{}Puerto España\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Chantimelle\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Bridgetown\textquotesingle{}}\OperatorTok{,}
+                    \StringTok{\textquotesingle{}Roseau\textquotesingle{}}\NormalTok{]\})}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3052,6 +3057,7 @@ Si queremos visualizar solo los contornos de los vectores se puede usar el sigui
 
 \caption{Diferentes formas de visualizar colecciones de vectores.}\label{fig:f85}
 \end{figure}
+\newpage
 
 \hypertarget{muxe9todos-comunes-2}{%
 \section{Métodos comunes}\label{muxe9todos-comunes-2}}
@@ -3530,7 +3536,10 @@ Las colecciones también permiten agregar atributos de sus vectores en los metad
   Con \boldpurple{.sqrt} calculamos la raíz cuadrada del promedio calculado.
 \end{itemize}
 
+\newpage
+
 \textcolor{darkblue}{Ejercicio 22}
+
 \index{multiply}
 \index{divide}
 \index{subtract}
@@ -3785,8 +3794,7 @@ El argumento adicional para exportar a los \textbf{Assets} \boldpurple{Export.ta
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Determinamos un área de estudio con un polígono}
-\KeywordTok{var}\NormalTok{ poligono }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{(}
-\NormalTok{        [}\OperatorTok{{-}}\FloatTok{79.59}\OperatorTok{,} \FloatTok{7.00}\OperatorTok{,}
+\KeywordTok{var}\NormalTok{ poligono }\OperatorTok{=}\NormalTok{ ee}\OperatorTok{.}\AttributeTok{Geometry}\OperatorTok{.}\FunctionTok{Polygon}\NormalTok{([}\OperatorTok{{-}}\FloatTok{79.59}\OperatorTok{,} \FloatTok{7.00}\OperatorTok{,}
           \OperatorTok{{-}}\FloatTok{85.02}\OperatorTok{,} \FloatTok{8.14}\OperatorTok{,}
           \OperatorTok{{-}}\FloatTok{88.04}\OperatorTok{,} \FloatTok{10.68}\OperatorTok{,}
           \OperatorTok{{-}}\FloatTok{93.69}\OperatorTok{,} \FloatTok{9.44}\OperatorTok{,}
@@ -3945,6 +3953,8 @@ El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:
 
 \index{bandNames}
 Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método \boldpurple{.bandNames} (\textcolor{darkblue}{Fig.} \ref{fig:f93}).
+
+\newpage
 
 \textcolor{darkblue}{Ejercicio 27.2}
 
@@ -4167,7 +4177,7 @@ Si no se cambia el nombre de la banda producida por \boldpurple{.normalizedDiffe
 
 \end{bluebox2}
 
-Dentro de \boldpurple{expression} se puede utilizar operadores como la notación estándar matemática (\texttt{+}, \texttt{-}, \texttt{/}, \texttt{*}), el módulo (\texttt{\%}), el exponente (\texttt{**}), así como los operadores relacionales (\texttt{\textgreater{}}, \texttt{\textless{}}, \texttt{\textgreater{}=}, \texttt{\textless{}=}, \texttt{!=}, \texttt{==}), lógicos (\texttt{\&\&}, \texttt{\textbar{}\textbar{}}, \texttt{!}, \texttt{\^{}}) y ternarios \emph{if then else} (\texttt{?:}).
+Dentro de \boldpurple{expression} se pueden utilizar operadores como la notación estándar matemática (\texttt{+}, \texttt{-}, \texttt{/}, \texttt{*}), el módulo (\texttt{\%}), el exponente (\texttt{**}), así como los operadores relacionales (\texttt{\textgreater{}}, \texttt{\textless{}}, \texttt{\textgreater{}=}, \texttt{\textless{}=}, \texttt{!=}, \texttt{==}), lógicos (\texttt{\&\&}, \texttt{\textbar{}\textbar{}}, \texttt{!}, \texttt{\^{}}) y ternarios \emph{if then else} (\texttt{?:}).
 
 \hypertarget{uso-de-operaciones-relacionales-condicionales-y-booleanas}{%
 \subsection*{Uso de operaciones relacionales, condicionales y booleanas}\label{uso-de-operaciones-relacionales-condicionales-y-booleanas}}
@@ -4227,7 +4237,7 @@ Otra forma de crear máscaras es indicando valores por bits. En este caso, se in
 
 }
 
-\caption{Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes.}\label{fig:unnamed-chunk-76}
+\caption{Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes.}\label{fig:unnamed-chunk-75}
 \end{figure}
 
 \hypertarget{enmascaramiento}{%
@@ -4256,7 +4266,7 @@ El método \boldpurple{.updateMask} permite enmascarar los píxeles de una image
 
 }
 
-\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-78}
+\caption{Resultado del enmascaramiento de la capa de altura del dosel.}\label{fig:unnamed-chunk-77}
 \end{figure}
 
 \begin{figure}[H]
@@ -4265,7 +4275,7 @@ El método \boldpurple{.updateMask} permite enmascarar los píxeles de una image
 
 }
 
-\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-79}
+\caption{Imagen Landsat antes del enmascaramiento de nubes.}\label{fig:unnamed-chunk-78}
 \end{figure}
 
 \begin{figure}[H]
@@ -4508,7 +4518,7 @@ A continuación, se renombrará la banda de la imagen de `elevation' a `elevacio
 
 }
 
-\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-89}
+\caption{Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.}\label{fig:unnamed-chunk-88}
 \end{figure}
 
 A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función \boldpurple{ui.Chart.image.histogram} y se indica la imagen de la cual se quiere obtener el histograma (\texttt{image}), la escala en metros a la que se quiere obtener los valores del histograma (\texttt{scale}) y el número máximo de clases (\texttt{maxBuckets}). Después, se agrega este gráfico a la consola con un \boldpurple{print} (\textcolor{darkblue}{Fig.} \ref{fig:f914}).
@@ -4576,7 +4586,7 @@ Una vez corrido el código, hay que irse a la pestaña de \textbf{Tasks} para da
 \chapter{ee.ImageCollection}\label{ee.imagecollection-1}}
 
 \index{ee.ImageCollection}
-Las colecciones de imágenes (\boldpurple{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo.
+Las colecciones de imágenes (\boldpurple{ee.ImageCollection}) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick \emph{et al}., 2017; Radočaj \emph{et al}., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo.
 
 Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:
 
@@ -4607,6 +4617,8 @@ Como información adicional para este capítulo se definirá una geometría de u
 
 \index{propertyNames}
 Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que incluyen, lo cual permite filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponden a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método \boldpurple{.propertyNames} (\textcolor{darkblue}{Fig.} \ref{fig:f101}).
+
+\newpage
 
 \textcolor{darkblue}{Ejercicio 28.1}
 
@@ -4712,6 +4724,8 @@ Así como curre con los vectores y las colecciones de vectores, las colecciones 
 \index{filter}
 \index{filterDate}
 Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contienen. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos \boldpurple{ee.Filter}. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar \boldpurple{.filterDate} (\textcolor{darkblue}{Fig.} \ref{fig:f104}):
+
+\newpage
 
 \textcolor{darkblue}{Ejercicio 28.4}
 
@@ -5127,7 +5141,7 @@ Si se desea hacer mosaicos a partir de varias imágenes se puede realizar en GEE
 
 Este ejercicio integra elementos de los ejercicios 28.4, 28.5, 28.6 y 28.7, de modo que sea posible remitirse a estos ejercicios si se tienen dudas.
 
-En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (\emph{tier 1}) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su \emph{path} y \emph{row}. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\textbf{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{BANDS} se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{IMAGE PROPERTIES} se pueden consultar los metadatos que contienen las imágenes de esta colección (\textcolor{darkblue}{Fig.} \ref{fig:f1014}).
+En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (\emph{tier 1}) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su \emph{path} y \emph{row}. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (\textbf{Search}), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de \textbf{Bands} se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de \textbf{Image properties} se pueden consultar los metadatos que contienen las imágenes de esta colección (\textcolor{darkblue}{Fig.} \ref{fig:f1014}).
 
 \begin{figure}[H]
 
@@ -5669,7 +5683,7 @@ de una imagen de acuerdo a los puntos con información y los pondera
 según su distancia, generando un promedio de esos valores. Esto provoca
 que los píxeles más cercanos tengan más influencia sobre el resultado de
 la interpolación que los píxeles más alejados. Para consultar más
-detalles sobre el procedimiento de interpolación, revisar Basso et al.
+detalles sobre el procedimiento de interpolación, revisar Basso \emph{et al}.
 (1999). Esta interpolación se realiza con el método \boldpurple{.inverseDistance},
 donde hay que especificar al menos:
 
@@ -5842,13 +5856,13 @@ del mar (imagen), a partir de un muestreo de puntos (vectores;
 
 Una clasificación supervisada se refiere al proceso en el cual se obtiene un mapa temático a partir de imágenes satelitales u otro tipo de información generada mediante sensores remotos. Este tipo de procedimiento tiene el objetivo de asociarle una etiqueta a cada píxel de una imagen, que puede constar de, por ejemplo, una clase de tipo de vegetación o uso de suelo (Chuvieco, 1995). Las clasificaciones se pueden ver como una interpretación de la reflectancia de una imagen en un sistema de clases de interés y normalmente constan de procedimientos en los cuales se entrena un algoritmo a reconocer estas clases, a partir de muestras otorgadas por el usuario (Chuvieco, 1995). Generalmente, el proceso de una clasificación supervisada implica los siguientes pasos: 1) obtención de los datos de entrenamiento, 2) selección del clasificador, 3) entrenamiento del clasificador basado en los datos de entrenamiento, 4) obtención de la clasificación, 5) registro de los datos de verificación y 6) verificación de la clasificación. En este capítulo, primero se describirá cada uno de estos pasos junto con las funciones y métodos utilizados y al final se integrarán dichos pasos en un ejercicio práctico.
 
-Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman et al., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik, 1995), MaxEnt (Maximum Entropy; Phillips et al., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE, tienen su propio tipo de objetos del servidor.
+Dentro de GEE se pueden hacer clasificaciones supervisadas con algunos algoritmos populares como CART (Classification and Regression Trees; Breiman \emph{et al}., 1984), Random Forests (Breiman, 2001), Naive Bayes (Webb, 2011), Gradient Tree Boost (Friedman, 2001), Support Vector Machine (Cortes y Vapnik, 1995), MaxEnt (Maximum Entropy; Phillips \emph{et al}., 2004) y Decision Trees (Quinlan, 1986). Como todos los demás objetos dentro de GEE, tienen su propio tipo de objetos del servidor.
 
 \hypertarget{clasificadores}{%
 \section{Clasificadores}\label{clasificadores}}
 
 \index{ee.Classifier}
-Los objetos \boldpurple{ee.Classifier} son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: \boldpurple{ee.Classifier.smileCART}, \boldpurple{ee.Classifier}\boldpurple{.smileRandomForest}, \boldpurple{ee.Classifier.amnhMaxent}, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (\textbf{Reference}) en el apartado de bibliotecas del cliente (\textbf{Client libraries}), o también en la pestaña \textbf{Docs} bajo \boldpurple{ee.Classifier}. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (\texttt{numberOfTrees}), las variables utilizadas por árbol aleatorio (\texttt{variablesPerSplit}), la población mínima de hoja (\texttt{minLeafPopulation}), la fracción de los datos de entrada para entrenar y verificar el algoritmo (\texttt{bagFraction}), el número máximo de nodos (\texttt{maxNodes}) y el número para hacer replicables los resultados (\texttt{seed}). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
+Los objetos \boldpurple{ee.Classifier} son los que van a permitir trabajar con clasificadores dentro de GEE. Algunos ejemplos de estos son: \boldpurple{ee.Classifier.smileCART}, \boldpurple{ee.Classifier} \boldpurple{.smileRandomForest}, \boldpurple{ee.Classifier.amnhMaxent}, entre otros. De nuevo, todos los algoritmos disponibles en GEE, así como los argumentos que aceptan, se pueden consultar en la página de ayuda, en la pestaña de referencia (\textbf{Reference}) en el apartado de bibliotecas del cliente (\textbf{Client libraries}), o también en la pestaña \textbf{Docs} bajo \boldpurple{ee.Classifier}. Cabe destacar que cada clasificador tiene diferentes argumentos. Por ejemplo, para el clasificador de random forests, los argumentos incluyen: el número de árboles (\texttt{numberOfTrees}), las variables utilizadas por árbol aleatorio (\texttt{variablesPerSplit}), la población mínima de hoja (\texttt{minLeafPopulation}), la fracción de los datos de entrada para entrenar y verificar el algoritmo (\texttt{bagFraction}), el número máximo de nodos (\texttt{maxNodes}) y el número para hacer replicables los resultados (\texttt{seed}). Para consultar una descripción más detallada de este algoritmo y sus argumentos ver Breiman (2001).
 
 \textcolor{darkblue}{Ejercicio 32}
 
@@ -5889,7 +5903,7 @@ Usando al final el método \boldpurple{.setOutputMode} sobre un clasificador se 
 \section{Realización de la fase de entrenamiento}\label{realizaciuxf3n-de-la-fase-de-entrenamiento}}
 
 \index{train}
-Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método \boldpurple{.train} para entrenarlo, utilizando las muestras provistas. Los argumentos de este método indican los vectores utilizados como áreas de entrenamiento (\texttt{features}), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (\texttt{classProperty}), así como las bandas a utilizar de la imagen (\texttt{inputProperties}).
+Debido a que estos clasificadores trabajan en un esquema supervisado, requieren de la provisión de muestras de entrenamiento para entrenar al algoritmo. Esto se puede hacer directamente en la API, aunque quizás no sea lo más cómodo para el usuario. En este paso se recomienda capturar los datos de entrenamiento en algún SIG, por ejemplo, QGIS, y luego importar el archivo vector a GEE (ver sección de importación de información a GEE). Una vez definido el clasificador que se va a utilizar, se utiliza el método \boldpurple{.train} para entrenarlo, utilizando las muestras provistas. Los argumentos de este método indican la colección de vectores que contiene las áreas de entrenamiento (\texttt{features}), el nombre del campo que indica el esquema de clasificación dentro de la colección de vectores (\texttt{classProperty}), así como las bandas a utilizar de la imagen (\texttt{inputProperties}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5928,8 +5942,8 @@ La última fase de una clasificación consta de la evaluación de los resultados
 \end{Shaded}
 
 \hypertarget{ejercicio-e-clasificaciuxf3n}{%
-\subsection*{Ejercicio E: Clasificación}\label{ejercicio-e-clasificaciuxf3n}}
-\addcontentsline{toc}{subsection}{Ejercicio E: Clasificación}
+\subsubsection*{Ejercicio E: Clasificación}\label{ejercicio-e-clasificaciuxf3n}}
+\addcontentsline{toc}{subsubsection}{Ejercicio E: Clasificación}
 
 En este ejercicio se hará una clasificación supervisada utilizando el algoritmo random forests. Para ello se utilizarán siete polígonos como sitios de entrenamiento, pertenecientes a cuatro clases: Bosque, No bosque, Agua y Urbano. Estos polígonos se definirán directamente en la API a través de sus coordenadas como objetos \boldpurple{ee.Geometry} de tipo rectángulo. Posteriormente, cada polígono se transforma en un objeto de tipo vector (\boldpurple{ee.Feature}) y se le asigna la propiedad de `clase' como número a través de un diccionario. Por último, se hace una colección de vectores (\textcolor{darkblue}{Fig.} \ref{fig:fc121}).
 
@@ -6087,7 +6101,7 @@ El siguiente paso es entrenar al clasificador utilizando la colección de vector
 \begin{bluebox2}
 
 \begin{awesomeblock}{5pt}{\faLightbulb}{darkblue}
-Generalmente se menciona que el utilizar un mayor número de árboles en el algoritmo Random Forest permite obtener mejores resultados, sin embargo, dependiendo del conjunto de datos utilizado existe un umbral a partir del cual aumentar el número de árboles no resulta en una mejoría significativa de la clasificación. Consultar Oshiro et al.~(2012) para ver una evaluación del efecto del número de árboles sobre las capacidades de clasificación.
+Generalmente se menciona que el utilizar un mayor número de árboles en el algoritmo Random Forest permite obtener mejores resultados, sin embargo, dependiendo del conjunto de datos utilizado existe un umbral a partir del cual aumentar el número de árboles no resulta en una mejoría significativa de la clasificación. Consultar Oshiro \emph{et al}. (2012) para ver una evaluación del efecto del número de árboles sobre las capacidades de clasificación.
 
 \end{awesomeblock}
 
@@ -6274,9 +6288,9 @@ Posteriormente, se define una función (\texttt{ExportTable}) para exportar la m
 \hypertarget{cierre}{%
 \chapter{Cierre}\label{cierre}}
 
-Seguramente el aprendizaje de la programación en GEE será lento en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida la lógica y sintaxis básica usada en la API, el avance será mucho más rápido. Esperamos que este manual haya motivado a los usuarios a adentrarse en el uso de GEE, haya brindado herramientas para entender las cuestiones básicas sobre su funcionamiento, y que se haya ofrecido buenos ejemplos de diferentes funcionalidades y métodos disponibles en la API, para que puedan ser utilizados en los futuros proyectos de nuestros lectores.
+Seguramente el aprendizaje de la programación en GEE será lento en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida la lógica y sintaxis básica usada en la API, el avance será mucho más rápido. Esperamos que este manual haya motivado a los usuarios a adentrarse en el uso de GEE, haya brindado herramientas para entender las cuestiones básicas sobre su funcionamiento, y que se hayan ofrecido buenos ejemplos de diferentes funcionalidades y métodos disponibles en la API, para que puedan ser utilizados en los futuros proyectos de nuestros lectores.
 
-A pesar de que GEE es una herramienta muy poderosa para realizar análisis geomáticos, hay que tener presente que, como cualquier otro recurso, tiene sus propias limitaciones. Por lo tanto, habrá procesos que sea muy conveniente realizar en GEE, pero otros que no. Por ejemplo, a pesar de que GEE permite crear mapas (inclusive con leyendas), consideramos que sus capacidades son bastante limitadas, ya que se pueden obtener resultados personalizados de manera más sencilla en otros Sistemas de Información Geográfica (SIG), como por ejemplo QGIS. Por eso, consideramos que no todos los procesos se podrán realizar más fácilmente ni más rápidamente en GEE; sin embargo, con la práctica el usuario podrá aprender cuáles conviene realizar en GEE y cuáles no.
+A pesar de que GEE es una herramienta muy poderosa para realizar análisis geomáticos, hay que tener presente que, como cualquier otro recurso, tiene sus propias limitaciones. Por lo tanto, habrá procesos que sea muy conveniente realizar en GEE, pero otros que no, tales como crear mapas (inclusive con leyendas), ya que consideramos que sus capacidades son bastante limitadas y se pueden obtener resultados personalizados más sencillamente en otros Sistemas de Información Geográfica (SIG), como QGIS. Por eso, consideramos que no todos los procesos se podrán realizar más fácilmente ni más rápidamente en GEE; sin embargo, con la práctica el usuario podrá aprender cuáles conviene realizar en GEE y cuáles no.
 
 \newpage
 
@@ -6355,5 +6369,12 @@ Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congal
 \fancypagestyle{plain}{}
 \fancypagestyle{fancy}{}
 \printindex{}
+
+%\begin{center}
+%{\Huge A BOOK}
+%Cómo usar Google Earth Engine y no fallar en el intento, editado por el Centro de Investigaciones en Geografía Ambiental y el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt se publicó el [dd] de agosto de 2022. Para su formación se utilizaron las tipografías Latin Modern Roman y Computer Modern Roman en 12, 15, 17 y 21 pt. El cuidado de la edición estuvo al cuidado de Jonathan Vidal Solórzano Villegas, Gabriel Alejandro Perilla Suárez, Mónica Braun y Jorge Andrés Trinidad González. El diseño editorial estuvo a cargo de Jonathan Vidal Solórzano Villegas y Laura Perilla Suárez.
+%\includegraphics{Img/Portada.png}
+%{\huge by Jonathan Vidal Solórzano Villegas y Alejandro Perilla Suárez}
+%\end{center}
 
 \end{document}

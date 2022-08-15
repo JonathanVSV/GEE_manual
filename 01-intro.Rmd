@@ -61,7 +61,7 @@ Existe un grupo virtual, Google Groups, dedicado a las discusiones y las dudas d
 
 ## Propósito del libro
 
-Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick et al., 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes. 
+Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick _et al_., 2017; Amani _et al_., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes. 
 
 Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, los análisis de series de tiempo o la creación de aplicaciones). Además, debido a su carácter introductorio, este manual está dirigido a usuarios con y sin conocimientos previos de programación. GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos buscar información adicional sobre las actualizaciones de GEE, así como revisar su documentación oficial.
 
@@ -129,23 +129,23 @@ Git es un programa de distribución libre que permite llevar un control de difer
 
 GEE se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 
-* Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo et al., 2020; Hamunyela et al., 2020).
-* Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen et al., 2013).
-* Estimar variables biofísicas de la superficie terrestre (Campos-Taberner et al., 2018).
-* Enmascarar nubes de imágenes (Mateo-García et al., 2018).
-* Monitorear asentamientos humanos (Trianni et al., 2014).
-* Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano et al., 2020a; Solórzano et al., 2020b).
-* Mapear campos de cultivo (Xiong et al., 2017; Dong et al., 2016).
-* Identificar plantaciones de palma de aceite (Lee et al., 2016).
-* Mapear cicatrices de incendios (Arruda et al., 2021).
-* Evaluar el grado de sequía de la superficie terrestre (Sazib et al., 2018).
-* Mapear características de humedales (Slagter et al., 2018).
-* Caracterizar islas de calor (Ravanelli et al., 2018), entre muchos otros. 
+* Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo _et al_., 2020; Hamunyela _et al_., 2020).
+* Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen _et al_., 2013).
+* Estimar variables biofísicas de la superficie terrestre (Campos-Taberner _et al_., 2018).
+* Enmascarar nubes de imágenes (Mateo-García _et al_., 2018).
+* Monitorear asentamientos humanos (Trianni _et al_., 2014).
+* Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano _et al_., 2020a; Solórzano _et al_., 2020b).
+* Mapear campos de cultivo (Xiong _et al_., 2017; Dong _et al_., 2016).
+* Identificar plantaciones de palma de aceite (Lee _et al_., 2016).
+* Mapear cicatrices de incendios (Arruda _et al_., 2021).
+* Evaluar el grado de sequía de la superficie terrestre (Sazib _et al_., 2018).
+* Mapear características de humedales (Slagter _et al_., 2018).
+* Caracterizar islas de calor (Ravanelli _et al_., 2018), entre muchos otros. 
 
-Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar et al., 2018).
+Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar _et al_., 2018).
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick et al. (2017).
+GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick _et al_. (2017).
 :::
 ::::

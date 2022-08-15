@@ -98,25 +98,25 @@ ee.Geometry.MultiPoint([-90.496, 14.605,
     					-86.273, 12.115
     					-84.097, 9.958
     					-79.527, 8.983]),
-    { pais: ['Guatemala', 
+    {pais: ['Guatemala', 
       	'Belice', 
       	'Honduras', 
       	'El Salvador', 
       	'Nicaragua', 
       	'Costa Rica', 
       	'Panama'],
-      capital: 	['cdad. de Guatemala', 
-      		'Belmopan', 
-      		'Tegucigalpa', 
-      		'San Salvador', 
-      		'Managua', 
-      		'San Jose', 
-      		'cdad. de Panama']});
+    capital: 	['cdad. de Guatemala', 
+        'Belmopan', 
+      	'Tegucigalpa', 
+      	'San Salvador', 
+      	'Managua', 
+      	'San Jose', 
+      	'cdad. de Panama']});
 
 var linea = ee.Feature(ee.Geometry.LineString([-66.865, 10.479,                    
  							-74.072,4.732]),
     	{pais: 'Venezuela - Colombia', 
-capital: 'Caracas - Bogota'}); 
+      capital: 'Caracas - Bogota'}); 
 
 var Multilinea = ee.Feature(ee.Geometry.MultiLineString([  
    	ee.Geometry.LineString([-76.803, 18.021, -82.362, 23.121]),      
@@ -135,29 +135,29 @@ var Multilinea = ee.Feature(ee.Geometry.MultiLineString([
 var perimetro = ee.Feature(ee.Geometry.LinearRing([-79.354,27.32,
   								   -79.332, 23.661,
   								   -74.19, 21.161,
-       							   -72.235, 23.165,
+       							 -72.235, 23.165,
   								   -78.039, 27.859]),
     	{pais:'Bahamas',
-capital: 'Nasau'});
+      capital: 'Nasau'});
 
 var rectangulo = ee.Feature(ee.Geometry.Rectangle(-127.97, 50.25,
   								  -68.2, 27.63),
     	{pais:'eeuu', 
-capital:'Washington'}); 
+      capital:'Washington'}); 
 
 var poligono = ee.Feature(ee.Geometry.Polygon(-80.348, -3.36, -80.348, -3.36,
-  -							    78.985, -5.11, -78.019, -3.228,
+                  -78.985, -5.11, -78.019, -3.228,
  							    -75.99, -2.394, -75.25, -0.901,
-  							    -75.865, 0.11, -78.941, 1.428,
-  							    -80.26, 0.725, -80.919, -1.911,
-  							    -79.776, -2.614),
-{pais:'Ecuador', 
-capital:'Quito'});
+  							  -75.865, 0.11, -78.941, 1.428,
+  							  -80.26, 0.725, -80.919, -1.911,
+  							  -79.776, -2.614),
+              {pais:'Ecuador', 
+              capital:'Quito'});
 
 var Multipoligono = ee.Feature(ee.Geometry.MultiPolygon([
                 ee.Geometry.Polygon([-61.955, 10.146,         
-      								    -61.713, 10.967,
-      								    -60.593, 10.881,
+      								   -61.713, 10.967,
+      								   -60.593, 10.881,
     									   -60.68, 10.081]),
     						ee.Geometry.Polygon([-61.779, 12.269,     
       								   -61.504, 12.205,
@@ -171,14 +171,14 @@ var Multipoligono = ee.Feature(ee.Geometry.MultiPolygon([
       								   -61.087, 15.512,
       								   -61.274, 15.194,
       								   -61.438, 15.279])]),
-    	{pais:['Trinidad y Tobago',
-    		'Granada',
-    		'Barbados',
-    		'Dominica'],
-    	capital:['Puerto España',
-    		  'Chantimelle',
-    		  'Bridgetown',
-    		  'Roseau']});
+    	          {pais:['Trinidad y Tobago',
+    		        'Granada',
+    		        'Barbados',
+    		        'Dominica'],
+    	          capital:['Puerto España',
+    		        'Chantimelle',
+    		        'Bridgetown',
+    		        'Roseau']});
 ```
 
 ```{js echo = T}
@@ -257,7 +257,7 @@ Map.addLayer(contornos, {palette: ['FF0000', '00FF00', '0000FF'],
 ```{r f85, echo = F, out.width="80%", fig.cap="Diferentes formas de visualizar colecciones de vectores."}
 knitr::include_graphics("Img/ej17.png")
 ```
-
+\newpage
 ## Métodos comunes
 
 ### Filtración de una colección de vectores {-}
@@ -595,7 +595,9 @@ Las colecciones también permiten agregar atributos de sus vectores en los metad
 *	Con `r colorize2(".get")` extraemos el valor del reductor que por defecto se llama 'mean'.
 *	Con `r colorize2(".sqrt")` calculamos la raíz cuadrada del promedio calculado.
 
+\newpage
 `r colorize("Ejercicio 22")`
+
 \index{multiply}
 \index{divide}
 \index{subtract}
@@ -778,8 +780,7 @@ El argumento adicional para exportar a los **Assets** `r colorize2("Export.table
 \index{Export.table.toDrive}
 ```{js echo = T}
 // Determinamos un área de estudio con un polígono
-var poligono = ee.Geometry.Polygon(
-        [-79.59, 7.00,
+var poligono = ee.Geometry.Polygon([-79.59, 7.00,
           -85.02, 8.14,
           -88.04, 10.68,
           -93.69, 9.44,

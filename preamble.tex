@@ -2,7 +2,6 @@
 \usepackage{array}
 %%%
 %\usepackage{makeidx}
-\usepackage{setspace}
 % Para numeración de páginas
 \usepackage{fancyhdr}
 % Para cuadros de tips
@@ -15,7 +14,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish, mexico]{babel}
 % Agregar guión a palabras que no quepan
-\usepackage{hyphenat}
+\usepackage[none]{hyphenat}
 % Control de títulos en el texto
 \usepackage[newparttoc]{titlesec}
 % Control de títulos en el table of contents
@@ -29,7 +28,8 @@
 % Para manejo de índice
 \usepackage[titles]{tocloft}
 \usepackage{makeidx}
-
+%\usepackage{pdfpages}
+%\usepackage{minipage}
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \renewcommand{\cftdot}{}
 
@@ -140,3 +140,7 @@
 
 % Try to fix the problem of text being moved to occupy whole page
 \raggedbottom
+
+% Para agregar páginas al principio
+%\let\oldmaketitle\maketitle
+%\AtBeginDocument{\let\maketitle\relax}

@@ -114,7 +114,7 @@ de una imagen de acuerdo a los puntos con información y los pondera
 según su distancia, generando un promedio de esos valores. Esto provoca
 que los píxeles más cercanos tengan más influencia sobre el resultado de
 la interpolación que los píxeles más alejados. Para consultar más
-detalles sobre el procedimiento de interpolación, revisar Basso et al.
+detalles sobre el procedimiento de interpolación, revisar Basso _et al_.
 (1999). Esta interpolación se realiza con el método `r colorize2(".inverseDistance")`,
 donde hay que especificar al menos:
 

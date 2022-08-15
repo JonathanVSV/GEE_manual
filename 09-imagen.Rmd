@@ -74,6 +74,7 @@ El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:
 \index{bandNames}
 Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método `r colorize2(".bandNames")` (`r colorize("Fig.")` \@ref(fig:f93)). 
 
+\newpage
 `r colorize("Ejercicio 27.2")`
 
 ```{js echo = T}
@@ -228,7 +229,7 @@ Si no se cambia el nombre de la banda producida por `r colorize2(".normalizedDif
 :::
 ::::
 
-Dentro de `r colorize2("expression")` se puede utilizar operadores como la notación estándar matemática (`+`, `-`, `/`, `*`), el módulo (`%`), el exponente (`**`), así como los operadores relacionales (`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`) y ternarios _if then else_ (`?:`).
+Dentro de `r colorize2("expression")` se pueden utilizar operadores como la notación estándar matemática (`+`, `-`, `/`, `*`), el módulo (`%`), el exponente (`**`), así como los operadores relacionales (`>`, `<`, `>=`, `<=`, `!=`, `==`), lógicos (`&&`, `||`, `!`, `^`) y ternarios _if then else_ (`?:`).
 
 ### Uso de operaciones relacionales, condicionales y booleanas {-}
 \index{lt}

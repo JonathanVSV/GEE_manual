@@ -1,4 +1,6 @@
 ---
+# title: |
+#  ![](Img/Portada.png){width=100%}
 title: "Cómo usar Google Earth Engine y no fallar en el intento"
 author: "Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez"
 documentclass: book
@@ -17,6 +19,8 @@ toccolor: black
 toc-title: "Índice"
 subparagraph: true
 papersize: letter
+# mainfont: "Latin Modern Roman"
+# monofont: "Monospace"
 fontsize: 12pt # tamaño puede ser 10, 11 o 12pt solo
 fontfamily: times # palatino, helvet, utopia, times, pifont, courier, bookman, newcent y avant
 classoption: twoside # dos caras
