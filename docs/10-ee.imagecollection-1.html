@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -337,9 +331,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ee.imagecollection-1" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">10</span> ee.ImageCollection<a href="10-ee.imagecollection-1.html#ee.imagecollection-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>
-Las colecciones de imágenes (<code>ee.ImageCollection</code>) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick et al., 2017; Radočaj et al., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo.</p>
+Las colecciones de imágenes (<span style="color: darkpurple;">ee.ImageCollection</span>) son objetos de GEE que contienen un conjunto de imágenes. La mayoría de los acervos de imágenes disponibles en GEE van a ser definidos como este tipo de objetos. Para el manejo de varias imágenes se recomienda utilizar esta estructura, en lugar de listas u otro tipo de objetos. La mayoría de las colecciones de imágenes disponibles en GEE incluyen acervos de imágenes gratuitas como Landsat 1-5 y 7-9, MODIS, Sentinel 1-3 y 5, ASTER, entre otras (Gorelick <em>et al</em>., 2017; Radočaj <em>et al</em>., 2020). Al final de este capítulo se presentan ejercicios integradores de varios de los procedimientos revisados en este capítulo.</p>
 <p>Por ejemplo, para cargar la colección de reflectancia de la superficie de imágenes Sentinel-2 se usaría el siguiente código:</p>
-<p>Ejercicio 28</p>
+<p><span style="color: darkblue;">Ejercicio 28</span></p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb88-1"><a href="10-ee.imagecollection-1.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cargar la colección de Sentinel-2 reflectancia de la superficie</span></span>
 <span id="cb88-2"><a href="10-ee.imagecollection-1.html#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> S2 <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;COPERNICUS/S2_SR&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -364,8 +358,9 @@ var roi = ee.Geometry.Polygon(
 <div id="información-y-metadatos-4" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> Información y metadatos<a href="10-ee.imagecollection-1.html#información-y-metadatos-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que incluyen, lo cual permite filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponden a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método <code>.propertyNames</code> (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f101">10.1</a>).</p>
-<p>Ejercicio 28.1</p>
+Las colecciones de imágenes contienen los metadatos e información de todas las imágenes que incluyen, lo cual permite filtrar las imágenes y utilizar únicamente las que cumplen con ciertos criterios. Es importante recalcar que los metadatos y propiedades de una colección de imágenes no corresponden a las propiedades de las imágenes que la componen. Para consultar las propiedades de una colección de imágenes se usa el método <span style="color: darkpurple;">.propertyNames</span> (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f101">10.1</a>).</p>
+<div style="page-break-after: always;"></div>
+<p><span style="color: darkblue;">Ejercicio 28.1</span></p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb90-1"><a href="10-ee.imagecollection-1.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener las propiedades de la colección de imágenes</span></span>
 <span id="cb90-2"><a href="10-ee.imagecollection-1.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> S2Prop <span class="op">=</span> S2<span class="op">.</span><span class="fu">propertyNames</span>()<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -373,22 +368,22 @@ Las colecciones de imágenes contienen los metadatos e información de todas las
 var S2Prop = S2.propertyNames();
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f101"></span>
-<img src="Img/s2properties.png" alt="Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A." width="60%" />
+<img src="Img/s2properties.png" alt="Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A." width="80%" />
 <p class="caption">
 Figure 10.1: Salida de la consola indicando las propiedades de la colección de imágenes de Sentinel-2 2A.
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear (<code>.map</code>) una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de estas para que se pueda sobreescribir la propiedad de interés.</p>
+<p>No se puede escribir o cambiar los objetos que se encuentran directamente hospedados en GEE. Por ejemplo, si se quiere mapear (<span style="color: darkpurple;">.map</span>) una función que sobreescriba alguna característica de las colecciones de imágenes en GEE, se debe hacer una copia de estas para que se pueda sobreescribir la propiedad de interés.</p>
 </div>
 </div>
 </div>
 <div id="creación-de-colecciones-de-imágenes" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Creación de colecciones de imágenes<a href="10-ee.imagecollection-1.html#creación-de-colecciones-de-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes a partir de imágenes generadas dentro del mismo GEE. En este caso, se utiliza el método <code>ee.ImageCollection.fromImages</code>, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f102">10.2</a>).</p>
-<p>Ejercicio 28.2</p>
+En ciertas ocasiones, el usuario puede estar interesado en crear nuevas colecciones de imágenes a partir de imágenes generadas dentro del mismo GEE. En este caso, se utiliza el método <span style="color: darkpurple;">ee.ImageCollection.fromImages</span>, indicando como argumentos la lista de las imágenes a partir de la que se quiere crear dicha colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f102">10.2</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 28.2</span></p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb91-1"><a href="10-ee.imagecollection-1.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filtrar colección de Sentinel-2 por fechas</span></span>
 <span id="cb91-2"><a href="10-ee.imagecollection-1.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> im1 <span class="op">=</span> S2<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span><span class="st">&#39;2019-05-01&#39;</span>)</span>
 <span id="cb91-3"><a href="10-ee.imagecollection-1.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Aplicar filtro espacial</span></span>
@@ -422,7 +417,7 @@ var im2 = S2.filterDate('2020-01-01','2020-05-01')
 var imColl = ee.ImageCollection.fromImages([im1, im2]);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f102"></span>
-<img src="Img/imcolnew.png" alt="Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes." width="60%" />
+<img src="Img/imcolnew.png" alt="Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes." width="80%" />
 <p class="caption">
 Figure 10.2: Salida de la consola indicando el contenido de las dos imágenes obtenidas mediante un filtrado temporal distinto, así como la combinación de ambas en una colección de imágenes.
 </p>
@@ -431,8 +426,8 @@ Figure 10.2: Salida de la consola indicando el contenido de las dos imágenes ob
 <div id="visualización-de-colecciones-de-imágenes" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Visualización de colecciones de imágenes<a href="10-ee.imagecollection-1.html#visualización-de-colecciones-de-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Así como curre con los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapa mediante la función <code>Map.addLayer</code>. Usualmente, al agregar una colección de imágenes a la pantalla de mapa se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f103">10.3</a>).</p>
-<p>Ejercicio 28.3</p>
+Así como curre con los vectores y las colecciones de vectores, las colecciones de imágenes se pueden visualizar en la pantalla de mapa mediante la función <span style="color: darkpurple;">Map.addLayer</span>. Usualmente, al agregar una colección de imágenes a la pantalla de mapa se van a mostrar los elementos con fecha de registro más reciente. Por ejemplo, en este caso muestra la imagen más reciente por cada escena dentro de la colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f103">10.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 28.3</span></p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb92-1"><a href="10-ee.imagecollection-1.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filtrar colección de Sentinel-2 utilizando fechas</span></span>
 <span id="cb92-2"><a href="10-ee.imagecollection-1.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imCol3 <span class="op">=</span> S2<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span><span class="st">&#39;2019-05-01&#39;</span>)</span>
 <span id="cb92-3"><a href="10-ee.imagecollection-1.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Aplicar filtro espacial</span></span>
@@ -452,7 +447,7 @@ Map.addLayer(imCol3, {bands: ['B4','B3','B2'], min:200, max: 2000},
   'S2 Mich');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f103"></span>
-<img src="Img/visS2Mich.png" alt="Visualización de la colección de imágenes de Sentinel-2 2A." width="60%" />
+<img src="Img/visS2Mich.png" alt="Visualización de la colección de imágenes de Sentinel-2 2A." width="80%" />
 <p class="caption">
 Figure 10.3: Visualización de la colección de imágenes de Sentinel-2 2A.
 </p>
@@ -463,15 +458,16 @@ Figure 10.3: Visualización de la colección de imágenes de Sentinel-2 2A.
 <div id="filtración-de-colecciones-de-imágenes" class="section level3 unnumbered hasAnchor">
 <h3>Filtración de colecciones de imágenes<a href="10-ee.imagecollection-1.html#filtración-de-colecciones-de-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contienen. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos <code>ee.Filter</code>. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar <code>.filterDate</code> (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f104">10.4</a>):</p>
-<p>Ejercicio 28.4</p>
+Las colecciones de imágenes se pueden filtrar a partir de los metadatos de las imágenes que contienen. De tal manera, se puede filtrar por: superposición con algún polígono de interés, fecha de registro, metadatos de las escenas (path, row, porcentaje de nubosidad), entre otras. Para filtrar una colección de imágenes se van a utilizar los objetos <span style="color: darkpurple;">ee.Filter</span>. Existen diversos tipos de filtros, algunos ya se encuentran precargados, pero otros se pueden definir manualmente. Por ejemplo, para filtrar por fecha se puede utilizar <span style="color: darkpurple;">.filterDate</span> (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f104">10.4</a>):</p>
+<div style="page-break-after: always;"></div>
+<p><span style="color: darkblue;">Ejercicio 28.4</span></p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb93-1"><a href="10-ee.imagecollection-1.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filtrar colección de imágenes por fecha</span></span>
 <span id="cb93-2"><a href="10-ee.imagecollection-1.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imCol4 <span class="op">=</span> S2<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span><span class="st">&#39;2019-05-01&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // Filtrar colección de imágenes por fecha
 var imCol4 = S2.filterDate('2019-01-01','2019-05-01');
 </script>
-<p>Por otro lado, mediante <code>.filterBounds</code> se puede filtrar espacialmente con un polígono.:</p>
+<p>Por otro lado, mediante <span style="color: darkpurple;">.filterBounds</span> se puede filtrar espacialmente con un polígono.:</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb94-1"><a href="10-ee.imagecollection-1.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filtrar colección de acuerdo a sobreponga con polígono de región de </span></span>
 <span id="cb94-2"><a href="10-ee.imagecollection-1.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="co">// interés</span></span>
 <span id="cb94-3"><a href="10-ee.imagecollection-1.html#cb94-3" aria-hidden="true" tabindex="-1"></a>imCol4 <span class="op">=</span> imCol4<span class="op">.</span><span class="fu">filterBounds</span>(roi)<span class="op">;</span></span></code></pre></div>
@@ -481,7 +477,7 @@ var imCol4 = S2.filterDate('2019-01-01','2019-05-01');
 imCol4 = imCol4.filterBounds(roi);
 </script>
 <p>
-Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante <code>.filter</code> y después definiendo el filtro del metadato con <code>ee.Filter</code>. Otra forma de realizar este proceso es mediante <code>.filterMetadata</code>. Las siguientes dos líneas son equivalentes ya que obtienen el mismo resultado.</p>
+Si se desea filtrar por alguna característica de los metadatos de las imágenes se puede hacer mediante <span style="color: darkpurple;">.filter</span> y después definiendo el filtro del metadato con <span style="color: darkpurple;">ee.Filter</span>. Otra forma de realizar este proceso es mediante <span style="color: darkpurple;">.filterMetadata</span>. Las siguientes dos líneas son equivalentes ya que obtienen el mismo resultado.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb95-1"><a href="10-ee.imagecollection-1.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener el nombre de las propiedades de una imagen de la colección de </span></span>
 <span id="cb95-2"><a href="10-ee.imagecollection-1.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="co">// imágenes</span></span>
 <span id="cb95-3"><a href="10-ee.imagecollection-1.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imProperties <span class="op">=</span> im1<span class="op">.</span><span class="fu">propertyNames</span>()<span class="op">;</span></span>
@@ -499,7 +495,7 @@ imCol4 = imCol4.filter(ee.Filter.lt('CLOUD_COVERAGE_ASSESSMENT', 50));
 imCol4 = imCol4.filterMetadata('CLOUD_COVERAGE_ASSESSMENT','less_than', 50);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f104"></span>
-<img src="Img/filtroEspacialTemporal.png" alt="Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros." width="60%" />
+<img src="Img/filtroEspacialTemporal.png" alt="Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros." width="80%" />
 <p class="caption">
 Figure 10.4: Salida de la consola indicando los resultados de la colección de imágenes después de realizar diferentes tipos de filtros.
 </p>
@@ -511,22 +507,22 @@ Figure 10.4: Salida de la consola indicando los resultados de la colección de i
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (<code>.filter</code>), así como la selección de las bandas a utilizar (<code>.select</code>), antes de realizar operaciones sobre todas las imágenes de la colección (<code>.map</code>).</p>
+<p>Para trabajar con una colección de imágenes se sugiere que primero se apliquen los filtros espaciales y temporales (<span style="color: darkpurple;">.filter</span>), así como la selección de las bandas a utilizar (<span style="color: darkpurple;">.select</span>), antes de realizar operaciones sobre todas las imágenes de la colección (<span style="color: darkpurple;">.map</span>).</p>
 </div>
 </div>
 <p>
 </p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Para combinar varios filtros se utiliza <code>ee.Filter.and</code> o <code>ee.Filter.or</code> dependiendo de si se desea que se cumplan todas las condiciones indicadas (<code>and</code>) o alguna de ellas (<code>or</code>).</p>
+<p>Para combinar varios filtros se utiliza <span style="color: darkpurple;">ee.Filter.and</span> o <span style="color: darkpurple;">ee.Filter.or</span> dependiendo de si se desea que se cumplan todas las condiciones indicadas (<span style="color: darkpurple;">and</span>) o alguna de ellas (<span style="color: darkpurple;">or</span>).</p>
 </div>
 </div>
 </div>
 <div id="selección-de-bandas-1" class="section level3 unnumbered hasAnchor">
 <h3>Selección de bandas<a href="10-ee.imagecollection-1.html#selección-de-bandas-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Al igual que con las imágenes, se puede utilizar el método <code>.select</code> para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que como ocurre con las imágenes individuales, para seleccionar una única banda solo se requiere indicar el nombre de esta, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f105">10.5</a>):</p>
-<p>Ejercicio 28.5</p>
+Al igual que con las imágenes, se puede utilizar el método <span style="color: darkpurple;">.select</span> para seleccionar un conjunto de bandas de todas las imágenes que se encuentran en la colección. De igual manera que como ocurre con las imágenes individuales, para seleccionar una única banda solo se requiere indicar el nombre de esta, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f105">10.5</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 28.5</span></p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb96-1"><a href="10-ee.imagecollection-1.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener el nombre de las bandas de una imagen de una colección de </span></span>
 <span id="cb96-2"><a href="10-ee.imagecollection-1.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="co">// imágenes</span></span>
 <span id="cb96-3"><a href="10-ee.imagecollection-1.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imBandNames <span class="op">=</span> im1<span class="op">.</span><span class="fu">bandNames</span>()<span class="op">;</span></span>
@@ -544,7 +540,7 @@ var imBandNames = im1.bandNames();
 var imCol5 = imCol4.select(['B4','B3','B2']);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f105"></span>
-<img src="Img/imBandNames1.png" alt="Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4, 3 y 2." width="60%" />
+<img src="Img/imBandNames1.png" alt="Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4, 3 y 2." width="80%" />
 <p class="caption">
 Figure 10.5: Salida de la consola indicando los nombres de las bandas de las imágenes Sentinel-2, así como de la selección únicamente de las bandas 4, 3 y 2.
 </p>
@@ -558,8 +554,8 @@ Figure 10.5: Salida de la consola indicando los nombres de las bandas de las im�
 <div id="ordenación-de-una-colección" class="section level3 unnumbered hasAnchor">
 <h3>Ordenación de una colección<a href="10-ee.imagecollection-1.html#ordenación-de-una-colección" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-El método <code>.sort</code> permite ordenar una colección de imágenes por alguna propiedad de estas. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las presente por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por defecto, el método <code>.sort</code> ordena la colección de imágenes de forma ascendente, de acuerdo al valor de la característica indicada. Si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento <code>ascending: false</code>. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.</p>
-<p>Ejercicio 28.6</p>
+El método <span style="color: darkpurple;">.sort</span> permite ordenar una colección de imágenes por alguna propiedad de estas. Por defecto, las colecciones de imágenes están ordenadas cronológicamente. Sin embargo, se puede cambiar este orden para que las presente por alguna característica de las imágenes, por ejemplo, por orden de menor a mayor cobertura de nubes. Por defecto, el método <span style="color: darkpurple;">.sort</span> ordena la colección de imágenes de forma ascendente, de acuerdo al valor de la característica indicada. Si se desea ordenar de manera descendente, esto se puede indicar utilizando el argumento <code>ascending: false</code>. En el siguiente ejemplo, primero se ordena la colección en orden ascendente y en el segundo, descendente.</p>
+<p><span style="color: darkblue;">Ejercicio 28.6</span></p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb97-1"><a href="10-ee.imagecollection-1.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cambiar el orden de la colección en función de la propiedad de las </span></span>
 <span id="cb97-2"><a href="10-ee.imagecollection-1.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="co">// imágenes de cobertura de nubes en sentido descendente</span></span>
 <span id="cb97-3"><a href="10-ee.imagecollection-1.html#cb97-3" aria-hidden="true" tabindex="-1"></a>imCol5 <span class="op">=</span> imCol5<span class="op">.</span><span class="fu">sort</span>({<span class="dt">property</span><span class="op">:</span> <span class="st">&#39;CLOUD_COVERAGE_ASSESSMENT&#39;</span><span class="op">,</span> </span>
@@ -571,7 +567,7 @@ imCol5 = imCol5.sort({property: 'CLOUD_COVERAGE_ASSESSMENT',
   ascending: false});
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f106"></span>
-<img src="Img/imcol5sortcloud.png" alt="Visualización de la primera imagen de la colección." width="60%" />
+<img src="Img/imcol5sortcloud.png" alt="Visualización de la primera imagen de la colección." width="80%" />
 <p class="caption">
 Figure 10.6: Visualización de la primera imagen de la colección.
 </p>
@@ -580,8 +576,8 @@ Figure 10.6: Visualización de la primera imagen de la colección.
 <div id="obtención-de-la-primera-imagen" class="section level3 unnumbered hasAnchor">
 <h3>Obtención de la primera imagen<a href="10-ee.imagecollection-1.html#obtención-de-la-primera-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método <code>.first</code>, que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapa para analizarla más a detalle. Al utilizar el método <code>.first</code> sobre una colección de imágenes (<code>ee.ImageCollection</code>) el resultado corresponderá a una imagen (<code>ee.Image</code>; <span style="color: darkblue;">Fig. </span> <a href="10-ee.imagecollection-1.html#fig:f107">10.7</a>).</p>
-<p>Ejercicio 28.7</p>
+En algunas ocasiones resulta útil obtener la primera imagen de una colección de imágenes para ver si se llevó a cabo el procedimiento deseado sobre la colección. Para ello, se utiliza el método <span style="color: darkpurple;">.first</span>, que devuelve la primera imagen que se encuentra en la colección y permite visualizarla en la pantalla de mapa para analizarla más a detalle. Al utilizar el método <span style="color: darkpurple;">.first</span> sobre una colección de imágenes (<span style="color: darkpurple;">ee.ImageCollection</span>) el resultado corresponderá a una imagen (<span style="color: darkpurple;">ee.Image</span>; <span style="color: darkblue;">Fig. </span> <a href="10-ee.imagecollection-1.html#fig:f107">10.7</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 28.7</span></p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb98-1"><a href="10-ee.imagecollection-1.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener la primera imagen de una colección</span></span>
 <span id="cb98-2"><a href="10-ee.imagecollection-1.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> primera <span class="op">=</span> imCol3<span class="op">.</span><span class="fu">first</span>()</span></code></pre></div>
 <script type="text/javascript">
@@ -589,7 +585,7 @@ En algunas ocasiones resulta útil obtener la primera imagen de una colección d
 var primera = imCol3.first()
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f107"></span>
-<img src="Img/primerIm.png" alt="Salida de la consola indicando la primera imagen de la colección." width="60%" />
+<img src="Img/primerIm.png" alt="Salida de la consola indicando la primera imagen de la colección." width="80%" />
 <p class="caption">
 Figure 10.7: Salida de la consola indicando la primera imagen de la colección.
 </p>
@@ -598,8 +594,8 @@ Figure 10.7: Salida de la consola indicando la primera imagen de la colección.
 <div id="extracción-de-listas-con-atributos-de-imágenes" class="section level3 unnumbered hasAnchor">
 <h3>Extracción de listas con atributos de imágenes<a href="10-ee.imagecollection-1.html#extracción-de-listas-con-atributos-de-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método <code>.aggregate</code>. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (<code>.aggregate_array</code>), extraer y calcular la media por propiedad (<code>.aggregate_mean</code>), extraer y calcular un histograma (<code>.aggregate_histogram</code>) o extraer y obtener estadísticas descriptivas de las propiedades (<code>.aggregate_stats</code>). Por ejemplo, una lista con la propiedad ‘CLOUD_COVERAGE_ASSESSMENT’ de todas las imágenes contenidas en una colección de imágenes se puede obtener de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f108">10.8</a>):</p>
-<p>Ejercicio 28.8</p>
+Para obtener una lista con los atributos de las imágenes que conforman una colección de imágenes se utiliza el método <span style="color: darkpurple;">.aggregate</span>. Este método tiene varias formas de obtener y resumir los atributos de los vectores que conforman una colección: extraer una propiedad de los vectores (<span style="color: darkpurple;">.aggregate_array</span>), extraer y calcular la media por propiedad (<span style="color: darkpurple;">.aggregate</span><span style="color: darkpurple;">_mean</span>), extraer y calcular un histograma (<span style="color: darkpurple;">.aggregate_histogram</span>) o extraer y obtener estadísticas descriptivas de las propiedades (<span style="color: darkpurple;">.aggregate_stats</span>). Por ejemplo, una lista con la propiedad ‘CLOUD_COVERAGE_ASSESSMENT’ de todas las imágenes contenidas en una colección de imágenes se puede obtener de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f108">10.8</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 28.8</span></p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb99-1"><a href="10-ee.imagecollection-1.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener una lista de con los valores de la propiedad de cobertura de </span></span>
 <span id="cb99-2"><a href="10-ee.imagecollection-1.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="co">// nubes de todas las imágenes de la colección</span></span>
 <span id="cb99-3"><a href="10-ee.imagecollection-1.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> listMetadatos <span class="op">=</span> imCol5<span class="op">.</span><span class="fu">aggregate_array</span>(<span class="st">&#39;CLOUD_COVERAGE_ASSESSMENT&#39;</span>)<span class="op">;</span></span></code></pre></div>
@@ -609,7 +605,7 @@ Para obtener una lista con los atributos de las imágenes que conforman una cole
 var listMetadatos = imCol5.aggregate_array('CLOUD_COVERAGE_ASSESSMENT');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f108"></span>
-<img src="Img/cloudCoverList.png" alt="Salida de la consola indicando la lista de propiedades de las imágenes." width="60%" />
+<img src="Img/cloudCoverList.png" alt="Salida de la consola indicando la lista de propiedades de las imágenes." width="80%" />
 <p class="caption">
 Figure 10.8: Salida de la consola indicando la lista de propiedades de las imágenes.
 </p>
@@ -618,7 +614,7 @@ Figure 10.8: Salida de la consola indicando la lista de propiedades de las imág
 <div id="conteo-de-observaciones-por-píxel" class="section level3 unnumbered hasAnchor">
 <h3>Conteo de observaciones por píxel<a href="10-ee.imagecollection-1.html#conteo-de-observaciones-por-píxel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método <code>.count</code>. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f109">10.9</a>).</p>
+Para conocer el número de valores sin enmascarar por píxel en la colección de imágenes se utiliza el método <span style="color: darkpurple;">.count</span>. El resultado de este procedimiento consta de una imagen con las mismas bandas que las imágenes a partir de las cuales se calculó el número de observaciones por píxel (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f109">10.9</a>).</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb100-1"><a href="10-ee.imagecollection-1.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener el número de observaciones válidas para un píxel dentro de una </span></span>
 <span id="cb100-2"><a href="10-ee.imagecollection-1.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="co">// colección de imágenes</span></span>
 <span id="cb100-3"><a href="10-ee.imagecollection-1.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> conteoImgs <span class="op">=</span> imCol5<span class="op">.</span><span class="fu">count</span>()<span class="op">;</span></span></code></pre></div>
@@ -628,7 +624,7 @@ Para conocer el número de valores sin enmascarar por píxel en la colección de
 var conteoImgs = imCol5.count();
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f109"></span>
-<img src="Img/conteoim.png" alt="Visualización de la imagen del conteo de observaciones." width="60%" />
+<img src="Img/conteoim.png" alt="Visualización de la imagen del conteo de observaciones." width="80%" />
 <p class="caption">
 Figure 10.9: Visualización de la imagen del conteo de observaciones.
 </p>
@@ -637,7 +633,7 @@ Figure 10.9: Visualización de la imagen del conteo de observaciones.
 <div id="conocer-el-tamaño-de-la-colección" class="section level3 unnumbered hasAnchor">
 <h3>Conocer el tamaño de la colección<a href="10-ee.imagecollection-1.html#conocer-el-tamaño-de-la-colección" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para conocer el tamaño de la colección en número de imágenes incluidas se utiliza el método <code>.size</code>.</p>
+Para conocer el tamaño de la colección en número de imágenes incluidas se utiliza el método <span style="color: darkpurple;">.size</span>.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb101-1"><a href="10-ee.imagecollection-1.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener el número de observaciones válidas para un píxel dentro de una </span></span>
 <span id="cb101-2"><a href="10-ee.imagecollection-1.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co">// colección de imágenes</span></span>
 <span id="cb101-3"><a href="10-ee.imagecollection-1.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numImgs <span class="op">=</span> imCol5<span class="op">.</span><span class="fu">size</span>()<span class="op">;</span></span></code></pre></div>
@@ -650,14 +646,14 @@ var numImgs = imCol5.size();
 <div id="unión-de-más-de-una-colección" class="section level3 unnumbered hasAnchor">
 <h3>Unión de más de una colección<a href="10-ee.imagecollection-1.html#unión-de-más-de-una-colección" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para unir una colección de imágenes con otra, se utiliza el método <code>.merge</code>. Un caso típico de tal operación sería unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.</p>
+Para unir una colección de imágenes con otra, se utiliza el método <span style="color: darkpurple;">.merge</span>. Un caso típico de tal operación sería unir dos colecciones de Landsat, por ejemplo, Landsat 7 y 8.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>Las colecciones Landsat 7 y 8 no tienen las mismas bandas, ni los nombres de las bandas corresponden entre sí. Por ejemplo, la banda 1 de Landsat 7 corresponde al espectro del azul (<em>blue</em>), mientras que en Landsat 8, la banda 1 corresponde al azul de costa (<em>coastal blue</em>). En este caso, conviene primero filtrar y renombrar las bandas a unir para asegurarse de que el nombre de las bandas a unir en una colección corresponda con el de la otra.</p>
 </div>
 </div>
 <p>La unión de una colección de Sentinel-2 se podría hacer de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1010">10.10</a>):</p>
-<p>Ejercicio 28.9</p>
+<p><span style="color: darkblue;">Ejercicio 28.9</span></p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb102-1"><a href="10-ee.imagecollection-1.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Aplicar un filtro por fechas a la colección de Sentinel-2</span></span>
 <span id="cb102-2"><a href="10-ee.imagecollection-1.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imCol6 <span class="op">=</span> S2<span class="op">.</span><span class="fu">filterDate</span>(<span class="st">&#39;2019-01-01&#39;</span><span class="op">,</span><span class="st">&#39;2019-05-01&#39;</span>)</span>
 <span id="cb102-3"><a href="10-ee.imagecollection-1.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Aplicar filtro espacial</span></span>
@@ -683,7 +679,7 @@ var imCol7 = S2.filterDate('2020-06-01','2020-11-01')
 var imCol8 = imCol6.merge(imCol7);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1010"></span>
-<img src="Img/merge2colecciones.png" alt="Salida de la consola indicando el número de elementos en cada colección, así como el número de elementos en la colección combinada." width="60%" />
+<img src="Img/merge2colecciones.png" alt="Salida de la consola indicando el número de elementos en cada colección, así como el número de elementos en la colección combinada." width="80%" />
 <p class="caption">
 Figure 10.10: Salida de la consola indicando el número de elementos en cada colección, así como el número de elementos en la colección combinada.
 </p>
@@ -692,8 +688,8 @@ Figure 10.10: Salida de la consola indicando el número de elementos en cada col
 <div id="ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección" class="section level3 unnumbered hasAnchor">
 <h3>Ejecución de una función sobre todas las imágenes de una colección<a href="10-ee.imagecollection-1.html#ejecución-de-una-función-sobre-todas-las-imágenes-de-una-colección" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para realizar alguna operación sobre todas las imágenes de una <code>ee.ImageCollection</code> se utiliza el método <code>.map</code>. Esto va a aplicar el procedimiento o función que se defina en el interior de ella, a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1011">10.11</a>):</p>
-<p>Ejercicio 28.10</p>
+Para realizar alguna operación sobre todas las imágenes de una <span style="color: darkpurple;">ee.ImageCollection</span> se utiliza el método <span style="color: darkpurple;">.map</span>. Esto va a aplicar el procedimiento o función que se defina en el interior de ella, a cada imagen dentro de la colección. Por ejemplo, si quisiéramos agregar una banda con un índice de vegetación a todas las imágenes, se podría hacer de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1011">10.11</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 28.10</span></p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb103-1"><a href="10-ee.imagecollection-1.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Definir una función que calcule el ndvi de una imagen</span></span>
 <span id="cb103-2"><a href="10-ee.imagecollection-1.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndviCalc <span class="op">=</span> <span class="kw">function</span>(image){</span>
 <span id="cb103-3"><a href="10-ee.imagecollection-1.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Calcular el ndvi utilizando las bandas del NIR, B8 y R, B4</span></span>
@@ -717,32 +713,32 @@ var ndviCalc = function(image){
 var imCol9 = imCol4.map(ndviCalc);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1011"></span>
-<img src="Img/imcol9.png" alt="Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen." width="60%" />
+<img src="Img/imcol9.png" alt="Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen." width="80%" />
 <p class="caption">
 Figure 10.11: Salida de la consola con la información de la colección de imágenes con la banda NDVI agregada a cada imagen.
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Nótese que el método <code>.map</code> es distinto de la función <code>Map</code> que permite agregar objetos a la pantalla de mapa. Recuerde que JavaScript es un lenguaje sensible a mayúsculas y minúsculas.</p>
+<p>Nótese que el método <span style="color: darkpurple;">.map</span> es distinto de la función <span style="color: darkpurple;">Map</span> que permite agregar objetos a la pantalla de mapa. Recuerde que JavaScript es un lenguaje sensible a mayúsculas y minúsculas.</p>
 </div>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>GEE recomienda el uso de <code>.map</code> para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (por ejemplo, <code>for</code>).</p>
+<p>GEE recomienda el uso de <span style="color: darkpurple;">.map</span> para realizar operaciones de tipo ciclo, en lugar de otras funciones de ciclo (por ejemplo, <span style="color: darkpurple;">for</span>).</p>
 </div>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>El método <code>.map</code> requiere del uso de funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como <code>print</code>, <code>Map</code>, <code>Export</code> y <code>Chart</code>.</p>
+<p>El método <span style="color: darkpurple;">.map</span> requiere del uso de funciones del lado del servidor, así que se recomienda evitar el uso de funciones del lado del cliente como <span style="color: darkpurple;">print</span>, <span style="color: darkpurple;">Map</span>, <span style="color: darkpurple;">Export</span> y <span style="color: darkpurple;">Chart</span>.</p>
 </div>
 </div>
 </div>
 <div id="reducción-de-una-colección-de-imágenes" class="section level3 unnumbered hasAnchor">
 <h3>Reducción de una colección de imágenes<a href="10-ee.imagecollection-1.html#reducción-de-una-colección-de-imágenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Los reductores permiten crear un compuesto (una sola imagen) a partir de una colección de imágenes. Por ello, el resultado obtenido tras una reducción sobre una colección de imágenes (<code>ee.ImageCollection</code>) será una imagen (<code>ee.Image</code>). Los reductores son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método <code>.reduce</code>, indicando la operación matemática a utilizar mediante un objeto tipo <code>ee.Reducer</code>. De tal manera, se puede indicar si el resultado corresponderá a la media; <code>ee.Reducer.mean</code>, mediana; <code>ee.Reducer.median</code>, moda; <code>ee.Reducer.mode</code>, mínimo, <code>ee.Reducer.min</code>, máximo; <code>ee.Reducer.max</code> o inclusive la media de un intervalo determinado de observaciones, <code>ee.Reducer.intervalMean</code>. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de <code>.min</code>, <code>.max</code>, <code>.mean</code>, <code>.mode</code>, <code>.median</code>. Las siguientes dos líneas realizan exactamente el mismo proceso (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1012">10.12</a>):</p>
-<p>Ejercicio 28.11</p>
+Los reductores permiten crear un compuesto (una sola imagen) a partir de una colección de imágenes. Por ello, el resultado obtenido tras una reducción sobre una colección de imágenes (<span style="color: darkpurple;">ee.ImageCollection</span>) será una imagen (<span style="color: darkpurple;">ee.Image</span>). Los reductores son muy útiles para hacer mosaicos multitemporales u obtener información de la colección de imágenes. Para reducir una colección de imágenes se utilizará el método <span style="color: darkpurple;">.reduce</span>, indicando la operación matemática a utilizar mediante un objeto tipo <span style="color: darkpurple;">ee.Reducer</span>. De tal manera, se puede indicar si el resultado corresponderá a la media; <span style="color: darkpurple;">ee.Reducer.mean</span>, mediana; <span style="color: darkpurple;">ee.Reducer.median</span>, moda; <span style="color: darkpurple;">ee.Reducer.mode</span>, mínimo, <span style="color: darkpurple;">ee.Reducer.min</span>, máximo; <span style="color: darkpurple;">ee.Reducer.max</span> o inclusive la media de un intervalo determinado de observaciones, <span style="color: darkpurple;">ee.Reducer.intervalMean</span>. Otra forma de realizar estas mismas reducciones es utilizando directamente los métodos de <span style="color: darkpurple;">.min</span>, <span style="color: darkpurple;">.max</span>, <span style="color: darkpurple;">.mean</span>, <span style="color: darkpurple;">.mode</span>, <span style="color: darkpurple;">.median</span>. Las siguientes dos líneas realizan exactamente el mismo proceso (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1012">10.12</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 28.11</span></p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb104-1"><a href="10-ee.imagecollection-1.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el valor promedio de reflectancia para cada una de las bandas </span></span>
 <span id="cb104-2"><a href="10-ee.imagecollection-1.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="co">// de las imágenes que conforman la colección</span></span>
 <span id="cb104-3"><a href="10-ee.imagecollection-1.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> imRedMean <span class="op">=</span> imCol9<span class="op">.</span><span class="fu">mean</span>()<span class="op">;</span></span>
@@ -760,22 +756,22 @@ var imRedMean = imCol9.mean();
 var imRedMean2 = imCol9.reduce(ee.Reducer.mean());
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1012"></span>
-<img src="Img/imredmean.png" alt="Visualización de la imagen de la reflectancia promedio (compuesto RGB)." width="60%" />
+<img src="Img/imredmean.png" alt="Visualización de la imagen de la reflectancia promedio (compuesto RGB)." width="80%" />
 <p class="caption">
 Figure 10.12: Visualización de la imagen de la reflectancia promedio (compuesto RGB).
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Al aplicar una reducción a una colección de imágenes mediante el método <code>.reduce</code>, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la operación matemática utilizada para hacer la reducción. Por ejemplo, al utilizar <code>ee.Reducer.mean</code> sobre una colección de imágenes cuyas bandas se llaman ‘B1’ y ‘B2’, las bandas de la imagen producto de la reducción se llamarán ‘B1_mean’ y ‘B2_mean’.</p>
+<p>Al aplicar una reducción a una colección de imágenes mediante el método <span style="color: darkpurple;">.reduce</span>, el nombre de las bandas será el mismo que el de las bandas de cada imagen con un sufijo que indica la operación matemática utilizada para hacer la reducción. Por ejemplo, al utilizar <span style="color: darkpurple;">ee.Reducer.mean</span> sobre una colección de imágenes cuyas bandas se llaman ‘B1’ y ‘B2’, las bandas de la imagen producto de la reducción se llamarán ‘B1_mean’ y ‘B2_mean’.</p>
 </div>
 </div>
 </div>
 <div id="creación-de-compuestos-y-mosaicos" class="section level3 unnumbered hasAnchor">
 <h3>Creación de compuestos y mosaicos<a href="10-ee.imagecollection-1.html#creación-de-compuestos-y-mosaicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Si se desea hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos métodos: <code>.mosaic</code> y <code>.qualityMosaic</code>. La principal diferencia entre estos dos procesos radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de <code>.qualityMosaic</code> permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de <code>.qualityMosaic</code> hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1013">10.13</a>).</p>
-<p>Ejercicio 28.12</p>
+Si se desea hacer mosaicos a partir de varias imágenes se puede realizar en GEE mediante dos métodos: <span style="color: darkpurple;">.mosaic</span> y <span style="color: darkpurple;">.qualityMosaic</span>. La principal diferencia entre estos dos procesos radica en que la primera simplemente pega las imágenes de acuerdo al orden que tienen en la colección (es decir, la última hasta arriba). Por el contrario, el método de <span style="color: darkpurple;">.qualityMosaic</span> permite priorizar el píxel que quedará en el mosaico final a partir del valor más alto de alguna banda. Esto puede ser útil para realizar, por ejemplo, un mosaico del píxel con mayor valor de NDVI. En el caso de <span style="color: darkpurple;">.qualityMosaic</span> hay que indicar la banda que se utilizará como la banda de calidad para crear el mosaico (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1013">10.13</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 28.12</span></p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb105-1"><a href="10-ee.imagecollection-1.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un mosaico de las imágenes contenidas en una colección. </span></span>
 <span id="cb105-2"><a href="10-ee.imagecollection-1.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Generalmente en áreas de sobreposición se tomarán los valores de las </span></span>
 <span id="cb105-3"><a href="10-ee.imagecollection-1.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="co">// imágenes más recientes</span></span>
@@ -799,7 +795,7 @@ var imRedMosaic = imCol9.mosaic();
 var imRedQualMosaic = imCol9.qualityMosaic('nd');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1013"></span>
-<img src="Img/imredmeanQM.png" alt="Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB)." width="60%" />
+<img src="Img/imredmeanQM.png" alt="Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB)." width="80%" />
 <p class="caption">
 Figure 10.13: Visualización de la imagen de la reflectancia promedio con el método de mosaico de calidad (compuesto RGB).
 </p>
@@ -807,9 +803,9 @@ Figure 10.13: Visualización de la imagen de la reflectancia promedio con el mé
 <div id="ejercicio-b-filtro-de-colección-de-imágenes-y-visualización" class="section level4 unnumbered hasAnchor">
 <h4>Ejercicio B: Filtro de colección de imágenes y visualización<a href="10-ee.imagecollection-1.html#ejercicio-b-filtro-de-colección-de-imágenes-y-visualización" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Este ejercicio integra elementos de los ejercicios 28.4, 28.5, 28.6 y 28.7, de modo que sea posible remitirse a estos ejercicios si se tienen dudas.</p>
-<p>En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (<em>tier 1</em>) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su <em>path</em> y <em>row</em>. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (<strong>Search</strong>), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de <strong>BANDS</strong> se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de <strong>IMAGE PROPERTIES</strong> se pueden consultar los metadatos que contienen las imágenes de esta colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1014">10.14</a>).</p>
+<p>En un solo paso, aplicando múltiples filtros, se puede filtrar la colección de reflectancia de la superficie de imágenes de Landsat 8 de mayor calidad (<em>tier 1</em>) por fecha, porcentaje de cobertura de nubes de las imágenes, así como por su <em>path</em> y <em>row</em>. Para ello, primero se indica la ruta de la colección que se desea utilizar. Para encontrar esta ruta se puede buscar la colección de interés en la barra de búsqueda (<strong>Search</strong>), después se le da clic y del lado izquierdo aparecerá la ruta de la colección. Por otro lado, en esta misma ventana, en la pestaña de <strong>Bands</strong> se pueden consultar las bandas y los nombres de las bandas que contiene cada imagen. Por su parte, en la pestaña de <strong>Image properties</strong> se pueden consultar los metadatos que contienen las imágenes de esta colección (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1014">10.14</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1014"></span>
-<img src="Img/Ruta_coleccion.png" alt="Consulta de propiedades de las imágenes contenidas en una colección de imágenes." width="80%" />
+<img src="Img/Ruta_coleccion.png" alt="Consulta de propiedades de las imágenes contenidas en una colección de imágenes." width="95%" />
 <p class="caption">
 Figure 10.14: Consulta de propiedades de las imágenes contenidas en una colección de imágenes.
 </p>
@@ -820,7 +816,7 @@ Figure 10.14: Consulta de propiedades de las imágenes contenidas en una colecci
 <li>‘WRS_PATH’.</li>
 <li>‘WRS_ROW’.</li>
 </ul>
-<p>Para realizar este filtro se debe escribir exactamente igual el nombre de las propiedades (por ejemplo, ‘CLOUD_COVER_LAND’) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (<code>.eq</code>), distintos (<code>.neq</code>), mayores (<code>.gt</code>), menores (<code>.lt</code>), mayores o igual (<code>.gte</code>) o menores o igual (<code>.lte</code>).
+<p>Para realizar este filtro se debe escribir exactamente igual el nombre de las propiedades (por ejemplo, ‘CLOUD_COVER_LAND’) y en la definición del filtro se debe explicitar si se desea utilizar los valores que sean iguales (<span style="color: darkpurple;">.eq</span>), distintos (<span style="color: darkpurple;">.neq</span>), mayores (<span style="color: darkpurple;">.gt</span>), menores (<span style="color: darkpurple;">.lt</span>), mayores o igual (<span style="color: darkpurple;">.gte</span>) o menores o igual (<span style="color: darkpurple;">.lte</span>).
 </p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb106-1"><a href="10-ee.imagecollection-1.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Filtrado de la colección</span></span>
 <span id="cb106-2"><a href="10-ee.imagecollection-1.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> L8imgCol <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;LANDSAT/LC08/C01/T1_SR&#39;</span>)</span>
@@ -849,12 +845,12 @@ print(L8imgCol);
 <li>Por último a <strong>Properties</strong>. Ahí se pueden ver los metadatos de cada imagen, y por lo tanto, los campos de información que se pueden utilizar para filtrar una colección de imágenes. Esta información es la misma que se puede obtener en la barra de búsqueda (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1015">10.15</a>).</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1015"></span>
-<img src="Img/CamposImgCol.png" alt="Ejemplo de una consulta de información de la colección de imágenes en la consola." width="80%" />
+<img src="Img/CamposImgCol.png" alt="Ejemplo de una consulta de información de la colección de imágenes en la consola." width="95%" />
 <p class="caption">
 Figure 10.15: Ejemplo de una consulta de información de la colección de imágenes en la consola.
 </p>
 </div>
-<p>A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de ‘CLOUD_COVER_LAND’. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso, al definir la variable <code>L8imgFirst</code>, ya únicamente seleccionamos una sola imagen, por lo tanto, este va a ser un objeto <code>ee.Image</code>.
+<p>A continuación se ordena la colección de manera ascendente de acuerdo a la propiedad de ‘CLOUD_COVER_LAND’. Se selecciona la primera imagen, es decir, la de menor cobertura de nubes. Nótese que en este paso, al definir la variable <code>L8imgFirst</code>, ya únicamente seleccionamos una sola imagen, por lo tanto, este va a ser un objeto <span style="color: darkpurple;">ee.Image</span>.
 </p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb108-1"><a href="10-ee.imagecollection-1.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Ordenar imágenes y obtener la primera</span></span>
 <span id="cb108-2"><a href="10-ee.imagecollection-1.html#cb108-2" aria-hidden="true" tabindex="-1"></a>L8imgCol <span class="op">=</span> L8imgCol<span class="op">.</span><span class="fu">sort</span>(<span class="st">&#39;CLOUD_COVER_LAND&#39;</span>)<span class="op">;</span></span>
@@ -878,7 +874,7 @@ Map.addLayer(L8imgFirst,{bands: ['B4','B3','B2'], min: 95, max: 1288},
   'RGB menos nubes L8');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1016"></span>
-<img src="Img/RGBIm.png" alt="Visualización de la primera imagen de la colección de imágenes." width="80%" />
+<img src="Img/RGBIm.png" alt="Visualización de la primera imagen de la colección de imágenes." width="95%" />
 <p class="caption">
 Figure 10.16: Visualización de la primera imagen de la colección de imágenes.
 </p>
@@ -887,8 +883,8 @@ Figure 10.16: Visualización de la primera imagen de la colección de imágenes.
 <div id="ejercicio-c-enmascaramiento-de-nubes-cálculo-de-índices-y-reducción" class="section level4 unnumbered hasAnchor">
 <h4>Ejercicio C: Enmascaramiento de nubes, cálculo de índices y reducción<a href="10-ee.imagecollection-1.html#ejercicio-c-enmascaramiento-de-nubes-cálculo-de-índices-y-reducción" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Este ejercicio integra elementos de los ejercicios 28.8 y 28.9, de modo que puede remitirse a estos ejercicios si necesita de una mayor aclaración.</p>
-<p>Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el NDVI promedio entre 2015 y 2016. Para ello, lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el NDVI de cada imagen contenida en la colección de imágenes, utilizando el método <code>.normalizedDifference</code> e indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método <code>.rename</code> para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método <code>.addBands</code> y se utiliza el método <code>.map</code> para aplicarla a cada una de las imágenes.</p>
-<p>En este procedimiento, primero se tiene que definir la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3, respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama ‘pixel_qa’. Se selecciona esta banda y se confirma que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (<code>.bitwiseAnd</code>) y que las dos evaluaciones deben de ser cero (<code>.and</code>). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (<code>.updateMask</code>).
+<p>Utilizando la colección que ya se filtró en el ejercicio anterior se hará un mapeo y una reducción. En este ejercicio se obtendrá el NDVI promedio entre 2015 y 2016. Para ello, lo primero que hay que hacer es aplicar la máscara de nubes que viene en la misma colección de imágenes de Landsat 8. Al aplicar esta máscara se eliminarán los píxeles cuya información provenga de nubes o sombras. Después, se definirá una función para calcular el NDVI de cada imagen contenida en la colección de imágenes, utilizando el método <span style="color: darkpurple;">.normalizedDifference</span> e indicando las bandas del infrarrojo cercano (NIR) y rojo (R). También, se utilizará el método <span style="color: darkpurple;">.rename</span> para cambiar el nombre dado por defecto a la nueva banda calculada. Posteriormente, se agrega esta banda a la imagen con el método <span style="color: darkpurple;">.addBands</span> y se utiliza el método <span style="color: darkpurple;">.map</span> para aplicarla a cada una de las imágenes.</p>
+<p>En este procedimiento, primero se tiene que definir la función para enmascarar las nubes. Para ello, se indican los bits que corresponden a nubes y a sombras, es decir, los bits 5 y 3, respectivamente. Después se selecciona la banda que contiene la información de la máscara de nubes, la cual en Landsat 8 se llama ‘pixel_qa’. Se selecciona esta banda y se confirma que en los dos bits antes mencionados el valor sea igual a cero, es decir, que sea un píxel clasificado como despejado. En este procedimiento se indica que la consulta de los valores se debe hacer por bits (<span style="color: darkpurple;">.bitwiseAnd</span>) y que las dos evaluaciones deben de ser cero (<span style="color: darkpurple;">.and</span>). Posteriormente, se define una máscara en función de esos valores y se actualiza la máscara (<span style="color: darkpurple;">.updateMask</span>).
 </p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb110-1"><a href="10-ee.imagecollection-1.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear función para enmascarar nubes</span></span>
 <span id="cb110-2"><a href="10-ee.imagecollection-1.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">maskL8sr</span>(image) {</span>
@@ -939,12 +935,12 @@ Map.addLayer(L8imgCol.first(),
   'Imagen con nubes');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1017"></span>
-<img src="Img/imNubes.png" alt="Ejemplo de una imagen con nubes." width="80%" />
+<img src="Img/imNubes.png" alt="Ejemplo de una imagen con nubes." width="95%" />
 <p class="caption">
 Figure 10.17: Ejemplo de una imagen con nubes.
 </p>
 </div>
-<p>A continuación se aplican las dos funciones utilizando <code>.map</code> y se sobreescribe el objeto <code>L8imgCol</code>.
+<p>A continuación se aplican las dos funciones utilizando <span style="color: darkpurple;">.map</span> y se sobreescribe el objeto <code>L8imgCol</code>.
 </p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb113-1"><a href="10-ee.imagecollection-1.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Aplicar las dos funciones a la colección</span></span>
 <span id="cb113-2"><a href="10-ee.imagecollection-1.html#cb113-2" aria-hidden="true" tabindex="-1"></a>L8imgCol <span class="op">=</span> L8imgCol</span>
@@ -971,19 +967,19 @@ Map.addLayer(L8imgCol.first(),
   'Imagen sin nubes');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1018"></span>
-<img src="Img/imSinNubes.png" alt="Ejemplo de una imagen donde se enmascararon las nubes." width="80%" />
+<img src="Img/imSinNubes.png" alt="Ejemplo de una imagen donde se enmascararon las nubes." width="95%" />
 <p class="caption">
 Figure 10.18: Ejemplo de una imagen donde se enmascararon las nubes.
 </p>
 </div>
 <p>En la consola se puede observar que todas las imágenes ahora contienen una nueva banda llamada ‘ndvi’ (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1019">10.19</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1019"></span>
-<img src="Img/imConNDVI.png" alt="Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI." width="80%" />
+<img src="Img/imConNDVI.png" alt="Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI." width="95%" />
 <p class="caption">
 Figure 10.19: Consulta de información en la consola para verificar que la colección de imágenes contiene la banda NDVI.
 </p>
 </div>
-<p>Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015-2016), usando el método <code>.reduce</code>. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
+<p>Posteriormente, se reduce la colección de imágenes para formar una sola imagen que represente el valor promedio de NDVI en el periodo de la colección (2015-2016), usando el método <span style="color: darkpurple;">.reduce</span>. También se calculará la desviación estándar de los valores de NDVI. Estas dos imágenes se guardarán en dos nuevos objetos.
 </p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb115-1"><a href="10-ee.imagecollection-1.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Seleccionar la banda ndvi y hacer dos reducciones</span></span>
 <span id="cb115-2"><a href="10-ee.imagecollection-1.html#cb115-2" aria-hidden="true" tabindex="-1"></a>L8imgCol <span class="op">=</span> L8imgCol<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;ndvi&#39;</span>)<span class="op">;</span></span>
@@ -1006,12 +1002,12 @@ Map.addLayer(L8imgMean, {min:-0.14, max:0.15}, 'NDVI mean 2015 - 2016');
 Map.addLayer(L8imgSD, {min:0, max:0.13}, 'NDVI SD 2015 - 2016');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1020"></span>
-<img src="Img/imNDVI.png" alt="Visualización de la imagen de NDVI promedio." width="80%" />
+<img src="Img/imNDVI.png" alt="Visualización de la imagen de NDVI promedio." width="95%" />
 <p class="caption">
 Figure 10.20: Visualización de la imagen de NDVI promedio.
 </p>
 </div>
-<p>Se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método <code>count</code>. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con el promedio y desviación estándar de NDVI.
+<p>Se puede conocer el número de observaciones sin enmascarar por píxel utilizando el método <span style="color: darkpurple;">count</span>. Debido a que ya se enmascararon las nubes en todas las imágenes de la colección, esta imagen contendrá el número de observaciones sin nube por píxel. Esta información nos permite conocer a partir de cuántas observaciones por píxel se calcularon las imágenes anteriores, es decir, las imágenes con el promedio y desviación estándar de NDVI.
 </p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb117-1"><a href="10-ee.imagecollection-1.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener la imagen del número de observaciones por píxel sin enmascarar </span></span>
 <span id="cb117-2"><a href="10-ee.imagecollection-1.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numObsPixel <span class="op">=</span> L8imgCol<span class="op">.</span><span class="fu">count</span>()<span class="op">;</span></span>
@@ -1029,7 +1025,7 @@ Map.addLayer(numObsPixel,
 </script>
 <p>La imagen con el número de observaciones por píxel sin enmascarar se ve así (<span style="color: darkblue;">Fig.</span> <a href="10-ee.imagecollection-1.html#fig:f1021">10.21</a>):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1021"></span>
-<img src="Img/ImCount.png" alt="Visualización de la imagen con el número de observaciones sin enmascarar por píxel." width="80%" />
+<img src="Img/ImCount.png" alt="Visualización de la imagen con el número de observaciones sin enmascarar por píxel." width="95%" />
 <p class="caption">
 Figure 10.21: Visualización de la imagen con el número de observaciones sin enmascarar por píxel.
 </p>
@@ -1073,7 +1069,7 @@ Map.addLayer(L8imgMean, {min:0.2, max:0.8}, 'NDVI mean 2015 - 2016 clip');
 Map.addLayer(L8imgSD, {min:0, max:0.3}, 'NDVI SD 2015 - 2016 clip');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1022"></span>
-<img src="Img/meansdclip.png" alt="Visualización de los compuestos de media y desviación estándar cortados." width="80%" />
+<img src="Img/meansdclip.png" alt="Visualización de los compuestos de media y desviación estándar cortados." width="95%" />
 <p class="caption">
 Figure 10.22: Visualización de los compuestos de media y desviación estándar cortados.
 </p>
@@ -1138,7 +1134,7 @@ Map.addLayer(imgDiff,{min:-0.3, max: 0.1,
   'Diferencia NDVI 2015 vs 2016');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f1023"></span>
-<img src="Img/imDifNDVI.png" alt="Imagen de la diferencia de NDVI entre dos años." width="80%" />
+<img src="Img/imDifNDVI.png" alt="Imagen de la diferencia de NDVI entre dos años." width="95%" />
 <p class="caption">
 Figure 10.23: Imagen de la diferencia de NDVI entre dos años.
 </p>

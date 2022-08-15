@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -337,10 +331,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ee.image-1" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">9</span> ee.Image<a href="9-ee.image-1.html#ee.image-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>
-Las imágenes (<code>ee.Image</code>) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster).
+Las imágenes (<span style="color: darkpurple;">ee.Image</span>) en GEE generalmente se encuentran disponibles en colecciones de imágenes, aunque también existen fuentes de datos particulares que constan de una sola imagen. Las imágenes corresponden a información en formato ráster que cuenta con una resolución espacial, espectral y radiométrica particular (ver Olaya [2020] para una descripción más detallada de un ráster).
 Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A diferencia de las imágenes que posiblemente el usuario esté acostumbrado a manejar, GEE permite que cada banda tenga una resolución de píxel o tipo de datos distinta (Integer, Float, 16 bits, etc.). Esto no afecta el uso de estas imágenes, pero es importante considerarlo si se van a exportar imágenes cuyas bandas tienen distinta resolución espacial (por ejemplo, Sentinel-2), ya que al exportar una imagen multibanda, todas sus bandas deben tener la misma resolución y tipo de datos. Al final de este capítulo se presenta un ejercicio integrador de varios de los procedimientos revisados aquí.</p>
 <p>Para ejemplificar esta sección se cargará una imagen global de la altura del dosel para áreas con cobertura arbórea en el 2005 (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f91">9.1</a>).</p>
-<p>Ejercicio 27</p>
+<p><span style="color: darkblue;">Ejercicio 27</span></p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb62-1"><a href="9-ee.image-1.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cargar la imagen global de la altura del dosel para áreas con cobertura </span></span>
 <span id="cb62-2"><a href="9-ee.image-1.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="co">// arbórea en el 2005</span></span>
 <span id="cb62-3"><a href="9-ee.image-1.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> CHM <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(<span class="st">&#39;NASA/JPL/global_forest_canopy_height_2005&#39;</span>)<span class="op">;</span></span></code></pre></div>
@@ -350,7 +344,7 @@ Los metadatos de cada imagen en GEE se encuentran como propiedades de esta. A di
 var CHM = ee.Image('NASA/JPL/global_forest_canopy_height_2005');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f91"></span>
-<img src="Img/ej271.png" alt="Ejemplo de la  información desplegada en la consola al imprimir una imagen." width="80%" />
+<img src="Img/ej271.png" alt="Ejemplo de la  información desplegada en la consola al imprimir una imagen." width="95%" />
 <p class="caption">
 Figure 9.1: Ejemplo de la información desplegada en la consola al imprimir una imagen.
 </p>
@@ -382,7 +376,7 @@ var MX = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
   // Filtrar por la propiedad country_co para elegir México
   .filter(ee.Filter.eq('country_co','MX'));
 </script>
-<p>Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método <code>.first</code> permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (<code>ee.Image</code>). Ya que las imágenes multiespectrales solo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.</p>
+<p>Adicionalmente, se cargará la primera imagen de una colección de imágenes (Landsat 7). Este procedimiento se verá más a detalle en el siguiente capítulo sobre colecciones de imágenes. Por el momento, cabe aclarar que el método <span style="color: darkpurple;">.first</span> permite extraer la primera imagen de una colección de imágenes, tras lo cual el objeto resultante es una imagen (<span style="color: darkpurple;">ee.Image</span>). Ya que las imágenes multiespectrales solo se encuentran dentro de colecciones de imágenes, el uso de esta imagen de Landsat 7 nos permitirá ejemplificar algunos de los métodos más utilizados sobre este tipo de objetos.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb64-1"><a href="9-ee.image-1.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener la primera imagen Landsat 7 de una colección de imágenes.</span></span>
 <span id="cb64-2"><a href="9-ee.image-1.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Cargar colección de imágenes de Landsat 7          </span></span>
 <span id="cb64-3"><a href="9-ee.image-1.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> landsat7im <span class="op">=</span> ee<span class="op">.</span><span class="fu">ImageCollection</span>(<span class="st">&#39;LANDSAT/LE07/C01/T1_SR&#39;</span>)</span>
@@ -408,8 +402,8 @@ var landsat7im = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')
 <div id="información-y-metadatos-3" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Información y metadatos<a href="9-ee.image-1.html#información-y-metadatos-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Para consultar las propiedades de una imagen (metadatos) se puede utilizar el siguiente comando: <code>.propertyNames</code> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f92">9.2</a>). Otros comandos que facilitan la consulta de algunos elementos particulares son: <code>.bandNames</code>, <code>.projection</code>, <code>.projection().nominalScale</code>, para conocer el nombre de las bandas de la imagen, su proyección y el tamaño de píxel en m que presenta, respectivamente.</p>
-<p>Ejercicio 27.1</p>
+Para consultar las propiedades de una imagen (metadatos) se puede utilizar el siguiente comando: <span style="color: darkpurple;">.propertyNames</span> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f92">9.2</a>). Otros comandos que facilitan la consulta de algunos elementos particulares son: <span style="color: darkpurple;">.bandNames</span>, <span style="color: darkpurple;">.projection</span>, <span style="color: darkpurple;">.projection().nominalScale</span>, para conocer el nombre de las bandas de la imagen, su proyección y el tamaño de píxel en m que presenta, respectivamente.</p>
+<p><span style="color: darkblue;">Ejercicio 27.1</span></p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb65-1"><a href="9-ee.image-1.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener las propiedades de la imagen</span></span>
 <span id="cb65-2"><a href="9-ee.image-1.html#cb65-2" aria-hidden="true" tabindex="-1"></a>CHM<span class="op">.</span><span class="fu">propertyNames</span>()<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -417,19 +411,20 @@ Para consultar las propiedades de una imagen (metadatos) se puede utilizar el si
 CHM.propertyNames();
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f92"></span>
-<img src="Img/ej272.png" alt="Propiedades de una imagen desplegadas en la consola." width="40%" />
+<img src="Img/ej272.png" alt="Propiedades de una imagen desplegadas en la consola." width="60%" />
 <p class="caption">
 Figure 9.2: Propiedades de una imagen desplegadas en la consola.
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método <code>.reproject</code>, aunque no se recomienda hacerlo, a menos que sea estrictamente necesario.</p>
+<p>El sistema de coordenadas de referencia de trabajo para todas las capas es EPSG:4326. Si se requiere cambiar de proyección se puede utilizar el método <span style="color: darkpurple;">.reproject</span>, aunque no se recomienda hacerlo, a menos que sea estrictamente necesario.</p>
 </div>
 </div>
 <p>
-Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método <code>.bandNames</code> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f93">9.3</a>).</p>
-<p>Ejercicio 27.2</p>
+Por otro lado, la información almacenada en un ráster, usualmente está organizada en distintas bandas. Para consultar los nombres de las bandas de una imagen se utiliza el método <span style="color: darkpurple;">.bandNames</span> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f93">9.3</a>).</p>
+<div style="page-break-after: always;"></div>
+<p><span style="color: darkblue;">Ejercicio 27.2</span></p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb66-1"><a href="9-ee.image-1.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Obtener los nombres de las bandas de la imagen</span></span>
 <span id="cb66-2"><a href="9-ee.image-1.html#cb66-2" aria-hidden="true" tabindex="-1"></a>CHM<span class="op">.</span><span class="fu">bandNames</span>()<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -437,7 +432,7 @@ Por otro lado, la información almacenada en un ráster, usualmente está organi
 CHM.bandNames();
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f93"></span>
-<img src="Img/ej273.png" alt="Nombre de las bandas de la imagen CHM." width="60%" />
+<img src="Img/ej273.png" alt="Nombre de las bandas de la imagen CHM." width="80%" />
 <p class="caption">
 Figure 9.3: Nombre de las bandas de la imagen CHM.
 </p>
@@ -446,8 +441,8 @@ Figure 9.3: Nombre de las bandas de la imagen CHM.
 <div id="visualización-de-una-imagen" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Visualización de una imagen<a href="9-ee.image-1.html#visualización-de-una-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapa mediante la función <code>Map.addLayer</code> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f94">9.4</a>).</p>
-<p>Ejercicio 27.3</p>
+De igual manera que los vectores y las colecciones de vectores, las imágenes se pueden agregar a la pantalla de mapa mediante la función <span style="color: darkpurple;">Map.addLayer</span> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f94">9.4</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 27.3</span></p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb67-1"><a href="9-ee.image-1.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cargar la imagen a la pantalla de mapa</span></span>
 <span id="cb67-2"><a href="9-ee.image-1.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(CHM<span class="op">,</span> </span>
 <span id="cb67-3"><a href="9-ee.image-1.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir los valores mínimos y máximos de la imagen para su </span></span>
@@ -467,7 +462,7 @@ Map.addLayer(CHM,
   'primera imagen');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f94"></span>
-<img src="Img/ej274.png" alt="Visualización de la capa de la altura del dosel." width="80%" />
+<img src="Img/ej274.png" alt="Visualización de la capa de la altura del dosel." width="95%" />
 <p class="caption">
 Figure 9.4: Visualización de la capa de la altura del dosel.
 </p>
@@ -483,8 +478,8 @@ Figure 9.4: Visualización de la capa de la altura del dosel.
 <div id="selección-de-bandas" class="section level3 unnumbered hasAnchor">
 <h3>Selección de bandas<a href="9-ee.image-1.html#selección-de-bandas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Una vez revisados los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método <code>.select</code>. Para seleccionar una única banda solo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
-<p>Ejercicio 27.4</p>
+Una vez revisados los nombres de las bandas de una imagen, se pueden seleccionar algunas de ellas mediante el método <span style="color: darkpurple;">.select</span>. Para seleccionar una única banda solo se requiere indicar el nombre de la banda, mientras que si se desea seleccionar varias bandas, estas deben indicarse dentro de una lista. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.4</span></p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb68-1"><a href="9-ee.image-1.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Seleccionar la banda 1 de la imagen (que es la única)</span></span>
 <span id="cb68-2"><a href="9-ee.image-1.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> banda1 <span class="op">=</span> CHM<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;1&#39;</span>)<span class="op">;</span></span>
 <span id="cb68-3"><a href="9-ee.image-1.html#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -501,8 +496,8 @@ var landsat7imBands = landsat7im.select(['B1','B2','B3','B4']);
 <div id="adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1" class="section level3 unnumbered hasAnchor">
 <h3>Adición de nuevas propiedades o modificación de propiedades preexistentes<a href="9-ee.image-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Usando el método <code>.set</code> se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
-<p>Ejercicio 27.5</p>
+Usando el método <span style="color: darkpurple;">.set</span> se pueden modificar las propiedades preexistentes, o escribir nuevas propiedades sobre la imagen. En este caso, primero se indica el nombre de la clave, seguido de su valor correspondiente. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.5</span></p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb69-1"><a href="9-ee.image-1.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Agregar una nueva propiedad</span></span>
 <span id="cb69-2"><a href="9-ee.image-1.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> CHMprop1 <span class="op">=</span> CHM<span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;miPropiedad&#39;</span><span class="op">,</span><span class="st">&#39;miImagen&#39;</span>)<span class="op">;</span></span>
 <span id="cb69-3"><a href="9-ee.image-1.html#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -518,7 +513,7 @@ var CHMprop2 = CHM.set('title','miTítulo');
 <p>(ref:sub2) <code>bands</code>
 (ref:sub3) <code>properties</code></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f95"></span>
-<img src="Img/ej275.png" alt="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3)." width="60%" />
+<img src="Img/ej275.png" alt="Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3)." width="80%" />
 <p class="caption">
 Figure 9.5: Salida de la consola tras haber seleccionado algunas bandas o agregar propiedades. Nótense los valores en las entradas de (ref:sub2) y (ref:sub3).
 </p>
@@ -532,8 +527,8 @@ Figure 9.5: Salida de la consola tras haber seleccionado algunas bandas o agrega
 <div id="sustitución-de-nombres-de-bandas" class="section level3 unnumbered hasAnchor">
 <h3>Sustitución de nombres de bandas<a href="9-ee.image-1.html#sustitución-de-nombres-de-bandas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Por defecto, el nombre de las bandas de las imágenes suele corresponder a la letra ‘B’ más un número que indica el número de banda. Por ejemplo, ‘B1’, ‘B2’, ‘B3’, etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método <code>.rename</code>. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
-<p>Ejercicio 27.6</p>
+Por defecto, el nombre de las bandas de las imágenes suele corresponder a la letra ‘B’ más un número que indica el número de banda. Por ejemplo, ‘B1’, ‘B2’, ‘B3’, etc. En algunos casos, el usuario puede preferir sustituir estos nombres con letras que indiquen la longitud de onda que contiene cada banda. Para ello, se puede utilizar el método <span style="color: darkpurple;">.rename</span>. En caso de que la imagen de interés conste de una sola banda y un solo nombre, se puede indicar directamente el nuevo nombre, si no, se debe pasar una lista con el nuevo nombre para cada banda. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f95">9.5</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.6</span></p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb70-1"><a href="9-ee.image-1.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cambiar el nombre de la banda </span></span>
 <span id="cb70-2"><a href="9-ee.image-1.html#cb70-2" aria-hidden="true" tabindex="-1"></a>banda1 <span class="op">=</span> banda1<span class="op">.</span><span class="fu">rename</span>(<span class="st">&#39;chm&#39;</span>)<span class="op">;</span></span>
 <span id="cb70-3"><a href="9-ee.image-1.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -548,8 +543,8 @@ var landsat7imBandsRename = landsat7imBands.rename(['B','G','R','NIR']);
 <div id="realización-de-cortes" class="section level3 unnumbered hasAnchor">
 <h3>Realización de cortes<a href="9-ee.image-1.html#realización-de-cortes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para obtener el área de una imagen únicamente de una región de interés se puede utilizar el método <code>.clip</code>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f96">9.6</a>):</p>
-<p>Ejercicio 27.7</p>
+Para obtener el área de una imagen únicamente de una región de interés se puede utilizar el método <span style="color: darkpurple;">.clip</span>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f96">9.6</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.7</span></p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb71-1"><a href="9-ee.image-1.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cortar la imagen a la extensión del polígono de México</span></span>
 <span id="cb71-2"><a href="9-ee.image-1.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> chmMx <span class="op">=</span> banda1<span class="op">.</span><span class="fu">clip</span>(MX)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -559,15 +554,15 @@ var chmMx = banda1.clip(MX);
 <p>Esto permite trabajar únicamente con la región de interés (en el ejemplo anterior, especificada en el objeto roi).</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Se sugiere evitar el uso del método <code>.clip</code> a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento. En muchos casos se puede indicar el área de interés hasta el último paso del procesamiento, que suele implicar la exportación del resultado fuera de GEE (ver última sección de este capítulo: Exportación de una imagen).</p>
+<p>Se sugiere evitar el uso del método <span style="color: darkpurple;">.clip</span> a menos que sea estrictamente necesario, ya que aumenta el tiempo de procesamiento. En muchos casos se puede indicar el área de interés hasta el último paso del procesamiento, que suele implicar la exportación del resultado fuera de GEE (ver última sección de este capítulo: Exportación de una imagen).</p>
 </div>
 </div>
 </div>
 <div id="cálculo-de-operaciones-matemáticas" class="section level3 unnumbered hasAnchor">
 <h3>Cálculo de operaciones matemáticas<a href="9-ee.image-1.html#cálculo-de-operaciones-matemáticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: <code>.subtract</code>, <code>.add</code>, <code>.divide</code>, <code>.multiply</code> para restar, sumar, dividir y multiplicar, respectivamente (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f96">9.6</a>).</p>
-<p>Ejercicio 27.8</p>
+Dentro de GEE se puede realizar cualquier operación matemática entre bandas o entre imágenes. Los operadores para realizar esta operaciones son: <span style="color: darkpurple;">.subtract</span>, <span style="color: darkpurple;">.add</span>, <span style="color: darkpurple;">.divide</span>, <span style="color: darkpurple;">.multiply</span> para restar, sumar, dividir y multiplicar, respectivamente (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f96">9.6</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 27.8</span></p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb72-1"><a href="9-ee.image-1.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Multiplicar la imagen por 100 para obtener el valor en cm</span></span>
 <span id="cb72-2"><a href="9-ee.image-1.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> chmCmMx <span class="op">=</span> chmMx<span class="op">.</span><span class="fu">multiply</span>(<span class="dv">100</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -575,12 +570,12 @@ Dentro de GEE se puede realizar cualquier operación matemática entre bandas o 
 var chmCmMx = chmMx.multiply(100);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f96"></span>
-<img src="Img/ej276.png" alt="Visualización de la capa de altura del dosel en México." width="80%" />
+<img src="Img/ej276.png" alt="Visualización de la capa de altura del dosel en México." width="95%" />
 <p class="caption">
 Figure 9.6: Visualización de la capa de altura del dosel en México.
 </p>
 </div>
-<p>Además, GEE cuenta con un método de <code>.normalizedDifference</code> para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el índice de vegetación de diferencia normalizada (NDVI, por sus siglas en inglés), primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método <code>.expression</code>. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato de cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
+<p>Además, GEE cuenta con un método de <span style="color: darkpurple;">.normalizedDifference</span> para calcular un índice normalizado a partir de las bandas que se indiquen. Por ejemplo, para calcular el índice de vegetación de diferencia normalizada (NDVI, por sus siglas en inglés), primero se indica la banda del infrarrojo y luego la del rojo. Si se quiere realizar un índice un poco más complicado se puede calcular mediante el método <span style="color: darkpurple;">.expression</span>. En este método se indica primero la fórmula del cálculo que se va a realizar (en formato de cadena de texto) y posteriormente se indica en un diccionario la equivalencia de los términos utilizados en la fórmula y los nombres de las bandas de la imagen. Las siguientes dos formas de calcular el NDVI obtienen el mismo resultado:
 </p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb73-1"><a href="9-ee.image-1.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el ndvi con la imagen de landsat 7 obtenida previamente</span></span>
 <span id="cb73-2"><a href="9-ee.image-1.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> ndvi<span class="op">=</span> landsat7imBands<span class="op">.</span><span class="fu">expression</span>( <span class="st">&#39;(NIR - R) / (NIR + R)&#39;</span><span class="op">,</span> {</span>
@@ -608,16 +603,16 @@ var ndvi2 = landsat7imBands.normalizedDifference('B4','B3')
 </script>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Si no se cambia el nombre de la banda producida por <code>.normalizedDifference</code>, por defecto, esta va a recibir el nombre de ‘nd’.</p>
+<p>Si no se cambia el nombre de la banda producida por <span style="color: darkpurple;">.normalizedDifference</span>, por defecto, esta va a recibir el nombre de ‘nd’.</p>
 </div>
 </div>
-<p>Para las fórmulas utilizadas dentro de <code>expression</code> se puede utilizar la notación estándar matemática (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>), módulo (<code>%</code>), exponente (<code>**</code>), relacionales (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>==</code>), lógicos (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>, <code>^</code>) o if then else (<code>?:</code>).</p>
+<p>Dentro de <span style="color: darkpurple;">expression</span> se pueden utilizar operadores como la notación estándar matemática (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>), el módulo (<code>%</code>), el exponente (<code>**</code>), así como los operadores relacionales (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>!=</code>, <code>==</code>), lógicos (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>, <code>^</code>) y ternarios <em>if then else</em> (<code>?:</code>).</p>
 </div>
 <div id="uso-de-operaciones-relacionales-condicionales-y-booleanas" class="section level3 unnumbered hasAnchor">
 <h3>Uso de operaciones relacionales, condicionales y booleanas<a href="9-ee.image-1.html#uso-de-operaciones-relacionales-condicionales-y-booleanas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones: <code>.lt</code>, <code>.lte</code>, <code>.gt</code>, <code>.gte</code>, <code>.eq</code>, <code>.neq</code>, que equivalen a menor que (<em>less than</em>), menor que o igual (<em>less than or equal</em>), mayor que (<em>greater than</em>), mayor que o igual (<em>greater than or equal</em>), igual (<em>equal</em>) o no igual (<em>not equal</em>), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante <code>.and</code> u <code>.or</code>, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f97">9.7</a>):</p>
-<p>Ejercicio 27.9</p>
+Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las imágenes para crear clases o máscaras. Para ello, se utilizan las siguientes notaciones: <span style="color: darkpurple;">.lt</span>, <span style="color: darkpurple;">.lte</span>, <span style="color: darkpurple;">.gt</span>, <span style="color: darkpurple;">.gte</span>, <span style="color: darkpurple;">.eq</span>, <span style="color: darkpurple;">.neq</span>, que equivalen a menor que (<em>less than</em>), menor que o igual (<em>less than or equal</em>), mayor que (<em>greater than</em>), mayor que o igual (<em>greater than or equal</em>), igual (<em>equal</em>) o no igual (<em>not equal</em>), respectivamente. Además, se pueden utilizar operadores relacionales para unir dos condiciones mediante <span style="color: darkpurple;">.and</span> u <span style="color: darkpurple;">.or</span>, es decir, y u o. Por ejemplo, la siguiente línea permite crear una máscara de las áreas que tengan valores menores o iguales a 0.2 y mayores o iguales a 0 (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f97">9.7</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.9</span></p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb74-1"><a href="9-ee.image-1.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear una imagen de los píxeles que cumplen con la condición de tener </span></span>
 <span id="cb74-2"><a href="9-ee.image-1.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co">// valores mayores o iguales a 20</span></span>
 <span id="cb74-3"><a href="9-ee.image-1.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Nótese que se utiliza la imagen con valores en m</span></span>
@@ -629,13 +624,14 @@ Se pueden utilizar operadores relacionales, condicionales o booleanos sobre las 
 var chmMXMask20 = chmMx.gte(20);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f97"></span>
-<img src="Img/ej277.png" alt="Resultado de la máscara booleana de altura del dosel." width="80%" />
+<img src="Img/ej277.png" alt="Resultado de la máscara booleana de altura del dosel." width="95%" />
 <p class="caption">
 Figure 9.7: Resultado de la máscara booleana de altura del dosel.
 </p>
 </div>
 <p>Otra forma de crear máscaras es indicando valores por bits. En este caso, se indica el valor del bit de interés y después se evalúa una condición sobre una banda determinada. Por ejemplo, para Landsat 8, la banda de evaluación de la calidad de la imagen corresponde a la banda ‘pixel_qa’. En esta banda, el bit 5 indica una cobertura de nubes, así que primero se define una variable que indique que el bit 5 es el que será evaluado. Después se selecciona la banda ‘pixel_qa’ para evaluar qué píxeles tienen un valor de 0 en el bit 5 (valores a conservar) y cuáles no (valores a eliminar; <span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f98">9.11</a>).
-Ejercicio 27.10</p>
+</p>
+<p><span style="color: darkblue;">Ejercicio 27.10</span></p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb75-1"><a href="9-ee.image-1.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Definir la regla en bits de la imagen de los valores que se desea </span></span>
 <span id="cb75-2"><a href="9-ee.image-1.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co">// enmascarar</span></span>
 <span id="cb75-3"><a href="9-ee.image-1.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> nubesBit <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">5</span>)<span class="op">;</span></span>
@@ -658,8 +654,8 @@ var qa = landsat7im.select('pixel_qa');
 // donde el bit 5 tenga valores iguales a cero
 var mask = qa.bitwiseAnd(nubesBit).eq(0);
 </script>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-76"></span>
-<img src="Img/ej278.png" alt="Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes." width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-75"></span>
+<img src="Img/ej278.png" alt="Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes." width="95%" />
 <p class="caption">
 Figure 9.8: Visualización de la máscara de Landsat 8 indicando píxeles con nubes y sin nubes.
 </p>
@@ -668,8 +664,8 @@ Figure 9.8: Visualización de la máscara de Landsat 8 indicando píxeles con nu
 <div id="enmascaramiento" class="section level3 unnumbered hasAnchor">
 <h3>Enmascaramiento<a href="9-ee.image-1.html#enmascaramiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-El método <code>.updateMask</code> permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.</p>
-<p>Ejercicio 27.11</p>
+El método <span style="color: darkpurple;">.updateMask</span> permite enmascarar los píxeles de una imagen, utilizando otra imagen como máscara que indique cuáles píxeles se deben conservar (valores de 1) y cuáles enmascarar (valores de 0). En la figura 9.9 se puede apreciar la visualización del enmascaramiento realizado a la capa que contiene la altura del dosel. Por su parte, las figuras 9.10 y 9.11 muestran la imagen Landsat 8 antes y después de realizar el enmascaramiento de nubes, respectivamente.</p>
+<p><span style="color: darkblue;">Ejercicio 27.11</span></p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb76-1"><a href="9-ee.image-1.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Utilizar la máscara de valores que tienen alturas &gt;= 20 y aplicarla a </span></span>
 <span id="cb76-2"><a href="9-ee.image-1.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co">// la imagen con los valores de alturas</span></span>
 <span id="cb76-3"><a href="9-ee.image-1.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> chmMxMayor20 <span class="op">=</span> chmMx<span class="op">.</span><span class="fu">updateMask</span>(chmMXMask20)<span class="op">;</span></span>
@@ -684,20 +680,20 @@ var chmMxMayor20 = chmMx.updateMask(chmMXMask20);
 // Aplicar la máscara a la imagen original
 var landsat7imMask = landsat7im.updateMask(mask);
 </script>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
-<img src="Img/ej279.png" alt="Resultado del enmascaramiento de la capa de altura del dosel." width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-77"></span>
+<img src="Img/ej279.png" alt="Resultado del enmascaramiento de la capa de altura del dosel." width="95%" />
 <p class="caption">
 Figure 9.9: Resultado del enmascaramiento de la capa de altura del dosel.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-79"></span>
-<img src="Img/ej270.png" alt="Imagen Landsat antes del enmascaramiento de nubes." width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-78"></span>
+<img src="Img/ej270.png" alt="Imagen Landsat antes del enmascaramiento de nubes." width="95%" />
 <p class="caption">
 Figure 9.10: Imagen Landsat antes del enmascaramiento de nubes.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f98"></span>
-<img src="Img/ej27a.png" alt="Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes." width="80%" />
+<img src="Img/ej27a.png" alt="Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes." width="95%" />
 <p class="caption">
 Figure 9.11: Imagen Landsat después del enmascaramiento de nubes. Nótese que las áreas enmascaradas ahora son transparentes.
 </p>
@@ -705,15 +701,15 @@ Figure 9.11: Imagen Landsat después del enmascaramiento de nubes. Nótese que l
 <p></p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Aunque en GEE existe el método <code>.mask</code> para enmascarar áreas de una imagen, se sugiere siempre utilizar <code>.updateMask</code>. El método <code>.mask</code> simplemente sustituye la máscara original de la imagen, mientras que <code>.updateMask</code> combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.</p>
+<p>Aunque en GEE existe el método <span style="color: darkpurple;">.mask</span> para enmascarar áreas de una imagen, se sugiere siempre utilizar <span style="color: darkpurple;">.updateMask</span>. El método <span style="color: darkpurple;">.mask</span> simplemente sustituye la máscara original de la imagen, mientras que <span style="color: darkpurple;">.updateMask</span> combina la máscara anterior con la nueva, lo que evita desenmascarar áreas que seguramente no son de interés para el usuario.</p>
 </div>
 </div>
 </div>
 <div id="adición-de-bandas" class="section level3 unnumbered hasAnchor">
 <h3>Adición de bandas<a href="9-ee.image-1.html#adición-de-bandas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen utilizando el método <code>.addBands</code>. Así, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:</p>
-<p>Ejercicio 27.12</p>
+El usuario puede agregar una banda al conjunto de bandas que contiene por defecto una imagen utilizando el método <span style="color: darkpurple;">.addBands</span>. Así, se podría agregar una banda que contenga algún índice calculado con las bandas originales de la imagen. Por ejemplo:</p>
+<p><span style="color: darkblue;">Ejercicio 27.12</span></p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb77-1"><a href="9-ee.image-1.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Agregar la banda de alturas en cm a la banda original en m</span></span>
 <span id="cb77-2"><a href="9-ee.image-1.html#cb77-2" aria-hidden="true" tabindex="-1"></a>chmMx2Bands <span class="op">=</span> chmMx<span class="op">.</span><span class="fu">addBands</span>(chmCmMx<span class="op">.</span><span class="fu">rename</span>(<span class="st">&#39;chmCm&#39;</span>))<span class="op">;</span></span>
 <span id="cb77-3"><a href="9-ee.image-1.html#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -730,8 +726,8 @@ landsat7im = landsat7im.addBands(ndvi);
 <div id="conversión-de-una-imagen-en-un-vector" class="section level3 unnumbered hasAnchor">
 <h3>Conversión de una imagen en un vector<a href="9-ee.image-1.html#conversión-de-una-imagen-en-un-vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-En algunos casos puede ser conveniente transformar una imagen en un vector, o parte de una imagen en un vector. El método para convertir una imagen en vector es <code>.reduceToVectors</code> y se utiliza de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f99">9.12</a>):</p>
-<p>Ejercicio 27.13</p>
+En algunos casos puede ser conveniente transformar una imagen en un vector, o parte de una imagen en un vector. El método para convertir una imagen en vector es <span style="color: darkpurple;">.reduceToVectors</span> y se utiliza de la siguiente manera (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f99">9.12</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 27.13</span></p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb78-1"><a href="9-ee.image-1.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Convertir la máscara de valores que tienen valores de altura &gt;= 20 a </span></span>
 <span id="cb78-2"><a href="9-ee.image-1.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="co">// vector</span></span>
 <span id="cb78-3"><a href="9-ee.image-1.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> chmMxMayor20Vec <span class="op">=</span> chmMXMask20<span class="op">.</span><span class="fu">reduceToVectors</span>({</span>
@@ -761,7 +757,7 @@ var chmMxMayor20Vec = chmMXMask20.reduceToVectors({
 });
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f99"></span>
-<img src="Img/mexicoVector.png" alt="Visualización de la capa vector producida a partir de una imagen." width="80%" />
+<img src="Img/mexicoVector.png" alt="Visualización de la capa vector producida a partir de una imagen." width="95%" />
 <p class="caption">
 Figure 9.12: Visualización de la capa vector producida a partir de una imagen.
 </p>
@@ -775,8 +771,8 @@ Figure 9.12: Visualización de la capa vector producida a partir de una imagen.
 <div id="exportación-de-una-imagen" class="section level3 unnumbered hasAnchor">
 <h3>Exportación de una imagen<a href="9-ee.image-1.html#exportación-de-una-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-En GEE se pueden exportar imágenes a los <strong>Assets</strong>, al <strong>Google Drive</strong> o al <strong>GoogleCloud</strong>. Debido a que el servicio más común será el de <strong>Drive</strong> este es el se explicará. La función para realizar dicha exportación es <code>Export.imageToDrive</code> (ver Sección 3.4). Los argumentos de esta función son: <code>image</code> (la imagen a exportar), <code>description</code> (el nombre con el que se desea guardar el archivo), <code>folder</code> (la carpeta donde se desea guardar la imagen), <code>scale</code> (la escala para exportar la imagen), <code>maxPixels</code> (el número máximo de píxeles permitido), <code>format</code> (el formato de imagen deseado), <code>region</code> (región que se desea exportar, suele corresponder al área de interés) y <code>crs</code> (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de <strong>Reference</strong> o en la pestaña de <strong>Docs</strong>, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a <strong>Assets</strong> el argumento más importante es <code>assetId</code>, que corresponde al nombre con el que se guardará el archivo en la sección de <strong>Assets</strong>.</p>
-<p>Ejercicio 27.14</p>
+En GEE se pueden exportar imágenes a los <strong>Assets</strong>, al <strong>Google Drive</strong> o al <strong>GoogleCloud</strong>. Debido a que el servicio más común será el de <strong>Drive</strong> este es el que se explicará. La función para realizar dicha exportación es <span style="color: darkpurple;">Export.imageToDrive</span> (ver Sección 3.4). Los argumentos de esta función son: <code>image</code> (la imagen a exportar), <code>description</code> (el nombre con el que se desea guardar el archivo), <code>folder</code> (la carpeta donde se desea guardar la imagen), <code>scale</code> (la escala para exportar la imagen), <code>maxPixels</code> (el número máximo de píxeles permitido), <code>format</code> (el formato de imagen deseado), <code>region</code> (región que se desea exportar, suele corresponder al área de interés) y <code>crs</code> (sistema de coordenadas de referencia). La función es capaz de aceptar otros argumentos que se pueden consultar en la sección de <strong>Reference</strong> o en la pestaña de <strong>Docs</strong>, así como los valores por defecto de cada uno de estos parámetros. Cabe mencionar que todos los argumentos son opcionales, excepto la imagen a exportar, sin embargo, se recomienda siempre definir por lo menos los argumentos de descripción, carpeta, escala y región. En el caso de la exportación a <strong>Assets</strong> el argumento más importante es <code>assetId</code>, que corresponde al nombre con el que se guardará el archivo en la sección de <strong>Assets</strong>.</p>
+<p><span style="color: darkblue;">Ejercicio 27.14</span></p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb79-1"><a href="9-ee.image-1.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Exportación al drive personal</span></span>
 <span id="cb79-2"><a href="9-ee.image-1.html#cb79-2" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
 <span id="cb79-3"><a href="9-ee.image-1.html#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Nombre de la imagen a exportar en GEE</span></span>
@@ -832,14 +828,14 @@ Export.image.toDrive({
 <h4>Ejercicio A: Consulta y procesamiento de una imagen<a href="9-ee.image-1.html#ejercicio-a-consulta-y-procesamiento-de-una-imagen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>En GEE hay algunos objetos que constan de imágenes únicas, por lo tanto, se pueden utilizar directamente sobre ellas los métodos para el procesamiento de imágenes. Un ejemplo muy utilizado de este tipo de objetos es el modelo digital de elevación (DEM) producido por la misión SRTM (Shuttle Radar Topography Mission). Para buscar cuál es la localización para acceder a esta información se puede ir a la barra de búsqueda (<strong>Search</strong>) y escribir SRTM. Debería aparecer una ventana así (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f910">9.13</a>):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f910"></span>
-<img src="Img/SRTM.png" alt="Ejemplo de búsqueda de información en la barra de búsqueda." width="80%" />
+<img src="Img/SRTM.png" alt="Ejemplo de búsqueda de información en la barra de búsqueda." width="95%" />
 <p class="caption">
 Figure 9.13: Ejemplo de búsqueda de información en la barra de búsqueda.
 </p>
 </div>
 <p>Posteriormente se da clic sobre el primer resultado y debería abrirse la siguiente ventana (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f911">9.14</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f911"></span>
-<img src="Img/SRTM_prop.png" alt="Consulta de información de una imagen del repositorio de GEE." width="80%" />
+<img src="Img/SRTM_prop.png" alt="Consulta de información de una imagen del repositorio de GEE." width="95%" />
 <p class="caption">
 Figure 9.14: Consulta de información de una imagen del repositorio de GEE.
 </p>
@@ -908,13 +904,13 @@ imgEnmascarada = imgEnmascarada.rename('elevacion');
 // Agregar imagen enmascarada a la pantalla de mapa
 Map.addLayer(imgEnmascarada,{min: 1000, max: 2500}, 'imgEnmascarada');
 </script>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-89"></span>
-<img src="Img/ejercicioAMaps.png" alt="Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada." width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-88"></span>
+<img src="Img/ejercicioAMaps.png" alt="Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada." width="95%" />
 <p class="caption">
 Figure 9.15: Visualización de las tres capas generadas: DEM sin corte, DEM con corte, DEM con corte y enmascarada.
 </p>
 </div>
-<p>A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función <code>ui.Chart.image.histogram</code> y se indica la imagen de la cual se quiere obtener el histograma (<code>image</code>), la escala en metros a la que se quiere obtener los valores del histograma (<code>scale</code>) y el número máximo de clases (<code>maxBuckets</code>). Después, se agrega este gráfico a la consola con un <code>print</code> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f914">9.16</a>).
+<p>A continuación, se generará un gráfico para obtener un histograma de los valores de elevación del DEM. Para hacer esto, se utiliza la función <span style="color: darkpurple;">ui.Chart.image.histogram</span> y se indica la imagen de la cual se quiere obtener el histograma (<code>image</code>), la escala en metros a la que se quiere obtener los valores del histograma (<code>scale</code>) y el número máximo de clases (<code>maxBuckets</code>). Después, se agrega este gráfico a la consola con un <span style="color: darkpurple;">print</span> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f914">9.16</a>).
 </p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb86-1"><a href="9-ee.image-1.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear gráfico de histograma de los valores del DEM enmascarado</span></span>
 <span id="cb86-2"><a href="9-ee.image-1.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> graficoHistograma <span class="op">=</span> ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">histogram</span>({</span>
@@ -945,7 +941,7 @@ var graficoHistograma = ui.Chart.image.histogram({
 print(graficoHistograma,'gráfico Histograma');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f914"></span>
-<img src="Img/histElevacion.png" alt="Histograma de valores del DEM." width="80%" />
+<img src="Img/histElevacion.png" alt="Histograma de valores del DEM." width="95%" />
 <p class="caption">
 Figure 9.16: Histograma de valores del DEM.
 </p>
@@ -976,7 +972,7 @@ Export.image.toDrive({
 </script>
 <p>Una vez corrido el código, hay que irse a la pestaña de <strong>Tasks</strong> para darle clic en <strong>Run</strong> (correr) y comenzar a exportar la imagen al <strong>Google Drive</strong> (<span style="color: darkblue;">Fig.</span> <a href="9-ee.image-1.html#fig:f915">9.17</a>). A continuación aparece una pantalla, en la cual podemos confirmar los parámetros utilizados para la exportación de la imagen, tras lo cual, se vuelve a dar clic en <strong>Run</strong>. Por último, el producto exportado aparecerá en la pestaña de <strong>Tasks</strong> con un símbolo de un engranaje girando, el cual indica que el proceso está corriendo. Además, en esta pestaña se puede consultar el tiempo de demora del trabajo de exportación. Ya que la imagen haya sido exportada al <strong>Drive</strong>, la tarea cambiará a color azul y el engranaje en movimiento cambiará a una palomita indicando el tiempo demorado en exportar la imagen al <strong>Drive</strong> (ver Fig. 2.22).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f915"></span>
-<img src="Img/exportCHMMX.png" alt="Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación." width="80%" />
+<img src="Img/exportCHMMX.png" alt="Vista de la pestaña de Tasks (tareas) para correr el trabajo de exportación." width="95%" />
 <p class="caption">
 Figure 9.17: Vista de la pestaña de <strong>Tasks</strong> (tareas) para correr el trabajo de exportación.
 </p>

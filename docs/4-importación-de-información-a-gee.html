@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -338,28 +332,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">4</span> Importación de información a GEE<a href="4-importación-de-información-a-gee.html#importación-de-información-a-gee" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>En la sección de <strong>Assets</strong> se pueden importar varios tipos de archivos a GEE para utilizarlos en la API: imágenes, archivos vector (shapefiles), archivos separados por comas (csv), colecciones de imágenes exportadas por el mismo GEE y carpetas (<em>folders</em>; <span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f41">4.1</a>). Para importar cualquiera de estos tipos de archivos simplemente se tiene que ingresar a la pestaña de <strong>Assets</strong> en el panel izquierdo y después dar clic en <strong>New</strong> (nuevo) e indicar el archivo que se quiere importar a GEE (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f42">4.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f41"></span>
-<img src="Img/newAssets.png" alt="Opciones disponibles para importar datos en GEE." width="80%" />
+<img src="Img/newAssets.png" alt="Opciones disponibles para importar datos en GEE." width="95%" />
 <p class="caption">
 Figure 4.1: Opciones disponibles para importar datos en GEE.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f42"></span>
-<img src="Img/Asset1.png" alt="Ubicación de la pestaña de importación de datos a GEE." width="80%" />
+<img src="Img/Asset1.png" alt="Ubicación de la pestaña de importación de datos a GEE." width="95%" />
 <p class="caption">
 Figure 4.2: Ubicación de la pestaña de importación de datos a GEE.
 </p>
 </div>
 <p>Posteriormente se da clic en <strong>Select</strong> y se seleccionan los archivos que se quieren subir (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f43">4.3</a>). Directamente en esta ventana se pueden agregar algunos campos a la información. Por último, se da clic en <strong>Upload</strong> (ubicado en la esquina inferior derecha de esta ventana) para subir los archivos a la cuenta de GEE (ocupando espacio en Google Drive). Recuerde que para archivos shapefile solo se aceptan archivos con las extensiones shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f43"></span>
+<img src="Img/Asset2.png" alt="Ejemplo de una importación en proceso." width="95%" />
+<p class="caption">
+Figure 4.3: Ejemplo de una importación en proceso.
+</p>
+</div>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>Si se agrega algún otro archivo que tenga una extensión distinta a las aceptadas (shp, zip, dbf, prj, shx, cpg, fix, qix, sbn o shp.xml) la consola va a arrojar un error. En este caso hay que evitar seleccionar el archivo con la extensión que está provocando el error (por ejemplo, sbx).</p>
 </div>
 </div>
-<p>Tras haber dado clic en <strong>Upload</strong>, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de <strong>Tasks</strong> (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f43">4.3</a>). Una vez terminado, se puede tener acceso al archivo dentro de la pestaña de <strong>Assets</strong>. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de <strong>New</strong>, que contiene un par de flechas formando un círculo.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f43"></span>
-<img src="Img/Asset3.png" alt="Ejemplo de una importación en proceso." width="80%" />
+<p>Tras haber dado clic en <strong>Upload</strong>, el progreso en la subida del archivo a GEE se puede consultar en la pestaña de <strong>Tasks</strong> (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f44">4.4</a>). Una vez terminado, se puede tener acceso al archivo dentro de la pestaña de <strong>Assets</strong>. A veces no aparece el archivo recién importado, por lo cual se sugiere refrescar los elementos de esta sección presionando el botón que se encuentra a la derecha de <strong>New</strong>, que contiene un par de flechas formando un círculo.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f44"></span>
+<img src="Img/Asset3.png" alt="Ejemplo de una importación en proceso." width="95%" />
 <p class="caption">
-Figure 4.3: Ejemplo de una importación en proceso.
+Figure 4.4: Ejemplo de una importación en proceso.
 </p>
 </div>
 <div class="bluebox2">
@@ -375,28 +375,28 @@ Figure 4.3: Ejemplo de una importación en proceso.
 </ol>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; <span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f44">4.4</a>).</p>
+<p>El usuario puede compartir sus archivos con otros usuarios de GEE como lector o editor. Esta opción está disponible al darle clic en el símbolo de compartir a la derecha de cada archivo (aparece una vez que se coloca el puntero sobre el nombre del archivo; <span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f45">4.5</a>).</p>
 </div>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f44"></span>
-<img src="Img/shareAssets.png" alt="Ubicación del botón para compartir información importada en GEE." width="30%" />
-<p class="caption">
-Figure 4.4: Ubicación del botón para compartir información importada en GEE.
-</p>
-</div>
-<p>Por último, hay dos maneras de utilizar cualquier información importada a GEE, pero primero hay que darle clic a la información importada en la sección de <strong>Assets</strong>, tras lo cual aparecerá la siguiente ventana (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f45">4.5</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f45"></span>
-<img src="Img/Asset_ruta.png" alt="Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma." width="80%" />
+<img src="Img/shareAssets.png" alt="Ubicación del botón para compartir información importada en GEE." width="50%" />
 <p class="caption">
-Figure 4.5: Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.
+Figure 4.5: Ubicación del botón para compartir información importada en GEE.
 </p>
 </div>
-<p>La primera manera consiste en copiar la ruta de la información y utilizarla en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; <span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f45">4.5</a>).</p>
-<p>La segunda consiste en acceder al código en el que estamos interesados en utilizar la información, buscar la información que se desea importar en la pestaña de <strong>Assets</strong>, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f46">4.6</a>). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.</p>
+<p>Por último, hay dos maneras de utilizar cualquier información importada a GEE, pero primero hay que darle clic a la información importada en la sección de <strong>Assets</strong>, tras lo cual aparecerá la siguiente ventana (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f46">4.6</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f46"></span>
-<img src="Img/Asset_ruta2.png" alt="Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto." width="80%" />
+<img src="Img/Asset_ruta.png" alt="Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma." width="95%" />
 <p class="caption">
-Figure 4.6: Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto.
+Figure 4.6: Ejemplo de la ventana de información importada en GEE y ubicación de la ruta de la misma.
+</p>
+</div>
+<p>La primera manera consiste en copiar la ruta de la información y utilizarla en cualquier código para definir un objeto (similar a lo que se hizo en ejercicios anteriores con información hospedada en la nube de GEE; <span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f46">4.6</a>).</p>
+<p>La segunda consiste en acceder al código en el que estamos interesados en utilizar la información, buscar la información que se desea importar en la pestaña de <strong>Assets</strong>, darle clic, y al aparecer la misma ventana que en el ejemplo anterior, darle clic en el botón de Import (<span style="color: darkblue;">Fig.</span> <a href="4-importación-de-información-a-gee.html#fig:f47">4.7</a>). De esa manera se importa la información en el código en el que se esté trabajando y se le asigna por defecto un nombre.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:f47"></span>
+<img src="Img/Asset_ruta2.png" alt="Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto." width="95%" />
+<p class="caption">
+Figure 4.7: Ejemplo de la ventana de información importada en GEE y ubicación del botón para importarla a un código previamente abierto.
 </p>
 </div>
 

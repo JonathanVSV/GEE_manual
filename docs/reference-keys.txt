@@ -30,6 +30,7 @@ fig:f43
 fig:f44
 fig:f45
 fig:f46
+fig:f47
 fig:f51
 fig:f52
 fig:f53
@@ -73,14 +74,14 @@ fig:f94
 fig:f95
 fig:f96
 fig:f97
-fig:unnamed-chunk-76
+fig:unnamed-chunk-75
+fig:unnamed-chunk-77
 fig:unnamed-chunk-78
-fig:unnamed-chunk-79
 fig:f98
 fig:f99
 fig:f910
 fig:f911
-fig:unnamed-chunk-89
+fig:unnamed-chunk-88
 fig:f914
 fig:f915
 fig:f101

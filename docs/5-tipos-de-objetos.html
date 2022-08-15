@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -340,9 +334,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="objetos-del-cliente-y-del-servidor" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Objetos del cliente y del servidor<a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f51">5.1</a>). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: <code>'cadena'</code>, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: <code>ee.String('cadena')</code>. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante <code>1 + 2</code>, mientras que del lado del servidor se utilizará <code>ee.Number(1).add(ee.Number(2))</code>.</p>
-<p>En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de <code>if</code> y <code>else</code>, la función <code>ee.Algorithms.If</code>. Sin embargo, cabe aclarar que algunas funciones solo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo <code>ee.Export</code> (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa <code>Map.addLayer</code> o crear gráficos, así como imprimir información en la consola <code>print</code>. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.</p>
+<p>En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de <code>if</code> y <code>else</code>, la función <span style="color: darkpurple;">ee.Algorithms.If</span>. Sin embargo, cabe aclarar que algunas funciones solo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo <span style="color: darkpurple;">ee.Export</span> (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa <span style="color: darkpurple;">Map.addLayer</span> o crear gráficos, así como imprimir información en la consola <span style="color: darkpurple;">print</span>. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f51"></span>
-<img src="Img/daigFunc.png" alt="Representación de los dos lados de programación en GEE: del cliente y el servidor." width="80%" />
+<img src="Img/daigFunc.png" alt="Representación de los dos lados de programación en GEE: del cliente y el servidor." width="95%" />
 <p class="caption">
 Figure 5.1: Representación de los dos lados de programación en GEE: del cliente y el servidor.
 </p>
@@ -355,28 +349,28 @@ Figure 5.1: Representación de los dos lados de programación en GEE: del client
 <p>Se refiere a objetos de cadenas de símbolos de tipo alfanumérico. Estos se definen como cualquier cadena de caracteres (número, letras o símbolos) que se encuentren entre un par de comillas ya sean dobles <code>“ ”</code> o sencillas <code>’ ’</code>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f52">5.2</a>):</p>
 <!-- \index{Ejercicio 5.1} -->
 <!-- ::: {.exercise} -->
-<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="5-tipos-de-objetos.html#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-2"><a href="5-tipos-de-objetos.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo letras</span></span>
-<span id="cb10-3"><a href="5-tipos-de-objetos.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadena <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
-<span id="cb10-4"><a href="5-tipos-de-objetos.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="5-tipos-de-objetos.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo números</span></span>
-<span id="cb10-6"><a href="5-tipos-de-objetos.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> telefono<span class="op">=</span> <span class="st">&#39;1234567890&#39;</span><span class="op">;</span>  </span>
-<span id="cb10-7"><a href="5-tipos-de-objetos.html#cb10-7" aria-hidden="true" tabindex="-1"></a>                     </span>
-<span id="cb10-8"><a href="5-tipos-de-objetos.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de letras, números y símbolos</span></span>
-<span id="cb10-9"><a href="5-tipos-de-objetos.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> direccion <span class="op">=</span> <span class="st">&#39;calle cuarta casa # 16&#39;</span><span class="op">;</span></span></code></pre></div>
+<p><span style="color: darkblue;">Ejercicio 0</span></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="5-tipos-de-objetos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo letras</span></span>
+<span id="cb10-2"><a href="5-tipos-de-objetos.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadena <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="5-tipos-de-objetos.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="5-tipos-de-objetos.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo números</span></span>
+<span id="cb10-5"><a href="5-tipos-de-objetos.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> telefono <span class="op">=</span> <span class="st">&#39;1234567890&#39;</span><span class="op">;</span>  </span>
+<span id="cb10-6"><a href="5-tipos-de-objetos.html#cb10-6" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb10-7"><a href="5-tipos-de-objetos.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de letras, números y símbolos</span></span>
+<span id="cb10-8"><a href="5-tipos-de-objetos.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> direccion <span class="op">=</span> <span class="st">&#39;calle cuarta casa # 16&#39;</span><span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
-
 // Cadena de texto de solo letras
 var cadena = 'Esto es una cadena de caracteres';
 
 // Cadena de texto de solo números
-var telefono= '1234567890';  
+var telefono = '1234567890';  
                      
 // Cadena de texto de letras, números y símbolos
 var direccion = 'calle cuarta casa # 16';
 </script>
 <!-- ::: -->
-<p>Ejercicio 0.1</p>
+<div style="page-break-after: always;"></div>
+<p><span style="color: darkblue;">Ejercicio 0.1</span></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="5-tipos-de-objetos.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto concatenada</span></span>
 <span id="cb11-2"><a href="5-tipos-de-objetos.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> direccion <span class="op">=</span> direccion <span class="op">+</span> <span class="st">&#39; su número telefónico es:&#39;</span> <span class="op">+</span> telefono<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -389,7 +383,7 @@ var direccion = direccion + ' su número telefónico es:' + telefono;
 </div>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f52"></span>
-<img src="Img/ej0.png" alt="Salida de la consola de objetos de tipo cadena de caracteres." width="80%" />
+<img src="Img/ej0.png" alt="Salida de la consola de objetos de tipo cadena de caracteres." width="95%" />
 <p class="caption">
 Figure 5.2: Salida de la consola de objetos de tipo cadena de caracteres.
 </p>
@@ -398,7 +392,7 @@ Figure 5.2: Salida de la consola de objetos de tipo cadena de caracteres.
 <div id="números" class="section level3 unnumbered hasAnchor">
 <h3>Números<a href="5-tipos-de-objetos.html#números" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f53">5.3</a>):</p>
-<p>Ejercicio 1</p>
+<p><span style="color: darkblue;">Ejercicio 1</span></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="5-tipos-de-objetos.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Número entero</span></span>
 <span id="cb12-2"><a href="5-tipos-de-objetos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numero <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
 <span id="cb12-3"><a href="5-tipos-de-objetos.html#cb12-3" aria-hidden="true" tabindex="-1"></a> </span>
@@ -412,7 +406,7 @@ var numero = 1;
 var numero2 = 2.5;  
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f53"></span>
-<img src="Img/ej1.png" alt="Salida de la consola de objetos de tipo número." width="80%" />
+<img src="Img/ej1.png" alt="Salida de la consola de objetos de tipo número." width="95%" />
 <p class="caption">
 Figure 5.3: Salida de la consola de objetos de tipo número.
 </p>
@@ -426,7 +420,7 @@ Figure 5.3: Salida de la consola de objetos de tipo número.
 <div id="listas" class="section level3 unnumbered hasAnchor">
 <h3>Listas<a href="5-tipos-de-objetos.html#listas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes <code>[]</code> y cada entrada es separada mediante una coma <code>,</code> . Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f54">5.4</a>):</p>
-<p>Ejercicio 2</p>
+<p><span style="color: darkblue;">Ejercicio 2</span></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="5-tipos-de-objetos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista numérica</span></span>
 <span id="cb13-2"><a href="5-tipos-de-objetos.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lista <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span>]<span class="op">;</span>   </span>
 <span id="cb13-3"><a href="5-tipos-de-objetos.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -451,8 +445,8 @@ var listaB = ['primero', 'segundo', 'tercero', 4];
 // Lista de listas  
 var listaC = [lista, listaA, listaB]; 
 </script>
-<p>Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella.</p>
-<p>Ejercicio 2.1</p>
+<p>Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella.
+<span style="color: darkblue;">Ejercicio 2.1</span></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="5-tipos-de-objetos.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Primer objeto de la lista llamada &#39;lista&#39;</span></span>
 <span id="cb14-2"><a href="5-tipos-de-objetos.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lista[<span class="dv">0</span>])<span class="op">;</span> </span>
 <span id="cb14-3"><a href="5-tipos-de-objetos.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -478,7 +472,7 @@ print(listaB[2]);
 print(listaC);    
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f54"></span>
-<img src="Img/ej2.png" alt="Salida de la consola de varios objetos de tipo lista." width="40%" />
+<img src="Img/ej2.png" alt="Salida de la consola de varios objetos de tipo lista." width="60%" />
 <p class="caption">
 Figure 5.4: Salida de la consola de varios objetos de tipo lista.
 </p>
@@ -487,8 +481,8 @@ Figure 5.4: Salida de la consola de varios objetos de tipo lista.
 <div id="diccionarios" class="section level3 unnumbered hasAnchor">
 <h3>Diccionarios<a href="5-tipos-de-objetos.html#diccionarios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se crean mediante el uso de llaves <code>{}</code> donde se indica cada clave seguida de dos puntos <code>:</code> y su definición, ya sea un valor, cadena de caracteres o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.</p>
-<p>Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no haya espacios dentro de ellas, en su lugar se aconseja usar guion bajo (<code>_</code>) o la notación de <em>lowerCamelCase</em>. Al hacer <code>print</code> se ordenarán alfabéticamente las claves (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f55">5.5</a>).</p>
-<p>Ejercicio 3</p>
+<p>Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no haya espacios dentro de ellas, en su lugar se aconseja usar guion bajo (<code>_</code>) o la notación de <em>lowerCamelCase</em>. Al hacer <span style="color: darkpurple;">print</span> se ordenarán alfabéticamente las claves (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f55">5.5</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 3</span></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="5-tipos-de-objetos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se declara un nuevo diccionario.</span></span>
 <span id="cb15-2"><a href="5-tipos-de-objetos.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">// La primera entrada es el texto &#39;clave1&#39; que está definido con el valor</span></span>
 <span id="cb15-3"><a href="5-tipos-de-objetos.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">// de 1 (tipo número) la segunda entrada es el texto &#39;clave2&#39;, y su </span></span>
@@ -515,7 +509,7 @@ var dicc = {
 <li>Utilizar la notación de <code>.</code> seguida del nombre de la clave.</li>
 </ul>
 <p>Por ejemplo:</p>
-<p>Ejercicio 3.1</p>
+<p><span style="color: darkblue;">Ejercicio 3.1</span></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="5-tipos-de-objetos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Notación de lista, se mostrará en la consola la definición de </span></span>
 <span id="cb16-2"><a href="5-tipos-de-objetos.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">// &#39;clave1&#39;, es decir el valor 1 </span></span>
 <span id="cb16-3"><a href="5-tipos-de-objetos.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dicc[<span class="st">&#39;clave1&#39;</span>])<span class="op">;</span> </span>
@@ -549,7 +543,7 @@ print(dicc.clave1);
 print(dicc.clave2);  
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f55"></span>
-<img src="Img/ej3.png" alt="Salida de la consola de varios objetos de tipo diccionario." width="40%" />
+<img src="Img/ej3.png" alt="Salida de la consola de varios objetos de tipo diccionario." width="60%" />
 <p class="caption">
 Figure 5.5: Salida de la consola de varios objetos de tipo diccionario.
 </p>
@@ -566,48 +560,46 @@ Figure 5.5: Salida de la consola de varios objetos de tipo diccionario.
 Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la palabra <code>function</code> (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función <code>return</code>. Por ejemplo:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="5-tipos-de-objetos.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MaskIm es una nueva función, y su argumento de entrada es objeto</span></span>
 <span id="cb17-2"><a href="5-tipos-de-objetos.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> maskIm <span class="op">=</span> <span class="kw">function</span>(objeto){ </span>
-<span id="cb17-3"><a href="5-tipos-de-objetos.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="5-tipos-de-objetos.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define qué objeto es una imagen ráster y se guarda en la </span></span>
-<span id="cb17-5"><a href="5-tipos-de-objetos.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">// variable image</span></span>
-<span id="cb17-6"><a href="5-tipos-de-objetos.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(objeto)     </span>
-<span id="cb17-7"><a href="5-tipos-de-objetos.html#cb17-7" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb17-8"><a href="5-tipos-de-objetos.html#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Se selecciona solamente la banda de nombre &#39;pixel_qa&#39; de la imagen</span></span>
-<span id="cb17-9"><a href="5-tipos-de-objetos.html#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">// image</span></span>
-<span id="cb17-10"><a href="5-tipos-de-objetos.html#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> qaImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pixel_qa&#39;</span>)<span class="op">;</span></span>
-<span id="cb17-11"><a href="5-tipos-de-objetos.html#cb17-11" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb17-12"><a href="5-tipos-de-objetos.html#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Se crea una nueva imagen binaria donde será 1 los píxeles con valor </span></span>
-<span id="cb17-13"><a href="5-tipos-de-objetos.html#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">// igual a 322, y 0 los demás</span></span>
-<span id="cb17-14"><a href="5-tipos-de-objetos.html#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clearData <span class="op">=</span> qaImage<span class="op">.</span><span class="fu">eq</span>(<span class="dv">322</span>)<span class="op">;</span>      </span>
-<span id="cb17-15"><a href="5-tipos-de-objetos.html#cb17-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb17-16"><a href="5-tipos-de-objetos.html#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">// Se crea una máscara con la imagen binaria, y se entrega la imagen </span></span>
-<span id="cb17-17"><a href="5-tipos-de-objetos.html#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">// original enmascarada</span></span>
-<span id="cb17-18"><a href="5-tipos-de-objetos.html#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> image<span class="op">.</span><span class="fu">updateMask</span>(clearData)<span class="op">;</span>      </span>
-<span id="cb17-19"><a href="5-tipos-de-objetos.html#cb17-19" aria-hidden="true" tabindex="-1"></a> }<span class="op">;</span></span></code></pre></div>
+<span id="cb17-3"><a href="5-tipos-de-objetos.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se define qué objeto es una imagen ráster y se guarda en la </span></span>
+<span id="cb17-4"><a href="5-tipos-de-objetos.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// variable image</span></span>
+<span id="cb17-5"><a href="5-tipos-de-objetos.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(objeto)<span class="op">;</span></span>
+<span id="cb17-6"><a href="5-tipos-de-objetos.html#cb17-6" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb17-7"><a href="5-tipos-de-objetos.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se selecciona solamente la banda de nombre &#39;pixel_qa&#39; de la imagen</span></span>
+<span id="cb17-8"><a href="5-tipos-de-objetos.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// image</span></span>
+<span id="cb17-9"><a href="5-tipos-de-objetos.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qaImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pixel_qa&#39;</span>)<span class="op">;</span></span>
+<span id="cb17-10"><a href="5-tipos-de-objetos.html#cb17-10" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb17-11"><a href="5-tipos-de-objetos.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se crea una nueva imagen binaria donde será 1 los píxeles con valor </span></span>
+<span id="cb17-12"><a href="5-tipos-de-objetos.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// igual a 322, y 0 los demás</span></span>
+<span id="cb17-13"><a href="5-tipos-de-objetos.html#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> clearData <span class="op">=</span> qaImage<span class="op">.</span><span class="fu">eq</span>(<span class="dv">322</span>)<span class="op">;</span>      </span>
+<span id="cb17-14"><a href="5-tipos-de-objetos.html#cb17-14" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb17-15"><a href="5-tipos-de-objetos.html#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se crea una máscara con la imagen binaria, y se entrega la imagen </span></span>
+<span id="cb17-16"><a href="5-tipos-de-objetos.html#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// original enmascarada</span></span>
+<span id="cb17-17"><a href="5-tipos-de-objetos.html#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> image<span class="op">.</span><span class="fu">updateMask</span>(clearData)<span class="op">;</span>      </span>
+<span id="cb17-18"><a href="5-tipos-de-objetos.html#cb17-18" aria-hidden="true" tabindex="-1"></a> }<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // MaskIm es una nueva función, y su argumento de entrada es objeto
 var maskIm = function(objeto){ 
-
-// Se define qué objeto es una imagen ráster y se guarda en la 
-// variable image
-var image = ee.Image(objeto)     
- 
-// Se selecciona solamente la banda de nombre 'pixel_qa' de la imagen
-// image
-var qaImage = image.select('pixel_qa');
-     
-// Se crea una nueva imagen binaria donde será 1 los píxeles con valor 
-// igual a 322, y 0 los demás
-var clearData = qaImage.eq(322);      
-    
-// Se crea una máscara con la imagen binaria, y se entrega la imagen 
-// original enmascarada
-return image.updateMask(clearData);      
+  // Se define qué objeto es una imagen ráster y se guarda en la 
+  // variable image
+  var image = ee.Image(objeto);
+   
+  // Se selecciona solamente la banda de nombre 'pixel_qa' de la imagen
+  // image
+  var qaImage = image.select('pixel_qa');
+       
+  // Se crea una nueva imagen binaria donde será 1 los píxeles con valor 
+  // igual a 322, y 0 los demás
+  var clearData = qaImage.eq(322);      
+      
+  // Se crea una máscara con la imagen binaria, y se entrega la imagen 
+  // original enmascarada
+  return image.updateMask(clearData);      
  };
 </script>
 <p>Aunque las funciones son propiamente objetos del lado del cliente, deben contener únicamente métodos del lado del servidor para que funcionen apropiadamente al trabajar en GEE. Esto permite que GEE interprete cualquier serie de procesos de manera adecuada en sus servidores. Esto quedará más claro después de repasar la siguiente sección.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Las funciones que se ejecuten sobre una colección de imágenes o vectores solo funcionan si regresan un objeto de tipo <code>ee.Feature</code>, <code>ee.FeatureCollection</code>, <code>ee.Image</code> o <code>ee.ImageCollection</code>, por lo cual, a veces, se deben realizar ciertas conversiones para evitar un error.</p>
+<p>Las funciones que se ejecuten sobre una colección de imágenes o vectores solo funcionan si regresan un objeto de tipo <span style="color: darkpurple;">ee.Feature</span>, <span style="color: darkpurple;">ee.FeatureCollection</span>, <span style="color: darkpurple;">ee.Image</span> o <span style="color: darkpurple;">ee.ImageCollection</span>, por lo cual, a veces, se deben realizar ciertas conversiones para evitar un error.</p>
 </div>
 </div>
 </div>
@@ -623,7 +615,7 @@ return image.updateMask(clearData);
 <p>Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f56">5.6</a>).</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, <code>ee.Object</code>) como por ejemplo, al usar, en casos particulares, los métodos <code>.first</code> o <code>.get</code>, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error <code>...is not a function</code>.</p>
+<p>En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, <code>ee.Object</code>) como por ejemplo, al usar, en casos particulares, los métodos <span style="color: darkpurple;">.first</span> o <span style="color: darkpurple;">.get</span>, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error <code>...is not a function</code>.</p>
 </div>
 </div>
 <div class="bluebox2">
@@ -633,7 +625,7 @@ return image.updateMask(clearData);
 </div>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f56"></span>
-<img src="Img/objetosServ2.png" alt="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de https://developers.google.com/earth-engine/guides/objects_methods_overview." width="80%" />
+<img src="Img/objetosServ2.png" alt="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de https://developers.google.com/earth-engine/guides/objects_methods_overview." width="95%" />
 <p class="caption">
 Figure 5.6: Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de <a href="https://developers.google.com/earth-engine/guides/objects_methods_overview" class="uri">https://developers.google.com/earth-engine/guides/objects_methods_overview</a>.
 </p>
@@ -642,7 +634,7 @@ Figure 5.6: Diagrama con algunos de los objetos del lado del servidor más utili
 <h3>ee.String<a href="5-tipos-de-objetos.html#ee.string" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f57">5.7</a>):</p>
-<p>Ejercicio 4</p>
+<p><span style="color: darkblue;">Ejercicio 4</span></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="5-tipos-de-objetos.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Esta es una cadena de texto del lado del cliente</span></span>
 <span id="cb18-2"><a href="5-tipos-de-objetos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadena2 <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
 <span id="cb18-3"><a href="5-tipos-de-objetos.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">// En este paso se convierte el texto del lado del cliente a un ee.String</span></span>
@@ -656,7 +648,7 @@ var cadena2 = 'Esto es una cadena de caracteres';
 var cadenaServ = ee.String(cadena2);                         
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f57"></span>
-<img src="Img/ej4.png" alt="Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor." width="80%" />
+<img src="Img/ej4.png" alt="Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor." width="95%" />
 <p class="caption">
 Figure 5.7: Salida de la consola de un objeto de tipo cadena de caracteres del lado del servidor.
 </p>
@@ -666,7 +658,7 @@ Figure 5.7: Salida de la consola de un objeto de tipo cadena de caracteres del l
 <h3>ee.Number<a href="5-tipos-de-objetos.html#ee.number" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Permite enviar un número como objeto al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f58">5.8</a>):</p>
-<p>Ejercicio 5</p>
+<p><span style="color: darkblue;">Ejercicio 5</span></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="5-tipos-de-objetos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define un número como ee.Number del servidor</span></span>
 <span id="cb19-2"><a href="5-tipos-de-objetos.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numServ <span class="op">=</span> ee<span class="op">.</span><span class="fu">Number</span>(<span class="dv">1900</span>)<span class="op">;</span>                              </span></code></pre></div>
 <script type="text/javascript">
@@ -674,7 +666,7 @@ Permite enviar un número como objeto al servidor. Por ejemplo (<span style="col
 var numServ = ee.Number(1900);                              
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f58"></span>
-<img src="Img/ej5.png" alt="Salida de la consola de un objeto de tipo número del lado del servidor." width="80%" />
+<img src="Img/ej5.png" alt="Salida de la consola de un objeto de tipo número del lado del servidor." width="95%" />
 <p class="caption">
 Figure 5.8: Salida de la consola de un objeto de tipo número del lado del servidor.
 </p>
@@ -684,7 +676,7 @@ Figure 5.8: Salida de la consola de un objeto de tipo número del lado del servi
 <h3>ee.List<a href="5-tipos-de-objetos.html#ee.list" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Este tipo de objetos corresponden a listas del lado del servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f59">5.9</a>):</p>
-<p>Ejercicio 6</p>
+<p><span style="color: darkblue;">Ejercicio 6</span></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="5-tipos-de-objetos.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye una nueva lista con diferentes tipos de objetos del lado </span></span>
 <span id="cb20-2"><a href="5-tipos-de-objetos.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">// del usuario y servidor</span></span>
 <span id="cb20-3"><a href="5-tipos-de-objetos.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lista <span class="op">=</span> [<span class="st">&#39;hola&#39;</span><span class="op">,</span><span class="st">&#39;12&#39;</span><span class="op">,</span><span class="st">&#39;5%&#39;</span><span class="op">,</span> ee<span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;servidor&#39;</span>)<span class="op">,</span> ee<span class="op">.</span><span class="fu">Number</span>(<span class="dv">64</span>)<span class="op">,</span> <span class="fl">8.32</span>]<span class="op">;</span></span>
@@ -699,8 +691,8 @@ var lista = ['hola','12','5%', ee.String('servidor'), ee.Number(64), 8.32];
 // Se define una lista como ee.List del servidor 
 var listaServ = ee.List(lista);             
 </script>
-<p>Para acceder a un elemento de tipo <code>ee.List</code> se utiliza el método <code>.get</code> (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f59">5.9</a>).</p>
-<p>Ejercicio 6.1</p>
+<p>Para acceder a un elemento de tipo <span style="color: darkpurple;">ee.List</span> se utiliza el método <span style="color: darkpurple;">.get</span> (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f59">5.9</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 6.1</span></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="5-tipos-de-objetos.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se llama solamente al primer objeto de la ee.List del servidor</span></span>
 <span id="cb21-2"><a href="5-tipos-de-objetos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(listaServ<span class="op">.</span><span class="fu">get</span>(<span class="dv">0</span>))<span class="op">;</span>   </span>
 <span id="cb21-3"><a href="5-tipos-de-objetos.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -724,7 +716,7 @@ Figure 5.9: Salida de la consola de un objeto de tipo lista del lado del servido
 <h3>ee.Dictionary<a href="5-tipos-de-objetos.html#ee.dictionary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Permite enviar un objeto como diccionario al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
-<p>Ejercicio 7</p>
+<p><span style="color: darkblue;">Ejercicio 7</span></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="5-tipos-de-objetos.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye un diccionario de usuario con diferentes tipos de objetos</span></span>
 <span id="cb22-2"><a href="5-tipos-de-objetos.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">// del lado del usuario y servidor</span></span>
 <span id="cb22-3"><a href="5-tipos-de-objetos.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dicc <span class="op">=</span> {                                                 </span>
@@ -757,8 +749,8 @@ var dicc = {
 // servidor 
 var diccServ = ee.Dictionary(dicc);     
 </script>
-<p>Se puede consultar utilizando también el método <code>.get</code> y el nombre de la clave (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
-<p>Ejercicio 7.1</p>
+<p>Se puede consultar utilizando también el método <span style="color: darkpurple;">.get</span> y el nombre de la clave (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 7.1</span></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="5-tipos-de-objetos.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se muestra el valor que contiene la clave &#39;lista_de_servidor&#39;</span></span>
 <span id="cb23-2"><a href="5-tipos-de-objetos.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(diccServ<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;lista_de_servidor&#39;</span>))<span class="op">;</span></span>
 <span id="cb23-3"><a href="5-tipos-de-objetos.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -771,8 +763,8 @@ print(diccServ.get('lista_de_servidor'));
 // Se muestra el valor que contiene el elemento 'numero_de_usuario   
 print(diccServ.get('numero_de_usuario'));        
 </script>
-<p>Por último, si se desea obtener las claves disponibles en un <code>ee.Dictionary</code> se utiliza el método <code>.keys</code>. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un <code>ee.Dictionary</code> se utiliza el método <code>.values</code>, el cual devuelve una lista (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
-<p>Ejercicio 7.2</p>
+<p>Por último, si se desea obtener las claves disponibles en un <span style="color: darkpurple;">ee.Dictionary</span> se utiliza el método <span style="color: darkpurple;">.keys</span>. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un <span style="color: darkpurple;">ee.Dictionary</span> se utiliza el método <span style="color: darkpurple;">.values</span>, el cual devuelve una lista (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 7.2</span></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="5-tipos-de-objetos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestra una lista con todas las claves del ee.Dictionary</span></span>
 <span id="cb24-2"><a href="5-tipos-de-objetos.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;claves&#39;</span><span class="op">,</span>diccServ<span class="op">.</span><span class="fu">keys</span>())<span class="op">;</span>    </span>
 <span id="cb24-3"><a href="5-tipos-de-objetos.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -786,7 +778,7 @@ print('claves',diccServ.keys());
 print('valores',diccServ.values());  
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f510"></span>
-<img src="Img/ej7.png" alt="Salida de la consola de varios objetos de tipo diccionario del lado del servidor." width="80%" />
+<img src="Img/ej7.png" alt="Salida de la consola de varios objetos de tipo diccionario del lado del servidor." width="95%" />
 <p class="caption">
 Figure 5.10: Salida de la consola de varios objetos de tipo diccionario del lado del servidor.
 </p>
@@ -799,7 +791,7 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
 <ol style="list-style-type: decimal">
 <li>Se puede usar un texto de usuario indicando la fecha en el siguiente formato: ‘AAAA-MM-DD’, esta fecha obligatoriamente debe:
 <ul>
-<li>Usar la función <code>ee.Date</code>.</li>
+<li>Usar la función <span style="color: darkpurple;">ee.Date</span>.</li>
 <li>Indicar la fecha en el orden de Año Mes Día (AAAA-MM-DD).</li>
 <li>Usar guiones como separadores <code>-</code>.</li>
 <li>Tener meses numéricos de dos dígitos (01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12).</li>
@@ -808,21 +800,21 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
 </ul></li>
 <li>Usar números de usuario, en este caso se debe:
 <ul>
-<li>Usar el método <code>ee.DatefromYMD</code>.</li>
+<li>Usar el método <span style="color: darkpurple;">ee.DatefromYMD</span>.</li>
 <li>Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas.</li>
 </ul></li>
 <li>Usar un texto de usuario especificando el formato, para esto se debe:
 <ul>
-<li>Usar el método <code>ee.Date.parse</code>.</li>
+<li>Usar el método <span style="color: darkpurple;">ee.Date.parse</span>.</li>
 <li>Especificar el formato de la fecha con la siguiente clave (AAAA = año, MM = mes, D = día).</li>
 <li>Especificar el tipo de separador.</li>
 <li>Especificar el orden en el que se ingresará el texto.</li>
 <li>Especificar la cantidad de dígitos esperada para cada ítem (año, mes y día).</li>
 <li>El formato debe estar entre comillas.</li>
-<li>Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a <code>ee.Date</code> (entre el formato y el texto debe ir una coma).</li>
+<li>Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a <span style="color: darkpurple;">ee.Date</span> (entre el formato y el texto debe ir una coma).</li>
 </ul></li>
 </ol>
-<p>Ejercicio 8</p>
+<p><span style="color: darkblue;">Ejercicio 8</span></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="5-tipos-de-objetos.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fecha como un texto de cliente</span></span>
 <span id="cb25-2"><a href="5-tipos-de-objetos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fechaString <span class="op">=</span> <span class="st">&#39;2001-10&#39;</span><span class="op">;</span></span>
 <span id="cb25-3"><a href="5-tipos-de-objetos.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -861,7 +853,7 @@ var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul');
 </div>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f511"></span>
-<img src="Img/ej8.png" alt="Salida de la consola de un objeto de tipo fecha del lado del servidor." width="80%" />
+<img src="Img/ej8.png" alt="Salida de la consola de un objeto de tipo fecha del lado del servidor." width="95%" />
 <p class="caption">
 Figure 5.11: Salida de la consola de un objeto de tipo fecha del lado del servidor.
 </p>
@@ -870,12 +862,12 @@ Figure 5.11: Salida de la consola de un objeto de tipo fecha del lado del servid
 <div id="ee.image" class="section level3 unnumbered hasAnchor">
 <h3>ee.Image<a href="5-tipos-de-objetos.html#ee.image" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-La definición de objetos <code>ee.Image</code> (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.</p>
+La definición de objetos <span style="color: darkpurple;">ee.Image</span> (imagen) habilita los métodos disponibles en GEE para el procesamiento de imágenes. Este va a ser el tipo de objetos para trabajar con cualquier elemento de tipo ráster en GEE. Más adelante se explica con mayor detalle.</p>
 </div>
 <div id="ee.imagecollection" class="section level3 unnumbered hasAnchor">
 <h3>ee.ImageCollection<a href="5-tipos-de-objetos.html#ee.imagecollection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Las colecciones de imágenes (<em>image collections</em>) están formadas por imágenes individuales (<code>ee.Image</code>). Más adelante se explica este tipo de objetos con mayor detalle.</p>
+Las colecciones de imágenes (<em>image collections</em>) están formadas por imágenes individuales (<span style="color: darkpurple;">ee.Image</span>). Más adelante se explica este tipo de objetos con mayor detalle.</p>
 </div>
 <div id="ee.feature" class="section level3 unnumbered hasAnchor">
 <h3>ee.Feature<a href="5-tipos-de-objetos.html#ee.feature" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -885,27 +877,27 @@ Este va a ser el tipo de objetos para trabajar con cualquier objeto de tipo vect
 <div id="ee.featurecollection" class="section level3 unnumbered hasAnchor">
 <h3>ee.FeatureCollection<a href="5-tipos-de-objetos.html#ee.featurecollection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Las colecciones de vectores (<em>feature collections</em>) están formadas por varios vectores (<code>ee.Feature</code>). Más adelante se explican estos objetos con mayor detalle.</p>
+Las colecciones de vectores (<em>feature collections</em>) están formadas por varios vectores (<span style="color: darkpurple;">ee.Feature</span>). Más adelante se explican estos objetos con mayor detalle.</p>
 </div>
 <div id="ee.algorithms" class="section level3 unnumbered hasAnchor">
 <h3>ee.Algorithms<a href="5-tipos-de-objetos.html#ee.algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, por ejemplo, <code>ee.Algorithms.If</code>, hasta algoritmos de segmentación temporal de una serie de imágenes, por ejemplo, <code>ee.Algorithms.TemporalSegmentation.Ccdc</code>.</p>
+Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos tienen una gran variedad de aplicaciones, desde operaciones sencillas como una evaluación lógica, por ejemplo, <span style="color: darkpurple;">ee.Algorithms.If</span>, hasta algoritmos de segmentación temporal de una serie de imágenes, por ejemplo, <span style="color: darkpurple;">ee.Algorithms.TemporalSegmentation.Ccdc</span>.</p>
 </div>
 <div id="ee.array" class="section level3 unnumbered hasAnchor">
 <h3>ee.Array<a href="5-tipos-de-objetos.html#ee.array" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de <code>ee.Array</code> (ver liga anterior).</p>
+Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de <span style="color: darkpurple;">ee.Array</span> (ver liga anterior).</p>
 </div>
 <div id="ee.classifier" class="section level3 unnumbered hasAnchor">
 <h3>ee.Classifier<a href="5-tipos-de-objetos.html#ee.classifier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos corresponden a algoritmos de clasificación supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de random forest, disponible mediante la función <code>ee.Classifier.smileRandomForest</code> o MaxEnt, disponible mediante la función <code>ee.Classifier.amnhMaxent</code>, entre otros.</p>
+Este tipo de objetos corresponden a algoritmos de clasificación supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de random forest, disponible mediante la función <span style="color: darkpurple;">ee.Classifier.smileRandomForest</span> o MaxEnt, disponible mediante la función <span style="color: darkpurple;">ee.Classifier.amnhMaxent</span>, entre otros.</p>
 </div>
 <div id="ee.clusterer" class="section level3 unnumbered hasAnchor">
 <h3>ee.Clusterer<a href="5-tipos-de-objetos.html#ee.clusterer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos corresponden a algoritmos de clasificación no supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de k-means, disponible mediante la función <code>ee.Clusterer.wekaKMeans</code> o Cobweb, disponible mediante la función <code>ee.Clusterer.wekaCobweb</code>.</p>
+Este tipo de objetos corresponden a algoritmos de clasificación no supervisada de datos que se encuentran precargados en GEE. Por ejemplo, se encuentra el algoritmo de k-means, disponible mediante la función <span style="color: darkpurple;">ee.Clusterer.wekaKMeans</span> o Cobweb, disponible mediante la función <span style="color: darkpurple;">ee.Clusterer.wekaCobweb</span>.</p>
 </div>
 <div id="ee.filter" class="section level3 unnumbered hasAnchor">
 <h3>ee.Filter<a href="5-tipos-de-objetos.html#ee.filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -915,12 +907,12 @@ Este tipo de objetos se utilizan para filtrar colecciones, ya sean de vectores o
 <div id="ee.geometry" class="section level3 unnumbered hasAnchor">
 <h3>ee.Geometry<a href="5-tipos-de-objetos.html#ee.geometry" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, <code>ee.Geometry.MultiPolygon.Simplify</code> para simplificar polígonos múltiples o <code>ee.Geometry.Polygon.area</code> para calcular el área de un polígono, por ejemplo.</p>
+Este tipo de objetos corresponden a distintos tipos de geometrías, que incluyen líneas, polígonos y puntos. Además, en GEE se encuentran varios métodos precargados que se pueden aplicar a este tipo de objetos como, <span style="color: darkpurple;">ee.Geometry.MultiPolygon.Simplify</span> para simplificar polígonos múltiples o <span style="color: darkpurple;">ee.Geometry.Polygon.area</span> para calcular el área de un polígono, por ejemplo.</p>
 </div>
 <div id="ee.join" class="section level3 unnumbered hasAnchor">
 <h3>ee.Join<a href="5-tipos-de-objetos.html#ee.join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este conjunto de métodos permite realizar uniones entre colecciones de vectores o imágenes, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante <code>ee.Join.merge</code> o unir los campos de una primera colección con los de una segunda mediante <code>ee.Join.inner</code>.</p>
+Este conjunto de métodos permite realizar uniones entre colecciones de vectores o imágenes, utilizando los campos de estos como las claves para realizar las uniones. Por ejemplo, se pueden unir dos colecciones de vectores mediante <span style="color: darkpurple;">ee.Join.merge</span> o unir los campos de una primera colección con los de una segunda mediante <span style="color: darkpurple;">ee.Join.inner</span>.</p>
 </div>
 <div id="ee.reducer" class="section level3 unnumbered hasAnchor">
 <h3>ee.Reducer<a href="5-tipos-de-objetos.html#ee.reducer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -930,7 +922,7 @@ Los reductores permiten agregar datos basados en una regla o utilizando una oper
 <div id="ee.terrain" class="section level3 unnumbered hasAnchor">
 <h3>ee.Terrain<a href="5-tipos-de-objetos.html#ee.terrain" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos <code>ee.Terrain.aspect</code> para calcular el aspecto o <code>ee.Terrain.slope</code> para calcular la pendiente.</p>
+Este conjunto de métodos permite calcular algunas operaciones topográficas, a partir de un modelo digital de elevación (DEM). Por ejemplo, en GEE se encuentran los métodos <span style="color: darkpurple;">ee.Terrain.aspect</span> para calcular el aspecto o <span style="color: darkpurple;">ee.Terrain.slope</span> para calcular la pendiente.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>Los argumentos de cualquier método del servidor se pueden pasar de dos maneras: 1) siguiendo el orden por defecto de los argumentos del método y separando cada argumento por una coma, o 2) como un diccionario (dentro de llaves <code>{}</code>) indicando el nombre del argumento como la clave, seguido de dos puntos y el valor del argumento. En este último caso, también se separa cada argumento con una coma.</p>

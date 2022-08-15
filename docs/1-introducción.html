@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="declaración-de-afiliación.html"/>
+<link rel="prev" href="advertencia-sobre-los-enlaces.html"/>
 <link rel="next" href="2-primeros-pasos.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -338,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">1</span> Introducción<a href="1-introducción.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="propósito-del-libro" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Propósito del libro<a href="1-introducción.html#propósito-del-libro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick et al., 2017; Amani et al., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes.</p>
+<p>Este manual pretende ser una guía introductoria a Google Earth Engine (GEE) que ayude a los nuevos usuarios a entender su estructura, funcionamiento, capacidades, y facilitar el uso de esta poderosa herramienta gratuita. Existen algunos artículos previos que han presentado las características básicas de GEE, sin embargo, la mayoría están escritos en inglés (Gorelick <em>et al</em>., 2017; Amani <em>et al</em>., 2020), aunque en español existen algunas publicaciones también (ver Perilla y Mas, [2020]). La documentación propia de GEE ya existe en inglés, pero con este manual escrito en español se busca ampliar el público objetivo y aumentar el alcance del programa hacia países hispanoparlantes.</p>
 <p>Es importante aclarar que esta guía es solamente introductoria, por lo tanto, hay muchas funciones que se pueden realizar en GEE que quedan fuera de este documento (por ejemplo, los análisis de series de tiempo o la creación de aplicaciones). Además, debido a su carácter introductorio, este manual está dirigido a usuarios con y sin conocimientos previos de programación. GEE está en constante actualización, por lo que este manual se enfoca en el corazón del funcionamiento de la API de GEE, que es lo que menos cambia en el tiempo. Sin embargo, aconsejamos buscar información adicional sobre las actualizaciones de GEE, así como revisar su documentación oficial.</p>
 <p>Para aprender a usar GEE, como sucede con cualquier programa informático, se debe llevar a cabo un proceso de prueba y error, mediante el desarrollo de códigos propios. Los autores esperamos que esta herramienta ayude a los nuevos usuarios a comenzar a utilizar GEE y a alcanzar sus objetivos particulares de investigación.</p>
 <div class="bluebox2">
@@ -361,7 +355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>GEE nace de la necesidad de aprovechar esa <em>big data</em> al ofrecer una herramienta que pueda lidiar tecnológicamente con el manejo de enormes volúmenes de información, permitiendo entonces que los usuarios se concentren en la generación de resultados y nuevos desarrollos científicos. Para lograr este objetivo, se creó una infraestructura con tres elementos claves, que son los que permiten el funcionamiento de GEE: el catálogo de información, la capacidad computacional y las API.</p>
 <p>GEE recopiló la información geoespacial de diferentes fuentes alrededor del mundo y creó copias de esos datos en su propio <em>data center</em>, logrando así almacenar más de 20 petabytes (20 000 000 de gigabytes) de información en un solo lugar. El programa ofrece un amplio repositorio de información geográfica global que ya se encuentra cargada en su catálogo, lo cual facilita el acceso a diferentes fuentes de datos (<span style="color: darkblue;">Fig.</span> <a href="1-introducción.html#fig:f11">1.1</a>). Entre la información que se puede consultar directamente en GEE se encuentran: acervos para todo el mundo de imágenes Landsat (1-9), MODIS, Sentinel (1-3, 5), SRTM, AVHRR, GOESS, ALOS, mosaicos anuales de PALSAR/PALSAR 2 y algunos productos derivados de estas imágenes u otros insumos como información climática global (WorldClim), capas de cambios en la cobertura forestal (Global Forest Cover Change), información de la altura del dosel global (Global Forest Canopy Height), mapas de densidad de carbono globales (Global Aboveground and Belowground Biomass Carbon Density Map), datos de precipitación globales (CHIRPS), límites políticos (FAO GAUL: Global Administrative Unit Layers 2015, Country Boundaries), polígonos de áreas protegidas mundiales (WDPA: World Database on Protected Areas), densidad poblacional (GPWv411: Population Density —Gridded Population of the World Version 4.11—) y cuencas (WWF HydroSHEDS Hydrologically Conditioned DEM), entre otras.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f11"></span>
-<img src="Img/Datasets.png" alt="Algunos ejemplos de fuentes de información disponibles en GEE." width="80%" />
+<img src="Img/Datasets.png" alt="Algunos ejemplos de fuentes de información disponibles en GEE." width="95%" />
 <p class="caption">
 Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
 </p>
@@ -396,23 +390,23 @@ Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
 <h3>Ejemplos de aplicaciones realizadas con GEE<a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>GEE se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:</p>
 <ul>
-<li>Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo et al., 2020; Hamunyela et al., 2020).</li>
-<li>Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen et al., 2013).</li>
-<li>Estimar variables biofísicas de la superficie terrestre (Campos-Taberner et al., 2018).</li>
-<li>Enmascarar nubes de imágenes (Mateo-García et al., 2018).</li>
-<li>Monitorear asentamientos humanos (Trianni et al., 2014).</li>
-<li>Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano et al., 2020a; Solórzano et al., 2020b).</li>
-<li>Mapear campos de cultivo (Xiong et al., 2017; Dong et al., 2016).</li>
-<li>Identificar plantaciones de palma de aceite (Lee et al., 2016).</li>
-<li>Mapear cicatrices de incendios (Arruda et al., 2021).</li>
-<li>Evaluar el grado de sequía de la superficie terrestre (Sazib et al., 2018).</li>
-<li>Mapear características de humedales (Slagter et al., 2018).</li>
-<li>Caracterizar islas de calor (Ravanelli et al., 2018), entre muchos otros.</li>
+<li>Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo <em>et al</em>., 2020; Hamunyela <em>et al</em>., 2020).</li>
+<li>Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen <em>et al</em>., 2013).</li>
+<li>Estimar variables biofísicas de la superficie terrestre (Campos-Taberner <em>et al</em>., 2018).</li>
+<li>Enmascarar nubes de imágenes (Mateo-García <em>et al</em>., 2018).</li>
+<li>Monitorear asentamientos humanos (Trianni <em>et al</em>., 2014).</li>
+<li>Analizar la disponibilidad de imágenes y observaciones despejadas (Solórzano <em>et al</em>., 2020a; Solórzano <em>et al</em>., 2020b).</li>
+<li>Mapear campos de cultivo (Xiong <em>et al</em>., 2017; Dong <em>et al</em>., 2016).</li>
+<li>Identificar plantaciones de palma de aceite (Lee <em>et al</em>., 2016).</li>
+<li>Mapear cicatrices de incendios (Arruda <em>et al</em>., 2021).</li>
+<li>Evaluar el grado de sequía de la superficie terrestre (Sazib <em>et al</em>., 2018).</li>
+<li>Mapear características de humedales (Slagter <em>et al</em>., 2018).</li>
+<li>Caracterizar islas de calor (Ravanelli <em>et al</em>., 2018), entre muchos otros.</li>
 </ul>
-<p>Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar et al., 2018).</p>
+<p>Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar <em>et al</em>., 2018).</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick et al. (2017).</p>
+<p>GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick <em>et al</em>. (2017).</p>
 </div>
 </div>
 
@@ -425,7 +419,7 @@ Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
           </div>
         </div>
       </div>
-<a href="declaración-de-afiliación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="advertencia-sobre-los-enlaces.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="2-primeros-pasos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

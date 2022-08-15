@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -337,16 +331,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ee.feature-1" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">7</span> ee.Feature<a href="7-ee.feature-1.html#ee.feature-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>
-Los vectores (<code>ee.Feature</code>) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
-Es importante recalcar que una <code>ee.Feature</code> es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).</p>
+Los vectores (<span style="color: darkpurple;">ee.Feature</span>) en GEE son los objetos predeterminados para leer información vectorial o de tablas.
+Es importante recalcar que una <span style="color: darkpurple;">ee.Feature</span> es un vector individual, de modo que solo puede contener una sola geometría (polígono, línea, punto, multipunto, multipolígono).</p>
 <div id="información-y-metadatos-1" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Información y metadatos<a href="7-ee.feature-1.html#información-y-metadatos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto <code>ee.Geometry</code>, mientras que para conocer características de las propiedades se puede utilizar el método <code>.propertyNames</code>.</p>
+<p>Un vector estará compuesto por una geometría (punto, línea, polígono, multipolígono) y los atributos asociados a esa geometría (estos atributos son llamados propiedades y están almacenados en un diccionario; ver Olaya [2020] para una descripción más detallada de un vector). Para obtener información geométrica de los vectores se pueden utilizar los mismos métodos que un objeto <span style="color: darkpurple;">ee.Geometry</span>, mientras que para conocer características de las propiedades se puede utilizar el método <span style="color: darkpurple;">.propertyNames</span>.</p>
 </div>
 <div id="visualización-de-vectores" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Visualización de vectores<a href="7-ee.feature-1.html#visualización-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función <code>Map.addLayer</code>, como código hexadecimal.</p>
+Las geometrías y vectores pueden ser visualizados en el mapa de GEE. El aspecto predeterminado de los vectores presenta líneas sólidas negras y un relleno semiopaco gris. Sin embargo, se puede especificar el color dentro de un diccionario en la función <span style="color: darkpurple;">Map.addLayer</span>, como código hexadecimal.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>Los cambios de los parámetros de visualización de los vectores no pueden hacerse en las herramientas de capa del mapa, solo pueden hacerse desde el editor de código. Para consultar el código hexadecimal del color deseado se puede acceder al siguiente enlace: <a href="https://htmlcolorcodes.com/es/" class="uri">https://htmlcolorcodes.com/es/</a></p>
@@ -364,7 +358,7 @@ Map.addLayer(vector, {color: '2AF116'}, 'capa color verde');
 <div id="creación-de-vectores" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Creación de vectores<a href="7-ee.feature-1.html#creación-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para crear un vector desde cero es necesario definir una geometría y opcionalmente un diccionario de propiedades (atributos) asociados a esa geometría. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f71">7.1</a>):</p>
-<p>Ejercicio 10</p>
+<p><span style="color: darkblue;">Ejercicio 10</span></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb29-1"><a href="7-ee.feature-1.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un polígono</span></span>
 <span id="cb29-2"><a href="7-ee.feature-1.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> poligono <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>([</span>
 <span id="cb29-3"><a href="7-ee.feature-1.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">119.24</span><span class="op">,</span> <span class="fl">32.73</span><span class="op">,</span></span>
@@ -405,9 +399,9 @@ var vector = ee.Feature(
 <div id="selección-de-propiedades" class="section level3 unnumbered hasAnchor">
 <h3>Selección de propiedades<a href="7-ee.feature-1.html#selección-de-propiedades" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método <code>.select</code>. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas.</p>
-<p>Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f71">7.1</a>):</p>
-<p>Ejercicio 10</p>
+Una vez revisados los nombres de las propiedades de un vector, se pueden seleccionar ciertos atributos mediante el método <span style="color: darkpurple;">.select</span>. Para seleccionar una única propiedad solo se requiere indicar el nombre de esta (entre comillas dentro de una lista), mientras que si se desea seleccionar varias propiedades, estas deben indicarse dentro de una lista separadas por comas.</p>
+<p>Adicionalmente, se pueden renombrar las propiedades del vector. Para ello se inserta primero una lista que contenga las propiedades a las que se les desea cambiar el nombre, seguida de una segunda lista con los nuevos nombres. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f71">7.1</a>):
+<span style="color: darkblue;">Ejercicio 10.1</span></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb30-1"><a href="7-ee.feature-1.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span>]))<span class="op">;</span></span>
 <span id="cb30-2"><a href="7-ee.feature-1.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span><span class="op">,</span><span class="st">&#39;tamaño&#39;</span>]))<span class="op">;</span></span>
 <span id="cb30-3"><a href="7-ee.feature-1.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector<span class="op">.</span><span class="fu">select</span>([<span class="st">&#39;anno&#39;</span><span class="op">,</span><span class="st">&#39;tamaño&#39;</span>]<span class="op">,</span>[<span class="st">&#39;year&#39;</span><span class="op">,</span><span class="st">&#39;southamerica&#39;</span>]))<span class="op">;</span></span></code></pre></div>
@@ -420,14 +414,14 @@ print(vector.select(['anno','tamaño'],['year','southamerica']));
 <div id="adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes" class="section level3 unnumbered hasAnchor">
 <h3>Adición de nuevas propiedades o modificación de propiedades preexistentes<a href="7-ee.feature-1.html#adición-de-nuevas-propiedades-o-modificación-de-propiedades-preexistentes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Usando el método <code>.set</code> se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f71">7.1</a>):</p>
-<p>Ejercicio 10.1</p>
+Usando el método <span style="color: darkpurple;">.set</span> se pueden modificar las propiedades preexistentes o escribir nuevas propiedades sobre el vector. En este caso, primero se indica el nombre de la clave, seguido del valor correspondiente a la clave indicada. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f71">7.1</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 10.2</span></p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb31-1"><a href="7-ee.feature-1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> vector1 <span class="op">=</span> vector<span class="op">.</span><span class="fu">set</span>(<span class="st">&#39;tamaño&#39;</span><span class="op">,</span><span class="st">&#39;neotropico&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 var vector1 = vector.set('tamaño','neotropico');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f71"></span>
-<img src="Img/ej10.png" alt="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad." width="80%" />
+<img src="Img/ej10.png" alt="Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad." width="95%" />
 <p class="caption">
 Figure 7.1: Visualización del vector creado, así como las salidas de la consola que muestran la selección de algunas propiedades o adición de una propiedad.
 </p>
@@ -436,14 +430,14 @@ Figure 7.1: Visualización del vector creado, así como las salidas de la consol
 <div id="extracción-y-edición-de-propiedades-de-vectores" class="section level3 unnumbered hasAnchor">
 <h3>Extracción y edición de propiedades de vectores<a href="7-ee.feature-1.html#extracción-y-edición-de-propiedades-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos <code>ee.Feature</code>. Para ello, se extrae el primer vector de una colección de vectores utilizando el método <code>.first</code>. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f72">7.2</a>).</p>
+En este ejercicio primero se selecciona un vector para ejemplificar el uso de algunos métodos de los objetos <span style="color: darkpurple;">ee.Feature</span>. Para ello, se extrae el primer vector de una colección de vectores utilizando el método <span style="color: darkpurple;">.first</span>. Este procedimiento se verá con mayor detalle en el siguiente capítulo, en los métodos de las colecciones de vectores. A continuación, se consultarán algunas propiedades y atributos del vector seleccionado (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f72">7.2</a>).</p>
 <ol style="list-style-type: decimal">
-<li>Usamos el método <code>.propertyNames</code> para obtener una lista de los nombres de los atributos del vector.</li>
-<li>Usamos el método <code>.toDictionary</code> para generar un diccionario con todos los atributos (claves) y sus valores del vector.</li>
-<li>Usamos el método <code>.get</code> para obtener el valor del atributo ‘COAST’ del vector.</li>
-<li>Usando el método <code>.select</code> podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.</li>
+<li>Usamos el método <span style="color: darkpurple;">.propertyNames</span> para obtener una lista de los nombres de los atributos del vector.</li>
+<li>Usamos el método <span style="color: darkpurple;">.toDictionary</span> para generar un diccionario con todos los atributos (claves) y sus valores del vector.</li>
+<li>Usamos el método <span style="color: darkpurple;">.get</span> para obtener el valor del atributo ‘COAST’ del vector.</li>
+<li>Usando el método <span style="color: darkpurple;">.select</span> podemos seleccionar solamente una lista de atributos definidos, y si colocamos una segunda lista entonces los atributos de la primera lista serán renombrados con los nombres de la segunda.</li>
 </ol>
-<p>Ejercicio 11</p>
+<p><span style="color: darkblue;">Ejercicio 11</span></p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a href="7-ee.feature-1.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Llamamos una capa de cuencas de alta resolución de GEE</span></span>
 <span id="cb32-2"><a href="7-ee.feature-1.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">// y se selecciona el primer vector de la colección</span></span>
 <span id="cb32-3"><a href="7-ee.feature-1.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cuenca <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(</span>
@@ -481,7 +475,7 @@ var costa = cuenca.get('COAST');
 var renombre = cuenca.select(['COAST'],['costa maritima']);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f72"></span>
-<img src="Img/ej11.png" alt="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades." width="80%" />
+<img src="Img/ej11.png" alt="Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades." width="95%" />
 <p class="caption">
 Figure 7.2: Salida de la consola de las propiedades del vector de cuenca, así como de la selección de algunas de sus propiedades.
 </p>
@@ -490,8 +484,8 @@ Figure 7.2: Salida de la consola de las propiedades del vector de cuenca, así c
 <div id="intersección-con-otros-vectores" class="section level3 unnumbered hasAnchor">
 <h3>Intersección con otros vectores<a href="7-ee.feature-1.html#intersección-con-otros-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método <code>.intersection</code>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>):</p>
-<p>Ejercicio 12</p>
+Se pueden realizar cortes de un vector para quedarse con el área específica que intersecta otro vector utilizando el método <span style="color: darkpurple;">.intersection</span>. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>):</p>
+<p><span style="color: darkblue;">Ejercicio 12</span></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb33-1"><a href="7-ee.feature-1.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear dos vectores rectangulares</span></span>
 <span id="cb33-2"><a href="7-ee.feature-1.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rectangulo1 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">92.0</span><span class="op">,</span><span class="fl">10.6</span><span class="op">,-</span><span class="fl">82.0</span><span class="op">,</span><span class="fl">20.7</span>))<span class="op">;</span></span>
 <span id="cb33-3"><a href="7-ee.feature-1.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rectangulo2 <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>(<span class="op">-</span><span class="fl">86.03</span><span class="op">,</span><span class="fl">15.6</span><span class="op">,-</span><span class="fl">100.0</span><span class="op">,</span><span class="fl">40.7</span>))<span class="op">;</span></span>
@@ -508,15 +502,15 @@ var interseccion = rectangulo1.intersection(rectangulo2);
 </script>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método <code>.intersection</code>).</p>
+<p>Al realizar una intersección, el vector resultante heredará los atributos del vector al que se le aplicó dicho método (es decir, el objeto que queda del lado izquierdo del método <span style="color: darkpurple;">.intersection</span>).</p>
 </div>
 </div>
 </div>
 <div id="creación-de-un-buffer" class="section level3 unnumbered hasAnchor">
 <h3>Creación de un buffer<a href="7-ee.feature-1.html#creación-de-un-buffer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para realizar un buffer a partir de un vector se utiliza el método <code>.buffer</code>, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
-<p>Ejercicio 12.1</p>
+Para realizar un buffer a partir de un vector se utiliza el método <span style="color: darkpurple;">.buffer</span>, en el cual hay que indicar el valor en metros del tamaño del buffer y el error máximo aceptado (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 12.1</span></p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb34-1"><a href="7-ee.feature-1.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un vector de un  punto</span></span>
 <span id="cb34-2"><a href="7-ee.feature-1.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> punto <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">105.24</span><span class="op">,</span> <span class="op">-</span><span class="fl">2.73</span>))<span class="op">;</span></span>
 <span id="cb34-3"><a href="7-ee.feature-1.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -533,8 +527,8 @@ var bufferPol = punto.buffer(500000, 0.1);
 <div id="cálculo-de-área" class="section level3 unnumbered hasAnchor">
 <h3>Cálculo de área<a href="7-ee.feature-1.html#cálculo-de-área" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Para calcular el área de un vector se utiliza el método <code>.area</code>. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
-<p>Ejercicio 12.2</p>
+Para calcular el área de un vector se utiliza el método <span style="color: darkpurple;">.area</span>. En este caso hay que definir el valor máximo de error aceptado. El área siempre se calcula en metros cuadrados (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 12.2</span></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb35-1"><a href="7-ee.feature-1.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el área del buffer</span></span>
 <span id="cb35-2"><a href="7-ee.feature-1.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> area <span class="op">=</span> bufferPol<span class="op">.</span><span class="fu">area</span>(<span class="fl">0.1</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -545,8 +539,8 @@ var area = bufferPol.area(0.1);
 <div id="cálculo-de-perímetro" class="section level3 unnumbered hasAnchor">
 <h3>Cálculo de perímetro<a href="7-ee.feature-1.html#cálculo-de-perímetro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Podemos calcular el perímetro de un vector usando el método <code>.perimeter</code>, que hace el cálculo en metros (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
-<p>Ejercicio 12.3</p>
+Podemos calcular el perímetro de un vector usando el método <span style="color: darkpurple;">.perimeter</span>, que hace el cálculo en metros (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 12.3</span></p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="7-ee.feature-1.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calcular el perímetro del buffer</span></span>
 <span id="cb36-2"><a href="7-ee.feature-1.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> perimetro <span class="op">=</span> interseccion<span class="op">.</span><span class="fu">perimeter</span>()<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -557,8 +551,8 @@ var perimetro = interseccion.perimeter();
 <div id="disolución-de-polígonos" class="section level3 unnumbered hasAnchor">
 <h3>Disolución de polígonos<a href="7-ee.feature-1.html#disolución-de-polígonos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-El método <code>.dissolve</code> une todas las geometrías que se intersectan de un vector en un solo polígono y si no se intersectan, genera un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
-<p>Ejercicio 12.4</p>
+El método <span style="color: darkpurple;">.dissolve</span> une todas las geometrías que se intersectan de un vector en un solo polígono y si no se intersectan, genera un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 12.4</span></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb37-1"><a href="7-ee.feature-1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Crear un vector de multipolígono</span></span>
 <span id="cb37-2"><a href="7-ee.feature-1.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> multi <span class="op">=</span> ee<span class="op">.</span><span class="fu">Feature</span>(ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">MultiPolygon</span>(</span>
 <span id="cb37-3"><a href="7-ee.feature-1.html#cb37-3" aria-hidden="true" tabindex="-1"></a>            [[[[<span class="op">-</span><span class="dv">137</span><span class="op">,</span> <span class="dv">20</span>]<span class="op">,</span></span>
@@ -623,8 +617,8 @@ var disuelto = ee.Feature(multi.dissolve(0.1));
 <div id="unión-de-vectores" class="section level3 unnumbered hasAnchor">
 <h3>Unión de vectores<a href="7-ee.feature-1.html#unión-de-vectores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-El método <code>.union</code> permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo estén se convertirán en un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
-<p>Ejercicio 12.5</p>
+El método <span style="color: darkpurple;">.union</span> permite fusionar las geometrías de dos vectores en una sola geometría de un vector. Las geometrías que están intersectadas serán disueltas y las que no lo estén se convertirán en un multipolígono (<span style="color: darkblue;">Fig.</span> <a href="7-ee.feature-1.html#fig:f73">7.3</a>).</p>
+<p><span style="color: darkblue;">Ejercicio 12.5</span></p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb38-1"><a href="7-ee.feature-1.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Unir geometrías del buffer y un rectángulo </span></span>
 <span id="cb38-2"><a href="7-ee.feature-1.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> union <span class="op">=</span> rectangulo2<span class="op">.</span><span class="fu">union</span>(bufferPol)</span></code></pre></div>
 <script type="text/javascript">
@@ -632,7 +626,7 @@ El método <code>.union</code> permite fusionar las geometrías de dos vectores 
 var union = rectangulo2.union(bufferPol)
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f73"></span>
-<img src="Img/ej12.png" alt="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados." width="80%" />
+<img src="Img/ej12.png" alt="Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados." width="95%" />
 <p class="caption">
 Figure 7.3: Visualización de la unión de diferentes geometrías, así como la salida de la consola de la intersección, área y perímetro calculados.
 </p>

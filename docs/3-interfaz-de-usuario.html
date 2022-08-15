@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -340,26 +334,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="impresión-en-consola" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Impresión en consola<a href="3-interfaz-de-usuario.html#impresión-en-consola" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función <code>print</code> (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, este se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (<em>bugs</em>) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la <span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f31">3.1</a>.</p>
+La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función <span style="color: darkpurple;">print</span> (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, este se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (<em>bugs</em>) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la <span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f31">3.1</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="3-interfaz-de-usuario.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Hola Mundo&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 print('Hola Mundo');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f31"></span>
-<img src="Img/holaMundo.png" alt="Ejemplo del uso de la función print para imprimir en la consola." width="40%" />
+<img src="Img/holaMundo.png" alt="Ejemplo del uso de la función print para imprimir en la consola." width="60%" />
 <p class="caption">
 Figure 3.1: Ejemplo del uso de la función print para imprimir en la consola.
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Se recomienda utilizar varias impresiones en la consola (mediante <code>print</code>), por programa, para verificar el resultado de procesos intermedios.</p>
+<p>Se recomienda utilizar varias impresiones en la consola (mediante <span style="color: darkpurple;">print</span>), por programa, para verificar el resultado de procesos intermedios.</p>
 </div>
 </div>
 </div>
 <div id="interacción-con-la-pantalla-de-mapa" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Interacción con la pantalla de mapa<a href="3-interfaz-de-usuario.html#interacción-con-la-pantalla-de-mapa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapa, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapa se encuentran dentro de la biblioteca <code>Map</code>.</p>
+<p>Este grupo de funciones permiten agregar objetos del lado del servidor a la pantalla de mapa, así como controlar algunos parámetros de dicha pantalla. Todas las funciones encargadas del manejo de la pantalla de mapa se encuentran dentro de la biblioteca <span style="color: darkpurple;">Map</span>.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de <strong>Code Editor</strong> en la siguiente liga: <a href="https://developers.google.com/earth-engine/apidocs" class="uri">https://developers.google.com/earth-engine/apidocs</a>. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.</p>
@@ -368,8 +362,8 @@ Figure 3.1: Ejemplo del uso de la función print para imprimir en la consola.
 <div id="map.addlayer" class="section level4 unnumbered hasAnchor">
 <h4>Map.addLayer<a href="3-interfaz-de-usuario.html#map.addlayer" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>
-<code>Map.addLayer</code> permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (<code>ee.Feature</code>) o imagen (<code>ee.Image</code>; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función <code>Map.addLayer</code> incluyen el objeto a añadir a la pantalla de mapa, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapa.</p>
-<p>Al utilizar <code>Map.addLayer</code> sobre una imagen se pueden indicar los siguientes argumentos: <code>bands</code> (bandas), <code>min</code> y <code>max</code> (valores mínimos y máximos para visualizar la información). Estos se deben pasar dentro de un par de llaves <code>{}</code> como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o en compuesto RGB (del inglés Red, Green, Blue). En el caso de optar por el primero, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en el segundo se deben agregar las bandas en orden, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f32">3.2</a>).</p>
+<span style="color: darkpurple;">Map.addLayer</span> permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (<span style="color: darkpurple;">ee.Feature</span>) o imagen (<span style="color: darkpurple;">ee.Image</span>; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función <span style="color: darkpurple;">Map.addLayer</span> incluyen el objeto a añadir a la pantalla de mapa, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapa.</p>
+<p>Al utilizar <span style="color: darkpurple;">Map.addLayer</span> sobre una imagen se pueden indicar los siguientes argumentos: <code>bands</code> (bandas), <code>min</code> y <code>max</code> (valores mínimos y máximos para visualizar la información). Estos se deben pasar dentro de un par de llaves <code>{}</code> como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o en compuesto RGB (del inglés Red, Green, Blue). En el caso de optar por el primero, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en el segundo se deben agregar las bandas en orden, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f32">3.2</a>).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="3-interfaz-de-usuario.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
 <span id="cb2-2"><a href="3-interfaz-de-usuario.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2000</span>}<span class="op">,</span> </span>
 <span id="cb2-3"><a href="3-interfaz-de-usuario.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&#39;RGB&#39;</span>)<span class="op">;</span></span></code></pre></div>
@@ -379,7 +373,7 @@ Map.addLayer(image, {bands: ['B4', 'B3', 'B2'],
                       'RGB');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f32"></span>
-<img src="Img/LTerminos.png" alt="Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México." width="80%" />
+<img src="Img/LTerminos.png" alt="Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México." width="95%" />
 <p class="caption">
 Figure 3.2: Ejemplo de visualización de un compuesto RGB de una imagen Landsat 8 sobre Laguna de Términos, México.
 </p>
@@ -394,13 +388,13 @@ Figure 3.2: Ejemplo de visualización de un compuesto RGB de una imagen Landsat 
 <p>La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: <a href="https://epsg.io/" class="uri">https://epsg.io/</a>. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.</p>
 </div>
 </div>
-<p>Para el caso de los vectores (<code>ee.Feature</code>) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es <code>color</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f33">3.3</a>):</p>
+<p>Para el caso de los vectores (<span style="color: darkpurple;">ee.Feature</span>) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es <code>color</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f33">3.3</a>):</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="3-interfaz-de-usuario.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(feature<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">&#39;FF0000&#39;</span>}<span class="op">,</span> <span class="st">&#39;featuresColored&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f33"></span>
-<img src="Img/SAmerica.png" alt="Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color." width="80%" />
+<img src="Img/SAmerica.png" alt="Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color." width="95%" />
 <p class="caption">
 Figure 3.3: Ejemplo de visualización de un vector con los límites políticos de los países de Sudamérica donde se indica su color.
 </p>
@@ -423,16 +417,16 @@ Map.setCenter(-39.86, 20.52, 5)
 </div>
 <div id="creación-de-gráficos" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Creación de gráficos<a href="3-interfaz-de-usuario.html#creación-de-gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este grupo de funciones permiten realizar gráficos de diversos tipos; sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la biblioteca <code>ui.Chart</code>. Los objetos básicos que permite graficar GEE son: vectores (<code>ee.Feature</code>), colecciones de vectores (<code>ee.FeatureCollection</code>), imágenes (<code>ee.Image</code>), colecciones de imágenes (<code>ee.ImageCollection</code>), arreglos (<code>ee.Array</code>) y listas (<code>ee.List</code>). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método <code>.setOptions</code> sobre el objeto de tipo gráfico.</p>
+<p>Este grupo de funciones permiten realizar gráficos de diversos tipos; sin embargo, cada tipo de gráfico contiene argumentos válidos diferentes. Todas estas funciones se encuentran agrupadas dentro de la biblioteca <span style="color: darkpurple;">ui.Chart</span>. Los objetos básicos que permite graficar GEE son: vectores (<span style="color: darkpurple;">ee.Feature</span>), colecciones de vectores (<span style="color: darkpurple;">ee.FeatureCollection</span>), imágenes (<span style="color: darkpurple;">ee.Image</span>), colecciones de imágenes (<span style="color: darkpurple;">ee.ImageCollection</span>), arreglos (<span style="color: darkpurple;">ee.Array</span>) y listas (<span style="color: darkpurple;">ee.List</span>). Además, para indicar los colores a utilizar en el gráfico o el título del mismo se puede utilizar el método <span style="color: darkpurple;">.setOptions</span> sobre el objeto de tipo gráfico.</p>
 <div id="ui.chart.feature" class="section level4 unnumbered hasAnchor">
 <h4>ui.Chart.feature<a href="3-interfaz-de-usuario.html#ui.chart.feature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>
-Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función <code>print</code>). Algunas de las funciones disponibles son:</p>
+Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de un vector o una colección de vectores y mostrar su resultado al imprimirlos en la consola (mediante la función <span style="color: darkpurple;">print</span>). Algunas de las funciones disponibles son:</p>
 <ul>
-<li><code>ui.Chart.feature.byFeature</code>.</li>
-<li><code>ui.Chart.feature.byProperty</code>.</li>
-<li><code>ui.Chart.feature.groups</code>.</li>
-<li><code>ui.Chart.feature.histogram</code>.</li>
+<li><span style="color: darkpurple;">ui.Chart.feature.byFeature</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.feature.byProperty</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.feature.groups</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.feature.histogram</span>.</li>
 </ul>
 <p>Por ejemplo:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="3-interfaz-de-usuario.html#cb5-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byProperty</span>({</span>
@@ -458,13 +452,13 @@ ui.Chart.feature.byProperty({
 <p>
 Este conjunto de funciones permite obtener distintos tipos de gráficos a partir de una imagen o colección de imágenes. Algunas de las funciones que se encuentran disponibles son:</p>
 <ul>
-<li><code>ui.Chart.image.byClass</code></li>
-<li><code>ui.Chart.image.byRegion</code></li>
-<li><code>ui.Chart.image.doySeries</code></li>
-<li><code>ui.Chart.image.histogram</code></li>
-<li><code>ui.Chart.image.seriesByRegion</code>, entre otras.</li>
+<li><span style="color: darkpurple;">ui.Chart.image.byClass</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.image.byRegion</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.image.doySeries</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.image.histogram</span>.</li>
+<li><span style="color: darkpurple;">ui.Chart.image.seriesByRegion</span>.</li>
 </ul>
-<p>Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función <code>ui.Chart.image.seriesByRegion</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f34">3.4</a>).</p>
+<p>Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función <span style="color: darkpurple;">ui.Chart.image.seriesByRegion</span> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f34">3.4</a>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="3-interfaz-de-usuario.html#cb6-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">seriesByRegion</span>({</span>
 <span id="cb6-2"><a href="3-interfaz-de-usuario.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de imágenes a graficar</span></span>
 <span id="cb6-3"><a href="3-interfaz-de-usuario.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">imageCollection</span><span class="op">:</span> coleccionImagenes<span class="op">,</span> </span>
@@ -508,7 +502,7 @@ ui.Chart.image.seriesByRegion({
   });
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f34"></span>
-<img src="Img/chartEjemplo.png" alt="Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanencia de bosque y permanencia de no bosque." width="80%" />
+<img src="Img/chartEjemplo.png" alt="Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanencia de bosque y permanencia de no bosque." width="95%" />
 <p class="caption">
 Figure 3.4: Ejemplo de un gráfico que muestra los perfiles temporales de un índice de vegetación (NDVI) en tres tipos de áreas: deforestación, permanencia de bosque y permanencia de no bosque.
 </p>
@@ -522,20 +516,20 @@ Figure 3.4: Ejemplo de un gráfico que muestra los perfiles temporales de un ín
 </div>
 <div id="exportación-de-objetos-fuera-de-gee" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Exportación de objetos fuera de GEE<a href="3-interfaz-de-usuario.html#exportación-de-objetos-fuera-de-gee" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este grupo de funciones permite exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca <code>Export.</code> Sin embargo, solo existen cuatro formatos válidos para exportar desde GEE: ráster (<code>ee.Image</code>), vector (<code>ee.FeatureCollection</code>), mapa y video.</p>
+<p>Este grupo de funciones permite exportar algún resultado fuera de GEE para ser manejado en otro programa. Todas estas funciones se encuentran dentro de la biblioteca <span style="color: darkpurple;">Export</span>. Sin embargo, solo existen cuatro formatos válidos para exportar desde GEE: ráster (<span style="color: darkpurple;">ee.Image</span>), vector (<span style="color: darkpurple;">ee.FeatureCollection</span>), mapa y video.</p>
 <div id="export.image" class="section level4 unnumbered hasAnchor">
 <h4>Export.image<a href="3-interfaz-de-usuario.html#export.image" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>
-En el caso de las imágenes (ráster, <code>ee.Image</code>), la función para exportarlas es <code>Export.image</code>. Dentro de GEE hay tres opciones para exportar los resultados de una imagen:</p>
+En el caso de las imágenes (ráster, <span style="color: darkpurple;">ee.Image</span>), la función para exportarlas es <span style="color: darkpurple;">Export.image</span>. Dentro de GEE hay tres opciones para exportar los resultados de una imagen:</p>
 <ul>
-<li><code>Export.image.toAsset</code></li>
-<li><code>Export.image.toDrive</code></li>
-<li><code>Export.image.toCloudStorage</code></li>
+<li><span style="color: darkpurple;">Export.image.toAsset</span>.</li>
+<li><span style="color: darkpurple;">Export.image.toDrive</span>.</li>
+<li><span style="color: darkpurple;">Export.image.toCloudStorage</span>.</li>
 </ul>
-<p>La primera permite exportar la imagen (ráster) a la sección de <strong>Assets</strong>, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarla al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que consideramos es más común para cualquier usuario será la de <code>Export.image.toDrive</code>. Al exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizarla y definir su nombre en el argumento de <code>folder</code>.</p>
+<p>La primera permite exportar la imagen (ráster) a la sección de <strong>Assets</strong>, es decir, la sección donde el usuario puede subir su información a GEE. Esta opción es útil cuando el resultado se va a utilizar en otro procedimiento de GEE. La segunda opción permite exportarla al Google Drive de la cuenta con la que se tiene acceso a GEE. Esta opción es útil para trabajar con las imágenes (rásters) en algún entorno local, como algún SIG. La última opción permite exportar la imagen al Google Cloud Storage para utilizarla en algún otro proceso a realizar en Google Cloud Platform. La opción que consideramos es más común para cualquier usuario será la de <span style="color: darkpurple;">Export.image.toDrive</span>. Al exportar información de GEE al Google Drive, se recomienda utilizar distintas carpetas para organizarla y definir su nombre en el argumento de <code>folder</code>.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Solo se pueden exportar imágenes en formato <code>ee.Image</code>. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (<code>ee.Array</code>), tras lo cual hay que volver a convertir la información a formato de imagen (<code>ee.Image</code>) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TFRecord (tensores), siendo la primera la opción por defecto.</p>
+<p>Solo se pueden exportar imágenes en formato <span style="color: darkpurple;">ee.Image</span>. Sin embargo, no siempre resulta obvio el formato de las imágenes, ya que algunas veces se pueden convertir a un formato de arreglo (<span style="color: darkpurple;">ee.Array</span>), tras lo cual hay que volver a convertir la información a formato de imagen (<span style="color: darkpurple;">ee.Image</span>) para poder exportarla. La aplicación permite exportar únicamente en formato GeoTiff o TFRecord (tensores), siendo la primera la opción por defecto.</p>
 </div>
 </div>
 <p>Un ejemplo de cómo exportar una imagen se presenta a continuación.</p>
@@ -576,18 +570,18 @@ Export.image.toDrive({
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento <code>maxPixels</code> dentro del diccionario que se pasa a <code>Export.image.toDrive</code>. Por ejemplo, <code>maxPixels: 1e10</code>, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.</p>
+<p>En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento <code>maxPixels</code> dentro del diccionario que se pasa a <span style="color: darkpurple;">Export.image.toDrive</span>. Por ejemplo, <code>maxPixels: 1e10</code>, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.</p>
 </div>
 </div>
 </div>
 <div id="export.table" class="section level4 unnumbered hasAnchor">
 <h4>Export.table<a href="3-interfaz-de-usuario.html#export.table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>
-Por su parte, el formato vector (<code>ee.Feature</code>) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (<code>ee.FeatureCollection</code>). Al igual que en el caso de las imágenes, dentro de GEE hay tres opciones para exportar objetos de tipo vector:</p>
+Por su parte, el formato vector (<span style="color: darkpurple;">ee.Feature</span>) permite exportar información vector y tablas sin información geográfica (o sin geometría). De nuevo, para poder exportar en el formato vector, el objeto exportado debe estar en formato de colección de vectores (<span style="color: darkpurple;">ee.FeatureCollection</span>). Al igual que en el caso de las imágenes, dentro de GEE hay tres opciones para exportar objetos de tipo vector:</p>
 <ul>
-<li><code>Export.table.toAsset</code>.</li>
-<li><code>Export.table.toDrive</code>.</li>
-<li><code>Export.table.toCloudStorage</code>.</li>
+<li><span style="color: darkpurple;">Export.table.toAsset</span>.</li>
+<li><span style="color: darkpurple;">Export.table.toDrive</span>.</li>
+<li><span style="color: darkpurple;">Export.table.toCloudStorage</span>.</li>
 </ul>
 <p>Para el caso de las tablas sin información geográfica asociada, se debe definir el objeto como un objeto vector sin geometría (es decir, <code>null</code>) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="3-interfaz-de-usuario.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
@@ -629,8 +623,8 @@ Export.table.toDrive({
 <p>
 Esta opción permite exportar una colección de imágenes como video, ya sea al almacenamiento de la nube de Google o al Drive.</p>
 <ul>
-<li><code>Export.video.toCloudStorage</code>.</li>
-<li><code>Export.video.toDrive</code>.</li>
+<li><span style="color: darkpurple;">Export.video.toCloudStorage</span>.</li>
+<li><span style="color: darkpurple;">Export.video.toDrive</span>.</li>
 </ul>
 <p>Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. A continuación se muestra cómo exportar una colección de imágenes en video:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="3-interfaz-de-usuario.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">video</span><span class="op">.</span><span class="fu">toDrive</span>({</span>

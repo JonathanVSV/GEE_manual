@@ -304,15 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#clasificadores"><i class="fa fa-check"></i><b>12.1</b> Clasificadores</a></li>
 <li class="chapter" data-level="12.2" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#realización-de-la-fase-de-entrenamiento"><i class="fa fa-check"></i><b>12.2</b> Realización de la fase de entrenamiento</a></li>
 <li class="chapter" data-level="12.3" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#obtención-de-la-clasificación"><i class="fa fa-check"></i><b>12.3</b> Obtención de la clasificación</a></li>
-<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a>
-<ul>
-<li class="chapter" data-level="" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#ejercicio-e-clasificación"><i class="fa fa-check"></i>Ejercicio E: Clasificación</a></li>
+<li class="chapter" data-level="12.4" data-path="12-clasificación-supervisada.html"><a href="12-clasificación-supervisada.html#evaluación-de-la-clasificación"><i class="fa fa-check"></i><b>12.4</b> Evaluación de la clasificación</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a>
-<ul>
-<li class="chapter" data-level="" data-path="13-cierre.html"><a href="13-cierre.html#agradecimientos"><i class="fa fa-check"></i>Agradecimientos</a></li>
-</ul></li>
+<li class="chapter" data-level="13" data-path="13-cierre.html"><a href="13-cierre.html"><i class="fa fa-check"></i><b>13</b> Cierre</a></li>
 <li class="chapter" data-level="14" data-path="14-referencias.html"><a href="14-referencias.html"><i class="fa fa-check"></i><b>14</b> Referencias</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -337,23 +331,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ee.geometry-1" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">6</span> ee.Geometry<a href="6-ee.geometry-1.html#ee.geometry-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>
-Las geometrías (<code>ee.Geometry</code>) son objetos que permiten leer y manejar formas geométricas, asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.</p>
+Las geometrías (<span style="color: darkpurple;">ee.Geometry</span>) son objetos que permiten leer y manejar formas geométricas, asociadas a un sistema de coordenadas geográficas. En GEE existen diversos tipos de geometrías que incluyen punto, multipunto, línea, multilínea, perímetro, polígono y multipolígono. Las geometrías en GEE corresponden, por defecto, a geometrías geodésicas.</p>
 <div id="información-y-metadatos" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Información y metadatos<a href="6-ee.geometry-1.html#información-y-metadatos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Dependiendo del tipo de geometría, se pueden consultar algunas características de la información y los metadatos, como el área de un polígono mediante <code>.area</code>, el tipo de la geometría mediante <code>.type</code> o las coordenadas mediante <code>.coordinates</code>.</p>
+Dependiendo del tipo de geometría, se pueden consultar algunas características de la información y los metadatos, como el área de un polígono mediante <span style="color: darkpurple;">.area</span>, el tipo de la geometría mediante <span style="color: darkpurple;">.type</span> o las coordenadas mediante <span style="color: darkpurple;">.coordinates</span>.</p>
 </div>
 <div id="creación-de-geometrías" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Creación de geometrías<a href="6-ee.geometry-1.html#creación-de-geometrías" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>GEE utiliza el objeto <code>ee.Geometry</code> para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f61">6.1</a>):</p>
+<p>GEE utiliza el objeto <span style="color: darkpurple;">ee.Geometry</span> para leer y manejar formas geométricas, estas incluyen geometrías sin área, como son (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f61">6.1</a>):</p>
 <ul>
-<li>Punto (<code>ee.Geometry.Point</code>): una coordenada en X &amp; Y.</li>
-<li>Multipunto (<code>ee.Geometry.MultiPoint</code>): una lista de puntos.</li>
-<li>Línea (<code>ee.Geometry.LineString</code>): una línea.</li>
-<li>Multilínea (<code>ee.Geometry.MultiLineString</code>): una lista de líneas.</li>
-<li>Perímetro (<code>ee.Geometry.línearRing</code>): un perímetro (una línea cerrada).</li>
+<li>Punto (<span style="color: darkpurple;">ee.Geometry.Point</span>): una coordenada en X &amp; Y.</li>
+<li>Multipunto (<span style="color: darkpurple;">ee.Geometry.MultiPoint</span>): una lista de puntos.</li>
+<li>Línea (<span style="color: darkpurple;">ee.Geometry.LineString</span>): una línea.</li>
+<li>Multilínea (<span style="color: darkpurple;">ee.Geometry.MultiLineString</span>): una lista de líneas.</li>
+<li>Perímetro (<span style="color: darkpurple;">ee.Geometry.linearRing</span>): un perímetro (una línea cerrada).</li>
 </ul>
-<p>Ejercicio 9</p>
+<p><span style="color: darkblue;">Ejercicio 9</span></p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb26-1"><a href="6-ee.geometry-1.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Un punto definido con su coordenada  </span></span>
 <span id="cb26-2"><a href="6-ee.geometry-1.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> punto <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Point</span>(<span class="op">-</span><span class="fl">99.14</span><span class="op">,</span> <span class="fl">19.47</span>)<span class="op">;</span> </span>
 <span id="cb26-3"><a href="6-ee.geometry-1.html#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -385,11 +379,11 @@ Dependiendo del tipo de geometría, se pueden consultar algunas características
 <span id="cb26-29"><a href="6-ee.geometry-1.html#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> MultiLinea <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">MultiLineString</span>([ </span>
 <span id="cb26-30"><a href="6-ee.geometry-1.html#cb26-30" aria-hidden="true" tabindex="-1"></a>   ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(                     </span>
 <span id="cb26-31"><a href="6-ee.geometry-1.html#cb26-31" aria-hidden="true" tabindex="-1"></a>     [<span class="op">-</span><span class="fl">76.017</span><span class="op">,</span> <span class="fl">26.173</span><span class="op">,</span> <span class="op">-</span><span class="fl">76.017</span><span class="op">,</span> <span class="fl">16.173</span>])<span class="op">,</span>      </span>
-<span id="cb26-32"><a href="6-ee.geometry-1.html#cb26-32" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(                      </span>
+<span id="cb26-32"><a href="6-ee.geometry-1.html#cb26-32" aria-hidden="true" tabindex="-1"></a>   ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(                      </span>
 <span id="cb26-33"><a href="6-ee.geometry-1.html#cb26-33" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="fl">73.017</span><span class="op">,</span> <span class="fl">26.173</span><span class="op">,</span> <span class="op">-</span><span class="fl">73.017</span><span class="op">,</span> <span class="fl">16.173</span>])<span class="op">,</span>       </span>
-<span id="cb26-34"><a href="6-ee.geometry-1.html#cb26-34" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(                      </span>
+<span id="cb26-34"><a href="6-ee.geometry-1.html#cb26-34" aria-hidden="true" tabindex="-1"></a>   ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(                      </span>
 <span id="cb26-35"><a href="6-ee.geometry-1.html#cb26-35" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="fl">78.434</span><span class="op">,</span> <span class="fl">20.926</span><span class="op">,</span> <span class="op">-</span><span class="fl">70.04</span><span class="op">,</span> <span class="fl">24.401</span>])<span class="op">,</span></span>
-<span id="cb26-36"><a href="6-ee.geometry-1.html#cb26-36" aria-hidden="true" tabindex="-1"></a>  ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(</span>
+<span id="cb26-36"><a href="6-ee.geometry-1.html#cb26-36" aria-hidden="true" tabindex="-1"></a>   ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LineString</span>(</span>
 <span id="cb26-37"><a href="6-ee.geometry-1.html#cb26-37" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="fl">78.434</span><span class="op">,</span> <span class="fl">18.926</span><span class="op">,</span> <span class="op">-</span><span class="fl">70.04</span><span class="op">,</span> <span class="fl">22.401</span>])])<span class="op">;</span></span>
 <span id="cb26-38"><a href="6-ee.geometry-1.html#cb26-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-39"><a href="6-ee.geometry-1.html#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="co">// Un perímetro definido a partir de una lista  de las coordenadas </span></span>
@@ -432,11 +426,11 @@ var linea = ee.Geometry.LineString([
 var MultiLinea = ee.Geometry.MultiLineString([ 
    ee.Geometry.LineString(                     
      [-76.017, 26.173, -76.017, 16.173]),      
-  ee.Geometry.LineString(                      
+   ee.Geometry.LineString(                      
     [-73.017, 26.173, -73.017, 16.173]),       
-  ee.Geometry.LineString(                      
+   ee.Geometry.LineString(                      
     [-78.434, 20.926, -70.04, 24.401]),
-  ee.Geometry.LineString(
+   ee.Geometry.LineString(
     [-78.434, 18.926, -70.04, 22.401])]);
 
 // Un perímetro definido a partir de una lista  de las coordenadas 
@@ -449,18 +443,18 @@ var perimetro = ee.Geometry.LinearRing([
   -109.468, 23.317]);
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f61"></span>
-<img src="Img/ej9.png" alt="Visualización de los diferentes tipos de geometrías." width="80%" />
+<img src="Img/ej9.png" alt="Visualización de los diferentes tipos de geometrías." width="95%" />
 <p class="caption">
 Figure 6.1: Visualización de los diferentes tipos de geometrías.
 </p>
 </div>
 <p>También hay geometrías que tienen el componente de área, como son (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f61">6.1</a>):</p>
 <ul>
-<li>Rectángulo (<code>ee.Geometry.Rectangle</code>): un rectángulo.</li>
-<li>Polígono (<code>ee.Geometry.Polygon</code>): un polígono.</li>
-<li>Multipolígono (<code>ee.Geometry.MultiPolygon</code>): una lista de polígonos.</li>
+<li>Rectángulo (<span style="color: darkpurple;">ee.Geometry.Rectangle</span>): un rectángulo.</li>
+<li>Polígono (<span style="color: darkpurple;">ee.Geometry.Polygon</span>): un polígono.</li>
+<li>Multipolígono (<span style="color: darkpurple;">ee.Geometry.MultiPolygon</span>): una lista de polígonos.</li>
 </ul>
-<p>Ejercicio 9.1</p>
+<p><span style="color: darkblue;">Ejercicio 9.1</span></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb27-1"><a href="6-ee.geometry-1.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Un rectángulo definido por las coordenadas de los vértices opuestos</span></span>
 <span id="cb27-2"><a href="6-ee.geometry-1.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> rectangulo <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Rectangle</span>( </span>
 <span id="cb27-3"><a href="6-ee.geometry-1.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span><span class="fl">104.12</span><span class="op">,</span> <span class="fl">5.73</span><span class="op">,</span></span>
@@ -485,10 +479,10 @@ Figure 6.1: Visualización de los diferentes tipos de geometrías.
 <span id="cb27-22"><a href="6-ee.geometry-1.html#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> Multipoligono <span class="op">=</span> ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">MultiPolygon</span>([</span>
 <span id="cb27-23"><a href="6-ee.geometry-1.html#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// El primer polígono está definido a partir de dos perímetros</span></span>
 <span id="cb27-24"><a href="6-ee.geometry-1.html#cb27-24" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">Polygon</span>(  </span>
-<span id="cb27-25"><a href="6-ee.geometry-1.html#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="co">// El primer perímetro define el polígono                </span></span>
+<span id="cb27-25"><a href="6-ee.geometry-1.html#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">// El primer perímetro define el polígono                </span></span>
 <span id="cb27-26"><a href="6-ee.geometry-1.html#cb27-26" aria-hidden="true" tabindex="-1"></a>      [ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LinearRing</span>(<span class="op">-</span><span class="fl">113.53</span><span class="op">,</span> <span class="fl">18.81</span><span class="op">,</span> <span class="op">-</span><span class="fl">101.66</span><span class="op">,</span> <span class="fl">10.83</span><span class="op">,-</span><span class="fl">114.9</span><span class="op">,</span> <span class="fl">8.93</span>)<span class="op">,</span>    </span>
 <span id="cb27-27"><a href="6-ee.geometry-1.html#cb27-27" aria-hidden="true" tabindex="-1"></a>      <span class="co">// El segundo perímetro define los huecos dentro del polígono</span></span>
-<span id="cb27-28"><a href="6-ee.geometry-1.html#cb27-28" aria-hidden="true" tabindex="-1"></a>ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LinearRing</span>(<span class="op">-</span><span class="fl">111.15</span><span class="op">,</span> <span class="fl">14.52</span><span class="op">,</span> <span class="op">-</span><span class="fl">113.09</span><span class="op">,</span> <span class="fl">11.61</span><span class="op">,</span> <span class="op">-</span><span class="fl">115.7</span><span class="op">,</span><span class="fl">13.58</span>)])<span class="op">,</span></span>
+<span id="cb27-28"><a href="6-ee.geometry-1.html#cb27-28" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="at">Geometry</span><span class="op">.</span><span class="fu">LinearRing</span>(<span class="op">-</span><span class="fl">111.15</span><span class="op">,</span> <span class="fl">14.52</span><span class="op">,</span> <span class="op">-</span><span class="fl">113.09</span><span class="op">,</span> <span class="fl">11.61</span><span class="op">,</span> <span class="op">-</span><span class="fl">115.7</span><span class="op">,</span><span class="fl">13.58</span>)])<span class="op">,</span></span>
 <span id="cb27-29"><a href="6-ee.geometry-1.html#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// El segundo polígono es una lista de coordenadas que forman un </span></span>
 <span id="cb27-30"><a href="6-ee.geometry-1.html#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">// triángulo</span></span>
 <span id="cb27-31"><a href="6-ee.geometry-1.html#cb27-31" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="fl">95.77</span><span class="op">,</span> <span class="fl">17.2</span><span class="op">,</span></span>
@@ -539,10 +533,10 @@ var poligono = ee.Geometry.Polygon(
 var Multipoligono = ee.Geometry.MultiPolygon([
     // El primer polígono está definido a partir de dos perímetros
     ee.Geometry.Polygon(  
-// El primer perímetro define el polígono                
+    // El primer perímetro define el polígono                
       [ee.Geometry.LinearRing(-113.53, 18.81, -101.66, 10.83,-114.9, 8.93),    
       // El segundo perímetro define los huecos dentro del polígono
-ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
+    ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
     // El segundo polígono es una lista de coordenadas que forman un 
     // triángulo
     [-95.77, 17.2,
@@ -571,21 +565,21 @@ ee.Geometry.LinearRing(-111.15, 14.52, -113.09, 11.61, -115.7,13.58)]),
 </script>
 <p>Adicionalmente, se pueden crear geometrías directamente dibujando con el cursor en el mapa. Para ello se utilizan las herramientas de la esquina superior izquierda del panel del mapa (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f62">6.2</a>):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f62"></span>
-<img src="Img/geometrias.png" alt="Herramienta de geometrías en la pantalla de mapa." width="30%" />
+<img src="Img/geometrias.png" alt="Herramienta de geometrías en la pantalla de mapa." width="50%" />
 <p class="caption">
 Figure 6.2: Herramienta de geometrías en la pantalla de mapa.
 </p>
 </div>
 <p>A continuación se describe cada función de las herramientas de geometrías de izquierda a derecha (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f63">6.3</a>). La primera, con el símbolo de una mano, permite moverse por el mapa. Las demás herramientas permiten crear geometrías de diferente tipo: la segunda, de tipo punto; la tercera, de tipo línea; la cuarta, de tipo polígono y la quinta, también de tipo polígono, pero se enfoca en crear rectángulos a partir de dos vértices.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f63"></span>
-<img src="Img/herrams.png" alt="Acercamiento a las herramientas de geometrías en la pantalla de mapa." width="50%" />
+<img src="Img/herrams.png" alt="Acercamiento a las herramientas de geometrías en la pantalla de mapa." width="70%" />
 <p class="caption">
 Figure 6.3: Acercamiento a las herramientas de geometrías en la pantalla de mapa.
 </p>
 </div>
 <p>Todas las geometrías creadas con estas herramientas se importarán automáticamente al código y se podrán ver sobre las líneas del código (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f64">6.4</a>):</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f64"></span>
-<img src="Img/import.png" alt="Visualización de la sección de Imports dentro de la pantalla de código." width="50%" />
+<img src="Img/import.png" alt="Visualización de la sección de Imports dentro de la pantalla de código." width="70%" />
 <p class="caption">
 Figure 6.4: Visualización de la sección de Imports dentro de la pantalla de código.
 </p>
@@ -593,28 +587,28 @@ Figure 6.4: Visualización de la sección de Imports dentro de la pantalla de c�
 <p>A estas se les puede cambiar el nombre dando clic en el nombre de la geometría importada. Además, usando la mano se pueden mover y modificar las geometrías dibujadas (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f63">6.3</a>).</p>
 <p>Todas las geometrías dibujadas se importarán como una sola colección, pero si se quiere tener geometrías separadas en diferentes colecciones se debe dar clic en <strong>new layer</strong>. Este menú aparecerá cuando se pase el cursor sobre la pestaña de geometrías dibujadas (<span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f65">6.5</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f65"></span>
-<img src="Img/nuevaGeo.png" alt="Herramienta de geometrías en la pantalla de mapas." width="60%" />
+<img src="Img/nuevaGeo.png" alt="Herramienta de geometrías en la pantalla de mapas." width="80%" />
 <p class="caption">
 Figure 6.5: Herramienta de geometrías en la pantalla de mapas.
 </p>
 </div>
 <p>Pasando el cursor sobre cada una de las geometrías (en la pestaña de geometrías dibujadas) se podrá bloquear la capa para evitar modificaciones (con el candado) o cambiar la configuración (en el engranaje; <span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f66">6.6</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f66"></span>
-<img src="Img/dibujarGeo.png" alt="Ubicación de las herramientas de candado y engranaje." width="40%" />
+<img src="Img/dibujarGeo.png" alt="Ubicación de las herramientas de candado y engranaje." width="60%" />
 <p class="caption">
 Figure 6.6: Ubicación de las herramientas de candado y engranaje.
 </p>
 </div>
-<p>Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada <strong>Name</strong> (por defecto es ‘geometry’), elegir el tipo de geometría en el recuadro de <strong>Import as</strong> (geometría <code>ee.Geometry</code>, vector <code>ee.Feature</code> o colección de vectores <code>ee.FeatureCollection</code>), eliminar la geometría o cambiar el color de la geometría dibujada (al ingresar el código hexadecimal en la caja nombrada <strong>Color</strong> o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice <strong>+ Property</strong>; <span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f67">6.7</a>).</p>
+<p>Al dar clic en el engranaje se abrirá un menú donde se podrá cambiar el nombre de la geometría al escribir en la caja de texto nombrada <strong>Name</strong> (por defecto es ‘geometry’), elegir el tipo de geometría en el recuadro de <strong>Import as</strong> (geometría <span style="color: darkpurple;">ee.Geometry</span>, vector <span style="color: darkpurple;">ee.Feature</span> o colección de vectores <span style="color: darkpurple;">ee.FeatureCollection</span>), eliminar la geometría o cambiar el color de la geometría dibujada (al ingresar el código hexadecimal en la caja nombrada <strong>Color</strong> o al dar clic sobre un color del recuadro de colores) o añadir manualmente propiedades (al dar clic en el texto azul que dice <strong>+ Property</strong>; <span style="color: darkblue;">Fig.</span> <a href="6-ee.geometry-1.html#fig:f67">6.7</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f67"></span>
-<img src="Img/menuGeo.png" alt="Ejemplo de modificación de las propiedades de las geometrías." width="80%" />
+<img src="Img/menuGeo.png" alt="Ejemplo de modificación de las propiedades de las geometrías." width="95%" />
 <p class="caption">
 Figure 6.7: Ejemplo de modificación de las propiedades de las geometrías.
 </p>
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Recuerde que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (<code>ee.Feature</code>) o colecciones de vectores (<code>ee.FeatureCollection</code>)</p>
+<p>Recuerde que las geometrías no pueden contener propiedades o atributos, así que la opción de agregar propiedades únicamente estará disponible para objetos de tipo vector (<span style="color: darkpurple;">ee.Feature</span>) o colecciones de vectores (<span style="color: darkpurple;">ee.FeatureCollection</span>)</p>
 </div>
 </div>
 </div>
