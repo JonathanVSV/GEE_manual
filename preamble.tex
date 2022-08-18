@@ -28,8 +28,13 @@
 % Para manejo de índice
 \usepackage[titles]{tocloft}
 \usepackage{makeidx}
-%\usepackage{pdfpages}
-%\usepackage{minipage}
+\usepackage{pdfpages}
+\usepackage{multicol}
+\usepackage{tikz}
+%\usepackage[abs]{overpic}
+%\usepackage{pict2e}
+%\usepackage{hanging}
+
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \renewcommand{\cftdot}{}
 
@@ -84,6 +89,14 @@
   arc=0pt
 }
 
+\newtcolorbox{blackbox}{
+  colback=white,
+  colframe=black,
+  coltext=black,
+  boxsep=0pt,
+  arc=0pt
+}
+
 % Formato de página
 \renewcommand\headrulewidth{0pt}
 %
@@ -120,6 +133,9 @@
 
 \newcommand\boldpurple[1]{\textcolor{darkpurple}{\textbf{#1}}}
 
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
 % Tratar de cambiar lista de tablas a ejercicios
 %\renewcommand{\listtablename}{Lista de Ejercicios}
 
@@ -142,5 +158,5 @@
 \raggedbottom
 
 % Para agregar páginas al principio
-%\let\oldmaketitle\maketitle
-%\AtBeginDocument{\let\maketitle\relax}
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}

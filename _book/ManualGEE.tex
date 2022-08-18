@@ -136,8 +136,13 @@
 % Para manejo de índice
 \usepackage[titles]{tocloft}
 \usepackage{makeidx}
-%\usepackage{pdfpages}
-%\usepackage{minipage}
+\usepackage{pdfpages}
+\usepackage{multicol}
+\usepackage{tikz}
+%\usepackage[abs]{overpic}
+%\usepackage{pict2e}
+%\usepackage{hanging}
+
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \renewcommand{\cftdot}{}
 
@@ -192,6 +197,14 @@
   arc=0pt
 }
 
+\newtcolorbox{blackbox}{
+  colback=white,
+  colframe=black,
+  coltext=black,
+  boxsep=0pt,
+  arc=0pt
+}
+
 % Formato de página
 \renewcommand\headrulewidth{0pt}
 %
@@ -228,6 +241,9 @@
 
 \newcommand\boldpurple[1]{\textcolor{darkpurple}{\textbf{#1}}}
 
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
 % Tratar de cambiar lista de tablas a ejercicios
 %\renewcommand{\listtablename}{Lista de Ejercicios}
 
@@ -250,8 +266,8 @@
 \raggedbottom
 
 % Para agregar páginas al principio
-%\let\oldmaketitle\maketitle
-%\AtBeginDocument{\let\maketitle\relax}
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -273,6 +289,142 @@
 \date{}
 
 \begin{document}
+\maketitle
+
+\thispagestyle{empty}
+\begin{center}
+%{\Huge A BOOK}
+\includepdf{Img/Portada.pdf}
+%\includegraphics{Img/Portada.png}
+%{\huge by Jonathan Vidal Solórzano Villegas y Alejandro Perilla Suárez}
+\end{center}
+
+% Título
+\newpage
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+\LARGE{Cómo usar Google Earth Engine y no fallar en el intento}
+\end{center}
+\vspace*{\fill}
+
+% Instituciones
+\newpage
+
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+\large{Centro de Investigaciones en Geografía Ambiental}
+\linebreak
+\large{Universidad Nacional Autónoma de México}
+\linebreak
+\large{Instituto de Investigación de Recursos Biológicos Alexander von Humboldt}
+\end{center}
+\vspace*{\fill}
+
+% Logos
+\newpage
+
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+\LARGE{Cómo usar Google Earth Engine y no fallar en el intento}
+\linebreak
+\linebreak
+\large{Jonathan Vidal Solórzano Villegas y Gabriel Alejandro Perilla Suárez}
+\end{center}
+\vspace{15mm}
+\setlength{\columnsep}{40pt}
+\begin{multicols}{2}
+%\noindent
+    \begin{Figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Img/unam}
+    %\captionof{figure}{my caption of the figure}
+    \end{Figure}
+    \centering Universidad Nacional Autónoma de México
+    %\columnbreak
+    \begin{Figure}
+    \centering
+    \includegraphics[width=0.7\linewidth]{Img/humb}
+    %\captionof{figure}{my caption of the figure}
+    \end{Figure}
+    \centering Instituto de Investigación de Recursos Biológicos Alexander von Humboldt 
+\end{multicols}
+\vspace*{\fill}
+
+% Página legal
+\newpage
+
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+    \begin{blackbox}
+        
+            {\footnotesize Solórzano Villegas, Jonathan Vidal y Perilla Suárez, Gabriel Alejandro
+
+            \quad Cómo usar Google Earth Engine y no fallar en el intento. – México: Universidad Nacional Autónoma 
+            
+            \quad de México e Instituto de Investigación de Recursos Biológicos Alexander von Humboldt.
+
+            \quad 196 p, : il. col. ; 27 cm.
+
+            \quad Bibliografía: p. 193 – 195
+
+            \quad ISBN obra digital México: xxx-xxx-xxxx-xx-x; ISBN obra digital Colombia: xxx-xxx-xxxx-xx-x.
+
+            \quad 1. Procesamiento en la nube – Información geoespacial 2. Programación}
+        
+    \end{blackbox}
+    \begin{blackbox}
+        \begingroup
+            \fontfamily{lmss}\fontsize{10}{12}\selectfont
+            Solórzano Villegas, Jonathan Vidal y Perilla Suárez, Gabriel Alejandro
+
+            \quad Cómo usar Google Earth Engine y no fallar en el intento. – México: Universidad Nacional Autónoma 
+            
+            \quad de México e Instituto de Investigación de Recursos Biológicos Alexander von Humboldt.
+
+            \quad 196 p, : il. col. ; 27 cm.
+
+            \quad Bibliografía: p. 193 – 195
+
+            \quad ISBN obra digital México: xxx-xxx-xxxx-xx-x; ISBN obra digital Colombia: xxx-xxx-xxxx-xx-x.
+
+            \quad 1. Procesamiento en la nube – Información geoespacial 2. Programación
+        \endgroup
+    \end{blackbox}
+\end{center}
+
+\setlength{\columnsep}{25pt}
+\begin{multicols}{2}
+    {\scriptsize Este libro ha sido arbitrado por pares académicos y fue posible gracias al Proyecto PE117519-Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM.
+    \newline Este trabajo tiene algunos derechos reservados según lo especifica la licencia Creative Commons Attribution Non Commercial Share Alike (BY-NC-SA) 4.0, la cual puede consultar en https://creativecommons.org/licenses/byncsa /4.0/legalcode.es
+    \newline Diseño editorial: Jonathan Vidal Solórzano Villegas y Laura Perilla Suárez (behance.net/lauuuuperilla).
+    \newline Imagen en portada: 20181227T151659\_20181227T151707 \_19PBN (Sentinel-2) modificada de Copernicus Sentinel data 2018/12/27. Imágenes: todas las imágenes fueron creadas por los autores, los screenshots pueden contener pequeñas anotaciones con fines aclaratorios para los usuarios, estas imágenes cumplieron con las pautas y uso de marca de Google, de modo que aplican los términos y condiciones de marca registradas. 
+    \newline Todos los nombres de marcas y productos mencionados en esta obra están sujetos a la protección de marcas comerciales, marcas o patentes y las marcas comerciales o marcas comerciales registradas por sus respectivos titulares. El uso de nombres de marca, nombres de productos, nombres comunes, nombres comerciales, descripciones, etc. incluso sin una marca particular en este trabajo no puede de ninguna manera interpretarse en el sentido de que dichos nombres pueden considerarse sin restricciones con respecto a la legislación sobre marcas comerciales y protección de marcas y, por lo tanto, podrían ser utilizados por cualquiera.
+    \newline Revisión académica: Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina, Xanat Antonio Némiga
+    \linebreak
+    \newline Primera edición, agosto 2022. Morelia - México, Bogotá - Colombia.  
+    D. R. © 2022 Universidad Nacional Autónoma de México 
+    Ciudad Universitaria sin número, Coyoacán, C.P. 04510, Ciudad de México, México.
+    www.unam.mx
+    \newline Centro de Investigaciones en Geografía Ambiental (CIGA, UNAM) 
+    Antigua carretera a Pátzcuaro 8701, Exhacienda de San José de la Huerta, C.P. 58190, Morelia, Michoacán de Ocampo, México.
+    publicaciones.ciga.unam.mx
+    \newline Instituto de Investigación de Recursos Biológicos Alexander von Humboldt
+    Esteban Giraldo González, editor.
+    Calle 72 no 12-65, piso 7, Bogotá, Colombia.
+    egiraldo@humboldt.org.co 
+    \newline ISBN obra digital Colombia: xxx-xxx-xxxx-xx-x
+    \newline ISBN obra digital México: xxx-xxx-xxxx-xx-x
+    \linebreak
+    \newline Esta edición y sus características son propiedad de la Universidad Nacional Autónoma de México y del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt. Prohibida la reproducción total o parcial por cualquier medio sin la autorización escrita del titular de los derechos patrimoniales.}
+\end{multicols}
+\vspace*{\fill}
+
+% Para hacer el título por default después
+\let\maketitle\oldmaketitle
 \maketitle
 
 \renewcommand*\contentsname{Índice}
@@ -2003,7 +2155,7 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
   \begin{itemize}
   \tightlist
   \item
-    Usar el método \boldpurple{ee.DatefromYMD}.
+    Usar el método \boldpurple{ee.Date.fromYMD}.
   \item
     Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas.
   \end{itemize}
@@ -6285,8 +6437,8 @@ Posteriormente, se define una función (\texttt{ExportTable}) para exportar la m
 
 \newpage
 
-\hypertarget{cierre}{%
-\chapter{Cierre}\label{cierre}}
+\hypertarget{reflexiones-finales}{%
+\chapter{Reflexiones finales}\label{reflexiones-finales}}
 
 Seguramente el aprendizaje de la programación en GEE será lento en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida la lógica y sintaxis básica usada en la API, el avance será mucho más rápido. Esperamos que este manual haya motivado a los usuarios a adentrarse en el uso de GEE, haya brindado herramientas para entender las cuestiones básicas sobre su funcionamiento, y que se hayan ofrecido buenos ejemplos de diferentes funcionalidades y métodos disponibles en la API, para que puedan ser utilizados en los futuros proyectos de nuestros lectores.
 
@@ -6370,11 +6522,28 @@ Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congal
 \fancypagestyle{fancy}{}
 \printindex{}
 
-%\begin{center}
+\begin{center}
 %{\Huge A BOOK}
-%Cómo usar Google Earth Engine y no fallar en el intento, editado por el Centro de Investigaciones en Geografía Ambiental y el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt se publicó el [dd] de agosto de 2022. Para su formación se utilizaron las tipografías Latin Modern Roman y Computer Modern Roman en 12, 15, 17 y 21 pt. El cuidado de la edición estuvo al cuidado de Jonathan Vidal Solórzano Villegas, Gabriel Alejandro Perilla Suárez, Mónica Braun y Jorge Andrés Trinidad González. El diseño editorial estuvo a cargo de Jonathan Vidal Solórzano Villegas y Laura Perilla Suárez.
+Cómo usar Google Earth Engine y no fallar en el intento, editado por el Centro de Investigaciones en Geografía Ambiental y el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt se publicó el 20 de agosto de 2022. Para su formación se utilizaron las tipografías Latin Modern Roman y Computer Modern en 12, 15, 17 y 21 pt. El cuidado de la edición estuvo al cuidado de Jonathan Vidal Solórzano Villegas, Gabriel Alejandro Perilla Suárez, Mónica Braun y Jorge Andrés Trinidad González. El diseño editorial estuvo a cargo de Jonathan Vidal Solórzano Villegas y Laura Perilla Suárez.
 %\includegraphics{Img/Portada.png}
 %{\huge by Jonathan Vidal Solórzano Villegas y Alejandro Perilla Suárez}
-%\end{center}
+\end{center}
+
+\newpage
+%\begin{center}
+%  \begin{overpic}[height=1\textheight]{Img/ContraLogo.png}
+%      \put(26,75){}
+%  \end{overpic}
+%{\Huge A BOOK}
+\begin{center}
+\includepdf[pagecommand={
+  \begin{tikzpicture}[remember picture, overlay]
+  \node[text height=15cm, text width=15cm, align=justify] at (0, 1) 
+  {\textcolor{white}{\textbf{Google Earth Engine es una herramienta enfocada en facilitar el procesamiento de grandes volúmenes de información geoespacial. Por ello, ha permitido realizar análisis previamente imposibles de ejecutar en una computadora personal y acortar enormemente el tiempo de procesamiento requerido para realizar diferentes tipos de análisis. Este libro pretende fomentar el uso de esta poderosa herramienta entre usuarios hispanoparlantes y brindar una traducción al español de los principales tipos de objetos y métodos de esta plataforma. Este manual será de utilidad tanto para personas sin conocimiento de Google Earth Engine hasta aquellas con un nivel intermedio de uso, ya que aborda desde aspectos fundamentales hasta algunos consejos. También, ofrece ejemplos, códigos comentados, guías ilustradas, descripciones de la lógica de programación, detalles del funcionamiento interno, identificación de los errores más comunes y sus soluciones, y enlaces de utilidad que ayudarán al lector a aprender a utilizar Google Earth Engine o mejorar en sus capacidades de uso. Se recomienda enérgicamente que la lectura de este manual se haga en paralelo a la exploración de la plataforma y ejecutando todos los ejercicios. Finalmente, se espera que este libro permita aumentar el uso de Google Earth Engine y promover su uso para el desarrollo de diferentes tipos de investigaciones y aplicaciones.}}};
+  \end{tikzpicture}}]{Img/ContraLogo.pdf}
+%\includepdf{Img/ContraLogo.pdf}
+%\includegraphics{Img/Portada.png}
+%\large{Google Earth Engine es una herramienta enfocada en facilitar el procesamiento de grandes volúmenes de información geoespacial. Por ello, ha permitido realizar análisis previamente imposibles de ejecutar en una computadora personal y acortar enormemente el tiempo de procesamiento requerido para realizar diferentes tipos de análisis. Este libro pretende fomentar el uso de esta poderosa herramienta entre usuarios hispanoparlantes y brindar una traducción al español de los principales tipos de objetos y métodos de esta plataforma. Este manual será de utilidad tanto para personas sin conocimiento de Google Earth Engine hasta aquellas con un nivel intermedio de uso, ya que aborda desde aspectos fundamentales hasta algunos consejos. También, ofrece ejemplos, códigos comentados, guías ilustradas, descripciones de la lógica de programación, detalles del funcionamiento interno, identificación de los errores más comunes y sus soluciones, y enlaces de utilidad que ayudarán al lector a aprender a utilizar Google Earth Engine o mejorar en sus capacidades de uso. Se recomienda enérgicamente que la lectura de este manual se haga en paralelo a la exploración de la plataforma y ejecutando todos los ejercicios. Finalmente, se espera que este libro permita aumentar el uso de Google Earth Engine y promover su uso para el desarrollo de diferentes tipos de investigaciones y aplicaciones.}
+\end{center}
 
 \end{document}

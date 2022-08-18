@@ -12,7 +12,7 @@ bookdown::pdf_book:
   toc: true
   toc_depth: 2
   includes:
-    #before_body: before_body.tex
+    before_body: before_body.tex
     in_header: preamble.tex
     after_body: postamble.tex
   keep_tex: yes

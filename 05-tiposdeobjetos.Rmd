@@ -360,7 +360,7 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
     *	Tener días de dos dígitos (01, 02, 03 … 09, 10, 11 … 30).
     *	Estar entre comillas.
 2.	Usar números de usuario, en este caso se debe:
-    *	Usar el método  `r colorize2("ee.DatefromYMD")`.
+    *	Usar el método  `r colorize2("ee.Date.fromYMD")`.
     *	Ingresar dentro del paréntesis el año, el mes y el día (en ese orden), separados por comas.
 3.	Usar un texto de usuario especificando el formato, para esto se debe:
     *	Usar el método `r colorize2("ee.Date.parse")`.
