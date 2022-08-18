@@ -165,5 +165,5 @@ clasificadores
 realización-de-la-fase-de-entrenamiento
 obtención-de-la-clasificación
 evaluación-de-la-clasificación
-cierre
+reflexiones-finales
 referencias
