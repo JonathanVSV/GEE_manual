@@ -14,11 +14,11 @@ Y el Instituto de Investigación de Recursos Biológicos Alexander von Humboldt,
 * La oficina de Comunicaciones.
 * La línea 13, Análisis y Modelamiento, de la Subdirección de Investigaciones.
 
-Agradecemos a Jean François Mas por concebir la idea inicial de este manual e invitar a los autores a participar en dicho proyecto. 
+Agradecemos a Jean-François Mas por concebir la idea inicial de este manual e invitar a los autores a participar en dicho proyecto. 
 
 De igual manera, damos las gracias a Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina, Xanat Antonio Némiga y a dos revisores anónimos por su minuciosa revisión del manuscrito y sus valiosos comentarios que ayudaron a mejorar la calidad de este documento.
 
-Agradecemos también a los desarrolladores de la API de libre acceso y uso gratuito (para propósitos educativos y de investigación sin fines de lucro) que se presenta en este libro (Google Earth Engine) y a los creadores de los programas de código abierto que se usaron para la elaboración de esta obra (R y LaTeX), así como algunos de sus paquetes (Rmarkdown, knitr, bookdown).
+Agradecemos también a los desarrolladores de la API de libre acceso y uso gratuito (para propósitos educativos y de investigación sin fines de lucro) que se presenta en este libro (Google Earth Engine) y a los creadores de los programas de código abierto que se usaron para la elaboración de esta obra (R y LaTeX), así como algunos de sus paquetes (Rmarkdown, knitr y bookdown).
 
 La imagen de la portada fue adaptada por Laura Perilla, a partir de la imagen Sentinel-2 “20181227T151659_20181227T151707_T19PBN”.
 
