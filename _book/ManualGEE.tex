@@ -143,6 +143,7 @@
 %\usepackage{pict2e}
 %\usepackage{hanging}
 
+
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \renewcommand{\cftdot}{}
 
@@ -404,13 +405,21 @@
 \end{center}
 
 \setlength{\columnsep}{25pt}
-\begin{multicols}{2}
-    {\scriptsize Este libro ha sido arbitrado por pares académicos y fue posible gracias al Proyecto PE117519-Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM.
-    \newline Este trabajo tiene algunos derechos reservados según lo especifica la licencia Creative Commons Attribution Non Commercial Share Alike (BY-NC-SA) 4.0, la cual puede consultar en https://creativecommons.org/licenses/by-nc -sa/4.0/legalcode.es
+\begin{multicols*}{2}
+    \raggedcolumns
+    {\scriptsize Este libro ha sido arbitrado por pares académicos y fue posible gracias al Proyecto PE117519-Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM. Este trabajo tiene algunos derechos reservados según lo especifica la licencia internacional {\it Creative Commons Attribution Non Commercial Share Alike 4.0 (CC-BY-NC-SA)}, la cual puede consultar en \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es}{https://creativecommons.org/licenses/by-nc} \href{https://creativecommons.org/licenses/by-nc -sa/4.0/legalcode.es}{-sa/4.0/legalcode.es}
+    \linebreak
+    %\vfill
+    %\medskip
+    \begingroup
+        \includegraphics[height=26pt]{Img/license}
+    \endgroup
     \newline Diseño editorial: Jonathan Vidal Solórzano Villegas y Laura Perilla Suárez (behance.net/lauuuuperilla).
-    \newline Imagen en portada: 20181227T151659\_20181227T151707 \_19PBN (Sentinel-2) modificada de Copernicus Sentinel data 2018/12/27. Imágenes: todas las imágenes fueron creadas por los autores, los screenshots pueden contener pequeñas anotaciones con fines aclaratorios para los usuarios, estas imágenes cumplieron con las pautas y uso de marca de Google, de modo que aplican los términos y condiciones de marca registradas. 
-    \newline Todos los nombres de marcas y productos mencionados en esta obra están sujetos a la protección de marcas comerciales, marcas o patentes y las marcas comerciales o marcas comerciales registradas por sus respectivos titulares. El uso de nombres de marca, nombres de productos, nombres comunes, nombres comerciales, descripciones, etc. incluso sin una marca particular en este trabajo no puede de ninguna manera interpretarse en el sentido de que dichos nombres pueden considerarse sin restricciones con respecto a la legislación sobre marcas comerciales y protección de marcas y, por lo tanto, podrían ser utilizados por cualquiera.
-    \newline Revisión académica: Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina, Xanat Antonio Némiga. \hspace*{\fill}                                                                                                      
+    \newline Imagen en portada: 20181227T151659\_20181227T151707 \_19PBN (Sentinel-2) modificada de Copernicus Sentinel data 2018/12/27. 
+    \newline Imágenes: todas las imágenes fueron creadas por los autores, los screenshots pueden contener pequeñas anotaciones con fines aclaratorios para los usuarios, estas imágenes cumplieron con las pautas y uso de marca de Google, de modo que aplican los términos y condiciones de marca registradas. 
+    \newline Todos los nombres de marcas y productos mencionados en esta obra están sujetos a la protección de marcas comerciales, marcas o patentes y las marcas comerciales o marcas comerciales registradas por sus respectivos titulares. 
+    El uso de nombres de marca, nombres de productos, nombres comunes, nombres comerciales, descripciones, etc. incluso sin una marca particular en este trabajo no puede de ninguna manera interpretarse en el sentido de que dichos nombres pueden considerarse sin restricciones con respecto a la legislación sobre marcas comerciales y protección de marcas y, por lo tanto, podrían ser utilizados por cualquiera.
+    \newline Revisión académica: Andrea Pamela Flores, Victoria Nazarena Guzmán, Sandra Lucía Hernández Zetina, Xanat Antonio Némiga. \hspace*{\fill}
     \linebreak
     \newline Primera edición, agosto 2022. Morelia - México, Bogotá - Colombia.  
     D. R. © 2022 Universidad Nacional Autónoma de México 
@@ -427,7 +436,7 @@
     \newline ISBN obra digital México: xxx-xxx-xxxx-xx-x \hspace*{\fill}
     \linebreak
     \newline Esta edición y sus características son propiedad de la Universidad Nacional Autónoma de México y del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt. Prohibida la reproducción total o parcial por cualquier medio sin la autorización escrita del titular de los derechos patrimoniales.}
-\end{multicols}
+\end{multicols*}
 \vspace*{\fill}
 
 % Para hacer el título por default después
@@ -449,7 +458,7 @@
 \newpage
 
 \hypertarget{agradecimientos}{%
-\section*{Agradecimientos}\label{agradecimientos}}
+\chapter*{Agradecimientos}\label{agradecimientos}}
 
 La presente publicación recibió apoyo financiero del Fondo Sectorial de Investigación para la Educación SEP-CONACyT (PE117519 -- Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM).
 
@@ -6529,6 +6538,9 @@ Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congal
 \fancypagestyle{fancy}{}
 \printindex{}
 
+\newpage
+
+\newpage
 \topskip0pt
 \vspace*{\fill}
 \begin{center}

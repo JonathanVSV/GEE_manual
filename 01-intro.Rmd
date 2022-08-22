@@ -1,5 +1,5 @@
 \newpage
-## Agradecimientos {- .unnumbered .unlisted}
+# Agradecimientos {- .unnumbered .unlisted}
 
 La presente publicación recibió apoyo financiero del Fondo Sectorial de Investigación para la Educación SEP-CONACyT (PE117519 – Programa de Apoyo a Proyectos para la Innovación y Mejoramiento a la Enseñanza (PAPIME), DGAPA, UNAM). 
 

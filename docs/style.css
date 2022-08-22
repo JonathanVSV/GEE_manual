@@ -12,3 +12,62 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+/*------------- Body and header text---------------- */
+
+.book.font-family-1 {
+  font-family: 'Muli', serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Prata', serif;
+  color: #1d4c55;
+}
+
+.title {
+  font-family: 'Prata', serif;
+  font-size: 3em !important;
+  color: #1d4c55;
+ }
+
+.subtitle {
+  font-family: 'Prata', serif;
+  color: #1d4c55;
+}
+
+/*-----Body Links-------*/
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+  color: #1d4c55;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:hover {
+color: #1d4c55; /* darker color when hovering */
+text-decoration: none;
+}
+
+/* -----------Sidebar div tips------------- */
+/* from r-pkgs.org*/
+
+  div.bluebox2, div.awesomeblock {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    padding-left: 20px;
+    background-size: 2px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 20px;
+    color: #1f5386;
+    /*background-color: #bed3ec;
+    border: solid 5px #dfedff;*/
+  }
+
+div.bluebox2 {
+  border: solid 5px #1d4c55;
+  background-color: #1d4c55;
+  /*background-image: url("../images/Your-turn.png");*/
+}
+
+div.awesomeblock {
+ background-color: #def2f7;
+}

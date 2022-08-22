@@ -29,6 +29,9 @@ bookdown::gitbook:
         <li><a href="./">Cómo usar Google Earth Engine y no fallar en el intento</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+bookdown::epub_book: 
+  stylesheet: style.css
+  cover_image: Img/portada.png
 #bookdown::gitbook:
 #  lib_dir: assets
   #split_by: section
@@ -37,5 +40,5 @@ bookdown::gitbook:
 #      position: static
   # css: toc.css
 #  template: template.tex
-# bookdown::epub_book: default
+
 # bookdown::bs4_book: default
