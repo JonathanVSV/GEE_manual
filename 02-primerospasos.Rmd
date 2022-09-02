@@ -4,7 +4,7 @@
 
 ## Registro para el uso de GEE JavaScript API
 
-Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es ingresar a su sitio web para registrarse como usuario, por medio de la siguiente liga:
+Lo primero que hay que hacer para poder utilizar la API de JavaScript de GEE es ingresar a su sitio web para registrarse como usuario, por medio del siguiente enlace:
 
 <https://earthengine.google.com/>
 
@@ -22,7 +22,7 @@ Se recomienda usar una cuenta de Google que tenga suficiente espacio disponible 
 :::
 :::
 
-```{r f22, echo = F, out.width="60%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
+```{r f22, echo = F, out.width="80%", fig.cap="Formulario de datos a llenar para registrarse en GEE."}
 knitr::include_graphics("Img/formulario.png")
 ```
 
@@ -32,11 +32,7 @@ Una vez realizado el registro, hay que esperar un tiempo (pueden ser desde minut
 knitr::include_graphics("Img/correo.png")
 ```
 
-Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace:
-
-<https://code.earthengine.google.com/>
-
-y se accede con la cuenta de Google con la que nos registramos.
+Una vez que tengamos dicha confirmación, podemos acceder a la API a través del siguiente enlace: <https://code.earthengine.google.com/>, y se accede con la cuenta de Google con la que nos registramos.
 
 Una vez registrados, se podrá acceder al material de todos los ejercicios entrando al siguiente enlace: <https://code.earthengine.google.com/?accept_repo=users/JonathanVSV/GEE_manual>
 
@@ -75,12 +71,12 @@ knitr::include_graphics("Img/left_panel.png")
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
 El usuario puede compartir repositorios con otros usuarios de GEE como lector o editor. De esta manera, todos los archivos que se encuentren dentro de un repositorio serán compartidos con los usuarios indicados. Esta opción está disponible al dar clic en el símbolo del engranaje a la derecha de cada repositorio (aparece una vez que se coloca el puntero sobre el nombre del repositorio; `r colorize("Fig.")` \@ref(fig:f27)).
-:::
-:::
 
 ```{r f27, echo = F, out.width="60%", fig.cap="Vista del espacio de propietario."}
 knitr::include_graphics("Img/engranaje.png")
 ```
+:::
+:::
 
 #### Docs {.unnumbered}
 
@@ -98,7 +94,7 @@ knitr::include_graphics("Img/doc_ejemplo.png")
 
 La primera vez que se accede a la pestaña de **Assets** hay que crear una carpeta principal (**Home Folder**) para almacenar la información que se desee importar a GEE. Se recomienda nombrar esta carpeta con el mismo nombre de usuario (`r colorize("Fig.")` \@ref(fig:f210)).
 
-```{r f210, echo = F, out.width="80%", fig.cap="Carpeta de inicio dentro de la API."}
+```{r f210, echo = F, out.width="60%", fig.cap="Carpeta de inicio dentro de la API."}
 knitr::include_graphics("Img/homeFolder.png")
 ```
 
@@ -136,17 +132,13 @@ A su derecha se encuentra el botón de **Reset**, el cual sirve para borrar todo
 
 Después se encuentra el botón de **Apps**, que sirve para crear aplicaciones a partir del código que se encuentra en la pantalla. La creación de aplicaciones no se cubrirá en este manual, pero se refiere a programas que permiten crear una interfaz amigable con un usuario que no tenga conocimientos de GEE. De esta manera, se puede facilitar el uso de un código programado sin necesidad de acceder directamente al código. Para consultar algunos ejemplos de aplicaciones construidas en GEE se puede visitar el siguiente enlace: <https://www.earthengine.app/>
 
-Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como `’`, `"`, `(` y `{`.
+Por último, en el botón del engranaje se encuentran opciones para prender y apagar líneas de código como subrayar sugerencias en la pantalla de rutinas o autocompletar símbolos como `’`, `"`, `(`, `[` y `{`.
 
 ::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
 Cuando se corre un código en la consola con el botón de **Run**, este no corre directamente en los servidores de Google, sino que se transcriben a código GeoJSON, se envían a los servidores de Google y se espera una respuesta.
-:::
-:::
-
-::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\\faLightbulb}{darkblue}"}
 Para buscar un texto específico dentro del código, se debe dar clic en la pantalla de rutinas y presionar ctrl+F (algunos atajos pueden variar según la configuración del teclado). Esta pantalla permite buscar una cadena de caracteres determinada dentro del código. Además, al volver a presionar ctrl+F, también se activa el recuadro de sustitución, el cual facilita el sustituir una cadena de caracteres determinada por otra. Para consultar el listado completo de atajos se puede presionar ctrl+shift+H.
+
 :::
 :::
 
@@ -154,21 +146,21 @@ Para buscar un texto específico dentro del código, se debe dar clic en la pant
 
 Es una barra de búsqueda (**Search**) en la que se puede tratar de localizar fuentes de datos o sitios (`r colorize("Fig.")` \@ref(fig:f216)). Resulta útil para encontrar la ruta de alguna fuente de datos o una colección en particular, así como para consultar sus metadatos, bandas y características.
 
-```{r f216, echo = F, out.width="95%", fig.cap="Vista de la barra de búsqueda."}
+```{r f216, echo = F, out.width="80%", fig.cap="Vista de la barra de búsqueda."}
 knitr::include_graphics("Img/search.png")
 ```
 
 ### Pantalla de Mapa {.unnumbered}
 
-En esta pantalla se puede (`r colorize("Fig.")` \@ref(fig:f217)):
+En esta pantalla (`r colorize("Fig.")` \@ref(fig:f217)) se puede:
+
+1.  Dibujar y visualizar puntos, polígonos, líneas o rectángulos.
+2.  Mostrar la información que se haya indicado mediante la función `r colorize2("Map.addLayer")`.
+3.  Añadir un mapa base (Google Maps o Google Earth).
 
 ```{r f217, echo = F, out.width="95%", fig.cap="Vista de la pantalla de mapa, indicando las diferentes herramientas que se pueden utilizar en ella."}
 knitr::include_graphics("Img/drawing.png")
 ```
-
-1.  Dibujar y visualizar puntos, polígonos, líneas o rectángulos.
-2.  Mostrar la información que se haya indicado mediante la función `r colorize2("Map.addLayer")`.
-3.  Añadir un mapa base (Google maps o Google earth).
 
 #### Gestor de capas {.unnumbered}
 
@@ -234,7 +226,7 @@ La sintaxis de JavaScript tiene algunas peculiaridades que deben cumplirse para 
 1.  Es un lenguaje sensible a las mayúsculas y minúsculas, de tal manera que puede haber dos objetos diferentes, uno llamado `a` y otro llamado `A`.
 2.  Se recomienda cerrar cualquier comando con un `;` (de no hacerlo, el código funcionará igualmente; sin embargo, se recomienda utilizarlo para tener un código más claro y ordenado).
 3.  Comúnmente en JavaScript se utiliza la notación *lowerCamelCase* para unir palabras (unir palabras sin espacio, pero cada una comenzando con su respectiva mayúscula), en lugar de guiones `-` o guion bajo `_`. Por ejemplo: `r colorize2("intervalMean")` o `r colorize2("updateMask")`.
-4.  Todas las variables, funciones y objetos deben ser definidos mediante la función `var`.
+4.  Todas las variables, funciones y objetos deben ser definidos mediante la función `var`. Para los usuarios de JavaScript, hay que destacar que Google Earth Engine no utiliza la función `const` para definir variables.
 5.  El operador `=` asigna un valor a una variable.
 6.  Los operadores matemáticos son: `+ - * /`.
 7.  Para concatenar dos cadenas de caracteres se utiliza el símbolo `+`.

@@ -86,6 +86,26 @@ colorize3 <- function(x) {
       x)
   } else x
 }
+
+colorizered <- function(x) {
+  color <- "red"
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+
+colorizeblue <- function(x) {
+  color <- "blue"
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
 # # Set Ejercicio as "language"
 # knitr::knit_engines$set(Ejercicio = function(options) {
 #   # the source code is in options$code; just do

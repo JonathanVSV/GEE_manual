@@ -24,6 +24,8 @@
 
 | Friedman, J. H. (2001). Greedy function approximation: a gradient boosting machine. Annals of Statistics 29, 1189–1232.
 
+| Genzano, N., Pergola, N., & Marchese, F. (2020). A Google Earth Engine tool to investigate, map and monitor volcanic thermal anomalies at global scale by means of mid-high spatial resolution satellite data. Remote Sensing, 12, 3232. https://doi.org/10.3390/rs12193232
+
 | Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., & Moore, R. (2017). Google Earth Engine: Planetary-scale geospatial analysis for everyone. Remote Sensing of Environment, 202, 18–27. https://doi.org/10.1016/j.rse.2017.06.031
 
 | Hamunyela, E., Rosca, S., Mirt, A., Engle, E., Herold, M., Gieseke, F., & Verbesselt, J. (2020). Implementation of BFASTmonitor Algorithm on Google Earth Engine to Support Large-Area and Sub-Annual Change Monitoring Using Earth Observation Data. Remote Sensing, 12, 2953. https://doi.org/10.3390/rs12182953
@@ -40,7 +42,11 @@
 
 | Oshiro, T. M., Perez, P. S., Baranauskas, J. A. (2012). How Many Trees in a Random Forest?. En: Perner, P. (eds) Machine Learning and Data Mining in Pattern Recognition. MLDM 2012. Lecture Notes in Computer Science, 7376. Springer, Berlin, Alemania. https://doi.org/10.1007/978-3-642-31537-4_13
 
+| Perilla, G. A., & Mas, J. F. (2019). High-resolution mapping of protected agriculture in Mexico, through remote sensing data cloud geoprocessing. European Journal of Remote Sensing, 52, 532-541. https://doi.org/10.1080/22797254.2019.1686430
+
 | Perilla, G. A., & Mas, J. F. (2020). Google Earth Engine (GEE): una poderosa herramienta que vincula el potencial de los datos masivos y la eficacia del procesamiento en la nube. Investigaciones Geográficas, 101, e59929. https://doi.org/10.14350/rig.59929
+
+| Perilla, G. A., Cruz-Rodríguez, C. A., Muñoz, C. J., Olaya-Herrera, H, Jimenez, L. R., Arango, H. M., Escobar, D. A., Suarez-Valencia, E., & Noguera-Urbano, E. A. (2022). Multi-temporal habitat models using Machine learning in Google Earth Engine. Manuscrito sin publicar.
 
 | Phillips, S. J., Dudík, M., Schapire, R. E. (2004). A maximum entropy approach to species distribution modeling. En: Proceedings of the twenty-first international conference on Machine learning (p. 83).
 
@@ -64,4 +70,8 @@
 
 | Webb, G. I. (2011). Naïve Bayes. En: Sammut, C., Webb, G. I. (eds) Encyclopedia of Machine Learning. Springer, Boston, EUA. https://doi.org/10.1007/978-0-387-30164-8_576
 
+| Williamson, M. J., Tebbs, E. J., Thompson, H. J., Dawson, T. P., Head, C. E., & Jacoby, D. M. (2021). Application of Earth Observation Data and Google Earth Engine for Monitoring Coral Reef Exposure to Environmental Stressors. https://doi.org/10.20944/preprints202106.0473.v1 
+
 | Xiong, J., Thenkabail, P. S., Gumma, M. K., Teluguntla, P., Poehnelt, J., Congalton, R. G., … Thau, D. (2017). Automated cropland mapping of continental Africa using Google Earth Engine cloud computing. ISPRS Journal of Photogrammetry and Remote Sensing, 126, 225–244. https://doi.org/10.1016/j.isprsjprs.2017.01.019
+
+| Zhang, X., Zeraatpisheh, M., Rahman, M. M., Wang, S., & Xu, M. (2021). Texture is important in improving the accuracy of mapping photovoltaic power plants: A case study of Ningxia Autonomous Region, China. Remote Sensing, 13, 3909. https://doi.org/10.3390/rs13193909

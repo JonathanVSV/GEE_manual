@@ -11,7 +11,7 @@ La función más sencilla de la interfaz es la de imprimir objetos en la consola
 print('Hola Mundo');
 ```
 
-```{r f31, echo = F, out.width="60%",  fig.cap="Ejemplo del uso de la función print para imprimir en la consola."}
+```{r f31, echo = F, out.width="80%",  fig.cap="Ejemplo del uso de la función print para imprimir en la consola."}
 knitr::include_graphics("Img/holaMundo.png")
 ```
 
@@ -27,7 +27,7 @@ Este grupo de funciones permiten agregar objetos del lado del servidor a la pant
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor**  en la siguiente liga: https://developers.google.com/earth-engine/apidocs. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
+Para revisar todas las funciones disponibles para la interfaz del usuario, ver la sección de **Code Editor**  en la siguiente liga: <https://developers.google.com/earth-engine/apidocs>. Además, en esta sección se indican los argumentos que acepta cada función, así como el tipo de objeto de la salida.
 :::
 ::::
 
@@ -50,11 +50,6 @@ knitr::include_graphics("Img/LTerminos.png")
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 En algunas ocasiones, al intentar cargar objetos en la pantalla de mapa, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o el límite de memoria disponible. En estos casos, se sugiere exportar el resultado en lugar de tratar de cargarlo en la pantalla de mapa y después visualizarlo de manera local en algún SIG o *software* similar (por ejemplo, QGIS).
-:::
-::::
-
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: https://epsg.io/. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.
 :::
 ::::
@@ -196,11 +191,6 @@ Export.image.toDrive({
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 En GEE muchas operaciones utilizan el término de `scale`, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.
-:::
-::::
-
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento `maxPixels` dentro del diccionario que se pasa a `r colorize2("Export.image.toDrive")`. Por ejemplo, `maxPixels: 1e10`, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.
 :::
 ::::
@@ -233,7 +223,7 @@ Export.table.toDrive({
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-GEE permite exportar información en formato vector solo en formato CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado. 
+GEE permite exportar información contenida en vectores solo en formatos CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado. 
 :::
 ::::
 

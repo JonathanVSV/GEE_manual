@@ -1,6 +1,26 @@
 library(staplr)
 
-# Quitar hojas que no necesitamos
-remove_pages(rmpages = c(1, 9, 10, 217, 219, 221),
+select_pages(selpages = c(13,15,17),
              input_filepath = "_book/ManualGEE.pdf",
-             output_filepath = "_book/ManualGEE_f.pdf")
+             output_filepath = "_book/ManualGEE_preIndex.pdf",
+             overwrite = T)
+
+select_pages(selpages = c(2:6),
+             input_filepath = "_book/ManualGEE.pdf",
+             output_filepath = "_book/ManualGEE_front.pdf",
+             overwrite = T)
+
+# Quitar hojas que no necesitamos
+remove_pages(rmpages = c(1, 2:6, 9, 10, 13, 15, 17, 217, 219, 221),
+             input_filepath = "_book/ManualGEE.pdf",
+             output_filepath = "_book/ManualGEE_body.pdf")
+
+staple_pdf(
+  input_files = c("_book/ManualGEE_front.pdf",
+                  "_book/ManualGEE_preIndex.pdf",
+                  "_book/ManualGEE_body.pdf"
+                  ),
+  output_filepath = "_book/ManualGEE_f.pdf",
+  overwrite = TRUE
+)
+

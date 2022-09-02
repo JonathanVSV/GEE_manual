@@ -6,6 +6,7 @@ Las colecciones de vectores (`r colorize2("ee.FeatureCollection")`) son objetos 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
 GEE ofrece un catálogo de colecciones de vectores que se puede buscar en la barra de búsqueda. Estas colecciones de vectores se llaman tablas (*tables*).
+La búsqueda de información vectorial en los acervos de GEE es más difícil que la búsqueda de imágenes. Eso ocurre porque a pesar de que hay mucha información vectorial disponible (compartida por usuarios), solo está indexada la información compartida por Google.
 :::
 ::::
 
@@ -22,23 +23,10 @@ var paises = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 knitr::include_graphics("Img/ej13.png")
 ```
 
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-La búsqueda de información vectorial en los acervos de GEE es más difícil que la búsqueda de imágenes. Eso ocurre porque a pesar de que hay mucha información vectorial disponible (compartida por usuarios), solo está indexada la información compartida por Google.
-:::
-::::
-
-
 ## Información y metadatos
 \index{size}
 \index{limit}
 En las colecciones de vectores se ubican los metadatos e información de todos los vectores que contienen. Gracias a ello se puede utilizar esta información para filtrar y utilizar únicamente los vectores que cumplen con ciertos criterios. Algunos de los métodos que permiten examinar una colección de vectores incluyen `r colorize2(".size")` y `r colorize2(".limit")` (`r colorize("Fig.")` \@ref(fig:f82)).
-
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Al usar `r colorize2("print")` con las colecciones de vectores, la consola puede mostrar un máximo de 5000 vectores. En caso que uno necesite usar `r colorize2("print")` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método `r colorize2(".limit")`, el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean <= 5000; `r colorize("Fig.")` \@ref(fig:f82)).
-:::
-::::
 
 `r colorize("Ejercicio 14")`
 
@@ -61,9 +49,16 @@ Map.addLayer(cuencas,{},'todas las cuencas');
 // rápido (Noroccidente de África)
 Map.addLayer(cuencas.limit(1000),{color:'00ff00'},'1000 cuencas filtradas');
 ``` 
+
 ```{r f82, echo = F, out.width="95%", fig.cap="Visualización de las primeras 1000 cuencas, así como su salida en la consola."}
 knitr::include_graphics("Img/ej14.png")
 ```
+
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Al usar `r colorize2("print")` con las colecciones de vectores, la consola puede mostrar un máximo de 5000 vectores. En caso que uno necesite usar `r colorize2("print")` en una colección de más de 5000 vectores, será necesario filtrar la colección previamente. Otra opción es limitar la cantidad de vectores que se vayan a mostrar. Para ello se puede usar el método `r colorize2(".limit")`, el cual permite especificar la cantidad de vectores que queremos ver (siempre que sean <= 5000; `r colorize("Fig.")` \@ref(fig:f82)).
+:::
+::::
 
 ## Creación de colecciones de vectores
 
@@ -91,26 +86,17 @@ var Punto = ee.Feature(ee.Geometry.Point(-99.1362, 19.4352),
     {pais:'Mexico',capital:'cdmx'});
 
 var Multipunto = ee.Feature(
-ee.Geometry.MultiPoint([-90.496, 14.605,                               
-    					-88.717, 17.245,                              
-    					-87.157, 14.094,
-    					-89.2275, 13.6937,
-    					-86.273, 12.115
-    					-84.097, 9.958
+ee.Geometry.MultiPoint([-90.496, 14.605, -88.717, 17.245,                            
+    					-87.157, 14.094, -89.2275, 13.6937,
+    					-86.273, 12.115, -84.097, 9.958,
     					-79.527, 8.983]),
-    {pais: ['Guatemala', 
-      	'Belice', 
-      	'Honduras', 
-      	'El Salvador', 
-      	'Nicaragua', 
-      	'Costa Rica', 
+    {pais: ['Guatemala', 'Belice', 
+      	'Honduras', 'El Salvador', 
+      	'Nicaragua', 'Costa Rica', 
       	'Panama'],
-    capital: 	['cdad. de Guatemala', 
-        'Belmopan', 
-      	'Tegucigalpa', 
-      	'San Salvador', 
-      	'Managua', 
-      	'San Jose', 
+    capital: 	['cdad. de Guatemala', 'Belmopan', 
+      	'Tegucigalpa', 'San Salvador', 
+      	'Managua', 'San Jose', 
       	'cdad. de Panama']});
 
 var linea = ee.Feature(ee.Geometry.LineString([-66.865, 10.479,                    
@@ -145,12 +131,12 @@ var rectangulo = ee.Feature(ee.Geometry.Rectangle(-127.97, 50.25,
     	{pais:'eeuu', 
       capital:'Washington'}); 
 
-var poligono = ee.Feature(ee.Geometry.Polygon(-80.348, -3.36, -80.348, -3.36,
-                  -78.985, -5.11, -78.019, -3.228,
- 							    -75.99, -2.394, -75.25, -0.901,
-  							  -75.865, 0.11, -78.941, 1.428,
-  							  -80.26, 0.725, -80.919, -1.911,
-  							  -79.776, -2.614),
+var poligono = ee.Feature(ee.Geometry.Polygon(-80.348, -3.36, 
+                  -80.348, -3.36, -78.985, -5.11, 
+                  -78.019, -3.228, -75.99, -2.394, 
+                  -75.25, -0.901, -75.865, 0.11, 
+                  -78.941, 1.428, -80.26, 0.725, 
+                  -80.919, -1.911, -79.776, -2.614),
               {pais:'Ecuador', 
               capital:'Quito'});
 

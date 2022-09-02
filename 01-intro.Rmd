@@ -20,7 +20,7 @@ De igual manera, damos las gracias a Andrea Pamela Flores, Victoria Nazarena Guz
 
 Agradecemos también a los desarrolladores de la API de libre acceso y uso gratuito (para propósitos educativos y de investigación sin fines de lucro) que se presenta en este libro (Google Earth Engine) y a los creadores de los programas de código abierto que se usaron para la elaboración de esta obra (R y LaTeX), así como algunos de sus paquetes (Rmarkdown, knitr y bookdown).
 
-La imagen de la portada fue adaptada por Laura Perilla, a partir de la imagen Sentinel-2 “20181227T151659_20181227T151707_T19PBN”.
+La imagen de la portada y la contraportada fue adaptada por Laura Perilla, a partir de la imagen Sentinel-2 “20181227T151659_20181227T151707_T19PBN”.
 
 
 \newpage
@@ -33,6 +33,7 @@ A lo largo del texto mencionaremos diferentes productos de Google LLC, pero es i
 - Google Earth Engine™ analytics platform.
 - Google Earth™ mapping service.
 - Google Maps™ mapping service.
+- Google Groups™ discussion forums.
 - TensorFlow™ open-source software library.
 
 # Advertencia sobre los enlaces {- .unnumbered .unlisted}
@@ -97,17 +98,11 @@ knitr::include_graphics("Img/Datasets.png")
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para consultar toda la información que está disponible en GEE se puede dirigir al siguiente enlace: https://developers.google.com/earth-engine/datasets
+Para consultar toda la información que está disponible en GEE se puede dirigir al siguiente enlace: https://developers.google.com/earth-engine/datasets. Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamientos que en un computador personal habrían tardado 15 años.
 :::
 ::::
 
 De manera paralela al catálogo de información, GEE puso a disposición de la gente un conjunto de servidores para poder realizar rápida y eficazmente cálculos y computaciones sobre esos datos. En 2010, estos servidores tenían una capacidad más o menos equivalente a 10 000 computadores personales.
-
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamientos que en un computador personal habrían tardado 15 años.
-:::
-::::
 
 El tercer componente clave para el funcionamiento de GEE son las API. Una API es una interfaz que permite la comunicación entre nosotros (los usuarios) y los servidores de Google, proporcionando el acceso y el uso de la capacidad computacional de Google para nuestros análisis. Las API de GEE tienen el objetivo de facilitar la creación de programas, por lo cual cuentan con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simple línea de código. La idea central de las API de GEE es brindar una interfaz que permita crear códigos y programas claros y concisos.
 
@@ -125,7 +120,7 @@ Git es un programa de distribución libre que permite llevar un control de difer
 :::
 ::::
 
-### Ejemplos de aplicaciones realizadas con GEE {-}
+### Ejemplos de estudios realizados con GEE {-}
 
 GEE se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:
 
@@ -140,9 +135,21 @@ GEE se ha utilizado para diversos estudios enfocados en analizar la superficie t
 * Mapear cicatrices de incendios (Arruda _et al_., 2021).
 * Evaluar el grado de sequía de la superficie terrestre (Sazib _et al_., 2018).
 * Mapear características de humedales (Slagter _et al_., 2018).
+* Monitorear anomalías térmicas en volcanes (Genzano _et al_., 2020).
+* Mapear agricultura protegida (Perilla _et al_., 2019).
+* Monitorear exposición de arrecifes de coral a estresores ambientales (Williamson _et al_., 2021).
+* Mapear plantas fotovoltáicas (Zhang _et al_., 2021)
 * Caracterizar islas de calor (Ravanelli _et al_., 2018), entre muchos otros. 
 
-Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar _et al_., 2018).
+Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar _et al_., 2018). Por último, cabe mencionar que dentro de Google Earth Engine se pueden programar aplicaciones que facilitan el uso y consulta de resultados de cualquier código, en una interfaz amigable para cualquier usuario. Aunque esto no se revisará en el material de este manual, en la siguiente lista se pueden consultar algunos de estos ejemplos:
+
+* Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo _et al_., 2020; Hamunyela _et al_., 2020). <https://parevalo-bu.users.earthengine.app/view/advanced-tstools>, <https://andreim.users.earthengine.app/view/bfastmonitor>
+* Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen _et al_., 2013). <https://glad.earthengine.app/view/global-forest-change>
+* Enmascarar nubes de imágenes (Mateo-García _et al_., 2018)  <https://isp.uv.es/projects/cdc/viewer_l8_GEE.html>
+* Mapear el cambio de hábitat de las aves del 2000 al 2021 (Perilla _et al_., 2022)  <https://biomodelos-iavh.users.earthengine.app/view/biomodelos>
+* Mapear plantas de energía fotovoltaica (paneles solares) (Zhang, _et al_., 2021)  <https://xunhezhang.users.earthengine.app/view/ningxia-pv-power-plants>
+* Monitorear anomalías termales volcánicas globales (Genzano, _et al_., 2020)  <https://nicogenzano.users.earthengine.app/view/nhi-tool>
+* Monitorear estrés ambiental para corales en el mundo (Williamson, _et al_., 2021)  <https://mjw1280.users.earthengine.app/view/coral-reef-stress-exposure-index>
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}

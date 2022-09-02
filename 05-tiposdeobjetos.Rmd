@@ -5,7 +5,7 @@ Dentro de GEE existe una amplia diversidad de tipos de objetos, por ejemplo: obj
 
 ## Objetos del cliente y del servidor
 
-Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (`r colorize("Fig.")` \@ref(fig:f51)). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `'cadena'`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `ee.String('cadena')`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `1 + 2`, mientras que del lado del servidor se utilizará `ee.Number(1).add(ee.Number(2))`.
+Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (`r colorize("Fig.")` \@ref(fig:f51)). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: `r colorizered("'cadena'")`, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: `r colorize2("ee.String")``(``r colorizered("'cadena'")``)`. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante `r colorizeblue(1)` `+` `r colorizeblue(2)`, mientras que del lado del servidor se utilizará `r colorize2("ee.Number")``(``r colorizeblue(1)``).``r colorize2("add")``(``r colorize2("ee.Number")``(``r colorizeblue(2)``))`.
 
 En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de `if` y `else`, la función `r colorize2("ee.Algorithms.If")`. Sin embargo, cabe aclarar que algunas funciones solo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo `r colorize2("ee.Export")` (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa `r colorize2("Map.addLayer")` o crear gráficos, así como imprimir información en la consola `r colorize2("print")`. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.
 
@@ -49,7 +49,7 @@ Los números en una cadena de texto no serán interpretados como valores numéri
 :::
 ::::
 
-```{r f52, echo = F, out.width="95%", fig.cap="Salida de la consola de objetos de tipo cadena de caracteres."}
+```{r f52, echo = F, out.width="80%", fig.cap="Salida de la consola de objetos de tipo cadena de caracteres."}
 knitr::include_graphics("Img/ej0.png")
 ```
 
@@ -141,7 +141,7 @@ var dicc = {
 Hay dos formas de consultar los valores dentro de un diccionario (Fig. 5.5): 
 
   * Llamar directamente el nombre de la clave deseada dentro de  comillas en un par de corchetes `['']`.
-  * Utilizar la notación de `.` seguida del nombre de la clave. 
+  * Utilizar la notación de `.` (punto) seguida del nombre de la clave. 
 
 Por ejemplo:
 
@@ -169,7 +169,7 @@ knitr::include_graphics("Img/ej3.png")
 ```
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para los diccionarios se recomienda utilizar la notación de `.` seguida del nombre de la clave, ya que es la recomendada por GEE.
+Para los diccionarios se recomienda utilizar la notación de `.` (punto) seguida del nombre de la clave, ya que es la recomendada por GEE.
 :::
 ::::
 
@@ -212,7 +212,7 @@ Los objetos del lado del servidor, además de permitir llevar a cabo procesos en
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Para saber cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo `ee.` (del servidor de Earth Engine) seguido del nombre del tipo de objeto con inicial mayúscula.
+Para saber cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo `r colorize2("ee")``.` (del servidor de Earth Engine) seguido del nombre del tipo de objeto con inicial mayúscula.
 :::
 ::::
 
@@ -220,7 +220,7 @@ Los objetos del lado del servidor se pueden conceptualizar como contenedores que
 
 :::: {.bluebox2 data-latex=""}
 ::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `ee.Object`) como por ejemplo, al usar, en casos particulares, los métodos `r colorize2(".first")` o `r colorize2(".get")`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `...is not a function`.
+En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, `r colorize2("ee.Object")`) como por ejemplo, al usar, en casos particulares, los métodos `.``r colorize2("first")` o `.``r colorize2("get")`, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error `...is not a function`.
 :::
 ::::
 
@@ -232,7 +232,7 @@ Todos los métodos disponibles en GEE clasificados por tipo de objeto del servid
 
 (ref:foo) https://developers.google.com/earth-engine/guides/objects_methods_overview. 
 
-```{r f56, echo = F, out.width="95%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de (ref:foo)"}
+```{r f56, echo = F, out.width="95%", fig.cap="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado y modificado de (ref:foo)"}
 knitr::include_graphics("Img/objetosServ2.png")
 ```
 
@@ -371,6 +371,12 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
     *	El formato debe estar entre comillas.
     *	Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a `r colorize2("ee.Date")` (entre el formato y el texto debe ir una coma).
 
+:::: {.bluebox2 data-latex=""}
+::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
+Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX, que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.
+:::
+::::
+
 `r colorize("Ejercicio 8")`
 ```{js, echo = T}
 // Fecha como un texto de cliente
@@ -389,11 +395,7 @@ var fecha2 = ee.Date.fromYMD(2015,03,28);
 // deben ser las 3 primeras iniciales del mes en inglés
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 
 ```
-:::: {.bluebox2 data-latex=""}
-::: {.awesomeblock data-latex="{5pt}{\faLightbulb}{darkblue}"}
-Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX, que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.
-:::
-::::
+
 ```{r f511, echo = F, out.width="95%", fig.cap="Salida de la consola de un objeto de tipo fecha del lado del servidor."}
 knitr::include_graphics("Img/ej8.png")
 ```
@@ -420,7 +422,7 @@ Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos t
 
 ### ee.Array {-}
 \index{ee.Array}
-Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de `r colorize2("ee.Array")` (ver liga anterior).
+Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de `r colorize2("ee.Array")` (ver el enlace anterior).
 
 ### ee.Classifier {-}
 \index{ee.Classifier}
