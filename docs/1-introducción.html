@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
 <ul>
 <li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
-<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-estudios-realizados-con-gee"><i class="fa fa-check"></i>Ejemplos de estudios realizados con GEE</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
@@ -362,15 +362,10 @@ Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Para consultar toda la información que está disponible en GEE se puede dirigir al siguiente enlace: <a href="https://developers.google.com/earth-engine/datasets" class="uri">https://developers.google.com/earth-engine/datasets</a></p>
+<p>Para consultar toda la información que está disponible en GEE se puede dirigir al siguiente enlace: <a href="https://developers.google.com/earth-engine/datasets" class="uri">https://developers.google.com/earth-engine/datasets</a>. Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamientos que en un computador personal habrían tardado 15 años.</p>
 </div>
 </div>
 <p>De manera paralela al catálogo de información, GEE puso a disposición de la gente un conjunto de servidores para poder realizar rápida y eficazmente cálculos y computaciones sobre esos datos. En 2010, estos servidores tenían una capacidad más o menos equivalente a 10 000 computadores personales.</p>
-<div class="bluebox2">
-<div class="awesomeblock">
-<p>Se estima que en 2010 GEE era capaz de ejecutar en cuestión de días procesamientos que en un computador personal habrían tardado 15 años.</p>
-</div>
-</div>
 <p>El tercer componente clave para el funcionamiento de GEE son las API. Una API es una interfaz que permite la comunicación entre nosotros (los usuarios) y los servidores de Google, proporcionando el acceso y el uso de la capacidad computacional de Google para nuestros análisis. Las API de GEE tienen el objetivo de facilitar la creación de programas, por lo cual cuentan con una serie de funciones, métodos y algoritmos preprogramados que se pueden llamar con una simple línea de código. La idea central de las API de GEE es brindar una interfaz que permita crear códigos y programas claros y concisos.</p>
 <p>GEE ofrece dos API, una en JavaScript, a la cual se accede vía internet mediante un explorador y es la más conocida, actualizada y amigable con los usuarios. Además, es la que contiene más documentación y ayuda disponible. Por esta razón, el manual se enfocará en la API de JavaScript. Por otro lado, existe la API en Python, la cual se puede trabajar desde la consola de Python y permite —hasta cierto punto— usar complementariamente bibliotecas de Python, para así hacer procesamientos más complejos, o funcionalidades que la API de JavaScript no permite. Sin embargo, las desventajas de la API de Python incluyen el tener que instalar varias bibliotecas en la computadora para poder trabajar con GEE, el hecho de que existe mucho menos documentación y ayuda disponible para esta API, y que requiere de la actualización constante de algunas bibliotecas para su uso apropiado. A continuación se mencionan algunas de las principales ventajas de la API de JavaScript respecto de la de Python:</p>
 <ol style="list-style-type: decimal">
@@ -386,8 +381,8 @@ Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
 </div>
 </div>
 </div>
-<div id="ejemplos-de-aplicaciones-realizadas-con-gee" class="section level3 unnumbered hasAnchor">
-<h3>Ejemplos de aplicaciones realizadas con GEE<a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ejemplos-de-estudios-realizados-con-gee" class="section level3 unnumbered hasAnchor">
+<h3>Ejemplos de estudios realizados con GEE<a href="1-introducción.html#ejemplos-de-estudios-realizados-con-gee" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>GEE se ha utilizado para diversos estudios enfocados en analizar la superficie terrestre mediante sensores remotos, especialmente imágenes multiespectrales (por ejemplo: Landsat, Sentinel-2, MODIS) y en algunos casos imágenes de radar de apertura sintética (por ejemplo, Sentinel-1). Algunos ejemplos de sus usos son:</p>
 <ul>
 <li>Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo <em>et al</em>., 2020; Hamunyela <em>et al</em>., 2020).</li>
@@ -401,9 +396,22 @@ Figure 1.1: Algunos ejemplos de fuentes de información disponibles en GEE.
 <li>Mapear cicatrices de incendios (Arruda <em>et al</em>., 2021).</li>
 <li>Evaluar el grado de sequía de la superficie terrestre (Sazib <em>et al</em>., 2018).</li>
 <li>Mapear características de humedales (Slagter <em>et al</em>., 2018).</li>
+<li>Monitorear anomalías térmicas en volcanes (Genzano <em>et al</em>., 2020).</li>
+<li>Mapear agricultura protegida (Perilla <em>et al</em>., 2019).</li>
+<li>Monitorear exposición de arrecifes de coral a estresores ambientales (Williamson <em>et al</em>., 2021).</li>
+<li>Mapear plantas fotovoltáicas (Zhang <em>et al</em>., 2021)</li>
 <li>Caracterizar islas de calor (Ravanelli <em>et al</em>., 2018), entre muchos otros.</li>
 </ul>
-<p>Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar <em>et al</em>., 2018).</p>
+<p>Además, es una herramienta cuyo uso ha ido en aumento gracias a sus enormes capacidades de procesamiento y su rapidez para realizar análisis con información geoespacial (Kumar <em>et al</em>., 2018). Por último, cabe mencionar que dentro de Google Earth Engine se pueden programar aplicaciones que facilitan el uso y consulta de resultados de cualquier código, en una interfaz amigable para cualquier usuario. Aunque esto no se revisará en el material de este manual, en la siguiente lista se pueden consultar algunos de estos ejemplos:</p>
+<ul>
+<li>Realizar análisis de series de tiempo para detectar cambios de cobertura (Arévalo <em>et al</em>., 2020; Hamunyela <em>et al</em>., 2020). <a href="https://parevalo-bu.users.earthengine.app/view/advanced-tstools" class="uri">https://parevalo-bu.users.earthengine.app/view/advanced-tstools</a>, <a href="https://andreim.users.earthengine.app/view/bfastmonitor" class="uri">https://andreim.users.earthengine.app/view/bfastmonitor</a></li>
+<li>Evaluar los cambios de la cobertura boscosa global para periodos superiores a una década (Hansen <em>et al</em>., 2013). <a href="https://glad.earthengine.app/view/global-forest-change" class="uri">https://glad.earthengine.app/view/global-forest-change</a></li>
+<li>Enmascarar nubes de imágenes (Mateo-García <em>et al</em>., 2018) <a href="https://isp.uv.es/projects/cdc/viewer_l8_GEE.html" class="uri">https://isp.uv.es/projects/cdc/viewer_l8_GEE.html</a></li>
+<li>Mapear el cambio de hábitat de las aves del 2000 al 2021 (Perilla <em>et al</em>., 2022) <a href="https://biomodelos-iavh.users.earthengine.app/view/biomodelos" class="uri">https://biomodelos-iavh.users.earthengine.app/view/biomodelos</a></li>
+<li>Mapear plantas de energía fotovoltaica (paneles solares) (Zhang, <em>et al</em>., 2021) <a href="https://xunhezhang.users.earthengine.app/view/ningxia-pv-power-plants" class="uri">https://xunhezhang.users.earthengine.app/view/ningxia-pv-power-plants</a></li>
+<li>Monitorear anomalías termales volcánicas globales (Genzano, <em>et al</em>., 2020) <a href="https://nicogenzano.users.earthengine.app/view/nhi-tool" class="uri">https://nicogenzano.users.earthengine.app/view/nhi-tool</a></li>
+<li>Monitorear estrés ambiental para corales en el mundo (Williamson, <em>et al</em>., 2021) <a href="https://mjw1280.users.earthengine.app/view/coral-reef-stress-exposure-index" class="uri">https://mjw1280.users.earthengine.app/view/coral-reef-stress-exposure-index</a></li>
+</ul>
 <div class="bluebox2">
 <div class="awesomeblock">
 <p>GEE sugiere que para citar su herramienta en cualquier tipo de trabajo se haga referencia a Gorelick <em>et al</em>. (2017).</p>

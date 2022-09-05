@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
 <ul>
 <li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
-<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-estudios-realizados-con-gee"><i class="fa fa-check"></i>Ejemplos de estudios realizados con GEE</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
@@ -340,7 +340,7 @@ La función más sencilla de la interfaz es la de imprimir objetos en la consola
 print('Hola Mundo');
 </script>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f31"></span>
-<img src="Img/holaMundo.png" alt="Ejemplo del uso de la función print para imprimir en la consola." width="60%" />
+<img src="Img/holaMundo.png" alt="Ejemplo del uso de la función print para imprimir en la consola." width="80%" />
 <p class="caption">
 Figure 3.1: Ejemplo del uso de la función print para imprimir en la consola.
 </p>
@@ -380,12 +380,8 @@ Figure 3.2: Ejemplo de visualización de un compuesto RGB de una imagen Landsat 
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>En algunas ocasiones, al intentar cargar objetos en la pantalla de mapa, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o el límite de memoria disponible. En estos casos, se sugiere exportar el resultado en lugar de tratar de cargarlo en la pantalla de mapa y después visualizarlo de manera local en algún SIG o <em>software</em> similar (por ejemplo, QGIS).</p>
-</div>
-</div>
-<div class="bluebox2">
-<div class="awesomeblock">
-<p>La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: <a href="https://epsg.io/" class="uri">https://epsg.io/</a>. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.</p>
+<p>En algunas ocasiones, al intentar cargar objetos en la pantalla de mapa, que sean producto de procesamientos demandantes, la consola puede mostrar un error indicando que se superó el tiempo de espera o el límite de memoria disponible. En estos casos, se sugiere exportar el resultado en lugar de tratar de cargarlo en la pantalla de mapa y después visualizarlo de manera local en algún SIG o <em>software</em> similar (por ejemplo, QGIS).
+La proyección por defecto para mostrar la información en la pantalla de mapa corresponde a EPSG:3857. Los códigos EPSG se pueden consultar en el siguiente enlace: <a href="https://epsg.io/" class="uri">https://epsg.io/</a>. Dicha proyección únicamente se hace para poder visualizar la información, mas no transforma la información con la que el usuario trabaja.</p>
 </div>
 </div>
 <p>Para el caso de los vectores (<span style="color: darkpurple;">ee.Feature</span>) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es <code>color</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f33">3.3</a>):</p>
@@ -565,12 +561,8 @@ Export.image.toDrive({
 </script>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>En GEE muchas operaciones utilizan el término de <code>scale</code>, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.</p>
-</div>
-</div>
-<div class="bluebox2">
-<div class="awesomeblock">
-<p>En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento <code>maxPixels</code> dentro del diccionario que se pasa a <span style="color: darkpurple;">Export.image.toDrive</span>. Por ejemplo, <code>maxPixels: 1e10</code>, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.</p>
+<p>En GEE muchas operaciones utilizan el término de <code>scale</code>, sin embargo, este no se refiere a la escala de trabajo en un sentido tradicional (por ejemplo, 1:50000), sino que se refiere al tamaño de píxel expresado en metros.
+En algunas ocasiones, al intentar exportar una imagen muy grande (mayor a 10 000 000 de píxeles), la consola puede mostrar un error indicando que el objeto a exportar tiene un número muy alto de píxeles. En este caso, se debe aumentar el número de píxeles máximo permitido para la exportación. Esto se logra indicando el argumento <code>maxPixels</code> dentro del diccionario que se pasa a <span style="color: darkpurple;">Export.image.toDrive</span>. Por ejemplo, <code>maxPixels: 1e10</code>, lo cual permite exportar una imagen con hasta 1 x 10^10 píxeles.</p>
 </div>
 </div>
 </div>
@@ -614,7 +606,7 @@ Export.table.toDrive({
 </script>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>GEE permite exportar información en formato vector solo en formato CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado.</p>
+<p>GEE permite exportar información contenida en vectores solo en formatos CSV, GeoJSON, KML, KMZ, SHP o TFRecord. El primer formato es el predeterminado.</p>
 </div>
 </div>
 </div>

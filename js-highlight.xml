@@ -39,6 +39,7 @@
       <item>do</item>
       <item>else</item>
       <item>finally</item>
+      <item>function</item>
       <item>for</item>
       <item>if</item>
       <item>return</item>
@@ -1715,8 +1716,8 @@
       <context attribute="Normal Text" lineEndContext="#stay" name="Object">
         <DetectChar attribute="Normal Text" context="#pop" char="}" endRegion="Brace" />
         <!-- Mostly required for define: in switch blocks -->
-        <keyword attribute="Keyword" String="keywords" />
         <RegExpr attribute="ControlFlow" String="\bdefault(?=\s*:)" />
+        <keyword attribute="Keyword" String="keywords" />
 
         <RegExpr attribute="JSON" String="&identifier;(?=\s*:)" />
         <!-- a ? b : c -->
@@ -1735,8 +1736,8 @@
 
       <!-- Keywords -->
       <context attribute="Normal Text" lineEndContext="#stay" name="FindKeywords">
-        <WordDetect attribute="Keyword" context="FunctionDeclaration" String="function" />
         <keyword attribute="ControlFlow" String="controlflow" />
+        <WordDetect attribute="Keyword" context="FunctionDeclaration" String="function" />
         <keyword attribute="Keyword" String="keywords" />
         <keyword attribute="Reserved" String="reserved" />
         <keyword attribute="Keyword" context="NoRegExp" String="primitives" />
@@ -2003,8 +2004,8 @@
 
     <itemDatas>
       <itemData name="Normal Text"  defStyleNum="dsNormal"  spellChecking="false" />
-      <itemData name="Keyword"      defStyleNum="dsKeyword" spellChecking="false" />
       <itemData name="ControlFlow"  defStyleNum="dsControlFlow" spellChecking="false" />
+      <itemData name="Keyword"      defStyleNum="dsKeyword" spellChecking="false" />
       <itemData name="Reserved"     defStyleNum="dsKeyword" italic="true" spellChecking="false" />
       <itemData name="Module"       defStyleNum="dsImport" spellChecking="false" />
       <itemData name="Objects"      defStyleNum="dsNormal" spellChecking="false" />

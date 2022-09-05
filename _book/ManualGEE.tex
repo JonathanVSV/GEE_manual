@@ -1896,7 +1896,7 @@ Se refiere a objetos que contienen algún proceso que se realizará a alguna var
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// MaskIm es una nueva función, y su argumento de entrada es objeto}
-\ControlFlowTok{var}\NormalTok{ maskIm }\OperatorTok{=} \KeywordTok{function}\NormalTok{(objeto)\{ }
+\ControlFlowTok{var}\NormalTok{ maskIm }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(objeto)\{ }
   \CommentTok{// Se define qué objeto es una imagen ráster y se guarda en la }
   \CommentTok{// variable image}
   \ControlFlowTok{var}\NormalTok{ image }\OperatorTok{=} \KeywordTok{ee}\OperatorTok{.}\FunctionTok{Image}\NormalTok{(objeto)}\OperatorTok{;}
@@ -3280,7 +3280,7 @@ En el siguiente ejercicio vamos a crear una función para extraer de cada vector
 \begin{Highlighting}[]
 \CommentTok{// Map es un método que nos permite ejecutar una operación sobre todos }
 \CommentTok{// los vectores de la colección}
-\ControlFlowTok{var}\NormalTok{ Areasfecha }\OperatorTok{=}\NormalTok{ AreasProCRI}\OperatorTok{.}\FunctionTok{map}\NormalTok{( }\KeywordTok{function}\NormalTok{(vector)\{ }
+\ControlFlowTok{var}\NormalTok{ Areasfecha }\OperatorTok{=}\NormalTok{ AreasProCRI}\OperatorTok{.}\FunctionTok{map}\NormalTok{( }\ControlFlowTok{function}\NormalTok{(vector)\{ }
   \CommentTok{// Fecha extrae el valor del atributo \textquotesingle{}STATUS\_YEAR\textquotesingle{}}
   \ControlFlowTok{var}\NormalTok{ fecha }\OperatorTok{=}\NormalTok{ vector}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}STATUS\_YR\textquotesingle{}}\NormalTok{)}\OperatorTok{;}   
   \CommentTok{// Cada vector se entrega con una nueva propiedad \textquotesingle{}system:time\_start\textquotesingle{} }
@@ -3568,7 +3568,7 @@ En el siguiente ejercicio se mostrará cómo aplicar una función que permite cr
 \CommentTok{// vector (y el nombre genérico que le asignamos al insumo es (punto)):}
 \CommentTok{// Abrimos un diccionario donde especificaremos los procedimientos a }
 \CommentTok{// realizarle al vector (punto).}
-\ControlFlowTok{var}\NormalTok{ bufferAleatorio }\OperatorTok{=} \KeywordTok{function}\NormalTok{(punto)\{   }
+\ControlFlowTok{var}\NormalTok{ bufferAleatorio }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(punto)\{   }
   \CommentTok{// Extraemos el número aleatorio del vector que se encuentra en el }
   \CommentTok{// atributo \textquotesingle{}aleatorio\textquotesingle{}.}
   \ControlFlowTok{var}\NormalTok{ numero }\OperatorTok{=}\NormalTok{ punto}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}aleatorio\textquotesingle{}}\NormalTok{)}\OperatorTok{;}  
@@ -3683,7 +3683,7 @@ Las colecciones también permiten agregar atributos de sus vectores en los metad
 
 \CommentTok{// Definir una función que ejecute la diferencia entre el área reportada }
 \CommentTok{// en el atributo vector y la calculada en GEE}
-\ControlFlowTok{var}\NormalTok{ areaDife }\OperatorTok{=} \KeywordTok{function}\NormalTok{(cuenca) \{}
+\ControlFlowTok{var}\NormalTok{ areaDife }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(cuenca) \{}
  
   \ControlFlowTok{var}\NormalTok{ area }\OperatorTok{=}\NormalTok{ cuenca}\OperatorTok{.}\FunctionTok{area}\NormalTok{()}\OperatorTok{.}\FunctionTok{divide}\NormalTok{(}\DecValTok{1000000}\NormalTok{)}\OperatorTok{;}
   \ControlFlowTok{var}\NormalTok{ dife }\OperatorTok{=}\NormalTok{ area}\OperatorTok{.}\FunctionTok{subtract}\NormalTok{(}\KeywordTok{ee}\OperatorTok{.}\AttributeTok{Number}\OperatorTok{.}\FunctionTok{parse}\NormalTok{(cuenca}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}areasqkm\textquotesingle{}}\NormalTok{)))}\OperatorTok{;}
@@ -5144,7 +5144,7 @@ Para realizar alguna operación sobre todas las imágenes de una \boldpurple{ee.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Definir una función que calcule el ndvi de una imagen}
-\ControlFlowTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \KeywordTok{function}\NormalTok{(image)\{}
+\ControlFlowTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(image)\{}
   \CommentTok{// Calcular el ndvi utilizando las bandas del NIR, B8 y R, B4}
   \ControlFlowTok{var}\NormalTok{ ndvi }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{normalizedDifference}\NormalTok{([}\StringTok{\textquotesingle{}B8\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
   \CommentTok{// Regresar la imagen con la nueva banda de ndvi}
@@ -5392,7 +5392,7 @@ En este procedimiento, primero se tiene que definir la función para enmascarar 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Crear función para enmascarar nubes}
-\KeywordTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
+\ControlFlowTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
   \ControlFlowTok{var}\NormalTok{ cloudShadowBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{3}\NormalTok{)}\OperatorTok{;}
   \ControlFlowTok{var}\NormalTok{ cloudsBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{5}\NormalTok{)}\OperatorTok{;}
   \ControlFlowTok{var}\NormalTok{ qa }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}pixel\_qa\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -5411,7 +5411,7 @@ Se define la función para calcular el NDVI de todas las imágenes.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Crear función para calcular NDVI}
-\ControlFlowTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \KeywordTok{function}\NormalTok{(image)\{}
+\ControlFlowTok{var}\NormalTok{ ndviCalc }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(image)\{}
   \ControlFlowTok{var}\NormalTok{ ndvi }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{normalizedDifference}\NormalTok{([}\StringTok{\textquotesingle{}B5\textquotesingle{}}\OperatorTok{,}\StringTok{\textquotesingle{}B4\textquotesingle{}}\NormalTok{])}\OperatorTok{;}
 \NormalTok{  ndvi }\OperatorTok{=}\NormalTok{ ndvi}\OperatorTok{.}\FunctionTok{rename}\NormalTok{(}\StringTok{\textquotesingle{}ndvi\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
     \ControlFlowTok{return}\NormalTok{ image}\OperatorTok{.}\FunctionTok{addBands}\NormalTok{(ndvi)}\OperatorTok{;}
@@ -5870,7 +5870,7 @@ promedio y la desviación estándar (\textcolor{darkblue}{Fig.}
     \CommentTok{// resolución de la imagen en metros por píxel}
     \DataTypeTok{scale}\OperatorTok{:}\DecValTok{1000}\NormalTok{\}) }
   \CommentTok{// Función para cada punto generado}
-  \OperatorTok{.}\FunctionTok{map}\NormalTok{(}\KeywordTok{function}\NormalTok{(sample) \{ }
+  \OperatorTok{.}\FunctionTok{map}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(sample) \{ }
     \CommentTok{// Tomar el valor del punto de latitud}
     \ControlFlowTok{var}\NormalTok{ lat }\OperatorTok{=}\NormalTok{ sample}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{)}\OperatorTok{;} 
     \CommentTok{// Tomar el valor del punto de Longitud}
@@ -5948,7 +5948,7 @@ del mar (imagen), a partir de un muestreo de puntos (vectores;
 \CommentTok{// Muestrear las temperaturas en 1000 localizaciones aleatorias.}
 \ControlFlowTok{var}\NormalTok{ muestras }\OperatorTok{=}\NormalTok{ temperatura}\OperatorTok{.}\FunctionTok{addBands}\NormalTok{(}\KeywordTok{ee}\OperatorTok{.}\AttributeTok{Image}\OperatorTok{.}\FunctionTok{pixelLonLat}\NormalTok{())}
   \OperatorTok{.}\FunctionTok{sample}\NormalTok{(\{}\DataTypeTok{region}\OperatorTok{:}\NormalTok{ geometria}\OperatorTok{,} \DataTypeTok{numPixels}\OperatorTok{:} \DecValTok{1000}\NormalTok{\})}
-  \OperatorTok{.}\FunctionTok{map}\NormalTok{(}\KeywordTok{function}\NormalTok{(sample) \{}
+  \OperatorTok{.}\FunctionTok{map}\NormalTok{(}\ControlFlowTok{function}\NormalTok{(sample) \{}
     \ControlFlowTok{var}\NormalTok{ lat }\OperatorTok{=}\NormalTok{ sample}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
     \ControlFlowTok{var}\NormalTok{ lon }\OperatorTok{=}\NormalTok{ sample}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}longitude\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
     \ControlFlowTok{var}\NormalTok{ temperatura1 }\OperatorTok{=}\NormalTok{ sample}\OperatorTok{.}\FunctionTok{get}\NormalTok{(}\StringTok{\textquotesingle{}temperatura\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -6127,7 +6127,7 @@ Antes de pasar al filtrado de la colección de Landsat 8 y enmascarar las nubes,
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Crear función para enmascarar nubes}
-\KeywordTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
+\ControlFlowTok{function} \FunctionTok{maskL8sr}\NormalTok{(image) \{}
   \ControlFlowTok{var}\NormalTok{ cloudShadowBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{3}\NormalTok{)}\OperatorTok{;}
   \ControlFlowTok{var}\NormalTok{ cloudsBitMask }\OperatorTok{=}\NormalTok{ (}\DecValTok{1} \OperatorTok{\textless{}\textless{}} \DecValTok{5}\NormalTok{)}\OperatorTok{;}
   \ControlFlowTok{var}\NormalTok{ qa }\OperatorTok{=}\NormalTok{ image}\OperatorTok{.}\FunctionTok{select}\NormalTok{(}\StringTok{\textquotesingle{}pixel\_qa\textquotesingle{}}\NormalTok{)}\OperatorTok{;}
@@ -6394,7 +6394,7 @@ Posteriormente, se define una función (\texttt{ExportTable}) para exportar la m
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Definir función de exportación}
-\ControlFlowTok{var}\NormalTok{ exportTable }\OperatorTok{=} \KeywordTok{function}\NormalTok{(feature}\OperatorTok{,}\NormalTok{ name)\{}
+\ControlFlowTok{var}\NormalTok{ exportTable }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(feature}\OperatorTok{,}\NormalTok{ name)\{}
 \NormalTok{  Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
     \CommentTok{// Colección de vectores a exportar}
     \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ feature}\OperatorTok{,}

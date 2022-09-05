@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3" data-path="1-introducción.html"><a href="1-introducción.html#descripción-general-de-google-earth-engine"><i class="fa fa-check"></i><b>1.3</b> Descripción general de Google Earth Engine</a>
 <ul>
 <li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#qué-es-google-earth-engine"><i class="fa fa-check"></i>¿Qué es Google Earth Engine?</a></li>
-<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-aplicaciones-realizadas-con-gee"><i class="fa fa-check"></i>Ejemplos de aplicaciones realizadas con GEE</a></li>
+<li class="chapter" data-level="" data-path="1-introducción.html"><a href="1-introducción.html#ejemplos-de-estudios-realizados-con-gee"><i class="fa fa-check"></i>Ejemplos de estudios realizados con GEE</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="2-primeros-pasos.html"><a href="2-primeros-pasos.html"><i class="fa fa-check"></i><b>2</b> Primeros pasos</a>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dentro de GEE existe una amplia diversidad de tipos de objetos, por ejemplo: objetos de tipo numérico, listas, cadenas de caracteres, entre otros. Sin embargo, esta variedad de objetos se puede agrupar en dos grandes rubros: objetos del lado del cliente y objetos del servidor, según el lado donde se va a llevar a cabo el procedimiento deseado.</p>
 <div id="objetos-del-cliente-y-del-servidor" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Objetos del cliente y del servidor<a href="5-tipos-de-objetos.html#objetos-del-cliente-y-del-servidor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f51">5.1</a>). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: <code>'cadena'</code>, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: <code>ee.String('cadena')</code>. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante <code>1 + 2</code>, mientras que del lado del servidor se utilizará <code>ee.Number(1).add(ee.Number(2))</code>.</p>
+<p>Existen dos lados de la programación de la API de GEE: el del servidor y el del cliente o usuario (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f51">5.1</a>). Así, un objeto puede ser convertido entre los dos tipos. Por ejemplo, mientras que del lado del cliente una cadena de caracteres puede ser definida simplemente como: <span style="color: red;">‘cadena’</span>, para convertirla en objeto del lado del servidor deben utilizarse las funciones del servidor, es decir: <span style="color: darkpurple;">ee.String</span><code>(</code><span style="color: red;">‘cadena’</span><code>)</code>. Adicionalmente, algunas operaciones se pueden hacer utilizando ambos tipos de sintaxis. Por ejemplo, una suma se puede realizar del lado del cliente mediante <span style="color: blue;">1</span> <code>+</code> <span style="color: blue;">2</span>, mientras que del lado del servidor se utilizará <span style="color: darkpurple;">ee.Number</span><code>(</code><span style="color: blue;">1</span><code>).</code><span style="color: darkpurple;">add</span><code>(</code><span style="color: darkpurple;">ee.Number</span><code>(</code><span style="color: blue;">2</span><code>))</code>.</p>
 <p>En la mayoría de los casos se va a utilizar la programación del lado del servidor, ya que es la que permite hacer todo el procesamiento en GEE. Por ejemplo, para el caso de las condiciones se sugiere utilizar en lugar de <code>if</code> y <code>else</code>, la función <span style="color: darkpurple;">ee.Algorithms.If</span>. Sin embargo, cabe aclarar que algunas funciones solo funcionan del lado del cliente. Por ejemplo, las funciones de la interfaz del usuario, utilizadas para exportar la información a algún archivo <span style="color: darkpurple;">ee.Export</span> (ya sea un ráster, un vector o una tabla), agregar una capa a la pantalla del mapa <span style="color: darkpurple;">Map.addLayer</span> o crear gráficos, así como imprimir información en la consola <span style="color: darkpurple;">print</span>. El siguiente diagrama permite visualizar el lado del usuario y del servidor en el funcionamiento de GEE.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f51"></span>
 <img src="Img/daigFunc.png" alt="Representación de los dos lados de programación en GEE: del cliente y el servidor." width="95%" />
@@ -383,7 +383,7 @@ var direccion = direccion + ' su número telefónico es:' + telefono;
 </div>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f52"></span>
-<img src="Img/ej0.png" alt="Salida de la consola de objetos de tipo cadena de caracteres." width="95%" />
+<img src="Img/ej0.png" alt="Salida de la consola de objetos de tipo cadena de caracteres." width="80%" />
 <p class="caption">
 Figure 5.2: Salida de la consola de objetos de tipo cadena de caracteres.
 </p>
@@ -506,7 +506,7 @@ var dicc = {
 <p>Hay dos formas de consultar los valores dentro de un diccionario (Fig. 5.5):</p>
 <ul>
 <li>Llamar directamente el nombre de la clave deseada dentro de comillas en un par de corchetes <code>['']</code>.</li>
-<li>Utilizar la notación de <code>.</code> seguida del nombre de la clave.</li>
+<li>Utilizar la notación de <code>.</code> (punto) seguida del nombre de la clave.</li>
 </ul>
 <p>Por ejemplo:</p>
 <p><span style="color: darkblue;">Ejercicio 3.1</span></p>
@@ -550,7 +550,7 @@ Figure 5.5: Salida de la consola de varios objetos de tipo diccionario.
 </div>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Para los diccionarios se recomienda utilizar la notación de <code>.</code> seguida del nombre de la clave, ya que es la recomendada por GEE.</p>
+<p>Para los diccionarios se recomienda utilizar la notación de <code>.</code> (punto) seguida del nombre de la clave, ya que es la recomendada por GEE.</p>
 </div>
 </div>
 </div>
@@ -609,13 +609,13 @@ var maskIm = function(objeto){
 <p>Los objetos del lado del servidor, además de permitir llevar a cabo procesos en los servidores de GEE, tienen asociados una serie de métodos particulares por tipo de objeto. Esto quiere decir que al convertir un objeto del lado del cliente al del servidor, automáticamente se abre la posibilidad de utilizar los métodos precargados en GEE para ese tipo de objeto. Toda la información que se encuentra disponible en GEE corresponderá a objetos del servidor, entre los que destacan los objetos de tipo imagen (ráster), vector, colecciones de imágenes y colecciones de vectores.</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>Para saber cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo <code>ee.</code> (del servidor de Earth Engine) seguido del nombre del tipo de objeto con inicial mayúscula.</p>
+<p>Para saber cuáles objetos son del servidor, resulta útil recordar que todos ellos cuentan con el prefijo <span style="color: darkpurple;">ee</span><code>.</code> (del servidor de Earth Engine) seguido del nombre del tipo de objeto con inicial mayúscula.</p>
 </div>
 </div>
 <p>Los objetos del lado del servidor se pueden conceptualizar como contenedores que le indican al servidor qué tipo de objeto es el que se está enviando. Además, cuando se trabaja del lado del servidor, los objetos necesariamente son enviados al servidor para ser evaluados. A continuación se describen los tipos de objetos que más se usan (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f56">5.6</a>).</p>
 <div class="bluebox2">
 <div class="awesomeblock">
-<p>En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, <code>ee.Object</code>) como por ejemplo, al usar, en casos particulares, los métodos <span style="color: darkpurple;">.first</span> o <span style="color: darkpurple;">.get</span>, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error <code>...is not a function</code>.</p>
+<p>En algunos casos, los objetos que se obtienen a partir de ciertos métodos retornan un objeto de tipo indefinido (tipo objeto, <span style="color: darkpurple;">ee.Object</span>) como por ejemplo, al usar, en casos particulares, los métodos <code>.</code><span style="color: darkpurple;">first</span> o <code>.</code><span style="color: darkpurple;">get</span>, por lo cual se recomienda meter este objeto indefinido en un contenedor que indique el tipo de objeto del servidor. De no hacerlo, GEE mostrará un error <code>...is not a function</code>.</p>
 </div>
 </div>
 <div class="bluebox2">
@@ -625,9 +625,9 @@ var maskIm = function(objeto){
 </div>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f56"></span>
-<img src="Img/objetosServ2.png" alt="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de https://developers.google.com/earth-engine/guides/objects_methods_overview." width="95%" />
+<img src="Img/objetosServ2.png" alt="Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado y modificado de https://developers.google.com/earth-engine/guides/objects_methods_overview." width="95%" />
 <p class="caption">
-Figure 5.6: Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado de <a href="https://developers.google.com/earth-engine/guides/objects_methods_overview" class="uri">https://developers.google.com/earth-engine/guides/objects_methods_overview</a>.
+Figure 5.6: Diagrama con algunos de los objetos del lado del servidor más utilizados en GEE. Tomado y modificado de <a href="https://developers.google.com/earth-engine/guides/objects_methods_overview" class="uri">https://developers.google.com/earth-engine/guides/objects_methods_overview</a>.
 </p>
 </div>
 <div id="ee.string" class="section level3 unnumbered hasAnchor">
@@ -814,6 +814,11 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
 <li>Luego de especificar el formato, se ingresa dentro de comillas el texto a convertir a <span style="color: darkpurple;">ee.Date</span> (entre el formato y el texto debe ir una coma).</li>
 </ul></li>
 </ol>
+<div class="bluebox2">
+<div class="awesomeblock">
+<p>Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX, que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.</p>
+</div>
+</div>
 <p><span style="color: darkblue;">Ejercicio 8</span></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="5-tipos-de-objetos.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fecha como un texto de cliente</span></span>
 <span id="cb25-2"><a href="5-tipos-de-objetos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fechaString <span class="op">=</span> <span class="st">&#39;2001-10&#39;</span><span class="op">;</span></span>
@@ -847,11 +852,6 @@ var fecha2 = ee.Date.fromYMD(2015,03,28);
 // deben ser las 3 primeras iniciales del mes en inglés
 var fecha3 = ee.Date.parse('DD_YYYY/MMM', '14_1827/jul'); 
 </script>
-<div class="bluebox2">
-<div class="awesomeblock">
-<p>Internamente los objetos ee.Date transforman el formato de fecha a formato UNIX (también llamado EPOCH o POSIX, que se define como la cantidad de segundos transcurridos desde la medianoche UTC del 1 de enero de 1970. Véase en la Fig. 5.11.</p>
-</div>
-</div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:f511"></span>
 <img src="Img/ej8.png" alt="Salida de la consola de un objeto de tipo fecha del lado del servidor." width="95%" />
 <p class="caption">
@@ -887,7 +887,7 @@ Este tipo de objetos contienen algoritmos precargados en GEE. Estos algoritmos t
 <div id="ee.array" class="section level3 unnumbered hasAnchor">
 <h3>ee.Array<a href="5-tipos-de-objetos.html#ee.array" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
-Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de <span style="color: darkpurple;">ee.Array</span> (ver liga anterior).</p>
+Este tipo de objetos corresponden a arreglos multidimensionales, los cuales se pueden interpretar como matrices de más de dos dimensiones (por ejemplo, filas y columnas). Su uso más común se da en el análisis de series de tiempo o con ordenaciones espectrales. Este tipo de objetos cuentan con una serie de métodos, que se pueden consultar bajo la biblioteca de <span style="color: darkpurple;">ee.Array</span> (ver el enlace anterior).</p>
 </div>
 <div id="ee.classifier" class="section level3 unnumbered hasAnchor">
 <h3>ee.Classifier<a href="5-tipos-de-objetos.html#ee.classifier" class="anchor-section" aria-label="Anchor link to header"></a></h3>
