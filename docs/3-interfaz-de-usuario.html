@@ -119,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="style/style.css" type="text/css" />
 </head>
 
 <body>
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Impresión en consola<a href="3-interfaz-de-usuario.html#impresión-en-consola" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
 La función más sencilla de la interfaz es la de imprimir objetos en la consola, lo cual se realiza mediante la función <span style="color: darkpurple;">print</span> (imprimir). Al llamar esta función e indicar cualquier objeto como argumento, este se evalúa y se imprime su estructura en la consola. Esta función permite obtener información básica de los objetos como el tipo de objeto, número de registros, características y propiedades de los elementos que lo conforman. Además, esta función resulta muy útil para rastrear errores de programación (<em>bugs</em>) en los códigos. El resultado de la siguiente línea de código se puede apreciar en la <span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f31">3.1</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="3-interfaz-de-usuario.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Hola Mundo&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb1-1"><a href="3-interfaz-de-usuario.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;Hola Mundo&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 print('Hola Mundo');
 </script>
@@ -364,7 +364,7 @@ Figure 3.1: Ejemplo del uso de la función print para imprimir en la consola.
 <p>
 <span style="color: darkpurple;">Map.addLayer</span> permite mostrar elementos en la pantalla de mapa de la API. Por lo tanto, permite mostrar objetos de tipo vector (<span style="color: darkpurple;">ee.Feature</span>) o imagen (<span style="color: darkpurple;">ee.Image</span>; estos objetos se presentan con mayor detalle más adelante). Los argumentos de la función <span style="color: darkpurple;">Map.addLayer</span> incluyen el objeto a añadir a la pantalla de mapa, seguido de un diccionario con información para el despliegue de la capa. Por último, se puede indicar el nombre de la capa con el que se desea mostrar la capa en la pantalla de mapa.</p>
 <p>Al utilizar <span style="color: darkpurple;">Map.addLayer</span> sobre una imagen se pueden indicar los siguientes argumentos: <code>bands</code> (bandas), <code>min</code> y <code>max</code> (valores mínimos y máximos para visualizar la información). Estos se deben pasar dentro de un par de llaves <code>{}</code> como un diccionario (ver Capítulo 5 para una descripción de lo que es un diccionario). La función ofrece la opción de visualizar en modo monobanda o en compuesto RGB (del inglés Red, Green, Blue). En el caso de optar por el primero, permite asignar colores mediante el argumento de palette (paleta de colores); mientras que en el segundo se deben agregar las bandas en orden, es decir, primero la banda que corresponde al canal rojo, seguida del verde y del azul (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f32">3.2</a>).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="3-interfaz-de-usuario.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb2-1"><a href="3-interfaz-de-usuario.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Map</span><span class="op">.</span><span class="fu">addLayer</span>(image<span class="op">,</span> {<span class="dt">bands</span><span class="op">:</span> [<span class="st">&#39;B4&#39;</span><span class="op">,</span> <span class="st">&#39;B3&#39;</span><span class="op">,</span> <span class="st">&#39;B2&#39;</span>]<span class="op">,</span> </span>
 <span id="cb2-2"><a href="3-interfaz-de-usuario.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                      <span class="dt">min</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span> <span class="dv">2000</span>}<span class="op">,</span> </span>
 <span id="cb2-3"><a href="3-interfaz-de-usuario.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&#39;RGB&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
@@ -385,7 +385,7 @@ La proyección por defecto para mostrar la información en la pantalla de mapa c
 </div>
 </div>
 <p>Para el caso de los vectores (<span style="color: darkpurple;">ee.Feature</span>) se puede realizar una operación similar a las imágenes, aunque el único argumento válido es <code>color</code> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f33">3.3</a>):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb3-1"><a href="3-interfaz-de-usuario.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">addLayer</span>(feature<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">&#39;FF0000&#39;</span>}<span class="op">,</span> <span class="st">&#39;featuresColored&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb3-1"><a href="3-interfaz-de-usuario.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Map</span><span class="op">.</span><span class="fu">addLayer</span>(feature<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> <span class="st">&#39;FF0000&#39;</span>}<span class="op">,</span> <span class="st">&#39;featuresColored&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 Map.addLayer(feature, {color: 'FF0000'}, 'featuresColored');
 </script>
@@ -405,7 +405,7 @@ Figure 3.3: Ejemplo de visualización de un vector con los límites políticos d
 <h4>Map.centerObject<a href="3-interfaz-de-usuario.html#map.centerobject" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>
 Esta función permite centrar la pantalla de mapa en algún objeto o coordenada (longitud, latitud). Además, se puede indicar el zoom con el cual se quiere centrar el objeto.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb4-1"><a href="3-interfaz-de-usuario.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Map</span><span class="op">.</span><span class="fu">setCenter</span>(<span class="op">-</span><span class="fl">39.86</span><span class="op">,</span> <span class="fl">20.52</span><span class="op">,</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb4-1"><a href="3-interfaz-de-usuario.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Map</span><span class="op">.</span><span class="fu">setCenter</span>(<span class="op">-</span><span class="fl">39.86</span><span class="op">,</span> <span class="fl">20.52</span><span class="op">,</span> <span class="dv">5</span>)</span></code></pre></div>
 <script type="text/javascript">
 Map.setCenter(-39.86, 20.52, 5)
 </script>
@@ -425,7 +425,7 @@ Este conjunto de funciones permite obtener distintos tipos de gráficos a partir
 <li><span style="color: darkpurple;">ui.Chart.feature.histogram</span>.</li>
 </ul>
 <p>Por ejemplo:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb5-1"><a href="3-interfaz-de-usuario.html#cb5-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byProperty</span>({</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb5-1"><a href="3-interfaz-de-usuario.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ui</span><span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">feature</span><span class="op">.</span><span class="fu">byProperty</span>({</span>
 <span id="cb5-2"><a href="3-interfaz-de-usuario.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Indicar el vector o colección de atributos a partir del cual se </span></span>
 <span id="cb5-3"><a href="3-interfaz-de-usuario.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// va a hacer el gráfico</span></span>
 <span id="cb5-4"><a href="3-interfaz-de-usuario.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">feature</span><span class="op">:</span> coleccionAtributos<span class="op">,</span> </span>
@@ -455,15 +455,15 @@ Este conjunto de funciones permite obtener distintos tipos de gráficos a partir
 <li><span style="color: darkpurple;">ui.Chart.image.seriesByRegion</span>.</li>
 </ul>
 <p>Por ejemplo, para graficar una serie de tiempo a partir de una colección de imágenes se utiliza la función <span style="color: darkpurple;">ui.Chart.image.seriesByRegion</span> (<span style="color: darkblue;">Fig.</span> <a href="3-interfaz-de-usuario.html#fig:f34">3.4</a>).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb6-1"><a href="3-interfaz-de-usuario.html#cb6-1" aria-hidden="true" tabindex="-1"></a>ui<span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">seriesByRegion</span>({</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb6-1"><a href="3-interfaz-de-usuario.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ui</span><span class="op">.</span><span class="at">Chart</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">seriesByRegion</span>({</span>
 <span id="cb6-2"><a href="3-interfaz-de-usuario.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de imágenes a graficar</span></span>
 <span id="cb6-3"><a href="3-interfaz-de-usuario.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">imageCollection</span><span class="op">:</span> coleccionImagenes<span class="op">,</span> </span>
 <span id="cb6-4"><a href="3-interfaz-de-usuario.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir las regiones sobre las cuales se va a extraer la</span></span>
 <span id="cb6-5"><a href="3-interfaz-de-usuario.html#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// información para el gráfico</span></span>
-<span id="cb6-6"><a href="3-interfaz-de-usuario.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">regions</span><span class="op">:</span> areas<span class="op">.</span><span class="fu">filter</span>(ee<span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">&#39;Tipo&#39;</span><span class="op">,</span><span class="st">&#39;Bosque&#39;</span>))<span class="op">,</span></span>
+<span id="cb6-6"><a href="3-interfaz-de-usuario.html#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">regions</span><span class="op">:</span> areas<span class="op">.</span><span class="fu">filter</span>(<span class="kw">ee</span><span class="op">.</span><span class="at">Filter</span><span class="op">.</span><span class="fu">eq</span>(<span class="st">&#39;Tipo&#39;</span><span class="op">,</span><span class="st">&#39;Bosque&#39;</span>))<span class="op">,</span></span>
 <span id="cb6-7"><a href="3-interfaz-de-usuario.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// El reductor a utilizar para resumir la información de la</span></span>
 <span id="cb6-8"><a href="3-interfaz-de-usuario.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// colección de imágenes en las regiones indicadas</span></span>
-<span id="cb6-9"><a href="3-interfaz-de-usuario.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> ee<span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> </span>
+<span id="cb6-9"><a href="3-interfaz-de-usuario.html#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">reducer</span><span class="op">:</span> <span class="kw">ee</span><span class="op">.</span><span class="at">Reducer</span><span class="op">.</span><span class="fu">mean</span>()<span class="op">,</span> </span>
 <span id="cb6-10"><a href="3-interfaz-de-usuario.html#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// La banda sobre la cual se quiere construir el gráfico</span></span>
 <span id="cb6-11"><a href="3-interfaz-de-usuario.html#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">band</span><span class="op">:</span> <span class="st">&#39;NDVI&#39;</span><span class="op">,</span> </span>
 <span id="cb6-12"><a href="3-interfaz-de-usuario.html#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Tamaño en m del píxel para obtener la información</span></span>
@@ -529,7 +529,7 @@ En el caso de las imágenes (ráster, <span style="color: darkpurple;">ee.Image<
 </div>
 </div>
 <p>Un ejemplo de cómo exportar una imagen se presenta a continuación.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb7-1"><a href="3-interfaz-de-usuario.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb7-1"><a href="3-interfaz-de-usuario.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Export</span><span class="op">.</span><span class="at">image</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
 <span id="cb7-2"><a href="3-interfaz-de-usuario.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la imagen a exportar</span></span>
 <span id="cb7-3"><a href="3-interfaz-de-usuario.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">image</span><span class="op">:</span> imgDiff<span class="op">,</span></span>
 <span id="cb7-4"><a href="3-interfaz-de-usuario.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el cual se va a guardar la imagen en</span></span>
@@ -576,7 +576,7 @@ Por su parte, el formato vector (<span style="color: darkpurple;">ee.Feature</sp
 <li><span style="color: darkpurple;">Export.table.toCloudStorage</span>.</li>
 </ul>
 <p>Para el caso de las tablas sin información geográfica asociada, se debe definir el objeto como un objeto vector sin geometría (es decir, <code>null</code>) y en la tabla de atributos anexar la información deseada. Un ejemplo del uso de esta función se presenta a continuación:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb8-1"><a href="3-interfaz-de-usuario.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb8-1"><a href="3-interfaz-de-usuario.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Export</span><span class="op">.</span><span class="at">table</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
 <span id="cb8-2"><a href="3-interfaz-de-usuario.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de vectores a exportar</span></span>
 <span id="cb8-3"><a href="3-interfaz-de-usuario.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> feature<span class="op">,</span></span>
 <span id="cb8-4"><a href="3-interfaz-de-usuario.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el que se va a guardar el </span></span>
@@ -619,7 +619,7 @@ Esta opción permite exportar una colección de imágenes como video, ya sea al 
 <li><span style="color: darkpurple;">Export.video.toDrive</span>.</li>
 </ul>
 <p>Esta función puede resultar atractiva para observar los cambios de un área de interés a través del tiempo. A continuación se muestra cómo exportar una colección de imágenes en video:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb9-1"><a href="3-interfaz-de-usuario.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Export<span class="op">.</span><span class="at">video</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb9-1"><a href="3-interfaz-de-usuario.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Export</span><span class="op">.</span><span class="at">video</span><span class="op">.</span><span class="fu">toDrive</span>({</span>
 <span id="cb9-2"><a href="3-interfaz-de-usuario.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Definir la colección de imágenes a exportar</span></span>
 <span id="cb9-3"><a href="3-interfaz-de-usuario.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collection</span><span class="op">:</span> coleccionImgs<span class="op">,</span></span>
 <span id="cb9-4"><a href="3-interfaz-de-usuario.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Especificar el nombre con el que se va a guardar el video</span></span>

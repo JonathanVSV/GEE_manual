@@ -1419,7 +1419,7 @@ Un ejemplo de cómo exportar una imagen se presenta a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \CommentTok{// Definir la imagen a exportar}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgDiff}\OperatorTok{,}
   \CommentTok{// Especificar el nombre con el cual se va a guardar la imagen en}
@@ -1467,7 +1467,7 @@ Para el caso de las tablas sin información geográfica asociada, se debe defini
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \CommentTok{// Definir la colección de vectores a exportar}
   \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ feature}\OperatorTok{,}
   \CommentTok{// Especificar el nombre con el que se va a guardar el }
@@ -1511,7 +1511,7 @@ Esta función puede resultar atractiva para observar los cambios de un área de 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{video}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{video}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \CommentTok{// Definir la colección de imágenes a exportar}
   \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ coleccionImgs}\OperatorTok{,}
   \CommentTok{// Especificar el nombre con el que se va a guardar el video}
@@ -3941,14 +3941,14 @@ El argumento adicional para exportar a los \textbf{Assets} \boldpurple{Export.ta
 \ControlFlowTok{var}\NormalTok{ puntos }\OperatorTok{=} \KeywordTok{ee}\OperatorTok{.}\AttributeTok{FeatureCollection}\OperatorTok{.}\FunctionTok{randomPoints}\NormalTok{(poligono}\OperatorTok{,} \DecValTok{4000}\NormalTok{)}\OperatorTok{;}
 
 \CommentTok{// Exportamos a los assets dentro de la nube}
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toAsset}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toAsset}\NormalTok{(\{}
   \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ punto}\OperatorTok{,}
   \DataTypeTok{description}\OperatorTok{:} \StringTok{\textquotesingle{}exportar\_puntos\_asset\textquotesingle{}}\OperatorTok{,}
   \DataTypeTok{assetId}\OperatorTok{:} \StringTok{\textquotesingle{}puntos\_exportados\textquotesingle{}}
 \NormalTok{\})}\OperatorTok{;}
 
 \CommentTok{// Exportamos al drive personal}
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \DataTypeTok{collection}\OperatorTok{:}\NormalTok{punto}\OperatorTok{,} 
   \DataTypeTok{description}\OperatorTok{:}\StringTok{\textquotesingle{}exportar\_puntos\_drive\textquotesingle{}}\OperatorTok{,}
   \DataTypeTok{folder}\OperatorTok{:}\StringTok{\textquotesingle{}carpeta\_clase\_GEE\textquotesingle{}}\OperatorTok{,}
@@ -4505,7 +4505,7 @@ En GEE se pueden exportar imágenes a los \textbf{Assets}, al \textbf{Google Dri
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Exportación al drive personal}
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \CommentTok{// Nombre de la imagen a exportar en GEE}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{chmMx}\OperatorTok{,} 
   \CommentTok{// Nombre con el que se va a guardar la imagen en el drive}
@@ -4687,7 +4687,7 @@ Por último, se puede exportar el resultado al \textbf{Google Drive} del usuario
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{imgEnmascarada}\OperatorTok{,} 
   \DataTypeTok{description}\OperatorTok{:}\StringTok{\textquotesingle{}MX\_DEM1000{-}2500msnm\textquotesingle{}}\OperatorTok{,}
   \DataTypeTok{folder}\OperatorTok{:}\StringTok{\textquotesingle{}carpeta\_clase\_GEE\textquotesingle{}}\OperatorTok{,}
@@ -5654,7 +5654,7 @@ Por último, para exportar el resultado se ingresan varios parámetros a la func
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{// Exportar imagen a Google Drive}
-\NormalTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+\KeywordTok{Export}\OperatorTok{.}\AttributeTok{image}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
   \DataTypeTok{image}\OperatorTok{:}\NormalTok{ imgDiff}\OperatorTok{,}
   \DataTypeTok{description}\OperatorTok{:} \StringTok{\textquotesingle{}DiferenciaNDVI\_2016{-}2017\textquotesingle{}}\OperatorTok{,}
   \DataTypeTok{scale}\OperatorTok{:} \DecValTok{30}\OperatorTok{,}
@@ -6395,7 +6395,7 @@ Posteriormente, se define una función (\texttt{ExportTable}) para exportar la m
 \begin{Highlighting}[]
 \CommentTok{// Definir función de exportación}
 \ControlFlowTok{var}\NormalTok{ exportTable }\OperatorTok{=} \ControlFlowTok{function}\NormalTok{(feature}\OperatorTok{,}\NormalTok{ name)\{}
-\NormalTok{  Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
+  \KeywordTok{Export}\OperatorTok{.}\AttributeTok{table}\OperatorTok{.}\FunctionTok{toDrive}\NormalTok{(\{}
     \CommentTok{// Colección de vectores a exportar}
     \DataTypeTok{collection}\OperatorTok{:}\NormalTok{ feature}\OperatorTok{,}
     \CommentTok{// Nombre para guardar el archivo}

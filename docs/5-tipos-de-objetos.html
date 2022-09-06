@@ -119,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="style/style.css" type="text/css" />
 </head>
 
 <body>
@@ -350,14 +350,14 @@ Figure 5.1: Representación de los dos lados de programación en GEE: del client
 <!-- \index{Ejercicio 5.1} -->
 <!-- ::: {.exercise} -->
 <p><span style="color: darkblue;">Ejercicio 0</span></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb10-1"><a href="5-tipos-de-objetos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo letras</span></span>
-<span id="cb10-2"><a href="5-tipos-de-objetos.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadena <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb10-1"><a href="5-tipos-de-objetos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo letras</span></span>
+<span id="cb10-2"><a href="5-tipos-de-objetos.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> cadena <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
 <span id="cb10-3"><a href="5-tipos-de-objetos.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="5-tipos-de-objetos.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de solo números</span></span>
-<span id="cb10-5"><a href="5-tipos-de-objetos.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> telefono <span class="op">=</span> <span class="st">&#39;1234567890&#39;</span><span class="op">;</span>  </span>
+<span id="cb10-5"><a href="5-tipos-de-objetos.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> telefono <span class="op">=</span> <span class="st">&#39;1234567890&#39;</span><span class="op">;</span>  </span>
 <span id="cb10-6"><a href="5-tipos-de-objetos.html#cb10-6" aria-hidden="true" tabindex="-1"></a>                     </span>
 <span id="cb10-7"><a href="5-tipos-de-objetos.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto de letras, números y símbolos</span></span>
-<span id="cb10-8"><a href="5-tipos-de-objetos.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> direccion <span class="op">=</span> <span class="st">&#39;calle cuarta casa # 16&#39;</span><span class="op">;</span></span></code></pre></div>
+<span id="cb10-8"><a href="5-tipos-de-objetos.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> direccion <span class="op">=</span> <span class="st">&#39;calle cuarta casa # 16&#39;</span><span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // Cadena de texto de solo letras
 var cadena = 'Esto es una cadena de caracteres';
@@ -371,8 +371,8 @@ var direccion = 'calle cuarta casa # 16';
 <!-- ::: -->
 <div style="page-break-after: always;"></div>
 <p><span style="color: darkblue;">Ejercicio 0.1</span></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb11-1"><a href="5-tipos-de-objetos.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto concatenada</span></span>
-<span id="cb11-2"><a href="5-tipos-de-objetos.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> direccion <span class="op">=</span> direccion <span class="op">+</span> <span class="st">&#39; su número telefónico es:&#39;</span> <span class="op">+</span> telefono<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb11-1"><a href="5-tipos-de-objetos.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Cadena de texto concatenada</span></span>
+<span id="cb11-2"><a href="5-tipos-de-objetos.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> direccion <span class="op">=</span> direccion <span class="op">+</span> <span class="st">&#39; su número telefónico es:&#39;</span> <span class="op">+</span> telefono<span class="op">;</span></span></code></pre></div>
 <script type="text/javascript">
 // Cadena de texto concatenada
 var direccion = direccion + ' su número telefónico es:' + telefono;
@@ -393,11 +393,11 @@ Figure 5.2: Salida de la consola de objetos de tipo cadena de caracteres.
 <h3>Números<a href="5-tipos-de-objetos.html#números" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se refiere a objetos numéricos que indican un valor. Para números decimales se utiliza el punto decimal y no la coma decimal. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f53">5.3</a>):</p>
 <p><span style="color: darkblue;">Ejercicio 1</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb12-1"><a href="5-tipos-de-objetos.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Número entero</span></span>
-<span id="cb12-2"><a href="5-tipos-de-objetos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numero <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb12-1"><a href="5-tipos-de-objetos.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Número entero</span></span>
+<span id="cb12-2"><a href="5-tipos-de-objetos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> numero <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
 <span id="cb12-3"><a href="5-tipos-de-objetos.html#cb12-3" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb12-4"><a href="5-tipos-de-objetos.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Número decimal con punto decimal  </span></span>
-<span id="cb12-5"><a href="5-tipos-de-objetos.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numero2 <span class="op">=</span> <span class="fl">2.5</span><span class="op">;</span>  </span></code></pre></div>
+<span id="cb12-5"><a href="5-tipos-de-objetos.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> numero2 <span class="op">=</span> <span class="fl">2.5</span><span class="op">;</span>  </span></code></pre></div>
 <script type="text/javascript">
 // Número entero
 var numero = 1; 
@@ -421,17 +421,17 @@ Figure 5.3: Salida de la consola de objetos de tipo número.
 <h3>Listas<a href="5-tipos-de-objetos.html#listas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Las listas se refieren a objetos que contienen varias entradas, las cuales pueden ser numéricas (números), cadenas de texto (texto) o incluso otras listas. Las listas se definen mediante el uso de corchetes <code>[]</code> y cada entrada es separada mediante una coma <code>,</code> . Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f54">5.4</a>):</p>
 <p><span style="color: darkblue;">Ejercicio 2</span></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb13-1"><a href="5-tipos-de-objetos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista numérica</span></span>
-<span id="cb13-2"><a href="5-tipos-de-objetos.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lista <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span>]<span class="op">;</span>   </span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb13-1"><a href="5-tipos-de-objetos.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista numérica</span></span>
+<span id="cb13-2"><a href="5-tipos-de-objetos.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> lista <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span>]<span class="op">;</span>   </span>
 <span id="cb13-3"><a href="5-tipos-de-objetos.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb13-4"><a href="5-tipos-de-objetos.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista de texto            </span></span>
-<span id="cb13-5"><a href="5-tipos-de-objetos.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> listaA <span class="op">=</span> [<span class="st">&#39;primero&#39;</span><span class="op">,</span> <span class="st">&#39;segundo&#39;</span><span class="op">,</span> <span class="st">&#39;tercero&#39;</span>]<span class="op">;</span> </span>
+<span id="cb13-5"><a href="5-tipos-de-objetos.html#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> listaA <span class="op">=</span> [<span class="st">&#39;primero&#39;</span><span class="op">,</span> <span class="st">&#39;segundo&#39;</span><span class="op">,</span> <span class="st">&#39;tercero&#39;</span>]<span class="op">;</span> </span>
 <span id="cb13-6"><a href="5-tipos-de-objetos.html#cb13-6" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb13-7"><a href="5-tipos-de-objetos.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista de texto y números  </span></span>
-<span id="cb13-8"><a href="5-tipos-de-objetos.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> listaB <span class="op">=</span> [<span class="st">&#39;primero&#39;</span><span class="op">,</span> <span class="st">&#39;segundo&#39;</span><span class="op">,</span> <span class="st">&#39;tercero&#39;</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">;</span> </span>
+<span id="cb13-8"><a href="5-tipos-de-objetos.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> listaB <span class="op">=</span> [<span class="st">&#39;primero&#39;</span><span class="op">,</span> <span class="st">&#39;segundo&#39;</span><span class="op">,</span> <span class="st">&#39;tercero&#39;</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">;</span> </span>
 <span id="cb13-9"><a href="5-tipos-de-objetos.html#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-10"><a href="5-tipos-de-objetos.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">// Lista de listas  </span></span>
-<span id="cb13-11"><a href="5-tipos-de-objetos.html#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> listaC <span class="op">=</span> [lista<span class="op">,</span> listaA<span class="op">,</span> listaB]<span class="op">;</span> </span></code></pre></div>
+<span id="cb13-11"><a href="5-tipos-de-objetos.html#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> listaC <span class="op">=</span> [lista<span class="op">,</span> listaA<span class="op">,</span> listaB]<span class="op">;</span> </span></code></pre></div>
 <script type="text/javascript">
 // Lista numérica
 var lista = [1, 2, 3, 4, 5, 6, 7, 8];   
@@ -447,7 +447,7 @@ var listaC = [lista, listaA, listaB];
 </script>
 <p>Todas las listas automáticamente asignan, en orden, un número a cada elemento dentro de ellas, siempre empezando desde 0. Se puede consultar un solo elemento dentro de una lista, indicando el número de su posición dentro de ella.
 <span style="color: darkblue;">Ejercicio 2.1</span></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb14-1"><a href="5-tipos-de-objetos.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Primer objeto de la lista llamada &#39;lista&#39;</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb14-1"><a href="5-tipos-de-objetos.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Primer objeto de la lista llamada &#39;lista&#39;</span></span>
 <span id="cb14-2"><a href="5-tipos-de-objetos.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(lista[<span class="dv">0</span>])<span class="op">;</span> </span>
 <span id="cb14-3"><a href="5-tipos-de-objetos.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="5-tipos-de-objetos.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Segundo objeto de la lista llamada &#39;listaA&#39;</span></span>
@@ -483,11 +483,11 @@ Figure 5.4: Salida de la consola de varios objetos de tipo lista.
 <p>Los diccionarios son objetos que contienen claves (entradas) y valores asociados a estas claves (definiciones). Los diccionarios se crean mediante el uso de llaves <code>{}</code> donde se indica cada clave seguida de dos puntos <code>:</code> y su definición, ya sea un valor, cadena de caracteres o lista asociada a esa clave. Para ingresar varias entradas, estas deben ir separadas por una coma.</p>
 <p>Las claves o entradas siempre serán leídas como cadenas de texto. Se recomienda que no haya espacios dentro de ellas, en su lugar se aconseja usar guion bajo (<code>_</code>) o la notación de <em>lowerCamelCase</em>. Al hacer <span style="color: darkpurple;">print</span> se ordenarán alfabéticamente las claves (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f55">5.5</a>).</p>
 <p><span style="color: darkblue;">Ejercicio 3</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb15-1"><a href="5-tipos-de-objetos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se declara un nuevo diccionario.</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb15-1"><a href="5-tipos-de-objetos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se declara un nuevo diccionario.</span></span>
 <span id="cb15-2"><a href="5-tipos-de-objetos.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">// La primera entrada es el texto &#39;clave1&#39; que está definido con el valor</span></span>
 <span id="cb15-3"><a href="5-tipos-de-objetos.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">// de 1 (tipo número) la segunda entrada es el texto &#39;clave2&#39;, y su </span></span>
 <span id="cb15-4"><a href="5-tipos-de-objetos.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">// definición es la letra &#39;A&#39; (tipo cadena de texto)</span></span>
-<span id="cb15-5"><a href="5-tipos-de-objetos.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dicc <span class="op">=</span> {   </span>
+<span id="cb15-5"><a href="5-tipos-de-objetos.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> dicc <span class="op">=</span> {   </span>
 <span id="cb15-6"><a href="5-tipos-de-objetos.html#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">clave1</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span>      </span>
 <span id="cb15-7"><a href="5-tipos-de-objetos.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">clave2</span><span class="op">:</span> <span class="st">&#39;A&#39;</span>  </span>
 <span id="cb15-8"><a href="5-tipos-de-objetos.html#cb15-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span>            </span>
@@ -510,7 +510,7 @@ var dicc = {
 </ul>
 <p>Por ejemplo:</p>
 <p><span style="color: darkblue;">Ejercicio 3.1</span></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="5-tipos-de-objetos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Notación de lista, se mostrará en la consola la definición de </span></span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb16-1"><a href="5-tipos-de-objetos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Notación de lista, se mostrará en la consola la definición de </span></span>
 <span id="cb16-2"><a href="5-tipos-de-objetos.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">// &#39;clave1&#39;, es decir el valor 1 </span></span>
 <span id="cb16-3"><a href="5-tipos-de-objetos.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(dicc[<span class="st">&#39;clave1&#39;</span>])<span class="op">;</span> </span>
 <span id="cb16-4"><a href="5-tipos-de-objetos.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -558,19 +558,19 @@ Figure 5.5: Salida de la consola de varios objetos de tipo diccionario.
 <h3>Funciones<a href="5-tipos-de-objetos.html#funciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>
 Se refiere a objetos que contienen algún proceso que se realizará a alguna variable. Siempre comienzan con la palabra <code>function</code> (función) seguida por el objeto al que se le aplicará la función. Este objeto debe escribirse entre paréntesis y entre llaves se coloca el procedimiento que va a realizar la función. Por último, debe regresar un objeto mediante la función <code>return</code>. Por ejemplo:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="5-tipos-de-objetos.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MaskIm es una nueva función, y su argumento de entrada es objeto</span></span>
-<span id="cb17-2"><a href="5-tipos-de-objetos.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> maskIm <span class="op">=</span> <span class="kw">function</span>(objeto){ </span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb17-1"><a href="5-tipos-de-objetos.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MaskIm es una nueva función, y su argumento de entrada es objeto</span></span>
+<span id="cb17-2"><a href="5-tipos-de-objetos.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> maskIm <span class="op">=</span> <span class="cf">function</span>(objeto){ </span>
 <span id="cb17-3"><a href="5-tipos-de-objetos.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se define qué objeto es una imagen ráster y se guarda en la </span></span>
 <span id="cb17-4"><a href="5-tipos-de-objetos.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">// variable image</span></span>
-<span id="cb17-5"><a href="5-tipos-de-objetos.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> image <span class="op">=</span> ee<span class="op">.</span><span class="fu">Image</span>(objeto)<span class="op">;</span></span>
+<span id="cb17-5"><a href="5-tipos-de-objetos.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">var</span> image <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Image</span>(objeto)<span class="op">;</span></span>
 <span id="cb17-6"><a href="5-tipos-de-objetos.html#cb17-6" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb17-7"><a href="5-tipos-de-objetos.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se selecciona solamente la banda de nombre &#39;pixel_qa&#39; de la imagen</span></span>
 <span id="cb17-8"><a href="5-tipos-de-objetos.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// image</span></span>
-<span id="cb17-9"><a href="5-tipos-de-objetos.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> qaImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pixel_qa&#39;</span>)<span class="op">;</span></span>
+<span id="cb17-9"><a href="5-tipos-de-objetos.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">var</span> qaImage <span class="op">=</span> image<span class="op">.</span><span class="fu">select</span>(<span class="st">&#39;pixel_qa&#39;</span>)<span class="op">;</span></span>
 <span id="cb17-10"><a href="5-tipos-de-objetos.html#cb17-10" aria-hidden="true" tabindex="-1"></a>       </span>
 <span id="cb17-11"><a href="5-tipos-de-objetos.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se crea una nueva imagen binaria donde será 1 los píxeles con valor </span></span>
 <span id="cb17-12"><a href="5-tipos-de-objetos.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// igual a 322, y 0 los demás</span></span>
-<span id="cb17-13"><a href="5-tipos-de-objetos.html#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> clearData <span class="op">=</span> qaImage<span class="op">.</span><span class="fu">eq</span>(<span class="dv">322</span>)<span class="op">;</span>      </span>
+<span id="cb17-13"><a href="5-tipos-de-objetos.html#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">var</span> clearData <span class="op">=</span> qaImage<span class="op">.</span><span class="fu">eq</span>(<span class="dv">322</span>)<span class="op">;</span>      </span>
 <span id="cb17-14"><a href="5-tipos-de-objetos.html#cb17-14" aria-hidden="true" tabindex="-1"></a>      </span>
 <span id="cb17-15"><a href="5-tipos-de-objetos.html#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Se crea una máscara con la imagen binaria, y se entrega la imagen </span></span>
 <span id="cb17-16"><a href="5-tipos-de-objetos.html#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// original enmascarada</span></span>
@@ -635,11 +635,11 @@ Figure 5.6: Diagrama con algunos de los objetos del lado del servidor más utili
 <p>
 Este tipo de objeto es equivalente a la cadena de texto pero del lado del servidor, ya que permite enviar un objeto como cadena de caracteres al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f57">5.7</a>):</p>
 <p><span style="color: darkblue;">Ejercicio 4</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="5-tipos-de-objetos.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Esta es una cadena de texto del lado del cliente</span></span>
-<span id="cb18-2"><a href="5-tipos-de-objetos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadena2 <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb18-1"><a href="5-tipos-de-objetos.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Esta es una cadena de texto del lado del cliente</span></span>
+<span id="cb18-2"><a href="5-tipos-de-objetos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> cadena2 <span class="op">=</span> <span class="st">&#39;Esto es una cadena de caracteres&#39;</span><span class="op">;</span></span>
 <span id="cb18-3"><a href="5-tipos-de-objetos.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">// En este paso se convierte el texto del lado del cliente a un ee.String</span></span>
 <span id="cb18-4"><a href="5-tipos-de-objetos.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">// del lado del servidor</span></span>
-<span id="cb18-5"><a href="5-tipos-de-objetos.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> cadenaServ <span class="op">=</span> ee<span class="op">.</span><span class="fu">String</span>(cadena2)<span class="op">;</span>                         </span></code></pre></div>
+<span id="cb18-5"><a href="5-tipos-de-objetos.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> cadenaServ <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">String</span>(cadena2)<span class="op">;</span>                         </span></code></pre></div>
 <script type="text/javascript">
 // Esta es una cadena de texto del lado del cliente
 var cadena2 = 'Esto es una cadena de caracteres';
@@ -659,8 +659,8 @@ Figure 5.7: Salida de la consola de un objeto de tipo cadena de caracteres del l
 <p>
 Permite enviar un número como objeto al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f58">5.8</a>):</p>
 <p><span style="color: darkblue;">Ejercicio 5</span></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="5-tipos-de-objetos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define un número como ee.Number del servidor</span></span>
-<span id="cb19-2"><a href="5-tipos-de-objetos.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> numServ <span class="op">=</span> ee<span class="op">.</span><span class="fu">Number</span>(<span class="dv">1900</span>)<span class="op">;</span>                              </span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb19-1"><a href="5-tipos-de-objetos.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define un número como ee.Number del servidor</span></span>
+<span id="cb19-2"><a href="5-tipos-de-objetos.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> numServ <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Number</span>(<span class="dv">1900</span>)<span class="op">;</span>                              </span></code></pre></div>
 <script type="text/javascript">
 // Se define un número como ee.Number del servidor
 var numServ = ee.Number(1900);                              
@@ -677,12 +677,12 @@ Figure 5.8: Salida de la consola de un objeto de tipo número del lado del servi
 <p>
 Este tipo de objetos corresponden a listas del lado del servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f59">5.9</a>):</p>
 <p><span style="color: darkblue;">Ejercicio 6</span></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="5-tipos-de-objetos.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye una nueva lista con diferentes tipos de objetos del lado </span></span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb20-1"><a href="5-tipos-de-objetos.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye una nueva lista con diferentes tipos de objetos del lado </span></span>
 <span id="cb20-2"><a href="5-tipos-de-objetos.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">// del usuario y servidor</span></span>
-<span id="cb20-3"><a href="5-tipos-de-objetos.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> lista <span class="op">=</span> [<span class="st">&#39;hola&#39;</span><span class="op">,</span><span class="st">&#39;12&#39;</span><span class="op">,</span><span class="st">&#39;5%&#39;</span><span class="op">,</span> ee<span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;servidor&#39;</span>)<span class="op">,</span> ee<span class="op">.</span><span class="fu">Number</span>(<span class="dv">64</span>)<span class="op">,</span> <span class="fl">8.32</span>]<span class="op">;</span></span>
+<span id="cb20-3"><a href="5-tipos-de-objetos.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> lista <span class="op">=</span> [<span class="st">&#39;hola&#39;</span><span class="op">,</span><span class="st">&#39;12&#39;</span><span class="op">,</span><span class="st">&#39;5%&#39;</span><span class="op">,</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;servidor&#39;</span>)<span class="op">,</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Number</span>(<span class="dv">64</span>)<span class="op">,</span> <span class="fl">8.32</span>]<span class="op">;</span></span>
 <span id="cb20-4"><a href="5-tipos-de-objetos.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="5-tipos-de-objetos.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define una lista como ee.List del servidor </span></span>
-<span id="cb20-6"><a href="5-tipos-de-objetos.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> listaServ <span class="op">=</span> ee<span class="op">.</span><span class="fu">List</span>(lista)<span class="op">;</span>             </span></code></pre></div>
+<span id="cb20-6"><a href="5-tipos-de-objetos.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> listaServ <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">List</span>(lista)<span class="op">;</span>             </span></code></pre></div>
 <script type="text/javascript">
 // Se construye una nueva lista con diferentes tipos de objetos del lado 
 // del usuario y servidor
@@ -693,7 +693,7 @@ var listaServ = ee.List(lista);
 </script>
 <p>Para acceder a un elemento de tipo <span style="color: darkpurple;">ee.List</span> se utiliza el método <span style="color: darkpurple;">.get</span> (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f59">5.9</a>).</p>
 <p><span style="color: darkblue;">Ejercicio 6.1</span></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="5-tipos-de-objetos.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se llama solamente al primer objeto de la ee.List del servidor</span></span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb21-1"><a href="5-tipos-de-objetos.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se llama solamente al primer objeto de la ee.List del servidor</span></span>
 <span id="cb21-2"><a href="5-tipos-de-objetos.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(listaServ<span class="op">.</span><span class="fu">get</span>(<span class="dv">0</span>))<span class="op">;</span>   </span>
 <span id="cb21-3"><a href="5-tipos-de-objetos.html#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="5-tipos-de-objetos.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Se llama solamente al segundo objeto de la ee.List del servidor</span></span>
@@ -717,21 +717,21 @@ Figure 5.9: Salida de la consola de un objeto de tipo lista del lado del servido
 <p>
 Permite enviar un objeto como diccionario al servidor. Por ejemplo (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
 <p><span style="color: darkblue;">Ejercicio 7</span></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="5-tipos-de-objetos.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye un diccionario de usuario con diferentes tipos de objetos</span></span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb22-1"><a href="5-tipos-de-objetos.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se construye un diccionario de usuario con diferentes tipos de objetos</span></span>
 <span id="cb22-2"><a href="5-tipos-de-objetos.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">// del lado del usuario y servidor</span></span>
-<span id="cb22-3"><a href="5-tipos-de-objetos.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> dicc <span class="op">=</span> {                                                 </span>
+<span id="cb22-3"><a href="5-tipos-de-objetos.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> dicc <span class="op">=</span> {                                                 </span>
 <span id="cb22-4"><a href="5-tipos-de-objetos.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;texto de usuario&#39;</span><span class="op">:</span><span class="st">&#39;usuario&#39;</span><span class="op">,</span></span>
-<span id="cb22-5"><a href="5-tipos-de-objetos.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;string del servidor&#39;</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;texto de servidor # 2&#39;</span>)<span class="op">,</span></span>
+<span id="cb22-5"><a href="5-tipos-de-objetos.html#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;string del servidor&#39;</span><span class="op">:</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;texto de servidor # 2&#39;</span>)<span class="op">,</span></span>
 <span id="cb22-6"><a href="5-tipos-de-objetos.html#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;numero de usuario&#39;</span><span class="op">:</span> <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb22-7"><a href="5-tipos-de-objetos.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;numero de servidor&#39;</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">Number</span>(<span class="fl">3.1416</span>)<span class="op">,</span></span>
+<span id="cb22-7"><a href="5-tipos-de-objetos.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;numero de servidor&#39;</span><span class="op">:</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Number</span>(<span class="fl">3.1416</span>)<span class="op">,</span></span>
 <span id="cb22-8"><a href="5-tipos-de-objetos.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;lista de usuario&#39;</span><span class="op">:</span> [<span class="dv">1</span><span class="op">,</span> <span class="st">&#39;ejemplo&#39;</span>]<span class="op">,</span></span>
-<span id="cb22-9"><a href="5-tipos-de-objetos.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;lista de servidor&#39;</span><span class="op">:</span> ee<span class="op">.</span><span class="fu">List</span>([ee<span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;texto de servidor # 3&#39;</span>)<span class="op">,</span> </span>
-<span id="cb22-10"><a href="5-tipos-de-objetos.html#cb22-10" aria-hidden="true" tabindex="-1"></a>    ee<span class="op">.</span><span class="fu">Number</span>(<span class="fl">1.44</span>)])</span>
+<span id="cb22-9"><a href="5-tipos-de-objetos.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;lista de servidor&#39;</span><span class="op">:</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">List</span>([<span class="kw">ee</span><span class="op">.</span><span class="fu">String</span>(<span class="st">&#39;texto de servidor # 3&#39;</span>)<span class="op">,</span> </span>
+<span id="cb22-10"><a href="5-tipos-de-objetos.html#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">ee</span><span class="op">.</span><span class="fu">Number</span>(<span class="fl">1.44</span>)])</span>
 <span id="cb22-11"><a href="5-tipos-de-objetos.html#cb22-11" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span> </span>
 <span id="cb22-12"><a href="5-tipos-de-objetos.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-13"><a href="5-tipos-de-objetos.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Se define el diccionario de usuario anterior como ee.Dictionary del </span></span>
 <span id="cb22-14"><a href="5-tipos-de-objetos.html#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">// servidor </span></span>
-<span id="cb22-15"><a href="5-tipos-de-objetos.html#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> diccServ <span class="op">=</span> ee<span class="op">.</span><span class="fu">Dictionary</span>(dicc)<span class="op">;</span>     </span></code></pre></div>
+<span id="cb22-15"><a href="5-tipos-de-objetos.html#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> diccServ <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Dictionary</span>(dicc)<span class="op">;</span>     </span></code></pre></div>
 <script type="text/javascript">
 // Se construye un diccionario de usuario con diferentes tipos de objetos
 // del lado del usuario y servidor
@@ -751,7 +751,7 @@ var diccServ = ee.Dictionary(dicc);
 </script>
 <p>Se puede consultar utilizando también el método <span style="color: darkpurple;">.get</span> y el nombre de la clave (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
 <p><span style="color: darkblue;">Ejercicio 7.1</span></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="5-tipos-de-objetos.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se muestra el valor que contiene la clave &#39;lista_de_servidor&#39;</span></span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb23-1"><a href="5-tipos-de-objetos.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Se muestra el valor que contiene la clave &#39;lista_de_servidor&#39;</span></span>
 <span id="cb23-2"><a href="5-tipos-de-objetos.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(diccServ<span class="op">.</span><span class="fu">get</span>(<span class="st">&#39;lista_de_servidor&#39;</span>))<span class="op">;</span></span>
 <span id="cb23-3"><a href="5-tipos-de-objetos.html#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="5-tipos-de-objetos.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Se muestra el valor que contiene el elemento &#39;numero_de_usuario   </span></span>
@@ -765,7 +765,7 @@ print(diccServ.get('numero_de_usuario'));
 </script>
 <p>Por último, si se desea obtener las claves disponibles en un <span style="color: darkpurple;">ee.Dictionary</span> se utiliza el método <span style="color: darkpurple;">.keys</span>. Este método devuelve una lista. De igual forma, si se desea obtener los valores disponibles en un <span style="color: darkpurple;">ee.Dictionary</span> se utiliza el método <span style="color: darkpurple;">.values</span>, el cual devuelve una lista (<span style="color: darkblue;">Fig.</span> <a href="5-tipos-de-objetos.html#fig:f510">5.10</a>).</p>
 <p><span style="color: darkblue;">Ejercicio 7.2</span></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="5-tipos-de-objetos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestra una lista con todas las claves del ee.Dictionary</span></span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb24-1"><a href="5-tipos-de-objetos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestra una lista con todas las claves del ee.Dictionary</span></span>
 <span id="cb24-2"><a href="5-tipos-de-objetos.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&#39;claves&#39;</span><span class="op">,</span>diccServ<span class="op">.</span><span class="fu">keys</span>())<span class="op">;</span>    </span>
 <span id="cb24-3"><a href="5-tipos-de-objetos.html#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="5-tipos-de-objetos.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Muestra una lista con todos los valores del ee.Dictionary</span></span>
@@ -820,21 +820,21 @@ Esta es la forma en la que GEE trabaja con fechas. Hay varias formas de construi
 </div>
 </div>
 <p><span style="color: darkblue;">Ejercicio 8</span></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="5-tipos-de-objetos.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fecha como un texto de cliente</span></span>
-<span id="cb25-2"><a href="5-tipos-de-objetos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fechaString <span class="op">=</span> <span class="st">&#39;2001-10&#39;</span><span class="op">;</span></span>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode jshighlight"><span id="cb25-1"><a href="5-tipos-de-objetos.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Fecha como un texto de cliente</span></span>
+<span id="cb25-2"><a href="5-tipos-de-objetos.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> fechaString <span class="op">=</span> <span class="st">&#39;2001-10&#39;</span><span class="op">;</span></span>
 <span id="cb25-3"><a href="5-tipos-de-objetos.html#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="5-tipos-de-objetos.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Convierte la fecha de texto de cliente a ee.Date del servidor    </span></span>
-<span id="cb25-5"><a href="5-tipos-de-objetos.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fecha <span class="op">=</span> ee<span class="op">.</span><span class="fu">Date</span>(fechaString)<span class="op">;</span>  </span>
+<span id="cb25-5"><a href="5-tipos-de-objetos.html#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> fecha <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="fu">Date</span>(fechaString)<span class="op">;</span>  </span>
 <span id="cb25-6"><a href="5-tipos-de-objetos.html#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-7"><a href="5-tipos-de-objetos.html#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Crea una ee.Date a partir de definir año, mes y día con números del </span></span>
 <span id="cb25-8"><a href="5-tipos-de-objetos.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">// cliente           </span></span>
-<span id="cb25-9"><a href="5-tipos-de-objetos.html#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fecha2 <span class="op">=</span> ee<span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">fromYMD</span>(<span class="dv">2015</span><span class="op">,</span><span class="bn">03</span><span class="op">,</span><span class="dv">28</span>)<span class="op">;</span> </span>
+<span id="cb25-9"><a href="5-tipos-de-objetos.html#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> fecha2 <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">fromYMD</span>(<span class="dv">2015</span><span class="op">,</span><span class="bn">03</span><span class="op">,</span><span class="dv">28</span>)<span class="op">;</span> </span>
 <span id="cb25-10"><a href="5-tipos-de-objetos.html#cb25-10" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb25-11"><a href="5-tipos-de-objetos.html#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Crea una fecha a partir de un formato especificado y un texto que </span></span>
 <span id="cb25-12"><a href="5-tipos-de-objetos.html#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">// cumple con dicho formato, nótese que se especifica el orden del día </span></span>
 <span id="cb25-13"><a href="5-tipos-de-objetos.html#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co">// año y mes, se especifica cada separador, y si se usan meses como texto</span></span>
 <span id="cb25-14"><a href="5-tipos-de-objetos.html#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co">// deben ser las 3 primeras iniciales del mes en inglés</span></span>
-<span id="cb25-15"><a href="5-tipos-de-objetos.html#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fecha3 <span class="op">=</span> ee<span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">parse</span>(<span class="st">&#39;DD_YYYY/MMM&#39;</span><span class="op">,</span> <span class="st">&#39;14_1827/jul&#39;</span>)<span class="op">;</span> </span></code></pre></div>
+<span id="cb25-15"><a href="5-tipos-de-objetos.html#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="cf">var</span> fecha3 <span class="op">=</span> <span class="kw">ee</span><span class="op">.</span><span class="at">Date</span><span class="op">.</span><span class="fu">parse</span>(<span class="st">&#39;DD_YYYY/MMM&#39;</span><span class="op">,</span> <span class="st">&#39;14_1827/jul&#39;</span>)<span class="op">;</span> </span></code></pre></div>
 <script type="text/javascript">
 // Fecha como un texto de cliente
 var fechaString = '2001-10';
