@@ -23,4 +23,3 @@ staple_pdf(
   output_filepath = "_book/ManualGEE_f.pdf",
   overwrite = TRUE
 )
-
