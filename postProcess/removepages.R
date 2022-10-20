@@ -1,17 +1,17 @@
 library(staplr)
 
-select_pages(selpages = c(13,15,17),
+select_pages(selpages = c(14,16,18),
              input_filepath = "_book/ManualGEE.pdf",
              output_filepath = "_book/ManualGEE_preIndex.pdf",
              overwrite = T)
 
-select_pages(selpages = c(2:6),
+select_pages(selpages = c(2:7),
              input_filepath = "_book/ManualGEE.pdf",
              output_filepath = "_book/ManualGEE_front.pdf",
              overwrite = T)
 
 # Quitar hojas que no necesitamos
-remove_pages(rmpages = c(1, 2:6, 9, 10, 13, 15, 17, 217, 219, 221),
+remove_pages(rmpages = c(1:11, 14:19, 216, 219, 221, 223),
              input_filepath = "_book/ManualGEE.pdf",
              output_filepath = "_book/ManualGEE_body.pdf")
 

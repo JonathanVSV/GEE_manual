@@ -24,7 +24,9 @@ fig:f31
 fig:f32
 fig:f33
 fig:f34
-fig:f41
+fig:f41a
+fig:f41b
+fig:f41c
 fig:f42
 fig:f43
 fig:f44
