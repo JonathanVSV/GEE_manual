@@ -11,7 +11,7 @@ select_pages(selpages = c(2:7),
              overwrite = T)
 
 # Quitar hojas que no necesitamos
-remove_pages(rmpages = c(1:11, 14:19, 216, 219, 221, 223),
+remove_pages(rmpages = c(1:10, 14:19, 216, 219, 221, 223),
              input_filepath = "_book/ManualGEE.pdf",
              output_filepath = "_book/ManualGEE_body.pdf")
 

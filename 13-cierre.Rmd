@@ -1,4 +1,5 @@
 \newpage
+
 # Reflexiones finales
 
 Seguramente el aprendizaje de la programación en GEE será lento en un inicio, pero como cualquier otro lenguaje de programación, una vez aprendida la lógica y sintaxis básica usada en la API, el avance será mucho más rápido. Esperamos que este manual haya motivado a los usuarios a adentrarse en el uso de GEE, haya brindado herramientas para entender las cuestiones básicas sobre su funcionamiento, y que se hayan ofrecido buenos ejemplos de diferentes funcionalidades y métodos disponibles en la API, para que puedan ser utilizados en los futuros proyectos de nuestros lectores. 
